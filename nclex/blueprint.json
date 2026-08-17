@@ -1,0 +1,15 @@
+{
+  "name": "NCLEX-RN Next Generation Default Blueprint",
+  "description": "25-item mix built from the midpoint of each category's official percentage range in the NCSBN 2024 NCLEX-RN Test Plan (in effect for the current testing cycle). Use this as the default full-length practice test.",
+  "total_items": 25,
+  "categories": {
+    "Management of Care": 5,
+    "Safety and Infection Control": 3,
+    "Health Promotion and Maintenance": 2,
+    "Psychosocial Integrity": 2,
+    "Basic Care and Comfort": 2,
+    "Pharmacological and Parenteral Therapies": 4,
+    "Reduction of Risk Potential": 3,
+    "Physiological Adaptation": 4
+  }
+}

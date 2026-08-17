@@ -1,0 +1,223 @@
+[
+  {
+    "id": "BCC-001",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Mobility/Immobility",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "The nurse assesses a sacral wound in a client who has been immobile since hip surgery. The wound bed shows full-thickness skin loss with visible subcutaneous fat and some yellow slough, but the slough does not obscure the depth of tissue loss, and no bone, tendon, or muscle is exposed. Which stage of pressure injury should the nurse document, using current NPIAP staging terminology?",
+    "options": [
+      "Stage 2 pressure injury",
+      "Stage 3 pressure injury",
+      "Stage 4 pressure injury",
+      "Unstageable pressure injury"
+    ],
+    "answer": [1],
+    "rationale": "A Stage 3 pressure injury involves full-thickness skin loss with visible adipose (fat) tissue; slough and/or eschar may be present but does not obscure the depth of tissue loss, and bone, tendon, and muscle are not exposed. Stage 2 involves only partial-thickness skin loss with exposed dermis (no fat visible). Stage 4 would show exposed bone, tendon, or muscle. Unstageable means slough or eschar obscures the wound bed so depth cannot be determined; here the depth is clearly visualized, so it is stageable as a Stage 3.",
+    "nursing_concept": "NPIAP pressure injury staging"
+  },
+  {
+    "id": "BCC-002",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Assistive Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client with right knee osteoarthritis and mild right leg weakness is being taught to ambulate with a single-point cane. Which instruction should the nurse include?",
+    "options": [
+      "Hold the cane in your right hand and advance the cane at the same time as your right leg",
+      "Hold the cane in your left hand and advance the cane at the same time as your right leg",
+      "Hold the cane in your right hand and advance the cane at the same time as your left leg",
+      "Hold the cane in your left hand and keep it stationary while both legs move together"
+    ],
+    "answer": [1],
+    "rationale": "A cane should be held in the hand on the stronger, unaffected side (the left hand, since the right leg is weak). This widens the base of support on the weaker side. The cane and the weaker (right) leg are advanced together, followed by the stronger (left) leg, which produces a smooth, supported gait. Holding the cane in the affected/right hand (A, C) removes the support advantage, and keeping the cane stationary (D) provides no assistance during the step.",
+    "nursing_concept": "Cane use — correct hand and gait pattern"
+  },
+  {
+    "id": "BCC-003",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nutrition and Oral Hydration",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client receiving continuous enteral feeding through an NG tube has a witnessed coughing episode and reports feeling as though the tube shifted. The nurse checks the gastric residual volume and finds 400 mL, compared with 60 mL two hours earlier. The head of the bed is at 30 degrees. What is the nurse's priority action?",
+    "options": [
+      "Continue the feeding at the current rate and recheck the residual volume in 4 hours",
+      "Stop the feeding, keep the head of the bed elevated (or position the client laterally if distress is present), assess respiratory status, and notify the provider",
+      "Increase the feeding rate temporarily to flush the tubing before rechecking placement",
+      "Advance the tube 2 inches farther into the stomach and resume the feeding"
+    ],
+    "answer": [1],
+    "rationale": "Coughing, a sensation of tube displacement, and a large increase in residual volume are cues suggesting possible tube migration, delayed gastric emptying, and aspiration risk. The priority is to stop the feeding immediately, maintain a position that protects the airway (HOB elevated or side-lying if the client is in distress), assess respiratory status, and notify the provider before resuming. Continuing or increasing the rate (A, C) risks worsening aspiration, and blindly advancing the tube (D) without confirming placement is unsafe.",
+    "nursing_concept": "Enteral feeding — aspiration risk recognition and response"
+  },
+  {
+    "id": "BCC-004",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nutrition and Oral Hydration",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse is monitoring a client receiving intermittent tube feedings for signs of aspiration. Which findings should the nurse recognize as indicating an increased risk for, or an occurring episode of, aspiration? Select all that apply.",
+    "options": [
+      "Coughing or choking during or shortly after the feeding",
+      "Gastric residual volume significantly increased from the client's own baseline",
+      "New-onset drop in oxygen saturation with crackles heard on lung auscultation",
+      "The head of the bed remains elevated 30-45 degrees for 45 minutes after the feeding ends",
+      "Wet, gurgling vocal quality noted after the feeding",
+      "Bowel sounds are hypoactive in all four quadrants"
+    ],
+    "answer": [0, 1, 2, 4],
+    "rationale": "Coughing/choking (A), a rising residual volume above the client's baseline (B), new hypoxemia with crackles (C), and a wet/gurgling voice (E) are all cues consistent with aspiration or high aspiration risk. Keeping the head of the bed elevated after a feeding (D) is a protective, recommended practice, not a warning sign. Hypoactive bowel sounds (F) reflect general GI motility and are not a specific aspiration indicator.",
+    "nursing_concept": "Aspiration precautions with enteral feeding"
+  },
+  {
+    "id": "BCC-005",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nutrition and Oral Hydration",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "The nurse is preparing to administer an intermittent tube feeding through an established NG tube. Place the following actions in the correct order.",
+    "options": [
+      "Check the gastric aspirate pH to help confirm the tube remains in the stomach",
+      "Elevate the head of the bed to at least 30 degrees",
+      "Compare the external tube length marking to the length documented at insertion",
+      "Perform hand hygiene and explain the procedure to the client",
+      "Begin administering the feeding at the prescribed rate"
+    ],
+    "answer": [3, 1, 2, 0, 4],
+    "rationale": "The nurse should first perform hand hygiene and explain the procedure to the client, then position the client with the head of the bed elevated at least 30 degrees to reduce aspiration risk, then check the external tube length against the documented insertion length as a quick displacement check, then aspirate and check gastric pH as an additional placement check, and only then begin the feeding. Checking placement before elevating the head of the bed or skipping the length/pH checks increases the risk of feeding a misplaced tube.",
+    "nursing_concept": "NG tube feeding — placement verification sequence"
+  },
+  {
+    "id": "BCC-006",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Elimination",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "An older adult client on bedrest after surgery reports no bowel movement in 3 days and describes passing small, hard stools with straining when he last had one. Which intervention should the nurse recommend first to prevent fecal impaction?",
+    "options": [
+      "Increase dietary fiber and fluid intake, and encourage mobility as tolerated",
+      "Administer a Fleet enema immediately without further assessment",
+      "Restrict oral fluids until a bowel movement occurs",
+      "Insert a rectal tube to stimulate peristalsis"
+    ],
+    "answer": [0],
+    "rationale": "For early, uncomplicated constipation, the least invasive and first-line measures are increasing fiber and fluid intake and promoting activity/mobility, which stimulate peristalsis. An enema (B) is more invasive and should not be the first step without further assessment (e.g., ruling out impaction requiring digital removal first). Restricting fluids (C) would worsen constipation. Rectal tubes (D) are not a standard constipation-prevention measure and carry risk of vagal stimulation/mucosal injury.",
+    "nursing_concept": "Constipation prevention in the immobile client"
+  },
+  {
+    "id": "BCC-007",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Elimination",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A nurse is teaching a client who will perform self-intermittent catheterization at home for a neurogenic bladder. Which statement by the client indicates correct understanding of the procedure?",
+    "options": [
+      "\"I will use a new catheter and full sterile technique every single time, even at home.\"",
+      "\"I should catheterize on a regular schedule, such as every 4 to 6 hours, and whenever I feel bladder fullness.\"",
+      "\"I only need to catheterize when I haven't urinated in over 24 hours.\"",
+      "\"I should hold my urine as long as possible between catheterizations to help build bladder tone.\""
+    ],
+    "answer": [1],
+    "rationale": "Intermittent self-catheterization at home is typically performed using clean (not sterile) technique on a regular schedule, generally every 4-6 hours, and additionally whenever the client senses fullness, to keep bladder volumes low and reduce UTI and overdistension risk. Requiring full sterile technique at home (A) is unnecessary and impractical. Waiting up to 24 hours (C) or deliberately holding urine (D) allows bladder overdistension, which increases infection risk and can damage the detrusor muscle.",
+    "nursing_concept": "Intermittent catheterization — schedule and technique"
+  },
+  {
+    "id": "BCC-008",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nonpharmacological Comfort Interventions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client reports acute ankle pain, swelling, and bruising one hour after an inversion injury. Which nonpharmacological comfort measure should the nurse recommend at this time?",
+    "options": [
+      "Apply a warm, moist compress to increase blood flow to the area",
+      "Apply an ice pack wrapped in a towel to the ankle for 15-20 minutes",
+      "Massage the ankle firmly to relieve muscle tension",
+      "Apply a heating pad set on high directly against the skin"
+    ],
+    "answer": [1],
+    "rationale": "In the first 24-48 hours after an acute musculoskeletal injury, cold application (wrapped to protect the skin, applied 15-20 minutes at a time) causes vasoconstriction that limits swelling and bleeding into tissue and helps numb pain. Heat (A, D) promotes vasodilation, which would worsen swelling in the acute phase, and applying it directly and on high risks a burn. Vigorous massage (C) over an acutely injured, swollen area can increase tissue damage and bleeding.",
+    "nursing_concept": "Cold vs. heat application in acute injury"
+  },
+  {
+    "id": "BCC-009",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Rest and Sleep",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "A client reports difficulty falling asleep and frequent nighttime awakenings. Which teaching should the nurse include to promote healthy sleep hygiene?",
+    "options": [
+      "\"Exercise vigorously within an hour of bedtime to tire your body out.\"",
+      "\"Use your bed only for sleep and intimacy; avoid working or watching TV in bed.\"",
+      "\"Take a 2-hour nap in the late afternoon whenever you feel tired.\"",
+      "\"Drink a glass of wine before bed to help you relax and fall asleep.\""
+    ],
+    "answer": [1],
+    "rationale": "Reserving the bed only for sleep and intimacy strengthens the mental association between bed and sleep, a core sleep hygiene principle. Vigorous exercise close to bedtime (A) is stimulating and can delay sleep onset. Long or late afternoon naps (C) reduce the homeostatic drive to sleep at night. Alcohol (D) may cause initial drowsiness but fragments sleep and worsens nighttime awakenings, so it is not recommended as a sleep aid.",
+    "nursing_concept": "Sleep hygiene principles"
+  },
+  {
+    "id": "BCC-010",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Personal Hygiene",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who had a right-hemisphere stroke has left-sided hemiparesis and left unilateral neglect. During morning care, the nurse observes that the client washes only the right side of the face and body and leaves all the food on the left side of the meal tray untouched. Which nursing action is the priority?",
+    "options": [
+      "Cue the client to attend to the left side of the body and environment, initially placing items within the client's intact visual field and gradually encouraging scanning to the left",
+      "Complete all hygiene and feeding tasks for the client to conserve the client's energy",
+      "Permanently position all personal items and food only on the client's right side",
+      "Avoid mentioning the neglect to prevent embarrassing the client"
+    ],
+    "answer": [0],
+    "rationale": "Unilateral neglect is managed by consistently cueing the client to attend to the affected (left) side and by structured scanning training, which promotes safety and supports gradual improvement in awareness while preserving as much independence as possible. Performing all care for the client (B) fosters unnecessary dependence. Permanently placing all items only on the right (C) avoids the deficit rather than addressing it and creates ongoing safety risk (e.g., missed food, injury from unseen hazards on the left). Not acknowledging the neglect (D) delays teaching the client compensatory strategies and is unsafe.",
+    "nursing_concept": "Hygiene/ADL care with unilateral neglect"
+  },
+  {
+    "id": "BCC-011",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Elimination",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is establishing a bowel training program for a client with chronic constipation related to a spinal cord injury. Which interventions should be included in the plan? Select all that apply.",
+    "options": [
+      "Schedule attempts at defecation at the same time each day, such as shortly after a meal",
+      "Increase dietary fiber intake gradually along with adequate fluid intake",
+      "Encourage an upright, seated position on a toilet or commode when possible",
+      "Administer a stimulant laxative every day as the primary long-term method",
+      "Use digital stimulation or a suppository at the scheduled time, as ordered",
+      "Restrict fluid intake to reduce the frequency of bowel movements needed"
+    ],
+    "answer": [0, 1, 2, 4],
+    "rationale": "Effective bowel training uses a consistent daily schedule, ideally timed after meals to take advantage of the gastrocolic reflex (A); adequate fiber and fluid to form soft, bulky stool (B); an upright seated position that uses gravity and proper pelvic floor mechanics (C); and digital stimulation or a suppository at the scheduled time as an evacuation trigger (E). Daily stimulant laxatives as the primary long-term strategy (D) are avoided when possible because of dependency and mucosal changes with chronic use; a step-based approach starting with less invasive measures is preferred. Restricting fluids (F) worsens constipation rather than helping it.",
+    "nursing_concept": "Bowel training program components"
+  },
+  {
+    "id": "BCC-012",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Mobility/Immobility",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "The nurse assesses the heel of a client who has been immobile after a stroke. The skin is intact, but there is a localized, non-blanchable area that is purple/maroon in color, and the surrounding tissue feels boggy compared with adjacent skin. There is no open wound. Which finding should the nurse document, using current NPIAP staging terminology?",
+    "options": [
+      "Stage 1 pressure injury",
+      "Stage 2 pressure injury",
+      "Deep tissue pressure injury (suspected)",
+      "Unstageable pressure injury"
+    ],
+    "answer": [2],
+    "rationale": "A deep tissue pressure injury presents as intact or non-intact skin with a localized area of persistent non-blanchable deep red, maroon, or purple discoloration, and the tissue may feel boggy, mushy, or have a temperature change compared with adjacent tissue, reflecting damage to underlying soft tissue. Stage 1 (A) shows intact skin with non-blanchable erythema that is red, not purple/maroon, and without boggy texture. Stage 2 (B) requires an open wound with partial-thickness skin loss, which is not present here. Unstageable (D) requires full-thickness tissue loss obscured by slough or eschar, which does not match this intact-skin presentation.",
+    "nursing_concept": "NPIAP staging — deep tissue pressure injury"
+  }
+]
