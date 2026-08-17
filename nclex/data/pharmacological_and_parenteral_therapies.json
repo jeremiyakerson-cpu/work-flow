@@ -1,0 +1,211 @@
+[
+  {
+    "id": "PHARM-001",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Adverse Effects/Contraindications/Side Effects/Interactions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client taking digoxin 0.25 mg PO daily for heart failure reports nausea, anorexia, and seeing yellow-green halos around lights. The nurse checks the apical pulse and finds a rate of 52 beats/min. Which action should the nurse take first?",
+    "options": [
+      "Administer the scheduled dose of digoxin as ordered",
+      "Withhold the dose and notify the provider",
+      "Recheck the apical pulse in 4 hours before deciding",
+      "Administer the dose with food to reduce GI upset"
+    ],
+    "answer": [1],
+    "rationale": "Nausea, anorexia, visual disturbances (yellow-green halos), and bradycardia (apical pulse <60 beats/min in an adult) are classic signs of digoxin toxicity. The nurse should withhold the dose and notify the provider so a digoxin level and potassium level can be drawn before any further dose is given. Administering the dose (A, D) could worsen life-threatening toxicity/dysrhythmias, and delaying notification to recheck later (C) wastes time when toxicity is already suspected.",
+    "nursing_concept": "Digoxin toxicity — hold parameters (apical pulse <60, toxicity s/sx)"
+  },
+  {
+    "id": "PHARM-002",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Adverse Effects/Contraindications/Side Effects/Interactions",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "The nurse is teaching a client newly started on warfarin. Which statements by the client indicate a correct understanding of the teaching? Select all that apply.",
+    "options": [
+      "\"I will have blood drawn regularly to check my INR.\"",
+      "\"I should keep my intake of leafy green vegetables consistent from week to week rather than avoiding them completely.\"",
+      "\"I can take ibuprofen instead of acetaminophen for headaches.\"",
+      "\"I will use an electric razor instead of a straight razor when shaving.\"",
+      "\"I should report bleeding gums, black stools, or unusual bruising to my provider.\"",
+      "\"It's fine to stop the medication on my own once I feel better.\""
+    ],
+    "answer": [0, 1, 3, 4],
+    "rationale": "Warfarin requires routine INR monitoring (A) to keep the level in the therapeutic range. Vitamin K intake should be kept consistent, not eliminated, because sudden changes destabilize the INR (B). Bleeding precautions include using an electric razor (D) and reporting any signs of bleeding (E). NSAIDs such as ibuprofen (C) increase bleeding risk and should be avoided in favor of acetaminophen. Warfarin must never be stopped abruptly without provider guidance (F), as this can precipitate thromboembolic events.",
+    "nursing_concept": "Anticoagulant teaching / bleeding precautions"
+  },
+  {
+    "id": "PHARM-003",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Expected Actions/Outcomes",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client is found unresponsive with a respiratory rate of 6 breaths/min and pinpoint pupils after receiving IV morphine for postoperative pain. Which medication should the nurse anticipate administering immediately?",
+    "options": [
+      "Flumazenil",
+      "Naloxone",
+      "Protamine sulfate",
+      "Acetylcysteine"
+    ],
+    "answer": [1],
+    "rationale": "Respiratory depression, pinpoint pupils, and decreased level of consciousness after opioid administration indicate opioid-induced respiratory depression, which is reversed with naloxone, an opioid antagonist. Flumazenil reverses benzodiazepines, protamine sulfate reverses heparin, and acetylcysteine treats acetaminophen overdose.",
+    "nursing_concept": "Opioid toxicity / antidotes"
+  },
+  {
+    "id": "PHARM-004",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Dosage Calculation",
+    "item_type": "fill_in_blank",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A provider orders a heparin infusion of 1,000 units/hr. The pharmacy supplies a premixed bag of 20,000 units of heparin in 500 mL of 0.9% NaCl. At how many mL/hr should the nurse set the infusion pump? (Round to the nearest whole number.)",
+    "answer": ["25 mL/hr"],
+    "rationale": "Concentration = 20,000 units ÷ 500 mL = 40 units/mL. Rate = ordered dose ÷ concentration = 1,000 units/hr ÷ 40 units/mL = 25 mL/hr.",
+    "nursing_concept": "IV infusion dosage calculation"
+  },
+  {
+    "id": "PHARM-005",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Blood and Blood Products",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Ten minutes after a packed red blood cell transfusion is started, a client develops chills, lower back pain, and dark urine. What should the nurse do first?",
+    "options": [
+      "Slow the infusion rate and continue to monitor",
+      "Stop the transfusion and keep the IV line open with 0.9% NaCl using new tubing",
+      "Administer diphenhydramine as ordered and continue the transfusion",
+      "Discontinue the IV line completely and document the reaction"
+    ],
+    "answer": [1],
+    "rationale": "Chills, back pain, and dark/hemoglobinuric urine early in a transfusion suggest an acute hemolytic transfusion reaction, a medical emergency. The nurse's first action is to stop the transfusion immediately and keep the vein open with normal saline through new tubing (not the blood tubing) to maintain IV access for emergency treatment while the transfusion is disconnected. The line should be preserved, not discontinued (D), and the transfusion must never be slowed and continued (A) or medicated through (C) once a hemolytic reaction is suspected.",
+    "nursing_concept": "Acute hemolytic transfusion reaction — stop transfusion first"
+  },
+  {
+    "id": "PHARM-006",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Blood and Blood Products",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "Place the following steps for initiating a blood transfusion in the correct order.",
+    "options": [
+      "Infuse the unit at a slow rate (no more than 2 mL/min) and remain with the client for the first 15 minutes",
+      "Verify the transfusion order and confirm informed consent has been obtained",
+      "Obtain baseline vital signs, including temperature",
+      "With a second licensed nurse, verify the client identifiers and blood product against the blood bank tag at the bedside",
+      "Begin the transfusion within 30 minutes of the unit being released from the blood bank"
+    ],
+    "answer": [1, 2, 3, 4, 0],
+    "rationale": "The correct sequence is: (1) verify the order and consent, (2) obtain baseline vital signs to have a comparison point for a reaction, (3) perform the two-nurse identity/product verification at the bedside, (4) begin the infusion within 30 minutes of the unit leaving the blood bank to limit bacterial growth and product degradation, and (5) infuse slowly while staying with the client for the first 15 minutes, since most acute reactions occur early in the transfusion.",
+    "nursing_concept": "Blood transfusion initiation sequence"
+  },
+  {
+    "id": "PHARM-007",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Central Venous Access Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "While changing the injection cap on a client's central venous catheter, the client suddenly becomes dyspneic, tachycardic, and anxious with a drop in oxygen saturation. The nurse suspects an air embolism. Which position should the nurse place the client in immediately?",
+    "options": [
+      "High Fowler's position",
+      "Left lateral Trendelenburg position",
+      "Right lateral Trendelenburg position",
+      "Supine with the head of the bed elevated 30 degrees"
+    ],
+    "answer": [2],
+    "rationale": "Suspected air embolism from a central line requires immediately clamping the catheter and placing the client in the right lateral Trendelenburg (Durant's) position. This traps air in the right atrium away from the pulmonary outflow tract and away from the right ventricular outflow, reducing the risk of the air embolus traveling to the lungs or brain. High Fowler's or an elevated head of bed would allow air to travel toward the brain via the vena cava.",
+    "nursing_concept": "CVAD air embolism emergency positioning"
+  },
+  {
+    "id": "PHARM-008",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Total Parenteral Nutrition",
+    "item_type": "sata",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A nurse is caring for a client receiving total parenteral nutrition (TPN) through a central line. Which nursing actions are appropriate? Select all that apply.",
+    "options": [
+      "Monitor capillary blood glucose per protocol, typically every 4-6 hours",
+      "Infuse the TPN through a dedicated lumen not used for other medications or blood draws",
+      "Change the TPN administration tubing and filter every 24 hours",
+      "If the next bag is not ready, temporarily infuse the TPN faster to catch up once available",
+      "Taper the infusion down gradually when discontinuing rather than stopping abruptly",
+      "Discard any unused TPN solution that has been hanging for more than 24 hours"
+    ],
+    "answer": [0, 1, 2, 4, 5],
+    "rationale": "TPN is hypertonic and glucose-rich, so blood glucose must be monitored regularly (A) and infused via a dedicated central lumen with dedicated tubing/filter changed every 24 hours (B, C) to reduce infection and precipitate risk. Because the pancreas up-regulates insulin release in response to the continuous glucose load, TPN must be tapered off gradually (E) to prevent rebound hypoglycemia, and it should never be sped up to 'catch up' (D), which risks hyperglycemia and fluid overload. Unused solution hanging over 24 hours must be discarded due to infection risk (F).",
+    "nursing_concept": "TPN safety — dedicated line, glucose monitoring, taper to avoid rebound hypoglycemia"
+  },
+  {
+    "id": "PHARM-009",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Parenteral/IV Therapies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A new nurse prepares to administer a potassium chloride 20 mEq dose that was mixed in a 50 mL minibag, to be given as an IV push over 5 minutes because the client is 'anxious to get it done.' What is the priority nursing action?",
+    "options": [
+      "Administer the dose as prepared since the volume is small",
+      "Dilute the potassium further before giving it IV push",
+      "Refuse to give the medication by IV push and infuse it via an infusion pump over the recommended time",
+      "Give the dose IV push slowly while monitoring the cardiac monitor"
+    ],
+    "answer": [2],
+    "rationale": "IV potassium chloride must never be administered by IV push under any circumstance — direct IV push of concentrated potassium can cause fatal cardiac dysrhythmias (cardiac arrest). It must be diluted appropriately and infused via an infusion pump, typically not exceeding 10 mEq/hr in a general unit (higher rates require cardiac monitoring and a critical care setting), with continuous monitoring for signs of hyperkalemia.",
+    "nursing_concept": "High-alert medication — IV potassium administration safety"
+  },
+  {
+    "id": "PHARM-010",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Adverse Effects/Contraindications/Side Effects/Interactions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client taking lisinopril for hypertension calls the clinic reporting swelling of the lips and tongue and difficulty swallowing that began about an hour after the morning dose. What is the nurse's priority action?",
+    "options": [
+      "Advise the client to take an over-the-counter antihistamine and monitor at home",
+      "Instruct the client to go to the emergency department immediately",
+      "Tell the client to hold tonight's dose and follow up at the next scheduled appointment",
+      "Reassure the client that mild facial swelling is an expected effect of ACE inhibitors"
+    ],
+    "answer": [1],
+    "rationale": "Lip/tongue swelling and difficulty swallowing after starting an ACE inhibitor (such as lisinopril) are signs of angioedema, a rare but potentially life-threatening adverse effect that can progress to airway obstruction. The client needs emergency evaluation immediately; this is not a symptom to manage at home or dismiss as expected (a dry, nonproductive cough is the common/expected ACE inhibitor effect, not angioedema).",
+    "nursing_concept": "ACE inhibitor-induced angioedema — airway emergency"
+  },
+  {
+    "id": "PHARM-011",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Pharmacological Pain Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A postoperative client rates pain as 7/10 despite receiving scheduled acetaminophen. Current evidence-based practice for postoperative pain management supports which approach as the priority before escalating to a higher opioid dose?",
+    "options": [
+      "Withhold further analgesia until the pain reaches 9/10 to avoid dependence",
+      "Add a multimodal, opioid-sparing agent (e.g., an NSAID or adjunct as ordered) in addition to scheduled acetaminophen",
+      "Tell the client that a 7/10 rating is likely exaggerated for a routine postoperative course",
+      "Immediately administer the maximum ordered opioid dose without reassessment"
+    ],
+    "answer": [1],
+    "rationale": "Current pain management guidance favors multimodal analgesia — combining nonopioid agents (acetaminophen, NSAIDs, regional/local techniques, adjuvants) to target pain through multiple mechanisms, reducing total opioid requirements and associated risks while still treating pain effectively. Pain is whatever the client reports it to be; it should never be dismissed or arbitrarily withheld until a higher number is reached, and opioid dosing should always be individualized and reassessed rather than maximized reflexively.",
+    "nursing_concept": "Multimodal, opioid-sparing pain management"
+  },
+  {
+    "id": "PHARM-012",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Dosage Calculation",
+    "item_type": "fill_in_blank",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A provider orders levothyroxine 150 mcg PO daily. The pharmacy supplies tablets labeled 75 mcg per tablet. How many tablet(s) should the nurse administer per dose?",
+    "answer": ["2 tablets"],
+    "rationale": "Dose ordered ÷ dose on hand = 150 mcg ÷ 75 mcg/tablet = 2 tablets.",
+    "nursing_concept": "Oral dosage calculation"
+  }
+]
