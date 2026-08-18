@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEN Study Hub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">CEN</span>
+      <span class="brand-name">Study Hub</span>
+    </div>
+    <nav class="main-nav">
+      <a href="#board">Domain board</a>
+      <a href="#priority">Priority watch</a>
+      <a href="#resources">Resources</a>
+    </nav>
+  </div>
+  <div class="header-sub">
+    <span class="outline-badge">BCEN CONTENT OUTLINE · EFFECTIVE 07/06/2026</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Track your rhythm toward CEN certification.</h1>
+    <p class="hero-lede">
+      A single board for every domain on the exam blueprint — what's covered, what's next,
+      and where to spend your remaining study hours.
+    </p>
+    <div class="hero-stats">
+      <span class="lead-badge">LEAD II</span>
+      <span class="progress-badge">
+        STUDY PROGRESS
+        <strong><span id="progress-count">1</span> / <span id="progress-total">11</span></strong>
+        DOMAINS COMPLETE
+      </span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </section>
+
+  <section id="board" class="board-section">
+    <div class="section-heading">
+      <h2>Domain board</h2>
+      <p>
+        All 11 sections of the July 2026 outline, 150 scored items, passing standard 106.
+        Status reflects where the study guide stands today. Click a status pill to update it.
+      </p>
+    </div>
+    <div class="domain-grid" id="domain-grid"></div>
+  </section>
+
+  <section id="priority" class="priority-section">
+    <div class="section-heading">
+      <h2>Priority watch</h2>
+      <p>Sequenced first because they're the current weak areas — front-loaded ahead of the rest of the outline.</p>
+    </div>
+    <div class="priority-grid" id="priority-grid"></div>
+  </section>
+
+  <section id="resources" class="resources-section">
+    <div class="section-heading">
+      <h2>Reference tools</h2>
+      <p>The standards each domain review is checked against.</p>
+    </div>
+    <div class="resource-grid" id="resource-grid"></div>
+
+    <div class="stat-strip" id="stat-strip"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Built as a personal study companion. Verify numeric details against BCEN's current candidate handbook before relying on them for exam-day decisions.</p>
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
