@@ -6,6 +6,10 @@
 <title>EKG Rhythm Trainer · CEN Study Hub</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="ekg.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#0b0f14">
 </head>
 <body>
 
@@ -40,7 +44,25 @@
       <span class="ekg-tag">CHANGE IN CONDITION</span>
       <span class="ekg-tag">CODE RHYTHMS</span>
     </div>
-    <button class="start-btn" id="start-btn">Power on monitor — start assessment</button>
+
+    <div id="resume-banner" class="resume-banner" hidden>
+      <p>You have a simulation in progress — question <span id="resume-q-num">1</span> of 25, <span id="resume-mode-label"></span>.</p>
+      <div class="resume-actions">
+        <button class="start-btn" id="resume-btn">Resume simulation</button>
+        <button class="discard-btn" id="discard-btn">Discard &amp; start over</button>
+      </div>
+    </div>
+
+    <div id="mode-select" class="mode-select">
+      <button class="mode-card" id="mode-practice">
+        <span class="mode-card-title">Practice mode</span>
+        <span class="mode-card-desc">Untimed. See the correct answer and rationale immediately after each question.</span>
+      </button>
+      <button class="mode-card" id="mode-simulation">
+        <span class="mode-card-title">Simulation test</span>
+        <span class="mode-card-desc">Timed (25 min), exam conditions. No feedback until the full run is scored at the end.</span>
+      </button>
+    </div>
   </div>
 
   <div id="test-shell" hidden>
@@ -49,7 +71,8 @@
         <span>Question <span id="q-num">1</span> / 25</span>
         <div class="test-progress-track"><div class="test-progress-fill" id="test-progress-fill"></div></div>
       </div>
-      <div class="test-score">Score: <span id="score-live">0</span> / <span id="answered-live">0</span> answered</div>
+      <span class="mode-tag" id="mode-tag"></span>
+      <div class="test-score" id="test-score">Score: <span id="score-live">0</span> / <span id="answered-live">0</span> answered</div>
     </div>
 
     <div class="monitor">
@@ -57,6 +80,7 @@
         <div class="monitor-topbar">
           <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
           <span class="monitor-mode-badge">TRAINING SIMULATION — NOT FOR CLINICAL USE</span>
+          <span class="monitor-timer" id="monitor-timer" hidden></span>
           <span class="monitor-clock" id="monitor-clock"></span>
         </div>
         <div class="monitor-screen">
@@ -110,7 +134,7 @@
       </div>
       <div class="score-hero-cell">
         <div class="score-hero-value" id="best-score">0 / 25</div>
-        <div class="score-hero-label">BEST SCORE</div>
+        <div class="score-hero-label" id="best-score-label">BEST SCORE</div>
       </div>
     </div>
     <div class="breakdown" id="category-breakdown"></div>
@@ -124,5 +148,12 @@
 <script src="ekg-rhythms.js"></script>
 <script src="ekg-questions.js"></script>
 <script src="ekg-test.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    });
+  }
+</script>
 </body>
 </html>

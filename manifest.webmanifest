@@ -1,0 +1,17 @@
+{
+  "name": "EKG Rhythm Trainer — Zoll Monitor Simulation",
+  "short_name": "EKG Trainer",
+  "description": "25-question EKG rhythm, medication, and code-response simulation on a training Zoll-style monitor. Educational use only — not a real medical device.",
+  "start_url": "./ekg-test.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "orientation": "any",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
