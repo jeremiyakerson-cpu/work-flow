@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EKG Rhythm Trainer · CEN Study Hub</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="ekg.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">CEN</span>
+      <span class="brand-name">Study Hub</span>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Domain board</a>
+      <a href="ekg-test.html">EKG trainer</a>
+    </nav>
+  </div>
+  <div class="header-sub">
+    <span class="outline-badge">25-QUESTION ASSESSMENT · SIMULATED ZOLL X SERIES MONITOR</span>
+  </div>
+</header>
+
+<main class="ekg-main">
+
+  <div id="start-screen" class="ekg-intro">
+    <h1>EKG Rhythm Trainer</h1>
+    <p>
+      Twenty-five questions on a simulated cardiac monitor: identify the rhythm, pick the right medication,
+      and respond to a sudden change in condition — including the code rhythms you'll be tested on for CEN.
+      This is a training simulation only, not a real medical device.
+    </p>
+    <div class="ekg-tags">
+      <span class="ekg-tag">RHYTHM ID</span>
+      <span class="ekg-tag">MEDICATIONS</span>
+      <span class="ekg-tag">CHANGE IN CONDITION</span>
+      <span class="ekg-tag">CODE RHYTHMS</span>
+    </div>
+    <button class="start-btn" id="start-btn">Power on monitor — start assessment</button>
+  </div>
+
+  <div id="test-shell" hidden>
+    <div class="test-meta">
+      <div class="test-progress">
+        <span>Question <span id="q-num">1</span> / 25</span>
+        <div class="test-progress-track"><div class="test-progress-fill" id="test-progress-fill"></div></div>
+      </div>
+      <div class="test-score">Score: <span id="score-live">0</span> / <span id="answered-live">0</span> answered</div>
+    </div>
+
+    <div class="monitor">
+      <div class="monitor-bezel">
+        <div class="monitor-topbar">
+          <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-mode-badge">TRAINING SIMULATION — NOT FOR CLINICAL USE</span>
+          <span class="monitor-clock" id="monitor-clock"></span>
+        </div>
+        <div class="monitor-screen">
+          <div class="vitals-col">
+            <div class="vital hr">
+              <div class="vital-label">HR <span class="unit">bpm</span></div>
+              <div class="vital-value" id="vital-hr">--</div>
+            </div>
+            <div class="vital spo2">
+              <div class="vital-label">SpO<sub>2</sub> <span class="unit">%</span></div>
+              <div class="vital-value" id="vital-spo2">--</div>
+            </div>
+            <div class="vital nibp">
+              <div class="vital-label">NIBP <span class="unit">mmHg</span></div>
+              <div class="vital-value" id="vital-nibp">--/--</div>
+            </div>
+            <div class="vital rr">
+              <div class="vital-label">RESP <span class="unit">rpm</span></div>
+              <div class="vital-value" id="vital-rr">--</div>
+            </div>
+          </div>
+          <div class="trace-col">
+            <div class="trace-label">LEAD II <span id="trace-rhythm-tag"></span></div>
+            <canvas id="ekg-canvas" width="900" height="200"></canvas>
+            <div class="alarm-banner" id="alarm-banner" hidden></div>
+          </div>
+        </div>
+        <div class="monitor-softkeys" id="softkeys"></div>
+      </div>
+    </div>
+
+    <div class="question-panel">
+      <span class="q-category" id="q-category"></span>
+      <p class="q-stem" id="q-stem"></p>
+      <div class="rationale" id="rationale" hidden></div>
+      <button class="next-btn" id="next-btn" hidden>Next question →</button>
+    </div>
+  </div>
+
+  <div id="results-screen" class="results-screen" hidden>
+    <h2>Assessment complete</h2>
+    <p id="final-verdict"></p>
+    <div class="score-hero">
+      <div class="score-hero-cell">
+        <div class="score-hero-value" id="final-score">0 / 25</div>
+        <div class="score-hero-label">SCORE</div>
+      </div>
+      <div class="score-hero-cell">
+        <div class="score-hero-value" id="final-pct">0%</div>
+        <div class="score-hero-label">PERCENT CORRECT</div>
+      </div>
+      <div class="score-hero-cell">
+        <div class="score-hero-value" id="best-score">0 / 25</div>
+        <div class="score-hero-label">BEST SCORE</div>
+      </div>
+    </div>
+    <div class="breakdown" id="category-breakdown"></div>
+    <h3 id="missed-heading">Review missed questions</h3>
+    <div class="missed-list" id="missed-list"></div>
+    <button class="retry-btn" id="retry-btn">Retake assessment</button>
+  </div>
+
+</main>
+
+<script src="ekg-rhythms.js"></script>
+<script src="ekg-questions.js"></script>
+<script src="ekg-test.js"></script>
+</body>
+</html>
