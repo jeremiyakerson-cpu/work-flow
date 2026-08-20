@@ -171,6 +171,23 @@ main {
   transition: width 0.25s ease;
 }
 
+.ekg-cta {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent-dim);
+  border-radius: 999px;
+  padding: 8px 16px;
+  transition: background 0.15s ease;
+}
+
+.ekg-cta:hover {
+  background: var(--accent-dim);
+}
+
 /* Section headings */
 .section-heading {
   margin: 56px 0 20px;
