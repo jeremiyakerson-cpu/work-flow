@@ -25,7 +25,7 @@
     </nav>
   </div>
   <div class="header-sub">
-    <span class="outline-badge">50-QUESTION BANK + CODE SCENARIOS · SIMULATED ZOLL X SERIES MONITOR</span>
+    <span class="outline-badge">STUDY GUIDE · EXAMS · CODE SCENARIOS · SIMULATED ZOLL X SERIES MONITOR</span>
   </div>
 </header>
 
@@ -34,9 +34,10 @@
   <div id="start-screen" class="ekg-intro">
     <h1>EKG Rhythm Trainer</h1>
     <p>
-      A simulated cardiac monitor with a 50-question bank (each run draws 25) plus multi-stage code
-      scenarios where the rhythm changes as the code unfolds: identify the rhythm, pick the right
-      medication, and respond to the change in condition.
+      A complete EKG learning platform on a simulated cardiac monitor: study every rhythm with a live
+      strip, drill recognition in the sprint, test yourself against the question bank and the timed
+      comprehensive exam, and run full code scenarios where the rhythm changes as the case evolves —
+      with progress tracking and a generator that builds new cases around your weak areas.
       This is a training simulation only, not a real medical device.
     </p>
     <div class="ekg-tags">
@@ -56,6 +57,17 @@
     </div>
 
     <div id="mode-select" class="mode-select">
+      <h2 class="menu-heading">Learn</h2>
+      <button class="mode-card mode-card-study" id="mode-study">
+        <span class="mode-card-title">📖 Study guide</span>
+        <span class="mode-card-desc">Every rhythm with a live strip, recognition criteria, treatment, and nursing pearls — plus the full ACLS medication card deck.</span>
+      </button>
+      <button class="mode-card" id="mode-sprint">
+        <span class="mode-card-title">⏱ Rhythm sprint</span>
+        <span class="mode-card-desc">Rapid-fire strip recognition: 20 live rhythms against the clock, with smart look-alike distractors and instant criteria feedback.</span>
+      </button>
+
+      <h2 class="menu-heading">Test yourself</h2>
       <button class="mode-card" id="mode-practice">
         <span class="mode-card-title">Practice mode</span>
         <span class="mode-card-desc">Untimed. 25 questions drawn fresh from the 50-question bank, with the correct answer and rationale shown immediately.</span>
@@ -64,9 +76,21 @@
         <span class="mode-card-title">Simulation test</span>
         <span class="mode-card-desc">Timed (25 min), exam conditions. 25 fresh questions, no feedback until the full run is scored at the end.</span>
       </button>
+      <button class="mode-card mode-card-exam" id="mode-exam">
+        <span class="mode-card-title">🎓 Comprehensive exam</span>
+        <span class="mode-card-desc">The big one: 40 questions in 40 minutes, 80% to pass. Results are logged to your exam history.</span>
+      </button>
+
+      <h2 class="menu-heading">Run codes</h2>
       <button class="mode-card mode-card-scenario" id="mode-scenario">
         <span class="mode-card-title">Code scenarios</span>
-        <span class="mode-card-desc">Run a full code: the rhythm changes as the case evolves — monitor on one side, the patient and code team on the other.</span>
+        <span class="mode-card-desc">Full megacodes with a changing rhythm, an animated code team, and an adaptive generator that targets your weak areas.</span>
+      </button>
+
+      <h2 class="menu-heading">Track</h2>
+      <button class="mode-card" id="mode-progress">
+        <span class="mode-card-title">📈 My progress</span>
+        <span class="mode-card-desc">Accuracy by category, rhythm mastery grid, exam history, and scenario completion — all tracked on this device.</span>
       </button>
     </div>
   </div>
@@ -74,7 +98,7 @@
   <div id="test-shell" hidden>
     <div class="test-meta">
       <div class="test-progress">
-        <span>Question <span id="q-num">1</span> / 25</span>
+        <span>Question <span id="q-num">1</span> / <span id="q-total">25</span></span>
         <div class="test-progress-track"><div class="test-progress-fill" id="test-progress-fill"></div></div>
       </div>
       <span class="mode-tag" id="mode-tag"></span>
@@ -131,6 +155,7 @@
 
   <div id="results-screen" class="results-screen" hidden>
     <h2>Assessment complete</h2>
+    <div class="exam-banner" id="exam-banner" hidden></div>
     <p id="final-verdict"></p>
     <div class="score-hero">
       <div class="score-hero-cell">
@@ -240,6 +265,124 @@
     </div>
   </div>
 
+  <!-- ============ STUDY GUIDE ============ -->
+
+  <div id="study-screen" hidden>
+    <div class="sc-head">
+      <div>
+        <h2>Study guide</h2>
+        <span class="sc-progress">Rhythm reference & ACLS medication cards — educational use only</span>
+      </div>
+      <button class="discard-btn" id="study-back">← Back to menu</button>
+    </div>
+    <div class="study-tabs">
+      <button class="study-tab active" id="study-tab-rhythms">RHYTHMS</button>
+      <button class="study-tab" id="study-tab-meds">MEDICATIONS</button>
+    </div>
+
+    <div id="study-rhythms" class="study-split">
+      <div class="study-list" id="study-rhythm-list"></div>
+      <div class="study-detail">
+        <h3 id="study-rhythm-name"></h3>
+        <div class="monitor-bezel study-bezel">
+          <div class="monitor-screen study-screen-inner">
+            <div class="trace-col">
+              <div class="trace-label">LEAD II</div>
+              <canvas id="study-canvas" width="700" height="130"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="study-criteria" id="study-criteria"></div>
+        <div class="study-body" id="study-body"></div>
+      </div>
+    </div>
+
+    <div id="study-meds" hidden>
+      <div class="med-grid" id="study-med-grid"></div>
+    </div>
+  </div>
+
+  <!-- ============ RHYTHM SPRINT ============ -->
+
+  <div id="sprint-screen" hidden>
+    <div class="sc-head">
+      <div>
+        <h2>Rhythm sprint</h2>
+        <span class="sc-progress">20 live strips · name the rhythm · beat the clock</span>
+      </div>
+      <button class="discard-btn" id="sprint-back">← Back to menu</button>
+    </div>
+
+    <div id="sprint-intro" class="sprint-intro">
+      <p>Twenty rhythms will sweep across the monitor, one at a time. Identify each as fast as you can — the answer choices include the rhythms most often confused with the one on screen. Immediate feedback, running clock, personal best tracked.</p>
+      <p class="sprint-best-line" id="sprint-best"></p>
+      <button class="start-btn" id="sprint-start">Start sprint</button>
+    </div>
+
+    <div id="sprint-run" hidden>
+      <div class="test-meta">
+        <span id="sprint-progress">Strip 1 / 20</span>
+        <span class="sc-elapsed" id="sprint-clock">00:00</span>
+        <span class="test-score" id="sprint-score">0 correct</span>
+      </div>
+      <div class="monitor-bezel">
+        <div class="monitor-topbar">
+          <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-mode-badge">RHYTHM SPRINT</span>
+          <button class="sound-toggle" type="button">🔇</button>
+        </div>
+        <div class="monitor-screen study-screen-inner">
+          <div class="trace-col">
+            <div class="trace-label">LEAD II</div>
+            <canvas id="sprint-canvas" width="900" height="160"></canvas>
+          </div>
+        </div>
+        <div class="monitor-softkeys" id="sprint-choices"></div>
+      </div>
+      <div class="rationale" id="sprint-feedback" hidden></div>
+    </div>
+
+    <div id="sprint-results" class="results-screen" hidden>
+      <h2>Sprint complete</h2>
+      <p id="sprint-new-best" class="sprint-new-best" hidden>🏆 New personal best!</p>
+      <div class="score-hero">
+        <div class="score-hero-cell">
+          <div class="score-hero-value" id="sprint-final-score">0 / 20</div>
+          <div class="score-hero-label">STRIPS CORRECT</div>
+        </div>
+        <div class="score-hero-cell">
+          <div class="score-hero-value" id="sprint-final-time">00:00</div>
+          <div class="score-hero-label">TOTAL TIME</div>
+        </div>
+      </div>
+      <div class="sprint-misses" id="sprint-misses"></div>
+      <div class="sc-debrief-actions">
+        <button class="retry-btn" id="sprint-again">Sprint again</button>
+        <button class="discard-btn" id="sprint-results-back">Back to menu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PROGRESS ============ -->
+
+  <div id="progress-screen" hidden>
+    <div class="sc-head">
+      <div>
+        <h2>My progress</h2>
+        <span class="sc-progress">Tracked on this device only — nothing leaves your browser</span>
+      </div>
+      <button class="discard-btn" id="progress-back">← Back to menu</button>
+    </div>
+    <div class="stat-strip" id="prog-tiles"></div>
+    <h3 class="prog-heading">Accuracy by category</h3>
+    <div class="breakdown prog-breakdown" id="prog-categories"></div>
+    <h3 class="prog-heading">Rhythm mastery</h3>
+    <div class="mastery-grid" id="prog-rhythms"></div>
+    <h3 class="prog-heading">Comprehensive exam history</h3>
+    <div class="exam-history" id="prog-exams"></div>
+    <button class="discard-btn prog-reset" id="progress-reset">Reset all progress data</button>
+  </div>
+
   <div id="sc-debrief" class="results-screen" hidden>
     <h2>Code debrief — <span id="sc-debrief-title"></span></h2>
     <p id="sc-debrief-verdict"></p>
@@ -268,11 +411,15 @@
 <script src="ekg-rhythms.js"></script>
 <script src="ekg-questions.js"></script>
 <script src="ekg-scenarios.js"></script>
+<script src="ekg-education.js"></script>
 <script src="ekg-stats.js"></script>
 <script src="ekg-generator.js"></script>
 <script src="ekg-monitor.js"></script>
 <script src="ekg-test.js"></script>
 <script src="ekg-scenario.js"></script>
+<script src="ekg-study.js"></script>
+<script src="ekg-sprint.js"></script>
+<script src="ekg-progress.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

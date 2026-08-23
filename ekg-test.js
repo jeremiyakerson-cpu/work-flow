@@ -1,7 +1,13 @@
 const BEST_SCORE_KEY_PREFIX = "ekg-zoll-trainer-best-score-";
 const SESSION_KEY = "ekg-zoll-trainer-session-v1";
-const QUESTIONS_PER_RUN = 25; // sampled from the full bank each attempt
-const SIMULATION_SECONDS = 25 * 60; // 25 minutes for 25 questions
+const EXAM_HISTORY_KEY = "ekg-exam-history-v1";
+
+// Per-mode run configuration: question count, time limit, pass mark.
+const MODE_CONFIG = {
+  practice: { n: 25, secs: null, pass: null },
+  simulation: { n: 25, secs: 25 * 60, pass: null },
+  exam: { n: 40, secs: 40 * 60, pass: 0.8 },
+};
 
 const CATEGORY_LABEL = {
   rhythm: "RHYTHM ID",
@@ -13,6 +19,28 @@ const CATEGORY_LABEL = {
 const MODE_LABEL = {
   practice: "PRACTICE MODE",
   simulation: "SIMULATION TEST — TIMED",
+  exam: "COMPREHENSIVE EXAM — TIMED",
+};
+
+// Shared screen switcher used by every module (test, scenarios, study,
+// sprint, progress).
+const ALL_SCREENS = [
+  "start-screen",
+  "test-shell",
+  "results-screen",
+  "sc-picker",
+  "sc-shell",
+  "sc-debrief",
+  "study-screen",
+  "sprint-screen",
+  "progress-screen",
+];
+
+window.showScreen = function (id) {
+  for (const s of ALL_SCREENS) {
+    const el = document.getElementById(s);
+    if (el) el.hidden = s !== id;
+  }
 };
 
 const state = {
@@ -21,7 +49,7 @@ const state = {
   current: 0,
   answered: [], // per-question: { chosen, correct, timedOut } or null
   score: 0,
-  remainingSeconds: SIMULATION_SECONDS,
+  remainingSeconds: 0,
   timerId: null,
 };
 
@@ -62,8 +90,9 @@ function saveSession() {
 function loadSession() {
   try {
     const raw = JSON.parse(localStorage.getItem(SESSION_KEY));
-    if (!raw || !Array.isArray(raw.order) || raw.order.length !== QUESTIONS_PER_RUN) return null;
-    if (raw.current >= QUESTIONS_PER_RUN) return null; // already finished
+    if (!raw || !Array.isArray(raw.order) || !MODE_CONFIG[raw.mode]) return null;
+    if (raw.order.length !== MODE_CONFIG[raw.mode].n) return null;
+    if (raw.current >= raw.order.length) return null; // already finished
     if (raw.order.some((idx) => idx >= EKG_QUESTIONS.length)) return null; // stale bank
     return raw;
   } catch {
@@ -78,6 +107,7 @@ function clearSession() {
 function init() {
   document.getElementById("mode-practice").addEventListener("click", () => startTest("practice"));
   document.getElementById("mode-simulation").addEventListener("click", () => startTest("simulation"));
+  document.getElementById("mode-exam").addEventListener("click", () => startTest("exam"));
   document.getElementById("resume-btn").addEventListener("click", resumeSession);
   document.getElementById("discard-btn").addEventListener("click", discardSession);
   document.getElementById("retry-btn").addEventListener("click", backToStart);
@@ -123,29 +153,29 @@ function tickClock() {
 }
 
 function startTest(mode) {
+  const cfg = MODE_CONFIG[mode];
   state.mode = mode;
-  state.order = shuffle(EKG_QUESTIONS.map((_, i) => i)).slice(0, QUESTIONS_PER_RUN);
+  state.order = shuffle(EKG_QUESTIONS.map((_, i) => i)).slice(0, cfg.n);
   state.current = 0;
-  state.answered = new Array(QUESTIONS_PER_RUN).fill(null);
+  state.answered = new Array(cfg.n).fill(null);
   state.score = 0;
-  state.remainingSeconds = SIMULATION_SECONDS;
+  state.remainingSeconds = cfg.secs || 0;
   saveSession();
   enterTestShell();
 }
 
 function enterTestShell() {
-  document.getElementById("start-screen").hidden = true;
-  document.getElementById("results-screen").hidden = true;
-  document.getElementById("test-shell").hidden = false;
+  window.showScreen("test-shell");
 
   const tag = document.getElementById("mode-tag");
   tag.textContent = MODE_LABEL[state.mode];
-  tag.className = `mode-tag mode-${state.mode}`;
+  tag.className = `mode-tag mode-${state.mode === "practice" ? "practice" : "simulation"}`;
 
-  document.getElementById("test-score").hidden = state.mode === "simulation";
+  document.getElementById("test-score").hidden = state.mode !== "practice";
+  document.getElementById("q-total").textContent = state.order.length;
 
   const timerEl = document.getElementById("monitor-timer");
-  if (state.mode === "simulation") {
+  if (MODE_CONFIG[state.mode].secs) {
     timerEl.hidden = false;
     startTimer();
   } else {
@@ -158,8 +188,7 @@ function enterTestShell() {
 
 function backToStart() {
   stopTimer();
-  document.getElementById("results-screen").hidden = true;
-  document.getElementById("start-screen").hidden = false;
+  window.showScreen("start-screen");
   document.getElementById("mode-select").hidden = false;
   document.getElementById("resume-banner").hidden = true;
 }
@@ -337,9 +366,7 @@ function nextQuestion() {
 
 function showResults() {
   clearSession();
-  document.getElementById("test-shell").hidden = true;
-  const screen = document.getElementById("results-screen");
-  screen.hidden = false;
+  window.showScreen("results-screen");
 
   const total = state.order.length;
   const pct = Math.round((state.score / total) * 100);
@@ -354,6 +381,26 @@ function showResults() {
 
   const verdict = document.getElementById("final-verdict");
   const timedOutCount = state.answered.filter((a) => a && a.timedOut).length;
+  const passMark = MODE_CONFIG[state.mode].pass;
+  const passed = passMark !== null && pct >= passMark * 100;
+
+  const examBanner = document.getElementById("exam-banner");
+  if (passMark !== null) {
+    // Comprehensive exam: pass/fail against the pass mark, logged to history.
+    examBanner.hidden = false;
+    examBanner.className = `exam-banner ${passed ? "exam-pass" : "exam-fail"}`;
+    examBanner.innerHTML = passed
+      ? `<strong>PASS</strong> — ${pct}% meets the ${Math.round(passMark * 100)}% standard. ${new Date().toLocaleDateString()}`
+      : `<strong>NOT YET</strong> — ${pct}% is below the ${Math.round(passMark * 100)}% standard. Review the missed items and retake when ready.`;
+    try {
+      const history = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY)) || [];
+      history.unshift({ t: Date.now(), score: state.score, total, pct, pass: passed });
+      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
+    } catch {}
+  } else {
+    examBanner.hidden = true;
+  }
+
   let verdictText;
   if (pct >= 90) verdictText = "Excellent — code-ready recognition.";
   else if (pct >= 75) verdictText = "Solid grasp — review the missed items below.";

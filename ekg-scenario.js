@@ -62,10 +62,7 @@ function scShuffle(arr) {
 }
 
 function scShow(id) {
-  ["start-screen", "test-shell", "results-screen", "sc-picker", "sc-shell", "sc-debrief"].forEach((elId) => {
-    const el = document.getElementById(elId);
-    if (el) el.hidden = elId !== id;
-  });
+  window.showScreen(id);
 }
 
 // ---------- picker ----------
