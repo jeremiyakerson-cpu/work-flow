@@ -396,6 +396,427 @@ const EKG_QUESTIONS = [
     rationale:
       "High-quality CPR means minimizing interruptions (rhythm/pulse checks kept under ~10 seconds), a high compression fraction, adequate rate/depth with full recoil, and rotating compressors every 2 minutes to avoid fatigue-related decay in compression quality.",
   },
+
+  // ---------- EXPANDED BANK: MORE RHYTHM IDENTIFICATION ----------
+  {
+    id: 26,
+    category: "rhythm",
+    rhythm: "avb1",
+    vitals: { hr: 70, spo2: 98, nibp: "122/76", rr: 14 },
+    stem: "Every P wave on this strip is followed by a QRS, but the PR interval is constant at 0.32 seconds. What is this rhythm?",
+    choices: [
+      "First-degree AV block",
+      "Second-degree AV block, Mobitz I",
+      "Junctional rhythm",
+      "Normal sinus rhythm",
+    ],
+    answer: 0,
+    rationale:
+      "A PR interval longer than 0.20 seconds that stays constant, with every P conducted, is first-degree AV block. It usually needs no treatment — just monitoring and a review of AV-nodal-blocking medications.",
+  },
+  {
+    id: 27,
+    category: "rhythm",
+    rhythm: "junctional",
+    vitals: { hr: 48, spo2: 96, nibp: "108/66", rr: 14 },
+    stem: "This rhythm is regular at 48 with narrow QRS complexes and no visible P waves. What is it?",
+    choices: [
+      "Junctional escape rhythm",
+      "Sinus bradycardia",
+      "Idioventricular rhythm",
+      "Fine ventricular fibrillation",
+    ],
+    answer: 0,
+    rationale:
+      "A regular, narrow-complex rhythm at 40–60 with absent (or inverted/retrograde) P waves is a junctional escape rhythm — the AV junction has taken over as pacemaker. A ventricular escape would be wide and slower (20–40).",
+  },
+  {
+    id: 28,
+    category: "rhythm",
+    rhythm: "pvc_bigeminy",
+    vitals: { hr: 76, spo2: 97, nibp: "118/72", rr: 16 },
+    stem: "On this strip, every other beat is a wide, early complex without a preceding P wave. What is this pattern called?",
+    choices: [
+      "Ventricular bigeminy (PVC every other beat)",
+      "Atrial fibrillation",
+      "Second-degree AV block, Mobitz II",
+      "Ventricular tachycardia",
+    ],
+    answer: 0,
+    rationale:
+      "A premature ventricular complex alternating with every normal sinus beat is ventricular bigeminy. Check electrolytes (especially potassium and magnesium), oxygenation, and ischemia — frequent PVCs can herald something more serious.",
+  },
+  {
+    id: 29,
+    category: "rhythm",
+    rhythm: "vf_fine",
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "Your pulseless patient's monitor shows low-amplitude, chaotic undulations with no organized complexes. What is this rhythm?",
+    choices: [
+      "Fine ventricular fibrillation",
+      "Asystole",
+      "Artifact from a loose lead",
+      "Atrial fibrillation",
+    ],
+    answer: 0,
+    rationale:
+      "Chaotic, disorganized electrical activity with no identifiable QRS complexes is ventricular fibrillation; low amplitude makes it 'fine' VF. It is still shockable — don't mistake it for asystole. Confirm in a second lead and increase the gain if unsure.",
+  },
+  {
+    id: 30,
+    category: "rhythm",
+    rhythm: "sinus_tach",
+    vitals: { hr: 122, spo2: 96, nibp: "112/70", rr: 20 },
+    stem:
+      "A febrile post-op patient has this rhythm at 122. It sped up gradually over the last hour, and each QRS has a visible preceding P wave. What is it?",
+    choices: [
+      "Sinus tachycardia",
+      "SVT",
+      "Atrial flutter with 2:1 conduction",
+      "Ventricular tachycardia",
+    ],
+    answer: 0,
+    rationale:
+      "Gradual onset, visible P waves before each QRS, and an identifiable trigger (fever, pain, hypovolemia) point to sinus tachycardia. Treat the underlying cause — don't give adenosine to a sinus tach.",
+  },
+
+  // ---------- EXPANDED BANK: MORE MEDICATIONS ----------
+  {
+    id: 31,
+    category: "meds",
+    rhythm: "afib",
+    vitals: { hr: 142, spo2: 96, nibp: "118/74", rr: 18 },
+    stem:
+      "A stable patient is in atrial fibrillation with a rapid ventricular response of 142. Which medication is a first-line choice for rate control?",
+    choices: [
+      "Diltiazem IV (e.g., 0.25 mg/kg over 2 minutes)",
+      "Adenosine 6 mg rapid IV push",
+      "Epinephrine 1 mg IV push",
+      "Atropine 1 mg IV push",
+    ],
+    answer: 0,
+    rationale:
+      "Rate control for stable afib with RVR is typically a calcium channel blocker (diltiazem) or beta blocker (metoprolol). Adenosine's effect is too transient to control afib, and it won't convert it.",
+  },
+  {
+    id: 32,
+    category: "meds",
+    rhythm: "svt",
+    vitals: { hr: 186, spo2: 97, nibp: "110/70", rr: 18 },
+    stem: "Adenosine 6 mg was given for stable SVT with no effect. What is the next dose?",
+    choices: [
+      "Adenosine 12 mg rapid IV push with saline flush",
+      "Adenosine 6 mg again, slowly this time",
+      "Adenosine 3 mg as a maintenance infusion",
+      "Skip straight to defibrillation",
+    ],
+    answer: 0,
+    rationale:
+      "The adenosine sequence is 6 mg, then 12 mg if the first dose fails — always as a rapid push through the closest possible IV site, followed immediately by a saline flush, because its half-life is only seconds.",
+  },
+  {
+    id: 33,
+    category: "meds",
+    rhythm: "vf_coarse",
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "In refractory VF/pulseless VT (persisting after defibrillation), what is the initial amiodarone dose?",
+    choices: [
+      "300 mg IV/IO push",
+      "150 mg IV over 10 minutes",
+      "1 mg/min infusion only",
+      "50 mg IV push",
+    ],
+    answer: 0,
+    rationale:
+      "In cardiac arrest, amiodarone is 300 mg IV/IO push (repeat 150 mg once if needed). The slower 150 mg over 10 minutes is the dose for stable VT with a pulse — a key distinction between the arrest and non-arrest doses.",
+  },
+  {
+    id: 34,
+    category: "meds",
+    rhythm: "vf_coarse",
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "If amiodarone is unavailable during a VF arrest, what is the alternative antiarrhythmic and its initial dose?",
+    choices: [
+      "Lidocaine 1–1.5 mg/kg IV/IO",
+      "Diltiazem 20 mg IV",
+      "Magnesium 4 g IV push",
+      "Procainamide 100 mg/min until conversion",
+    ],
+    answer: 0,
+    rationale:
+      "Lidocaine 1–1.5 mg/kg IV/IO is the accepted alternative to amiodarone in VF/pVT arrest (may repeat 0.5–0.75 mg/kg). Magnesium in arrest is reserved for torsades.",
+  },
+  {
+    id: 35,
+    category: "meds",
+    rhythm: "sinus_brady",
+    vitals: { hr: 36, spo2: 92, nibp: "78/46", rr: 14 },
+    stem:
+      "Atropine and transcutaneous pacing have failed to stabilize this symptomatic bradycardia. Which infusion is appropriate next per the ACLS bradycardia algorithm?",
+    choices: [
+      "Dopamine 5–20 mcg/kg/min or epinephrine 2–10 mcg/min",
+      "Amiodarone 1 mg/min",
+      "Adenosine drip at 6 mg/hr",
+      "Diltiazem 5–15 mg/hr",
+    ],
+    answer: 0,
+    rationale:
+      "When atropine and pacing fail (or pacing isn't tolerated), the algorithm calls for a chronotropic infusion: dopamine 5–20 mcg/kg/min or epinephrine 2–10 mcg/min, while arranging transvenous pacing.",
+  },
+  {
+    id: 36,
+    category: "meds",
+    rhythm: "sinus_tach",
+    vitals: { hr: 110, spo2: 95, nibp: "84/52", rr: 20 },
+    stem: "Your chest-pain patient is due for nitroglycerin. Which finding makes you HOLD the dose and call the provider?",
+    choices: [
+      "Systolic BP of 84 mmHg (hypotension) — or recent sildenafil/tadalafil use, or suspected RV infarction",
+      "Heart rate of 90",
+      "Pain rated 6/10",
+      "History of hyperlipidemia",
+    ],
+    answer: 0,
+    rationale:
+      "Nitroglycerin is held for hypotension (SBP < 90 or a significant drop from baseline), recent phosphodiesterase-5 inhibitor use, and suspected right ventricular infarction — all can cause catastrophic drops in preload and blood pressure.",
+  },
+  {
+    id: 37,
+    category: "meds",
+    rhythm: "nsr",
+    vitals: { hr: 92, spo2: 96, nibp: "132/84", rr: 18 },
+    stem: "For a patient with suspected ACS and no contraindications, how is aspirin given?",
+    choices: [
+      "162–325 mg non-enteric-coated, chewed",
+      "81 mg swallowed whole with food",
+      "650 mg rectally as first-line",
+      "Aspirin is contraindicated in ACS",
+    ],
+    answer: 0,
+    rationale:
+      "Chewing 162–325 mg of non-enteric-coated aspirin achieves rapid platelet inhibition in suspected ACS. The 81 mg enteric-coated daily dose is for maintenance, not the acute event.",
+  },
+  {
+    id: 38,
+    category: "meds",
+    rhythm: "afib",
+    vitals: { hr: 150, spo2: 95, nibp: "112/68", rr: 18 },
+    stem:
+      "A patient has an irregular, wide-complex tachycardia suspected to be atrial fibrillation with WPW (pre-excitation). Which drugs must be AVOIDED?",
+    choices: [
+      "AV-nodal blockers — adenosine, diltiazem/verapamil, beta blockers, and digoxin",
+      "Procainamide",
+      "Amiodarone given as a slow infusion with cardiology guidance",
+      "Synchronized cardioversion",
+    ],
+    answer: 0,
+    rationale:
+      "In pre-excited afib, blocking the AV node shunts conduction down the accessory pathway and can accelerate the rhythm into VF. Avoid adenosine, calcium channel blockers, beta blockers, and digoxin; procainamide or cardioversion are the safe options.",
+  },
+  {
+    id: 39,
+    category: "meds",
+    rhythm: "torsades",
+    vitals: { hr: 210, spo2: 91, nibp: "84/50", rr: 22 },
+    stem: "A patient keeps having runs of torsades de pointes. Beyond magnesium, which underlying problems should you correct?",
+    choices: [
+      "Hypokalemia and QT-prolonging medications (review and stop them)",
+      "Hyperkalemia and excess IV fluids",
+      "Hypernatremia and hyperglycemia",
+      "Nothing else — magnesium is the only intervention",
+    ],
+    answer: 0,
+    rationale:
+      "Torsades is driven by a prolonged QT. After magnesium, replace potassium to high-normal and stop QT-prolonging drugs (many antiemetics, antipsychotics, antibiotics, and methadone). Overdrive pacing or isoproterenol may be needed for recurrent runs.",
+  },
+  {
+    id: 40,
+    category: "meds",
+    rhythm: "asystole",
+    vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "Which statement about atropine in cardiac arrest is correct?",
+    choices: [
+      "Atropine is NOT part of the asystole/PEA algorithm — arrest management is CPR, epinephrine, and reversible causes",
+      "Atropine 1 mg is given every 3–5 minutes in asystole",
+      "Atropine replaces epinephrine in PEA",
+      "Atropine is only used after defibrillation",
+    ],
+    answer: 0,
+    rationale:
+      "Atropine was removed from the pulseless-arrest algorithms — it belongs to the symptomatic bradycardia (with a pulse) algorithm. Asystole and PEA are managed with high-quality CPR, epinephrine every 3–5 minutes, and treating H's and T's.",
+  },
+
+  // ---------- EXPANDED BANK: MORE CHANGE IN CONDITION ----------
+  {
+    id: 41,
+    category: "condition",
+    rhythm: "sinus_brady",
+    vitals: { hr: 52, spo2: 96, nibp: "128/78", rr: 16 },
+    stem:
+      "A dialysis patient who missed two treatments develops peaked T waves and a widening QRS on the monitor. Potassium returns at 7.8. What is the FIRST medication?",
+    choices: [
+      "IV calcium (gluconate or chloride) to stabilize the myocardium",
+      "Insulin and dextrose before anything else",
+      "Sodium polystyrene sulfonate (Kayexalate) alone",
+      "Normal saline bolus only",
+    ],
+    answer: 0,
+    rationale:
+      "With EKG changes from hyperkalemia, IV calcium comes first — it stabilizes the cardiac membrane within minutes but doesn't lower potassium. Insulin/dextrose, albuterol, and bicarbonate then shift potassium intracellularly, and dialysis removes it.",
+  },
+  {
+    id: 42,
+    category: "condition",
+    rhythm: "sinus_brady",
+    vitals: { hr: 44, spo2: 96, nibp: "104/62", rr: 14 },
+    stem:
+      "A patient on digoxin reports nausea and 'yellow-green halos' around lights, and the monitor shows new bradycardia with frequent PVCs. What should you suspect and do?",
+    choices: [
+      "Digoxin toxicity — hold the dose, notify the provider, and send a dig level plus electrolytes (especially potassium)",
+      "Normal digoxin side effects — give the next dose on time",
+      "Anxiety — offer reassurance and a PRN anxiolytic",
+      "Food poisoning — give an antiemetic and continue all medications",
+    ],
+    answer: 0,
+    rationale:
+      "GI upset, visual color disturbances, bradycardia, and ventricular ectopy are classic digoxin toxicity. Hold the drug, draw a level, and check potassium — hypokalemia dramatically worsens dig toxicity. Digoxin immune Fab is the antidote for severe cases.",
+  },
+  {
+    id: 43,
+    category: "condition",
+    rhythm: "avb3",
+    vitals: { hr: 40, spo2: 93, nibp: "88/54", rr: 16 },
+    stem:
+      "You are transcutaneously pacing a patient in complete heart block, but the monitor shows pacer spikes that are not followed by QRS complexes. What is this, and what do you do?",
+    choices: [
+      "Failure to capture — increase the current (mA) until each spike produces a QRS, then confirm a matching pulse",
+      "Normal pacing — document and continue",
+      "Failure to sense — decrease the rate",
+      "Oversensing — remove the pads and restart",
+    ],
+    answer: 0,
+    rationale:
+      "Spikes without QRS complexes mean the stimulus isn't capturing the myocardium. Increase output (mA) until electrical capture appears, then always verify mechanical capture by palpating a pulse that matches the paced rate.",
+  },
+  {
+    id: 44,
+    category: "condition",
+    rhythm: "nsr",
+    vitals: { hr: 96, spo2: null, nibp: "--/--", rr: 0 },
+    stem:
+      "During CPR, the end-tidal CO2 suddenly jumps from 14 to 42 mmHg. What does this most likely indicate?",
+    choices: [
+      "Return of spontaneous circulation — check for a pulse at the next rhythm check",
+      "The ET tube has dislodged into the esophagus",
+      "Compressions have become too deep",
+      "The capnography sensor is failing",
+    ],
+    answer: 0,
+    rationale:
+      "An abrupt, sustained rise in ETCO2 during resuscitation is the earliest sign of ROSC — restored circulation suddenly delivers CO2 to the lungs. Confirm with a pulse check at the next scheduled rhythm check.",
+  },
+  {
+    id: 45,
+    category: "condition",
+    rhythm: "vf_fine",
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "During CPR, the ETCO2 reads only 8 mmHg. What should the team do?",
+    choices: [
+      "Improve compression quality — check depth, rate, recoil, and compressor fatigue",
+      "Stop compressions and recheck the pulse",
+      "Hyperventilate the patient to raise the number",
+      "Nothing — ETCO2 has no role during CPR",
+    ],
+    answer: 0,
+    rationale:
+      "ETCO2 below ~10 mmHg during CPR suggests compressions aren't generating adequate blood flow. Coach or swap the compressor, and reassess depth (2–2.4 in), rate (100–120), and full recoil. ETCO2 is a real-time gauge of CPR effectiveness.",
+  },
+
+  // ---------- EXPANDED BANK: MORE CODE MANAGEMENT ----------
+  {
+    id: 46,
+    category: "code",
+    rhythm: "nsr",
+    shockable: false,
+    vitals: { hr: 88, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "Your patient is in PEA. Which list correctly names reversible causes to search for (the H's and T's)?",
+    choices: [
+      "Hypovolemia, hypoxia, hydrogen ion (acidosis), hypo/hyperkalemia, hypothermia; tension pneumothorax, tamponade, toxins, thrombosis (pulmonary and coronary)",
+      "Hypertension, hyperglycemia, headache; tremor, tinnitus, tachypnea",
+      "Only hypovolemia and hypoxia — nothing else is reversible",
+      "Fever, pain, anxiety, agitation",
+    ],
+    answer: 0,
+    rationale:
+      "The 5 H's and 5 T's: Hypovolemia, Hypoxia, Hydrogen ion (acidosis), Hypo-/Hyperkalemia, Hypothermia — Tension pneumothorax, Tamponade (cardiac), Toxins, Thrombosis-pulmonary (PE), Thrombosis-coronary (MI). PEA survival depends on finding and fixing the cause.",
+  },
+  {
+    id: 47,
+    category: "code",
+    rhythm: "vf_coarse",
+    shockable: true,
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "What are the correct compression targets for adult CPR?",
+    choices: [
+      "Rate 100–120/min, depth 2–2.4 inches (5–6 cm), full chest recoil between compressions",
+      "Rate 60–80/min, depth 1 inch, lean on the chest between compressions",
+      "Rate 140–160/min, as deep as possible",
+      "Any rate, as long as ventilations are prioritized first",
+    ],
+    answer: 0,
+    rationale:
+      "Adult targets: 100–120 compressions per minute, 2–2.4 inches deep, full recoil (no leaning), on a firm surface, minimizing interruptions. Both too slow/shallow and too fast/deep reduce effectiveness.",
+  },
+  {
+    id: 48,
+    category: "code",
+    rhythm: "asystole",
+    shockable: false,
+    vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "What is the correct compression-to-ventilation approach for an adult code?",
+    choices: [
+      "30:2 without an advanced airway; once intubated, continuous compressions with 1 breath every 6 seconds",
+      "15:2 in all adults at all times",
+      "5:1 with pauses for each breath after intubation",
+      "Ventilate as fast as possible — more breaths mean better oxygenation",
+    ],
+    answer: 0,
+    rationale:
+      "Before an advanced airway: cycles of 30 compressions to 2 breaths. After intubation/supraglottic airway: continuous compressions with one breath every 6 seconds (10/min). Overventilation raises intrathoracic pressure and worsens survival.",
+  },
+  {
+    id: 49,
+    category: "code",
+    rhythm: "vf_coarse",
+    shockable: true,
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "How often are rhythm checks performed during a cardiac arrest, and how long may they last?",
+    choices: [
+      "Every 2 minutes, pausing compressions no longer than 10 seconds",
+      "Every 30 seconds, taking as long as needed",
+      "Every 10 minutes, for up to 1 minute",
+      "Only after each medication is given",
+    ],
+    answer: 0,
+    rationale:
+      "Rhythm (and pulse, if organized) checks happen at 2-minute cycle changes and must keep the compression pause under 10 seconds. Swap compressors during the same pause to minimize hands-off time.",
+  },
+  {
+    id: 50,
+    category: "code",
+    rhythm: "vt",
+    shockable: true,
+    vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "For a biphasic defibrillator, what is the appropriate initial energy for VF/pulseless VT?",
+    choices: [
+      "The manufacturer's recommended dose (typically 120–200 J); if unknown, use the maximum available, and consider escalating for subsequent shocks",
+      "Always exactly 360 J monophasic-equivalent",
+      "20 J, doubling with each shock",
+      "50 J synchronized",
+    ],
+    answer: 0,
+    rationale:
+      "Biphasic defibrillation uses the device manufacturer's recommended energy (commonly 120–200 J); if unknown, use the maximum. Subsequent shocks may be equivalent or escalated. Shocks for VF/pVT are always unsynchronized.",
+  },
 ];
 
 window.EKG_QUESTIONS = EKG_QUESTIONS;
