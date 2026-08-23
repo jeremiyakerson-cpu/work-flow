@@ -6,6 +6,21 @@
 
 const SCENARIO_BEST_PREFIX = "ekg-zoll-scenario-best-";
 
+// Clinical focus tags for the authored scenarios (generated ones carry
+// their own `focus`); feeds the performance profile the generator uses.
+const SCENARIO_FOCUS = {
+  "vf-arrest": "shockable-arrest",
+  "unstable-brady": "bradycardia",
+  "svt-crash": "tachycardia",
+  "torsades-arrest": "torsades-qt",
+  "pea-cause": "nonshockable-arrest",
+  "found-down-asystole": "nonshockable-arrest",
+  "afib-rvr-crash": "tachycardia",
+  "stemi-vt": "stable-vt-acs",
+  "hyperk-code": "nonshockable-arrest",
+  "tension-pneumo": "nonshockable-arrest",
+};
+
 const scState = {
   scenario: null,
   stageIdx: 0,
@@ -55,25 +70,62 @@ function scShow(id) {
 
 // ---------- picker ----------
 
+function scMakeCard(s, opts = {}) {
+  const best = localStorage.getItem(SCENARIO_BEST_PREFIX + s.id);
+  const card = document.createElement("button");
+  card.className = `sc-card ${opts.generated ? "sc-card-generated" : ""}`;
+  card.innerHTML = `
+    ${opts.generated ? `<button class="sc-card-delete" title="Delete this generated case" aria-label="Delete">×</button>` : ""}
+    <span class="sc-card-title">${s.title}</span>
+    <span class="sc-card-blurb">${s.blurb}</span>
+    ${opts.generated && s.reason ? `<span class="sc-card-reason">${s.reason}</span>` : ""}
+    <span class="sc-card-meta">
+      <span class="sc-card-stages">${s.stages.length} decisions${opts.generated ? " · GENERATED" : ""}</span>
+      ${best !== null ? `<span class="sc-card-best">BEST ${best}/${s.stages.length}</span>` : `<span class="sc-card-new">NOT ATTEMPTED</span>`}
+    </span>
+  `;
+  card.addEventListener("click", (e) => {
+    if (e.target.closest(".sc-card-delete")) {
+      e.stopPropagation();
+      EkgGenerator.removeGenerated(s.id);
+      localStorage.removeItem(SCENARIO_BEST_PREFIX + s.id);
+      scOpenPicker();
+      return;
+    }
+    scStart(s);
+  });
+  return card;
+}
+
 function scOpenPicker() {
   scShow("sc-picker");
+
+  const statsEl = document.getElementById("sc-stats-line");
+  const line = window.EkgStats ? EkgStats.summaryLine() : null;
+  statsEl.textContent =
+    line ||
+    "Answer questions and run cases — the generator tracks what you miss and creates new cases aimed at your weak areas.";
+
   const grid = document.getElementById("sc-picker-grid");
   grid.innerHTML = "";
-  EKG_SCENARIOS.forEach((s) => {
-    const best = localStorage.getItem(SCENARIO_BEST_PREFIX + s.id);
-    const card = document.createElement("button");
-    card.className = "sc-card";
-    card.innerHTML = `
-      <span class="sc-card-title">${s.title}</span>
-      <span class="sc-card-blurb">${s.blurb}</span>
-      <span class="sc-card-meta">
-        <span class="sc-card-stages">${s.stages.length} decisions</span>
-        ${best !== null ? `<span class="sc-card-best">BEST ${best}/${s.stages.length}</span>` : `<span class="sc-card-new">NOT ATTEMPTED</span>`}
-      </span>
-    `;
-    card.addEventListener("click", () => scStart(s));
-    grid.appendChild(card);
+  EKG_SCENARIOS.forEach((s) => grid.appendChild(scMakeCard(s)));
+
+  const genGrid = document.getElementById("sc-generated-grid");
+  genGrid.innerHTML = "";
+
+  const genCard = document.createElement("button");
+  genCard.className = "sc-card sc-generate-card";
+  genCard.innerHTML = `
+    <span class="sc-card-title">⚡ Generate a new case</span>
+    <span class="sc-card-blurb">Composes a fresh megacode from vetted clinical building blocks — new patient, new twists, new cause — weighted toward the areas you miss most.</span>
+  `;
+  genCard.addEventListener("click", () => {
+    const s = EkgGenerator.generate();
+    scStart(s);
   });
+  genGrid.appendChild(genCard);
+
+  EkgGenerator.listGenerated().forEach((s) => genGrid.appendChild(scMakeCard(s, { generated: true })));
 }
 
 function scStart(scenario) {
@@ -327,6 +379,15 @@ function scAnswer(displayIdx, correctIndex, container) {
   const st = scStage();
   const isCorrect = displayIdx === correctIndex;
   if (isCorrect) scState.correct++;
+  if (window.EkgStats) {
+    EkgStats.record({
+      kind: "scenario",
+      category: null,
+      rhythm: st.rhythm,
+      focus: scState.scenario.focus || SCENARIO_FOCUS[scState.scenario.id] || null,
+      correct: isCorrect,
+    });
+  }
 
   const btns = container.querySelectorAll(".softkey");
   btns.forEach((btn, i) => {

@@ -1060,3 +1060,71 @@
   padding: 3px 10px;
   border-radius: 999px;
 }
+
+/* ================= SCENARIO GENERATOR ================= */
+
+.sc-stats-line {
+  margin: 10px 0 0 !important;
+  font-size: 0.82rem;
+  color: var(--accent) !important;
+  background: var(--accent-dim);
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.sc-section-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 26px 0 12px;
+}
+
+.sc-generate-card {
+  border-style: dashed;
+  border-color: var(--accent);
+  background: rgba(79, 209, 197, 0.05);
+}
+
+.sc-generate-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.sc-generate-card .sc-card-title {
+  color: var(--accent);
+}
+
+.sc-card-generated {
+  position: relative;
+  border-color: rgba(79, 209, 197, 0.3);
+}
+
+.sc-card-delete {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel);
+  color: var(--text-faint);
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sc-card-delete:hover {
+  color: #ff5050;
+  border-color: #ff5050;
+}
+
+.sc-card-reason {
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1.4;
+}

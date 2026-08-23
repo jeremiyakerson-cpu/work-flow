@@ -294,6 +294,9 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
   state.answered[state.current] = { chosen: displayIdx, correct: isCorrect };
   if (isCorrect) state.score++;
   saveSession();
+  if (window.EkgStats) {
+    EkgStats.record({ kind: "quiz", category: q.category, rhythm: q.rhythm, focus: null, correct: isCorrect });
+  }
 
   const btns = container.querySelectorAll(".softkey");
   btns.forEach((btn, i) => {
