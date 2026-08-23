@@ -108,6 +108,7 @@ function scRenderMonitor(st) {
   document.getElementById("sc-vital-spo2").textContent = fmt(v.spo2);
   document.getElementById("sc-vital-nibp").textContent = v.nibp || "--/--";
   document.getElementById("sc-vital-rr").textContent = fmt(v.rr);
+  document.getElementById("sc-vital-etco2").textContent = fmt(v.etco2);
 
   const alarm = document.getElementById("sc-alarm-banner");
   const lethal = ["vf_coarse", "vf_fine", "asystole", "vt", "torsades"];
@@ -146,55 +147,138 @@ function scRenderScene(scene) {
   const wrap = document.getElementById("sc-scene");
   wrap.className = `sc-scene ${scene.cpr ? "scene-cpr" : ""}`;
 
+  // The code cart/IV appear whenever a resuscitation is in progress, or
+  // when a scenario explicitly flags them.
+  const showCart = scene.pads || scene.cpr || scene.bvm;
+  const showIv = scene.iv || scene.bvm || scene.cpr;
+  const showMedNurse = scene.meds || scene.cpr;
+
+  const ivPole = showIv
+    ? `
+      <g class="iv-pole">
+        <line x1="36" y1="78" x2="36" y2="214" stroke="#55606e" stroke-width="2.5"/>
+        <line x1="26" y1="80" x2="46" y2="80" stroke="#55606e" stroke-width="2"/>
+        <line x1="36" y1="214" x2="24" y2="226" stroke="#55606e" stroke-width="2.5"/>
+        <line x1="36" y1="214" x2="48" y2="226" stroke="#55606e" stroke-width="2.5"/>
+        <rect x="21" y="84" width="15" height="23" rx="2" fill="#cfe3f2" opacity="0.92"/>
+        <line x1="23" y1="95" x2="34" y2="95" stroke="#8fb0c4" stroke-width="1"/>
+        <path d="M 28 107 C 38 142 118 150 150 159" fill="none" stroke="#bcd7e6" stroke-width="1.2" opacity="0.8"/>
+      </g>`
+    : "";
+
+  const cart = showCart
+    ? `
+      <g class="crash-cart">
+        <rect x="382" y="152" width="56" height="62" rx="5" fill="#6e2f36"/>
+        <line x1="385" y1="172" x2="435" y2="172" stroke="#8d4a51" stroke-width="1.5"/>
+        <line x1="385" y1="188" x2="435" y2="188" stroke="#8d4a51" stroke-width="1.5"/>
+        <line x1="385" y1="203" x2="435" y2="203" stroke="#8d4a51" stroke-width="1.5"/>
+        <circle cx="393" cy="219" r="5" fill="#39434f"/>
+        <circle cx="428" cy="219" r="5" fill="#39434f"/>
+        <rect x="386" y="127" width="46" height="25" rx="3" fill="#262b31"/>
+        <rect x="391" y="132" width="17" height="15" fill="#06220f"/>
+        <polyline points="392,140 395,140 396,135 398,144 400,140 406,140" fill="none" stroke="#39ff8f" stroke-width="1"/>
+        <circle cx="418" cy="135" r="2.4" fill="#f0a94e"/>
+        <circle cx="418" cy="143" r="2.4" fill="#39ff8f"/>
+      </g>`
+    : "";
+
+  const compressorBody = scene.cpr
+    ? `
+      <g class="compressor">
+        <circle cx="146" cy="68" r="6.5" fill="#3b2f28"/>
+        <circle cx="149" cy="74" r="10.5" fill="#d4a48d"/>
+        <rect x="136" y="86" width="26" height="44" rx="11" fill="#3f8f8a"/>
+      </g>`
+    : "";
+
+  const compressorArms = scene.cpr
+    ? `
+      <g class="compressor">
+        <path d="M 143 100 L 147 134" stroke="#3f8f8a" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+        <path d="M 157 100 L 152 134" stroke="#3f8f8a" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="149" cy="138" rx="6" ry="4.5" fill="#d4a48d"/>
+      </g>`
+    : "";
+
+  const airwayBody = scene.bvm
+    ? `
+      <g class="bvm">
+        <circle cx="69" cy="82" r="6" fill="#2e2620"/>
+        <circle cx="72" cy="88" r="10" fill="#b98a70"/>
+        <rect x="60" y="98" width="24" height="40" rx="10" fill="#7a6fae"/>
+        <path d="M 70 118 C 80 128 90 134 98 140" stroke="#7a6fae" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M 64 120 C 70 127 76 130 82 131" stroke="#7a6fae" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>`
+    : "";
+
+  const airwayFront = scene.bvm
+    ? `
+      <g class="bvm">
+        <ellipse class="bag" cx="88" cy="128" rx="10" ry="7" fill="#cfe3f2"/>
+        <line x1="95" y1="132" x2="100" y2="139" stroke="#d7e4ee" stroke-width="2.5"/>
+        <ellipse cx="103" cy="143" rx="6.5" ry="5" fill="#d7e4ee" opacity="0.95"/>
+      </g>`
+    : "";
+
+  const medNurse = showMedNurse
+    ? `
+      <g class="med-nurse">
+        <circle cx="357" cy="108" r="6" fill="#463229"/>
+        <circle cx="360" cy="113" r="9.5" fill="#caa27f"/>
+        <rect x="350" y="124" width="21" height="40" rx="10" fill="#a8718a"/>
+        <path d="M 356 140 C 366 146 374 148 381 150" stroke="#a8718a" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+        <rect x="373" y="145" width="9" height="3.5" rx="1.5" fill="#dfe6ee"/>
+      </g>`
+    : "";
+
   const pads = scene.pads
     ? `
       <g class="pads">
-        <rect x="138" y="143" width="15" height="10" rx="3" fill="#f0a94e"/>
-        <rect x="172" y="152" width="15" height="10" rx="3" fill="#f0a94e"/>
-        <polyline points="146,143 160,96 300,60 420,52" fill="none" stroke="#f0a94e" stroke-width="1.5" opacity="0.5"/>
-        <polyline points="180,152 210,100 320,68 420,62" fill="none" stroke="#f0a94e" stroke-width="1.5" opacity="0.5"/>
-      </g>`
-    : "";
-
-  const compressor = scene.cpr
-    ? `
-      <g class="compressor">
-        <circle cx="152" cy="66" r="11" fill="#4a90a4"/>
-        <rect x="141" y="78" width="22" height="34" rx="9" fill="#4a90a4"/>
-        <path d="M 146 104 L 148 134 L 156 134 L 158 104 Z" fill="#4a90a4"/>
-        <rect x="143" y="132" width="18" height="7" rx="3" fill="#3a7386"/>
-      </g>`
-    : "";
-
-  const bvm = scene.bvm
-    ? `
-      <g class="bvm">
-        <circle cx="48" cy="104" r="9" fill="#5b8aa6"/>
-        <rect x="40" y="114" width="17" height="26" rx="7" fill="#5b8aa6"/>
-        <ellipse class="bag" cx="72" cy="130" rx="11" ry="8" fill="#8fb8cc"/>
-        <path d="M 82 134 L 92 142 L 88 148 Z" fill="#8fb8cc"/>
+        <rect x="133" y="139" width="15" height="10" rx="3" fill="#f0a94e"/>
+        <rect x="166" y="153" width="16" height="10" rx="3" fill="#f0a94e"/>
+        <path d="M 141 139 C 200 92 330 110 398 132" fill="none" stroke="#f0a94e" stroke-width="1.6" opacity="0.55"/>
+        <path d="M 174 153 C 240 120 340 122 398 138" fill="none" stroke="#f0a94e" stroke-width="1.6" opacity="0.55"/>
       </g>`
     : "";
 
   wrap.innerHTML = `
-    <svg class="scene-svg" viewBox="0 0 420 235" role="img" aria-label="Simulated code scene — training illustration">
-      <rect x="0" y="0" width="420" height="235" fill="transparent"/>
+    <svg class="scene-svg" viewBox="0 0 460 235" role="img" aria-label="Simulated code scene — training illustration">
+      <ellipse cx="213" cy="224" rx="172" ry="8" fill="#000" opacity="0.35"/>
+      ${ivPole}
+      ${cart}
+      ${compressorBody}
+      ${airwayBody}
       <!-- stretcher -->
-      <rect x="46" y="168" width="330" height="13" rx="6" fill="#1e2631" stroke="#2c3644" stroke-width="1"/>
-      <rect x="76" y="181" width="6" height="30" fill="#2c3644"/>
-      <rect x="336" y="181" width="6" height="30" fill="#2c3644"/>
-      <circle cx="79" cy="215" r="6" fill="#2c3644"/>
-      <circle cx="339" cy="215" r="6" fill="#2c3644"/>
-      <!-- patient (supine silhouette) -->
+      <rect x="58" y="158" width="310" height="13" rx="4" fill="#26303d" stroke="#323e4d" stroke-width="1"/>
+      <rect x="64" y="171" width="298" height="5" fill="#1b232d"/>
+      <rect x="96" y="176" width="6" height="36" fill="#1b232d"/>
+      <rect x="326" y="176" width="6" height="36" fill="#1b232d"/>
+      <circle cx="99" cy="216" r="6" fill="#39434f"/>
+      <circle cx="329" cy="216" r="6" fill="#39434f"/>
+      <!-- patient -->
       <g class="patient">
-        <circle cx="97" cy="152" r="13" fill="#7f93a8"/>
-        <rect x="110" y="141" width="128" height="24" rx="11" fill="#7f93a8"/>
-        <rect x="236" y="146" width="112" height="15" rx="7" fill="#74879b"/>
-        <rect x="124" y="162" width="86" height="8" rx="4" fill="#6d8093"/>
+        <circle cx="100" cy="140" r="7" fill="#4a3b32"/>
+        <circle cx="104" cy="147" r="12" fill="#c9a08a"/>
+        <rect x="114" y="150" width="8" height="8" fill="#c9a08a"/>
+        <rect x="119" y="137" width="116" height="27" rx="12" fill="#4f6f96"/>
+        <rect x="126" y="157" width="24" height="10" rx="5" fill="#46618a"/>
+        <rect x="148" y="158" width="42" height="8" rx="4" fill="#c9a08a"/>
+        <circle cx="193" cy="162" r="4.5" fill="#c9a08a"/>
+        <rect x="233" y="140" width="112" height="22" rx="9" fill="#62788e"/>
+        <circle cx="346" cy="148" r="8" fill="#62788e"/>
+        <!-- ECG electrodes & leads -->
+        <path d="M 139 143 C 96 112 44 96 0 90" fill="none" stroke="#9aa5b1" stroke-width="1" opacity="0.5"/>
+        <path d="M 129 152 C 90 126 40 108 0 102" fill="none" stroke="#9aa5b1" stroke-width="1" opacity="0.5"/>
+        <path d="M 151 153 C 104 130 46 118 0 114" fill="none" stroke="#9aa5b1" stroke-width="1" opacity="0.5"/>
+        <circle cx="139" cy="143" r="2.6" fill="#e9edf2"/>
+        <circle cx="129" cy="152" r="2.6" fill="#2c2c2c" stroke="#555" stroke-width="0.7"/>
+        <circle cx="151" cy="153" r="2.6" fill="#ff5050"/>
       </g>
       ${pads}
-      ${compressor}
-      ${bvm}
+      ${compressorArms}
+      ${airwayFront}
+      ${medNurse}
     </svg>
     <div class="sc-badges">
       <span class="sc-badge ${LOC_STYLE[scene.loc]}">LOC: ${scene.loc}</span>

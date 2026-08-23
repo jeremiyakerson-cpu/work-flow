@@ -22,7 +22,7 @@ const EKG_SCENARIOS = [
     stages: [
       {
         rhythm: "vf_coarse",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: false, pads: false, bvm: false, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "NONE" },
         narrative:
           "You're at the bedside when your 61-year-old telemetry patient suddenly slumps over. He is unresponsive with no pulse and no breathing. The monitor shows the rhythm above.",
@@ -41,7 +41,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "vf_coarse",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative:
           "Pads are on and the defibrillator is charged. The team pauses briefly: the monitor still shows coarse VF.",
@@ -60,7 +60,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "vf_coarse",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative:
           "A second shock is delivered and CPR continues. IV access is established. VF persists on the monitor.",
@@ -79,7 +79,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "vf_coarse",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative: "VF has survived three shocks and a round of epinephrine. The team leader asks for an antiarrhythmic.",
         question: "What do you draw up?",
@@ -97,7 +97,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "nsr",
-        vitals: { hr: 92, spo2: 93, nibp: "86/52", rr: 0 },
+        vitals: { hr: 92, spo2: 93, nibp: "86/52", rr: 0, etco2: 38 },
         scene: { cpr: false, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
         narrative:
           "ROSC achieved: sinus rhythm at 92 with a weak pulse, BP 86/52. He remains unresponsive and is being ventilated.",
@@ -343,7 +343,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "torsades",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative: "She is now pulseless with polymorphic VT on the monitor. Compressions have started.",
         question: "Pulseless polymorphic VT is treated with…",
@@ -361,7 +361,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "vf_coarse",
-        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative: "Now in VF. The team is two minutes into the cycle with an IV running.",
         question: "Alongside continued shocks and CPR, what drug therapy is correct?",
@@ -379,7 +379,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "nsr",
-        vitals: { hr: 96, spo2: 94, nibp: "92/58", rr: 0 },
+        vitals: { hr: 96, spo2: 94, nibp: "92/58", rr: 0, etco2: 36 },
         scene: { cpr: false, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
         narrative: "ROSC. She's ventilated, BP 92/58 on a norepinephrine infusion. The team debriefs on why this happened.",
         question: "Which combination most likely set up this torsades arrest?",
@@ -460,7 +460,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "sinus_tach",
-        vitals: { hr: 128, spo2: null, nibp: "--/--", rr: 0 },
+        vitals: { hr: 128, spo2: null, nibp: "--/--", rr: 0, etco2: 15 },
         scene: { cpr: true, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
         narrative:
           "Clues assemble: post-op abdomen day 1, drains with fresh blood, pale and cool, flat neck veins — and the underlying rhythm has sped up to a narrow tachycardia.",
@@ -479,7 +479,7 @@ const EKG_SCENARIOS = [
       },
       {
         rhythm: "sinus_tach",
-        vitals: { hr: 124, spo2: 92, nibp: "78/44", rr: 0 },
+        vitals: { hr: 124, spo2: 92, nibp: "78/44", rr: 0, etco2: 33 },
         scene: { cpr: false, pads: true, bvm: true, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
         narrative: "ROSC with a thready pulse at 124 and BP 78/44. He's still bleeding somewhere.",
         question: "What is the priority now?",
@@ -512,6 +512,507 @@ const EKG_SCENARIOS = [
           "PEA is non-shockable, full stop. And the rhythm's own morphology is a clue: narrow and fast often points to mechanical/volume problems (hypovolemia, tamponade, tension pneumo, PE), while wide and slow suggests metabolic causes (hyperkalemia, toxins).",
         outcome: "Debrief complete. This one goes in the win column.",
         intervention: "Debrief · case closed",
+      },
+    ],
+  },
+
+  {
+    id: "found-down-asystole",
+    title: "Found down — asystole",
+    blurb: "An unwitnessed arrest with a flatline. Confirm it's real, run the algorithm, and find the toxic cause.",
+    stages: [
+      {
+        rhythm: "asystole",
+        vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: false, meds: false, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "NONE" },
+        narrative:
+          "A visitor finds your patient unresponsive in bed — unknown downtime. No pulse, no breathing. The monitor shows a flat line.",
+        question: "What is the correct response to an apparent flatline?",
+        choices: [
+          "Start CPR immediately while confirming true asystole — check lead connections, turn up the gain, and look at a second lead. Never shock a flatline",
+          "Defibrillate at 200 J immediately in case it's fine VF",
+          "Wait for the provider to pronounce before starting anything",
+          "Give atropine 1 mg and reassess in 3 minutes",
+        ],
+        answer: 0,
+        rationale:
+          "Compressions start immediately; while they run, confirm the flatline is real (leads attached, gain up, second lead) — fine VF can masquerade as asystole. Asystole itself is never shocked, and atropine is no longer in the arrest algorithm.",
+        outcome: "Leads are secure and the flatline is confirmed in lead II and aVF. True asystole. CPR continues; pads go on anyway in case the rhythm changes.",
+        intervention: "Asystole confirmed in 2 leads · CPR started",
+      },
+      {
+        rhythm: "asystole",
+        vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0, etco2: 12 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative: "CPR is running with an ETCO2 of 12. An IV is in place. The team leader turns to you for the first medication.",
+        question: "What do you give?",
+        choices: [
+          "Epinephrine 1 mg IV/IO as soon as possible, repeated every 3–5 minutes",
+          "Amiodarone 300 mg IV push",
+          "Atropine 1 mg IV — asystole is the ultimate bradycardia",
+          "Sodium bicarbonate 1 amp for everyone in arrest",
+        ],
+        answer: 0,
+        rationale:
+          "Non-shockable arrest gets epinephrine as early as possible — it's the only drug with a routine role in asystole. Antiarrhythmics treat shockable rhythms, atropine was removed from the arrest algorithm, and bicarbonate is reserved for specific causes (hyperkalemia, TCA overdose).",
+        outcome: "Epi is in. While you push it, a teammate cuts away the gown — and finds two fentanyl patches on the chest. The pupils are pinpoint.",
+        intervention: "Epinephrine 1 mg IV",
+      },
+      {
+        rhythm: "asystole",
+        vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0, etco2: 14 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative: "Pinpoint pupils, fentanyl patches, unknown downtime. The H's and T's hunt just got a prime suspect.",
+        question: "Which reversible cause fits, and what changes in your management?",
+        choices: [
+          "Toxins (opioid) causing a hypoxic arrest — remove the patches, prioritize high-quality ventilation and oxygenation; naloxone may be given but never replaces CPR and epinephrine",
+          "Tension pneumothorax — needle decompression now",
+          "Hypothermia — begin active rewarming",
+          "Naloxone alone will restart the heart — pause CPR and give it",
+        ],
+        answer: 0,
+        rationale:
+          "Opioid arrests are hypoxic arrests: the priority is oxygenation and ventilation with ongoing CPR and epinephrine. Remove the source (patches). Naloxone is reasonable but in a pulseless patient it does not replace the algorithm — circulation and ventilation do the work.",
+        outcome: "Patches off, ventilation is dialed in… at the next rhythm check an organized rhythm marches across the screen. ETCO2 jumps to 24.",
+        intervention: "Patches removed · ventilation optimized",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 74, spo2: null, nibp: "--/--", rr: 0, etco2: 24 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative: "An organized narrow-complex rhythm at 74 has appeared, and the ETCO2 is climbing.",
+        question: "What does the team do with this rhythm check?",
+        choices: [
+          "Pulse check for no more than 10 seconds — an organized rhythm may still be PEA; if there's no pulse, resume compressions instantly",
+          "Declare ROSC based on the monitor alone and stop all compressions",
+          "Shock the organized rhythm to be safe",
+          "Take a full minute to be very sure about the pulse",
+        ],
+        answer: 0,
+        rationale:
+          "An organized rhythm at a check triggers a pulse check — capped at 10 seconds. The monitor alone never declares ROSC (that's how PEA fools teams), though a rising ETCO2 is a strong supporting clue. If no pulse: back on the chest immediately.",
+        outcome: "There's a strong carotid pulse. ROSC — ETCO2 settles at 38.",
+        intervention: "Pulse check ≤10 s → ROSC",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 78, spo2: 94, nibp: "96/58", rr: 0, etco2: 38 },
+        scene: { cpr: false, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
+        narrative: "ROSC after an opioid-driven arrest. He's ventilated with a weak pulse and BP 96/58.",
+        question: "What is special about post-ROSC care after an opioid arrest?",
+        choices: [
+          "Keep supporting ventilation and plan for re-sedation — fentanyl outlasts naloxone — plus the standard bundle: SpO2 92–98%, SBP > 90, 12-lead, temperature management",
+          "Extubate now that the naloxone is working",
+          "Give flumazenil to complete the reversal",
+          "No monitoring needed once ROSC is achieved",
+        ],
+        answer: 0,
+        rationale:
+          "Naloxone's duration is shorter than fentanyl's — re-sedation and re-arrest are real risks, so ventilation support and close monitoring continue. Flumazenil is a benzodiazepine antagonist and has no role here. The standard post-ROSC bundle still applies.",
+        outcome: "He's admitted to the ICU on a ventilator with a naloxone infusion under discussion. Cause found, cause fixed.",
+        intervention: "ICU admission · re-sedation precautions",
+      },
+    ],
+  },
+
+  {
+    id: "afib-rvr-crash",
+    title: "Afib with RVR decompensates",
+    blurb: "Rate control goes sideways when the pressure drops. Know when medicine ends and electricity begins.",
+    stages: [
+      {
+        rhythm: "afib",
+        vitals: { hr: 148, spo2: 95, nibp: "116/72", rr: 18, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "A 68-year-old admitted for pneumonia becomes aware of a 'fluttering' heart. The monitor shows an irregularly irregular narrow-complex rhythm at 148 with no P waves.",
+        question: "What is the rhythm?",
+        choices: [
+          "Atrial fibrillation with rapid ventricular response",
+          "Sinus tachycardia",
+          "SVT",
+          "Ventricular tachycardia",
+        ],
+        answer: 0,
+        rationale:
+          "Irregularly irregular + no P waves + narrow QRS = atrial fibrillation; at 148 it's 'with RVR.' SVT and sinus tach are regular; VT is wide.",
+        outcome: "She's still perfusing well: alert, BP 116/72, mild palpitations. Stable — for the moment.",
+        intervention: "Afib with RVR identified",
+      },
+      {
+        rhythm: "afib",
+        vitals: { hr: 146, spo2: 95, nibp: "112/70", rr: 18, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: true, meds: true, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative: "The provider wants rate control for this stable afib with RVR.",
+        question: "Which order is appropriate?",
+        choices: [
+          "Diltiazem IV — about 0.25 mg/kg over 2 minutes, watching the blood pressure closely",
+          "Adenosine 6 mg rapid push to convert it",
+          "Amiodarone 300 mg IV push",
+          "Epinephrine 1 mg IV",
+        ],
+        answer: 0,
+        rationale:
+          "Stable afib with RVR gets AV-nodal rate control — IV diltiazem or a beta blocker. Adenosine can't hold afib (seconds-long effect), 300 mg amiodarone push is an arrest dose, and epinephrine would pour fuel on the rate.",
+        outcome: "Ten minutes into the diltiazem her rate is 128… then the pump alarms: BP 70/40. She's pale, clammy, and confused. Still in afib.",
+        intervention: "Diltiazem started — hypotension follows",
+      },
+      {
+        rhythm: "afib",
+        vitals: { hr: 138, spo2: 93, nibp: "70/40", rr: 22, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALTERED", pulse: "WEAK", breathing: "SPONTANEOUS" },
+        narrative:
+          "She is now unstable: hypotensive and altered, still in rapid afib. The diltiazem is stopped and pads are on.",
+        question: "What is indicated now?",
+        choices: [
+          "Synchronized cardioversion — for afib, typically 120–200 J biphasic — with sedation if it won't delay the shock",
+          "Another dose of diltiazem to finish the job",
+          "Unsynchronized defibrillation at maximum energy",
+          "A fluid bolus and a 4-hour observation period",
+        ],
+        answer: 0,
+        rationale:
+          "Unstable tachyarrhythmia with a pulse = synchronized cardioversion. Afib usually needs more energy than SVT — 120–200 J biphasic. More AV-nodal blocker would deepen the hypotension, and an unsynchronized shock risks R-on-T.",
+        outcome: "One synchronized shock at 150 J. The monitor stutters — then a regular sinus rhythm at 92 appears. Her pressure climbs to 104/62.",
+        intervention: "Synchronized cardioversion 150 J",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 92, spo2: 96, nibp: "104/62", rr: 18, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "Converted and stabilizing. The resident asks: 'Wait — her afib duration was unknown. Weren't we supposed to worry about a clot before cardioverting?'",
+        question: "What's the correct teaching point?",
+        choices: [
+          "Instability overrides the anticoagulation rule — an unstable patient is cardioverted immediately; with unknown duration, anticoagulation and stroke-risk evaluation follow the emergency",
+          "Cardioversion was a mistake — a TEE was mandatory first",
+          "Afib never requires anticoagulation considerations",
+          "Clot risk only matters for atrial flutter",
+        ],
+        answer: 0,
+        rationale:
+          "Elective cardioversion of afib lasting >48 h (or unknown) requires prior anticoagulation or a TEE to rule out atrial clot. But an UNSTABLE patient is cardioverted without delay — the arrhythmia is killing them now. Anticoagulation is then addressed immediately after.",
+        outcome: "Anticoagulation is started and a TEE is scheduled. The resident writes it down.",
+        intervention: "Anticoagulation initiated post-conversion",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 88, spo2: 97, nibp: "110/68", rr: 16, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative: "She's stable in sinus rhythm. The team reviews why this happened during a pneumonia admission.",
+        question: "What completes the workup?",
+        choices: [
+          "Hunt the trigger: infection/sepsis, hypoxia, electrolytes (K+, Mg2+), thyroid function, and ischemia — and keep her on telemetry for recurrence",
+          "No workup — afib is always idiopathic",
+          "Discharge now; the problem is fixed",
+          "Daily cardioversions as prophylaxis",
+        ],
+        answer: 0,
+        rationale:
+          "New afib usually has a driver — infection, hypoxia, electrolyte derangement, thyroid disease, ischemia, or structural disease. Treating the pneumonia and correcting electrolytes is as important as the rhythm itself, and recurrence is common enough to warrant telemetry.",
+        outcome: "Her magnesium comes back low and is replaced. The pneumonia gets treated. No recurrence overnight.",
+        intervention: "Trigger workup · telemetry continued",
+      },
+    ],
+  },
+
+  {
+    id: "stemi-vt",
+    title: "Chest pain into VT",
+    blurb: "A STEMI declares itself, then the ventricle starts firing. Stable VT, pulseless VT, and the cath lab.",
+    stages: [
+      {
+        rhythm: "sinus_tach",
+        vitals: { hr: 118, spo2: 95, nibp: "142/88", rr: 20, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "A 58-year-old develops crushing substernal chest pain radiating to the jaw, with diaphoresis and nausea. The monitor shows sinus tachycardia at 118.",
+        question: "The 12-lead shows ST elevation in II, III, and aVF. What happens now?",
+        choices: [
+          "Aspirin 162–325 mg chewed, activate the cath lab — this is an inferior STEMI and time is muscle; check the right side and BP before any nitroglycerin",
+          "Serial troponins over 12 hours before deciding anything",
+          "Nitroglycerin immediately, no other assessment needed",
+          "A GI cocktail to rule out reflux first",
+        ],
+        answer: 0,
+        rationale:
+          "ST elevation in II, III, aVF is an inferior STEMI — chewed aspirin and immediate reperfusion (cath lab) are the priorities. Inferior MIs often involve the right ventricle, where nitroglycerin can crash the pressure — obtain right-sided leads and check BP first.",
+        outcome: "Cath lab is activated. While you're on the phone, the monitor alarm fires — the rhythm has changed to a wide, regular tachycardia. He's pale but still talking, BP 96/60.",
+        intervention: "ASA given · cath lab activated",
+      },
+      {
+        rhythm: "vt",
+        vitals: { hr: 172, spo2: 93, nibp: "96/60", rr: 20, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: true, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "Monomorphic VT at 172 — but he has a pulse and is still perfusing (awake, BP 96/60). Pads are on as a precaution.",
+        question: "How is stable VT with a pulse treated?",
+        choices: [
+          "Amiodarone 150 mg IV over 10 minutes (not the 300 mg arrest push), with pads on and cardioversion ready if he deteriorates",
+          "Amiodarone 300 mg IV push — same as the arrest dose",
+          "Immediate unsynchronized defibrillation",
+          "Adenosine is first-line for all wide-complex rhythms",
+        ],
+        answer: 0,
+        rationale:
+          "Stable VT with a pulse is treated pharmacologically first: amiodarone 150 mg over 10 minutes (or procainamide/sotalol). The 300 mg rapid push is reserved for pulseless arrest. Electricity waits unless he becomes unstable — but you stay ready for it.",
+        outcome: "The amiodarone is infusing… then his eyes roll back. The monitor still shows VT — but there is no pulse.",
+        intervention: "Amiodarone 150 mg infusion started",
+      },
+      {
+        rhythm: "vt",
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 15 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative: "Pulseless VT. Compressions have started and the defibrillator is charging.",
+        question: "Pulseless VT is managed with…",
+        choices: [
+          "Immediate unsynchronized defibrillation (~200 J biphasic) with high-quality CPR between shocks — it's treated exactly like VF now",
+          "Synchronized cardioversion at 100 J",
+          "Finishing the amiodarone infusion before shocking",
+          "Vagal maneuvers",
+        ],
+        answer: 0,
+        rationale:
+          "The moment VT loses the pulse it becomes a shockable arrest rhythm — same algorithm as VF: unsynchronized defibrillation, 2-minute CPR cycles, epinephrine, and antiarrhythmic per the arrest pathway.",
+        outcome: "One shock — and at the next check: sinus rhythm at 98 with a palpable pulse. ROSC. ETCO2 jumps to 37.",
+        intervention: "Defibrillated 200 J → ROSC",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 98, spo2: 94, nibp: "98/60", rr: 0, etco2: 37 },
+        scene: { cpr: false, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
+        narrative: "ROSC — but the STEMI that started all this is still there, and the cath lab is waiting.",
+        question: "Does the arrest change the cath lab plan?",
+        choices: [
+          "No — get him to the cath lab emergently; reperfusion treats the cause of the arrest, alongside standard post-ROSC care en route",
+          "Yes — cancel the cath lab; arrest patients can't be catheterized",
+          "Wait 24 hours to see if he wakes up first",
+          "The amiodarone replaced the need for reperfusion",
+        ],
+        answer: 0,
+        rationale:
+          "A STEMI with cardiac arrest and ROSC goes to the cath lab emergently — the occluded artery caused the VT, and reperfusion is the definitive treatment. Post-ROSC care (oxygenation, pressure support, temperature management) travels with him.",
+        outcome: "He's wheeled to the lab within minutes — a 100% occluded RCA is opened and stented.",
+        intervention: "Emergent PCI — RCA stented",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 84, spo2: 97, nibp: "112/70", rr: 14, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "Post-PCI, extubated and awake. On the monitor you notice occasional short runs of a slow, wide rhythm around 70 that come and go.",
+        question: "How do you interpret these runs after reperfusion?",
+        choices: [
+          "Likely accelerated idioventricular rhythm (AIVR) — a common, usually benign reperfusion rhythm; observe, don't suppress, but stay alert for true VT",
+          "Recurrent VT — defibrillate immediately",
+          "Artifact — ignore all wide rhythms now",
+          "Complete heart block — start pacing",
+        ],
+        answer: 0,
+        rationale:
+          "AIVR — a wide rhythm at roughly 40–120 appearing after reperfusion — is a classic, usually benign 'reperfusion arrhythmia' that resolves on its own. It's observed, not suppressed. The nurse's job is telling it apart from fast, sustained VT, which is a different conversation.",
+        outcome: "The runs fade out over the next hour. He asks what's for lunch. Case closed.",
+        intervention: "AIVR observed · resolved",
+      },
+    ],
+  },
+
+  {
+    id: "hyperk-code",
+    title: "The dialysis no-show",
+    blurb: "A missed-dialysis patient with a potassium of 8.1 codes in front of you. Calcium, shifting, and the machine that fixes it.",
+    stages: [
+      {
+        rhythm: "sinus_brady",
+        vitals: { hr: 46, spo2: 95, nibp: "98/60", rr: 16, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative:
+          "A dialysis patient who missed his last two sessions arrives weak and nauseated. The monitor shows a slow rhythm with tall, peaked T waves and a widening QRS. Stat K+ returns: 8.1.",
+        question: "What is the FIRST medication, and why?",
+        choices: [
+          "IV calcium (gluconate or chloride) — it stabilizes the cardiac membrane within minutes but does not lower the potassium",
+          "Kayexalate — it removes potassium fastest",
+          "Insulin and D50 before anything else",
+          "A normal saline bolus is sufficient",
+        ],
+        answer: 0,
+        rationale:
+          "With hyperkalemic EKG changes, calcium comes first: it raises the threshold potential and protects against arrest within minutes — but the K+ is untouched. Shifting agents come next; slow binders like Kayexalate are far too slow for a K of 8.1 with EKG changes.",
+        outcome: "Calcium is in and the QRS narrows slightly. Now the potassium itself needs to move.",
+        intervention: "Calcium gluconate 1 g IV",
+      },
+      {
+        rhythm: "sinus_brady",
+        vitals: { hr: 48, spo2: 95, nibp: "96/58", rr: 16, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: true, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative: "Membrane stabilized. The provider asks for the shifting therapy while nephrology is paged.",
+        question: "Which combination shifts potassium into the cells?",
+        choices: [
+          "Regular insulin 10 units IV with D50, plus high-dose albuterol nebs; bicarbonate if acidotic",
+          "More calcium — it lowers potassium if repeated",
+          "Furosemide alone — diuresis is the main therapy",
+          "Potassium-sparing diuretics",
+        ],
+        answer: 0,
+        rationale:
+          "Insulin (with dextrose to prevent hypoglycemia) and beta-agonists drive K+ intracellularly within 15–30 minutes; bicarbonate helps when acidotic. These buy time — they don't remove potassium. Watch the glucose after insulin. Removal requires dialysis (or GI binders over hours).",
+        outcome: "Insulin/D50 and albuterol are running… then he slumps. The monitor shows a slow, wide rhythm — and there is no pulse.",
+        intervention: "Insulin/D50 + albuterol given",
+      },
+      {
+        rhythm: "junctional",
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 13 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative:
+          "PEA arrest — a slow, wide complex on the screen with no pulse. CPR is underway.",
+        question: "How does the known hyperkalemia change the code?",
+        choices: [
+          "Run standard PEA care (CPR + epinephrine) AND aggressively treat the cause: repeat IV calcium, continue shifting therapy, push for emergent dialysis",
+          "Hyperkalemia doesn't matter during the arrest — drugs come after ROSC",
+          "Defibrillate the wide slow rhythm",
+          "Stop resuscitation — hyperkalemic arrests are futile",
+        ],
+        answer: 0,
+        rationale:
+          "PEA management is CPR + epinephrine + fixing the reversible cause — and here the cause is known. Repeat calcium, keep shifting K+, and mobilize dialysis. Hyperkalemic arrests can have good outcomes precisely because the cause is treatable. A wide slow PEA is not shockable.",
+        outcome: "Second dose of calcium, epi in, compressions never stop… at the next check: an organized rhythm with a femoral pulse. ROSC.",
+        intervention: "Epi 1 mg · calcium repeated",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 88, spo2: 94, nibp: "92/56", rr: 0, etco2: 36 },
+        scene: { cpr: false, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
+        narrative: "ROSC. The potassium is still 7.4 — the calcium and insulin bought time, nothing more.",
+        question: "What is the definitive treatment he needs now?",
+        choices: [
+          "Emergent hemodialysis — it's the only thing that actually removes the potassium",
+          "Another round of calcium is definitive",
+          "Insulin infusion for 24 hours will normalize it permanently",
+          "Observation — potassium self-corrects after ROSC",
+        ],
+        answer: 0,
+        rationale:
+          "Calcium protects, insulin/albuterol shift — only dialysis (or, slowly, GI binders and kidneys that work) removes potassium. In a dialysis patient post-hyperkalemic-arrest, emergent hemodialysis is the definitive move, with the K+ rechecked serially until then.",
+        outcome: "The dialysis nurse arrives with the machine. Two hours later the potassium is 5.2.",
+        intervention: "Emergent hemodialysis",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 82, spo2: 97, nibp: "108/66", rr: 14, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative: "Dialyzed, extubated, and stable. The team debriefs the roles each drug played.",
+        question: "Which summary of hyperkalemia treatment is correct?",
+        choices: [
+          "Calcium stabilizes the membrane, insulin/albuterol shift potassium into cells temporarily, and dialysis removes it — three different jobs, all three needed",
+          "Calcium lowers potassium, so repeat it until the level normalizes",
+          "Kayexalate is the emergency drug of choice for K+ of 8 with EKG changes",
+          "Once the EKG normalizes, no further treatment or monitoring is needed",
+        ],
+        answer: 0,
+        rationale:
+          "The classic triad: stabilize (calcium), shift (insulin/glucose, albuterol, bicarb if acidotic), remove (dialysis, binders). Shifted potassium rebounds as the drugs wear off, so serial levels and telemetry continue until removal is done.",
+        outcome: "He promises to never miss dialysis again. The team believes him... mostly.",
+        intervention: "Debrief · serial K+ monitoring",
+      },
+    ],
+  },
+
+  {
+    id: "tension-pneumo",
+    title: "Crashing chest trauma",
+    blurb: "A chest-trauma patient obstructs his own circulation. No drug fixes this one — find it and decompress it.",
+    stages: [
+      {
+        rhythm: "sinus_tach",
+        vitals: { hr: 132, spo2: 84, nibp: "84/52", rr: 28, etco2: null },
+        scene: { cpr: false, pads: false, bvm: false, iv: true, meds: false, loc: "ALTERED", pulse: "WEAK", breathing: "SPONTANEOUS" },
+        narrative:
+          "A patient admitted after a fall with right-sided rib fractures suddenly deteriorates: severe dyspnea, SpO2 84%, BP 84/52. Breath sounds are ABSENT on the right, the trachea deviates left, and his neck veins are distended.",
+        question: "What is happening, and what does he need?",
+        choices: [
+          "Tension pneumothorax — immediate needle decompression (2nd intercostal space midclavicular, or 4th/5th anterior axillary); do NOT wait for a chest X-ray",
+          "Pulmonary embolism — stat CT angiogram",
+          "Cardiac tamponade — pericardiocentesis",
+          "Anxiety attack — benzodiazepines and reassurance",
+        ],
+        answer: 0,
+        rationale:
+          "Unilateral absent breath sounds + tracheal deviation + JVD + shock after chest trauma is tension pneumothorax — a clinical diagnosis. Imaging first is a classic fatal delay: decompress on recognition. (Tamponade causes JVD too, but not the unilateral silent chest.)",
+        outcome: "The provider is grabbing the needle — but before it's ready, his eyes close. The carotid is silent. He has arrested.",
+        intervention: "Tension pneumothorax recognized",
+      },
+      {
+        rhythm: "sinus_tach",
+        vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: 10 },
+        scene: { cpr: true, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
+        narrative:
+          "PEA arrest — a fast narrow rhythm on the monitor, no pulse. CPR is running, and the ETCO2 is only 10 despite good compressions.",
+        question: "What must happen alongside CPR and epinephrine?",
+        choices: [
+          "Needle decompression NOW — this is an obstructive arrest; compressions and epinephrine cannot generate output past an obstructed circulation",
+          "Nothing else — standard PEA care alone will fix it",
+          "Defibrillate the fast rhythm",
+          "Pause CPR for a portable chest X-ray to confirm",
+        ],
+        answer: 0,
+        rationale:
+          "Obstructive causes (tension pneumothorax, tamponade, massive PE) are mechanical problems — the chest is pressurized and the heart can't fill. The decompression IS the resuscitation; drugs and compressions merely bridge to it. And no imaging pauses in an arrest.",
+        outcome: "The needle goes in — a hiss of air escapes. Within one cycle the ETCO2 leaps from 10 to 34, and the next check finds a bounding femoral pulse.",
+        intervention: "Needle decompression → ROSC",
+      },
+      {
+        rhythm: "sinus_tach",
+        vitals: { hr: 124, spo2: 91, nibp: "88/54", rr: 0, etco2: 34 },
+        scene: { cpr: false, pads: true, bvm: true, iv: true, meds: false, loc: "UNRESPONSIVE", pulse: "WEAK", breathing: "ASSISTED" },
+        narrative: "ROSC after decompression. The needle catheter is taped in place, hissing softly with each ventilation.",
+        question: "The needle worked — what does he still need, and why?",
+        choices: [
+          "A chest tube (tube thoracostomy) — needle decompression is temporizing; the catheter can kink or clot and the tension can rebuild",
+          "Nothing further — the needle is the definitive treatment",
+          "Immediate removal of the needle now that he has a pulse",
+          "Bilateral prophylactic needles",
+        ],
+        answer: 0,
+        rationale:
+          "The needle converts a tension pneumothorax into an open one and buys minutes — it is never definitive. A chest tube follows as soon as possible; until it's in, watch for the tension re-accumulating (falling sats, rising airway pressures, dropping BP).",
+        outcome: "The chest tube goes in at the fourth interspace — a rush of air, and the lung begins to re-expand.",
+        intervention: "Chest tube placed",
+      },
+      {
+        rhythm: "sinus_tach",
+        vitals: { hr: 112, spo2: 95, nibp: "98/60", rr: 0, etco2: 36 },
+        scene: { cpr: false, pads: true, bvm: true, iv: true, meds: false, loc: "ALTERED", pulse: "PRESENT", breathing: "ASSISTED" },
+        narrative: "Chest tube in, pressures improving. NOW the post-decompression chest X-ray is done, confirming placement and re-expansion.",
+        question: "Which monitoring priorities follow a tension pneumothorax arrest?",
+        choices: [
+          "Watch the chest tube (swing, output, air leak), respiratory status, and vitals for re-tension; serial imaging; and standard post-ROSC care",
+          "The chest tube needs no monitoring once placed",
+          "Clamp the chest tube for transport",
+          "Remove the tube after one hour if he looks well",
+        ],
+        answer: 0,
+        rationale:
+          "Post-tube care: confirm position, monitor for air leak and drainage, never clamp a bubbling tube (that rebuilds the tension), and watch for recurrence. The X-ray happens AFTER decompression — it confirms, it never gates, the treatment.",
+        outcome: "The tube swings with respiration and the trachea is midline again. He's waking up and fighting the ETT — a good sign, honestly.",
+        intervention: "Chest tube monitoring · CXR confirms",
+      },
+      {
+        rhythm: "nsr",
+        vitals: { hr: 96, spo2: 97, nibp: "108/66", rr: 16, etco2: null },
+        scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
+        narrative: "Extubated and stable with the chest tube to suction. The team debriefs the case.",
+        question: "What is the core lesson of an obstructive-cause arrest?",
+        choices: [
+          "When PEA has a mechanical cause, the mechanical fix is the resuscitation — recognize obstructive physiology clinically and act without waiting for imaging",
+          "Epinephrine works equally well for every PEA cause",
+          "Tension pneumothorax can only be diagnosed radiographically",
+          "Obstructive arrests are unsurvivable",
+        ],
+        answer: 0,
+        rationale:
+          "The H's and T's aren't a recitation — they're a search list. Obstructive causes (tension pneumothorax, tamponade, PE) kill by physics, and only reversing the physics restores circulation. Clinical recognition and immediate action made this save.",
+        outcome: "He keeps the chest tube for two days and walks out a week later. The debrief goes in the unit's teaching file.",
+        intervention: "Debrief · teaching case filed",
       },
     ],
   },

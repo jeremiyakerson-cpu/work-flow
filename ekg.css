@@ -296,6 +296,7 @@
 .vital.spo2 .vital-value { color: #4fd1ff; }
 .vital.nibp .vital-value { color: #ffffff; font-size: 1.1rem; }
 .vital.rr .vital-value { color: #ffd23f; font-size: 1.2rem; }
+.vital.etco2 .vital-value { color: #c9a2ff; font-size: 1.2rem; }
 
 .trace-col {
   position: relative;
