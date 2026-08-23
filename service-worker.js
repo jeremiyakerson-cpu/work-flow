@@ -1,4 +1,4 @@
-const CACHE_NAME = "ekg-trainer-v3";
+const CACHE_NAME = "ekg-trainer-v4";
 const CORE_ASSETS = [
   "ekg-test.html",
   "ekg.css",
@@ -6,6 +6,7 @@ const CORE_ASSETS = [
   "ekg-rhythms.js",
   "ekg-questions.js",
   "ekg-scenarios.js",
+  "ekg-monitor.js",
   "ekg-test.js",
   "ekg-scenario.js",
   "manifest.webmanifest",

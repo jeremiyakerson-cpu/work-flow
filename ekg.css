@@ -975,3 +975,88 @@
   }
   .sc-monitor-screen .vital { flex: 1 1 40%; }
 }
+
+/* ================= MONITOR REALISM ================= */
+
+.monitor-screen {
+  position: relative;
+}
+
+.monitor-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.sound-toggle {
+  background: transparent;
+  border: 1px solid #2a3038;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 3px 6px;
+  cursor: pointer;
+  color: #9aa5b1;
+}
+
+.sound-toggle:hover {
+  border-color: #4a5560;
+}
+
+.monitor-adult-chip {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #7c8895;
+  border: 1px solid #2a3038;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.monitor-batt {
+  font-size: 0.6rem;
+  letter-spacing: -0.08em;
+  color: #39ff8f;
+}
+
+/* Scene micro-motion */
+@keyframes chest-press {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(2px) scaleY(0.955); }
+}
+
+.scene-cpr .patient .torso {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: chest-press 0.55s ease-in-out infinite;
+}
+
+@keyframes chest-breathe {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(-1.5px) scaleY(1.045); }
+}
+
+.scene-breathing .patient .torso {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: chest-breathe 3.8s ease-in-out infinite;
+}
+
+/* Scenario elapsed-time chip */
+.sc-elapsed {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 3px 10px;
+  border-radius: 999px;
+}

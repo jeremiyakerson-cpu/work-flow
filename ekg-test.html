@@ -85,8 +85,11 @@
       <div class="monitor-bezel">
         <div class="monitor-topbar">
           <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-adult-chip">ADULT</span>
           <span class="monitor-mode-badge">TRAINING SIMULATION — NOT FOR CLINICAL USE</span>
           <span class="monitor-timer" id="monitor-timer" hidden></span>
+          <button class="sound-toggle" type="button">🔇</button>
+          <span class="monitor-batt" title="Battery">▮▮▮▯</span>
           <span class="monitor-clock" id="monitor-clock"></span>
         </div>
         <div class="monitor-screen">
@@ -165,6 +168,7 @@
       <div>
         <h2 id="sc-title"></h2>
         <span class="sc-progress" id="sc-progress"></span>
+        <span class="sc-elapsed" id="sc-elapsed">ELAPSED 00:00</span>
       </div>
       <button class="discard-btn" id="sc-exit-btn">Exit scenario</button>
     </div>
@@ -175,7 +179,10 @@
         <div class="monitor-bezel">
           <div class="monitor-topbar">
             <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+            <span class="monitor-adult-chip">ADULT</span>
             <span class="monitor-mode-badge">TRAINING SIMULATION</span>
+            <button class="sound-toggle" type="button">🔇</button>
+            <span class="monitor-batt" title="Battery">▮▮▮▯</span>
           </div>
           <div class="monitor-screen sc-monitor-screen">
             <div class="vitals-col">
@@ -237,6 +244,10 @@
         <div class="score-hero-value" id="sc-debrief-score">0 / 5</div>
         <div class="score-hero-label">DECISIONS CORRECT</div>
       </div>
+      <div class="score-hero-cell">
+        <div class="score-hero-value" id="sc-debrief-time">00:00</div>
+        <div class="score-hero-label">CODE DURATION</div>
+      </div>
     </div>
     <div class="sc-debrief-log-wrap">
       <h3>Event log</h3>
@@ -253,6 +264,7 @@
 <script src="ekg-rhythms.js"></script>
 <script src="ekg-questions.js"></script>
 <script src="ekg-scenarios.js"></script>
+<script src="ekg-monitor.js"></script>
 <script src="ekg-test.js"></script>
 <script src="ekg-scenario.js"></script>
 <script>

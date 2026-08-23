@@ -254,59 +254,14 @@ function renderMonitor(q) {
 
   document.getElementById("trace-rhythm-tag").textContent = "";
 
-  const canvas = document.getElementById("ekg-canvas");
-  const ctx = canvas.getContext("2d");
-  const dpr = window.devicePixelRatio || 1;
-  const cssW = canvas.clientWidth || 900;
-  const cssH = canvas.clientHeight || 200;
-  canvas.width = cssW * dpr;
-  canvas.height = cssH * dpr;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  drawGrid(ctx, cssW, cssH);
-
-  const samples = EkgRhythms.synthesizeRhythm(q.rhythm);
-  drawTrace(ctx, samples, cssW, cssH);
-}
-
-function drawGrid(ctx, w, h) {
-  ctx.fillStyle = "#020a06";
-  ctx.fillRect(0, 0, w, h);
-  ctx.strokeStyle = "rgba(0, 200, 110, 0.12)";
-  ctx.lineWidth = 1;
-  const step = 20;
-  for (let x = 0; x <= w; x += step) {
-    ctx.beginPath();
-    ctx.moveTo(x + 0.5, 0);
-    ctx.lineTo(x + 0.5, h);
-    ctx.stroke();
-  }
-  for (let y = 0; y <= h; y += step) {
-    ctx.beginPath();
-    ctx.moveTo(0, y + 0.5);
-    ctx.lineTo(w, y + 0.5);
-    ctx.stroke();
-  }
-}
-
-function drawTrace(ctx, samples, w, h) {
-  const midY = h / 2;
-  const scaleY = h * 0.36;
-  ctx.strokeStyle = "#39ff8f";
-  ctx.lineWidth = 2;
-  ctx.lineJoin = "round";
-  ctx.shadowColor = "rgba(57, 255, 143, 0.55)";
-  ctx.shadowBlur = 4;
-  ctx.beginPath();
-  const n = samples.length;
-  for (let i = 0; i < n; i++) {
-    const x = (i / (n - 1)) * w;
-    const y = midY - samples[i] * scaleY;
-    if (i === 0) ctx.moveTo(x, y);
-    else ctx.lineTo(x, y);
-  }
-  ctx.stroke();
-  ctx.shadowBlur = 0;
+  if (!window.__mainMonitor) window.__mainMonitor = EkgMonitor.attach("ekg-canvas");
+  const alarmed = !alarm.hidden;
+  window.__mainMonitor.setRhythm(q.rhythm, {
+    hr: v.hr,
+    // pleth runs only when the question's patient is actually perfusing
+    perfusing: !!(v.hr && v.hr > 0 && v.nibp && v.nibp !== "--/--"),
+    lethal: alarmed,
+  });
 }
 
 function renderChoices(q) {
@@ -452,8 +407,5 @@ function showResults() {
   });
   document.getElementById("missed-heading").hidden = !anyMissed;
 }
-
-// Shared canvas helpers for the code-scenario module.
-window.EkgDraw = { drawGrid, drawTrace };
 
 init();

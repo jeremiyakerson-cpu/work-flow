@@ -11,7 +11,31 @@ const scState = {
   stageIdx: 0,
   correct: 0,
   log: [], // { text, correct }
+  startTime: null,
+  elapsedId: null,
 };
+
+function scFmtElapsed(ms) {
+  const s = Math.floor(ms / 1000);
+  return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+}
+
+function scStartClock() {
+  scState.startTime = Date.now();
+  scStopClock();
+  const el = document.getElementById("sc-elapsed");
+  el.textContent = "ELAPSED 00:00";
+  scState.elapsedId = setInterval(() => {
+    el.textContent = `ELAPSED ${scFmtElapsed(Date.now() - scState.startTime)}`;
+  }, 1000);
+}
+
+function scStopClock() {
+  if (scState.elapsedId) {
+    clearInterval(scState.elapsedId);
+    scState.elapsedId = null;
+  }
+}
 
 function scShuffle(arr) {
   const a = arr.slice();
@@ -58,6 +82,7 @@ function scStart(scenario) {
   scState.correct = 0;
   scState.log = [];
   scShow("sc-shell");
+  scStartClock();
   scRenderStage();
 }
 
@@ -124,17 +149,12 @@ function scRenderMonitor(st) {
     alarm.hidden = true;
   }
 
-  const canvas = document.getElementById("sc-ekg-canvas");
-  const ctx = canvas.getContext("2d");
-  const dpr = window.devicePixelRatio || 1;
-  const cssW = canvas.clientWidth || 560;
-  const cssH = canvas.clientHeight || 150;
-  canvas.width = cssW * dpr;
-  canvas.height = cssH * dpr;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  EkgDraw.drawGrid(ctx, cssW, cssH);
-  EkgDraw.drawTrace(ctx, EkgRhythms.synthesizeRhythm(st.rhythm), cssW, cssH);
+  if (!window.__scMonitor) window.__scMonitor = EkgMonitor.attach("sc-ekg-canvas");
+  window.__scMonitor.setRhythm(st.rhythm, {
+    hr: v.hr,
+    perfusing: st.scene && st.scene.pulse !== "ABSENT",
+    lethal: !alarm.hidden,
+  });
 }
 
 // ---------- the code scene (animated patient) ----------
@@ -145,7 +165,8 @@ const RESP_STYLE = { SPONTANEOUS: "good", ASSISTED: "warn", NONE: "bad" };
 
 function scRenderScene(scene) {
   const wrap = document.getElementById("sc-scene");
-  wrap.className = `sc-scene ${scene.cpr ? "scene-cpr" : ""}`;
+  const breathing = !scene.cpr && scene.breathing === "SPONTANEOUS";
+  wrap.className = `sc-scene ${scene.cpr ? "scene-cpr" : ""} ${breathing ? "scene-breathing" : ""}`;
 
   // The code cart/IV appear whenever a resuscitation is in progress, or
   // when a scenario explicitly flags them.
@@ -261,7 +282,7 @@ function scRenderScene(scene) {
         <circle cx="100" cy="140" r="7" fill="#4a3b32"/>
         <circle cx="104" cy="147" r="12" fill="#c9a08a"/>
         <rect x="114" y="150" width="8" height="8" fill="#c9a08a"/>
-        <rect x="119" y="137" width="116" height="27" rx="12" fill="#4f6f96"/>
+        <rect class="torso" x="119" y="137" width="116" height="27" rx="12" fill="#4f6f96"/>
         <rect x="126" y="157" width="24" height="10" rx="5" fill="#46618a"/>
         <rect x="148" y="158" width="42" height="8" rx="4" fill="#c9a08a"/>
         <circle cx="193" cy="162" r="4.5" fill="#c9a08a"/>
@@ -347,9 +368,11 @@ function scDebrief() {
   const best = Number(localStorage.getItem(key) ?? -1);
   if (scState.correct > best) localStorage.setItem(key, String(scState.correct));
 
+  scStopClock();
   scShow("sc-debrief");
   document.getElementById("sc-debrief-title").textContent = s.title;
   document.getElementById("sc-debrief-score").textContent = `${scState.correct} / ${total}`;
+  document.getElementById("sc-debrief-time").textContent = scFmtElapsed(Date.now() - scState.startTime);
 
   const verdict = document.getElementById("sc-debrief-verdict");
   if (scState.correct === total) verdict.textContent = "Flawless code — every decision on the first try.";
@@ -369,7 +392,10 @@ function scDebrief() {
 function scInit() {
   document.getElementById("mode-scenario").addEventListener("click", scOpenPicker);
   document.getElementById("sc-picker-back").addEventListener("click", () => scShow("start-screen"));
-  document.getElementById("sc-exit-btn").addEventListener("click", scOpenPicker);
+  document.getElementById("sc-exit-btn").addEventListener("click", () => {
+    scStopClock();
+    scOpenPicker();
+  });
   document.getElementById("sc-next-btn").addEventListener("click", scNext);
   document.getElementById("sc-debrief-retry").addEventListener("click", () => scStart(scState.scenario));
   document.getElementById("sc-debrief-back").addEventListener("click", scOpenPicker);
