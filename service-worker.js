@@ -1,11 +1,13 @@
-const CACHE_NAME = "ekg-trainer-v1";
+const CACHE_NAME = "ekg-trainer-v2";
 const CORE_ASSETS = [
   "ekg-test.html",
   "ekg.css",
   "styles.css",
   "ekg-rhythms.js",
   "ekg-questions.js",
+  "ekg-scenarios.js",
   "ekg-test.js",
+  "ekg-scenario.js",
   "manifest.webmanifest",
   "icon-192.png",
   "icon-512.png",

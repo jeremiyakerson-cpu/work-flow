@@ -25,7 +25,7 @@
     </nav>
   </div>
   <div class="header-sub">
-    <span class="outline-badge">25-QUESTION ASSESSMENT · SIMULATED ZOLL X SERIES MONITOR</span>
+    <span class="outline-badge">50-QUESTION BANK + CODE SCENARIOS · SIMULATED ZOLL X SERIES MONITOR</span>
   </div>
 </header>
 
@@ -34,8 +34,9 @@
   <div id="start-screen" class="ekg-intro">
     <h1>EKG Rhythm Trainer</h1>
     <p>
-      Twenty-five questions on a simulated cardiac monitor: identify the rhythm, pick the right medication,
-      and respond to a sudden change in condition — including the code rhythms you'll be tested on for CEN.
+      A simulated cardiac monitor with a 50-question bank (each run draws 25) plus multi-stage code
+      scenarios where the rhythm changes as the code unfolds: identify the rhythm, pick the right
+      medication, and respond to the change in condition.
       This is a training simulation only, not a real medical device.
     </p>
     <div class="ekg-tags">
@@ -43,6 +44,7 @@
       <span class="ekg-tag">MEDICATIONS</span>
       <span class="ekg-tag">CHANGE IN CONDITION</span>
       <span class="ekg-tag">CODE RHYTHMS</span>
+      <span class="ekg-tag">MEGACODE SCENARIOS</span>
     </div>
 
     <div id="resume-banner" class="resume-banner" hidden>
@@ -56,11 +58,15 @@
     <div id="mode-select" class="mode-select">
       <button class="mode-card" id="mode-practice">
         <span class="mode-card-title">Practice mode</span>
-        <span class="mode-card-desc">Untimed. See the correct answer and rationale immediately after each question.</span>
+        <span class="mode-card-desc">Untimed. 25 questions drawn fresh from the 50-question bank, with the correct answer and rationale shown immediately.</span>
       </button>
       <button class="mode-card" id="mode-simulation">
         <span class="mode-card-title">Simulation test</span>
-        <span class="mode-card-desc">Timed (25 min), exam conditions. No feedback until the full run is scored at the end.</span>
+        <span class="mode-card-desc">Timed (25 min), exam conditions. 25 fresh questions, no feedback until the full run is scored at the end.</span>
+      </button>
+      <button class="mode-card mode-card-scenario" id="mode-scenario">
+        <span class="mode-card-title">Code scenarios</span>
+        <span class="mode-card-desc">Run a full code: the rhythm changes as the case evolves — monitor on one side, the patient and code team on the other.</span>
       </button>
     </div>
   </div>
@@ -143,11 +149,108 @@
     <button class="retry-btn" id="retry-btn">Retake assessment</button>
   </div>
 
+  <!-- ============ CODE SCENARIOS ============ -->
+
+  <div id="sc-picker" hidden>
+    <div class="sc-picker-head">
+      <h2>Code scenarios</h2>
+      <p>Multi-stage megacodes. Each decision you make advances the code — and the rhythm on the monitor changes with the patient's condition.</p>
+    </div>
+    <div class="sc-picker-grid" id="sc-picker-grid"></div>
+    <button class="discard-btn" id="sc-picker-back">← Back to menu</button>
+  </div>
+
+  <div id="sc-shell" hidden>
+    <div class="sc-head">
+      <div>
+        <h2 id="sc-title"></h2>
+        <span class="sc-progress" id="sc-progress"></span>
+      </div>
+      <button class="discard-btn" id="sc-exit-btn">Exit scenario</button>
+    </div>
+
+    <div class="sc-split">
+      <!-- LEFT: the monitor -->
+      <div class="sc-monitor-pane">
+        <div class="monitor-bezel">
+          <div class="monitor-topbar">
+            <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+            <span class="monitor-mode-badge">TRAINING SIMULATION</span>
+          </div>
+          <div class="monitor-screen sc-monitor-screen">
+            <div class="vitals-col">
+              <div class="vital hr">
+                <div class="vital-label">HR <span class="unit">bpm</span></div>
+                <div class="vital-value" id="sc-vital-hr">--</div>
+              </div>
+              <div class="vital spo2">
+                <div class="vital-label">SpO<sub>2</sub> <span class="unit">%</span></div>
+                <div class="vital-value" id="sc-vital-spo2">--</div>
+              </div>
+              <div class="vital nibp">
+                <div class="vital-label">NIBP <span class="unit">mmHg</span></div>
+                <div class="vital-value" id="sc-vital-nibp">--/--</div>
+              </div>
+              <div class="vital rr">
+                <div class="vital-label">RESP <span class="unit">rpm</span></div>
+                <div class="vital-value" id="sc-vital-rr">--</div>
+              </div>
+            </div>
+            <div class="trace-col">
+              <div class="trace-label">LEAD II</div>
+              <canvas id="sc-ekg-canvas" width="560" height="150"></canvas>
+              <div class="alarm-banner" id="sc-alarm-banner" hidden></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: the patient / code scene -->
+      <div class="sc-scene-pane">
+        <div class="sc-scene" id="sc-scene"></div>
+        <div class="sc-log-wrap">
+          <span class="sc-log-title">INTERVENTIONS</span>
+          <ul class="sc-log" id="sc-log"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-panel">
+      <p class="sc-narrative" id="sc-narrative"></p>
+      <p class="q-stem sc-question" id="sc-question"></p>
+      <div class="monitor-softkeys sc-softkeys" id="sc-softkeys"></div>
+      <div class="rationale" id="sc-rationale" hidden></div>
+      <p class="sc-outcome" id="sc-outcome" hidden></p>
+      <button class="next-btn" id="sc-next-btn" hidden>Continue the code →</button>
+    </div>
+  </div>
+
+  <div id="sc-debrief" class="results-screen" hidden>
+    <h2>Code debrief — <span id="sc-debrief-title"></span></h2>
+    <p id="sc-debrief-verdict"></p>
+    <div class="score-hero">
+      <div class="score-hero-cell">
+        <div class="score-hero-value" id="sc-debrief-score">0 / 5</div>
+        <div class="score-hero-label">DECISIONS CORRECT</div>
+      </div>
+    </div>
+    <div class="sc-debrief-log-wrap">
+      <h3>Event log</h3>
+      <ul class="sc-log sc-debrief-log" id="sc-debrief-log"></ul>
+    </div>
+    <div class="sc-debrief-actions">
+      <button class="retry-btn" id="sc-debrief-retry">Run it again</button>
+      <button class="discard-btn" id="sc-debrief-back">All scenarios</button>
+    </div>
+  </div>
+
 </main>
 
 <script src="ekg-rhythms.js"></script>
 <script src="ekg-questions.js"></script>
+<script src="ekg-scenarios.js"></script>
 <script src="ekg-test.js"></script>
+<script src="ekg-scenario.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

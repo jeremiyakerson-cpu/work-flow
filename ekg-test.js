@@ -1,5 +1,6 @@
 const BEST_SCORE_KEY_PREFIX = "ekg-zoll-trainer-best-score-";
 const SESSION_KEY = "ekg-zoll-trainer-session-v1";
+const QUESTIONS_PER_RUN = 25; // sampled from the full bank each attempt
 const SIMULATION_SECONDS = 25 * 60; // 25 minutes for 25 questions
 
 const CATEGORY_LABEL = {
@@ -61,8 +62,9 @@ function saveSession() {
 function loadSession() {
   try {
     const raw = JSON.parse(localStorage.getItem(SESSION_KEY));
-    if (!raw || !Array.isArray(raw.order) || raw.order.length !== EKG_QUESTIONS.length) return null;
-    if (raw.current >= EKG_QUESTIONS.length) return null; // already finished
+    if (!raw || !Array.isArray(raw.order) || raw.order.length !== QUESTIONS_PER_RUN) return null;
+    if (raw.current >= QUESTIONS_PER_RUN) return null; // already finished
+    if (raw.order.some((idx) => idx >= EKG_QUESTIONS.length)) return null; // stale bank
     return raw;
   } catch {
     return null;
@@ -122,9 +124,9 @@ function tickClock() {
 
 function startTest(mode) {
   state.mode = mode;
-  state.order = shuffle(EKG_QUESTIONS.map((_, i) => i));
+  state.order = shuffle(EKG_QUESTIONS.map((_, i) => i)).slice(0, QUESTIONS_PER_RUN);
   state.current = 0;
-  state.answered = new Array(EKG_QUESTIONS.length).fill(null);
+  state.answered = new Array(QUESTIONS_PER_RUN).fill(null);
   state.score = 0;
   state.remainingSeconds = SIMULATION_SECONDS;
   saveSession();
@@ -195,7 +197,7 @@ function renderTimer() {
 }
 
 function finishDueToTimeout() {
-  for (let i = 0; i < EKG_QUESTIONS.length; i++) {
+  for (let i = 0; i < state.order.length; i++) {
     if (!state.answered[i]) state.answered[i] = { chosen: null, correct: false, timedOut: true };
   }
   showResults();
@@ -210,7 +212,7 @@ function renderQuestion() {
   const qNum = state.current + 1;
 
   document.getElementById("q-num").textContent = qNum;
-  document.getElementById("test-progress-fill").style.width = `${((qNum - 1) / EKG_QUESTIONS.length) * 100}%`;
+  document.getElementById("test-progress-fill").style.width = `${((qNum - 1) / state.order.length) * 100}%`;
   document.getElementById("score-live").textContent = state.score;
   document.getElementById("answered-live").textContent = state.current;
 
@@ -361,11 +363,11 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
 
   document.getElementById("next-btn").hidden = false;
   document.getElementById("next-btn").textContent =
-    state.current === EKG_QUESTIONS.length - 1 ? "See results →" : "Next question →";
+    state.current === state.order.length - 1 ? "See results →" : "Next question →";
 }
 
 function nextQuestion() {
-  if (state.current === EKG_QUESTIONS.length - 1) {
+  if (state.current === state.order.length - 1) {
     stopTimer();
     showResults();
     return;
@@ -381,7 +383,7 @@ function showResults() {
   const screen = document.getElementById("results-screen");
   screen.hidden = false;
 
-  const total = EKG_QUESTIONS.length;
+  const total = state.order.length;
   const pct = Math.round((state.score / total) * 100);
   document.getElementById("final-score").textContent = `${state.score} / ${total}`;
   document.getElementById("final-pct").textContent = `${pct}%`;
@@ -450,5 +452,8 @@ function showResults() {
   });
   document.getElementById("missed-heading").hidden = !anyMissed;
 }
+
+// Shared canvas helpers for the code-scenario module.
+window.EkgDraw = { drawGrid, drawTrace };
 
 init();
