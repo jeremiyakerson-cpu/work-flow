@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Betting Desk</title>
+<style>
+  :root{
+    --felt:#0F1512; --felt-2:#161E19; --felt-3:#1D2721; --rule:#26332C;
+    --chalk:#E9E7DE; --dim:#87907F; --brass:#C9A227; --brass-soft:#8A731C;
+    --up:#63C97F; --down:#DE5C48;
+    --ticket:#F1EADA; --ink:#1A1713; --trule:#CFC4AC;
+    --display:"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --body:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--felt);color:var(--chalk);font-family:var(--body);
+       font-size:15px;line-height:1.4;padding-bottom:96px;font-variant-numeric:tabular-nums}
+  button{font-family:inherit}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  header{padding:14px 16px 0}
+  .top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  h1{font-family:var(--display);font-weight:700;font-size:28px;margin:0;letter-spacing:.02em}
+  h1 span{color:var(--brass)}
+  .stamp{font-size:11px;color:var(--dim);text-align:right;line-height:1.35}
+  .controls{display:flex;gap:8px;margin:12px 0 0;align-items:center;flex-wrap:wrap}
+  .refresh{flex:1;min-width:150px;background:var(--brass);border:0;color:#14110A;
+    font-weight:700;font-size:15px;padding:12px;border-radius:3px;cursor:pointer}
+  .refresh:disabled{opacity:.55;cursor:wait}
+  .mini{background:var(--felt-2);border:1px solid var(--rule);color:var(--chalk);
+    font-size:13px;padding:10px 11px;border-radius:3px}
+  .mini[type=number]{width:74px}
+
+  .rail{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
+  .rail::-webkit-scrollbar,.tabs::-webkit-scrollbar{display:none}
+  .sport{flex:0 0 auto;background:var(--felt-2);border:1px solid var(--rule);color:var(--dim);
+    font-family:var(--display);font-weight:700;font-size:17px;padding:8px 15px 7px;
+    border-radius:2px;cursor:pointer;letter-spacing:.03em}
+  .sport[aria-selected=true]{background:var(--brass);border-color:var(--brass);color:#14110A}
+  .tabs{display:flex;gap:20px;padding:0 16px;border-bottom:1px solid var(--rule);overflow-x:auto}
+  .tab{background:none;border:0;padding:0 0 10px;color:var(--dim);font-size:14px;cursor:pointer;
+    border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+  .tab[aria-selected=true]{color:var(--chalk);border-bottom-color:var(--brass)}
+
+  main{padding:14px 12px 0}
+  .banner{border:1px solid var(--rule);border-left:3px solid var(--brass-soft);background:var(--felt-2);
+    border-radius:3px;padding:11px 13px;margin-bottom:12px;font-size:13px;line-height:1.5}
+  .banner.err{border-left-color:var(--down)}
+  .banner b{display:block;margin-bottom:3px}
+  .banner span{color:var(--dim)}
+
+  .sechead{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 10px}
+  .sechead h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0}
+  .sechead span{font-size:11.5px;color:var(--dim)}
+
+  .game{background:var(--felt-2);border:1px solid var(--rule);border-radius:4px;margin-bottom:9px;overflow:hidden}
+  .ghead{display:grid;grid-template-columns:1fr 78px 78px;gap:5px;padding:9px 11px 3px;
+    font-size:9.5px;color:var(--dim);letter-spacing:.05em}
+  .ghead div:not(:first-child){text-align:center}
+  .grow{display:grid;grid-template-columns:1fr 78px 78px;gap:5px;padding:4px 11px;align-items:stretch}
+  .grow:last-of-type{padding-bottom:9px}
+  .tm{display:flex;align-items:center;gap:8px;min-width:0}
+  .ab{font-family:var(--display);font-weight:700;font-size:18px;width:38px;flex:0 0 38px}
+  .nm{font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cell{background:var(--felt-3);border:1px solid var(--rule);border-radius:3px;color:var(--chalk);
+    font-size:13px;padding:7px 2px;cursor:pointer;text-align:center;line-height:1.2;
+    display:flex;flex-direction:column;justify-content:center;min-height:48px}
+  .cell .p{color:#9FB3F5}
+  .cell .bk{font-size:9.5px;color:var(--dim);margin-top:1px}
+  .cell.on{background:var(--brass);border-color:var(--brass);color:#14110A}
+  .cell.on .p,.cell.on .bk{color:#4A3C0C}
+  .cell.plus{border-color:var(--up)}
+  .cell.none{opacity:.45;cursor:default;font-size:15px}
+  .gfoot{padding:7px 11px;border-top:1px dashed var(--rule);display:flex;gap:13px;flex-wrap:wrap;
+    font-size:11px;color:var(--dim)}
+  .gfoot b{color:var(--chalk);font-weight:600}
+  .gtime{padding:7px 11px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--dim);
+    display:flex;justify-content:space-between}
+
+  .play{background:var(--felt-2);border:1px solid var(--rule);border-left:3px solid var(--up);
+    border-radius:3px;padding:11px 12px;margin-bottom:8px;cursor:pointer}
+  .play .l1{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  .play .pick{font-size:14.5px;font-weight:600}
+  .play .ev{font-family:var(--display);font-weight:700;font-size:20px;color:var(--up)}
+  .play .l2{font-size:11.5px;color:var(--dim);margin-top:4px;line-height:1.5}
+
+  .empty{border:1px dashed var(--rule);border-radius:4px;padding:26px 20px;text-align:center;
+    color:var(--dim);font-size:13.5px}
+  .empty strong{display:block;color:var(--chalk);font-size:15px;margin-bottom:6px}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--ticket);color:var(--ink);
+    border-top:3px solid var(--brass);padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+    display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer}
+  .bar .price{font-family:var(--display);font-weight:700;font-size:24px;line-height:1}
+  .bar .sub{font-size:11.5px;opacity:.7}
+  .sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ticket);color:var(--ink);
+    max-height:84vh;overflow-y:auto;border-top:3px solid var(--brass);
+    padding:16px 16px calc(20px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .22s}
+  .sheet.open{transform:translateY(0)}
+  .scrim{position:fixed;inset:0;background:rgba(8,12,10,.6);z-index:45;opacity:0;pointer-events:none;transition:opacity .22s}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .shead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--trule);
+    padding-bottom:10px;margin-bottom:12px}
+  .shead h2{font-family:var(--display);font-size:22px;margin:0}
+  .x{background:none;border:0;font-size:22px;cursor:pointer;color:var(--ink);padding:4px 8px}
+  .leg{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px dashed var(--trule)}
+  .leg .pk{font-weight:600;font-size:14px}
+  .leg .mt{font-size:11.5px;opacity:.65;margin-top:2px}
+  .leg .od{font-family:var(--display);font-weight:700;font-size:18px}
+  .leg button{background:none;border:0;color:var(--down);font-size:12px;cursor:pointer;padding:2px 0 0}
+  .srow{display:flex;align-items:center;gap:10px;margin:14px 0 4px}
+  .srow input{width:92px;padding:8px 10px;font-size:16px;border:1px solid var(--trule);
+    border-radius:2px;background:#FBF7EC;color:var(--ink)}
+  .tot{border-top:1px solid var(--trule);margin-top:12px;padding-top:12px}
+  .trow{display:flex;justify-content:space-between;font-size:13.5px;padding:4px 0}
+  .trow.big{font-family:var(--display);font-weight:700;font-size:20px;padding-top:8px}
+  .warn{margin-top:14px;padding:10px 12px;background:#E6DCC4;border-left:3px solid var(--brass-soft);
+    font-size:12px;line-height:1.45}
+  .clr{margin-top:12px;width:100%;padding:11px;background:none;border:1px solid var(--trule);
+    border-radius:2px;font-size:13px;cursor:pointer;color:var(--ink)}
+  .note{padding:6px 16px 26px;font-size:11.5px;color:var(--dim);line-height:1.5}
+  .spin{display:inline-block;width:13px;height:13px;border:2px solid #14110A;border-top-color:transparent;
+    border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes s{to{transform:rotate(360deg)}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>Betting <span>Desk</span></h1>
+    <div class="stamp" id="stamp">Not refreshed yet</div>
+  </div>
+  <div class="controls">
+    <button class="refresh" id="go">Refresh board</button>
+    <label class="mini">$<input class="mini" id="stake" type="number" value="10" min="1" step="1"
+      style="border:0;padding:0 0 0 4px;background:none"></label>
+    <select class="mini" id="method">
+      <option value="power">Power de-vig</option>
+      <option value="multiplicative">Multiplicative</option>
+      <option value="additive">Additive</option>
+    </select>
+  </div>
+</header>
+
+<div class="rail" id="rail" role="tablist"></div>
+<div class="tabs" id="tabs" role="tablist"></div>
+<main id="out"><div class="empty"><strong>Nothing loaded yet</strong>
+  Pick a league and hit Refresh. Schedules come free from ESPN; odds cost credits.</div></main>
+<p class="note" id="note"></p>
+
+<div class="scrim" id="scrim"></div>
+<section class="sheet" id="sheet">
+  <div class="shead"><h2>Parlay slip</h2><button class="x" id="close">&times;</button></div>
+  <div id="legs"></div>
+  <div class="srow"><label for="pstake">Stake $</label>
+    <input id="pstake" type="number" value="10" min="0" step="1"></div>
+  <div class="tot" id="tot"></div><div class="warn" id="warn"></div>
+  <button class="clr" id="clear">Clear all legs</button>
+</section>
+<div class="bar" id="bar">
+  <div><div id="barlegs">No legs yet</div><div class="sub" id="barsub">Tap any price to add a leg</div></div>
+  <div class="price" id="barprice">—</div>
+</div>
+
+<script>
+const LEAGUES=[["mlb","MLB"],["nfl","NFL"],["ncaaf","CFB"],["nba","NBA"],
+  ["nhl","NHL"],["ncaab","CBB"],["wnba","WNBA"],["epl","Soccer"]];
+const TABS=["Board","Plays","Injuries"];
+let league="mlb",tab="Board",data=null,inj=null,slip=[],busy=false;
+
+const $=id=>document.getElementById(id);
+const out=$("out"),rail=$("rail"),tabsEl=$("tabs");
+const money=n=>(n<0?"-$":"$")+Math.abs(n).toFixed(2);
+const am=n=>(n>0?"+":"")+n;
+const pct=n=>(n*100).toFixed(1)+"%";
+
+LEAGUES.forEach(([k,l])=>{const b=document.createElement("button");
+  b.className="sport";b.textContent=l;b.setAttribute("role","tab");
+  b.onclick=()=>{league=k;data=null;inj=null;render();refresh();};rail.appendChild(b);});
+TABS.forEach(t=>{const b=document.createElement("button");b.className="tab";b.textContent=t;
+  b.onclick=()=>{tab=t;render();if(t==="Injuries"&&!inj)loadInjuries();};tabsEl.appendChild(b);});
+
+$("go").onclick=refresh;
+$("stake").onchange=()=>{if(data)refresh();};
+$("method").onchange=()=>{if(data)refresh();};
+
+async function refresh(){
+  if(busy)return; busy=true;
+  const btn=$("go"); btn.disabled=true; btn.innerHTML='<span class="spin"></span>Pulling live data…';
+  try{
+    const stake=$("stake").value||10, method=$("method").value;
+    const r=await fetch(`/api/board/${league}?stake=${stake}&method=${method}`);
+    const j=await r.json();
+    if(!r.ok) throw new Error(j.detail||`HTTP ${r.status}`);
+    data=j; data.error=null;
+  }catch(e){
+    data={error:String(e.message||e),games:[],plays:[],summary:{}};
+  }finally{
+    busy=false; btn.disabled=false; btn.textContent="Refresh board";
+    render();
+  }
+}
+
+async function loadInjuries(){
+  try{const r=await fetch(`/api/injuries/${league}`);inj=await r.json();}
+  catch(e){inj={injuries:[],error:String(e)};}
+  render();
+}
+
+function render(){
+  [...rail.children].forEach((b,i)=>b.setAttribute("aria-selected",LEAGUES[i][0]===league));
+  [...tabsEl.children].forEach((b,i)=>b.setAttribute("aria-selected",TABS[i]===tab));
+  if(data&&data.generated_at){
+    const u=data.usage||{};
+    $("stamp").innerHTML=`Refreshed ${new Date(data.generated_at).toLocaleTimeString()}<br>`+
+      (u.credits_remaining!=null?`${u.credits_remaining} credits left`:"credits unknown");
+  }
+  if(!data){out.innerHTML=`<div class="empty"><strong>Nothing loaded yet</strong>
+    Pick a league and hit Refresh.</div>`;return;}
+  if(data.error){out.innerHTML=`<div class="banner err"><b>Refresh failed</b>
+    <span>${data.error}</span></div>`;return;}
+  if(tab==="Plays")return renderPlays();
+  if(tab==="Injuries")return renderInjuries();
+  renderBoard();
+}
+
+function renderBoard(){
+  const gs=data.games||[];
+  const withOdds=gs.filter(g=>g.has_odds), without=gs.filter(g=>!g.has_odds);
+  let html=`<div class="banner"><b>${data.summary.games_with_odds} of ${data.summary.games_total} games priced</b>
+    <span>Fair value from ${data.sharp_book?("sharp book "+data.sharp_book):"a consensus of the books in the feed"},
+    ${data.devig_method} de-vig. Your books: ${(data.your_books||[]).join(", ")}.
+    ${data.summary.plays_found} spot${data.summary.plays_found===1?"":"s"} above fair value.</span></div>`;
+  html+=`<div class="sechead"><h2>Board</h2><span>prices from your books</span></div>`;
+  html+=withOdds.map(gameCard).join("");
+  if(without.length)html+=`<div class="sechead" style="padding-top:14px"><h2>No prices</h2>
+    <span>${without.length} game${without.length===1?"":"s"}</span></div>`+
+    without.map(g=>`<div class="game"><div class="gtime"><span>${g.name||""}</span>
+      <span>${fmtTime(g.start_utc)}</span></div>
+      <div class="gfoot"><span>No book in the feed is quoting this game yet.</span></div></div>`).join("");
+  out.innerHTML=html; wire();
+}
+
+function gameCard(g){
+  const mk=g.markets||{};
+  const row=(side,idx)=>{
+    const t=g[side]||{};
+    return `<div class="grow">
+      <div class="tm"><span class="ab">${t.abbr||"—"}</span><span class="nm">${t.name||""}</span></div>
+      ${priceCell(g,"spreads",idx)}${priceCell(g,"h2h",idx)}</div>`;
+  };
+  let foot="";
+  const h=mk.h2h;
+  if(h){
+    const home=h.sides[0];
+    const holds=Object.entries(h.market_hold||{})
+      .filter(([b])=>(data.your_books||[]).includes(b))
+      .map(([b,v])=>`${b} ${pct(v)}`).join(" · ");
+    foot=`<div class="gfoot">
+      <span>Fair <b>${g.home.abbr||"home"} ${pct(home.fair_prob)}</b> (${am(home.fair_price)})</span>
+      <span>${h.fair_source}</span>
+      ${holds?`<span>Hold <b>${holds}</b></span>`:""}
+      <span><b>${h.book_count}</b> books</span></div>`;
+  }
+  const tot=mk.totals;
+  let totRow="";
+  if(tot){
+    totRow=`<div class="grow"><div class="tm"><span class="ab">O/U</span>
+      <span class="nm">Total ${tot.sides[0].point??""}</span></div>
+      ${priceCell(g,"totals",0)}${priceCell(g,"totals",1)}</div>`;
+  }
+  return `<div class="game">
+    <div class="ghead"><div></div><div>SPREAD</div><div>WINNER</div></div>
+    ${row("home",0)}${row("away",1)}
+    ${tot?`<div class="ghead"><div></div><div>OVER</div><div>UNDER</div></div>${totRow}`:""}
+    ${foot}
+    <div class="gtime"><span>${fmtTime(g.start_utc)}</span><span>${g.venue||""}</span></div></div>`;
+}
+
+function priceCell(g,market,idx){
+  const m=(g.markets||{})[market];
+  if(!m||!m.sides[idx])return `<div class="cell none">—</div>`;
+  const s=m.sides[idx];
+  const mine=(s.your_books||[])[0];
+  if(!mine)return `<div class="cell none">—</div>`;
+  const id=`${g.espn_id||g.name}|${market}|${idx}`;
+  const on=slip.some(l=>l.id===id)?" on":"";
+  const plus=mine.ev_per_dollar>0?" plus":"";
+  const pt=s.point!=null?(market==="totals"?s.point:(s.point>0?"+"+s.point:s.point)):"";
+  return `<button class="cell${on}${plus}" data-id="${id}" data-label="${esc(sideLabel(g,market,idx,s))}"
+    data-price="${mine.price}" data-fair="${s.fair_prob}" data-game="${esc(g.name||"")}"
+    data-gid="${g.espn_id||g.name}" data-time="${g.start_utc||""}">
+    ${pt?`<span>${pt}</span>`:""}<span class="p">${am(mine.price)}</span>
+    <span class="bk">${mine.book}${mine.ev_per_dollar>0?" ▲":""}</span></button>`;
+}
+
+function sideLabel(g,market,idx,s){
+  const team=idx===0?(g.home.name||"Home"):(g.away.name||"Away");
+  if(market==="h2h")return `${team} to win`;
+  if(market==="spreads")return `${team} ${s.point>0?"+":""}${s.point??""}`;
+  return `${g.name} ${idx===0?"Over":"Under"} ${s.point??""}`;
+}
+
+function renderPlays(){
+  const ps=data.plays||[];
+  if(!ps.length){out.innerHTML=`<div class="empty"><strong>No edge on the board right now</strong>
+    Every price your books are showing sits at or below fair value after removing the vig.
+    That is a normal result and a valid place to stop.</div>`;return;}
+  out.innerHTML=`<div class="banner"><b>${ps.length} price${ps.length===1?"":"s"} above fair value</b>
+    <span>Ranked by EV per dollar. These are small and they are estimates — the fair number
+    is only as good as the books behind it (${data.sharp_book||"soft-book consensus"}).</span></div>`+
+    ps.map(p=>`<div class="play" data-id="${esc(p.game+p.market+p.side)}"
+      data-label="${esc(p.side+" "+(p.point??"")+" — "+p.game)}" data-price="${p.price}"
+      data-fair="${p.fair_prob}" data-game="${esc(p.game)}" data-gid="${esc(p.game)}" data-time="${p.start_utc||""}">
+      <div class="l1"><div class="pick">${p.side}${p.point!=null?" "+p.point:""} · ${p.book} ${am(p.price)}</div>
+      <div class="ev">+${(p.ev_per_dollar*100).toFixed(1)}%</div></div>
+      <div class="l2">${p.game} · ${fmtTime(p.start_utc)}<br>
+      Fair ${am(p.fair_price)} (${pct(p.fair_prob)}) from ${p.fair_source} · ${p.book_count} books<br>
+      EV ${money(p.ev_dollars)} at ${money(data.stake)} · quarter-Kelly ${(p.quarter_kelly*100).toFixed(2)}% of bankroll</div>
+    </div>`).join("");
+  wire();
+}
+
+function renderInjuries(){
+  if(!inj){out.innerHTML=`<div class="empty">Loading injuries…</div>`;return;}
+  const rows=inj.injuries||[];
+  if(!rows.length){out.innerHTML=`<div class="empty"><strong>No injury rows returned</strong>
+    ESPN's coverage varies by league. Empty here is not an error — it means ESPN
+    isn't publishing a report for ${league.toUpperCase()} right now.</div>`;return;}
+  const byTeam={};rows.forEach(r=>{(byTeam[r.team||"—"]=byTeam[r.team||"—"]||[]).push(r);});
+  out.innerHTML=Object.entries(byTeam).map(([t,list])=>
+    `<div class="sechead"><h2>${t}</h2><span>${list.length}</span></div>`+
+    list.map(r=>`<div class="game"><div class="gtime">
+      <span><b style="color:var(--chalk)">${r.player||""}</b> ${r.position||""}</span>
+      <span>${r.status||""}</span></div>
+      ${r.detail?`<div class="gfoot"><span>${r.detail}</span></div>`:""}</div>`).join("")).join("");
+}
+
+function wire(){
+  out.querySelectorAll("[data-price]").forEach(el=>el.onclick=()=>{
+    const d=el.dataset,i=slip.findIndex(l=>l.id===d.id);
+    if(i>-1)slip.splice(i,1);
+    else slip.push({id:d.id,label:d.label,american:+d.price,
+      fair_prob:d.fair?+d.fair:null,game:d.game,game_id:d.gid,time:d.time});
+    render();priceSlip();
+  });
+}
+
+async function priceSlip(){
+  const stake=+($("pstake").value||10);
+  $("barlegs").textContent=slip.length?`${slip.length} leg${slip.length>1?"s":""}`:"No legs yet";
+  if(!slip.length){
+    $("barprice").textContent="—";$("barsub").textContent="Tap any price to add a leg";
+    $("legs").innerHTML=`<p style="font-size:13px;opacity:.7">Empty.</p>`;
+    $("tot").innerHTML="";$("warn").innerHTML="";return;
+  }
+  $("legs").innerHTML="";
+  slip.forEach((l,i)=>{const d=document.createElement("div");d.className="leg";
+    d.innerHTML=`<div><div class="pk">${l.label}</div><div class="mt">${l.game} · ${fmtTime(l.time)}</div>
+      <button>Remove</button></div><div class="od">${am(l.american)}</div>`;
+    d.querySelector("button").onclick=()=>{slip.splice(i,1);render();priceSlip();};
+    $("legs").appendChild(d);});
+
+  const r=await fetch("/api/parlay",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({stake,legs:slip.map(l=>({label:l.label,american:l.american,
+      fair_prob:l.fair_prob,game_id:l.game_id}))})});
+  const j=await r.json();
+  $("barprice").textContent=am(j.american);
+  $("barsub").textContent=`${money(stake)} returns ${money(j.to_return)}`;
+  const evColor=j.ev_dollars==null?"inherit":(j.ev_dollars>=0?"#1F7A3A":"#B23A25");
+  $("tot").innerHTML=`
+    <div class="trow"><span>Price</span><b>${am(j.american)}</b></div>
+    <div class="trow"><span>Book implied chance</span><span>${pct(j.book_implied_prob)}</span></div>
+    ${j.fair_prob!=null?`<div class="trow"><span>Fair chance</span><span>${pct(j.fair_prob)}</span></div>
+    <div class="trow"><span>Total hold</span><span>${pct(j.total_hold)}</span></div>
+    <div class="trow"><span>Expected value</span><span style="color:${evColor}">${money(j.ev_dollars)}</span></div>
+    <div class="trow"><span>Same money as singles</span><span style="color:${evColor}">${
+      j.as_singles.total_ev_dollars!=null?money(j.as_singles.total_ev_dollars):"—"}</span></div>`
+    :`<div class="trow"><span>Expected value</span><span style="opacity:.6">not computed — a leg has no fair price</span></div>`}
+    <div class="trow big"><span>To return</span><span>${money(j.to_return)}</span></div>`;
+  $("warn").innerHTML=(j.notes||[]).join("<br>")||
+    "Each leg you add multiplies the book's margin against you.";
+}
+
+function fmtTime(iso){
+  if(!iso)return "";
+  const d=new Date(iso);
+  return d.toLocaleString(undefined,{weekday:"short",hour:"numeric",minute:"2-digit"});
+}
+function esc(s){return String(s??"").replace(/"/g,"&quot;").replace(/</g,"&lt;");}
+
+$("bar").onclick=()=>{$("sheet").classList.add("open");$("scrim").classList.add("open");};
+const shut=()=>{$("sheet").classList.remove("open");$("scrim").classList.remove("open");};
+$("close").onclick=shut;$("scrim").onclick=shut;
+$("pstake").oninput=priceSlip;
+$("clear").onclick=()=>{slip=[];render();priceSlip();shut();};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")shut();});
+$("note").textContent="Schedules, scores and injuries: ESPN, free. Odds: The Odds API, "+
+  "billed per credit. Nothing here places a bet — you do that yourself at the book.";
+render();priceSlip();
+</script>
+</body>
+</html>
