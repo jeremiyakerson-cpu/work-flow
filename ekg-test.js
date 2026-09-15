@@ -34,6 +34,7 @@ const ALL_SCREENS = [
   "study-screen",
   "sprint-screen",
   "progress-screen",
+  "codelog-screen",
 ];
 
 window.showScreen = function (id) {

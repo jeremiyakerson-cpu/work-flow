@@ -189,7 +189,10 @@
     <div class="sc-picker-grid" id="sc-picker-grid"></div>
     <h3 class="sc-section-heading">Generated for you</h3>
     <div class="sc-picker-grid" id="sc-generated-grid"></div>
-    <button class="discard-btn" id="sc-picker-back">← Back to menu</button>
+    <div class="sc-picker-actions">
+      <button class="discard-btn" id="sc-picker-back">← Back to menu</button>
+      <button class="discard-btn" id="sc-open-log">📓 Code log</button>
+    </div>
   </div>
 
   <div id="sc-shell" hidden>
@@ -385,6 +388,7 @@
 
   <div id="sc-debrief" class="results-screen" hidden>
     <h2>Code debrief — <span id="sc-debrief-title"></span></h2>
+    <div class="exam-banner" id="sc-debrief-banner" hidden></div>
     <p id="sc-debrief-verdict"></p>
     <div class="score-hero">
       <div class="score-hero-cell">
@@ -396,14 +400,37 @@
         <div class="score-hero-label">CODE DURATION</div>
       </div>
     </div>
+    <div class="sc-debrief-pointers" id="sc-debrief-pointers" hidden></div>
     <div class="sc-debrief-log-wrap">
       <h3>Event log</h3>
       <ul class="sc-log sc-debrief-log" id="sc-debrief-log"></ul>
     </div>
-    <div class="sc-debrief-actions">
-      <button class="retry-btn" id="sc-debrief-retry">Run it again</button>
-      <button class="discard-btn" id="sc-debrief-back">All scenarios</button>
+    <div class="sc-debrief-fresh" id="sc-debrief-fresh" hidden>
+      <span class="sc-fresh-label">⚡ NEW CASE ADDED TO YOUR LIBRARY</span>
+      <span class="sc-fresh-title" id="sc-debrief-fresh-title"></span>
+      <span class="sc-fresh-reason" id="sc-debrief-fresh-reason"></span>
     </div>
+    <div class="sc-debrief-actions">
+      <button class="retry-btn" id="sc-debrief-runnew">Run the new case →</button>
+      <button class="discard-btn" id="sc-debrief-retry">Run this one again</button>
+      <button class="discard-btn" id="sc-debrief-back">All scenarios</button>
+      <button class="discard-btn" id="sc-debrief-log-btn">📓 Code log</button>
+    </div>
+  </div>
+
+  <!-- ============ CODE LOG ============ -->
+
+  <div id="codelog-screen" hidden>
+    <div class="sc-head">
+      <div>
+        <h2>Code log</h2>
+        <span class="sc-progress">Every run you finish, abandon, or lose — with pointers on what to review</span>
+      </div>
+      <button class="discard-btn" id="codelog-back">← Back to scenarios</button>
+    </div>
+    <div class="codelog-patterns" id="codelog-patterns"></div>
+    <div class="codelog-list" id="codelog-list"></div>
+    <button class="discard-btn prog-reset" id="codelog-clear">Clear code log</button>
   </div>
 
 </main>
@@ -415,6 +442,7 @@
 <script src="ekg-stats.js"></script>
 <script src="ekg-generator.js"></script>
 <script src="ekg-monitor.js"></script>
+<script src="ekg-codelog.js"></script>
 <script src="ekg-test.js"></script>
 <script src="ekg-scenario.js"></script>
 <script src="ekg-study.js"></script>
