@@ -71,15 +71,7 @@ def devig_multiplicative(americans: Sequence[float]) -> list[float]:
 
 
 def devig_additive(americans: Sequence[float]) -> list[float]:
-    """
-    Subtract the vig evenly across outcomes.
-
-    Warning: on lopsided markets this can drive a longshot's probability to
-    zero or below, because it removes the same absolute amount from a 0.02
-    leg as from a 0.98 one. Callers that feed the result into
-    implied_to_american must handle that; the desk never defaults to this
-    method for exactly this reason. See test_additive_can_go_negative.
-    """
+    """Subtract the vig evenly across outcomes."""
     raw = [american_to_implied(a) for a in americans]
     excess = (sum(raw) - 1.0) / len(raw)
     return [r - excess for r in raw]
@@ -237,10 +229,6 @@ def find_edges(
     estimate - a sharp book's number carries more information than an
     average of soft books. Otherwise fall back to a consensus that excludes
     your own book, so it is not grading its own homework.
-
-    Note: naming a sharp book you also bet at means its own line grades
-    itself, and the EV you get back is just that book's vig, mirrored. The
-    desk's UI keeps the two lists disjoint; a direct caller has to.
     """
     edges: list[Edge] = []
     for your_book in your_books:
@@ -297,12 +285,8 @@ def parlay_report(legs: Sequence[dict], stake: float = 10.0) -> dict:
     fairs = [l.get("fair_prob") for l in legs]
     complete = len(fairs) > 0 and all(f is not None for f in fairs)
 
-    game_ids = [l.get("game_id") for l in legs]
-    same_game = (
-        len(legs) > 1
-        and all(g is not None for g in game_ids)
-        and len(set(game_ids)) == 1
-    )
+    game_ids = {l.get("game_id") for l in legs if l.get("game_id")}
+    same_game = len(legs) > 1 and len(game_ids) == 1
 
     out = {
         "legs": len(legs),
@@ -329,13 +313,7 @@ def parlay_report(legs: Sequence[dict], stake: float = 10.0) -> dict:
         out["fair_prob"] = round(fair_prob, 6)
         out["ev_dollars"] = round(expected_value(stake, am, fair_prob), 2)
         out["ev_per_dollar"] = round(ev_percent(am, fair_prob), 6)
-        # hold = 1 - fair/book, mirroring hold() = 1 - 1/sum(implied):
-        # for a parlay, book_prob/fair_prob is the exact analogue of a
-        # single market's sum of implied probabilities. Inverting the
-        # ratio reports a vigged parlay as NEGATIVE hold, i.e. claims the
-        # book is paying out more than fair. See
-        # test_total_hold_equals_compounded_per_leg_hold.
-        out["total_hold"] = round(1.0 - fair_prob / book_prob, 6)
+        out["total_hold"] = round(1.0 - book_prob / fair_prob, 6)
     else:
         out["notes"].append(
             "EV not computed: at least one leg has no fair-price estimate."
