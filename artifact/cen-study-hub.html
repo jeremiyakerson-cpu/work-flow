@@ -1,0 +1,1435 @@
+<title>CEN Study Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+
+<style>
+:root {
+  --paper:      #FBF7F5;
+  --surface:    #FFFFFF;
+  --surface-2:  #F4EEEA;
+  --ink:        #211C1A;
+  --ink-soft:   #6B615C;
+  --ink-faint:  #948881;
+  --rule:       #E4D9D4;
+  --rule-soft:  #EFE7E3;
+  --trace:      #A63D30;
+  --trace-wash: #F6E7E4;
+  --done:       #2E7256;
+  --done-wash:  #E3F0EA;
+  --idle:       #97897F;
+  --idle-wash:  #EFEAE6;
+  --focus:      #A63D30;
+
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --wrap: 940px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #171311;
+    --surface:    #1F1A17;
+    --surface-2:  #272019;
+    --ink:        #F2EAE4;
+    --ink-soft:   #B3A49A;
+    --ink-faint:  #8B7C73;
+    --rule:       #362D28;
+    --rule-soft:  #2B2320;
+    --trace:      #E4796A;
+    --trace-wash: #33211E;
+    --done:       #5DBB92;
+    --done-wash:  #1B2E26;
+    --idle:       #9A8B81;
+    --idle-wash:  #272019;
+    --focus:      #E4796A;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper:      #171311;
+  --surface:    #1F1A17;
+  --surface-2:  #272019;
+  --ink:        #F2EAE4;
+  --ink-soft:   #B3A49A;
+  --ink-faint:  #8B7C73;
+  --rule:       #362D28;
+  --rule-soft:  #2B2320;
+  --trace:      #E4796A;
+  --trace-wash: #33211E;
+  --done:       #5DBB92;
+  --done-wash:  #1B2E26;
+  --idle:       #9A8B81;
+  --idle-wash:  #272019;
+  --focus:      #E4796A;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 10px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.wordmark .cen {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--trace);
+  border: 1px solid var(--trace);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+.masthead-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.masthead-meta b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- rhythm strip ---------- */
+
+.strip {
+  display: block;
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+}
+
+.strip-bed {
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.strip-frame {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 6px;
+}
+
+.strip-lead {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding-block: 40px 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(30px, 4.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 12px 0 14px;
+  text-wrap: balance;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+/* next-up panel */
+
+.nextup {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--trace);
+  border-radius: 3px;
+  padding: 18px;
+}
+
+.nextup-domain {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 8px 0 4px;
+  text-wrap: balance;
+}
+
+.nextup-topic {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--rule);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.nextup-topic b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.nextup-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover { background: var(--surface-2); border-color: var(--ink-faint); }
+
+.btn-solid {
+  background: var(--trace);
+  border-color: var(--trace);
+  color: #fff;
+}
+
+.btn-solid:hover { background: var(--trace); border-color: var(--trace); filter: brightness(1.08); }
+
+:root[data-theme="dark"] .btn-solid,
+:root:not([data-theme="light"]) .btn-solid { color: #1A0F0D; }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .btn-solid { color: #fff; }
+}
+
+/* ---------- section scaffolding ---------- */
+
+section { padding-block: 30px; }
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--ink);
+  padding-top: 10px;
+  margin-bottom: 6px;
+}
+
+.sec-head h2 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.sec-note {
+  margin: 0 0 20px;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  max-width: 68ch;
+}
+
+/* ---------- filters ---------- */
+
+.filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink-soft);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- domain rows ---------- */
+
+.board {
+  border-top: 1px solid var(--rule);
+}
+
+.row {
+  border-bottom: 1px solid var(--rule);
+}
+
+.row[hidden] { display: none !important; }
+
+.row-head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.row-head:hover { background: var(--surface-2); }
+
+.ord {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.row[data-state="complete"] .ord { color: var(--done); }
+.row[data-state="active"] .ord,
+.row[data-state="priority"] .ord { color: var(--trace); }
+
+.row-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.row-sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.row-sub .count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.row-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pill-complete { background: var(--done-wash); color: var(--done); }
+.pill-active   { background: var(--trace-wash); color: var(--trace); }
+.pill-priority { background: var(--trace-wash); color: var(--trace); }
+.pill-queued   { background: var(--idle-wash); color: var(--idle); }
+
+.meter {
+  width: 62px;
+  height: 4px;
+  background: var(--rule-soft);
+  border-radius: 100px;
+  overflow: hidden;
+  flex: none;
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  background: var(--trace);
+  border-radius: 100px;
+  transition: width 200ms ease;
+}
+
+.row[data-state="complete"] .meter i { background: var(--done); }
+
+.chev {
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid var(--ink-faint);
+  border-bottom: 1.5px solid var(--ink-faint);
+  transform: rotate(45deg);
+  transition: transform 160ms ease;
+  flex: none;
+  margin-right: 4px;
+}
+
+.row-head[aria-expanded="true"] .chev { transform: rotate(-135deg); }
+
+/* panel */
+
+.panel {
+  padding: 4px 4px 22px 52px;
+}
+
+.topics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 2px 24px;
+}
+
+.topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 6px 8px 6px 0;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.45;
+  border-radius: 3px;
+}
+
+.topic:hover { color: var(--trace); }
+
+.topic input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px;
+  height: 15px;
+  margin: 3px 0 0;
+  flex: none;
+  border: 1.5px solid var(--ink-faint);
+  border-radius: 2px;
+  background: var(--surface);
+  cursor: pointer;
+  position: relative;
+}
+
+.topic input:checked {
+  background: var(--done);
+  border-color: var(--done);
+}
+
+.topic input:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.5px;
+  width: 4px;
+  height: 8px;
+  border-right: 2px solid var(--surface);
+  border-bottom: 2px solid var(--surface);
+  transform: rotate(42deg);
+}
+
+.topic input:checked + span {
+  color: var(--ink-faint);
+  text-decoration: line-through;
+  text-decoration-color: var(--rule);
+}
+
+.panel-foot {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------- priority watch ---------- */
+
+.watch {
+  display: grid;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.watch-item {
+  background: var(--surface);
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.watch-rank {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--trace);
+}
+
+.watch-item h3 {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.watch-item p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---------- reference ---------- */
+
+.refs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ref {
+  background: var(--surface);
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: background 120ms ease;
+}
+
+.ref:hover { background: var(--surface-2); }
+
+.ref-name {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  margin: 6px 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ref-name::after {
+  content: "↗";
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.ref p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+/* ---------- spec table ---------- */
+
+.spec {
+  margin-top: 26px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--surface);
+}
+
+.spec-row:last-child { border-bottom: 0; }
+
+.spec-key {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.spec-val {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.spec-val.hero-val { color: var(--trace); }
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--ink);
+  padding-block: 20px 56px;
+  margin-top: 20px;
+}
+
+.foot-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+footer p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.data-tools {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  padding: 9px 16px;
+  border-radius: 100px;
+  z-index: 50;
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+
+.toast[hidden] { display: none !important; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 26px; padding-block: 28px 20px; }
+  .panel { padding-left: 4px; }
+  .row-head { grid-template-columns: 26px minmax(0, 1fr); gap: 10px; }
+  .row-right { grid-column: 1 / -1; padding-left: 36px; }
+  .watch-item { grid-template-columns: 24px minmax(0, 1fr); }
+  .watch-item .pill { grid-column: 2; justify-self: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <div class="wordmark"><span class="cen">CEN</span> Study Hub</div>
+    <div class="masthead-meta">
+      <span>Outline eff. <b>07/06/26</b></span>
+      <span><b id="m-domains">0</b>/11 domains</span>
+      <span><b id="m-topics">0%</b> topics</span>
+    </div>
+  </div>
+</header>
+
+<div class="strip-bed">
+  <div class="wrap strip-frame">
+    <span class="strip-lead">LEAD II · 11 BEATS</span>
+    <svg class="strip" id="strip" viewBox="0 0 528 52" preserveAspectRatio="none" aria-hidden="true"></svg>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">BCEN content outline · effective 07/06/2026</div>
+      <h1>Track your rhythm toward CEN certification.</h1>
+      <p>One board for every domain on the exam blueprint — what's covered, what's next, and where the remaining study hours should go. Tick topics as you work through them; the strip above fills in a beat per completed domain.</p>
+    </div>
+
+    <aside class="nextup" id="nextup">
+      <div class="eyebrow">Next up</div>
+      <div class="nextup-domain" id="nextup-domain">—</div>
+      <div class="mono" style="font-size:11px;color:var(--ink-faint);letter-spacing:.06em" id="nextup-progress"></div>
+      <div class="nextup-topic" id="nextup-topic"></div>
+      <div class="nextup-actions">
+        <button class="btn btn-solid" id="nextup-open" type="button">Open domain</button>
+        <button class="btn" id="nextup-tick" type="button">Mark topic done</button>
+      </div>
+    </aside>
+  </div>
+
+  <section id="board-section">
+    <div class="sec-head">
+      <h2>Domain board</h2>
+      <div class="filters">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All 11</button>
+        <button class="filter" type="button" data-filter="priority" aria-pressed="false">Priority</button>
+        <button class="filter" type="button" data-filter="unfinished" aria-pressed="false">Unfinished</button>
+      </div>
+    </div>
+    <p class="sec-note">All 11 sections of the July 2026 outline — 150 scored items, passing standard 106. Scored-item counts shown are the outline's where published. The topic checklists under each domain are study scaffolding written for this board, not BCEN's own subtask wording.</p>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Priority watch</h2></div>
+    <p class="sec-note">Front-loaded ahead of the rest of the outline because they're the current weak areas. Order here sets the queue the “next up” panel follows.</p>
+    <div class="watch" id="watch"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Reference tools</h2></div>
+    <p class="sec-note">The standards each domain review is checked against.</p>
+    <div class="refs" id="refs"></div>
+
+    <div class="spec" id="spec"></div>
+  </section>
+
+  <footer>
+    <div class="foot-grid">
+      <p>Built as a personal study companion. Verify every numeric detail against BCEN's current candidate handbook before relying on it for exam-day decisions. Progress is stored privately in your own browser — each person who opens this board keeps their own.</p>
+      <div class="data-tools">
+        <button class="btn" id="btn-backup" type="button" hidden>Save backup</button>
+        <button class="btn" id="btn-restore" type="button">Restore</button>
+        <button class="btn" id="btn-reset" type="button">Reset</button>
+        <input type="file" id="file-restore" accept="application/json,.json" hidden>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function () {
+  "use strict";
+
+  var STORE_KEY = "cen-study-hub/v1";
+
+  var DOMAINS = [
+    {
+      id: 1, title: "Cardiovascular Emergencies", blurb: "rhythms & ACS", items: 18, priority: 0,
+      topics: [
+        "Acute coronary syndrome & 12-lead interpretation",
+        "Dysrhythmia recognition & ACLS algorithms",
+        "Heart failure & acute pulmonary edema",
+        "Cardiac arrest & post-ROSC care",
+        "Aortic aneurysm & dissection",
+        "Hypertensive crisis",
+        "Endocarditis, pericarditis, myocarditis",
+        "Cardiac tamponade & pericardiocentesis",
+        "Peripheral vascular occlusion & DVT"
+      ]
+    },
+    {
+      id: 2, title: "Environmental & Toxicological Emergencies", blurb: "envenomation, OD, heat/cold", items: null, priority: 1,
+      topics: [
+        "Ingestions & decontamination decisions",
+        "Antidote recall: naloxone, NAC, digoxin Fab, fomepizole",
+        "Acetaminophen & salicylate toxicity",
+        "Envenomation — snake, spider, marine",
+        "Heat exhaustion vs. heat stroke",
+        "Hypothermia & frostbite",
+        "Submersion injury",
+        "Carbon monoxide & cyanide exposure",
+        "Chemical exposure & hazmat decon"
+      ]
+    },
+    {
+      id: 3, title: "Trauma & Multisystem Shock", blurb: "wound care, hemorrhage control", items: null, priority: 2,
+      topics: [
+        "Primary & secondary survey",
+        "Hemorrhage control & massive transfusion",
+        "Chest trauma — pneumothorax, hemothorax, flail chest",
+        "Abdominal & pelvic trauma",
+        "Musculoskeletal injury & compartment syndrome",
+        "Wound management & closure",
+        "Burns — TBSA estimation & fluid resuscitation",
+        "Shock states & differentiation",
+        "Trauma in pregnancy & pediatrics"
+      ]
+    },
+    {
+      id: 4, title: "Professional Issues", blurb: "triage, throughput, legal/ethical", items: null, priority: 3,
+      topics: [
+        "Triage systems & ESI v5",
+        "Mass casualty & disaster response",
+        "EMTALA, consent & capacity",
+        "Patient safety & handoff communication",
+        "End-of-life care & organ donation",
+        "Forensic evidence collection",
+        "Workplace violence & staff safety",
+        "Ethics & scope of practice",
+        "Throughput, boarding & department flow"
+      ]
+    },
+    {
+      id: 5, title: "Respiratory Emergencies", blurb: "airway, ventilation, obstruction", items: 17, priority: 0,
+      topics: [
+        "Asthma & status asthmaticus",
+        "COPD exacerbation",
+        "Pneumonia & aspiration",
+        "Pulmonary embolism",
+        "Pneumothorax & tension physiology",
+        "ARDS",
+        "Airway management & RSI",
+        "Noninvasive & mechanical ventilation",
+        "Airway obstruction & foreign body"
+      ]
+    },
+    {
+      id: 6, title: "Neurological Emergencies", blurb: "stroke, seizure, ICP", items: 17, priority: 0,
+      topics: [
+        "Ischemic stroke, NIHSS & thrombolytic windows",
+        "Hemorrhagic stroke & subarachnoid hemorrhage",
+        "Seizures & status epilepticus",
+        "Altered mental status workup",
+        "Head injury & intracranial pressure",
+        "Meningitis & encephalitis",
+        "Spinal cord injury & neurogenic shock",
+        "Guillain-Barré & myasthenic crisis",
+        "Vertigo & dizziness differentials"
+      ]
+    },
+    {
+      id: 7, title: "Gastrointestinal Emergencies", blurb: "now a standalone section", items: null, priority: 0,
+      topics: [
+        "Upper & lower GI bleeding",
+        "Bowel obstruction",
+        "Appendicitis & peritonitis",
+        "Pancreatitis & cholecystitis",
+        "Hepatic failure & esophageal varices",
+        "Esophageal foreign body & impaction",
+        "GI infections & dehydration",
+        "Hernias & incarceration"
+      ]
+    },
+    {
+      id: 8, title: "Genitourinary, Gyn & Obstetrical", blurb: "GU / GYN / OB emergencies", items: null, priority: 0,
+      topics: [
+        "UTI & pyelonephritis",
+        "Renal calculi",
+        "Acute kidney injury & dialysis emergencies",
+        "Testicular torsion & priapism",
+        "Ectopic pregnancy",
+        "Vaginal bleeding & miscarriage",
+        "Preeclampsia, eclampsia & HELLP",
+        "Emergency delivery & postpartum hemorrhage",
+        "Sexual assault care & evidence"
+      ]
+    },
+    {
+      id: 9, title: "Mental Health Emergencies", blurb: "risk, agitation, withdrawal", items: 13, priority: 0,
+      topics: [
+        "Suicidal & homicidal risk assessment",
+        "Agitation & verbal de-escalation",
+        "Psychosis & thought disorders",
+        "Anxiety & panic",
+        "Depression & bipolar presentations",
+        "Substance use & withdrawal syndromes",
+        "Delirium vs. dementia",
+        "Eating disorders",
+        "Restraint use & legal holds"
+      ]
+    },
+    {
+      id: 10, title: "Medical Emergencies", blurb: "sepsis, endocrine, shock", items: 15, priority: 0,
+      topics: [
+        "Sepsis & septic shock bundles",
+        "DKA, HHS & hypoglycemia",
+        "Thyroid storm & myxedema coma",
+        "Adrenal crisis",
+        "Electrolyte & acid-base disturbance",
+        "Anaphylaxis & allergic reaction",
+        "Hematologic & oncologic emergencies",
+        "Infectious disease & isolation precautions",
+        "Fever in the immunocompromised patient"
+      ]
+    },
+    {
+      id: 11, title: "Head, Eye, Ear, Nose & Throat", blurb: "renamed from Maxillofacial/Ocular", items: null, priority: 0,
+      topics: [
+        "Epistaxis",
+        "Dental & odontogenic emergencies",
+        "Ocular trauma & chemical splash",
+        "Acute vision loss & central retinal artery occlusion",
+        "Peritonsillar abscess, epiglottitis, Ludwig's angina",
+        "Foreign bodies — ear, nose, airway",
+        "Facial fractures & mandibular dislocation",
+        "Otitis & sinusitis",
+        "Sudden sensorineural hearing loss"
+      ]
+    }
+  ];
+
+  var WATCH = [
+    { rank: "01", title: "Toxicology & environmental emergencies", desc: "Ingestions, envenomation, heat/cold illness, antidote recall.", domain: 2 },
+    { rank: "02", title: "Trauma & wound care", desc: "Hemorrhage control, musculoskeletal injury, wound management.", domain: 3 },
+    { rank: "03", title: "Professional issues", desc: "Triage & mass casualty, legal and ethical scope-of-practice items.", domain: 4 }
+  ];
+
+  var REFS = [
+    { kind: "Clinical calc", name: "MDCalc", desc: "Validated scoring tools referenced throughout each section.", url: "https://www.mdcalc.com" },
+    { kind: "Governing body", name: "BCEN", desc: "Source for the July 2026 content outline and exam handbook.", url: "https://www.bcen.org" },
+    { kind: "Guidelines", name: "AHA", desc: "Current cardiac and resuscitation guideline updates.", url: "https://www.heart.org" },
+    { kind: "Guidelines", name: "ENA", desc: "Emergency nursing practice standards, including ESI v5.", url: "https://www.ena.org" }
+  ];
+
+  var SPEC = [
+    { k: "Total items", v: "175", hero: false },
+    { k: "Scored items", v: "150", hero: true },
+    { k: "Passing standard", v: "106", hero: true },
+    { k: "Unscored pretest items", v: "25", hero: false },
+    { k: "Test time", v: "3 hrs", hero: false },
+    { k: "Outline effective", v: "07/06/26", hero: false }
+  ];
+
+  // ---------- state ----------
+
+  var state = {};
+
+  function seed() {
+    var s = {};
+    DOMAINS.forEach(function (d) {
+      s[d.id] = d.topics.map(function () { return d.id === 1; });
+    });
+    return s;
+  }
+
+  function load() {
+    var fresh = seed();
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return fresh;
+      var saved = JSON.parse(raw);
+      DOMAINS.forEach(function (d) {
+        var row = saved && saved[d.id];
+        if (Array.isArray(row)) {
+          fresh[d.id] = d.topics.map(function (_, i) { return row[i] === true; });
+        }
+      });
+    } catch (e) { /* storage blocked or corrupt — fall back to seed */ }
+    return fresh;
+  }
+
+  function save() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* non-fatal */ }
+  }
+
+  function doneCount(id) {
+    return state[id].reduce(function (n, v) { return n + (v ? 1 : 0); }, 0);
+  }
+
+  function ratio(id) {
+    return doneCount(id) / state[id].length;
+  }
+
+  function stateOf(d) {
+    var r = ratio(d.id);
+    if (r === 1) return "complete";
+    if (r > 0) return "active";
+    return d.priority ? "priority" : "queued";
+  }
+
+  var PILL_TEXT = { complete: "Complete", active: "In progress", priority: "Priority", queued: "Queued" };
+
+  // queue order: priority domains first (by their watch rank), then blueprint order
+  function queueOrder() {
+    return DOMAINS.slice().sort(function (a, b) {
+      var ap = a.priority || 99, bp = b.priority || 99;
+      if (ap !== bp) return ap - bp;
+      return a.id - b.id;
+    });
+  }
+
+  // ---------- rhythm strip ----------
+
+  function beatPath(x, amp) {
+    var base = 30;
+    if (amp <= 0) return "M" + x + "," + base + " L" + (x + 48) + "," + base;
+    var a = 0.28 + 0.72 * amp; // keep a partial beat visible
+    return "M" + x + "," + base +
+      " L" + (x + 16) + "," + base +
+      " Q" + (x + 21) + "," + (base - 6 * a) + " " + (x + 26) + "," + base +
+      " L" + (x + 29) + "," + base +
+      " L" + (x + 31) + "," + (base + 4 * a) +
+      " L" + (x + 34) + "," + (base - 21 * a) +
+      " L" + (x + 37) + "," + (base + 8 * a) +
+      " L" + (x + 39) + "," + base +
+      " Q" + (x + 43.5) + "," + (base - 8 * a) + " " + (x + 48) + "," + base;
+  }
+
+  function drawStrip() {
+    var svg = document.getElementById("strip");
+    var out = "";
+    DOMAINS.forEach(function (d, i) {
+      var r = ratio(d.id);
+      var color = r === 1 ? "var(--done)" : (r > 0 ? "var(--trace)" : "var(--rule)");
+      out += '<path d="' + beatPath(i * 48, r) + '" fill="none" stroke="' + color +
+        '" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>';
+    });
+    svg.innerHTML = out;
+  }
+
+  // ---------- render ----------
+
+  function renderBoard() {
+    var board = document.getElementById("board");
+    board.innerHTML = "";
+    DOMAINS.forEach(function (d) {
+      var row = document.createElement("div");
+      row.className = "row";
+      row.id = "domain-" + d.id;
+      row.dataset.domain = String(d.id);
+
+      var head = document.createElement("button");
+      head.type = "button";
+      head.className = "row-head";
+      head.id = "head-" + d.id;
+      head.setAttribute("aria-expanded", "false");
+      head.setAttribute("aria-controls", "panel-" + d.id);
+
+      head.innerHTML =
+        '<span class="ord">' + String(d.id).padStart(2, "0") + '</span>' +
+        '<span>' +
+          '<span class="row-title">' + d.title + '</span>' +
+          '<span class="row-sub">' +
+            '<span>' + d.blurb + '</span>' +
+            (d.items ? '<span class="count">' + d.items + ' scored items</span>' : '') +
+          '</span>' +
+        '</span>' +
+        '<span class="row-right">' +
+          '<span class="count mono" data-role="tally"></span>' +
+          '<span class="meter"><i></i></span>' +
+          '<span class="pill" data-role="pill"></span>' +
+          '<span class="chev"></span>' +
+        '</span>';
+
+      var panel = document.createElement("div");
+      panel.className = "panel";
+      panel.id = "panel-" + d.id;
+      panel.hidden = true;
+
+      var ul = document.createElement("ul");
+      ul.className = "topics";
+      d.topics.forEach(function (t, i) {
+        var li = document.createElement("li");
+        var label = document.createElement("label");
+        label.className = "topic";
+        label.htmlFor = "chk-" + d.id + "-" + i;
+
+        var box = document.createElement("input");
+        box.type = "checkbox";
+        box.id = "chk-" + d.id + "-" + i;
+        box.checked = state[d.id][i];
+        box.addEventListener("change", function () {
+          state[d.id][i] = box.checked;
+          save();
+          refresh();
+        });
+
+        var span = document.createElement("span");
+        span.textContent = t;
+
+        label.appendChild(box);
+        label.appendChild(span);
+        li.appendChild(label);
+        ul.appendChild(li);
+      });
+
+      var foot = document.createElement("div");
+      foot.className = "panel-foot";
+      var all = document.createElement("button");
+      all.type = "button";
+      all.className = "btn";
+      all.textContent = "Mark all done";
+      all.addEventListener("click", function () {
+        var target = doneCount(d.id) < d.topics.length;
+        state[d.id] = d.topics.map(function () { return target; });
+        save();
+        renderBoard();
+        openPanel(d.id, true);
+        refresh();
+      });
+      foot.appendChild(all);
+
+      panel.appendChild(ul);
+      panel.appendChild(foot);
+
+      head.addEventListener("click", function () {
+        openPanel(d.id, panel.hidden);
+      });
+
+      row.appendChild(head);
+      row.appendChild(panel);
+      board.appendChild(row);
+    });
+  }
+
+  function openPanel(id, open) {
+    var panel = document.getElementById("panel-" + id);
+    var head = document.getElementById("head-" + id);
+    if (!panel || !head) return;
+    panel.hidden = !open;
+    head.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function refresh() {
+    var domainsDone = 0, topicsDone = 0, topicsTotal = 0;
+
+    DOMAINS.forEach(function (d) {
+      var row = document.getElementById("domain-" + d.id);
+      var st = stateOf(d);
+      var done = doneCount(d.id);
+      var total = d.topics.length;
+
+      if (st === "complete") domainsDone++;
+      topicsDone += done;
+      topicsTotal += total;
+
+      row.dataset.state = st;
+      row.querySelector('[data-role="tally"]').textContent = done + "/" + total;
+      row.querySelector(".meter i").style.width = Math.round((done / total) * 100) + "%";
+      var pill = row.querySelector('[data-role="pill"]');
+      pill.className = "pill pill-" + st;
+      pill.textContent = PILL_TEXT[st];
+    });
+
+    document.getElementById("m-domains").textContent = String(domainsDone);
+    document.getElementById("m-topics").textContent = Math.round((topicsDone / topicsTotal) * 100) + "%";
+
+    drawStrip();
+    renderNextUp();
+    refreshWatchPills();
+    applyFilter();
+  }
+
+  // ---------- next up ----------
+
+  var nextTarget = null;
+
+  function renderNextUp() {
+    var queue = queueOrder();
+    var target = null;
+    for (var i = 0; i < queue.length; i++) {
+      if (ratio(queue[i].id) < 1) { target = queue[i]; break; }
+    }
+
+    var elDomain = document.getElementById("nextup-domain");
+    var elProg = document.getElementById("nextup-progress");
+    var elTopic = document.getElementById("nextup-topic");
+    var btnOpen = document.getElementById("nextup-open");
+    var btnTick = document.getElementById("nextup-tick");
+
+    if (!target) {
+      nextTarget = null;
+      elDomain.textContent = "All 11 domains complete";
+      elProg.textContent = "";
+      elTopic.innerHTML = "Every topic on the board is ticked. Re-run the priority domains against a practice exam before test day.";
+      btnOpen.hidden = true;
+      btnTick.hidden = true;
+      return;
+    }
+
+    var idx = state[target.id].indexOf(false);
+    nextTarget = { domain: target.id, topic: idx };
+
+    btnOpen.hidden = false;
+    btnTick.hidden = false;
+    elDomain.textContent = target.title;
+    elProg.textContent = String(target.id).padStart(2, "0") + " · " + doneCount(target.id) + " of " + target.topics.length + " topics done" + (target.priority ? " · priority" : "");
+    elTopic.innerHTML = "Next topic: <b>" + target.topics[idx] + "</b>";
+  }
+
+  document.getElementById("nextup-open").addEventListener("click", function () {
+    if (!nextTarget) return;
+    openPanel(nextTarget.domain, true);
+    setFilter("all");
+    document.getElementById("domain-" + nextTarget.domain).scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  document.getElementById("nextup-tick").addEventListener("click", function () {
+    if (!nextTarget) return;
+    state[nextTarget.domain][nextTarget.topic] = true;
+    save();
+    var box = document.getElementById("chk-" + nextTarget.domain + "-" + nextTarget.topic);
+    if (box) box.checked = true;
+    refresh();
+  });
+
+  // ---------- filters ----------
+
+  var filter = "all";
+
+  function setFilter(name) {
+    filter = name;
+    Array.prototype.forEach.call(document.querySelectorAll(".filter"), function (b) {
+      b.setAttribute("aria-pressed", b.dataset.filter === name ? "true" : "false");
+    });
+    applyFilter();
+  }
+
+  function applyFilter() {
+    DOMAINS.forEach(function (d) {
+      var row = document.getElementById("domain-" + d.id);
+      var show = filter === "all" ||
+        (filter === "priority" && d.priority) ||
+        (filter === "unfinished" && ratio(d.id) < 1);
+      row.hidden = !show;
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".filter"), function (b) {
+    b.addEventListener("click", function () { setFilter(b.dataset.filter); });
+  });
+
+  // ---------- static sections ----------
+
+  function renderStatic() {
+    var watch = document.getElementById("watch");
+    WATCH.forEach(function (w) {
+      var el = document.createElement("div");
+      el.className = "watch-item";
+      el.innerHTML =
+        '<span class="watch-rank">' + w.rank + '</span>' +
+        '<span><h3>' + w.title + '</h3><p>' + w.desc + '</p></span>' +
+        '<span class="pill" data-watch="' + w.domain + '"></span>';
+      el.addEventListener("click", function () {
+        setFilter("all");
+        openPanel(w.domain, true);
+        document.getElementById("domain-" + w.domain).scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      el.style.cursor = "pointer";
+      watch.appendChild(el);
+    });
+
+    var refs = document.getElementById("refs");
+    REFS.forEach(function (r) {
+      var a = document.createElement("a");
+      a.className = "ref";
+      a.href = r.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.innerHTML =
+        '<div class="eyebrow">' + r.kind + '</div>' +
+        '<div class="ref-name">' + r.name + '</div>' +
+        '<p>' + r.desc + '</p>';
+      refs.appendChild(a);
+    });
+
+    var spec = document.getElementById("spec");
+    SPEC.forEach(function (s) {
+      var row = document.createElement("div");
+      row.className = "spec-row";
+      row.innerHTML = '<span class="spec-key">' + s.k + '</span>' +
+        '<span class="spec-val' + (s.hero ? " hero-val" : "") + '">' + s.v + '</span>';
+      spec.appendChild(row);
+    });
+  }
+
+  function refreshWatchPills() {
+    WATCH.forEach(function (w) {
+      var d = DOMAINS.filter(function (x) { return x.id === w.domain; })[0];
+      var pill = document.querySelector('[data-watch="' + w.domain + '"]');
+      if (!pill || !d) return;
+      var st = stateOf(d);
+      pill.className = "pill pill-" + st;
+      pill.textContent = PILL_TEXT[st];
+    });
+  }
+
+  // ---------- toast ----------
+
+  var toastTimer = null;
+  function toast(msg) {
+    var el = document.getElementById("toast");
+    el.textContent = msg;
+    el.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.hidden = true; }, 2600);
+  }
+
+  // ---------- backup / restore / reset ----------
+
+  document.getElementById("btn-reset").addEventListener("click", function () {
+    if (!window.confirm("Clear all ticked topics and start this board from scratch?")) return;
+    state = {};
+    DOMAINS.forEach(function (d) { state[d.id] = d.topics.map(function () { return false; }); });
+    save();
+    renderBoard();
+    refresh();
+    refreshWatchPills();
+    toast("Board reset");
+  });
+
+  document.getElementById("btn-restore").addEventListener("click", function () {
+    document.getElementById("file-restore").click();
+  });
+
+  document.getElementById("file-restore").addEventListener("change", function (ev) {
+    var file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = JSON.parse(String(reader.result));
+        var progress = data && data.progress ? data.progress : data;
+        DOMAINS.forEach(function (d) {
+          var row = progress && progress[d.id];
+          if (Array.isArray(row)) {
+            state[d.id] = d.topics.map(function (_, i) { return row[i] === true; });
+          }
+        });
+        save();
+        renderBoard();
+        refresh();
+        refreshWatchPills();
+        toast("Progress restored");
+      } catch (e) {
+        toast("That file isn't a CEN Study Hub backup");
+      }
+    };
+    reader.readAsText(file);
+    ev.target.value = "";
+  });
+
+  // ---------- boot ----------
+
+  state = load();
+  renderStatic();
+  renderBoard();
+  refresh();
+
+  // downloads capability lights up if the viewer can run it
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("downloads").then(function (downloads) {
+      if (!downloads) return;
+      var btn = document.getElementById("btn-backup");
+      btn.hidden = false;
+      btn.addEventListener("click", function () {
+        var payload = {
+          app: "CEN Study Hub",
+          version: 1,
+          savedAt: new Date().toISOString(),
+          progress: state
+        };
+        downloads.save({
+          filename: "cen-study-progress.json",
+          data: JSON.stringify(payload, null, 2)
+        }).then(function () {
+          toast("Backup saved");
+        }).catch(function (err) {
+          if (err && err.code === "declined") return;
+          toast("Couldn't save the backup");
+        });
+      });
+    }).catch(function () { /* capability unavailable — button stays hidden */ });
+  }
+})();
+</script>
