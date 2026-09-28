@@ -12,6 +12,11 @@
   const SOUND_KEY = "ekg-zoll-sound-on";
   const GAP_FRAC = 0.02; // erase-bar width as a fraction of the strip
 
+  // Reduced motion: draw each strip whole and hold it (refreshed once per
+  // strip period) instead of animating the sweep head across the screen.
+  const motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
+  const reducedMotion = () => !!(motionQuery && motionQuery.matches);
+
   let audioCtx = null;
   let soundOn = false;
   try {
@@ -152,6 +157,7 @@
   function attach(canvasId) {
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext("2d");
+    canvas.setAttribute("role", "img");
     const st = {
       rhythm: null,
       curr: null,
@@ -167,6 +173,7 @@
       lastAlarm: 0,
       cssW: 0,
       running: false,
+      dirty: true, // reduced-motion: strip changed since the last draw
     };
 
     function resynth() {
@@ -177,6 +184,12 @@
 
     function setRhythm(rhythm, opts = {}) {
       st.rhythm = rhythm;
+      // The strip is the question — don't name the rhythm, just describe it.
+      canvas.setAttribute(
+        "aria-label",
+        `Simulated lead II EKG strip${opts.perfusing ? " with SpO2 pleth waveform" : ""}` +
+          (opts.hr ? `, monitor heart rate ${opts.hr}` : "")
+      );
       st.hr = opts.hr || 0;
       st.perfusing = !!opts.perfusing;
       st.lethal = !!opts.lethal;
@@ -186,6 +199,7 @@
       resynth();
       st.head = 0;
       st.lastTs = null;
+      st.dirty = true;
       if (!st.running) {
         st.running = true;
         requestAnimationFrame(frame);
@@ -221,17 +235,29 @@
         st.prev = st.curr;
         st.plethPrev = st.plethCurr;
         resynth(); // fresh strip: stochastic rhythms never visibly loop
+        st.dirty = true;
       }
 
-      if (canvas.offsetParent === null) return; // hidden — skip drawing
+      if (canvas.offsetParent === null) {
+        st.dirty = true; // redraw as soon as it's shown again
+        return; // hidden — skip drawing
+      }
 
+      // Backing store tracks the rendered size (handles rotation/resizes
+      // and keeps the trace crisp on high-DPR phones).
       const dpr = window.devicePixelRatio || 1;
       const cssW = canvas.clientWidth || 560;
       const cssH = canvas.clientHeight || 150;
       if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
         canvas.width = Math.round(cssW * dpr);
         canvas.height = Math.round(cssH * dpr);
+        st.dirty = true;
       }
+
+      const still = reducedMotion();
+      if (still && !st.dirty) return;
+      st.dirty = false;
+      const head = still ? 1 : st.head;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       drawGrid(ctx, cssW, cssH);
@@ -239,12 +265,12 @@
       const ekgH = cssH * 0.68;
       const plethH = cssH - ekgH;
 
-      drawChannel(ctx, st.curr, st.prev, st.head, 0, 0, cssW, ekgH, ekgH * 0.34, "#39ff8f", "rgba(57,255,143,0.55)");
+      drawChannel(ctx, st.curr, st.prev, head, 0, 0, cssW, ekgH, ekgH * 0.34, "#39ff8f", "rgba(57,255,143,0.55)");
       drawChannel(
         ctx,
         st.plethCurr,
         st.plethPrev,
-        st.head,
+        head,
         0,
         ekgH,
         cssW,

@@ -11,7 +11,36 @@
   const { RHYTHM_GUIDE, SPRINT_CONFUSION } = EkgEducation;
   const ALL_KEYS = Object.keys(RHYTHM_GUIDE);
 
-  const st = { round: 0, correct: 0, startTime: 0, timerId: null, current: null, misses: [], monitor: null, lastKey: null };
+  const st = {
+    round: 0,
+    correct: 0,
+    startTime: 0,
+    timerId: null,
+    advanceId: null, // pending "next strip" delay after an answer
+    current: null,
+    misses: [],
+    monitor: null,
+    lastKey: null,
+  };
+
+  function loadBest() {
+    try {
+      const best = JSON.parse(localStorage.getItem(BEST_KEY));
+      if (best && Number.isFinite(best.correct) && Number.isFinite(best.ms)) return best;
+    } catch {}
+    return null;
+  }
+
+  // Cancel the clock and any pending strip advance — called whenever the
+  // sprint is left or restarted, so a stale timeout can't skip a strip or
+  // finish a run the user already walked away from.
+  function stopTimers() {
+    clearInterval(st.timerId);
+    clearTimeout(st.advanceId);
+    st.timerId = null;
+    st.advanceId = null;
+    delete document.getElementById("sprint-choices").dataset.locked;
+  }
 
   const shuffle = (arr) => {
     const a = arr.slice();
@@ -32,13 +61,14 @@
     document.getElementById("sprint-intro").hidden = false;
     document.getElementById("sprint-run").hidden = true;
     document.getElementById("sprint-results").hidden = true;
-    const best = localStorage.getItem(BEST_KEY);
+    const best = loadBest();
     document.getElementById("sprint-best").textContent = best
-      ? `Personal best: ${JSON.parse(best).correct}/${ROUNDS} in ${fmtTime(JSON.parse(best).ms)}`
+      ? `Personal best: ${best.correct}/${ROUNDS} in ${fmtTime(best.ms)}`
       : "No sprint completed yet.";
   }
 
   function start() {
+    stopTimers();
     st.round = 0;
     st.correct = 0;
     st.misses = [];
@@ -47,7 +77,7 @@
     document.getElementById("sprint-results").hidden = true;
     document.getElementById("sprint-run").hidden = false;
     if (!st.monitor) st.monitor = EkgMonitor.attach("sprint-canvas");
-    clearInterval(st.timerId);
+    document.getElementById("sprint-clock").textContent = "00:00";
     st.timerId = setInterval(() => {
       document.getElementById("sprint-clock").textContent = fmtTime(Date.now() - st.startTime);
     }, 250);
@@ -110,6 +140,7 @@
 
     container.querySelectorAll(".softkey").forEach((b) => {
       b.classList.add("disabled");
+      b.setAttribute("aria-disabled", "true");
       const txt = b.querySelector(".softkey-text").textContent;
       if (txt === RHYTHM_GUIDE[st.current].name) b.classList.add("correct");
       else if (b === btn) b.classList.add("incorrect");
@@ -122,14 +153,15 @@
     feedback.innerHTML = `<strong>${correct ? "Correct." : g.name + "."}</strong> ${g.criteria.regular} · rate ${g.criteria.rate} · P: ${g.criteria.p} · QRS ${g.criteria.qrs}`;
 
     // brief pause so the feedback registers, then next strip
-    setTimeout(() => {
+    st.advanceId = setTimeout(() => {
+      st.advanceId = null;
       delete container.dataset.locked;
       nextRound();
     }, correct ? 900 : 1900);
   }
 
   function finish() {
-    clearInterval(st.timerId);
+    stopTimers();
     const ms = Date.now() - st.startTime;
     document.getElementById("sprint-run").hidden = true;
     const res = document.getElementById("sprint-results");
@@ -137,12 +169,13 @@
     document.getElementById("sprint-final-score").textContent = `${st.correct} / ${ROUNDS}`;
     document.getElementById("sprint-final-time").textContent = fmtTime(ms);
 
-    let best = null;
-    try {
-      best = JSON.parse(localStorage.getItem(BEST_KEY));
-    } catch {}
+    const best = loadBest();
     const better = !best || st.correct > best.correct || (st.correct === best.correct && ms < best.ms);
-    if (better) localStorage.setItem(BEST_KEY, JSON.stringify({ correct: st.correct, ms }));
+    if (better) {
+      try {
+        localStorage.setItem(BEST_KEY, JSON.stringify({ correct: st.correct, ms }));
+      } catch {}
+    }
     document.getElementById("sprint-new-best").hidden = !better;
 
     const missEl = document.getElementById("sprint-misses");
@@ -167,7 +200,7 @@
     document.getElementById("sprint-start").addEventListener("click", start);
     document.getElementById("sprint-again").addEventListener("click", start);
     document.getElementById("sprint-back").addEventListener("click", () => {
-      clearInterval(st.timerId);
+      stopTimers();
       window.showScreen("start-screen");
     });
     document.getElementById("sprint-results-back").addEventListener("click", () => window.showScreen("start-screen"));

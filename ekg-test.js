@@ -42,7 +42,32 @@ window.showScreen = function (id) {
     const el = document.getElementById(s);
     if (el) el.hidden = s !== id;
   }
+  // New screens start at the top (matters on phones, where the previous
+  // screen may have been scrolled far down).
+  window.scrollTo(0, 0);
 };
+
+// localStorage can throw (Safari private mode, quota, disabled storage);
+// progress saving must never break the run itself.
+function storeGet(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function storeSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {}
+}
+
+function storeRemove(key) {
+  try {
+    localStorage.removeItem(key);
+  } catch {}
+}
 
 const state = {
   mode: "practice",
@@ -51,6 +76,7 @@ const state = {
   answered: [], // per-question: { chosen, correct, timedOut } or null
   score: 0,
   remainingSeconds: 0,
+  deadline: 0, // epoch ms when a timed run expires (while the run is open)
   timerId: null,
 };
 
@@ -75,7 +101,7 @@ function buildChoiceOrder(question) {
 // ---------- session persistence (allows resuming a run after a reload) ----------
 
 function saveSession() {
-  localStorage.setItem(
+  storeSet(
     SESSION_KEY,
     JSON.stringify({
       mode: state.mode,
@@ -90,11 +116,13 @@ function saveSession() {
 
 function loadSession() {
   try {
-    const raw = JSON.parse(localStorage.getItem(SESSION_KEY));
+    const raw = JSON.parse(storeGet(SESSION_KEY));
     if (!raw || !Array.isArray(raw.order) || !MODE_CONFIG[raw.mode]) return null;
     if (raw.order.length !== MODE_CONFIG[raw.mode].n) return null;
     if (raw.current >= raw.order.length) return null; // already finished
-    if (raw.order.some((idx) => idx >= EKG_QUESTIONS.length)) return null; // stale bank
+    if (raw.order.some((idx) => !Number.isInteger(idx) || idx < 0 || idx >= EKG_QUESTIONS.length)) return null; // stale bank
+    if (!Array.isArray(raw.answered) || raw.answered.length !== raw.order.length) return null;
+    if (!Number.isInteger(raw.current) || raw.current < 0) return null;
     return raw;
   } catch {
     return null;
@@ -102,7 +130,7 @@ function loadSession() {
 }
 
 function clearSession() {
-  localStorage.removeItem(SESSION_KEY);
+  storeRemove(SESSION_KEY);
 }
 
 function init() {
@@ -113,6 +141,7 @@ function init() {
   document.getElementById("discard-btn").addEventListener("click", discardSession);
   document.getElementById("retry-btn").addEventListener("click", backToStart);
   document.getElementById("next-btn").addEventListener("click", nextQuestion);
+  document.getElementById("test-exit-btn").addEventListener("click", exitToMenu);
 
   offerResume();
   tickClock();
@@ -121,6 +150,8 @@ function init() {
 
 function offerResume() {
   const saved = loadSession();
+  document.getElementById("resume-banner").hidden = !saved;
+  document.getElementById("mode-select").hidden = !!saved;
   if (!saved) return;
   document.getElementById("resume-banner").hidden = false;
   document.getElementById("mode-select").hidden = true;
@@ -135,8 +166,10 @@ function resumeSession() {
   state.order = saved.order;
   state.current = saved.current;
   state.answered = saved.answered;
-  state.score = saved.score;
-  state.remainingSeconds = saved.remainingSeconds;
+  // Re-derive the score from the answers so a hand-edited or half-written
+  // session can't show a score that disagrees with the results screen.
+  state.score = saved.answered.filter((a) => a && a.correct).length;
+  state.remainingSeconds = Math.max(0, Number(saved.remainingSeconds) || 0);
   enterTestShell();
 }
 
@@ -194,11 +227,29 @@ function backToStart() {
   document.getElementById("resume-banner").hidden = true;
 }
 
+// Leave a run mid-way: the session (including time left) is saved and the
+// menu offers to resume it.
+function exitToMenu() {
+  if (MODE_CONFIG[state.mode].secs && state.timerId) syncRemaining();
+  stopTimer();
+  saveSession();
+  window.showScreen("start-screen");
+  offerResume();
+}
+
+// Time left is measured against a wall-clock deadline rather than by
+// counting interval ticks: browsers throttle timers in background tabs and
+// on a locked phone, which would otherwise stretch a 40-minute exam.
+function syncRemaining() {
+  state.remainingSeconds = Math.max(0, Math.ceil((state.deadline - Date.now()) / 1000));
+}
+
 function startTimer() {
   stopTimer();
+  state.deadline = Date.now() + state.remainingSeconds * 1000;
   renderTimer();
   state.timerId = setInterval(() => {
-    state.remainingSeconds--;
+    syncRemaining();
     if (state.remainingSeconds <= 0) {
       state.remainingSeconds = 0;
       renderTimer();
@@ -223,6 +274,7 @@ function renderTimer() {
   const m = Math.floor(state.remainingSeconds / 60);
   const s = state.remainingSeconds % 60;
   el.textContent = `TIME LEFT ${m}:${String(s).padStart(2, "0")}`;
+  el.setAttribute("aria-label", `${m} minutes ${s} seconds left`);
   el.classList.toggle("timer-critical", state.remainingSeconds <= 60);
 }
 
@@ -254,7 +306,9 @@ function renderQuestion() {
   renderChoices(q);
 
   document.getElementById("rationale").hidden = true;
-  document.getElementById("next-btn").hidden = true;
+  const nextBtn = document.getElementById("next-btn");
+  nextBtn.hidden = !state.answered[state.current];
+  nextBtn.textContent = state.current === state.order.length - 1 ? "See results →" : "Next question →";
 }
 
 function fmtVital(v) {
@@ -312,8 +366,10 @@ function renderChoices(q) {
   if (prior) {
     // Already answered (e.g. resumed mid-session) — lock the choices, no re-grading.
     const btns = container.querySelectorAll(".softkey");
-    btns.forEach((btn) => btn.classList.add("disabled"));
-    document.getElementById("next-btn").hidden = false;
+    btns.forEach((btn) => {
+      btn.classList.add("disabled");
+      btn.setAttribute("aria-disabled", "true");
+    });
   }
 }
 
@@ -331,6 +387,7 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
   const btns = container.querySelectorAll(".softkey");
   btns.forEach((btn, i) => {
     btn.classList.add("disabled");
+    btn.setAttribute("aria-disabled", "true");
     if (state.mode === "practice") {
       if (i === correctIndex) btn.classList.add("correct");
       else if (i === displayIdx) btn.classList.add("incorrect");
@@ -349,12 +406,13 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
     rationale.className = `rationale ${isCorrect ? "is-correct" : "is-incorrect"}`;
   }
 
-  document.getElementById("next-btn").hidden = false;
-  document.getElementById("next-btn").textContent =
-    state.current === state.order.length - 1 ? "See results →" : "Next question →";
+  const nextBtn = document.getElementById("next-btn");
+  nextBtn.hidden = false;
+  nextBtn.focus({ preventScroll: true });
 }
 
 function nextQuestion() {
+  if (!state.answered[state.current]) return;
   if (state.current === state.order.length - 1) {
     stopTimer();
     showResults();
@@ -375,8 +433,8 @@ function showResults() {
   document.getElementById("final-pct").textContent = `${pct}%`;
 
   const bestKey = BEST_SCORE_KEY_PREFIX + state.mode;
-  const best = Number(localStorage.getItem(bestKey) || 0);
-  if (state.score > best) localStorage.setItem(bestKey, String(state.score));
+  const best = Number(storeGet(bestKey) || 0);
+  if (state.score > best) storeSet(bestKey, String(state.score));
   document.getElementById("best-score").textContent = `${Math.max(best, state.score)} / ${total}`;
   document.getElementById("best-score-label").textContent = `BEST — ${MODE_LABEL[state.mode]}`;
 
@@ -393,11 +451,13 @@ function showResults() {
     examBanner.innerHTML = passed
       ? `<strong>PASS</strong> — ${pct}% meets the ${Math.round(passMark * 100)}% standard. ${new Date().toLocaleDateString()}`
       : `<strong>NOT YET</strong> — ${pct}% is below the ${Math.round(passMark * 100)}% standard. Review the missed items and retake when ready.`;
+    let history = [];
     try {
-      const history = JSON.parse(localStorage.getItem(EXAM_HISTORY_KEY)) || [];
-      history.unshift({ t: Date.now(), score: state.score, total, pct, pass: passed });
-      localStorage.setItem(EXAM_HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
+      history = JSON.parse(storeGet(EXAM_HISTORY_KEY));
     } catch {}
+    if (!Array.isArray(history)) history = [];
+    history.unshift({ t: Date.now(), score: state.score, total, pct, pass: passed });
+    storeSet(EXAM_HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
   } else {
     examBanner.hidden = true;
   }

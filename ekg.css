@@ -207,9 +207,10 @@
 
 .monitor-topbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 6px 12px;
   padding: 2px 6px 10px;
   font-size: 0.72rem;
   letter-spacing: 0.04em;
@@ -283,7 +284,7 @@
 }
 
 .vital-label .unit {
-  color: #4a5560;
+  color: #7c8895;
 }
 
 .vital-value {
@@ -1102,12 +1103,23 @@
   border-color: rgba(79, 209, 197, 0.3);
 }
 
+.sc-card-wrap {
+  position: relative;
+  display: flex;
+}
+
+.sc-card-wrap > .sc-card {
+  flex: 1;
+  min-width: 0;
+  padding-right: 56px;
+}
+
 .sc-card-delete {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 24px;
-  height: 24px;
+  top: 6px;
+  right: 6px;
+  width: 44px;
+  height: 44px;
   border-radius: 6px;
   border: 1px solid var(--border);
   background: var(--bg-panel);
@@ -1598,4 +1610,104 @@
   font-size: 0.78rem;
   color: var(--accent);
   font-style: italic;
+}
+
+/* ============ LAYOUT SAFETY, MOBILE, ACCESSIBILITY ============ */
+
+/* Every live monitor canvas fills its column. Without a CSS width the
+   monitor engine's DPR-scaled backing store would set the layout width. */
+.trace-col canvas {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+#sprint-canvas {
+  height: 160px;
+  border-radius: 4px;
+}
+
+.test-exit-btn {
+  margin-left: auto;
+}
+
+/* Visible keyboard focus everywhere (mouse clicks don't show it). */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.softkey:focus-visible,
+.sc-card:focus-visible,
+.mode-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+/* Phones and touch screens: 44px minimum tap targets, no sideways scroll. */
+@media (max-width: 760px), (pointer: coarse) {
+  .sound-toggle,
+  .study-tab,
+  .study-rhythm-btn,
+  .discard-btn,
+  .retry-btn,
+  .start-btn,
+  .next-btn,
+  .softkey {
+    min-height: 44px;
+  }
+
+  .sound-toggle {
+    min-width: 44px;
+    font-size: 1rem;
+  }
+
+  .codelog-details summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .monitor-mode-badge {
+    flex-basis: 100%;
+    order: 10;
+  }
+
+  .monitor-softkeys {
+    grid-template-columns: 1fr;
+  }
+
+  #ekg-canvas,
+  #sprint-canvas {
+    height: 150px;
+  }
+
+  .next-btn {
+    width: 100%;
+  }
+}
+
+/* Landscape phones: keep the strip readable without pushing answers off-screen. */
+@media (max-height: 480px) and (orientation: landscape) {
+  #ekg-canvas,
+  #sprint-canvas,
+  #sc-ekg-canvas {
+    height: 120px;
+  }
+}
+
+/* Respect reduced-motion: no blinking alarms, no CPR/breathing loops, no
+   hover lifts. The monitor engine separately stops sweeping the trace. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

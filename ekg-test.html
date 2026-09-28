@@ -19,7 +19,7 @@
       <span class="brand-mark">CEN</span>
       <span class="brand-name">Study Hub</span>
     </div>
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Site">
       <a href="index.html">Domain board</a>
       <a href="ekg-test.html">EKG trainer</a>
     </nav>
@@ -103,6 +103,7 @@
       </div>
       <span class="mode-tag" id="mode-tag"></span>
       <div class="test-score" id="test-score">Score: <span id="score-live">0</span> / <span id="answered-live">0</span> answered</div>
+      <button class="discard-btn test-exit-btn" id="test-exit-btn" type="button">Save &amp; exit</button>
     </div>
 
     <div class="monitor">
@@ -112,8 +113,8 @@
           <span class="monitor-adult-chip">ADULT</span>
           <span class="monitor-mode-badge">TRAINING SIMULATION — NOT FOR CLINICAL USE</span>
           <span class="monitor-timer" id="monitor-timer" hidden></span>
-          <button class="sound-toggle" type="button">🔇</button>
-          <span class="monitor-batt" title="Battery">▮▮▮▯</span>
+          <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
+          <span class="monitor-batt" title="Battery" aria-hidden="true">▮▮▮▯</span>
           <span class="monitor-clock" id="monitor-clock"></span>
         </div>
         <div class="monitor-screen">
@@ -148,7 +149,7 @@
     <div class="question-panel">
       <span class="q-category" id="q-category"></span>
       <p class="q-stem" id="q-stem"></p>
-      <div class="rationale" id="rationale" hidden></div>
+      <div class="rationale" id="rationale" aria-live="polite" hidden></div>
       <button class="next-btn" id="next-btn" hidden>Next question →</button>
     </div>
   </div>
@@ -213,8 +214,8 @@
             <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
             <span class="monitor-adult-chip">ADULT</span>
             <span class="monitor-mode-badge">TRAINING SIMULATION</span>
-            <button class="sound-toggle" type="button">🔇</button>
-            <span class="monitor-batt" title="Battery">▮▮▮▯</span>
+            <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
+            <span class="monitor-batt" title="Battery" aria-hidden="true">▮▮▮▯</span>
           </div>
           <div class="monitor-screen sc-monitor-screen">
             <div class="vitals-col">
@@ -262,8 +263,8 @@
       <p class="sc-narrative" id="sc-narrative"></p>
       <p class="q-stem sc-question" id="sc-question"></p>
       <div class="monitor-softkeys sc-softkeys" id="sc-softkeys"></div>
-      <div class="rationale" id="sc-rationale" hidden></div>
-      <p class="sc-outcome" id="sc-outcome" hidden></p>
+      <div class="rationale" id="sc-rationale" aria-live="polite" hidden></div>
+      <p class="sc-outcome" id="sc-outcome" aria-live="polite" hidden></p>
       <button class="next-btn" id="sc-next-btn" hidden>Continue the code →</button>
     </div>
   </div>
@@ -278,9 +279,9 @@
       </div>
       <button class="discard-btn" id="study-back">← Back to menu</button>
     </div>
-    <div class="study-tabs">
-      <button class="study-tab active" id="study-tab-rhythms">RHYTHMS</button>
-      <button class="study-tab" id="study-tab-meds">MEDICATIONS</button>
+    <div class="study-tabs" role="group" aria-label="Study guide sections">
+      <button class="study-tab active" id="study-tab-rhythms" type="button" aria-pressed="true">RHYTHMS</button>
+      <button class="study-tab" id="study-tab-meds" type="button" aria-pressed="false">MEDICATIONS</button>
     </div>
 
     <div id="study-rhythms" class="study-split">
@@ -332,7 +333,7 @@
         <div class="monitor-topbar">
           <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
           <span class="monitor-mode-badge">RHYTHM SPRINT</span>
-          <button class="sound-toggle" type="button">🔇</button>
+          <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
         </div>
         <div class="monitor-screen study-screen-inner">
           <div class="trace-col">
@@ -342,7 +343,7 @@
         </div>
         <div class="monitor-softkeys" id="sprint-choices"></div>
       </div>
-      <div class="rationale" id="sprint-feedback" hidden></div>
+      <div class="rationale" id="sprint-feedback" aria-live="polite" hidden></div>
     </div>
 
     <div id="sprint-results" class="results-screen" hidden>
