@@ -125,4 +125,11 @@ check("TB fair ~67.7%", 0.66 < p_tb < 0.69)
 print(f"{ok} passed, {len(fail)} failed")
 for f in fail:
     print("  FAIL:", f)
-sys.exit(1 if fail else 0)
+
+
+def test_math_checks():   # pytest entry point
+    assert not fail, fail
+
+
+if __name__ == "__main__":
+    sys.exit(1 if fail else 0)

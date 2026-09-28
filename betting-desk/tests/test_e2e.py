@@ -4,7 +4,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # httpx isn't installed in this sandbox (no network). The modules under test
 # only touch it inside network calls, which this test never makes.
-if "httpx" not in sys.modules:
+try:
+    import httpx  # noqa: F401
+except ImportError:
     stub = types.ModuleType("httpx")
     stub.Client = object; stub.Headers = dict; stub.HTTPError = Exception
     sys.modules["httpx"] = stub
@@ -107,4 +109,11 @@ print(json.dumps({
 print()
 print(f"{'ALL PASS' if not fails else 'FAILURES'}: {len(fails)}")
 for f in fails: print("  FAIL:", f)
-sys.exit(1 if fails else 0)
+
+
+def test_e2e_checks():   # pytest entry point
+    assert not fails, fails
+
+
+if __name__ == "__main__":
+    sys.exit(1 if fails else 0)

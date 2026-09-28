@@ -16,7 +16,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from .sources import espn
-from .sources.odds_api import OddsAPI, normalise_game_lines, normalise_props, PROP_MARKETS
+from .sources.odds_api import OddsAPI, OddsAPIError, normalise_game_lines, normalise_props, PROP_MARKETS
 from .services.board import build_board
 from .demo import ODDS_FIXTURE, ESPN_FIXTURE
 from . import math_engine as M
@@ -54,9 +54,14 @@ def odds_client() -> OddsAPI:
 @app.get("/api/schedule/{league}")
 def schedule(league: str, date: str | None = None) -> dict:
     """ESPN scoreboard. Free, no quota. date is YYYY-MM-DD."""
-    d = dt.date.fromisoformat(date) if date else None
+    try:
+        d = dt.date.fromisoformat(date) if date else None
+    except ValueError:
+        raise HTTPException(400, "date must be YYYY-MM-DD")
     try:
         games = espn.scoreboard(league, d)
+    except espn.ESPNError as e:
+        raise HTTPException(429 if e.kind == "rate_limit" else 502, f"ESPN request failed: {e}")
     except Exception as e:
         raise HTTPException(502, f"ESPN request failed: {e}")
     return {"league": league, "count": len(games), "games": games,
@@ -74,7 +79,11 @@ def get_standings(league: str) -> dict:
 
 @app.get("/api/injuries/{league}")
 def get_injuries(league: str) -> dict:
-    rows = espn.injuries(league)
+    try:
+        rows = espn.injuries(league)
+    except Exception as e:   # injuries are context, never worth an error page
+        return {"league": league, "count": 0, "injuries": [], "error": str(e),
+                "source": "ESPN (free)", "fetched_at": _now()}
     return {"league": league, "count": len(rows), "injuries": rows,
             "note": "Empty is a normal answer; ESPN injury coverage varies by league.",
             "source": "ESPN (free)", "fetched_at": _now()}
@@ -98,42 +107,73 @@ def board(
     Cost: len(markets) credits when scoped to books, otherwise
     len(markets) x regions.
     """
+    errors: list[dict] = []     # one entry per upstream that failed; the board still renders
+    client: OddsAPI | None = None
+    stale = False
+    odds_games: list[dict] = []
+    espn_games: list[dict] = []
+
     if DEMO_MODE:
         odds_games = normalise_game_lines(ODDS_FIXTURE)
         espn_games = list(ESPN_FIXTURE)
-        client = None
     else:
-        client = odds_client()
-        mk = tuple(m.strip() for m in markets.split(",") if m.strip())
-        bk = tuple(b.strip() for b in books.split(",") if b.strip()) or None
         try:
-            raw = client.odds(league, markets=mk, bookmakers=bk)
-        except Exception as e:
-            raise HTTPException(502, f"Odds API request failed: {e}")
-        odds_games = normalise_game_lines(raw)
+            client = odds_client()
+        except HTTPException as e:
+            errors.append(_err("odds", "config", str(e.detail)))
+        if client is not None:
+            mk = tuple(m.strip() for m in markets.split(",") if m.strip())
+            bk = tuple(b.strip() for b in books.split(",") if b.strip()) or None
+            try:
+                odds_games = normalise_game_lines(client.odds(league, markets=mk, bookmakers=bk))
+                stale = client.last_stale
+            except OddsAPIError as e:
+                errors.append(_err("odds", e.kind, str(e)))
+            except Exception as e:   # unknown league, a parser surprise - still render the slate
+                errors.append(_err("odds", "unexpected", f"{type(e).__name__}: {e}"))
         try:
             espn_games = espn.scoreboard(league)
-        except Exception:
-            espn_games = []   # odds alone still beat nothing
+        except espn.ESPNError as e:
+            errors.append(_err("schedule", e.kind, str(e)))   # odds alone still beat nothing
+        except Exception as e:
+            errors.append(_err("schedule", "unexpected", f"{type(e).__name__}: {e}"))
 
-    result = build_board(
-        espn_games, odds_games,
+    kwargs = dict(
         your_books=YOUR_BOOKS,
         stake=stake if stake is not None else DEFAULT_STAKE,
         method=method or DEVIG_METHOD,
         sharp_book=SHARP_BOOK,
         min_edge=min_edge,
     )
+    try:
+        result = build_board(espn_games, odds_games, **kwargs)
+    except Exception as e:
+        # last resort: something in the joined data broke the builder. Show the
+        # bare slate without prices rather than a 500.
+        errors.append(_err("board", "unexpected", f"{type(e).__name__}: {e}"))
+        try:
+            result = build_board(espn_games, [], **kwargs)
+        except Exception:
+            result = build_board([], [], **kwargs)
     result["league"] = league
-    result["usage"] = client.usage.to_dict() if client else {"demo": True}
+    result["usage"] = client.usage.to_dict() if client else {"demo": DEMO_MODE}
+    result["errors"] = errors
+    result["degraded"] = bool(errors) or stale
+    result["stale_odds"] = stale
     result["sources"] = {
         "schedule": "DEMO FIXTURE (frozen Sep 15 2026)" if DEMO_MODE
                     else ("ESPN (free)" if espn_games else "unavailable"),
-        "odds": "DEMO FIXTURE (frozen Sep 15 2026)" if DEMO_MODE else "The Odds API",
+        "odds": "DEMO FIXTURE (frozen Sep 15 2026)" if DEMO_MODE
+                else ("The Odds API" + (" (cached, feed failing)" if stale else "")
+                      if odds_games else "unavailable"),
     }
     if DEMO_MODE:
         result["demo_mode"] = True
     return result
+
+
+def _err(source: str, kind: str, message: str) -> dict:
+    return {"source": source, "kind": kind, "message": message}
 
 
 @app.get("/api/props/{league}/{event_id}")
@@ -160,6 +200,9 @@ def props(
 
     try:
         blob = client.event_odds(league, event_id, markets=mk, bookmakers=bk)
+    except OddsAPIError as e:
+        raise HTTPException(429 if e.kind == "rate_limit" else 502,
+                            f"Odds API request failed: {e}")
     except Exception as e:
         raise HTTPException(502, f"Odds API request failed: {e}")
 
@@ -271,6 +314,8 @@ def convert(american: float | None = None, decimal: float | None = None,
 
 @app.get("/api/usage")
 def usage() -> dict:
+    if DEMO_MODE:
+        return {"demo": True, "credits_remaining": None}
     try:
         return odds_client().usage.to_dict()
     except HTTPException:

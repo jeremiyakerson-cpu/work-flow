@@ -40,8 +40,50 @@ app/
   main.py             FastAPI routes
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
-tests/                run with `python3 tests/test_math.py` and `test_e2e.py`
+tests/                run with `python3 -m pytest tests/`
 ```
+
+---
+
+## Using the UI
+
+- **Filters**: book (best of your books, or one book), market type (built from
+  whatever markets the API returns, props included), minimum edge %, and sort.
+  Preferences are remembered in the browser.
+- **Best play**: the highest-EV price that passes your filters is pinned above
+  the board and outlined on it. If nothing is +EV it says so and shows the
+  price *closest to fair* instead, labelled as a reference point, not a play.
+- **Credits pill** (top right): credits left on The Odds API after the last
+  call. Amber under 50, red at zero.
+- **Tracked tab**: tap ☆ on any price to log it (stored in `localStorage`,
+  this browser only). Every board refresh before the game starts records that
+  book's current price; once ESPN says the game is live (or the clock passes
+  start time) the last pre-start price becomes the **closing line**, and the
+  tab shows CLV:
+  - *CLV vs fair* = `fair_close_prob × decimal(your price) − 1`: your price
+    against the de-vigged close. This is the number that matters.
+  - *Price CLV* = `decimal(yours) / decimal(close) − 1` at the same book.
+  - If the point moved (8.5 → 9) the prices aren't comparable and it says so.
+  - The close is only as fresh as your last refresh before the start. "Lock
+    close now" freezes it manually (demo fixtures never go live, so use it there).
+
+## When a feed fails
+
+`/api/board` never 500s on an upstream problem. It returns 200 with whatever
+did load plus an `errors` list (`source`, `kind`, `message`) and
+`degraded: true`:
+
+| Failure | What you get |
+|---|---|
+| Odds API timeout / 5xx / 429 / 401 / non-JSON | ESPN slate without prices; if an older cached response exists it's served with `stale_odds: true` |
+| ESPN timeout / 429 / malformed | Odds-only games (named from the odds feed) |
+| Both down | Empty board, both errors listed |
+| Partial or junk rows | Bad events, books, markets and prices are dropped; the rest is priced |
+| One market blows up in the math | That market is `null`, a line goes in `warnings`, the rest of the board stands |
+| No `ODDS_API_KEY` | Schedule only, `kind: "config"` |
+
+The UI shows each as a banner above the board and keeps the last good board
+on screen if a refresh fails outright.
 
 ### The math
 
@@ -150,9 +192,9 @@ the parlay EV is the point.
 
 ## Next things worth building
 
-1. **Bet log with closing-line value.** Record every bet and the closing
-   price, then compare. CLV is the only fast feedback on whether your process
-   works — win rate takes hundreds of bets to say anything.
+1. **Server-side closing lines.** The Tracked tab captures closes from your
+   own refreshes; a scheduled snapshot just before each start would make them
+   exact.
 2. **Line-movement history.** Snapshot the board on a schedule, store it, and
    you can see steam moves instead of guessing.
 3. **A real database.** SQLite is plenty. Right now nothing persists.
@@ -163,10 +205,16 @@ the parlay EV is the point.
 ## Tests
 
 ```bash
-python3 tests/test_math.py   # 46 assertions on the arithmetic
+pip install pytest respx
+python3 -m pytest tests/     # everything below, offline
+python3 tests/test_math.py   # 46 assertions on the arithmetic (also runs standalone)
 python3 tests/test_e2e.py    # board build against Odds-API-shaped fixtures
 ```
 
-Both run offline with no dependencies. The math tests include known-value
+`test_robustness.py` mocks ESPN and The Odds API with respx and covers
+timeouts, connection errors, 401/429/5xx, non-JSON bodies, wrong top-level
+shapes, junk rows, stale-cache fallback and per-market failure isolation.
+
+The math and e2e scripts run offline with no dependencies. The math tests include known-value
 checks: two -110 legs price to +264, a -110/-110 market holds 4.545%, and EV
 at the breakeven probability is exactly zero.
