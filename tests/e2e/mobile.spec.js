@@ -14,14 +14,16 @@ async function check(page, name) {
 }
 
 async function canvasFits(page, id) {
-  // give the monitor a frame to resize its backing store
-  await page.waitForTimeout(100);
-  const m = await page.evaluate((cid) => {
-    const c = document.getElementById(cid);
-    return { css: c.clientWidth, parent: c.parentElement.clientWidth, backing: c.width, dpr: devicePixelRatio };
-  }, id);
-  expect(m.css).toBe(m.parent);
-  expect(m.backing).toBe(Math.round(m.css * m.dpr));
+  // the monitor resizes its backing store on its next animation frame
+  await expect
+    .poll(() =>
+      page.evaluate((cid) => {
+        const c = document.getElementById(cid);
+        const css = c.clientWidth;
+        return css > 0 && css === c.parentElement.clientWidth && c.width === Math.round(css * devicePixelRatio);
+      }, id)
+    )
+    .toBe(true);
 }
 
 test.beforeEach(async ({ page }) => {
@@ -83,4 +85,24 @@ test("monitor rescales on rotation", async ({ page, errors }) => {
   expect(r.scrollWidth).toBeLessThanOrEqual(r.vw);
   await page.setViewportSize({ width: 375, height: 667 });
   await canvasFits(page, "ekg-canvas");
+});
+
+test("quiz: question reads before the choices, and feedback scrolls into view", async ({ page, errors }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" }); // instant scroll, nothing to wait out
+  await page.click("#mode-practice");
+  const stem = await page.locator("#q-stem").boundingBox();
+  const firstKey = await page.locator("#softkeys .softkey").first().boundingBox();
+  expect(stem.y + stem.height).toBeLessThan(firstKey.y);
+  expect(stem.y).toBeLessThan(667); // on the first screen
+
+  await page.locator("#softkeys .softkey").first().click();
+  await expect(page.locator("#rationale")).toBeInViewport();
+  await expect(page.locator("#next-btn")).toBeInViewport();
+});
+
+test("header does not stay pinned over content on a phone", async ({ page, errors }) => {
+  await page.click("#mode-study");
+  await page.evaluate(() => window.scrollTo(0, 600));
+  const box = await page.locator(".site-header").boundingBox();
+  expect(box.y + box.height).toBeLessThanOrEqual(0);
 });

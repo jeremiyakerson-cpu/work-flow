@@ -9,7 +9,9 @@ module.exports = defineConfig({
   testDir: "tests/e2e",
   timeout: 90_000,
   fullyParallel: true,
-  reporter: process.env.CI ? "line" : "list",
+  forbidOnly: !!process.env.CI,
+  retries: 0, // tests must be deterministic; a flaky test is a bug to fix, not retry
+  reporter: process.env.CI ? [["line"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}/`,
     browserName: "chromium",

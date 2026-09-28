@@ -423,6 +423,25 @@
   padding: 20px;
 }
 
+.question-stem-panel {
+  margin-bottom: 16px;
+  padding: 16px 20px;
+}
+
+.question-stem-panel .q-stem {
+  margin: 0;
+}
+
+/* Rationale + Next, shown once a question is answered. */
+.question-feedback {
+  scroll-margin-top: 12px; /* air above it when scrolled into view */
+}
+
+.question-feedback .rationale,
+.question-feedback .rationale[hidden] + .next-btn {
+  margin-top: 0;
+}
+
 .q-category {
   display: inline-block;
   font-size: 0.68rem;

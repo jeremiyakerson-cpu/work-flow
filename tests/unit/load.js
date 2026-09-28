@@ -49,6 +49,32 @@ function fakeElement() {
   return el;
 }
 
+// Math with a deterministic random(), so randomized content (generated
+// scenarios, jittered waveforms) is reproducible in tests.
+function seededMath(seed) {
+  let a = seed >>> 0;
+  const m = Object.create(Math);
+  m.random = () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  return m;
+}
+
+// Date whose now() advances 1s per call from a fixed epoch.
+function steppedDate() {
+  let t = Date.UTC(2026, 0, 1);
+  class FixedDate extends Date {
+    static now() {
+      return (t += 1000);
+    }
+  }
+  return FixedDate;
+}
+
 function load(files, opts = {}) {
   const elements = new Map();
   const document = {
@@ -71,8 +97,8 @@ function load(files, opts = {}) {
     clearInterval() {},
     requestAnimationFrame: () => 0,
     confirm: () => true,
-    Math,
-    Date,
+    Math: opts.seed === undefined ? Math : seededMath(opts.seed),
+    Date: opts.seed === undefined ? Date : steppedDate(),
     JSON,
   };
   ctx.window = ctx;

@@ -308,6 +308,7 @@ function renderQuestion() {
   document.getElementById("rationale").hidden = true;
   const nextBtn = document.getElementById("next-btn");
   nextBtn.hidden = !state.answered[state.current];
+  document.getElementById("question-feedback").hidden = nextBtn.hidden;
   nextBtn.textContent = state.current === state.order.length - 1 ? "See results →" : "Next question →";
 }
 
@@ -326,8 +327,12 @@ function renderMonitor(q) {
   const lethal = ["vf_coarse", "vf_fine", "asystole", "vt", "torsades"];
   if (lethal.includes(q.rhythm) && (v.hr === null || v.hr === 0 || v.hr >= 150)) {
     alarm.hidden = false;
+    // On a rhythm-identification question the strip is the question, so the
+    // alarm must not name the rhythm (it used to say "V-FIB" over the answer).
     alarm.textContent =
-      q.rhythm === "asystole"
+      q.category === "rhythm"
+        ? "*** ALARM — CHECK PATIENT ***"
+        : q.rhythm === "asystole"
         ? "*** ASYSTOLE — CHECK PATIENT ***"
         : q.rhythm.startsWith("vf")
         ? "*** V-FIB — CHECK PATIENT ***"
@@ -408,7 +413,19 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
 
   const nextBtn = document.getElementById("next-btn");
   nextBtn.hidden = false;
+  const feedback = document.getElementById("question-feedback");
+  feedback.hidden = false;
   nextBtn.focus({ preventScroll: true });
+  revealBelow(feedback);
+}
+
+// Bring feedback that appeared below the fold into view (on a phone the
+// rationale lands under the monitor). No-op when it is already visible.
+function revealBelow(el) {
+  const r = el.getBoundingClientRect();
+  if (r.top >= 0 && r.bottom <= window.innerHeight) return;
+  const smooth = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  el.scrollIntoView({ block: "nearest", behavior: smooth ? "smooth" : "auto" });
 }
 
 function nextQuestion() {

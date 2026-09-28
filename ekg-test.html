@@ -106,6 +106,13 @@
       <button class="discard-btn test-exit-btn" id="test-exit-btn" type="button">Save &amp; exit</button>
     </div>
 
+    <!-- The question comes before the strip: on a phone the monitor fills
+         the screen, and the stem used to sit below the choices, out of view. -->
+    <div class="question-panel question-stem-panel">
+      <span class="q-category" id="q-category"></span>
+      <p class="q-stem" id="q-stem"></p>
+    </div>
+
     <div class="monitor">
       <div class="monitor-bezel">
         <div class="monitor-topbar">
@@ -146,9 +153,7 @@
       </div>
     </div>
 
-    <div class="question-panel">
-      <span class="q-category" id="q-category"></span>
-      <p class="q-stem" id="q-stem"></p>
+    <div class="question-panel question-feedback" id="question-feedback" hidden>
       <div class="rationale" id="rationale" aria-live="polite" hidden></div>
       <button class="next-btn" id="next-btn" hidden>Next question →</button>
     </div>

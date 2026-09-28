@@ -496,6 +496,7 @@ function scAnswer(displayIdx, correctIndex, container) {
     ? "Debrief →"
     : "Continue the code →";
   nextBtn.focus({ preventScroll: true });
+  revealBelow(nextBtn); // ekg-test.js: scroll the rationale/outcome into view on phones
 }
 
 function scNext() {

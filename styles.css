@@ -374,6 +374,27 @@ main {
   max-width: 620px;
 }
 
+/* Phones: the sticky header took ~180px (a quarter of a 667px screen) on
+   every scroll. Let it scroll away, and put brand + links on one row. */
+@media (max-width: 760px) {
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    padding: 8px 16px 0;
+    gap: 4px 16px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  .header-sub {
+    padding: 4px 16px 10px;
+  }
+}
+
 /* Touch: header links and status pills get 44px tap targets. */
 @media (max-width: 760px), (pointer: coarse) {
   .main-nav a {

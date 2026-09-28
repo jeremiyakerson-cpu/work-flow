@@ -1,26 +1,40 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const vm = require("vm");
-const { load, makeStorage } = require("./load");
+const fs = require("fs");
+const path = require("path");
+const { load, makeStorage, ROOT } = require("./load");
 const { validateScenario } = require("./validate");
 
-function env(storage = makeStorage()) {
-  const ctx = load(["ekg-rhythms.js", "ekg-stats.js", "ekg-generator.js"], { localStorage: storage });
+// Arc keys straight from the generator's registry, so new arcs are covered.
+const ARC_KEYS = [...fs.readFileSync(path.join(ROOT, "ekg-generator.js"), "utf8").matchAll(/\{\s*key:\s*"([\w-]+)",\s*focus:/g)].map((m) => m[1]);
+
+// Seeded by default so every run exercises the same cases (no flaky
+// "didn't happen to see arc X" failures); the seed is in the test name.
+function env(storage = makeStorage(), seed = 1) {
+  const ctx = load(["ekg-rhythms.js", "ekg-stats.js", "ekg-generator.js"], { localStorage: storage, seed });
   return { ctx, storage, G: ctx.EkgGenerator, S: ctx.EkgStats, rhythms: Object.keys(vm.runInContext("RHYTHMS", ctx)) };
 }
 
-test("generated scenarios are structurally valid across many seeds", () => {
-  const { G, rhythms } = env();
-  const arcs = new Set();
-  for (let i = 0; i < 300; i++) {
-    const s = G.generate();
-    assert.equal(s.generated, true);
-    assert.match(s.id, /^gen-/);
-    validateScenario(s, rhythms);
-    arcs.add(s.arc);
-  }
-  assert.ok(arcs.size >= 6, `only saw arcs: ${[...arcs]}`);
+test("arc registry was found", () => {
+  assert.ok(ARC_KEYS.length >= 6, `parsed arcs: ${ARC_KEYS}`);
 });
+
+for (const seed of [1, 2, 3]) {
+  test(`every arc generates valid scenarios with existing rhythms (seed ${seed})`, async (t) => {
+    const { G, rhythms } = env(makeStorage(), seed);
+    const byArc = new Map(ARC_KEYS.map((k) => [k, 0]));
+    for (let i = 0; i < 400; i++) {
+      const s = G.generate();
+      assert.equal(s.generated, true);
+      assert.match(s.id, /^gen-/);
+      assert.ok(byArc.has(s.arc), `unknown arc ${s.arc}`);
+      byArc.set(s.arc, byArc.get(s.arc) + 1);
+      validateScenario(s, rhythms);
+    }
+    for (const [arc, n] of byArc) await t.test(arc, () => assert.ok(n >= 10, `arc ${arc} generated only ${n} times`));
+  });
+}
 
 test("never generates the same arc twice in a row", () => {
   const { G } = env();

@@ -24,6 +24,24 @@ test("cache name is versioned", () => {
   assert.match(swConfig().CACHE_NAME, /^ekg-trainer-v\d+$/);
 });
 
+// Root-level files that are tooling, not part of the app.
+const NOT_APP = new Set(["service-worker.js", "playwright.config.js", "package.json", "package-lock.json"]);
+const APP_FILE = /\.(html|js|css|webmanifest|png|svg|ico|json)$/;
+const appFiles = () => fs.readdirSync(ROOT).filter((f) => APP_FILE.test(f) && !NOT_APP.has(f) && fs.statSync(path.join(ROOT, f)).isFile());
+
+test("precache list has no duplicates", () => {
+  const list = swConfig().CORE_ASSETS;
+  assert.equal(new Set(list).size, list.length);
+});
+
+test("every app file in the repo root (ekg-*.js/css/html, pages, icons) is precached", () => {
+  const cached = new Set(swConfig().CORE_ASSETS);
+  const files = appFiles();
+  assert.ok(files.some((f) => /^ekg-.*\.js$/.test(f)), "found no ekg-*.js files — is ROOT right?");
+  const missing = files.filter((f) => !cached.has(f));
+  assert.deepEqual(missing, [], "add these to CORE_ASSETS in service-worker.js, or offline mode breaks");
+});
+
 test("every precached file exists on disk", () => {
   for (const asset of swConfig().CORE_ASSETS) {
     if (asset === "./") continue;
@@ -33,7 +51,7 @@ test("every precached file exists on disk", () => {
 
 test("every script/stylesheet/manifest/icon the pages load is precached", () => {
   const cached = new Set(swConfig().CORE_ASSETS);
-  for (const page of ["ekg-test.html", "index.html"]) {
+  for (const page of appFiles().filter((f) => f.endsWith(".html"))) {
     assert.ok(cached.has(page), `${page} not precached`);
     for (const ref of referencedAssets(page)) assert.ok(cached.has(ref), `${page} loads ${ref} but it is not precached`);
   }

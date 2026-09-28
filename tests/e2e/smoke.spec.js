@@ -30,7 +30,7 @@ test("rhythm sprint: 20 strips to results and a saved best", async ({ page, erro
   for (let i = 1; i <= 20; i++) {
     await expect(page.locator("#sprint-progress")).toHaveText(`Strip ${i} / 20`);
     if (await answerFirst(page, "#sprint-choices")) correct++;
-    await page.clock.runFor(2000);
+    await page.clock.fastForward(2000); // past the 0.9–1.9 s next-strip delay, without rendering every frame
   }
   await expect(page.locator("#sprint-results")).toBeVisible();
   await expect(page.locator("#sprint-final-score")).toHaveText(`${correct} / 20`);
