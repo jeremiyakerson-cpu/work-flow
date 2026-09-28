@@ -15,16 +15,40 @@ from typing import Any, Sequence
 from ..math_engine import (
     devig, hold, overround, implied_to_american, ev_percent,
     expected_value, kelly_fraction, american_to_decimal,
-    consensus_fair_probs,
+    consensus_fair_probs, push_possible,
 )
 
 MIN_BOOKS_FOR_CONSENSUS = 3
+GAME_MARKETS = ("h2h", "spreads", "totals")
+
+# Two feeds listing the "same" game more than this far apart are not the
+# same game. Guards the fuzzy name match on big college slates, where
+# "Miami" can mean two different schools on the same Saturday.
+MAX_START_GAP_HOURS = 12
 
 
 # ---------- matching ESPN games to Odds API games ----------
 
 def _norm(s: str | None) -> str:
     return (s or "").lower().replace(".", "").replace("'", "").strip()
+
+
+def _parse_utc(s: str | None) -> dt.datetime | None:
+    if not s:
+        return None
+    try:
+        t = dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    return t if t.tzinfo else t.replace(tzinfo=dt.timezone.utc)
+
+
+def _start_gap_ok(a: str | None, b: str | None) -> bool:
+    """True unless both times parse and are too far apart to be one game."""
+    ta, tb = _parse_utc(a), _parse_utc(b)
+    if ta is None or tb is None:
+        return True
+    return abs((ta - tb).total_seconds()) <= MAX_START_GAP_HOURS * 3600
 
 
 def match_games(espn_games: list[dict], odds_games: list[dict]) -> list[dict]:
@@ -41,6 +65,8 @@ def match_games(espn_games: list[dict], odds_games: list[dict]) -> list[dict]:
         away = _norm(g["away"]["name"])
         best, best_score = None, 0.0
         for o in pool:
+            if not _start_gap_ok(g.get("start_utc"), o.get("start_utc")):
+                continue
             s = (difflib.SequenceMatcher(None, home, _norm(o.get("home"))).ratio()
                  + difflib.SequenceMatcher(None, away, _norm(o.get("away"))).ratio()) / 2
             if s > best_score:
@@ -74,6 +100,10 @@ def _two_way(entries: list[dict] | None, home: str, away: str) -> dict | None:
     if not entries or len(entries) < 2:
         return None
     by_name = {_norm(e["name"]): e for e in entries}
+    if "draw" in by_name:
+        # three-way market; de-vigging two of three outcomes is wrong,
+        # so report nothing rather than a confident wrong number
+        return None
     h = by_name.get(_norm(home))
     a = by_name.get(_norm(away))
     if not h or not a or h.get("price") is None or a.get("price") is None:
@@ -97,26 +127,79 @@ def _over_under(entries: list[dict] | None) -> dict | None:
     }
 
 
+def _pair(market: str, entries: list[dict] | None, home: str, away: str) -> list[dict] | None:
+    """[side_a, side_b] as {price, point} in fixed order, or None."""
+    if market == "totals":
+        ou = _over_under(entries)
+        return [ou["over"], ou["under"]] if ou else None
+    tw = _two_way(entries, home, away)
+    return [tw["home"], tw["away"]] if tw else None
+
+
+def main_line(quotes: dict[str, list[dict]]) -> float | None:
+    """
+    The line most books are dealing, keyed on the first side's point.
+
+    Books hang different numbers (-3 at one, -3.5 at another), and prices on
+    different lines are different bets: averaging them into one "fair"
+    probability is meaningless. So pick the modal line, break ties toward
+    the most balanced market (the book's own idea of the main line), and
+    only compare books on it.
+    """
+    counts: dict[float, int] = {}
+    balance: dict[float, float] = {}
+    for pair in quotes.values():
+        pt = pair[0].get("point")
+        if pt is None:
+            continue
+        counts[pt] = counts.get(pt, 0) + 1
+        gap = abs(american_to_decimal(pair[0]["price"]) - american_to_decimal(pair[1]["price"]))
+        balance[pt] = min(balance.get(pt, gap), gap)
+    if not counts:
+        return None
+    return min(counts, key=lambda pt: (-counts[pt], balance[pt], pt))
+
+
+def market_quotes(game: dict, market: str, home: str, away: str) -> dict[str, list[dict]]:
+    """{book: [side_a, side_b]} for every book quoting both sides."""
+    out: dict[str, list[dict]] = {}
+    books = ((game.get("odds") or {}).get("books") or {})
+    for bkey, blob in books.items():
+        pair = _pair(market, blob.get(market), home, away)
+        if pair:
+            out[bkey] = pair
+    return out
+
+
 def collect_market(
     game: dict, market: str, home: str, away: str
 ) -> dict[str, list[float]]:
     """
     {book: [side_a_price, side_b_price]} for one market across every book
-    that quotes it complete. Books quoting only one side are dropped -
-    a half market cannot be de-vigged.
+    that quotes it complete, on the main line. Books quoting only one side
+    are dropped - a half market cannot be de-vigged. Books on a different
+    line are dropped too; see main_line() and off_line_books().
     """
-    out: dict[str, list[float]] = {}
-    books = ((game.get("odds") or {}).get("books") or {})
-    for bkey, blob in books.items():
-        entries = blob.get(market)
-        pair = _over_under(entries) if market == "totals" else _two_way(entries, home, away)
-        if not pair:
-            continue
-        if market == "totals":
-            out[bkey] = [pair["over"]["price"], pair["under"]["price"]]
-        else:
-            out[bkey] = [pair["home"]["price"], pair["away"]["price"]]
-    return out
+    quotes = market_quotes(game, market, home, away)
+    line = main_line(quotes) if market != "h2h" else None
+    return {
+        b: [pair[0]["price"], pair[1]["price"]]
+        for b, pair in quotes.items()
+        if line is None or pair[0].get("point") == line
+    }
+
+
+def off_line_books(game: dict, market: str, home: str, away: str) -> dict[str, dict]:
+    """Books dealing a different number from the main line, with what they deal."""
+    if market == "h2h":
+        return {}
+    quotes = market_quotes(game, market, home, away)
+    line = main_line(quotes)
+    return {
+        b: {"point": pair[0].get("point"), "prices": [pair[0]["price"], pair[1]["price"]]}
+        for b, pair in quotes.items()
+        if pair[0].get("point") != line
+    }
 
 
 # ---------- analysis ----------
@@ -198,10 +281,14 @@ def build_board(
     method: str = "power",
     sharp_book: str | None = None,
     min_edge: float = 0.0,
+    markets: Sequence[str] = GAME_MARKETS,
 ) -> dict:
     """
     The full board: every game, every market you have prices for, with fair
     value and EV attached, plus a flat list of the spots that clear min_edge.
+
+    markets limits which game markets are analysed. Every game still carries
+    all three keys; one not asked for is None, same as one nobody quotes.
     """
     merged = match_games(espn_games, odds_games)
     games_out: list[dict] = []
@@ -212,6 +299,7 @@ def build_board(
         away_name = g["away"]["name"]
         entry: dict[str, Any] = {
             "espn_id": g.get("espn_id"),
+            "odds_id": (g.get("odds") or {}).get("odds_id"),
             "name": g.get("name"),
             "start_utc": g.get("start_utc"),
             "state": g.get("state"),
@@ -221,7 +309,7 @@ def build_board(
             "away": g["away"],
             "match_confidence": g.get("match_confidence"),
             "has_odds": g.get("odds") is not None,
-            "markets": {},
+            "markets": {m: None for m in GAME_MARKETS},
         }
 
         if g.get("odds"):
@@ -231,19 +319,19 @@ def build_board(
                 ("totals", ["over", "under"], ["Over", "Under"]),
             ]
             for market, _, labels in specs:
+                if market not in markets:
+                    continue
                 prices = collect_market(g, market, home_name, away_name)
                 if not prices:
                     entry["markets"][market] = None
                     continue
                 res = analyse_market(prices, labels, your_books, stake, method, sharp_book)
-                if res and market != "totals":
-                    pts = _points_for(g, market, home_name, away_name)
+                if res:
+                    pts = _main_points(g, market, home_name, away_name)
                     for side, pt in zip(res["sides"], pts):
                         side["point"] = pt
-                if res and market == "totals":
-                    pts = _total_points(g)
-                    for side, pt in zip(res["sides"], pts):
-                        side["point"] = pt
+                        side["push_possible"] = push_possible(pt)
+                    res["off_line_books"] = off_line_books(g, market, home_name, away_name)
                 entry["markets"][market] = res
 
                 if res:
@@ -256,6 +344,8 @@ def build_board(
                                     "market": market,
                                     "side": side["label"],
                                     "point": side.get("point"),
+                                    "push_possible": side.get("push_possible", False),
+                                    "odds_id": entry["odds_id"],
                                     "book": yb["book"],
                                     "price": yb["price"],
                                     "fair_price": side["fair_price"],
@@ -286,19 +376,11 @@ def build_board(
     }
 
 
-def _points_for(game: dict, market: str, home: str, away: str) -> list[float | None]:
-    books = ((game.get("odds") or {}).get("books") or {})
-    for blob in books.values():
-        pair = _two_way(blob.get(market), home, away)
-        if pair:
-            return [pair["home"].get("point"), pair["away"].get("point")]
-    return [None, None]
-
-
-def _total_points(game: dict) -> list[float | None]:
-    books = ((game.get("odds") or {}).get("books") or {})
-    for blob in books.values():
-        ou = _over_under(blob.get("totals"))
-        if ou:
-            return [ou["over"].get("point"), ou["under"].get("point")]
+def _main_points(game: dict, market: str, home: str, away: str) -> list[float | None]:
+    """Both sides' points on the main line, read off the first book dealing it."""
+    quotes = market_quotes(game, market, home, away)
+    line = main_line(quotes) if market != "h2h" else None
+    for pair in quotes.values():
+        if pair[0].get("point") == line:
+            return [pair[0].get("point"), pair[1].get("point")]
     return [None, None]

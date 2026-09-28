@@ -21,6 +21,13 @@ echo "DEMO_MODE=1" >> .env
 Open <http://127.0.0.1:8000>. Hit **Refresh board**. You'll see three MLB games
 with four books apiece, priced off frozen fixture data from Sep 15 2026.
 
+Demo mode also covers **NFL, NCAAF (CFB), NBA and NHL** plus player props for
+one game in each league. Those fixtures are **synthetic**. The matchups and
+prices were written by hand to exercise the code (a book off the main line,
+whole-number lines, one-sided props, one outlier price per league), and every
+response's `source` says so. Leagues with no fixture (WNBA, CBB, Soccer) return
+an empty board with a `note`.
+
 When you're ready for live data, get a key at <https://the-odds-api.com>
 (free tier is 500 credits a month), put it in `.env` as `ODDS_API_KEY`, and set
 `DEMO_MODE=0`.
@@ -37,10 +44,11 @@ app/
   sources/espn.py     free schedules, scores, standings, injuries
   sources/odds_api.py The Odds API client, TTL cache, credit tracking
   services/board.py   joins the two feeds, runs the math, surfaces plays
+  services/props.py   pairs and de-vigs per-event markets (props, periods, alts)
   main.py             FastAPI routes
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
-tests/                run with `python3 tests/test_math.py` and `test_e2e.py`
+tests/                run with `python3 -m pytest tests/`
 ```
 
 ### The math
@@ -89,11 +97,24 @@ The free tier is 500 credits a month. That's about six full prop refreshes on
 an MLB slate, and nothing else. Two defences are built in:
 
 - `CACHE_TTL` (default 120s) — repeat refreshes inside the window are free
+  (`usage.cache_hits` counts them)
 - Scope to `bookmakers` instead of `regions` where you can
 - The UI shows `credits_remaining` after every refresh
+- **Props are opt-in.** Live calls to `/api/props` and `/api/markets` return
+  `403` until you set `ENABLE_PROPS=1`. Demo mode ignores the flag.
+- `PROPS_MAX_MARKETS` (default 5) caps the markets one props call can ask for.
+- `dry_run=true` on either props route returns `estimated_cost` without making
+  the call. It's an upper bound, because the API bills only markets that come
+  back with data.
+- Leaving out `markets` gets a **short default list** (two markets per league,
+  so 2 credits) rather than every prop market.
 
 Pull props per game, when you're actually looking at that game. Not across a
 slate out of curiosity.
+
+With `books` blank, props are priced by region (`us`), not by your two books.
+That costs the same, since up to ten books bill as one region, and it gives
+the consensus every US book instead of just the two you're grading.
 
 ---
 
@@ -101,16 +122,58 @@ slate out of curiosity.
 
 | Route | Cost | What |
 |---|---|---|
-| `GET /api/schedule/{league}` | free | ESPN slate |
+| `GET /api/sports` | free | leagues, their markets, demo coverage, whether props are on |
+| `GET /api/schedule/{league}` | free | ESPN slate. `date=YYYY-MM-DD`; football also takes `week=` |
 | `GET /api/standings/{league}` | free | records |
 | `GET /api/injuries/{league}` | free | injury report |
 | `GET /api/board/{league}` | credits | the refresh button |
-| `GET /api/props/{league}/{event_id}` | credits | player props, all books |
+| `GET /api/board?sport=` | credits | same thing, league as a query param |
+| `GET /api/events/{league}` | free | Odds API event ids, which the props routes need |
+| `GET /api/props/{league}/{event_id}` | credits, opt-in | player props, de-vigged, with plays |
+| `GET /api/props?sport=&event_id=` | credits, opt-in | same thing, as query params |
+| `GET /api/markets/{league}/{event_id}?markets=` | credits, opt-in | any per-event market (e.g. `totals_h1`, `alternate_spreads`) |
 | `POST /api/parlay` | free | price a slip, EV, singles comparison |
 | `GET /api/convert` | free | odds converter |
 | `GET /api/usage` | free | credits left |
 
-Leagues: `mlb nfl ncaaf nba wnba ncaab nhl epl mls`
+Leagues: `mlb nfl ncaaf nba wnba ncaab nhl epl mls`. An unknown league is a `400`.
+Demo fixtures: `mlb nfl ncaaf nba nhl`.
+
+### Board params
+
+| Param | Default | |
+|---|---|---|
+| `markets` | `h2h,spreads,totals` | any subset. Anything else is a `400` pointing at `/api/props`. Every game still carries all three keys, and ones you didn't ask for are `null` |
+| `books` | all US books | book keys for the Odds API call |
+| `stake`, `method`, `min_edge` | env defaults | as before. A bad `method` is a `400` |
+
+These are **additive** fields, and nothing existing was removed or renamed:
+
+- `games[].odds_id` is the Odds API event id to hand to `/api/props`
+- `games[].markets.{spreads,totals}.off_line_books` lists books dealing a
+  different number from the main line: `{book: {point, prices}}`
+- `games[].markets.*.sides[].push_possible` and `plays[].push_possible`
+- `plays[].odds_id`, plus `markets` at the top level
+
+### Props / per-event params
+
+`markets` (props: optional, defaults to the league's short list; `/api/markets`:
+required), `books`, `stake`, `min_edge`, `method`, `dry_run`.
+
+Response: `event`, `props[]`, `plays[]` (sorted by EV, same fields as board
+plays plus `player`), `summary`, `estimated_cost`, `usage`, `source`. Each
+`props[]` row has:
+
+- `market`, `player` (`null` for team markets), `point`, and `labels`, the two
+  sides in order: `["Over","Under"]`, `["Yes","No"]`, or `["Team -3.5","Team +3.5"]`
+- `outcomes`: `{label: {book: price}}`. Every quoted price is here, including
+  books that quote only one side
+- `analysis`: the same shape as a board market, or `null` with a `note` when no
+  book quotes both sides
+- `over` / `under`: the original `/api/props` shape, kept on over/under rows
+
+A different line is a different row. Mahomes o262.5 and o259.5 are two bets,
+never one averaged number.
 
 ---
 
@@ -128,6 +191,24 @@ returns zero and is worse than saying nothing.
 **Same-game parlays get flagged.** The independence math overstates them
 because same-game legs are correlated. `same_game: true` and a note say so
 rather than letting a confident wrong number stand.
+
+**Books on a different line are not averaged in.** Prices on -3 and -3.5 are
+different bets. Spreads and totals are graded on the main line only, which is
+the number most books deal, with ties going to the most balanced market. Books
+dealing a different number are listed in `off_line_books`, not dropped
+silently.
+
+**Whole-number lines are flagged.** On a -7 or a total of 44 the de-vig gives
+win-given-no-push probabilities. The sign of the EV is right, but its size is
+overstated by the push chance, which the feed doesn't give us. These lines
+carry `push_possible: true`.
+
+**Three-way markets are absent, not wrong.** A soccer moneyline with a draw
+comes back `null` rather than de-vigging two of its three outcomes.
+
+**Games are matched on start time as well as names.** Two feeds' listings more
+than 12 hours apart are never joined, even when the names match exactly. That
+matters on college slates with two Miamis.
 
 **The slip shows what the same money does as singles.** Same total risk,
 split across the legs. It is usually the better number, and seeing it next to
@@ -163,10 +244,13 @@ the parlay EV is the point.
 ## Tests
 
 ```bash
-python3 tests/test_math.py   # 46 assertions on the arithmetic
+python3 -m pytest tests/     # everything, offline, no key
+python3 tests/test_math.py   # 46 assertions on the arithmetic (still runs standalone)
 python3 tests/test_e2e.py    # board build against Odds-API-shaped fixtures
 ```
 
-Both run offline with no dependencies. The math tests include known-value
-checks: two -110 legs price to +264, a -110/-110 market holds 4.545%, and EV
-at the breakeven probability is exactly zero.
+All of it runs offline. The math tests include known-value checks: two -110
+legs price to +264, a -110/-110 market holds 4.545%, and EV at the breakeven
+probability is exactly zero. `tests/test_markets.py` covers every demo league
+through the real routes, main-line selection, prop pairing, the props opt-in
+and dry run, and the cache saving credits.

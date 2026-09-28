@@ -154,6 +154,20 @@ def kelly_fraction(american: float, true_prob: float) -> float:
     return max(0.0, f)
 
 
+def push_possible(point: float | None) -> bool:
+    """
+    True when a line can land exactly (a whole-number spread or total).
+
+    De-vigging a -3 or a total of 44 gives win-given-no-push probabilities,
+    because the book refunds the push. EV and Kelly sign are still right,
+    but the EV magnitude is overstated by the (unknown) push probability,
+    so these lines are flagged rather than silently treated as two-way.
+    """
+    if point is None:
+        return False
+    return float(point).is_integer()
+
+
 def breakeven_prob(american: float) -> float:
     """Win rate needed just to break even at this price."""
     return american_to_implied(american)
