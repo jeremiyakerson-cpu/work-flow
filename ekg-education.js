@@ -60,7 +60,7 @@ const RHYTHM_GUIDE = {
     criteria: { rate: "Atrial 350–600; ventricular varies", regular: "IRREGULARLY irregular", p: "None — fibrillatory baseline", pr: "None", qrs: "< 0.12 s" },
     look: "A wavy, chaotic baseline with QRS complexes landing at completely unpredictable intervals.",
     causes: ["Hypertension, heart failure, valve disease", "Sepsis, hypoxia, PE", "Post-cardiac surgery", "Hyperthyroidism", "Alcohol ('holiday heart')"],
-    tx: "Rate control (diltiazem/metoprolol) if stable; synchronized cardioversion 120–200 J if unstable. Anticoagulation for stroke prevention (duration >48 h/unknown needs anticoag or TEE before elective cardioversion).",
+    tx: "Rate control (diltiazem/metoprolol) if stable; synchronized cardioversion if unstable (initial ≥ 200 J biphasic, 2025 AHA). Anticoagulation for stroke prevention (duration >48 h/unknown needs anticoag or TEE before elective cardioversion).",
     pearls: "The irregularity is the diagnosis — march out the R–R intervals with calipers or paper. And always think 'stroke risk' the moment you see afib.",
     confuse: [{ with: "MAT / frequent PACs", how: "Those have visible (varying) P waves; afib has none, just fibrillatory waves." }],
   },
@@ -71,7 +71,7 @@ const RHYTHM_GUIDE = {
     criteria: { rate: "Atrial ~250–350 (classically 300); ventricular per ratio", regular: "Usually regular (fixed ratio)", p: "Sawtooth flutter (F) waves", pr: "Not measured", qrs: "< 0.12 s" },
     look: "A picket-fence / sawtooth baseline that never rests, with QRS complexes at a fixed ratio (2:1, 3:1, 4:1).",
     causes: ["Same substrate as afib — often coexists"],
-    tx: "Same strategy as afib: rate control, anticoagulation, cardioversion if unstable (often converts at lower energy).",
+    tx: "Same strategy as afib: rate control, anticoagulation, cardioversion if unstable (2025 AHA: an initial 200 J biphasic may be reasonable, escalating if it fails).",
     pearls: "A regular narrow tachy at EXACTLY ~150 is flutter 2:1 until proven otherwise — divide 300 by small integers and see if the rate fits.",
     confuse: [{ with: "SVT", how: "At 2:1 the F waves hide in the QRS/T — vagal maneuvers or adenosine slow conduction and expose the sawtooth." }],
   },
@@ -306,6 +306,51 @@ const RHYTHM_GUIDE = {
   },
 };
 
+// Where each entry's treatment content comes from. Shown under the entry in
+// the Study Guide. Cite the guideline, not a page, so it survives reprints.
+const SRC = {
+  als: "2025 AHA Guidelines for CPR & ECC, Part 9: Adult Advanced Life Support",
+  special: "2025 AHA Guidelines for CPR & ECC, Part 10: Adult and Pediatric Special Circumstances of Resuscitation",
+  post: "2025 AHA Guidelines for CPR & ECC, Part 11: Post–Cardiac Arrest Care",
+  af: "2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation",
+  svt: "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With SVT",
+  brady: "2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Bradycardia and Cardiac Conduction Delay",
+  acs: "2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+  tox: "2023 AHA Focused Update on Cardiac Arrest or Life-Threatening Toxicity Due to Poisoning",
+};
+
+const RHYTHM_SOURCES = {
+  nsr: [],
+  sinus_brady: ["als", "brady"],
+  sinus_tach: ["als"],
+  svt: ["als", "svt"],
+  afib: ["als", "af"],
+  aflutter: ["als", "af"],
+  avb1: ["brady"],
+  mobitz1: ["als", "brady"],
+  mobitz2: ["als", "brady"],
+  avb3: ["als", "brady"],
+  junctional: ["als", "brady"],
+  pvc_bigeminy: ["als"],
+  vt: ["als"],
+  torsades: ["als"],
+  vf_coarse: ["als", "post"],
+  vf_fine: ["als"],
+  asystole: ["als"],
+  idioventricular: ["als", "brady"],
+  aivr: ["acs"],
+  wpw_afib: ["als", "af", "svt"],
+  wpw: ["svt"],
+  hyperk: ["special"],
+  stemi: ["acs"],
+  paced_v: ["brady"],
+  paced_av: ["brady"],
+  pacer_noncapture: ["als", "brady"],
+};
+for (const [key, refs] of Object.entries(RHYTHM_SOURCES)) {
+  if (RHYTHM_GUIDE[key] && refs.length) RHYTHM_GUIDE[key].source = refs.map((r) => SRC[r]).join("; ");
+}
+
 const RHYTHM_GROUPS = ["Sinus", "Atrial", "Junctional", "Blocks", "Ventricular", "Lethal", "Paced", "Patterns"];
 
 // Confusion sets for the Rhythm Sprint's smart distractors.
@@ -441,5 +486,27 @@ const MED_GUIDE = [
     pearl: "Four stopping points: it worked, the BP fell, the QRS widened 50%, or you hit 17 mg/kg.",
   },
 ];
+
+const MED_SOURCES = {
+  Adenosine: ["als", "svt"],
+  Amiodarone: ["als"],
+  Aspirin: ["acs"],
+  Atropine: ["als"],
+  "Calcium (gluconate/chloride)": ["special", "tox"],
+  Diltiazem: ["als", "af"],
+  Dopamine: ["als"],
+  Epinephrine: ["als"],
+  "Insulin + Dextrose": ["special"],
+  Lidocaine: ["als"],
+  "Magnesium sulfate": ["als"],
+  Metoprolol: ["af", "acs"],
+  Naloxone: ["special"],
+  Nitroglycerin: ["acs"],
+  Procainamide: ["als", "af"],
+};
+for (const m of MED_GUIDE) {
+  const refs = MED_SOURCES[m.name];
+  if (refs) m.source = refs.map((r) => SRC[r]).join("; ");
+}
 
 window.EkgEducation = { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE };

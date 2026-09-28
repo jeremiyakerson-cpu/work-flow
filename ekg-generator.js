@@ -124,7 +124,7 @@
       question: "What are the immediate post-ROSC priorities?",
       choices: [
         extraChoice ||
-          "Titrate oxygen (SpO2 92–98%), keep SBP above 90 with fluids/pressors, obtain a 12-lead EKG, and consider targeted temperature management",
+          "Titrate oxygen (SpO2 90–98%), keep MAP ≥ 65 mm Hg with fluids/pressors, obtain a 12-lead EKG, and plan temperature control if the patient isn't following commands",
         "Stop all monitoring — the code is over",
         "Give another code-dose epinephrine 1 mg bolus to raise the BP",
         "Extubate now that a pulse is back",
@@ -132,7 +132,7 @@
       answer: 0,
       rationale:
         extraRationale ||
-        "Post-cardiac-arrest care: avoid hypoxia and hyperoxia (SpO2 92–98%), keep SBP > 90 (fluids, then an infusion — not another code-dose epi bolus), obtain a 12-lead to look for STEMI, and consider TTM for the comatose patient. Anticipate re-arrest.",
+        "Post-cardiac-arrest care (2025 AHA): avoid both hypoxia and hyperoxia (SpO2 90–98%), keep MAP ≥ 65 mm Hg (fluids, then an infusion — not another code-dose epi bolus), obtain a 12-lead to look for STEMI, and use deliberate temperature control (32–37.5 °C for at least 36 hours) if the patient doesn't follow commands. Anticipate re-arrest.",
       outcome: extraOutcome || "The post-ROSC bundle is underway and the patient heads to the ICU. Well run.",
       intervention: "Post-ROSC bundle",
     };
@@ -238,7 +238,7 @@
       history: "on dialysis and missed the last two sessions",
       clue(ctx) {
         return {
-          rhythm: "junctional",
+          rhythm: "idioventricular",
           vitals: { hr: null, spo2: null, nibp: "--/--", rr: 0, etco2: jit(ctx.rng, 13, 2) },
           scene: { cpr: true, pads: true, bvm: true, iv: true, meds: true, loc: "UNRESPONSIVE", pulse: "ABSENT", breathing: "ASSISTED" },
           narrative:
@@ -252,7 +252,7 @@
           ],
           answer: 0,
           rationale:
-            "The triad: calcium stabilizes the myocardium (but doesn't lower K+), insulin/glucose and albuterol shift potassium into cells, and only dialysis removes it. A wide, slow PEA is a classic hyperkalemic pattern — and it is not shockable.",
+            "The triad: calcium stabilizes the myocardium (but doesn't lower K+), insulin/glucose and albuterol shift potassium into cells, and only dialysis removes it. A wide, slow PEA is a classic hyperkalemic pattern — and it is not shockable. Note: the 2025 AHA guidelines call calcium's benefit during a hyperkalemic arrest not well established, so it must never delay CPR or epinephrine.",
           outcome: "Calcium and epi are in, insulin/D50 running… the next check finds an organized rhythm with a pulse.",
           intervention: "Calcium + insulin/D50 · epi given",
         };
@@ -736,7 +736,7 @@
             choices: ["50–100 J synchronized", "200 J unsynchronized", "360 J synchronized", "5 J synchronized"],
             answer: 0,
             rationale:
-              "Regular narrow-complex SVT converts at low energy: 50–100 J synchronized initially, escalating if needed. (Afib typically needs 120–200 J biphasic.)",
+              "Regular narrow-complex SVT converts at low energy: 50–100 J synchronized initially, escalating if needed. (Afib and flutter start higher — at least 200 J biphasic per the 2025 AHA guidelines.)",
             outcome: "One synchronized shock — and sinus rhythm marches out. Color returns.",
             intervention: "Synchronized cardioversion 75 J",
           },
@@ -804,16 +804,16 @@
           narrative: "Unstable now: hypotensive and altered, still in rapid afib. The diltiazem is stopped and pads are on.",
           question: "What is indicated now?",
           choices: [
-            "Synchronized cardioversion — for afib, typically 120–200 J biphasic — with sedation if it won't delay the shock",
+            "Synchronized cardioversion — for afib, an initial 200 J biphasic or more — with sedation if it won't delay the shock",
             "Another dose of diltiazem to finish the job",
             "Unsynchronized defibrillation at maximum energy",
             "A fluid bolus and 4 hours of observation",
           ],
           answer: 0,
           rationale:
-            "Unstable tachyarrhythmia with a pulse = synchronized cardioversion; afib needs more energy than SVT (120–200 J biphasic). More AV-nodal blocker deepens the hypotension.",
-          outcome: "One synchronized shock at 150 J — sinus rhythm appears and the pressure climbs.",
-          intervention: "Synchronized cardioversion 150 J",
+            "Unstable tachyarrhythmia with a pulse = synchronized cardioversion; afib needs more energy than SVT — the 2025 AHA guidelines start at 200 J biphasic or more and escalate if it fails. More AV-nodal blocker deepens the hypotension.",
+          outcome: "One synchronized shock at 200 J — sinus rhythm appears and the pressure climbs.",
+          intervention: "Synchronized cardioversion 200 J",
         },
         {
           rhythm: "nsr",

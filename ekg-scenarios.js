@@ -103,14 +103,14 @@ const EKG_SCENARIOS = [
           "ROSC achieved: sinus rhythm at 92 with a weak pulse, BP 86/52. He remains unresponsive and is being ventilated.",
         question: "What are the immediate post-ROSC priorities?",
         choices: [
-          "Titrate oxygen (SpO2 92–98%), support BP above SBP 90 with fluids/pressors, get a 12-lead EKG, and consider targeted temperature management",
+          "Titrate oxygen (SpO2 90–98%), keep MAP ≥ 65 mm Hg with fluids/pressors, obtain a 12-lead EKG, and plan temperature control if the patient isn't following commands",
           "Stop all monitoring — the code is over",
           "Give another epinephrine 1 mg bolus to raise the BP",
           "Extubate now that a pulse is back",
         ],
         answer: 0,
         rationale:
-          "Post-cardiac-arrest care: avoid both hypoxia and hyperoxia (SpO2 92–98%), keep SBP > 90 (fluids, then an infusion — not another code-dose epi bolus), obtain a 12-lead to look for STEMI, and consider TTM for the comatose patient. Anticipate re-arrest.",
+          "Post-cardiac-arrest care (2025 AHA): avoid both hypoxia and hyperoxia (SpO2 90–98%), keep MAP ≥ 65 mm Hg (fluids, then an infusion — not another code-dose epi bolus), obtain a 12-lead to look for STEMI, and use deliberate temperature control (32–37.5 °C for at least 36 hours) if the patient doesn't follow commands. Anticipate re-arrest.",
         outcome: "He's on an epinephrine infusion, the 12-lead shows an inferior STEMI, and cath lab is activated. Well run.",
         intervention: "Post-ROSC bundle · cath lab activated",
       },
@@ -292,7 +292,7 @@ const EKG_SCENARIOS = [
         ],
         answer: 0,
         rationale:
-          "Regular narrow-complex SVT converts at low energy: 50–100 J synchronized initially, escalating if needed. (Afib typically needs 120–200 J biphasic; the shock stays synchronized as long as there's an R wave to sync on.)",
+          "Regular narrow-complex SVT converts at low energy: 50–100 J synchronized initially, escalating if needed. (Afib and flutter start higher — at least 200 J biphasic per the 2025 AHA guidelines; the shock stays synchronized as long as there's an R wave to sync on.)",
         outcome: "One synchronized shock at 75 J — the monitor blinks, and a sinus rhythm at 88 marches out. Color returns to her face.",
         intervention: "Synchronized cardioversion 75 J",
       },
@@ -601,7 +601,7 @@ const EKG_SCENARIOS = [
         narrative: "ROSC after an opioid-driven arrest. He's ventilated with a weak pulse and BP 96/58.",
         question: "What is special about post-ROSC care after an opioid arrest?",
         choices: [
-          "Keep supporting ventilation and plan for re-sedation — fentanyl outlasts naloxone — plus the standard bundle: SpO2 92–98%, SBP > 90, 12-lead, temperature management",
+          "Keep supporting ventilation and plan for re-sedation — fentanyl outlasts naloxone — plus the standard bundle: SpO2 90–98%, MAP ≥ 65, 12-lead, temperature control",
           "Extubate now that the naloxone is working",
           "Give flumazenil to complete the reversal",
           "No monitoring needed once ROSC is achieved",
@@ -665,16 +665,16 @@ const EKG_SCENARIOS = [
           "She is now unstable: hypotensive and altered, still in rapid afib. The diltiazem is stopped and pads are on.",
         question: "What is indicated now?",
         choices: [
-          "Synchronized cardioversion — for afib, typically 120–200 J biphasic — with sedation if it won't delay the shock",
+          "Synchronized cardioversion — for afib, an initial 200 J biphasic or more — with sedation if it won't delay the shock",
           "Another dose of diltiazem to finish the job",
           "Unsynchronized defibrillation at maximum energy",
           "A fluid bolus and a 4-hour observation period",
         ],
         answer: 0,
         rationale:
-          "Unstable tachyarrhythmia with a pulse = synchronized cardioversion. Afib usually needs more energy than SVT — 120–200 J biphasic. More AV-nodal blocker would deepen the hypotension, and an unsynchronized shock risks R-on-T.",
-        outcome: "One synchronized shock at 150 J. The monitor stutters — then a regular sinus rhythm at 92 appears. Her pressure climbs to 104/62.",
-        intervention: "Synchronized cardioversion 150 J",
+          "Unstable tachyarrhythmia with a pulse = synchronized cardioversion. Afib needs more energy than SVT — the 2025 AHA guidelines start at 200 J biphasic or more and escalate if it fails. More AV-nodal blocker would deepen the hypotension, and an unsynchronized shock risks R-on-T.",
+        outcome: "One synchronized shock at 200 J. The monitor stutters — then a regular sinus rhythm at 92 appears. Her pressure climbs to 104/62.",
+        intervention: "Synchronized cardioversion 200 J",
       },
       {
         rhythm: "nsr",
@@ -874,7 +874,7 @@ const EKG_SCENARIOS = [
         ],
         answer: 0,
         rationale:
-          "PEA management is CPR + epinephrine + fixing the reversible cause — and here the cause is known. Repeat calcium, keep shifting K+, and mobilize dialysis. Hyperkalemic arrests can have good outcomes precisely because the cause is treatable. A wide slow PEA is not shockable.",
+          "PEA management is CPR + epinephrine + fixing the reversible cause — and here the cause is known. Repeat calcium, keep shifting K+, and mobilize dialysis. Hyperkalemic arrests can have good outcomes precisely because the cause is treatable. A wide slow PEA is not shockable. (The 2025 AHA guidelines note that calcium's benefit once the patient is in arrest is not well established — it must never delay CPR or epinephrine.)",
         outcome: "Second dose of calcium, epi in, compressions never stop… at the next check: an organized rhythm with a femoral pulse. ROSC.",
         intervention: "Epi 1 mg · calcium repeated",
       },
