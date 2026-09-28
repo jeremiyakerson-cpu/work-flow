@@ -606,7 +606,7 @@
           intervention: "Transcutaneous pacing started",
         },
         {
-          rhythm: entry === "sinus_brady" ? "avb3" : entry,
+          rhythm: "pacer_noncapture",
           vitals: { hr: jit(rng, 32, 3), spo2: 90, nibp: "72/40", rr: 14, etco2: null },
           scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALTERED", pulse: "WEAK", breathing: "SPONTANEOUS" },
           narrative: "Pacer spikes march across the screen without capturing.",
@@ -624,7 +624,7 @@
           intervention: "Output ↑ until capture confirmed",
         },
         {
-          rhythm: "junctional",
+          rhythm: "paced_v",
           vitals: { hr: 70, spo2: 95, nibp: "88/56", rr: 16, etco2: null },
           scene: { cpr: false, pads: true, bvm: false, iv: true, meds: true, loc: "ALTERED", pulse: "PRESENT", breathing: "SPONTANEOUS" },
           narrative: "Paced with capture, but still hypotensive and pacing-dependent.",
@@ -642,7 +642,7 @@
           intervention: "Chronotropic infusion titrated",
         },
         {
-          rhythm: "junctional",
+          rhythm: "paced_v",
           vitals: { hr: 70, spo2: 96, nibp: "102/64", rr: 16, etco2: null },
           scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
           narrative: "Awake again, paced and stable. Cardiology asks what you'd anticipate next.",
@@ -1030,8 +1030,8 @@
           "Wheeled to the lab within minutes — the culprit artery is opened and stented."
         ),
         {
-          rhythm: "nsr",
-          vitals: { hr: 84, spo2: 97, nibp: "112/70", rr: 14, etco2: null },
+          rhythm: "aivr",
+          vitals: { hr: 72, spo2: 97, nibp: "112/70", rr: 14, etco2: null },
           scene: { cpr: false, pads: true, bvm: false, iv: true, meds: false, loc: "ALERT", pulse: "PRESENT", breathing: "SPONTANEOUS" },
           narrative: "Post-PCI and awake. The monitor shows occasional short runs of a slow, wide rhythm around 70 that come and go.",
           question: "How do you interpret these runs after reperfusion?",

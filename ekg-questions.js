@@ -188,7 +188,7 @@ const EKG_QUESTIONS = [
     ],
     answer: 0,
     rationale:
-      "IV magnesium sulfate is first-line for torsades de pointes, regardless of serum magnesium level, because it stabilizes the cardiac membrane and shortens the QT-related dysrhythmia.",
+      "IV magnesium sulfate is first-line for torsades de pointes, regardless of serum magnesium level — it suppresses the early afterdepolarizations that trigger torsades (it does not meaningfully shorten the QT itself). Pulseless torsades is defibrillated.",
   },
   {
     id: 14,
@@ -598,19 +598,19 @@ const EKG_QUESTIONS = [
   {
     id: 38,
     category: "meds",
-    rhythm: "afib",
-    vitals: { hr: 150, spo2: 95, nibp: "112/68", rr: 18 },
+    rhythm: "wpw_afib",
+    vitals: { hr: 230, spo2: 95, nibp: "112/68", rr: 18 },
     stem:
       "A patient has an irregular, wide-complex tachycardia suspected to be atrial fibrillation with WPW (pre-excitation). Which drugs must be AVOIDED?",
     choices: [
       "AV-nodal blockers — adenosine, diltiazem/verapamil, beta blockers, and digoxin",
       "Procainamide",
-      "Amiodarone given as a slow infusion with cardiology guidance",
+      "Urgent cardiology consultation",
       "Synchronized cardioversion",
     ],
     answer: 0,
     rationale:
-      "In pre-excited afib, blocking the AV node shunts conduction down the accessory pathway and can accelerate the rhythm into VF. Avoid adenosine, calcium channel blockers, beta blockers, and digoxin; procainamide or cardioversion are the safe options.",
+      "In pre-excited afib, blocking the AV node shunts conduction down the accessory pathway and can accelerate the rhythm into VF. Avoid adenosine, calcium channel blockers, beta blockers, and digoxin (current guidelines also caution against IV amiodarone here). Procainamide if stable, synchronized cardioversion if unstable.",
   },
   {
     id: 39,
@@ -649,8 +649,8 @@ const EKG_QUESTIONS = [
   {
     id: 41,
     category: "condition",
-    rhythm: "sinus_brady",
-    vitals: { hr: 52, spo2: 96, nibp: "128/78", rr: 16 },
+    rhythm: "hyperk",
+    vitals: { hr: 58, spo2: 96, nibp: "128/78", rr: 16 },
     stem:
       "A dialysis patient who missed two treatments develops peaked T waves and a widening QRS on the monitor. Potassium returns at 7.8. What is the FIRST medication?",
     choices: [
@@ -683,8 +683,8 @@ const EKG_QUESTIONS = [
   {
     id: 43,
     category: "condition",
-    rhythm: "avb3",
-    vitals: { hr: 40, spo2: 93, nibp: "88/54", rr: 16 },
+    rhythm: "pacer_noncapture",
+    vitals: { hr: 30, spo2: 93, nibp: "88/54", rr: 16 },
     stem:
       "You are transcutaneously pacing a patient in complete heart block, but the monitor shows pacer spikes that are not followed by QRS complexes. What is this, and what do you do?",
     choices: [
@@ -816,6 +816,249 @@ const EKG_QUESTIONS = [
     answer: 0,
     rationale:
       "Biphasic defibrillation uses the device manufacturer's recommended energy (commonly 120–200 J); if unknown, use the maximum. Subsequent shocks may be equivalent or escalated. Shocks for VF/pVT are always unsynchronized.",
+  },
+
+  // ---------- EXPANDED BANK: ESCAPE, PRE-EXCITATION, PACED, ELECTROLYTE & STEMI PATTERNS ----------
+  {
+    id: 51,
+    category: "rhythm",
+    rhythm: "idioventricular",
+    vitals: { hr: 34, spo2: 92, nibp: "84/50", rr: 16 },
+    stem: "The monitor shows a regular rhythm at 34 with wide, bizarre QRS complexes and no P waves anywhere on the strip. What is it?",
+    choices: [
+      "Idioventricular (ventricular escape) rhythm",
+      "Junctional escape rhythm",
+      "Ventricular tachycardia",
+      "Sinus bradycardia with a bundle branch block",
+    ],
+    answer: 0,
+    rationale:
+      "Wide QRS, no P waves, and a rate of 20–40 is the intrinsic ventricular pacemaker firing as a last resort — an idioventricular (ventricular escape) rhythm. A junctional escape would be narrow and faster (40–60).",
+  },
+  {
+    id: 52,
+    category: "meds",
+    rhythm: "idioventricular",
+    vitals: { hr: 32, spo2: 91, nibp: "80/48", rr: 16 },
+    stem: "A colleague suggests lidocaine to 'get rid of' this slow, wide idioventricular rhythm. The patient has a weak pulse. What is the correct response?",
+    choices: [
+      "Do not suppress it — it is an escape rhythm and may be the only thing keeping the heart beating; treat as symptomatic bradycardia (atropine, prepare to pace) and find the cause",
+      "Give lidocaine 1–1.5 mg/kg to abolish the ventricular focus",
+      "Give amiodarone 300 mg IV push",
+      "Defibrillate at 200 J",
+    ],
+    answer: 0,
+    rationale:
+      "Antiarrhythmics can abolish the ventricular escape focus and leave the patient in asystole. A slow escape rhythm with a pulse is managed with the bradycardia algorithm; without a pulse it is PEA.",
+  },
+  {
+    id: 53,
+    category: "rhythm",
+    rhythm: "aivr",
+    vitals: { hr: 72, spo2: 97, nibp: "116/70", rr: 16 },
+    stem: "Minutes after the cath lab opened an occluded coronary artery, the patient develops a regular wide-complex rhythm at 72. The patient is awake with a normal BP. What is the most likely rhythm and response?",
+    choices: [
+      "Accelerated idioventricular rhythm (AIVR) — a usually benign reperfusion rhythm; monitor, assess perfusion, and report it",
+      "Ventricular tachycardia — synchronized cardioversion now",
+      "Complete heart block — start transcutaneous pacing",
+      "Ventricular fibrillation — defibrillate",
+    ],
+    answer: 0,
+    rationale:
+      "A wide rhythm at about 40–100 after reperfusion is AIVR. It is typically self-limited and well tolerated, and it is not suppressed with antiarrhythmics. Rates over 100 would point toward VT.",
+  },
+  {
+    id: 54,
+    category: "rhythm",
+    rhythm: "wpw",
+    vitals: { hr: 80, spo2: 99, nibp: "118/72", rr: 14 },
+    stem: "A 22-year-old with episodes of palpitations has this strip: a short PR interval, a slurred upstroke at the start of each QRS, and a slightly wide QRS. What does this show?",
+    choices: [
+      "Wolff-Parkinson-White (pre-excitation) pattern — a delta wave from an accessory pathway",
+      "First-degree AV block",
+      "Right bundle branch block",
+      "Accelerated junctional rhythm",
+    ],
+    answer: 0,
+    rationale:
+      "The WPW triad is a short PR (< 0.12 s), a delta wave (slurred QRS upstroke), and a widened QRS — conduction reaches the ventricles early through an accessory pathway that bypasses the AV node.",
+  },
+  {
+    id: 55,
+    category: "condition",
+    rhythm: "wpw",
+    vitals: { hr: 80, spo2: 99, nibp: "120/74", rr: 14 },
+    stem: "Your patient's admission EKG shows a WPW pattern. Why is this important to communicate at handoff?",
+    choices: [
+      "If the patient develops atrial fibrillation, AV-nodal blockers (adenosine, diltiazem, beta blockers, digoxin) can accelerate conduction down the accessory pathway and trigger VF",
+      "The patient needs a permanent pacemaker before discharge",
+      "WPW means digoxin is the preferred drug for any future tachycardia",
+      "It is a benign normal variant with no treatment implications",
+    ],
+    answer: 0,
+    rationale:
+      "An accessory pathway changes which drugs are safe. In pre-excited afib, blocking the AV node forces impulses down the pathway at very high rates — a route to VF. Catheter ablation is the definitive treatment.",
+  },
+  {
+    id: 56,
+    category: "meds",
+    rhythm: "wpw_afib",
+    vitals: { hr: 240, spo2: 95, nibp: "108/68", rr: 20 },
+    stem: "A stable young patient has an irregular, very fast, wide-complex rhythm with QRS shapes that vary beat to beat — suspected pre-excited atrial fibrillation. Which drug is appropriate?",
+    choices: [
+      "Procainamide IV (20–50 mg/min to a maximum of 17 mg/kg, stopping for hypotension or QRS widening > 50%)",
+      "Diltiazem 0.25 mg/kg IV",
+      "Adenosine 6 mg rapid IV push",
+      "Metoprolol 5 mg IV",
+    ],
+    answer: 0,
+    rationale:
+      "Procainamide slows conduction over the accessory pathway itself. AV-nodal blockers (diltiazem, adenosine, beta blockers, digoxin) can speed the ventricular response and precipitate VF. If the patient becomes unstable: synchronized cardioversion.",
+  },
+  {
+    id: 57,
+    category: "rhythm",
+    rhythm: "paced_v",
+    vitals: { hr: 70, spo2: 97, nibp: "124/76", rr: 14 },
+    stem: "A patient with a permanent pacemaker has this rhythm: a sharp spike before every wide QRS, regular at 70. What is it, and what else must you confirm?",
+    choices: [
+      "Ventricular paced rhythm with capture — confirm a palpable pulse that matches the paced rate",
+      "Ventricular tachycardia — prepare to cardiovert",
+      "Pacemaker failure to capture — increase the output",
+      "Idioventricular rhythm — no action needed",
+    ],
+    answer: 0,
+    rationale:
+      "A spike followed by a wide QRS on every beat is ventricular pacing with electrical capture. The nurse still confirms mechanical capture — a pulse at the paced rate. Wide paced complexes are expected and are not VT.",
+  },
+  {
+    id: 58,
+    category: "rhythm",
+    rhythm: "paced_av",
+    vitals: { hr: 70, spo2: 98, nibp: "130/78", rr: 14 },
+    stem: "This regular rhythm at 70 shows TWO spikes per beat — one before the P wave and one before the wide QRS. What is it?",
+    choices: [
+      "AV (dual-chamber) paced rhythm",
+      "Ventricular paced rhythm only",
+      "Atrial flutter with 2:1 conduction",
+      "Pacemaker failure to sense",
+    ],
+    answer: 0,
+    rationale:
+      "An atrial spike before the P wave and a ventricular spike before the QRS on each beat is dual-chamber (AV) pacing, as with a DDD pacemaker.",
+  },
+  {
+    id: 59,
+    category: "rhythm",
+    rhythm: "pacer_noncapture",
+    vitals: { hr: 30, spo2: 91, nibp: "82/50", rr: 18 },
+    stem: "A pacemaker patient becomes dizzy. The monitor shows regular pacer spikes at 70, but most are not followed by a QRS; a slow wide rhythm at about 30 shows through. What is this?",
+    choices: [
+      "Pacemaker failure to capture",
+      "Pacemaker failure to sense (undersensing)",
+      "Normal demand pacing",
+      "Oversensing with inhibited pacing",
+    ],
+    answer: 0,
+    rationale:
+      "Spikes that arrive on time but produce no depolarization are failure to capture. Undersensing is spikes firing without regard to the patient's own beats; oversensing is spikes missing when they should fire. Notify the provider and be ready for transcutaneous pacing.",
+  },
+  {
+    id: 60,
+    category: "rhythm",
+    rhythm: "hyperk",
+    vitals: { hr: 58, spo2: 96, nibp: "134/80", rr: 16 },
+    stem: "A patient with chronic kidney disease has this strip: tall, narrow, tented T waves, small P waves, and a QRS that is beginning to widen. What does it suggest?",
+    choices: [
+      "Hyperkalemia",
+      "Hypokalemia",
+      "Hypercalcemia",
+      "Normal early repolarization",
+    ],
+    answer: 0,
+    rationale:
+      "Peaked T waves, flattening P waves, PR prolongation, and QRS widening are the progressive EKG signs of hyperkalemia. Hypokalemia does the opposite: flat T waves and prominent U waves.",
+  },
+  {
+    id: 61,
+    category: "condition",
+    rhythm: "hyperk",
+    vitals: { hr: 56, spo2: 96, nibp: "128/76", rr: 16 },
+    stem: "Calcium, insulin with dextrose, and albuterol were given for a potassium of 7.2 with peaked T waves. The T waves have improved. What must the nurse monitor next?",
+    choices: [
+      "Blood glucose (hypoglycemia after insulin), serial potassium levels, and continuous telemetry — the shifted potassium rebounds until it is removed",
+      "Nothing — the EKG has normalized, so the problem is solved",
+      "Only urine output",
+      "Stop telemetry and recheck the potassium in 24 hours",
+    ],
+    answer: 0,
+    rationale:
+      "Insulin and albuterol shift potassium into cells temporarily — levels climb again as they wear off unless potassium is removed (dialysis, diuretics, binders). Insulin also causes delayed hypoglycemia, so glucose is checked serially.",
+  },
+  {
+    id: 62,
+    category: "rhythm",
+    rhythm: "stemi",
+    vitals: { hr: 84, spo2: 95, nibp: "146/90", rr: 20 },
+    stem: "A patient with chest pressure has this lead II strip: the ST segment is elevated and merges into the T wave. The 12-lead shows the same in II, III, and aVF with ST depression in aVL. What is this?",
+    choices: [
+      "Inferior STEMI (reciprocal change in aVL)",
+      "Pericarditis",
+      "Hyperkalemia",
+      "Normal sinus rhythm",
+    ],
+    answer: 0,
+    rationale:
+      "ST elevation in the contiguous inferior leads (II, III, aVF) with reciprocal ST depression in aVL is an inferior STEMI, most often from the right coronary artery. Pericarditis elevates the ST diffusely without reciprocal depression.",
+  },
+  {
+    id: 63,
+    category: "condition",
+    rhythm: "stemi",
+    vitals: { hr: 88, spo2: 96, nibp: "92/60", rr: 20 },
+    stem: "Your inferior-STEMI patient is still having chest pain; BP is 92/60 and right-sided lead V4R shows ST elevation. Nitroglycerin is ordered. What do you do?",
+    choices: [
+      "Hold the nitroglycerin and notify the provider — a right ventricular infarct is preload-dependent and nitrates can cause severe hypotension",
+      "Give nitroglycerin 0.4 mg SL as ordered and recheck in 15 minutes",
+      "Give three nitroglycerin doses back-to-back to relieve the pain quickly",
+      "Start a nitroglycerin infusion instead",
+    ],
+    answer: 0,
+    rationale:
+      "ST elevation in V4R signals RV involvement. The RV depends on preload, and nitrates (which reduce preload) can crash the pressure — especially with an SBP already near 90. RV infarct hypotension is treated with IV fluids per the provider.",
+  },
+  {
+    id: 64,
+    category: "condition",
+    rhythm: "stemi",
+    vitals: { hr: 90, spo2: 97, nibp: "138/86", rr: 18 },
+    stem: "An ED patient's 12-lead shows a STEMI. The hospital has a cath lab. What is the reperfusion time goal?",
+    choices: [
+      "Primary PCI within 90 minutes of first medical contact",
+      "Within 6 hours — there is no rush once aspirin is given",
+      "Within 24 hours after troponins trend",
+      "Only after a stress test confirms ischemia",
+    ],
+    answer: 0,
+    rationale:
+      "For STEMI, the goal for primary PCI is first-medical-contact-to-device within 90 minutes. If PCI can't happen in time (about 120 minutes), fibrinolytics are given — ideally within 30 minutes of arrival — if there are no contraindications.",
+  },
+  {
+    id: 65,
+    category: "code",
+    rhythm: "idioventricular",
+    shockable: false,
+    vitals: { hr: 30, spo2: null, nibp: "--/--", rr: 0 },
+    stem: "The monitor shows a slow, wide, organized rhythm at 30, but the patient is unresponsive and has no palpable pulse. What is the correct management?",
+    choices: [
+      "PEA — start CPR, give epinephrine 1 mg IV/IO as soon as possible, and search for reversible causes (H's and T's)",
+      "Defibrillate — wide complexes are shockable",
+      "Atropine 1 mg IV and wait for the heart rate to rise",
+      "Give amiodarone to suppress the ventricular rhythm",
+    ],
+    answer: 0,
+    rationale:
+      "Any organized rhythm without a pulse is PEA, which is not shockable. A slow, wide PEA often suggests hyperkalemia, acidosis, or massive MI — treat with CPR, early epinephrine, and cause-directed therapy.",
   },
 ];
 

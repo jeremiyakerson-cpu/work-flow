@@ -19,6 +19,12 @@ const SCENARIO_FOCUS = {
   "stemi-vt": "stable-vt-acs",
   "hyperk-code": "nonshockable-arrest",
   "tension-pneumo": "nonshockable-arrest",
+  "wpw-afib": "tachycardia",
+  "mobitz2-anterior": "bradycardia",
+  "dig-toxicity": "bradycardia",
+  "stemi-vf": "shockable-arrest",
+  "opioid-arrest": "nonshockable-arrest",
+  "massive-pe": "nonshockable-arrest",
 };
 
 const scState = {
