@@ -7,13 +7,15 @@ Then: http://127.0.0.1:8000  (UI)  /docs  (API explorer)
 from __future__ import annotations
 
 import datetime as dt
+import logging
 import os
+import re
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from .sources import espn
 from .sources.odds_api import (
@@ -22,6 +24,7 @@ from .sources.odds_api import (
 )
 from .services.board import build_board
 from .services.props import analyse_event_markets
+from .services import history
 from . import demo
 from . import math_engine as M
 
@@ -43,6 +46,30 @@ DEMO_MODE = os.getenv("DEMO_MODE", "") not in ("", "0", "false", "False")
 # calls to them are refused unless you switch this on. Demo mode ignores it.
 ENABLE_PROPS = os.getenv("ENABLE_PROPS", "") not in ("", "0", "false", "False")
 PROPS_MAX_MARKETS = int(os.getenv("PROPS_MAX_MARKETS", "5"))
+# Line movement: live fetches are written to a local SQLite file (gitignored).
+RECORD_HISTORY = os.getenv("RECORD_HISTORY", "1") not in ("", "0", "false", "False")
+HISTORY_DB = os.getenv("HISTORY_DB") or history.DEFAULT_DB
+
+log = logging.getLogger("betting_desk")
+_history: history.HistoryStore | None = None
+
+
+def history_store() -> history.HistoryStore:
+    global _history
+    if _history is None or _history.path != HISTORY_DB:
+        _history = history.HistoryStore(HISTORY_DB)
+    return _history
+
+
+def _record(league: str, rows: list[dict]) -> dict:
+    """Write a snapshot. Never lets a disk problem break the route that paid for the data."""
+    if not RECORD_HISTORY or DEMO_MODE:
+        return {"recorded": 0, "enabled": RECORD_HISTORY and not DEMO_MODE}
+    try:
+        return {"recorded": history_store().record(league, rows, _now()), "enabled": True}
+    except Exception as e:     # disk full, read-only checkout, locked file...
+        log.warning("history write failed: %s", e)
+        return {"recorded": 0, "enabled": True, "error": str(e)}
 
 _client: OddsAPI | None = None
 
@@ -62,6 +89,16 @@ def _league(league: str) -> str:
     if lg not in SPORT_KEYS:
         raise HTTPException(400, f"Unknown league '{league}'. Try one of: {', '.join(SPORT_KEYS)}.")
     return lg
+
+
+_EVENT_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+
+
+def _event_id(event_id: str) -> str:
+    """Odds API ids are hex; demo ids are slugs. Anything else never reaches a URL path."""
+    if not _EVENT_ID.match(event_id or ""):
+        raise HTTPException(400, "event_id must be letters, digits, '-' or '_'.")
+    return event_id
 
 
 def _csv(v: str) -> tuple[str, ...]:
@@ -137,7 +174,10 @@ def get_injuries(league: str) -> dict:
         rows = list(demo.INJURIES_FIXTURE.get(league, []))
         source = "DEMO FIXTURE (synthetic injuries)"
     else:
-        rows = espn.injuries(league)
+        try:
+            rows = espn.injuries(league)
+        except Exception as e:
+            raise HTTPException(502, f"ESPN request failed: {e}")
         source = "ESPN (free)"
     return {"league": league, "count": len(rows), "injuries": rows,
             "note": "Empty is a normal answer; ESPN injury coverage varies by league.",
@@ -193,6 +233,7 @@ def board(
         odds_games = normalise_game_lines(d["odds"]) if d else []
         espn_games = list(d["espn"]) if d else []
         client = None
+        history_info = {"recorded": 0, "enabled": False}
     else:
         client = odds_client()
         bk = _csv(books) or None
@@ -201,6 +242,7 @@ def board(
         except Exception as e:
             raise HTTPException(502, f"Odds API request failed: {e}")
         odds_games = normalise_game_lines(raw)
+        history_info = _record(league, history.rows_from_game_lines(odds_games))
         try:
             espn_games = espn.scoreboard(league)
         except Exception:
@@ -218,6 +260,7 @@ def board(
     result["league"] = league
     result["markets"] = list(mk)
     result["usage"] = client.usage.to_dict() if client else {"demo": True}
+    result["history"] = history_info
     result["sources"] = {
         "schedule": _demo_label(league) if DEMO_MODE
                     else ("ESPN (free)" if espn_games else "unavailable"),
@@ -275,6 +318,7 @@ def _event_markets(
     stake: float | None, min_edge: float, method: str | None, dry_run: bool,
 ) -> dict:
     """Shared body of /api/props and /api/markets."""
+    event_id = _event_id(event_id)
     if not mk:
         raise HTTPException(400, f"No markets asked for and no defaults configured for {league}.")
     if len(mk) > PROPS_MAX_MARKETS:
@@ -310,6 +354,7 @@ def _event_markets(
         except Exception as e:
             raise HTTPException(502, f"Odds API request failed: {e}")
         usage_, source = client.usage.to_dict(), "The Odds API"
+        _record(league, history.rows_from_event_blob(blob))
 
     res = analyse_event_markets(
         blob, YOUR_BOOKS,
@@ -383,18 +428,71 @@ def event_markets(
                           min_edge, method, dry_run)
 
 
+# ---------------- line movement (free, reads what was already fetched) ----------------
+
+@app.get("/api/history/{league}/{event_id}")
+def price_history(
+    league: str,
+    event_id: str,
+    market: str = Query("h2h", description="h2h, spreads, totals, or any per-event market key"),
+    book: str = Query("", description="One book key; blank = every book"),
+    player: str = Query("", description="Props: only this player's lines"),
+    method: str = Query(default=None),
+) -> dict:
+    """
+    Price history for one market in one event, per book, plus the fair
+    price over time for game markets. Costs nothing: it only reads snapshots
+    the board and markets routes stored when they fetched. Demo mode serves
+    a synthetic history for every demo game.
+    """
+    league = _league(league)
+    event_id = _event_id(event_id)
+    if method and method not in M.DEVIG_METHODS:
+        raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    if DEMO_MODE:
+        rows = demo.demo_history_rows(event_id)
+        if rows is None:
+            raise HTTPException(404, f"No demo game with id {event_id}. See /api/events/{league}.")
+        source = demo.HISTORY_LABEL
+    else:
+        try:
+            rows = history_store().rows(event_id, market)
+        except Exception as e:
+            raise HTTPException(500, f"History store unreadable: {e}")
+        source = "local snapshots of The Odds API"
+    rows = [r for r in rows if r.get("league") in (None, league)]
+    res = history.build_history(rows, market, book=book or None, player=player or None,
+                                method=method or DEVIG_METHOD, sharp_book=SHARP_BOOK)
+    out = {"league": league, "event_id": event_id, **res, "source": source,
+           "recording": RECORD_HISTORY and not DEMO_MODE, "fetched_at": _now()}
+    if not res["snapshots"]:
+        out["note"] = ("No snapshots for this market yet. History is recorded each time "
+                       "the board (or a props/markets call) fetches this event.")
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
 # ---------------- parlay pricing (free, no network) ----------------
 
 class Leg(BaseModel):
     label: str
     american: float
+
+    @field_validator("american")
+    @classmethod
+    def _real_price(cls, v: float) -> float:
+        if -100 < v < 100:
+            raise ValueError("american odds are <= -100 or >= +100")
+        return v
+
     fair_prob: float | None = Field(default=None, ge=0.0, le=1.0)
     game_id: str | None = None
 
 
 class ParlayRequest(BaseModel):
     legs: list[Leg]
-    stake: float = 10.0
+    stake: float = Field(default=10.0, gt=0)
 
 
 @app.post("/api/parlay")
@@ -439,12 +537,18 @@ def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:
     """Odds converter. Pass any one of american, decimal or prob."""
     if american is not None:
+        if -100 < american < 100:
+            raise HTTPException(400, "american odds are <= -100 or >= +100.")
         d = M.american_to_decimal(american)
         p = M.american_to_implied(american)
     elif decimal is not None:
+        if decimal <= 1.0:
+            raise HTTPException(400, "decimal odds must be greater than 1.")
         d, p = decimal, 1.0 / decimal
         american = M.decimal_to_american(decimal)
     elif prob is not None:
+        if not 0.0 < prob < 1.0:
+            raise HTTPException(400, "prob must be strictly between 0 and 1.")
         p, d = prob, 1.0 / prob
         american = M.implied_to_american(prob)
     else:
@@ -474,6 +578,7 @@ def health() -> dict:
         "odds_key_present": bool(os.getenv("ODDS_API_KEY")),
         "demo_mode": DEMO_MODE,
         "props_enabled": ENABLE_PROPS,
+        "history_recording": RECORD_HISTORY and not DEMO_MODE,
         "time": _now(),
     }
 

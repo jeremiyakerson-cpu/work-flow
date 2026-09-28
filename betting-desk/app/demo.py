@@ -352,3 +352,82 @@ def demo_event_markets(event_id: str, markets: tuple[str, ...]) -> dict | None:
         {**bm, "markets": [m for m in bm["markets"] if m["key"] in markets]}
         for bm in blob["bookmakers"]
     ]}
+
+
+# ---------------- line-movement history (SYNTHETIC) ----------------
+#
+# Every demo game gets a made-up path from an opening line to the fixture's
+# current price, so /api/history has something to draw offline. The path is
+# deterministic and SYNTHETIC for every league, MLB included: the frozen MLB
+# board is one real moment, and nothing here is a record of how it got there.
+
+HISTORY_LABEL = "DEMO FIXTURE (synthetic line history)"
+
+# hours before first pitch/kickoff, and how far from the current number the
+# market was then: (shift in the first-listed side's no-vig probability,
+# shift in the first-listed side's point). The last step is the fixture itself.
+_HISTORY_STEPS = [
+    (96, 0.035, 1.0),
+    (48, 0.020, 0.5),
+    (20, 0.010, 0.5),
+    (4, 0.0, 0.0),
+]
+
+
+# leagues whose spreads and totals move in points; elsewhere only prices move
+_POINTS_MOVE = ("nfl", "ncaaf", "nba")
+
+
+def _shift_pair(p0: float, p1: float, dq: float) -> tuple[int, int]:
+    """Move vig-inclusive prices by dq of probability, keeping the book's margin."""
+    from .math_engine import american_to_implied, implied_to_american
+    q0, q1 = american_to_implied(p0), american_to_implied(p1)
+    q0, q1 = min(max(q0 + dq, 0.02), 0.98), min(max(q1 - dq, 0.02), 0.98)
+    return implied_to_american(q0), implied_to_american(q1)
+
+
+def _ts(start: str, hours_before: float) -> str:
+    import datetime as _dt
+    t = _dt.datetime.fromisoformat(start.replace("Z", "+00:00"))
+    return (t - _dt.timedelta(hours=hours_before)).isoformat()
+
+
+def demo_history_rows(event_id: str) -> list[dict] | None:
+    """Snapshot rows for one demo game, in the shape the history store keeps."""
+    league, event = None, None
+    for lg, d in DEMO_LEAGUES.items():
+        for ev in d["odds"]:
+            if ev["id"] == event_id:
+                league, event = lg, ev
+    if event is None:
+        return None
+    rows: list[dict] = []
+    for b_i, bm in enumerate(event.get("bookmakers", [])):
+        for mk in bm.get("markets", []):
+            outs = mk.get("outcomes", [])
+            if len(outs) != 2:
+                continue
+            for step_i, (hours, dq, dpt) in enumerate(_HISTORY_STEPS):
+                # odd-numbered books move a step early, so books disagree
+                # mid-path and the main-line logic has something to do
+                lag = min(step_i + (b_i % 2), len(_HISTORY_STEPS) - 1) if step_i else 0
+                _, dq, dpt = _HISTORY_STEPS[lag]
+                p0, p1 = _shift_pair(outs[0]["price"], outs[1]["price"], dq)
+                for o, price, sign in ((outs[0], p0, 1), (outs[1], p1, -1)):
+                    point = o.get("point")
+                    if league not in _POINTS_MOVE:
+                        pass    # run lines and puck lines stay at 1.5; only price moves
+                    elif point is not None and mk["key"] == "spreads":
+                        point = point + sign * dpt
+                    elif point is not None and mk["key"] == "totals":
+                        point = point - dpt
+                    rows.append({
+                        "ts": _ts(event["commence_time"], hours), "league": league,
+                        "event_id": event_id, "home": event["home_team"],
+                        "away": event["away_team"], "start_utc": event["commence_time"],
+                        "market": mk["key"], "book": bm["key"], "side": o["name"],
+                        "description": o.get("description"), "point": point,
+                        "price": price if dq else o["price"],
+                    })
+    rows.sort(key=lambda r: r["ts"])
+    return rows

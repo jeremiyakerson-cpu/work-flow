@@ -12,8 +12,8 @@ from __future__ import annotations
 
 from typing import Any, Sequence
 
-from ..math_engine import push_possible
-from .board import analyse_market
+from ..math_engine import push_possible, implied_to_american
+from .board import analyse_market, fair_estimate, grade_price, is_play, _play_fields
 
 _OVER_UNDER = ("Over", "Under")
 _YES_NO = ("Yes", "No")
@@ -90,8 +90,18 @@ def _split_team_row(row: dict, pts: dict[str, tuple], home: str | None) -> list[
     """
     A team row at |point| can hold two bets (A -3.5/B +3.5 and A +3.5/B -3.5
     when alternates are in play). Pair each side with its mirror; home first.
+
+    A row with no point and three or more names is one multi-way market
+    (a result with a Draw, a first-scorer list): all of its outcomes are
+    de-vigged together. Splitting it into pairs would de-vig two of three
+    outcomes as if they were the whole market.
     """
     tags = sorted(pts, key=lambda t: (pts[t][0] != home, t))
+    if len(tags) > 2 and all(pts[t][1] is None for t in tags):
+        return [{
+            "market": row["market"], "player": row["player"], "point": None,
+            "labels": tags, "outcomes": {lb: row["outcomes"][lb] for lb in tags},
+        }]
     used: set[str] = set()
     out: list[dict] = []
     for t in tags:
@@ -129,20 +139,25 @@ def analyse_event_markets(
 
     for r in rows:
         labels = r["labels"]
-        present = [lb for lb in labels if lb in r["outcomes"]]
-        both: dict[str, list[float]] = {}
-        if len(present) == 2 and len(labels) == 2:
-            books = set(r["outcomes"][labels[0]]) & set(r["outcomes"][labels[1]])
-            both = {b: [r["outcomes"][labels[0]][b], r["outcomes"][labels[1]][b]]
-                    for b in sorted(books)}
+        full: dict[str, list[float]] = {}
+        if len(labels) >= 2 and all(lb in r["outcomes"] for lb in labels):
+            books = set.intersection(*(set(r["outcomes"][lb]) for lb in labels))
+            full = {b: [r["outcomes"][lb][b] for lb in labels] for b in sorted(books)}
 
         analysis = None
-        if both:
-            analysis = analyse_market(both, labels, your_books, stake, method, sharp_book)
+        if full:
+            analysis = analyse_market(full, labels, your_books, stake, method, sharp_book)
+        if analysis:
+            _grade_one_sided(analysis, r, full, your_books, stake, method, sharp_book)
             for side in analysis["sides"]:
                 side["point"] = r["point"] if _side_kind(side["label"]) else _team_point(side["label"])
                 side["push_possible"] = push_possible(side["point"])
 
+        note = None
+        if not analysis:
+            note = ("Only one side quoted - cannot strip vig on this market."
+                    if len(labels) < 2 or not full else
+                    "No fair price: the de-vig gave an impossible probability.")
         item: dict[str, Any] = {
             "market": r["market"],
             "player": r["player"],
@@ -150,8 +165,7 @@ def analyse_event_markets(
             "labels": labels,
             "outcomes": r["outcomes"],
             "analysis": analysis,
-            "note": None if both else
-                    "Only one side quoted - cannot strip vig on this market.",
+            "note": note,
         }
         # the original /api/props shape, kept for over/under props
         if labels == list(_OVER_UNDER):
@@ -162,22 +176,15 @@ def analyse_event_markets(
         if analysis:
             for side in analysis["sides"]:
                 for yb in side["your_books"]:
-                    if yb["ev_per_dollar"] > min_edge:
+                    if is_play(yb, min_edge):
                         plays.append({
                             "market": r["market"],
                             "player": r["player"],
                             "side": side["label"],
                             "point": side["point"],
                             "push_possible": side["push_possible"],
-                            "book": yb["book"],
-                            "price": yb["price"],
-                            "fair_price": side["fair_price"],
-                            "fair_prob": side["fair_prob"],
-                            "fair_source": analysis["fair_source"],
-                            "ev_per_dollar": yb["ev_per_dollar"],
-                            "ev_dollars": yb["ev_dollars"],
-                            "kelly": yb["kelly"],
-                            "quarter_kelly": round(yb["kelly"] / 4, 5),
+                            **_play_fields(yb),
+                            "one_sided": yb.get("one_sided", False),
                             "book_count": analysis["book_count"],
                         })
 
@@ -199,6 +206,42 @@ def analyse_event_markets(
             "plays_found": len(plays),
         },
     }
+
+
+def _grade_one_sided(
+    analysis: dict, row: dict, full: dict[str, list[float]],
+    your_books: Sequence[str], stake: float, method: str, sharp_book: str | None,
+) -> None:
+    """
+    Grade your book's price on a side it quotes alone.
+
+    Books often hang only the Over, or only Yes on an anytime scorer. That
+    price cannot be de-vigged by itself, but it is still a bet you can
+    make, and the books quoting every side give a fair price for it. The
+    book is not in that consensus (it did not quote the whole market), so
+    nothing needs excluding. hold is null: there is no market to hold on.
+    """
+    fair = None
+    for i, side in enumerate(analysis["sides"]):
+        for yb in your_books:
+            if yb in full:
+                continue
+            price = row["outcomes"].get(side["label"], {}).get(yb)
+            if price is None:
+                continue
+            if fair is None:
+                fair = fair_estimate(full, method, sharp_book)
+                if fair is None:
+                    return
+            side["your_books"].append({
+                "book": yb, "price": price,
+                "fair_prob": round(fair[0][i], 5),
+                "fair_price": implied_to_american(fair[0][i]),
+                "fair_source": fair[1],
+                **grade_price(price, fair[0][i], stake),
+                "hold": None,
+                "one_sided": True,
+            })
 
 
 def _team_point(tag: str) -> float | None:

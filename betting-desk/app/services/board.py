@@ -204,6 +204,58 @@ def off_line_books(game: dict, market: str, home: str, away: str) -> dict[str, d
 
 # ---------- analysis ----------
 
+def fair_estimate(
+    book_prices: dict[str, list[float]],
+    method: str = "power",
+    sharp_book: str | None = None,
+    exclude: str | None = None,
+) -> tuple[list[float], str] | None:
+    """
+    (fair probabilities, source label) from every book except `exclude`.
+
+    Priority: the sharp book if it quotes the market (and is not the book
+    being graded), then a consensus of 3+ books, then a thin 2-book
+    consensus, then a single book. None when no book is left to ask, or
+    when the de-vig produced an impossible probability (additive de-vig can
+    go negative on long shots) - no number beats a wrong one.
+
+    Why exclude: grading a book against a consensus that contains it pulls
+    the fair price toward that book's own number, which shrinks every edge
+    it has (and every overlay it hides) by roughly 1/N. The book being
+    graded must not mark its own homework.
+    """
+    pool = {b: p for b, p in book_prices.items() if b != exclude}
+    if not pool:
+        return None
+    if sharp_book and sharp_book in pool:
+        fair, source = devig(pool[sharp_book], method), f"sharp:{sharp_book}"
+    elif len(pool) >= MIN_BOOKS_FOR_CONSENSUS:
+        fair, source = consensus_fair_probs(pool, method), f"consensus:{len(pool)} books"
+    elif len(pool) == 1:
+        only = next(iter(pool))
+        fair, source = devig(pool[only], method), f"single book:{only}"
+    else:
+        fair, source = consensus_fair_probs(pool, method), f"thin consensus:{len(pool)} books"
+    if any(not 0.0 < f < 1.0 for f in fair):
+        return None
+    if exclude is not None:
+        source += f" (excl. {exclude})"
+    return fair, source
+
+
+def grade_price(price: float, fair_prob: float, stake: float) -> dict:
+    """EV, dollar EV and Kelly for one price against one fair probability."""
+    return {
+        "ev_per_dollar": round(ev_percent(price, fair_prob), 5),
+        "ev_dollars": round(expected_value(stake, price, fair_prob), 2),
+        "kelly": round(kelly_fraction(price, fair_prob), 5),
+    }
+
+
+_NO_FAIR = {"fair_prob": None, "fair_price": None, "fair_source": None,
+            "ev_per_dollar": None, "ev_dollars": None, "kelly": None}
+
+
 def analyse_market(
     book_prices: dict[str, list[float]],
     outcome_labels: Sequence[str],
@@ -213,29 +265,38 @@ def analyse_market(
     sharp_book: str | None = None,
 ) -> dict | None:
     """
-    Fair price, hold, best available price and EV for one market.
+    Fair price, hold, best available price and EV for one market, with any
+    number of outcomes (two-way lines, three-way results, N-way props).
 
-    Returns None when there are not enough independent books to form a
-    consensus. That is a real answer - "I cannot tell you what fair is
-    here" beats a confident number built on one book quoting itself.
+    Two different fair prices come out of this, on purpose:
+
+    - sides[].fair_prob is the market's fair price from every book (or the
+      sharp). It answers "what is this outcome worth?" and is what the board
+      displays.
+    - each graded price (your_books[], best_ev_per_dollar) is scored against
+      a fair price that leaves the graded book out; see fair_estimate().
+      Each your_books entry carries the fair_prob/fair_source it was graded
+      against. When no other book quotes the market, EV is null rather than
+      the book grading itself.
+
+    Returns None when nothing usable is quoted.
     """
     usable = {b: p for b, p in book_prices.items() if p and len(p) == len(outcome_labels)}
     if not usable:
         return None
 
-    if sharp_book and sharp_book in usable:
-        fair = devig(usable[sharp_book], method)
-        source = f"sharp:{sharp_book}"
-    elif len(usable) >= MIN_BOOKS_FOR_CONSENSUS:
-        fair = consensus_fair_probs(usable, method)
-        source = f"consensus:{len(usable)} books"
-    elif len(usable) == 1:
-        only = next(iter(usable))
-        fair = devig(usable[only], method)
-        source = f"single book:{only}"
-    else:
-        fair = consensus_fair_probs(usable, method)
-        source = f"thin consensus:{len(usable)} books"
+    market = fair_estimate(usable, method, sharp_book)
+    if market is None:
+        return None
+    fair, source = market
+
+    # leave-one-out fairs, computed once per book that gets graded
+    loo: dict[str, tuple[list[float], str] | None] = {}
+
+    def fair_without(book: str) -> tuple[list[float], str] | None:
+        if book not in loo:
+            loo[book] = fair_estimate(usable, method, sharp_book, exclude=book)
+        return loo[book]
 
     sides: list[dict] = []
     for i, label in enumerate(outcome_labels):
@@ -245,23 +306,31 @@ def analyse_market(
         )
         yours = []
         for yb in your_books:
-            if yb in usable:
-                price = usable[yb][i]
-                yours.append({
-                    "book": yb,
-                    "price": price,
-                    "ev_per_dollar": round(ev_percent(price, fair[i]), 5),
-                    "ev_dollars": round(expected_value(stake, price, fair[i]), 2),
-                    "kelly": round(kelly_fraction(price, fair[i]), 5),
-                    "hold": round(hold(usable[yb]), 5),
+            if yb not in usable:
+                continue
+            price = usable[yb][i]
+            row = {"book": yb, "price": price}
+            ind = fair_without(yb)
+            if ind is None:
+                row.update(_NO_FAIR)
+            else:
+                row.update({
+                    "fair_prob": round(ind[0][i], 5),
+                    "fair_price": implied_to_american(ind[0][i]),
+                    "fair_source": ind[1],
+                    **grade_price(price, ind[0][i], stake),
                 })
+            row["hold"] = round(hold(usable[yb]), 5)
+            yours.append(row)
+        best_ind = fair_without(best_book)
         sides.append({
             "label": label,
             "fair_prob": round(fair[i], 5),
             "fair_price": implied_to_american(fair[i]),
             "best_price": best_price,
             "best_book": best_book,
-            "best_ev_per_dollar": round(ev_percent(best_price, fair[i]), 5),
+            "best_ev_per_dollar": (round(ev_percent(best_price, best_ind[0][i]), 5)
+                                   if best_ind else None),
             "your_books": yours,
         })
 
@@ -271,6 +340,25 @@ def analyse_market(
         "market_hold": {b: round(hold(p), 5) for b, p in usable.items()},
         "sides": sides,
     }
+
+
+def _play_fields(yb: dict) -> dict:
+    """The graded-price fields a play row copies off a your_books entry."""
+    return {
+        "book": yb["book"],
+        "price": yb["price"],
+        "fair_price": yb["fair_price"],
+        "fair_prob": yb["fair_prob"],
+        "fair_source": yb["fair_source"],
+        "ev_per_dollar": yb["ev_per_dollar"],
+        "ev_dollars": yb["ev_dollars"],
+        "kelly": yb["kelly"],
+        "quarter_kelly": round(yb["kelly"] / 4, 5),
+    }
+
+
+def is_play(yb: dict, min_edge: float) -> bool:
+    return yb.get("ev_per_dollar") is not None and yb["ev_per_dollar"] > min_edge
 
 
 def build_board(
@@ -337,7 +425,7 @@ def build_board(
                 if res:
                     for side in res["sides"]:
                         for yb in side["your_books"]:
-                            if yb["ev_per_dollar"] > min_edge:
+                            if is_play(yb, min_edge):
                                 plays.append({
                                     "game": g.get("name"),
                                     "start_utc": g.get("start_utc"),
@@ -346,15 +434,7 @@ def build_board(
                                     "point": side.get("point"),
                                     "push_possible": side.get("push_possible", False),
                                     "odds_id": entry["odds_id"],
-                                    "book": yb["book"],
-                                    "price": yb["price"],
-                                    "fair_price": side["fair_price"],
-                                    "fair_prob": side["fair_prob"],
-                                    "fair_source": res["fair_source"],
-                                    "ev_per_dollar": yb["ev_per_dollar"],
-                                    "ev_dollars": yb["ev_dollars"],
-                                    "kelly": yb["kelly"],
-                                    "quarter_kelly": round(yb["kelly"] / 4, 5),
+                                    **_play_fields(yb),
                                     "book_count": res["book_count"],
                                 })
         games_out.append(entry)
