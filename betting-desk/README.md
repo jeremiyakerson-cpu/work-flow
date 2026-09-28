@@ -40,7 +40,7 @@ app/
   main.py             FastAPI routes
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
-tests/                run with `python3 -m pytest tests/`
+tests/                run with `python3 -m pytest tests/` (see Tests below)
 ```
 
 ---
@@ -66,6 +66,20 @@ tests/                run with `python3 -m pytest tests/`
   - If the point moved (8.5 → 9) the prices aren't comparable and it says so.
   - The close is only as fresh as your last refresh before the start. "Lock
     close now" freezes it manually (demo fixtures never go live, so use it there).
+- **Tracked → Results**: grades each play from ESPN final scores (won / lost /
+  push) via `POST /api/results`, then shows your record, profit at the stakes
+  you logged, ROI, average CLV, a per-play CLV chart with a running average, a
+  cumulative-profit chart and a week-by-week table. Only moneyline, spread and
+  total grade automatically; props and anything else get **Won / Lost / Push**
+  buttons so you grade them by hand. In demo mode the server invents a final
+  score per game (stable, labelled synthetic) so you can see the flow.
+  **Export CSV** downloads every tracked play with entry, close, CLV and result.
+- **Any sport, any market**: the league rail comes from `/api/sports` when the
+  backend has it (demo leagues without a fixture are dimmed), and each game
+  renders whatever keys are in `markets`. Games with an `odds_id` get a
+  **Props** button: in demo it loads straight away; live, the first tap asks
+  the server for the credit cost (`dry_run`) and a second tap spends it.
+  Off-line books and whole-number lines (push possible) are flagged.
 
 ## When a feed fails
 
@@ -149,10 +163,26 @@ slate out of curiosity.
 | `GET /api/board/{league}` | credits | the refresh button |
 | `GET /api/props/{league}/{event_id}` | credits | player props, all books |
 | `POST /api/parlay` | free | price a slip, EV, singles comparison |
+| `POST /api/results` | free | grade tracked plays from ESPN final scores |
 | `GET /api/convert` | free | odds converter |
 | `GET /api/usage` | free | credits left |
 
 Leagues: `mlb nfl ncaaf nba wnba ncaab nhl epl mls`
+
+---
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+playwright install chromium        # or: export BD_CHROMIUM=/path/to/chrome
+python3 -m pytest tests/
+```
+
+`test_ui_smoke.py` starts the app in demo mode on a spare port and drives it
+in Chromium at phone width: load the board, filter it, track a play, see it
+graded in Results, export CSV. It skips itself if Playwright or a browser
+isn't installed; everything else needs no network.
 
 ---
 

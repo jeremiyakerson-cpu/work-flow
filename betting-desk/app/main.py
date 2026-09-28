@@ -292,6 +292,45 @@ def price_parlay(req: ParlayRequest) -> dict:
     return report
 
 
+# ---------------- tracker results (free, ESPN scores) ----------------
+
+class TrackedPlay(BaseModel):
+    id: str
+    league: str
+    market: str
+    side: str | None = None
+    point: float | None = None
+    espn_id: str | None = None
+    start_utc: str | None = None
+    game: str | None = None
+    home: str | None = None
+    away: str | None = None
+
+
+class ResultsRequest(BaseModel):
+    plays: list[TrackedPlay] = Field(default_factory=list, max_length=500)
+
+
+@app.post("/api/results")
+def results(req: ResultsRequest) -> dict:
+    """
+    Grade tracked plays against ESPN final scores: won / lost / push, or
+    pending / live if the game isn't over. Moneyline, spread and total only;
+    anything else comes back "ungradeable" for you to grade by hand.
+
+    ESPN failures never 500: they're listed in errors and the affected plays
+    come back status "unknown". Demo mode invents a final per game and marks
+    every result synthetic.
+    """
+    from .services.results import grade_plays
+    out = grade_plays([p.model_dump() for p in req.plays], espn.scoreboard, demo=DEMO_MODE)
+    out["source"] = "DEMO: synthetic final scores" if DEMO_MODE else "ESPN (free)"
+    out["fetched_at"] = _now()
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
 @app.get("/api/convert")
 def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:

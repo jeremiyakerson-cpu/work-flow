@@ -152,7 +152,10 @@
   .cell{position:relative;text-align:left;align-items:stretch;padding:7px 0;cursor:default;min-width:0}
   .cell .pk{background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;
     padding:0 26px 0 8px;width:100%}
-  .cell .lb{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+  .cell .lb{font-size:12px;display:flex;gap:4px;align-items:baseline;min-width:0}
+  .cell .lb .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .cell .lb .pt,.cell .lb .badge{flex:none;white-space:nowrap}
+  .cell .lb .badge{margin-left:2px}
   .cell .row{display:flex;gap:6px;align-items:baseline;margin-top:2px}
   .cell .p{font-family:var(--display);font-weight:700;font-size:17px}
   .cell .evp{font-size:11px;margin-left:auto;color:var(--dim)}
@@ -194,8 +197,35 @@
   .tk .l2{font-size:11.5px;color:var(--dim);margin-top:4px;line-height:1.55}
   .tk .clv{font-family:var(--display);font-weight:700;font-size:19px;white-space:nowrap}
 
+  .sport.nodemo{opacity:.5}
+  .sport.nodemo[aria-selected=true]{opacity:1}
+  .gacts{padding:0 11px 9px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:11.5px;color:var(--dim)}
+  .props{border-top:1px dashed var(--rule);padding-top:4px}
+  .props .one{font-size:11.5px;color:var(--dim);padding:3px 0}
+  .seg{display:inline-flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:12px}
+  .seg button{background:var(--felt-2);border:0;color:var(--dim);font-size:13px;padding:7px 14px;cursor:pointer;font-family:inherit}
+  .seg button[aria-pressed=true]{background:var(--brass);color:#14110A;font-weight:700}
+  .tbar{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+  .chart{background:var(--felt-2);border:1px solid var(--rule);border-radius:4px;padding:10px 12px 8px;margin-bottom:12px}
+  .chart h3{font-size:12px;margin:0 0 2px;font-weight:600}
+  .chart p{font-size:11px;color:var(--dim);margin:0 0 6px}
+  .chart svg{display:block;max-width:100%;height:auto;overflow:visible}
+  .chart .ax{stroke:var(--rule);stroke-width:1}
+  .chart .zero{stroke:var(--dim);stroke-width:1}
+  .chart text{fill:var(--dim);font-size:10px;font-family:var(--body)}
+  .chart .hit{fill:transparent}
+  .chart .hit:hover{fill:rgba(255,255,255,.06)}
+  table.wk{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:12px}
+  table.wk th{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600;text-align:right;padding:6px 6px;border-bottom:1px solid var(--rule)}
+  table.wk td{text-align:right;padding:6px 6px;border-bottom:1px solid var(--rule)}
+  table.wk th:first-child,table.wk td:first-child{text-align:left}
+  .res{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;padding:1px 6px;border-radius:2px;margin-right:6px;vertical-align:1px}
+  .res.won{background:var(--up);color:#0F1512}.res.lost{background:var(--down);color:#fff}
+  .res.push,.res.pending,.res.live,.res.unknown,.res.ungradeable{background:var(--rule);color:var(--chalk)}
+  .clv small{font-family:var(--body);font-weight:400;font-size:10px;color:var(--dim);display:block;text-align:right}
+
   @media (min-width:900px){
-    main,.filters,header{max-width:1180px;margin-left:auto;margin-right:auto}
+    main,.filters,header,.rail,.tabs,.note{max-width:1180px;margin-left:auto;margin-right:auto}
     .gamegrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
     .gamegrid .game{margin-bottom:0}
   }
@@ -247,8 +277,9 @@
 
 <script>
 /* Research only. Nothing on this page talks to a sportsbook account. */
-const LEAGUES=[["mlb","MLB"],["nfl","NFL"],["ncaaf","CFB"],["nba","NBA"],
-  ["nhl","NHL"],["ncaab","CBB"],["wnba","WNBA"],["epl","EPL"],["mls","MLS"]];
+const LEAGUE_LABELS={mlb:"MLB",nfl:"NFL",ncaaf:"CFB",nba:"NBA",nhl:"NHL",ncaab:"CBB",wnba:"WNBA",epl:"EPL",mls:"MLS"};
+// Replaced by /api/sports when the backend serves it; this list is the fallback.
+let LEAGUES=Object.entries(LEAGUE_LABELS), CATALOG=null;
 const TABS=["Board","Plays","Tracked","Injuries"];
 const MARKET_NAMES={h2h:"Moneyline",spreads:"Spread",totals:"Total"};
 const TRACK_KEY="bd.tracked.v1", PREF_KEY="bd.prefs.v1";
@@ -257,12 +288,15 @@ const store={
   get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},
   set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 };
-const prefs=Object.assign({league:"mlb",tab:"Board",book:"best",market:"all",edge:0,sort:""},
+const prefs=Object.assign({league:"mlb",tab:"Board",book:"best",market:"all",edge:0,sort:"",tview:"plays"},
   store.get(PREF_KEY,{}));
 let league=prefs.league,tab=TABS.includes(prefs.tab)?prefs.tab:"Board";
 let data=null,inj=null,slip=[],busy=false,loadErr=null,usage=null;
 let tracked=store.get(TRACK_KEY,[]); if(!Array.isArray(tracked))tracked=[];
 let REG={};   // render-time registry of priced sides, keyed for the slip/track buttons
+let PROPS={}; // per-game props panels: "league|odds_id" -> {open,state,data,cost,msg}
+let HIST={};  // per-game line-movement panels: "league|odds_id" -> {open,state,markets:{key:data|{error}}}
+let lastResultsCheck=0, resultsBusy=false, resultsErr=null;
 
 const $=id=>document.getElementById(id);
 const out=$("out"),rail=$("rail"),tabsEl=$("tabs");
@@ -272,18 +306,37 @@ const pct=(n,d=1)=>n==null||isNaN(n)?"—":(n*100).toFixed(d)+"%";
 const spct=(n,d=1)=>n==null||isNaN(n)?"—":(n>0?"+":"")+(n*100).toFixed(d)+"%";
 const dec=a=>a>0?1+a/100:1+100/(-a);
 const h=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-const mname=k=>MARKET_NAMES[k]||String(k).replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-const savePrefs=()=>store.set(PREF_KEY,{league,tab,book:prefs.book,market:prefs.market,edge:prefs.edge,sort:prefs.sort});
+const mname=k=>MARKET_NAMES[k]||String(k).replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase())
+  .replace(/\b(Td|Ml|Rbi|Sog|Pra|[HQP]\d)\b/g,m=>m.toUpperCase());
+const plural=(n,w)=>`${n} ${w}${n===1?"":"s"}`;
+const savePrefs=()=>store.set(PREF_KEY,{league,tab,book:prefs.book,market:prefs.market,edge:prefs.edge,sort:prefs.sort,tview:prefs.tview});
 const saveTracked=()=>store.set(TRACK_KEY,tracked);
 
 /* ---------------- chrome ---------------- */
-LEAGUES.forEach(([k,l])=>{const b=document.createElement("button");
-  b.className="sport";b.textContent=l;b.setAttribute("role","tab");
-  b.onclick=()=>{if(league===k)return;league=k;data=null;inj=null;loadErr=null;savePrefs();render();refresh();};
-  rail.appendChild(b);});
+function buildRail(){
+  rail.innerHTML="";
+  LEAGUES.forEach(([k,l])=>{const b=document.createElement("button");
+    b.className="sport";b.textContent=l;b.setAttribute("role","tab");
+    const sp=CATALOG&&CATALOG.sports.find(x=>x.league===k);
+    if(CATALOG&&CATALOG.demo_mode&&sp&&sp.demo_fixture===false){b.classList.add("nodemo");b.title="No demo fixture for this league";}
+    b.onclick=()=>{if(league===k)return;league=k;data=null;inj=null;loadErr=null;savePrefs();render();refresh();};
+    rail.appendChild(b);});
+}
+buildRail();
+// League list, demo coverage and props availability, if the backend publishes them.
+async function loadCatalog(){
+  try{
+    const r=await fetch("/api/sports"); if(!r.ok)return;
+    const j=await r.json(); if(!j||!Array.isArray(j.sports)||!j.sports.length)return;
+    CATALOG=j;
+    LEAGUES=j.sports.filter(x=>x&&x.league).map(x=>[x.league,LEAGUE_LABELS[x.league]||String(x.league).toUpperCase()]);
+    buildRail();render();
+  }catch(e){}
+}
 TABS.forEach(t=>{const b=document.createElement("button");b.className="tab";b.textContent=t;
   b.setAttribute("role","tab");
-  b.onclick=()=>{tab=t;savePrefs();render();if(t==="Injuries"&&!inj)loadInjuries();};tabsEl.appendChild(b);});
+  b.onclick=()=>{tab=t;savePrefs();render();if(t==="Injuries"&&!inj)loadInjuries();
+    if(t==="Tracked")checkResults(false);};tabsEl.appendChild(b);});
 
 $("go").onclick=refresh;
 $("stake").onchange=()=>{if(data)refresh();};
@@ -360,7 +413,9 @@ async function loadInjuries(){
 /* ---------------- filters ---------------- */
 function marketKeys(){
   const s=new Set();
-  if(data){data.games.forEach(g=>Object.keys(g.markets).forEach(k=>s.add(k)));data.plays.forEach(p=>p.market&&s.add(p.market));}
+  if(data){data.games.forEach(g=>{Object.keys(g.markets).forEach(k=>s.add(k));
+    const pr=PROPS[propKey(g)];if(pr&&pr.data)pr.data.props.forEach(p=>p.market&&s.add(p.market));});
+    data.plays.forEach(p=>p.market&&s.add(p.market));}
   return [...s];
 }
 function fillSelect(el,opts,val){
@@ -440,6 +495,7 @@ function statusBanners(){
     <div class="retry"><button class="btn" data-act="retry">Try again</button></div></div>`;
   if(!data)return s;
   if(data.demo_mode)s+=`<div class="banner"><b>Demo mode</b><span>Frozen fixtures from Sep 15 2026. No credits spent, nothing live.</span></div>`;
+  if(data.note)s+=`<div class="banner caution"><b>Note</b><span>${h(data.note)}</span></div>`;
   const errs=data.errors;
   if(errs.length){
     const what={odds:"Odds feed",schedule:"ESPN schedule",board:"Board builder"};
@@ -503,38 +559,48 @@ function pickBook(s){
   return ys.reduce((a,y)=>!a||y.ev_per_dollar>a.ev_per_dollar?y:a,null);
 }
 
+function mktHead(k,m){
+  const off=Object.entries(m.off_line_books||{});
+  const offTxt=off.length?` · <span title="${h(off.map(([b,o])=>`${b} deals ${fmtPoint(k,o&&o.point)}`).join(", "))} — left out of fair value">${off.length} off-line</span>`:"";
+  return `<h3>${h(mname(k))}<i>${h(m.fair_source||"")}${m.book_count?` · ${plural(m.book_count,"book")}`:""}${offTxt}</i></h3>`;
+}
 function gameCard(g){
   const best=bestPlay();
   const mk=Object.entries(g.markets).filter(([k])=>marketOk(k));
-  if(!mk.length)return "";
+  const props=propsHTML(g,best);
+  if(!mk.length&&!props)return "";
   const sections=mk.map(([k,m])=>{
     if(!m||!Array.isArray(m.sides)||!m.sides.length)
       return `<div class="mkt"><h3>${h(mname(k))}<i>not quoted</i></h3></div>`;
-    return `<div class="mkt"><h3>${h(mname(k))}<i>${h(m.fair_source||"")}${m.book_count?` · ${m.book_count} books`:""}</i></h3>
+    return `<div class="mkt">${mktHead(k,m)}
       <div class="sides">${m.sides.map((s,i)=>sideCell(g,k,m,s,i,best)).join("")}</div></div>`;
   }).join("");
   const title=g.name||`${g.away.name||"Away"} at ${g.home.name||"Home"}`;
   return `<div class="game"><div class="gtitle"><b>${h(title)}${stateBadge(g)}</b><span>${fmtTime(g.start_utc)}</span></div>
-    ${sections}
+    ${sections}${props}
     ${g.venue||g.match_confidence!=null&&g.match_confidence<0.72?`<div class="gtime"><span>${h(g.venue||"")}</span>
       <span>${g.match_confidence===0?"odds feed only":""}</span></div>`:""}</div>`;
 }
 
 function fmtPoint(market,pt){
-  if(pt==null)return "";
-  return market==="spreads"&&pt>0?"+"+pt:String(pt);
+  if(pt==null||pt==="")return "";
+  return /spread/.test(String(market))&&pt>0?"+"+pt:String(pt);
 }
 
 function sideCell(g,market,m,s,i,best){
   const mine=pickBook(s);
-  const label=`${s.label??["Side A","Side B"][i]??"Side"}${s.point!=null?" "+fmtPoint(market,s.point):""}`;
+  const name=s.display??s.label??["Side A","Side B"][i]??"Side", pt=fmtPoint(market,s.point);
+  const label=`${name}${pt?" "+pt:""}`;
+  const lb=badge=>`<span class="lb" title="${h(label)}"><span class="nm">${h(name)}</span>${pt?`<span class="pt">${h(pt)}</span>`:""}${badge||""}</span>`;
+  const push=s.push_possible?` · <span title="Whole-number line: a push refunds the stake">push?</span>`:"";
   if(!mine)return `<div class="cell none" title="Your book doesn't quote this side">
-      <span class="pk"><span class="lb">${h(label)}</span><span class="row"><span class="p">—</span>
+      <span class="pk">${lb()}<span class="row"><span class="p">—</span>
       <span class="evp">fair ${am(s.fair_price)}</span></span></span></div>`;
-  const p={game:g.name||`${g.away.name} at ${g.home.name}`,espn_id:g.espn_id,start_utc:g.start_utc,
+  const p={game:g.name||`${g.away.name} at ${g.home.name}`,espn_id:g.espn_id,odds_id:g.odds_id??null,start_utc:g.start_utc,
+    home:g.home.name??null,away:g.away.name??null,
     market,side:s.label,point:s.point??null,book:mine.book,price:mine.price,fair_prob:s.fair_prob,
     fair_price:s.fair_price,ev_per_dollar:mine.ev_per_dollar,ev_dollars:mine.ev_dollars,
-    fair_source:m.fair_source,label:`${label} (${mname(market)})`};
+    fair_source:m.fair_source,label:`${s.label??name}${pt?" "+pt:""} (${mname(market)})`};
   const k=playKey(p); REG[k]=p;
   const isBest=best&&playKey(best)===k;
   const on=slip.some(l=>l.id===k)?" on":"";
@@ -543,12 +609,110 @@ function sideCell(g,market,m,s,i,best){
   const tr=isTracked(k);
   return `<div class="cell${on}${plus}${isBest?" best":""}">
     <button class="pk" data-slip="${h(k)}" aria-label="Add ${h(label)} ${am(mine.price)} to slip">
-      <span class="lb">${h(label)}${isBest?`<span class="badge best">${edge>0?"BEST":"CLOSEST"}</span>`:""}</span>
+      ${lb(isBest?`<span class="badge best">${edge>0?"BEST":"CLOSEST"}</span>`:"")}
       <span class="row"><span class="p">${am(mine.price)}</span>
       <span class="evp${edge>0?" pos":""}">${spct(edge)}</span></span>
-      <span class="bk">${h(mine.book)} · fair ${am(s.fair_price)}</span></button>
+      <span class="bk">${h(mine.book)} · fair ${am(s.fair_price)}${push}</span></button>
     <button class="trk${tr?" on":""}" data-track="${h(k)}" title="${tr?"Stop tracking":"Track this play"}"
       aria-label="${tr?"Stop tracking":"Track"} ${h(label)}">${tr?"★":"☆"}</button></div>`;
+}
+
+/* ---------------- props (per game, opt-in) ----------------
+   Needs an Odds API event id on the game (odds_id). Live props cost a credit
+   per market, so outside demo mode the first tap only prices the call
+   (dry_run) and a second tap spends the credits. */
+const propKey=g=>`${league}|${g.odds_id}`;
+function propsHTML(g,best){
+  if(!g.odds_id)return "";
+  const pr=PROPS[propKey(g)]||{};
+  const off=CATALOG&&CATALOG.props_enabled===false;
+  let btn;
+  if(pr.state==="loading")btn=`<button class="btn" disabled><span class="spin" style="border-color:var(--chalk);border-top-color:transparent"></span>Loading props…</button>`;
+  else if(pr.state==="quote")btn=`<button class="btn on" data-props="${h(g.odds_id)}" data-spend="1">Load props · up to ${plural(pr.cost??0,"credit")}</button>
+    <button class="btn" data-props-close="${h(g.odds_id)}">Cancel</button>`;
+  else if(pr.state==="ready")btn=`<button class="btn" data-props-close="${h(g.odds_id)}">${pr.open?"Hide props":"Show props"}</button>`;
+  else btn=`<button class="btn" data-props="${h(g.odds_id)}" ${off?`title="Set ENABLE_PROPS=1 on the server to allow live props"`:""}>Props${off?" (off)":""}</button>`;
+  let body="";
+  if(pr.state==="error")body=`<div class="banner caution" style="margin:0 11px 9px"><b>Props unavailable</b><span>${h(pr.msg)}</span></div>`;
+  if(pr.state==="ready"&&pr.open){
+    const rows=pr.data.props.filter(p=>marketOk(p.market));
+    const by={};rows.forEach(p=>(by[p.market]=by[p.market]||[]).push(p));
+    body=Object.keys(by).length?`<div class="props">`+Object.entries(by).map(([mk,list])=>`<div class="mkt"><h3>${h(mname(mk))}<i>${plural(list.length,"line")}</i></h3>`+
+      list.map(p=>{
+        const who=p.player?p.player+" ":"";
+        if(!p.analysis||!Array.isArray(p.analysis.sides))
+          return `<div class="one">${h(who)}${h((p.labels||[]).join(" / "))}${p.point!=null?" "+h(p.point):""} — ${h(p.note||"not priced")}</div>`;
+        return `${p.player?`<div class="one"><b style="color:var(--chalk)">${h(p.player)}</b></div>`:""}<div class="sides" style="margin-bottom:6px">${p.analysis.sides.map((s,i)=>
+          sideCell(g,mk,p.analysis,{...s,label:who+(s.label??""),display:s.label},i,best)).join("")}</div>`;
+      }).join("")+`</div>`).join("")+`</div>`
+      :`<div class="gacts">No props in the markets you're filtering on.</div>`;
+  }
+  const hs=HIST[propKey(g)]||{};
+  const hbtn=hs.state==="loading"?`<button class="btn" disabled>Loading moves…</button>`
+    :`<button class="btn${hs.open?" on":""}" data-hist="${h(g.odds_id)}">${hs.open?"Hide line moves":"Line moves"}</button>`;
+  return `<div class="gacts">${btn}${hbtn}${pr.state==="ready"?`<span>${h(pr.data.source||"")}</span>`:""}</div>${histHTML(g,hs)}${body}`;
+}
+
+/* ---------------- line movement (/api/history, free: reads stored snapshots) ---------------- */
+function histHTML(g,hs){
+  if(!hs.open||hs.state!=="ready")return hs.state==="error"?`<div class="banner caution" style="margin:0 11px 9px"><b>No line history</b><span>${h(hs.msg)}</span></div>`:"";
+  const blocks=Object.entries(hs.markets).filter(([k])=>marketOk(k)).map(([k,d])=>{
+    if(d.error)return `<div class="mkt"><h3>${h(mname(k))}</h3><div class="one">${h(d.error)}</div></div>`;
+    const fair=Array.isArray(d.fair)?d.fair:[];
+    const lab=fair.length&&fair[0].sides&&fair[0].sides[0]?fair[0].sides[0].label:"";
+    const pts=fair.filter(f=>f.sides&&f.sides[0]).map(f=>({avg:f.sides[0].fair_prob,
+      tip:`${new Date(f.t).toLocaleString()} · ${f.sides[0].label}${f.line!=null?" "+fmtPoint(k,f.line):""}: fair ${am(f.sides[0].fair_price)} (${pct(f.sides[0].fair_prob)}) · ${plural(f.book_count,"book")}`}));
+    const mine=new Set(data.your_books);
+    const ser=(Array.isArray(d.series)?d.series:[]).filter(x=>!mine.size||mine.has(x.book))
+      .sort((a,b)=>(b.moves||0)-(a.moves||0)).slice(0,6);   // lines that actually moved first
+    return `<div class="mkt"><h3>${h(mname(k))}<i>${plural(d.snapshots||0,"snapshot")}</i></h3>
+      ${pts.length>1?`<div class="chart" style="margin-bottom:6px"><p>Fair chance, ${h(lab)}, as the market moved</p>${barLineSVG(pts,v=>pct(v,1),true,innerWidth>=900?500:320,true)}</div>`:""}
+      ${ser.map(x=>`<div class="one">${h(x.book)} · ${h(x.player?x.player+" ":"")}${h(x.side)}${x.point!=null?" "+h(fmtPoint(k,x.point)):""}:
+        ${am(x.open)} → <b style="color:var(--chalk)">${am(x.current)}</b> (${plural(x.moves||0,"move")})</div>`).join("")||
+        `<div class="one">${h(d.note||"No snapshots yet.")}</div>`}</div>`;
+  });
+  return `<div class="props">${blocks.join("")||`<div class="gacts">Nothing recorded for the markets you're filtering on.</div>`}</div>`;
+}
+async function loadHistory(g){
+  const k=propKey(g),want=league;
+  if(HIST[k]&&HIST[k].state==="ready"){HIST[k].open=!HIST[k].open;render();return;}
+  HIST[k]={state:"loading"};render();
+  const keys=Object.keys(g.markets).filter(m=>g.markets[m]);
+  const got=await Promise.all(keys.map(async m=>{
+    try{
+      const r=await fetch(`/api/history/${encodeURIComponent(want)}/${encodeURIComponent(g.odds_id)}?market=${encodeURIComponent(m)}&method=${encodeURIComponent($("method").value)}`);
+      const j=await r.json().catch(()=>null);
+      if(r.status===404&&!(j&&typeof j.detail==="string"&&j.detail.includes("demo")))return [m,{error:"This server has no line history for that game."}];
+      if(!r.ok||!j)return [m,{error:(j&&typeof j.detail==="string"&&j.detail)||`HTTP ${r.status}`}];
+      return [m,j];
+    }catch(e){return [m,{error:String(e.message||e)}];}
+  }));
+  HIST[k]=got.length&&got.every(([,d])=>d.error)?{state:"error",msg:got[0][1].error}
+    :{state:"ready",open:true,markets:Object.fromEntries(got)};
+  if(want===league)render();
+}
+async function loadProps(g,spend){
+  const k=propKey(g), want=league;
+  const live=!(data&&data.demo_mode);
+  if(CATALOG&&CATALOG.props_enabled===false&&live){
+    PROPS[k]={state:"error",msg:"Props are switched off on the server. Set ENABLE_PROPS=1 to allow them — each market costs a credit per game."};render();return;}
+  const base=`/api/props/${encodeURIComponent(want)}/${encodeURIComponent(g.odds_id)}?stake=${encodeURIComponent($("stake").value||10)}&method=${encodeURIComponent($("method").value)}`;
+  PROPS[k]={state:"loading"};render();
+  try{
+    if(live&&!spend){
+      // price it first; if the backend can't dry-run, fall through to asking anyway
+      const r=await fetch(base+"&dry_run=true"); const j=await r.json().catch(()=>null);
+      if(r.ok&&j&&j.dry_run){PROPS[k]={state:"quote",cost:j.estimated_cost};if(want===league)render();return;}
+      if(!r.ok)throw new Error((j&&j.detail)||`HTTP ${r.status}`);
+    }
+    const r=await fetch(base); const j=await r.json().catch(()=>null);
+    if(!r.ok||!j)throw new Error((j&&typeof j.detail==="string"&&j.detail)||`HTTP ${r.status}`);
+    j.props=Array.isArray(j.props)?j.props:[];
+    PROPS[k]={state:"ready",open:true,data:j};
+    if(j.usage)setUsage(j.usage);
+    if(data&&want===league)updateTracked(data);   // refresh open prop plays' latest price
+  }catch(e){PROPS[k]={state:"error",msg:String(e.message||e)};}
+  if(want===league)render();
 }
 
 function playsHTML(){
@@ -617,7 +781,10 @@ function toggleTrack(k){
   else{
     const p=REG[k]; if(!p)return;
     const snap={price:p.price,point:p.point??null,fair_prob:p.fair_prob??null,at:data.generated_at};
-    tracked.push({id:k,league,game:p.game,espn_id:p.espn_id??null,start_utc:p.start_utc,market:p.market,
+    // team names let the results check tell which side of a moneyline/spread you took
+    const g=data.games.find(g=>(p.espn_id&&g.espn_id===p.espn_id)||g.name===p.game)||{home:{},away:{}};
+    tracked.push({id:k,league,game:p.game,espn_id:p.espn_id??null,odds_id:p.odds_id??g.odds_id??null,
+      home:p.home??g.home.name??null,away:p.away??g.away.name??null,start_utc:p.start_utc,market:p.market,
       side:p.side,point:p.point??null,book:p.book,price:p.price,fair_prob:p.fair_prob??null,
       ev_per_dollar:p.ev_per_dollar??null,ev_dollars:p.ev_dollars??null,stake:+(data.stake||$("stake").value||10),
       demo:!!data.demo_mode,logged_at:new Date().toISOString(),last:snap,close:null,closed:false});
@@ -629,7 +796,12 @@ function findSide(board,t){
   const g=board.games.find(g=>(t.espn_id&&g.espn_id===t.espn_id)||g.name===t.game);
   if(!g)return {g:null,snap:null};
   const m=g.markets[t.market];
-  const s=m&&Array.isArray(m.sides)?m.sides.find(s=>s.label===t.side):null;
+  let s=m&&Array.isArray(m.sides)?m.sides.find(s=>s.label===t.side):null;
+  if(!s){  // a prop: look in that game's loaded props panel, if any
+    const pr=PROPS[`${t.league}|${g.odds_id}`];
+    ((pr&&pr.data&&pr.data.props)||[]).some(p=>p.market===t.market&&p.analysis&&Array.isArray(p.analysis.sides)&&
+      (s=p.analysis.sides.find(x=>(p.player?p.player+" ":"")+(x.label??"")===t.side&&(x.point??null)===(t.point??null))));
+  }
   const y=s&&Array.isArray(s.your_books)?s.your_books.find(y=>y.book===t.book):null;
   return {g,snap:y?{price:y.price,point:s.point??null,fair_prob:s.fair_prob??null,at:board.generated_at}:null};
 }
@@ -667,24 +839,75 @@ function clvOf(t){
     fair:c.fair_prob!=null?c.fair_prob*dec(t.price)-1:null};
 }
 
+const profitOf=t=>t.outcome==="won"?(+t.stake||0)*(dec(t.price)-1):t.outcome==="lost"?-(+t.stake||0):t.outcome==="push"?0:null;
+const fmtDay=iso=>{const d=new Date(iso);return isNaN(d)?"":d.toLocaleDateString(undefined,{month:"short",day:"numeric"});};
+
+// Grade tracked plays against final scores (ESPN, free). Only asks about plays
+// that don't have a result yet; a game that's final also closes the play.
+async function checkResults(force){
+  const todo=tracked.filter(t=>!t.outcome&&!(t.result&&t.result.result==="ungradeable"));
+  if(resultsBusy||!todo.length)return;
+  if(!force&&Date.now()-lastResultsCheck<60000)return;
+  resultsBusy=true;resultsErr=null;lastResultsCheck=Date.now();if(tab==="Tracked")render();
+  try{
+    const r=await fetch("/api/results",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({plays:todo.map(t=>({id:t.id,league:t.league,market:t.market,side:t.side,
+        point:t.point,espn_id:t.espn_id,start_utc:t.start_utc,game:t.game,home:t.home,away:t.away}))})});
+    const j=await r.json().catch(()=>null);
+    if(r.status===404||r.status===405)throw new Error("This server has no /api/results route, so games can't be graded automatically. Grade by hand below.");
+    if(!r.ok||!j||typeof j.results!=="object")throw new Error((j&&typeof j.detail==="string"&&j.detail)||`HTTP ${r.status}`);
+    tracked.forEach(t=>{const res=j.results[t.id];if(!res)return;
+      t.result={...res,checked_at:new Date().toISOString()};
+      if(res.status==="final"||res.status==="live"){if(!t.closed)closeOut(t);}
+      if(["won","lost","push"].includes(res.result)){t.outcome=res.result;t.graded_by=res.synthetic?"demo":"scores";}
+    });
+    if(Array.isArray(j.errors)&&j.errors.length)resultsErr=j.errors.map(e=>e.message).join("; ");
+    saveTracked();
+  }catch(e){resultsErr=String(e.message||e);}
+  finally{resultsBusy=false;if(tab==="Tracked")render();}
+}
+
+function trackedRows(){return tracked.map(t=>({t,...clvOf(t),pl:profitOf(t)}));}
+
 function renderTracked(){
   closeByClock();
   if(!tracked.length){out.innerHTML=`<div class="empty"><strong>No tracked plays</strong>
     Tap ☆ on any price on the Board or Plays tab to log it here. Refresh the board before the game
     starts and the last price you saw becomes the closing line, so you can see whether you beat it.
+    Once the game is final, the Results view grades it from ESPN scores.
     Stored in this browser only.</div>`;return;}
-  const rows=tracked.map(t=>({t,...clvOf(t)}));
+  const view=prefs.tview==="results"?"results":"plays";
+  let html=`<div class="tbar"><div class="seg" role="group" aria-label="Tracker view">
+      <button data-tview="plays" aria-pressed="${view==="plays"}">Plays</button>
+      <button data-tview="results" aria-pressed="${view==="results"}">Results</button></div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <button class="btn" data-act="scores" ${resultsBusy?"disabled":""}>${resultsBusy?"Checking…":"Check scores"}</button>
+      <button class="btn" data-act="csv">Export CSV</button></div></div>`;
+  if(resultsErr)html+=`<div class="banner caution"><b>Couldn't check every score</b><span>${h(resultsErr)}</span></div>`;
+  html+=view==="results"?resultsHTML():trackedPlaysHTML();
+  html+=`<div style="text-align:center;margin:14px 0"><button class="btn danger" data-act="clear-tracked">Clear all tracked plays</button></div>`;
+  out.innerHTML=html; wire();
+}
+
+const clsOf=v=>v==null?"":v>0?"pos":v<0?"neg":"";
+function resBadge(t){
+  if(t.outcome)return `<span class="res ${t.outcome}">${t.outcome.toUpperCase()}</span>`;
+  const st=t.result&&(t.result.result||t.result.status);
+  return st?`<span class="res ${h(st)}">${h(st==="ungradeable"?"GRADE BY HAND":st.toUpperCase())}</span>`:"";
+}
+
+function trackedPlaysHTML(){
+  const rows=trackedRows();
   const closed=rows.filter(r=>r.t.closed);
   const scored=closed.filter(r=>r.fair!=null);
   const beat=closed.filter(r=>r.price!=null);
   const avg=scored.length?scored.reduce((a,r)=>a+r.fair,0)/scored.length:null;
   const entryEV=tracked.reduce((a,t)=>a+(t.ev_dollars||0),0);
-  const cls=v=>v==null?"":v>0?"pos":v<0?"neg":"";
   let html=`<div class="sumgrid">
     <div class="stat"><b>${tracked.length}</b><span>tracked · ${tracked.length-closed.length} open</span></div>
-    <div class="stat"><b class="${cls(avg)}">${spct(avg,2)}</b><span>avg CLV vs fair close</span></div>
+    <div class="stat"><b class="${clsOf(avg)}">${spct(avg,2)}</b><span>avg CLV vs fair close</span></div>
     <div class="stat"><b>${beat.length?`${beat.filter(r=>r.price>0).length}/${beat.length}`:"—"}</b><span>beat closing price</span></div>
-    <div class="stat"><b class="${cls(entryEV)}">${money(entryEV)}</b><span>EV at entry (sum)</span></div></div>
+    <div class="stat"><b class="${clsOf(entryEV)}">${money(entryEV)}</b><span>EV at entry (sum)</span></div></div>
     <div class="banner"><b>How CLV is measured here</b><span>Closing line = the last price your book showed on a board
     refresh before the game started. <i>CLV vs fair</i> is your price against the de-vigged closing probability — positive
     means you got a better number than the market settled on. Research only; nothing is placed.</span></div>`;
@@ -692,10 +915,11 @@ function renderTracked(){
   html+=sorted.map(({t,c,moved,price,fair})=>{
     const status=t.closed?(c?"Closed":"Closed — no pre-start price captured"):"Open";
     const cur=c?`${t.closed?"Close":"Now"} ${am(c.price)}${c.point!=null?` @ ${fmtPoint(t.market,c.point)}`:""}${c.fair_prob!=null?` (fair ${pct(c.fair_prob)})`:""}`:"";
-    return `<div class="tk"><div class="l1"><div><b>${h(t.side)}${t.point!=null?" "+h(fmtPoint(t.market,t.point)):""}</b>
+    return `<div class="tk"><div class="l1"><div>${resBadge(t)}<b>${h(t.side)}${t.point!=null?" "+h(fmtPoint(t.market,t.point)):""}</b>
       · ${h(mname(t.market))} · ${h(t.book)} ${am(t.price)}</div>
-      <div class="clv ${cls(fair)}" title="CLV vs fair ${t.closed?"close":"(so far)"}">${moved?"line moved":spct(fair,2)}</div></div>
-      <div class="l2">${h(t.game)} · ${h(String(t.league).toUpperCase())} · ${fmtTime(t.start_utc)}${t.demo?" · demo":""}<br>
+      <div class="clv ${clsOf(fair)}" title="CLV vs fair ${t.closed?"close":"(so far)"}">${moved?"line moved":spct(fair,2)}${
+        !t.closed&&!moved&&fair!=null?"<small>so far</small>":""}</div></div>
+      <div class="l2">${h(t.game)} · ${h(String(t.league).toUpperCase())} · ${fmtDay(t.start_utc)} ${fmtTime(t.start_utc)}${t.demo?" · demo":""}<br>
       <b style="color:var(--chalk)">${status}</b>${cur?` · ${cur}`:""}${price!=null?` · price CLV ${spct(price,2)}`:""}
       ${moved?` · line moved from ${h(fmtPoint(t.market,t.point))} to ${h(fmtPoint(t.market,c.point))}, prices not comparable`:""}<br>
       Logged ${new Date(t.logged_at).toLocaleString()} · entry EV ${spct(t.ev_per_dollar,1)} (${money(t.ev_dollars)} on ${money(t.stake)})</div>
@@ -703,8 +927,120 @@ function renderTracked(){
       ${t.closed?"":`<button class="btn" data-lock="${h(t.id)}" title="Use the latest price seen as the closing line now">Lock close now</button>`}
       <button class="btn danger" data-untrack="${h(t.id)}">Remove</button></div></div>`;
   }).join("");
-  html+=`<div style="text-align:center;margin:14px 0"><button class="btn danger" data-act="clear-tracked">Clear all tracked plays</button></div>`;
-  out.innerHTML=html; wire();
+  return html;
+}
+
+// ISO-ish week bucket (Monday start) for the summary table
+function weekOf(iso){
+  const d=new Date(iso); if(isNaN(d))return null;
+  const m=new Date(d.getFullYear(),d.getMonth(),d.getDate()-((d.getDay()+6)%7));
+  return m.toISOString().slice(0,10);
+}
+
+function resultsHTML(){
+  const rows=trackedRows();
+  const graded=rows.filter(r=>r.t.outcome);
+  const w=graded.filter(r=>r.t.outcome==="won").length, l=graded.filter(r=>r.t.outcome==="lost").length,
+        pu=graded.filter(r=>r.t.outcome==="push").length;
+  const risked=graded.filter(r=>r.t.outcome!=="push").reduce((a,r)=>a+(+r.t.stake||0),0);
+  const pl=graded.reduce((a,r)=>a+(r.pl||0),0);
+  const closed=rows.filter(r=>r.t.closed&&r.fair!=null);
+  const avg=closed.length?closed.reduce((a,r)=>a+r.fair,0)/closed.length:null;
+  const synthetic=graded.some(r=>r.t.graded_by==="demo");
+  let html=`<div class="sumgrid">
+    <div class="stat"><b>${w}-${l}${pu?`-${pu}`:""}</b><span>record (W-L${pu?"-P":""})</span></div>
+    <div class="stat"><b class="${clsOf(pl)}">${money(pl)}</b><span>profit at logged stakes</span></div>
+    <div class="stat"><b class="${clsOf(pl)}">${risked?spct(pl/risked,1):"—"}</b><span>ROI on ${money(risked)} risked</span></div>
+    <div class="stat"><b class="${clsOf(avg)}">${spct(avg,2)}</b><span>avg CLV · ${plural(closed.length,"closed play")}</span></div></div>`;
+  if(synthetic)html+=`<div class="banner caution"><b>Demo results are made up</b><span>Demo fixtures never finish, so the server invents a final score per game. Use it to see how grading works, not as a record.</span></div>`;
+  html+=`<div class="banner"><span>Over a small sample, win/loss is mostly noise. CLV is the steadier signal: beating the close
+    over hundreds of plays is what a real edge looks like. Scores: ESPN. Only moneyline, spread and total grade automatically.</span></div>`;
+
+  // charts: CLV per closed play in the order the games started, and running profit
+  const byTime=(a,b)=>(Date.parse(a.t.start_utc)||0)-(Date.parse(b.t.start_utc)||0)||String(a.t.logged_at).localeCompare(b.t.logged_at);
+  const cl=closed.slice().sort(byTime);
+  let run=0;
+  const clvPts=cl.map((r,i)=>{run+=r.fair;return {v:r.fair,avg:run/(i+1),tip:`${r.t.side}${r.t.point!=null?" "+fmtPoint(r.t.market,r.t.point):""} · ${fmtDay(r.t.start_utc)}: CLV ${spct(r.fair,2)} · running avg ${spct(run/(i+1),2)}`};});
+  if(clvPts.length)html+=`<div class="chart"><h3>CLV vs fair close, per play</h3>
+    <p>Bars: each closed play, oldest first. Line: running average.</p>${barLineSVG(clvPts,v=>spct(v,1))}</div>`;
+  let cum=0;
+  const plPts=graded.slice().sort(byTime).map(r=>{cum+=r.pl||0;return {avg:cum,tip:`${r.t.side} · ${fmtDay(r.t.start_utc)}: ${r.t.outcome} ${money(r.pl)} · total ${money(cum)}`};});
+  if(plPts.length)html+=`<div class="chart"><h3>Cumulative profit</h3><p>Graded plays at the stake you logged.</p>${barLineSVG(plPts,money,true)}</div>`;
+
+  // weekly table (the chart's data, in rows)
+  const wk={};
+  rows.forEach(r=>{const k=weekOf(r.t.start_utc);if(!k)return;const b=wk[k]=wk[k]||{n:0,clv:[],w:0,l:0,p:0,pl:0};
+    b.n++;if(r.t.closed&&r.fair!=null)b.clv.push(r.fair);
+    if(r.t.outcome==="won")b.w++;if(r.t.outcome==="lost")b.l++;if(r.t.outcome==="push")b.p++;b.pl+=r.pl||0;});
+  const wks=Object.keys(wk).sort().reverse();
+  if(wks.length)html+=`<table class="wk"><thead><tr><th>Week of</th><th>Plays</th><th>Avg CLV</th><th>W-L-P</th><th>Profit</th></tr></thead><tbody>`+
+    wks.map(k=>{const b=wk[k],a=b.clv.length?b.clv.reduce((x,y)=>x+y,0)/b.clv.length:null;
+      return `<tr><td>${fmtDay(k+"T12:00:00")}</td><td>${b.n}</td><td class="${clsOf(a)}">${spct(a,2)}</td>
+      <td>${b.w}-${b.l}-${b.p}</td><td class="${clsOf(b.pl)}">${money(b.pl)}</td></tr>`;}).join("")+`</tbody></table>`;
+
+  // every play with its result; hand-grading where scores can't decide
+  html+=rows.slice().sort((a,b)=>byTime(b,a)).map(({t,fair,moved,pl})=>{
+    const res=t.result||{};
+    const score=res.home_score!=null&&res.away_score!=null?`${h(res.away||"Away")} ${res.away_score} – ${h(res.home||"Home")} ${res.home_score}${res.synthetic?" (synthetic)":""}`:"";
+    const canHand=!t.outcome&&(t.closed||Date.parse(t.start_utc)<=Date.now()||["final","unknown"].includes(res.status)||res.result==="ungradeable");
+    const g=v=>`<button class="btn" data-grade='${h(JSON.stringify([t.id,v]))}'>${v[0].toUpperCase()+v.slice(1)}</button>`;
+    return `<div class="tk"><div class="l1"><div>${resBadge(t)}<b>${h(t.side)}${t.point!=null?" "+h(fmtPoint(t.market,t.point)):""}</b>
+      · ${h(mname(t.market))} · ${h(t.book)} ${am(t.price)}</div>
+      <div class="clv ${clsOf(pl)}">${pl==null?"—":money(pl)}</div></div>
+      <div class="l2">${h(t.game)} · ${fmtDay(t.start_utc)}${score?` · ${score}`:""}<br>
+      CLV ${moved?"n/a (line moved)":spct(fair,2)} · ${money(t.stake)} stake${t.graded_by?` · graded by ${h(t.graded_by)}`:""}
+      ${!t.outcome&&res.detail?`<br>${h(res.detail)}`:""}</div>
+      ${canHand?`<div class="acts" style="display:flex;gap:8px;margin-top:8px">${g("won")}${g("lost")}${g("push")}</div>`:""}
+      ${t.graded_by==="hand"?`<div class="acts" style="display:flex;gap:8px;margin-top:8px"><button class="btn" data-grade='${h(JSON.stringify([t.id,null]))}'>Undo grade</button></div>`:""}</div>`;
+  }).join("");
+  return html;
+}
+
+// Bars (optional, from .v) plus a line (from .avg) on one shared y-axis with a zero line.
+// fitY: scale to the data instead of anchoring at zero (for probabilities, where 0 isn't a reference)
+function barLineSVG(pts,fmt,lineOnly,maxW,fitY){
+  // drawn at the container's pixel width so the axis text stays legible on a phone
+  const W=Math.max(260,Math.min(maxW||1100,(out.clientWidth||640)-26)),H=W<500?150:180,L=48,R=8,T=10,B=18,iw=W-L-R,ih=H-T-B;
+  const vals=pts.flatMap(p=>[lineOnly?null:p.v,p.avg]).filter(v=>v!=null);
+  let lo=fitY?Math.min(...vals):Math.min(0,...vals),hi=fitY?Math.max(...vals):Math.max(0,...vals);
+  if(hi-lo<1e-6){hi+=fitY?.01:1e-9;lo-=fitY?.01:1e-9;}
+  const pad=(hi-lo)*.08;hi+=pad;lo-=pad;
+  const y=v=>T+(hi-v)/(hi-lo)*ih, step=iw/pts.length, x=i=>L+step*(i+.5);
+  const bw=Math.max(2,Math.min(22,step-2));
+  let g=`<line class="ax" x1="${L}" x2="${W-R}" y1="${T}" y2="${T}"/><line class="ax" x1="${L}" x2="${W-R}" y1="${H-B}" y2="${H-B}"/>
+    ${fitY?"":`<line class="zero" x1="${L}" x2="${W-R}" y1="${y(0)}" y2="${y(0)}"/><text x="${L-6}" y="${y(0)+3}" text-anchor="end">${h(fmt(0))}</text>`}
+    ${fitY||y(0)-T>14?`<text x="${L-6}" y="${T+4}" text-anchor="end">${h(fmt(hi))}</text>`:""}
+    ${fitY||H-B-y(0)>14?`<text x="${L-6}" y="${H-B}" text-anchor="end">${h(fmt(lo))}</text>`:""}
+    <text x="${L}" y="${H-3}">oldest</text><text x="${W-R}" y="${H-3}" text-anchor="end">newest</text>`;
+  if(!lineOnly)pts.forEach((p,i)=>{const y0=y(0),y1=y(p.v);
+    g+=`<rect x="${x(i)-bw/2}" y="${Math.min(y0,y1)}" width="${bw}" height="${Math.max(1,Math.abs(y1-y0))}" rx="2" fill="${p.v>=0?"var(--up)":"var(--down)"}" opacity=".8"/>`;});
+  g+=`<polyline fill="none" stroke="var(--brass)" stroke-width="2" stroke-linejoin="round" points="${pts.map((p,i)=>`${x(i)},${y(p.avg)}`).join(" ")}"/>`;
+  pts.forEach((p,i)=>{g+=`<circle cx="${x(i)}" cy="${y(p.avg)}" r="${pts.length>40?2:3.5}" fill="var(--brass)" stroke="var(--felt-2)" stroke-width="2"/>
+    <rect class="hit" x="${L+step*i}" y="${T}" width="${step}" height="${ih}"><title>${h(p.tip)}</title></rect>`;});
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${h(pts.length+" points; table below has the same data")}">${g}</svg>`;
+}
+
+function exportCSV(){
+  const cols=["logged_at","league","game","start_utc","market","side","point","book","price","stake",
+    "entry_fair_prob","entry_ev_per_dollar","entry_ev_dollars","status","close_price","close_point","close_fair_prob",
+    "clv_vs_fair","price_clv","line_moved","result","graded_by","profit","away_score","home_score","demo"];
+  // quote when needed; a leading =,+,-,@ on text gets a ' so spreadsheets don't run it as a formula
+  const esc=v=>{if(v==null)return "";let s=String(v);if(/^[=+\-@]/.test(s)&&isNaN(+s))s="'"+s;
+    return /[",\n\r]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;};
+  const lines=[cols.join(",")].concat(trackedRows().map(({t,c,moved,price,fair,pl})=>{
+    const res=t.result||{};
+    const r={logged_at:t.logged_at,league:t.league,game:t.game,start_utc:t.start_utc,market:t.market,side:t.side,
+      point:t.point,book:t.book,price:t.price,stake:t.stake,entry_fair_prob:t.fair_prob,entry_ev_per_dollar:t.ev_per_dollar,
+      entry_ev_dollars:t.ev_dollars,status:t.closed?"closed":"open",close_price:t.closed&&c?c.price:null,
+      close_point:t.closed&&c?c.point:null,close_fair_prob:t.closed&&c?c.fair_prob:null,
+      clv_vs_fair:t.closed&&fair!=null?fair.toFixed(5):null,price_clv:t.closed&&price!=null?price.toFixed(5):null,
+      line_moved:moved?"yes":"",result:t.outcome||res.result||res.status||"",graded_by:t.graded_by||"",
+      profit:pl!=null?pl.toFixed(2):null,away_score:res.away_score,home_score:res.home_score,demo:t.demo?"yes":""};
+    return cols.map(k=>esc(r[k])).join(",");}));
+  const blob=new Blob([lines.join("\r\n")+"\r\n"],{type:"text/csv"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download=`betting-desk-tracked-${new Date().toISOString().slice(0,10)}.csv`;
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 
 /* ---------------- wiring ---------------- */
@@ -715,10 +1051,25 @@ function wire(){
     tracked=tracked.filter(t=>t.id!==el.dataset.untrack);saveTracked();render();});
   out.querySelectorAll("[data-lock]").forEach(el=>el.onclick=()=>{
     const t=tracked.find(t=>t.id===el.dataset.lock);if(t){closeOut(t);saveTracked();render();}});
+  out.querySelectorAll("[data-props]").forEach(el=>el.onclick=()=>{
+    const g=data&&data.games.find(g=>String(g.odds_id)===el.dataset.props);if(g)loadProps(g,!!el.dataset.spend);});
+  out.querySelectorAll("[data-hist]").forEach(el=>el.onclick=()=>{
+    const g=data&&data.games.find(g=>String(g.odds_id)===el.dataset.hist);if(g)loadHistory(g);});
+  out.querySelectorAll("[data-props-close]").forEach(el=>el.onclick=()=>{
+    const k=`${league}|${el.dataset.propsClose}`,pr=PROPS[k];
+    if(pr&&pr.state==="ready")pr.open=!pr.open;else delete PROPS[k];render();});
+  out.querySelectorAll("[data-grade]").forEach(el=>el.onclick=()=>{
+    const [id,res]=JSON.parse(el.dataset.grade);const t=tracked.find(t=>t.id===id);if(!t)return;
+    if(res){t.outcome=res;t.graded_by="hand";if(!t.closed)closeOut(t);}else{t.outcome=null;t.graded_by=null;}
+    saveTracked();render();});
+  out.querySelectorAll("[data-tview]").forEach(el=>el.onclick=()=>{
+    prefs.tview=el.dataset.tview;savePrefs();render();if(prefs.tview==="results")checkResults(false);});
   out.querySelectorAll("[data-act]").forEach(el=>el.onclick=()=>{
     const a=el.dataset.act;
     if(a==="retry")refresh();
     if(a==="inj"){inj=null;render();loadInjuries();}
+    if(a==="scores")checkResults(true);
+    if(a==="csv")exportCSV();
     if(a==="clear-tracked"&&confirm("Remove every tracked play from this browser?")){tracked=[];saveTracked();render();}
   });
 }
@@ -788,9 +1139,11 @@ $("close").onclick=shut;$("scrim").onclick=shut;
 $("pstake").oninput=priceSlip;
 $("clear").onclick=()=>{slip=[];render();priceSlip();shut();};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")shut();});
+let rsz;window.addEventListener("resize",()=>{clearTimeout(rsz);rsz=setTimeout(()=>{if(tab==="Tracked"&&prefs.tview==="results")render();},150);});
 $("note").textContent="Schedules, scores and injuries: ESPN, free. Odds: The Odds API, "+
   "billed per credit. Research only — nothing here places a bet or touches a sportsbook account.";
-render();priceSlip();loadUsage();
+render();priceSlip();loadUsage();loadCatalog();
+if(tab==="Tracked")checkResults(false);
 if(tab==="Injuries")loadInjuries();
 </script>
 </body>
