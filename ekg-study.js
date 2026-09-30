@@ -19,6 +19,8 @@
   function renderTabs() {
     document.getElementById("study-tab-rhythms").classList.toggle("active", tab === "rhythms");
     document.getElementById("study-tab-meds").classList.toggle("active", tab === "meds");
+    document.getElementById("study-tab-rhythms").setAttribute("aria-pressed", String(tab === "rhythms"));
+    document.getElementById("study-tab-meds").setAttribute("aria-pressed", String(tab === "meds"));
     document.getElementById("study-rhythms").hidden = tab !== "rhythms";
     document.getElementById("study-meds").hidden = tab !== "meds";
   }
@@ -36,10 +38,19 @@
       for (const key of keys) {
         const btn = document.createElement("button");
         btn.className = `study-rhythm-btn ${key === currentKey ? "active" : ""}`;
+        btn.type = "button";
+        if (key === currentKey) btn.setAttribute("aria-current", "true");
         btn.textContent = RHYTHM_GUIDE[key].name;
         btn.addEventListener("click", () => {
           currentKey = key;
           renderRhythms();
+          // The list is rebuilt, so put keyboard focus back on the pick; on
+          // phones the detail sits below the list, so bring it into view.
+          const active = listEl.querySelector(".study-rhythm-btn.active");
+          if (active) active.focus({ preventScroll: true });
+          if (window.matchMedia && window.matchMedia("(max-width: 760px)").matches) {
+            document.getElementById("study-rhythm-name").scrollIntoView({ block: "start" });
+          }
         });
         listEl.appendChild(btn);
       }

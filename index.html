@@ -14,7 +14,7 @@
       <span class="brand-mark">CEN</span>
       <span class="brand-name">Study Hub</span>
     </div>
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Site">
       <a href="#board">Domain board</a>
       <a href="#priority">Priority watch</a>
       <a href="#resources">Resources</a>
@@ -82,5 +82,12 @@
 </main>
 
 <script src="app.js"></script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    });
+  }
+</script>
 </body>
 </html>
