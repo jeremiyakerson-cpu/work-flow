@@ -34,13 +34,42 @@ LEAGUES: dict[str, tuple[str, str]] = {
 
 
 class ESPNError(RuntimeError):
-    pass
+    """A failed ESPN call. `kind`: timeout, network, rate_limit, upstream, malformed, request."""
+
+    def __init__(self, message: str, kind: str = "request"):
+        super().__init__(message)
+        self.kind = kind
+
+
+TIMEOUT = 15.0
 
 
 def _get(client: httpx.Client, url: str, params: dict | None = None) -> dict:
-    r = client.get(url, params=params or {}, timeout=15.0)
-    r.raise_for_status()
-    return r.json()
+    try:
+        r = client.get(url, params=params or {}, timeout=TIMEOUT)
+    except httpx.TimeoutException as e:
+        raise ESPNError(f"ESPN timed out after {TIMEOUT:.0f}s.", "timeout") from e
+    except httpx.HTTPError as e:
+        raise ESPNError(f"Could not reach ESPN: {e}", "network") from e
+    if r.status_code == 429:
+        raise ESPNError("ESPN is rate limiting requests (429).", "rate_limit")
+    if r.status_code >= 400:
+        raise ESPNError(f"ESPN returned HTTP {r.status_code}.", "upstream")
+    try:
+        data = r.json()
+    except ValueError as e:
+        raise ESPNError("ESPN returned a body that is not JSON.", "malformed") from e
+    if not isinstance(data, dict):
+        raise ESPNError("ESPN returned an unexpected shape.", "malformed")
+    return data
+
+
+def _dict(v: Any) -> dict:
+    return v if isinstance(v, dict) else {}
+
+
+def _list(v: Any) -> list:
+    return v if isinstance(v, list) else []
 
 
 def _num(v: Any) -> float | None:
@@ -77,13 +106,15 @@ def scoreboard(league: str, date: dt.date | None = None,
         data = _get(c, f"{BASE}/{sport}/{lg}/scoreboard", params)
 
     out: list[dict] = []
-    for ev in data.get("events", []):
-        comp = (ev.get("competitions") or [{}])[0]
-        cs = comp.get("competitors") or []
+    for ev in _list(data.get("events")):
+        if not isinstance(ev, dict):
+            continue
+        comp = _dict((_list(ev.get("competitions")) or [{}])[0])
+        cs = [x for x in _list(comp.get("competitors")) if isinstance(x, dict)]
         home = next((x for x in cs if x.get("homeAway") == "home"), {})
         away = next((x for x in cs if x.get("homeAway") == "away"), {})
-        status = ((ev.get("status") or {}).get("type") or {})
-        venue = comp.get("venue") or {}
+        status = _dict(_dict(ev.get("status")).get("type"))
+        venue = _dict(comp.get("venue"))
 
         out.append({
             "espn_id": ev.get("id"),
@@ -105,9 +136,11 @@ def scoreboard(league: str, date: dt.date | None = None,
 
 
 def _team(c: dict) -> dict:
-    t = c.get("team") or {}
+    t = _dict(c.get("team"))
     rec = ""
-    for r in c.get("records") or []:
+    for r in _list(c.get("records")):
+        if not isinstance(r, dict):
+            continue
         if r.get("type") in ("total", "overall") or r.get("name") == "overall":
             rec = r.get("summary", "")
             break
@@ -123,8 +156,8 @@ def _team(c: dict) -> dict:
 
 
 def _first_broadcast(comp: dict) -> str | None:
-    for b in comp.get("broadcasts") or []:
-        names = b.get("names") or []
+    for b in _list(comp.get("broadcasts")):
+        names = _list(_dict(b).get("names"))
         if names:
             return names[0]
     return None
@@ -142,9 +175,12 @@ def standings(league: str) -> list[dict]:
     rows: list[dict] = []
 
     def walk(node: dict) -> None:
-        for entry in (node.get("standings") or {}).get("entries", []) or []:
-            team = entry.get("team") or {}
-            stats = {s.get("name"): s.get("value") for s in entry.get("stats", [])}
+        for entry in _list(_dict(node.get("standings")).get("entries")):
+            if not isinstance(entry, dict):
+                continue
+            team = _dict(entry.get("team"))
+            stats = {s.get("name"): s.get("value")
+                     for s in _list(entry.get("stats")) if isinstance(s, dict)}
             rows.append({
                 "abbr": team.get("abbreviation"),
                 "name": team.get("displayName"),
@@ -154,8 +190,9 @@ def standings(league: str) -> list[dict]:
                 "point_diff": stats.get("pointDifferential"),
                 "group": node.get("name"),
             })
-        for child in node.get("children", []) or []:
-            walk(child)
+        for child in _list(node.get("children")):
+            if isinstance(child, dict):
+                walk(child)
 
     walk(data)
     return rows
@@ -173,18 +210,22 @@ def injuries(league: str) -> list[dict]:
     with httpx.Client(headers={"User-Agent": "betting-desk/1.0"}) as c:
         try:
             data = _get(c, f"{BASE}/{sport}/{lg}/injuries")
-        except httpx.HTTPError:
+        except ESPNError:
             return out
-        for team_block in data.get("injuries", []) or []:
-            team = (team_block.get("team") or {}).get("abbreviation") or team_block.get("displayName")
-            for inj in team_block.get("injuries", []) or []:
-                ath = inj.get("athlete") or {}
+        for team_block in _list(data.get("injuries")):
+            if not isinstance(team_block, dict):
+                continue
+            team = _dict(team_block.get("team")).get("abbreviation") or team_block.get("displayName")
+            for inj in _list(team_block.get("injuries")):
+                if not isinstance(inj, dict):
+                    continue
+                ath = _dict(inj.get("athlete"))
                 out.append({
                     "team": team,
                     "player": ath.get("displayName"),
-                    "position": ((ath.get("position") or {}).get("abbreviation")),
+                    "position": _dict(ath.get("position")).get("abbreviation"),
                     "status": inj.get("status"),
-                    "detail": (inj.get("type") or {}).get("description")
+                    "detail": _dict(inj.get("type")).get("description")
                               or inj.get("shortComment"),
                     "date": inj.get("date"),
                 })

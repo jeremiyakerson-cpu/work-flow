@@ -19,8 +19,8 @@ from pydantic import BaseModel, Field, field_validator
 
 from .sources import espn
 from .sources.odds_api import (
-    OddsAPI, normalise_game_lines, SPORT_KEYS, GAME_MARKETS, PROP_MARKETS,
-    DEFAULT_PROP_MARKETS, estimate_cost,
+    OddsAPI, OddsAPIError, normalise_game_lines, normalise_props, SPORT_KEYS,
+    GAME_MARKETS, PROP_MARKETS, DEFAULT_PROP_MARKETS, estimate_cost,
 )
 from .services.board import build_board
 from .services.props import analyse_event_markets
@@ -148,6 +148,8 @@ def schedule(league: str, date: str | None = None,
         raise HTTPException(400, "date must be YYYY-MM-DD")
     try:
         games = espn.scoreboard(league, d, week=week)
+    except espn.ESPNError as e:
+        raise HTTPException(429 if e.kind == "rate_limit" else 502, f"ESPN request failed: {e}")
     except Exception as e:
         raise HTTPException(502, f"ESPN request failed: {e}")
     return {"league": league, "count": len(games), "games": games,
@@ -176,8 +178,9 @@ def get_injuries(league: str) -> dict:
     else:
         try:
             rows = espn.injuries(league)
-        except Exception as e:
-            raise HTTPException(502, f"ESPN request failed: {e}")
+        except Exception as e:   # injuries are context, never worth an error page
+            return {"league": league, "count": 0, "injuries": [], "error": str(e),
+                    "source": "ESPN (free)", "fetched_at": _now()}
         source = "ESPN (free)"
     return {"league": league, "count": len(rows), "injuries": rows,
             "note": "Empty is a normal answer; ESPN injury coverage varies by league.",
@@ -228,28 +231,44 @@ def board(
     if method and method not in M.DEVIG_METHODS:
         raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
 
+    errors: list[dict] = []     # one entry per upstream that failed; the board still renders
+    client: OddsAPI | None = None
+    stale = False
+    odds_games: list[dict] = []
+    espn_games: list[dict] = []
+    history_info: dict = {"recorded": 0, "enabled": False}
+
     if DEMO_MODE:
         d = demo.demo_league(league)
         odds_games = normalise_game_lines(d["odds"]) if d else []
         espn_games = list(d["espn"]) if d else []
-        client = None
-        history_info = {"recorded": 0, "enabled": False}
     else:
-        client = odds_client()
-        bk = _csv(books) or None
         try:
-            raw = client.odds(league, markets=mk, bookmakers=bk)
-        except Exception as e:
-            raise HTTPException(502, f"Odds API request failed: {e}")
-        odds_games = normalise_game_lines(raw)
-        history_info = _record(league, history.rows_from_game_lines(odds_games))
+            client = odds_client()
+        except HTTPException as e:
+            errors.append(_err("odds", "config", str(e.detail)))
+        if client is not None:
+            bk = _csv(books) or None
+            try:
+                odds_games = normalise_game_lines(client.odds(league, markets=mk, bookmakers=bk))
+                stale = client.last_stale
+            except OddsAPIError as e:
+                errors.append(_err("odds", e.kind, str(e)))
+            except Exception as e:   # unknown league, a parser surprise - still render the slate
+                errors.append(_err("odds", "unexpected", f"{type(e).__name__}: {e}"))
+            if odds_games and not stale:
+                try:
+                    history_info = _record(league, history.rows_from_game_lines(odds_games))
+                except Exception as e:   # history is a nice-to-have
+                    errors.append(_err("history", "unexpected", f"{type(e).__name__}: {e}"))
         try:
             espn_games = espn.scoreboard(league)
-        except Exception:
-            espn_games = []   # odds alone still beat nothing
+        except espn.ESPNError as e:
+            errors.append(_err("schedule", e.kind, str(e)))   # odds alone still beat nothing
+        except Exception as e:
+            errors.append(_err("schedule", "unexpected", f"{type(e).__name__}: {e}"))
 
-    result = build_board(
-        espn_games, odds_games,
+    kwargs = dict(
         your_books=YOUR_BOOKS,
         stake=stake if stake is not None else DEFAULT_STAKE,
         method=method or DEVIG_METHOD,
@@ -257,20 +276,39 @@ def board(
         min_edge=min_edge,
         markets=mk,
     )
+    try:
+        result = build_board(espn_games, odds_games, **kwargs)
+    except Exception as e:
+        # last resort: something in the joined data broke the builder. Show the
+        # bare slate without prices rather than a 500.
+        errors.append(_err("board", "unexpected", f"{type(e).__name__}: {e}"))
+        try:
+            result = build_board(espn_games, [], **kwargs)
+        except Exception:
+            result = build_board([], [], **kwargs)
     result["league"] = league
     result["markets"] = list(mk)
-    result["usage"] = client.usage.to_dict() if client else {"demo": True}
+    result["usage"] = client.usage.to_dict() if client else {"demo": DEMO_MODE}
     result["history"] = history_info
+    result["errors"] = errors
+    result["degraded"] = bool(errors) or stale
+    result["stale_odds"] = stale
     result["sources"] = {
         "schedule": _demo_label(league) if DEMO_MODE
                     else ("ESPN (free)" if espn_games else "unavailable"),
-        "odds": _demo_label(league) if DEMO_MODE else "The Odds API",
+        "odds": _demo_label(league) if DEMO_MODE
+                else ("The Odds API" + (" (cached, feed failing)" if stale else "")
+                      if odds_games else "unavailable"),
     }
     if DEMO_MODE:
         result["demo_mode"] = True
         if demo.demo_league(league) is None:
             result["note"] = f"No demo fixture for {league}. Demo covers: {', '.join(demo.DEMO_LEAGUES)}."
     return result
+
+
+def _err(source: str, kind: str, message: str) -> dict:
+    return {"source": source, "kind": kind, "message": message}
 
 
 @app.get("/api/board")
@@ -351,6 +389,9 @@ def _event_markets(
         client = odds_client()
         try:
             blob = client.event_odds(league, event_id, markets=mk, bookmakers=bk)
+        except OddsAPIError as e:
+            raise HTTPException(429 if e.kind == "rate_limit" else 502,
+                                f"Odds API request failed: {e}")
         except Exception as e:
             raise HTTPException(502, f"Odds API request failed: {e}")
         usage_, source = client.usage.to_dict(), "The Odds API"
@@ -532,6 +573,45 @@ def price_parlay(req: ParlayRequest) -> dict:
     return report
 
 
+# ---------------- tracker results (free, ESPN scores) ----------------
+
+class TrackedPlay(BaseModel):
+    id: str
+    league: str
+    market: str
+    side: str | None = None
+    point: float | None = None
+    espn_id: str | None = None
+    start_utc: str | None = None
+    game: str | None = None
+    home: str | None = None
+    away: str | None = None
+
+
+class ResultsRequest(BaseModel):
+    plays: list[TrackedPlay] = Field(default_factory=list, max_length=500)
+
+
+@app.post("/api/results")
+def results(req: ResultsRequest) -> dict:
+    """
+    Grade tracked plays against ESPN final scores: won / lost / push, or
+    pending / live if the game isn't over. Moneyline, spread and total only;
+    anything else comes back "ungradeable" for you to grade by hand.
+
+    ESPN failures never 500: they're listed in errors and the affected plays
+    come back status "unknown". Demo mode invents a final per game and marks
+    every result synthetic.
+    """
+    from .services.results import grade_plays
+    out = grade_plays([p.model_dump() for p in req.plays], espn.scoreboard, demo=DEMO_MODE)
+    out["source"] = "DEMO: synthetic final scores" if DEMO_MODE else "ESPN (free)"
+    out["fetched_at"] = _now()
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
 @app.get("/api/convert")
 def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:
@@ -561,7 +641,7 @@ def convert(american: float | None = None, decimal: float | None = None,
 @app.get("/api/usage")
 def usage() -> dict:
     if DEMO_MODE and not os.getenv("ODDS_API_KEY"):
-        return {"demo": True, "note": "Demo mode spends no credits."}
+        return {"demo": True, "credits_remaining": None, "note": "Demo mode spends no credits."}
     try:
         return odds_client().usage.to_dict()
     except HTTPException:

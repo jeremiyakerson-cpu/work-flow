@@ -49,9 +49,65 @@ app/
   main.py             FastAPI routes
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
-tests/                run with `python3 -m pytest tests/`
+tests/                run with `python3 -m pytest tests/` (see Tests below)
 data/                 line-movement snapshots (SQLite, gitignored, created on first live refresh)
 ```
+
+---
+
+## Using the UI
+
+- **Filters**: book (best of your books, or one book), market type (built from
+  whatever markets the API returns, props included), minimum edge %, and sort.
+  Preferences are remembered in the browser.
+- **Best play**: the highest-EV price that passes your filters is pinned above
+  the board and outlined on it. If nothing is +EV it says so and shows the
+  price *closest to fair* instead, labelled as a reference point, not a play.
+- **Credits pill** (top right): credits left on The Odds API after the last
+  call. Amber under 50, red at zero.
+- **Tracked tab**: tap ☆ on any price to log it (stored in `localStorage`,
+  this browser only). Every board refresh before the game starts records that
+  book's current price; once ESPN says the game is live (or the clock passes
+  start time) the last pre-start price becomes the **closing line**, and the
+  tab shows CLV:
+  - *CLV vs fair* = `fair_close_prob × decimal(your price) − 1`: your price
+    against the de-vigged close. This is the number that matters.
+  - *Price CLV* = `decimal(yours) / decimal(close) − 1` at the same book.
+  - If the point moved (8.5 → 9) the prices aren't comparable and it says so.
+  - The close is only as fresh as your last refresh before the start. "Lock
+    close now" freezes it manually (demo fixtures never go live, so use it there).
+- **Tracked → Results**: grades each play from ESPN final scores (won / lost /
+  push) via `POST /api/results`, then shows your record, profit at the stakes
+  you logged, ROI, average CLV, a per-play CLV chart with a running average, a
+  cumulative-profit chart and a week-by-week table. Only moneyline, spread and
+  total grade automatically; props and anything else get **Won / Lost / Push**
+  buttons so you grade them by hand. In demo mode the server invents a final
+  score per game (stable, labelled synthetic) so you can see the flow.
+  **Export CSV** downloads every tracked play with entry, close, CLV and result.
+- **Any sport, any market**: the league rail comes from `/api/sports` when the
+  backend has it (demo leagues without a fixture are dimmed), and each game
+  renders whatever keys are in `markets`. Games with an `odds_id` get a
+  **Props** button: in demo it loads straight away; live, the first tap asks
+  the server for the credit cost (`dry_run`) and a second tap spends it.
+  Off-line books and whole-number lines (push possible) are flagged.
+
+## When a feed fails
+
+`/api/board` never 500s on an upstream problem. It returns 200 with whatever
+did load plus an `errors` list (`source`, `kind`, `message`) and
+`degraded: true`:
+
+| Failure | What you get |
+|---|---|
+| Odds API timeout / 5xx / 429 / 401 / non-JSON | ESPN slate without prices; if an older cached response exists it's served with `stale_odds: true` |
+| ESPN timeout / 429 / malformed | Odds-only games (named from the odds feed) |
+| Both down | Empty board, both errors listed |
+| Partial or junk rows | Bad events, books, markets and prices are dropped; the rest is priced |
+| One market blows up in the math | That market is `null`, a line goes in `warnings`, the rest of the board stands |
+| No `ODDS_API_KEY` | Schedule only, `kind: "config"` |
+
+The UI shows each as a banner above the board and keeps the last good board
+on screen if a refresh fails outright.
 
 ### The math
 
@@ -177,6 +233,7 @@ the consensus every US book instead of just the two you're grading.
 | `GET /api/markets/{league}/{event_id}?markets=` | credits, opt-in | any per-event market (e.g. `totals_h1`, `alternate_spreads`) |
 | `GET /api/history/{league}/{event_id}?market=` | free | line movement for one market: every price the desk has stored, per book, and the fair price over time |
 | `POST /api/parlay` | free | price a slip, EV, singles comparison |
+| `POST /api/results` | free | grade tracked plays from ESPN final scores |
 | `GET /api/convert` | free | odds converter |
 | `GET /api/usage` | free | credits left |
 
@@ -268,6 +325,21 @@ in demo mode.
 
 ---
 
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+playwright install chromium        # or: export BD_CHROMIUM=/path/to/chrome
+python3 -m pytest tests/
+```
+
+`test_ui_smoke.py` starts the app in demo mode on a spare port and drives it
+in Chromium at phone width: load the board, filter it, track a play, see it
+graded in Results, export CSV. It skips itself if Playwright or a browser
+isn't installed; everything else needs no network.
+
+---
+
 ## Design rules the code actually enforces
 
 **A number is either sourced or absent.** If a book doesn't quote a market,
@@ -324,9 +396,9 @@ the parlay EV is the point.
 
 ## Next things worth building
 
-1. **Bet log with closing-line value.** Record every bet and the closing
-   price, then compare. CLV is the only fast feedback on whether your process
-   works — win rate takes hundreds of bets to say anything.
+1. **Server-side closing lines.** The Tracked tab captures closes from your
+   own refreshes; a scheduled snapshot just before each start would make them
+   exact.
 2. **Scheduled snapshots.** Line history is recorded on every refresh (see
    `/api/history`). A cron that refreshes on a schedule would give steam moves
    without clicking, at a credit cost per run.
@@ -351,6 +423,9 @@ and dry run, and the cache saving credits. `tests/test_fair_price.py` proves the
 consensus and leave-one-out math, multi-way and one-sided markets;
 `tests/test_history.py` covers the snapshot store and `/api/history`;
 `tests/test_api_validation.py` covers bad input on the free routes.
+`tests/test_robustness.py` mocks ESPN and The Odds API with respx and covers
+timeouts, connection errors, 401/429/5xx, non-JSON bodies, wrong top-level
+shapes, junk rows, stale-cache fallback and per-market failure isolation.
 
 CI: `.github/workflows/betting-desk-tests.yml` runs the suite on Python 3.11
 and 3.12 for every PR that touches `betting-desk/`.

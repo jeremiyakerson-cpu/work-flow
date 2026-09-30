@@ -60,10 +60,14 @@ def test_event_id_is_validated_before_any_url_is_built(client, monkeypatch):
     assert main._client is None
 
 
-def test_live_injuries_failure_is_a_502(client, monkeypatch):
+def test_live_injuries_failure_degrades_to_empty(client, monkeypatch):
+    # injuries are context only: a broken feed returns an empty list plus an
+    # error note rather than an error page (see test_robustness.py)
     monkeypatch.setattr(main, "DEMO_MODE", False)
 
     def boom(league):
         raise ValueError("not json")
     monkeypatch.setattr(main.espn, "injuries", boom)
-    assert client.get("/api/injuries/nfl").status_code == 502
+    r = client.get("/api/injuries/nfl")
+    assert r.status_code == 200
+    assert r.json()["injuries"] == [] and "not json" in r.json()["error"]

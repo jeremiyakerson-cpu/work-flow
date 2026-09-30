@@ -61,8 +61,8 @@ def match_games(espn_games: list[dict], odds_games: list[dict]) -> list[dict]:
     pool = list(odds_games)
 
     for g in espn_games:
-        home = _norm(g["home"]["name"])
-        away = _norm(g["away"]["name"])
+        home = _norm((g.get("home") or {}).get("name"))
+        away = _norm((g.get("away") or {}).get("name"))
         best, best_score = None, 0.0
         for o in pool:
             if not _start_gap_ok(g.get("start_utc"), o.get("start_utc")):
@@ -99,7 +99,7 @@ def _two_way(entries: list[dict] | None, home: str, away: str) -> dict | None:
     """Pull a home/away two-way market into a fixed order."""
     if not entries or len(entries) < 2:
         return None
-    by_name = {_norm(e["name"]): e for e in entries}
+    by_name = {_norm(e.get("name")): e for e in entries if isinstance(e, dict)}
     if "draw" in by_name:
         # three-way market; de-vigging two of three outcomes is wrong,
         # so report nothing rather than a confident wrong number
@@ -117,7 +117,7 @@ def _two_way(entries: list[dict] | None, home: str, away: str) -> dict | None:
 def _over_under(entries: list[dict] | None) -> dict | None:
     if not entries or len(entries) < 2:
         return None
-    by = {_norm(e["name"]): e for e in entries}
+    by = {_norm(e.get("name")): e for e in entries if isinstance(e, dict)}
     o, u = by.get("over"), by.get("under")
     if not o or not u or o.get("price") is None or u.get("price") is None:
         return None
@@ -381,10 +381,13 @@ def build_board(
     merged = match_games(espn_games, odds_games)
     games_out: list[dict] = []
     plays: list[dict] = []
+    warnings: list[str] = []
 
     for g in merged:
-        home_name = g["home"]["name"]
-        away_name = g["away"]["name"]
+        g["home"] = g.get("home") or {}
+        g["away"] = g.get("away") or {}
+        home_name = g["home"].get("name")
+        away_name = g["away"].get("name")
         entry: dict[str, Any] = {
             "espn_id": g.get("espn_id"),
             "odds_id": (g.get("odds") or {}).get("odds_id"),
@@ -409,17 +412,22 @@ def build_board(
             for market, _, labels in specs:
                 if market not in markets:
                     continue
-                prices = collect_market(g, market, home_name, away_name)
-                if not prices:
+                try:
+                    prices = collect_market(g, market, home_name, away_name)
+                    if not prices:
+                        entry["markets"][market] = None
+                        continue
+                    res = analyse_market(prices, labels, your_books, stake, method, sharp_book)
+                    if res:
+                        pts = _main_points(g, market, home_name, away_name)
+                        for side, pt in zip(res["sides"], pts):
+                            side["point"] = pt
+                            side["push_possible"] = push_possible(pt)
+                        res["off_line_books"] = off_line_books(g, market, home_name, away_name)
+                except Exception as e:   # one bad market must not sink the board
                     entry["markets"][market] = None
+                    warnings.append(f"{g.get('name')}: skipped {market} ({type(e).__name__})")
                     continue
-                res = analyse_market(prices, labels, your_books, stake, method, sharp_book)
-                if res:
-                    pts = _main_points(g, market, home_name, away_name)
-                    for side, pt in zip(res["sides"], pts):
-                        side["point"] = pt
-                        side["push_possible"] = push_possible(pt)
-                    res["off_line_books"] = off_line_books(g, market, home_name, away_name)
                 entry["markets"][market] = res
 
                 if res:
@@ -448,6 +456,7 @@ def build_board(
         "stake": stake,
         "games": games_out,
         "plays": plays,
+        "warnings": warnings,
         "summary": {
             "games_total": len(games_out),
             "games_with_odds": sum(1 for g in games_out if g["has_odds"]),
