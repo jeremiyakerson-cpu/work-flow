@@ -60,7 +60,7 @@ const RHYTHM_GUIDE = {
     criteria: { rate: "Atrial 350–600; ventricular varies", regular: "IRREGULARLY irregular", p: "None — fibrillatory baseline", pr: "None", qrs: "< 0.12 s" },
     look: "A wavy, chaotic baseline with QRS complexes landing at completely unpredictable intervals.",
     causes: ["Hypertension, heart failure, valve disease", "Sepsis, hypoxia, PE", "Post-cardiac surgery", "Hyperthyroidism", "Alcohol ('holiday heart')"],
-    tx: "Rate control (diltiazem/metoprolol) if stable; synchronized cardioversion 120–200 J if unstable. Anticoagulation for stroke prevention (duration >48 h/unknown needs anticoag or TEE before elective cardioversion).",
+    tx: "Rate control (diltiazem/metoprolol) if stable; synchronized cardioversion if unstable (initial ≥ 200 J biphasic, 2025 AHA). Anticoagulation for stroke prevention (duration >48 h/unknown needs anticoag or TEE before elective cardioversion).",
     pearls: "The irregularity is the diagnosis — march out the R–R intervals with calipers or paper. And always think 'stroke risk' the moment you see afib.",
     confuse: [{ with: "MAT / frequent PACs", how: "Those have visible (varying) P waves; afib has none, just fibrillatory waves." }],
   },
@@ -71,7 +71,7 @@ const RHYTHM_GUIDE = {
     criteria: { rate: "Atrial ~250–350 (classically 300); ventricular per ratio", regular: "Usually regular (fixed ratio)", p: "Sawtooth flutter (F) waves", pr: "Not measured", qrs: "< 0.12 s" },
     look: "A picket-fence / sawtooth baseline that never rests, with QRS complexes at a fixed ratio (2:1, 3:1, 4:1).",
     causes: ["Same substrate as afib — often coexists"],
-    tx: "Same strategy as afib: rate control, anticoagulation, cardioversion if unstable (often converts at lower energy).",
+    tx: "Same strategy as afib: rate control, anticoagulation, cardioversion if unstable (2025 AHA: an initial 200 J biphasic may be reasonable, escalating if it fails).",
     pearls: "A regular narrow tachy at EXACTLY ~150 is flutter 2:1 until proven otherwise — divide 300 by small integers and see if the rate fits.",
     confuse: [{ with: "SVT", how: "At 2:1 the F waves hide in the QRS/T — vagal maneuvers or adenosine slow conduction and expose the sawtooth." }],
   },
@@ -196,15 +196,172 @@ const RHYTHM_GUIDE = {
     pearls: "'Flatline → check the patient, the leads, and the gain — in that order.' A disconnected lead is the most survivable cause of asystole.",
     confuse: [{ with: "Fine VF", how: "Fine VF is shockable, asystole is not — this check (gain + second lead) directly changes treatment." }],
   },
+  idioventricular: {
+    name: "Idioventricular (ventricular escape) rhythm",
+    group: "Ventricular",
+    demo: { hr: 34, perfusing: true },
+    criteria: { rate: "20–40", regular: "Regular", p: "Absent (or dissociated)", pr: "None", qrs: "> 0.12 s, wide and bizarre" },
+    look: "Slow, wide, P-less complexes spaced far apart — the ventricles pacing themselves because nothing above is getting through.",
+    causes: ["Failure of the SA node AND the AV junction", "Complete heart block with ventricular escape", "Massive MI", "Hyperkalemia, drug toxicity", "Dying heart (agonal rhythm)"],
+    tx: "It's a rescue rhythm — NEVER suppress it with amiodarone or lidocaine. Check a pulse: pulseless = PEA algorithm. With a pulse and symptoms: bradycardia algorithm (atropine, prepare to pace, chronotropic infusion) and hunt the cause.",
+    pearls: "Wide + slow = escape, not VT. Wiping out the only pacemaker left with an antiarrhythmic can leave you with asystole.",
+    confuse: [
+      { with: "Complete heart block", how: "CHB with a ventricular escape looks similar, but you'll find regular P waves marching through independently. Idioventricular has no organized atrial activity." },
+      { with: "AIVR", how: "Same morphology, different rate: idioventricular is 20–40; accelerated idioventricular (AIVR) is roughly 40–100." },
+    ],
+  },
+  aivr: {
+    name: "Accelerated idioventricular rhythm (AIVR)",
+    group: "Ventricular",
+    demo: { hr: 72, perfusing: true },
+    criteria: { rate: "~40–100", regular: "Regular", p: "Absent or dissociated", pr: "None", qrs: "> 0.12 s, wide" },
+    look: "Wide ventricular complexes at a near-normal rate — it looks alarming but lacks VT's speed.",
+    causes: ["Reperfusion after PCI or fibrinolytics (classic)", "Digoxin toxicity", "Cardiomyopathy", "Cocaine"],
+    tx: "Usually none — typically brief, self-limited, and well tolerated. Do not suppress it. Assess perfusion, check electrolytes, and report it.",
+    pearls: "Wide rhythm at ~70 right after the cath lab opened an artery? Think reperfusion AIVR before you think VT.",
+    confuse: [{ with: "Ventricular tachycardia", how: "VT is > 100 and often unstable; AIVR is slower (~40–100) and usually benign. The rate is the tiebreaker." }],
+  },
+  wpw_afib: {
+    name: "Pre-excited atrial fibrillation (afib with WPW)",
+    group: "Atrial",
+    demo: { hr: 230, perfusing: true },
+    criteria: { rate: "Very fast — often > 200, beats can reach 250–300", regular: "IRREGULARLY irregular", p: "None", pr: "None", qrs: "Wide and varying beat to beat" },
+    look: "Fast, irregular, and wide — with QRS shapes that keep changing. Looks like 'irregular VT.'",
+    causes: ["Atrial fibrillation in a patient with an accessory pathway (WPW)"],
+    tx: "Unstable: synchronized cardioversion. Stable: procainamide (per protocol) and expert consultation. AVOID all AV-nodal blockers — adenosine, diltiazem/verapamil, beta blockers, digoxin (and IV amiodarone is cautioned against in current guidelines).",
+    pearls: "Blocking the AV node leaves the accessory pathway as the only road to the ventricles — rates climb and it can degenerate into VF. Irregular + wide + very fast = don't reach for diltiazem.",
+    confuse: [
+      { with: "Afib with RVR", how: "Ordinary afib has narrow QRS complexes (unless there's a bundle branch block) and rates rarely above ~180. Pre-excited afib is wide, bizarre, and faster." },
+      { with: "Polymorphic VT", how: "Both wide and irregular. Pre-excited afib often occurs in a younger, relatively stable patient; when in doubt and unstable, cardiovert." },
+    ],
+  },
+  wpw: {
+    name: "Wolff-Parkinson-White (pre-excitation) pattern",
+    group: "Patterns",
+    demo: { hr: 80, perfusing: true },
+    criteria: { rate: "Underlying (usually sinus)", regular: "Regular", p: "Upright, one per QRS", pr: "SHORT — < 0.12 s", qrs: "Slightly wide, with a slurred delta wave upstroke" },
+    look: "Sinus beats whose P runs almost straight into the QRS, and the QRS starts with a slow, slurred ramp (the delta wave) instead of a sharp upstroke.",
+    causes: ["Congenital accessory pathway (bundle of Kent) bypassing the AV node"],
+    tx: "The pattern alone needs no emergency treatment — report it and ensure cardiology follow-up (ablation is curative). The danger is the tachycardias it enables: SVT (AVRT) and pre-excited afib.",
+    pearls: "Short PR + delta wave + wide QRS = the WPW triad. Flag it on the chart: AV-nodal blockers become dangerous if this patient ever goes into afib.",
+    confuse: [{ with: "First-degree AV block / bundle branch block", how: "First-degree block LENGTHENS the PR; WPW SHORTENS it. A BBB widens the QRS without the slurred delta upstroke or short PR." }],
+  },
+  hyperk: {
+    name: "Hyperkalemia (peaked T waves)",
+    group: "Patterns",
+    demo: { hr: 58, perfusing: true },
+    criteria: { rate: "Often slow", regular: "Regular until late", p: "Flattened → disappears as K+ rises", pr: "Prolonged", qrs: "Widens progressively" },
+    look: "Tall, narrow, tented T waves that look sharp enough to cut yourself on, with shrinking P waves and a QRS that is starting to spread out.",
+    causes: ["Kidney failure / missed dialysis", "ACE inhibitors, ARBs, spironolactone, potassium supplements", "Tissue breakdown: rhabdomyolysis, crush injury, tumor lysis", "Acidosis (DKA)", "Hemolyzed sample (pseudohyperkalemia — the EKG will be normal)"],
+    tx: "EKG changes = emergency. Stabilize: IV calcium. Shift: insulin + dextrose, albuterol, bicarbonate if acidotic. Remove: dialysis, loop diuretics, binders. Stop potassium sources and recheck levels and glucose.",
+    pearls: "The progression — peaked T → flat P → long PR → wide QRS → sine wave → VF/asystole — can skip steps. EKG changes don't correlate reliably with the number; any change means act now.",
+    confuse: [{ with: "Hyperacute T waves of early STEMI", how: "Hyperacute Ts are broad-based and usually regional (fit a coronary territory); hyperkalemic Ts are narrow, tented, and diffuse across many leads." }],
+  },
+  stemi: {
+    name: "ST-elevation MI (STEMI) pattern",
+    group: "Patterns",
+    demo: { hr: 84, perfusing: true },
+    criteria: { rate: "Any", regular: "Usually regular", p: "Normal", pr: "Normal", qrs: "Narrow; ST segment ELEVATED from the J point" },
+    look: "The ST segment lifts off the baseline right after the QRS and merges into the T wave — a 'tombstone' or dome shape where a flat segment should be.",
+    causes: ["Acute coronary artery occlusion — inferior (II, III, aVF: usually RCA), anterior (V1–V4: LAD), lateral (I, aVL, V5–V6: circumflex)"],
+    tx: "12-lead within 10 minutes of arrival, activate the cath lab (goal: reperfusion within 90 minutes of first medical contact), aspirin 162–325 mg chewed, nitroglycerin only if BP allows and no RV infarct or PDE-5 inhibitor, oxygen only if SpO2 < 90%.",
+    pearls: "A single-lead monitor can hint at ST changes but never rules them in or out — always get the 12-lead. With inferior ST elevation, get right-sided leads before nitro: RV infarcts are preload-dependent.",
+    confuse: [{ with: "Pericarditis / early repolarization", how: "Pericarditis elevates ST diffusely (not one territory) with PR depression and no reciprocal changes. Reciprocal ST depression favors STEMI." }],
+  },
+  paced_v: {
+    name: "Ventricular paced rhythm",
+    group: "Paced",
+    demo: { hr: 70, perfusing: true },
+    criteria: { rate: "Set pacer rate (e.g., 60–70)", regular: "Regular", p: "None related (or dissociated)", pr: "None", qrs: "Pacer spike → wide QRS" },
+    look: "A sharp vertical pacer spike immediately followed by a wide QRS on every beat — perfectly regular at the programmed rate.",
+    causes: ["Permanent pacemaker (VVI/DDD) or temporary transvenous/transcutaneous pacing"],
+    tx: "None if capturing and perfusing. Nursing checks: 1:1 spike-to-QRS capture, a palpable pulse that matches the paced rate, and a rate never below the programmed lower limit.",
+    pearls: "Electrical capture on the screen isn't enough — confirm MECHANICAL capture with a pulse. Paced beats are wide by design; don't call them VT.",
+    confuse: [
+      { with: "Idioventricular / VT", how: "Look for the spike. Paced beats have one right before every wide QRS; escape rhythms and VT don't." },
+      { with: "Failure to capture", how: "Every spike here produces a QRS. If spikes stand alone with no QRS after them, capture has failed." },
+    ],
+  },
+  paced_av: {
+    name: "AV (dual-chamber) paced rhythm",
+    group: "Paced",
+    demo: { hr: 70, perfusing: true },
+    criteria: { rate: "Set pacer rate", regular: "Regular", p: "Atrial spike → P wave", pr: "Programmed AV delay", qrs: "Ventricular spike → wide QRS" },
+    look: "Two spikes per beat: one before the P wave (atrial) and one before the wide QRS (ventricular).",
+    causes: ["Dual-chamber permanent pacemaker (DDD) pacing both chambers"],
+    tx: "None if capturing both chambers with a matching pulse. Know the patient's device type and programmed lower rate.",
+    pearls: "Count the spikes: one per beat before the QRS = ventricular pacing; one before the P and one before the QRS = AV pacing.",
+    confuse: [{ with: "Ventricular paced rhythm", how: "V-pacing has one spike per beat; AV pacing adds an atrial spike and a paced P wave in front." }],
+  },
+  pacer_noncapture: {
+    name: "Pacemaker failure to capture",
+    group: "Paced",
+    demo: { hr: 30, perfusing: true },
+    criteria: { rate: "Spikes at set rate; actual QRS rate slower", regular: "Spikes regular", p: "Variable", pr: "—", qrs: "Missing after spikes; only escape beats" },
+    look: "Pacer spikes keep marching at the programmed rate, but many (or all) are NOT followed by a QRS — the stimulus fires and the heart ignores it.",
+    causes: ["Output (mA) too low", "Lead displacement or fracture", "Rising threshold: ischemia, hyperkalemia, acidosis, drugs", "Poor pad contact (transcutaneous)", "Battery depletion"],
+    tx: "Assess the patient and pulse. Transcutaneous: increase the mA until every spike captures, then confirm a matching pulse (and give analgesia/sedation). Permanent/transvenous: notify the provider, prepare transcutaneous pacing as backup, check position/connections, and get a chest X-ray and electrolytes per order.",
+    pearls: "Spikes without QRS = failure to CAPTURE. Spikes in the wrong places (ignoring the patient's own beats) = failure to SENSE. Missing spikes when they're due = oversensing / failure to pace.",
+    confuse: [{ with: "Failure to sense (undersensing)", how: "Undersensing fires spikes regardless of the patient's own beats — sometimes onto a T wave (R-on-T). Non-capture fires on time but produces nothing." }],
+  },
 };
 
-const RHYTHM_GROUPS = ["Sinus", "Atrial", "Junctional", "Blocks", "Ventricular", "Lethal"];
+// Where each entry's treatment content comes from. Shown under the entry in
+// the Study Guide. Cite the guideline, not a page, so it survives reprints.
+const SRC = {
+  als: "2025 AHA Guidelines for CPR & ECC, Part 9: Adult Advanced Life Support",
+  special: "2025 AHA Guidelines for CPR & ECC, Part 10: Adult and Pediatric Special Circumstances of Resuscitation",
+  post: "2025 AHA Guidelines for CPR & ECC, Part 11: Post–Cardiac Arrest Care",
+  af: "2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation",
+  svt: "2015 ACC/AHA/HRS Guideline for the Management of Adult Patients With SVT",
+  brady: "2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Bradycardia and Cardiac Conduction Delay",
+  acs: "2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes",
+  tox: "2023 AHA Focused Update on Cardiac Arrest or Life-Threatening Toxicity Due to Poisoning",
+};
+
+const RHYTHM_SOURCES = {
+  nsr: [],
+  sinus_brady: ["als", "brady"],
+  sinus_tach: ["als"],
+  svt: ["als", "svt"],
+  afib: ["als", "af"],
+  aflutter: ["als", "af"],
+  avb1: ["brady"],
+  mobitz1: ["als", "brady"],
+  mobitz2: ["als", "brady"],
+  avb3: ["als", "brady"],
+  junctional: ["als", "brady"],
+  pvc_bigeminy: ["als"],
+  vt: ["als"],
+  torsades: ["als"],
+  vf_coarse: ["als", "post"],
+  vf_fine: ["als"],
+  asystole: ["als"],
+  idioventricular: ["als", "brady"],
+  aivr: ["acs"],
+  wpw_afib: ["als", "af", "svt"],
+  wpw: ["svt"],
+  hyperk: ["special"],
+  stemi: ["acs"],
+  paced_v: ["brady"],
+  paced_av: ["brady"],
+  pacer_noncapture: ["als", "brady"],
+};
+for (const [key, refs] of Object.entries(RHYTHM_SOURCES)) {
+  if (RHYTHM_GUIDE[key] && refs.length) RHYTHM_GUIDE[key].source = refs.map((r) => SRC[r]).join("; ");
+}
+
+const RHYTHM_GROUPS = ["Sinus", "Atrial", "Junctional", "Blocks", "Ventricular", "Lethal", "Paced", "Patterns"];
 
 // Confusion sets for the Rhythm Sprint's smart distractors.
 const SPRINT_CONFUSION = [
   ["svt", "sinus_tach", "afib", "aflutter"],
   ["sinus_brady", "junctional", "avb1", "mobitz1", "mobitz2", "avb3", "nsr"],
   ["vt", "torsades", "vf_coarse", "vf_fine", "asystole", "pvc_bigeminy"],
+  ["idioventricular", "aivr", "avb3", "paced_v", "vt", "junctional"],
+  ["wpw_afib", "afib", "vt", "torsades"],
+  ["paced_v", "paced_av", "pacer_noncapture", "avb3", "pvc_bigeminy"],
+  ["hyperk", "stemi", "wpw", "nsr", "avb1"],
 ];
 
 const MED_GUIDE = [
@@ -223,6 +380,14 @@ const MED_GUIDE = [
     use: "Refractory VF/pulseless VT; stable VT; some atrial arrhythmias",
     caution: "Hypotension with fast infusion. PROLONGS QT — avoid in torsades. Two doses, two contexts: know the 300-push vs 150-slow distinction cold.",
     pearl: "The most-tested drug distinction in ACLS: push it in arrest, drip it with a pulse.",
+  },
+  {
+    name: "Aspirin",
+    cls: "Antiplatelet",
+    dose: "162–325 mg non-enteric-coated, CHEWED",
+    use: "Suspected acute coronary syndrome / STEMI — as early as possible",
+    caution: "True aspirin allergy, active GI bleeding. The 81 mg enteric-coated daily tab is maintenance, not the acute dose.",
+    pearl: "Chewing gets platelet inhibition in minutes; swallowing an enteric-coated tab takes hours.",
   },
   {
     name: "Atropine",
@@ -304,6 +469,44 @@ const MED_GUIDE = [
     caution: "Shorter half-life than most opioids — re-sedation is the rule, not the exception. Precipitates withdrawal in dependent patients.",
     pearl: "In an opioid arrest the ventilation is the resuscitation; naloxone is an adjunct, not the hero.",
   },
+  {
+    name: "Nitroglycerin",
+    cls: "Nitrate vasodilator",
+    dose: "0.4 mg SL (tablet or spray) q5 min, up to 3 doses; IV infusion for persistent ischemic pain",
+    use: "Ischemic chest pain in ACS; hypertension/pulmonary edema",
+    caution: "HOLD for SBP < 90 (or a big drop from baseline), PDE-5 inhibitor use (sildenafil/vardenafil within 24 h, tadalafil within 48 h), and suspected RV infarction. Check BP before every dose.",
+    pearl: "Inferior STEMI? Get right-sided leads before nitro — an RV infarct plus nitrate can drop the pressure off a cliff.",
+  },
+  {
+    name: "Procainamide",
+    cls: "Class Ia antiarrhythmic",
+    dose: "20–50 mg/min IV until the arrhythmia is suppressed, hypotension occurs, the QRS widens > 50%, or 17 mg/kg is reached; maintenance 1–4 mg/min",
+    use: "Stable wide-complex tachycardia; pre-excited atrial fibrillation (WPW)",
+    caution: "Avoid with prolonged QT and heart failure. Hypotension and QRS widening are STOP signals — watch the monitor and BP throughout the load.",
+    pearl: "Four stopping points: it worked, the BP fell, the QRS widened 50%, or you hit 17 mg/kg.",
+  },
 ];
+
+const MED_SOURCES = {
+  Adenosine: ["als", "svt"],
+  Amiodarone: ["als"],
+  Aspirin: ["acs"],
+  Atropine: ["als"],
+  "Calcium (gluconate/chloride)": ["special", "tox"],
+  Diltiazem: ["als", "af"],
+  Dopamine: ["als"],
+  Epinephrine: ["als"],
+  "Insulin + Dextrose": ["special"],
+  Lidocaine: ["als"],
+  "Magnesium sulfate": ["als"],
+  Metoprolol: ["af", "acs"],
+  Naloxone: ["special"],
+  Nitroglycerin: ["acs"],
+  Procainamide: ["als", "af"],
+};
+for (const m of MED_GUIDE) {
+  const refs = MED_SOURCES[m.name];
+  if (refs) m.source = refs.map((r) => SRC[r]).join("; ");
+}
 
 window.EkgEducation = { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE };
