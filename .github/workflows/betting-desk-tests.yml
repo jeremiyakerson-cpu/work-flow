@@ -1,0 +1,40 @@
+name: betting-desk tests
+
+on:
+  pull_request:
+    paths:
+      - "betting-desk/**"
+      - ".github/workflows/betting-desk-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "betting-desk/**"
+      - ".github/workflows/betting-desk-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: betting-desk
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: betting-desk/requirements*.txt
+      - name: Install
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Test (offline; no API key, demo fixtures and fakes only)
+        env:
+          ODDS_API_KEY: ""
+          DEMO_MODE: ""
+        run: python -m pytest tests -q

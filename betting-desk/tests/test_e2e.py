@@ -4,7 +4,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # httpx isn't installed in this sandbox (no network). The modules under test
 # only touch it inside network calls, which this test never makes.
-if "httpx" not in sys.modules:
+try:
+    import httpx  # noqa: F401  (real one if installed; pytest also loads FastAPI tests)
+except ImportError:
     stub = types.ModuleType("httpx")
     stub.Client = object; stub.Headers = dict; stub.HTTPError = Exception
     sys.modules["httpx"] = stub
@@ -93,18 +95,23 @@ ath_side = h2h["sides"][1]
 dk = [y for y in ath_side["your_books"] if y["book"]=="draftkings"][0]
 chk("DK away -EV vs consensus", dk["ev_per_dollar"] < 0)
 
-print(json.dumps({
-  "generated_at": board["generated_at"][:19],
-  "summary": board["summary"],
-  "TB_fair_prob": round(home["fair_prob"],4),
-  "TB_fair_price": home["fair_price"],
-  "fair_source": h2h["fair_source"],
-  "holds": h2h["market_hold"],
-  "best_TB_price": f'{home["best_price"]} at {home["best_book"]}',
-  "your_TB_prices": [(y["book"], y["price"], round(y["ev_per_dollar"],4)) for y in home["your_books"]],
-  "plays": [(p["side"], p["book"], p["price"], round(p["ev_per_dollar"],4)) for p in board["plays"]],
-}, indent=2))
-print()
-print(f"{'ALL PASS' if not fails else 'FAILURES'}: {len(fails)}")
-for f in fails: print("  FAIL:", f)
-sys.exit(1 if fails else 0)
+def test_e2e_assertions():
+    assert not fails, fails
+
+
+if __name__ == "__main__":
+    print(json.dumps({
+      "generated_at": board["generated_at"][:19],
+      "summary": board["summary"],
+      "TB_fair_prob": round(home["fair_prob"],4),
+      "TB_fair_price": home["fair_price"],
+      "fair_source": h2h["fair_source"],
+      "holds": h2h["market_hold"],
+      "best_TB_price": f'{home["best_price"]} at {home["best_book"]}',
+      "your_TB_prices": [(y["book"], y["price"], round(y["ev_per_dollar"],4)) for y in home["your_books"]],
+      "plays": [(p["side"], p["book"], p["price"], round(p["ev_per_dollar"],4)) for p in board["plays"]],
+    }, indent=2))
+    print()
+    print(f"{'ALL PASS' if not fails else 'FAILURES'}: {len(fails)}")
+    for f in fails: print("  FAIL:", f)
+    sys.exit(1 if fails else 0)
