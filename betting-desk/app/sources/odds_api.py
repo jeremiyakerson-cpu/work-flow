@@ -35,17 +35,58 @@ SPORT_KEYS: dict[str, str] = {
     "mls":   "soccer_usa_mls",
 }
 
-# Common player-prop market keys, per sport. Verify against the live
+# Featured game markets. These are the only markets the bulk /odds endpoint
+# serves; everything else (props, periods, alternates) is per-event.
+GAME_MARKETS: tuple[str, ...] = ("h2h", "spreads", "totals")
+
+# Player-prop market keys, per sport. Verify against the live
 # /sports/{key}/events/{id}/markets endpoint - these change.
 PROP_MARKETS: dict[str, list[str]] = {
     "mlb": ["batter_home_runs", "batter_hits", "batter_total_bases",
             "batter_rbis", "pitcher_strikeouts"],
     "nfl": ["player_pass_yds", "player_rush_yds", "player_reception_yds",
             "player_receptions", "player_anytime_td"],
+    "ncaaf": ["player_pass_yds", "player_rush_yds", "player_reception_yds",
+              "player_anytime_td"],
     "nba": ["player_points", "player_rebounds", "player_assists",
             "player_threes"],
+    "nhl": ["player_points", "player_shots_on_goal",
+            "player_goal_scorer_anytime"],
+}
+
+# What a props call asks for when you don't name markets. Deliberately
+# short: every market is a credit, per game, per refresh.
+DEFAULT_PROP_MARKETS: dict[str, list[str]] = {
+    "mlb": ["batter_hits", "pitcher_strikeouts"],
+    "nfl": ["player_pass_yds", "player_anytime_td"],
+    "ncaaf": ["player_pass_yds", "player_rush_yds"],
+    "nba": ["player_points", "player_rebounds"],
     "nhl": ["player_points", "player_shots_on_goal"],
 }
+
+
+def sport_key(league: str) -> str:
+    key = SPORT_KEYS.get(league)
+    if not key:
+        raise ValueError(f"no Odds API sport key for {league}")
+    return key
+
+
+def estimate_cost(
+    markets: tuple[str, ...] | list[str],
+    bookmakers: tuple[str, ...] | list[str] | None = None,
+    regions: str = "us",
+) -> int:
+    """
+    Upper bound on credits for one call: markets x regions. Each group of
+    up to ten bookmakers counts as one region. The API bills only markets
+    that come back with data, so the real charge can be lower, never higher.
+    """
+    if bookmakers:
+        region_units = -(-len(bookmakers) // 10)
+    else:
+        region_units = len([r for r in regions.split(",") if r.strip()]) or 1
+    return len(markets) * region_units
 
 
 class OddsAPIError(RuntimeError):
@@ -66,6 +107,7 @@ class Usage:
     used: int | None = None
     last_cost: int | None = None
     calls_this_session: int = 0
+    cache_hits: int = 0
 
     def update(self, headers: httpx.Headers) -> None:
         def as_int(k: str) -> int | None:
@@ -87,6 +129,7 @@ class Usage:
             "credits_used": self.used,
             "last_call_cost": self.last_cost,
             "calls_this_session": self.calls_this_session,
+            "cache_hits": self.cache_hits,
         }
 
 
@@ -127,6 +170,7 @@ class OddsAPI:
         self.last_stale = False
         hit = self._cache.get(key) if cache else None
         if hit and (time.time() - hit.at) < self.cache_ttl:
+            self.usage.cache_hits += 1
             return hit.value
 
         try:
@@ -192,9 +236,7 @@ class OddsAPI:
         about a few books: bookmakers-based calls cost markets x 1, not
         markets x regions.
         """
-        key = SPORT_KEYS.get(league)
-        if not key:
-            raise ValueError(f"no Odds API sport key for {league}")
+        key = sport_key(league)
         params: dict[str, Any] = {
             "markets": ",".join(markets),
             "oddsFormat": "american",
@@ -208,7 +250,7 @@ class OddsAPI:
 
     def events(self, league: str) -> list[dict]:
         """Event list with ids. Free - needed to request props."""
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         return self._get(f"/sports/{key}/events", {"dateFormat": "iso"})
 
     def event_odds(
@@ -223,7 +265,7 @@ class OddsAPI:
         Player props for one event. Costs len(markets) credits per call when
         scoped to bookmakers. This is where the quota goes.
         """
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         params: dict[str, Any] = {
             "markets": ",".join(markets),
             "oddsFormat": "american",
@@ -236,7 +278,7 @@ class OddsAPI:
         return self._get(f"/sports/{key}/events/{event_id}/odds", params)
 
     def scores(self, league: str, days_from: int = 1) -> list[dict]:
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         return self._get(f"/sports/{key}/scores",
                          {"daysFrom": days_from, "dateFormat": "iso"})
 

@@ -122,14 +122,12 @@ check("missing fair noted", any("not computed" in n for n in missing["notes"]))
 p_tb = devig([190, -230])[1]
 check("TB fair ~67.7%", 0.66 < p_tb < 0.69)
 
-print(f"{ok} passed, {len(fail)} failed")
-for f in fail:
-    print("  FAIL:", f)
-
-
-def test_math_checks():   # pytest entry point
+def test_math_assertions():
     assert not fail, fail
 
 
 if __name__ == "__main__":
+    print(f"{ok} passed, {len(fail)} failed")
+    for f in fail:
+        print("  FAIL:", f)
     sys.exit(1 if fail else 0)

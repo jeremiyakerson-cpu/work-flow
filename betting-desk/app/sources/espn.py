@@ -79,9 +79,12 @@ def _num(v: Any) -> float | None:
         return None
 
 
-def scoreboard(league: str, date: dt.date | None = None) -> list[dict]:
+def scoreboard(league: str, date: dt.date | None = None,
+               week: int | None = None) -> list[dict]:
     """
     Games for a league on a date (default today, ESPN's own idea of today).
+    Football schedules by week, so NFL and NCAAF also take week= (regular
+    season); ESPN ignores it for the other sports.
 
     Returns a normalised list. Anything ESPN omits comes back as None rather
     than a filled-in guess.
@@ -92,6 +95,8 @@ def scoreboard(league: str, date: dt.date | None = None) -> list[dict]:
     params: dict[str, Any] = {}
     if date:
         params["dates"] = date.strftime("%Y%m%d")
+    if week is not None and sport == "football":
+        params.update({"week": week, "seasontype": 2})
     if league == "ncaab":
         params.update({"groups": 50, "limit": 500})
     if league == "ncaaf":

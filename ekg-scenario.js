@@ -33,6 +33,7 @@ const scState = {
   death: false, // two critical misses while the patient is unstable
   deathShown: false,
   logged: false, // this run already written to the code log
+  stageAnswered: false, // current stage already graded (blocks double taps)
 };
 
 // A stage is "critical" when the patient has no solid pulse — misses
@@ -80,12 +81,23 @@ function scShow(id) {
 
 // ---------- picker ----------
 
+function scStoreGet(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+// Generated cards get a delete control. It sits beside the card button in a
+// wrapper (not inside it — a <button> nested in a <button> is invalid HTML
+// and unreachable by keyboard / screen readers).
 function scMakeCard(s, opts = {}) {
-  const best = localStorage.getItem(SCENARIO_BEST_PREFIX + s.id);
+  const best = scStoreGet(SCENARIO_BEST_PREFIX + s.id);
   const card = document.createElement("button");
+  card.type = "button";
   card.className = `sc-card ${opts.generated ? "sc-card-generated" : ""}`;
   card.innerHTML = `
-    ${opts.generated ? `<button class="sc-card-delete" title="Delete this generated case" aria-label="Delete">×</button>` : ""}
     <span class="sc-card-title">${s.title}</span>
     <span class="sc-card-blurb">${s.blurb}</span>
     ${opts.generated && s.reason ? `<span class="sc-card-reason">${s.reason}</span>` : ""}
@@ -94,17 +106,26 @@ function scMakeCard(s, opts = {}) {
       ${best !== null ? `<span class="sc-card-best">BEST ${best}/${s.stages.length}</span>` : `<span class="sc-card-new">NOT ATTEMPTED</span>`}
     </span>
   `;
-  card.addEventListener("click", (e) => {
-    if (e.target.closest(".sc-card-delete")) {
-      e.stopPropagation();
-      EkgGenerator.removeGenerated(s.id);
+  card.addEventListener("click", () => scStart(s));
+  if (!opts.generated) return card;
+
+  const wrap = document.createElement("div");
+  wrap.className = "sc-card-wrap";
+  const del = document.createElement("button");
+  del.type = "button";
+  del.className = "sc-card-delete";
+  del.title = "Delete this generated case";
+  del.setAttribute("aria-label", `Delete generated case: ${s.title}`);
+  del.textContent = "×";
+  del.addEventListener("click", () => {
+    EkgGenerator.removeGenerated(s.id);
+    try {
       localStorage.removeItem(SCENARIO_BEST_PREFIX + s.id);
-      scOpenPicker();
-      return;
-    }
-    scStart(s);
+    } catch {}
+    scOpenPicker();
   });
-  return card;
+  wrap.append(card, del);
+  return wrap;
 }
 
 function scOpenPicker() {
@@ -124,6 +145,7 @@ function scOpenPicker() {
   genGrid.innerHTML = "";
 
   const genCard = document.createElement("button");
+  genCard.type = "button";
   genCard.className = "sc-card sc-generate-card";
   genCard.innerHTML = `
     <span class="sc-card-title">⚡ Generate a new case</span>
@@ -200,6 +222,7 @@ function scRenderStage() {
   const outcome = document.getElementById("sc-outcome");
   outcome.hidden = true;
   document.getElementById("sc-next-btn").hidden = true;
+  scState.stageAnswered = false;
 
   // choices
   const order = scShuffle(st.choices.map((_, i) => i));
@@ -413,6 +436,8 @@ function scRenderLog() {
 // ---------- answering & flow ----------
 
 function scAnswer(displayIdx, correctIndex, container) {
+  if (scState.stageAnswered) return; // double tap / second choice
+  scState.stageAnswered = true;
   const st = scStage();
   const isCorrect = displayIdx === correctIndex;
   if (isCorrect) scState.correct++;
@@ -429,6 +454,7 @@ function scAnswer(displayIdx, correctIndex, container) {
   const btns = container.querySelectorAll(".softkey");
   btns.forEach((btn, i) => {
     btn.classList.add("disabled");
+    btn.setAttribute("aria-disabled", "true");
     if (i === correctIndex) btn.classList.add("correct");
     else if (i === displayIdx) btn.classList.add("incorrect");
   });
@@ -469,9 +495,12 @@ function scAnswer(displayIdx, correctIndex, container) {
     : scState.stageIdx === scState.scenario.stages.length - 1
     ? "Debrief →"
     : "Continue the code →";
+  nextBtn.focus({ preventScroll: true });
+  revealBelow(nextBtn); // ekg-test.js: scroll the rationale/outcome into view on phones
 }
 
 function scNext() {
+  if (!scState.stageAnswered) return;
   if (scState.death && !scState.deathShown) {
     scState.deathShown = true;
     scRenderDeath();
@@ -521,8 +550,12 @@ function scDebrief(outcome = "completed") {
   const total = s.stages.length;
   if (outcome === "completed") {
     const key = SCENARIO_BEST_PREFIX + s.id;
-    const best = Number(localStorage.getItem(key) ?? -1);
-    if (scState.correct > best) localStorage.setItem(key, String(scState.correct));
+    const best = Number(scStoreGet(key) ?? -1);
+    if (scState.correct > best) {
+      try {
+        localStorage.setItem(key, String(scState.correct));
+      } catch {}
+    }
   }
 
   scStopClock();
@@ -587,7 +620,8 @@ function scInit() {
     // An exited run with at least one decision made still counts: it goes
     // to the log and still seeds a fresh generated case.
     if (scState.log.length > 0 && !scState.logged) {
-      scLogRun("abandoned");
+      // Leaving after the patient was already lost is still a loss.
+      scLogRun(scState.death ? "died" : "abandoned");
       EkgGenerator.generate();
     }
     scOpenPicker();

@@ -1,0 +1,14 @@
+{
+  "name": "ekg-rhythm-trainer",
+  "private": true,
+  "description": "Dev-only test tooling for the EKG trainer. The app itself is plain static files — no build step.",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "node --test \"tests/unit/**/*.test.js\"",
+    "test:e2e": "playwright test",
+    "serve": "node tests/serve.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
