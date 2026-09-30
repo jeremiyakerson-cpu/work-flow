@@ -180,12 +180,11 @@ def test_missing_api_key_is_not_a_500(client, monkeypatch):
 
 
 def test_unknown_league_is_not_a_500(client):
+    # an unknown league is the caller's mistake: a clear 400, never a 500
     tc, _ = client
     r = tc.get("/api/board/curling")
-    assert r.status_code == 200
-    body = r.json()
-    assert {e["source"] for e in body["errors"]} == {"odds", "schedule"}
-    assert body["games"] == []
+    assert r.status_code == 400
+    assert "curling" in r.json()["detail"]
 
 
 def test_stale_cache_served_when_feed_fails(client, monkeypatch):
@@ -265,11 +264,12 @@ def test_injuries_never_error(client):
     mock.get(ESPN_INJ_URL).side_effect = httpx.ReadTimeout("slow")
     r = tc.get("/api/injuries/mlb")
     assert r.status_code == 200 and r.json()["injuries"] == []
-    assert tc.get("/api/injuries/curling").status_code == 200
+    assert tc.get("/api/injuries/curling").status_code == 400   # bad input, not a crash
 
 
-def test_props_rate_limit_is_429(client):
+def test_props_rate_limit_is_429(client, monkeypatch):
     tc, mock = client
+    monkeypatch.setattr(main, "ENABLE_PROPS", True)   # live props are opt-in
     mock.get(url__regex=r".*/events/abc/odds").respond(429)
     assert tc.get("/api/props/mlb/abc").status_code == 429
 
