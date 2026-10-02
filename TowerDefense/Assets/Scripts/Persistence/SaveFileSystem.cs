@@ -52,16 +52,12 @@ namespace TowerDefense.Persistence
             {
                 File.Replace(source, destination, backup, true);
             }
-            catch (PlatformNotSupportedException)
+            catch (Exception) when (File.Exists(source))
             {
-                ReplaceFallback(source, destination, backup);
-            }
-            catch (IOException)
-            {
-                // Some file systems refuse File.Replace (e.g. across volumes).
-                // The fallback is not atomic, but the store's load order
-                // (main -> tmp -> bak) recovers from a crash at any step.
-                if (!File.Exists(source)) throw;
+                // Some runtimes/file systems refuse File.Replace (not supported,
+                // cross-volume, metadata errors). The fallback is not atomic, but
+                // the store's load order (main -> tmp -> bak) recovers from a
+                // crash at any step, so saving never gets stuck on this call.
                 ReplaceFallback(source, destination, backup);
             }
         }
