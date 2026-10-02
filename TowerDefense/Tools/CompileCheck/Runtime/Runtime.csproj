@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Type-checks every runtime script under Assets/ against the UnityEngine stubs.
+       Unity itself never sees this file (it lives outside Assets/). -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants>$(DefineConstants);UNITY_6000_0_OR_NEWER;UNITY_IOS</DefineConstants>
+    <!-- CS0649/CS0169/CS0414: serialized fields Unity assigns; CS0618: obsolete Unity APIs are reported, not fatal -->
+    <NoWarn>$(NoWarn);CS0649;CS0169;CS0414;CS0618</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../Assets/**/*.cs" Exclude="../../../Assets/**/Editor/**;../../../Assets/Tests/**" />
+    <ProjectReference Include="../../UnityStubs/UnityStubs.csproj" />
+  </ItemGroup>
+</Project>

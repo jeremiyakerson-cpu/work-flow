@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -10,9 +11,15 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     [Header("Identity")]
+    [Tooltip("Stable key for saves and content lookups, e.g. \"grunt\". Never rename once shipped.")]
+    public string id = "grunt";
     public string enemyName = "Grunt";
+    [TextArea] public string description;
     public GameObject prefab;          // visual/model prefab, must have Enemy.cs on it
     public Sprite icon;
+    [Tooltip("Visual hints for procedurally generated art when no prefab art exists.")]
+    public Color tint = Color.white;
+    public float visualScale = 1f;
 
     [Header("Base Stats (before wave scaling)")]
     public float baseHealth = 10f;
@@ -34,4 +41,8 @@ public class EnemyData : ScriptableObject
     public bool isBoss = false;
     public float bossHealthMultiplier = 8f;
     public int bossGoldMultiplier = 20;
+
+    [Header("Abilities (bosses and elites)")]
+    [Tooltip("Each entry attaches runtime behaviour to the spawned enemy (charge, summon, enrage...).")]
+    public List<EnemyAbilityData> abilities = new List<EnemyAbilityData>();
 }

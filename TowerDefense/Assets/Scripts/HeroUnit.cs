@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -9,38 +10,67 @@ using UnityEngine;
 public class HeroUnit : MonoBehaviour, IBlockable
 {
     [Header("Stats")]
+    public string heroName = "Hero";
     public float maxHealth = 200f;
     public float attackDamage = 15f;
     public float attackInterval = 0.8f;
     public float attackRange = 1.5f;
     public DamageType damageType = DamageType.Physical;
+    [Tooltip("World units per second when walking to a new spot.")]
+    public float moveSpeed = 4f;
+    [Tooltip("Health regenerated per second while not fighting.")]
+    public float regenPerSecond = 5f;
 
     [Header("Respawn")]
     public float respawnTime = 15f;
     private Vector3 lastPlacedPosition;
 
     [Header("Active Ability")]
+    public string abilityName = "Shockwave";
     public float abilityCooldown = 12f;
     public float abilityDamage = 40f;
     public float abilityRadius = 3f;
     private float abilityTimer = 0f;
 
+    public event Action<HeroUnit> Died;
+    public event Action<HeroUnit> Respawned;
+    public event Action<HeroUnit> AbilityUsed;
+
     private float currentHealth;
     private float attackTimer;
+    private float respawnTimer;
     private Enemy engagedEnemy;
     private bool isDead = false;
+    private bool isMoving;
+    private Vector3 moveTarget;
 
     private void Awake()
     {
         currentHealth = maxHealth;
         lastPlacedPosition = transform.position;
+        moveTarget = transform.position;
     }
 
     private void Update()
     {
-        if (isDead) return;
+        if (isDead)
+        {
+            respawnTimer -= Time.deltaTime;
+            if (respawnTimer <= 0f) Respawn();
+            return;
+        }
 
         abilityTimer -= Time.deltaTime;
+
+        if (isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, moveTarget, moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, moveTarget) < 0.02f) isMoving = false;
+            return; // walking heroes don't engage - lets the player pull them out of a fight
+        }
+
+        if (engagedEnemy != null && (engagedEnemy.IsDead || !engagedEnemy.gameObject.activeInHierarchy))
+            engagedEnemy = null;
 
         if (engagedEnemy != null)
         {
@@ -53,6 +83,7 @@ public class HeroUnit : MonoBehaviour, IBlockable
         }
         else
         {
+            currentHealth = Mathf.Min(maxHealth, currentHealth + regenPerSecond * Time.deltaTime);
             TryEngageNearbyEnemy();
         }
     }
@@ -67,6 +98,7 @@ public class HeroUnit : MonoBehaviour, IBlockable
             if (e.TryGetBlocked(transform))
             {
                 engagedEnemy = e;
+                attackTimer = 0f;
                 return;
             }
         }
@@ -74,14 +106,19 @@ public class HeroUnit : MonoBehaviour, IBlockable
 
     /// <summary>
     /// Player-triggered special (wire to a UI button that checks IsAbilityReady()).
-    /// Default implementation: AoE burst around the hero. Override per-hero for
-    /// unique kits (heal, buff allies, dash-strike, etc).
+    /// Default implementation: AoE burst around the hero. Override PerformAbility
+    /// per-hero for unique kits (heal, buff allies, dash-strike, etc).
     /// </summary>
     public void UseAbility()
     {
-        if (abilityTimer > 0f) return;
+        if (!IsAbilityReady()) return;
         abilityTimer = abilityCooldown;
+        PerformAbility();
+        AbilityUsed?.Invoke(this);
+    }
 
+    protected virtual void PerformAbility()
+    {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, abilityRadius, LayerMask.GetMask("Enemy"));
         foreach (var hit in hits)
         {
@@ -91,17 +128,37 @@ public class HeroUnit : MonoBehaviour, IBlockable
     }
 
     public bool IsAbilityReady() => abilityTimer <= 0f && !isDead;
+    /// <summary>0 = just used, 1 = ready. For cooldown fill bars.</summary>
+    public float AbilityReadyPercent => abilityCooldown > 0f ? Mathf.Clamp01(1f - abilityTimer / abilityCooldown) : 1f;
+    /// <summary>0 = just died, 1 = back. Only meaningful while IsDead.</summary>
+    public float RespawnPercent => isDead && respawnTime > 0f ? Mathf.Clamp01(1f - respawnTimer / respawnTime) : 1f;
 
     // ---------------- Placement / Repositioning ----------------
 
-    /// <summary>Call when the player drags the hero to a new spot on the path.</summary>
+    /// <summary>Call when the player sends the hero to a new spot on the path. The hero walks there.</summary>
     public void MoveTo(Vector3 position)
     {
         if (isDead) return;
-        engagedEnemy?.ReleaseFromBlock();
-        engagedEnemy = null;
+        ReleaseEngaged();
         lastPlacedPosition = position;
+        moveTarget = position;
+        isMoving = true;
+    }
+
+    /// <summary>Instantly place the hero (level start).</summary>
+    public void PlaceAt(Vector3 position)
+    {
+        ReleaseEngaged();
+        lastPlacedPosition = position;
+        moveTarget = position;
+        isMoving = false;
         transform.position = position;
+    }
+
+    private void ReleaseEngaged()
+    {
+        if (engagedEnemy != null) engagedEnemy.ReleaseFromBlock();
+        engagedEnemy = null;
     }
 
     // ---------------- Damage / Death ----------------
@@ -116,10 +173,12 @@ public class HeroUnit : MonoBehaviour, IBlockable
     private void Die()
     {
         isDead = true;
-        engagedEnemy?.ReleaseFromBlock();
-        engagedEnemy = null;
-        gameObject.SetActive(false); // hide instead of destroy - we respawn this instance
-        Invoke(nameof(Respawn), respawnTime);
+        isMoving = false;
+        ReleaseEngaged();
+        respawnTimer = respawnTime;
+        // Hide instead of SetActive(false): this component keeps ticking the respawn timer.
+        SetPresence(false);
+        Died?.Invoke(this);
     }
 
     private void Respawn()
@@ -127,9 +186,18 @@ public class HeroUnit : MonoBehaviour, IBlockable
         currentHealth = maxHealth;
         isDead = false;
         transform.position = lastPlacedPosition;
-        gameObject.SetActive(true);
+        moveTarget = lastPlacedPosition;
+        SetPresence(true);
+        Respawned?.Invoke(this);
+    }
+
+    private void SetPresence(bool present)
+    {
+        foreach (var r in GetComponentsInChildren<Renderer>(true)) r.enabled = present;
+        foreach (var c in GetComponentsInChildren<Collider2D>(true)) c.enabled = present;
     }
 
     public float HealthPercent() => currentHealth / maxHealth;
     public bool IsDead => isDead;
+    public bool IsMoving => isMoving;
 }

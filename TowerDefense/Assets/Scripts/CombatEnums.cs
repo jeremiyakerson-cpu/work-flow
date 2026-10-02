@@ -23,3 +23,16 @@ public enum EnemyMoveType
     Ground,     // can be blocked by heroes/barricades
     Flying      // ignores blockers, usually immune to melee-only towers
 }
+
+/// <summary>
+/// Which enemy in range a tower shoots at. "First" (furthest along its path)
+/// is the KR default - it protects the exit.
+/// </summary>
+public enum TargetPriority
+{
+    First,      // furthest along the path
+    Last,       // least far along the path
+    Strongest,  // most current health
+    Weakest,    // least current health
+    Closest     // nearest to the tower
+}
