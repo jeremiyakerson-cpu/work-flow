@@ -16,6 +16,8 @@ public class LevelData : ScriptableObject
     public string id = "level";
     public string displayName = "New Level";
     [TextArea] public string description;
+    [Tooltip("Endless variants: id of the campaign level this map comes from. Empty for campaign levels.")]
+    public string baseLevelId;
 
     [Header("Layout (world units)")]
     public Vector2 worldSize = new Vector2(32f, 18f);
@@ -41,6 +43,9 @@ public class LevelData : ScriptableObject
     public Color groundColor = new Color(0.36f, 0.55f, 0.29f);
     public Color pathColor = new Color(0.76f, 0.64f, 0.42f);
     public Color accentColor = new Color(0.25f, 0.42f, 0.2f);
+
+    /// <summary>Endless maps have no win condition.</summary>
+    public bool IsEndless => wavesToWin == 0;
 }
 
 /// <summary>A single enemy route through the level, spawn first, exit last.</summary>
