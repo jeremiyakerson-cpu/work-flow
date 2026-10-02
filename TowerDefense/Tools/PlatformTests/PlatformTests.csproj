@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Engine-free tests for workstream 4: save store/migration/validation, audio synthesis,
+       throttling. Compiles only the engine-free files of Platform/Persistence/Audio
+       (everything outside their Unity/ subfolders) - nothing here references UnityEngine,
+       so a stray engine dependency in those files fails this build. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <IsPackable>false</IsPackable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NoWarn>$(NoWarn);CS0649;CS0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Scripts/Persistence/**/*.cs" Exclude="../../Assets/Scripts/Persistence/**/Unity/**" />
+    <Compile Include="../../Assets/Scripts/Audio/**/*.cs" Exclude="../../Assets/Scripts/Audio/**/Unity/**" />
+    <Compile Include="../../Assets/Scripts/Platform/**/*.cs" Exclude="../../Assets/Scripts/Platform/**/Unity/**" />
+    <Compile Include="*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+  </ItemGroup>
+</Project>

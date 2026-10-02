@@ -1,0 +1,9 @@
+<!--
+  Managed code stripping is set to Medium for iOS (IOSProjectSetup).
+  The game builds almost everything from code (runtime templates,
+  ScriptableObject.CreateInstance, AddComponent), so keep all game code
+  intact and let the linker strip only unused .NET / engine code.
+-->
+<linker>
+	<assembly fullname="Assembly-CSharp" preserve="all"/>
+</linker>
