@@ -84,6 +84,27 @@ namespace TowerDefense.Visuals.Pure
             return first;
         }
 
+        /// <summary>
+        /// Copy of the path whose first/last points are pushed <paramref name="extension"/>
+        /// further along their end direction when they lie outside the world rect or
+        /// within <paramref name="edgeTolerance"/> of its edge, so roads that enter or
+        /// leave the map run off-screen instead of ending in a visible cap. Ends in
+        /// the middle of the map are left alone. Drawing only: enemies use the data path.
+        /// </summary>
+        public static Vec2f[] ExtendEdgeEnds(IReadOnlyList<Vec2f> points, float worldW, float worldH, float edgeTolerance, float extension)
+        {
+            if (points == null) return new Vec2f[0];
+            var result = new Vec2f[points.Count];
+            for (int i = 0; i < points.Count; i++) result[i] = points[i];
+            if (points.Count < 2) return result;
+            int n = points.Count;
+            if (!Inside(points[0], worldW, worldH, edgeTolerance))
+                result[0] = points[0] + (points[0] - points[1]).Normalized * extension;
+            if (!Inside(points[n - 1], worldW, worldH, edgeTolerance))
+                result[n - 1] = points[n - 1] + (points[n - 1] - points[n - 2]).Normalized * extension;
+            return result;
+        }
+
         public static bool Inside(Vec2f p, float worldW, float worldH, float inset) =>
             p.X >= inset && p.X <= worldW - inset && p.Y >= inset && p.Y <= worldH - inset;
 

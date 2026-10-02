@@ -1,3 +1,4 @@
+using TowerDefense.Pooling;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,8 +10,10 @@ namespace TowerDefense.Visuals
     /// slowed and green while poisoned, a health bar once damaged, wing flaps,
     /// boss aura pulse, and y-sorting in the Units band. Death puffs and gold
     /// popups are spawned by <see cref="GameplayFx"/> from Enemy.AnyDied.
+    /// Enemies are pooled: every per-spawn value is reset in OnEnable and again
+    /// in <see cref="IPoolable.OnSpawnedFromPool"/> (after the pool has placed it).
     /// </summary>
-    public sealed class EnemyVisual : MonoBehaviour
+    public sealed class EnemyVisual : MonoBehaviour, IPoolable
     {
         [SerializeField] private Enemy enemy;
         [SerializeField] private SortingGroup group;
@@ -26,6 +29,7 @@ namespace TowerDefense.Visuals
         [SerializeField] private float bobAmplitude = 0.06f;
         [SerializeField] private float bobFrequency = 9f;
         [SerializeField] private bool alwaysShowHealth;
+        [SerializeField] private float pivotScale = 1f;
 
         private const float FlashDuration = 0.12f;
 
@@ -36,7 +40,6 @@ namespace TowerDefense.Visuals
         private bool damaged;
         private int sortOrder = int.MinValue;
         private Color shownTint = new Color(-1f, 0f, 0f, 0f);
-        private Vector3 pivotScale = Vector3.one;
 
         internal void Setup(Enemy owner, SortingGroup sortingGroup, Transform pivot, SpriteRenderer bodyRenderer, SpriteRenderer flashRenderer,
                             SpriteRenderer shadowRenderer, Transform backWing, Transform frontWing, SpriteRenderer auraRenderer,
@@ -54,25 +57,59 @@ namespace TowerDefense.Visuals
             healthBar = bar;
             hoverHeight = hover;
             alwaysShowHealth = showHealthAlways;
+            pivotScale = pivot != null ? Mathf.Abs(pivot.localScale.y) : 1f;
         }
 
         private void OnEnable()
         {
-            if (enemy != null) enemy.Damaged += OnDamaged;
-            lastPosition = transform.position;
-            phase = UnityEngine.Random.Range(0f, Mathf.PI * 2f);
-            flashTimer = 0f;
-            damaged = false;
-            sortOrder = int.MinValue;
-            shownTint = new Color(-1f, 0f, 0f, 0f);
-            if (bodyPivot != null) pivotScale = new Vector3(Mathf.Abs(bodyPivot.localScale.x), bodyPivot.localScale.y, 1f);
-            if (flash != null) flash.enabled = false;
-            if (healthBar != null) { healthBar.Invalidate(); healthBar.SetVisible(alwaysShowHealth); }
+            if (enemy != null)
+            {
+                enemy.Damaged -= OnDamaged; // the pool may re-enable without a matching disable
+                enemy.Damaged += OnDamaged;
+            }
+            ResetPresentation();
         }
 
         private void OnDisable()
         {
             if (enemy != null) enemy.Damaged -= OnDamaged;
+        }
+
+        void IPoolable.OnSpawnedFromPool()
+        {
+            // Enemy.Despawn clears its per-enemy events before parking; subscribe again.
+            if (enemy != null)
+            {
+                enemy.Damaged -= OnDamaged;
+                enemy.Damaged += OnDamaged;
+            }
+            ResetPresentation();
+        }
+
+        void IPoolable.OnReturnedToPool()
+        {
+            if (enemy != null) enemy.Damaged -= OnDamaged;
+            flashTimer = 0f;
+            if (flash != null) flash.enabled = false;
+        }
+
+        private void ResetPresentation()
+        {
+            lastPosition = transform.position;
+            phase = UnityEngine.Random.Range(0f, Mathf.PI * 2f);
+            flashTimer = 0f;
+            damaged = false;
+            facing = 1f;
+            sortOrder = int.MinValue;
+            shownTint = new Color(-1f, 0f, 0f, 0f);
+            if (bodyPivot != null)
+            {
+                bodyPivot.localPosition = Vector3.zero;
+                bodyPivot.localScale = new Vector3(pivotScale, pivotScale, 1f);
+            }
+            if (flash != null) flash.enabled = false;
+            if (body != null) body.color = Color.white;
+            if (healthBar != null) { healthBar.Invalidate(); healthBar.SetVisible(alwaysShowHealth); }
         }
 
         private void OnDamaged(Enemy e, float amount)
@@ -92,8 +129,9 @@ namespace TowerDefense.Visuals
             lastPosition = p;
             bool moving = delta.sqrMagnitude > 1e-7f && !enemy.IsBlocked;
 
-            // Face the direction of travel (sprites are drawn facing +x).
-            if (Mathf.Abs(delta.x) > 0.0005f) facing = delta.x >= 0f ? 1f : -1f;
+            // Face the direction of travel (sprites are drawn facing +x); vertical moves keep the last facing.
+            Vector2 dir = enemy.MoveDirection;
+            if (Mathf.Abs(dir.x) > 0.2f) facing = dir.x >= 0f ? 1f : -1f;
 
             phase += dt * bobFrequency * (moving ? 1f : 0.35f);
             if (bodyPivot != null)
@@ -103,7 +141,7 @@ namespace TowerDefense.Visuals
                     : Mathf.Abs(Mathf.Sin(phase)) * bobAmplitude;
                 float squash = hoverHeight > 0f ? 1f : 1f + (Mathf.Abs(Mathf.Sin(phase)) - 0.5f) * 0.06f;
                 bodyPivot.localPosition = new Vector3(0f, y, 0f);
-                bodyPivot.localScale = new Vector3(pivotScale.x * facing / squash, pivotScale.y * squash, 1f);
+                bodyPivot.localScale = new Vector3(pivotScale * facing / squash, pivotScale * squash, 1f);
             }
 
             if (wingBack != null || wingFront != null)

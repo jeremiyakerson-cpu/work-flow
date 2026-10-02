@@ -112,17 +112,20 @@ namespace TowerDefense.Bootstrap
 
         private void TeardownInternal()
         {
-            if (Waves != null) Waves.StopWaves();
-            GameplayFx.Unbind();
+            GameplayFx.Unbind(); // first, so nothing below spawns effects
+            if (Waves != null)
+            {
+                Waves.StopWaves();
+                Waves.ClearEnemies();
+            }
 
-            // Enemies and projectiles are spawned at the scene root by gameplay code.
-            foreach (var e in FindObjectsByType<Enemy>(FindObjectsSortMode.None)) Destroy(e.gameObject);
+            // Projectiles/barricades live at the scene root (pooled); destroy the active ones.
             foreach (var p in FindObjectsByType<Projectile>(FindObjectsSortMode.None)) Destroy(p.gameObject);
             foreach (var b in FindObjectsByType<Barricade>(FindObjectsSortMode.None)) Destroy(b.gameObject);
 
             Destroy(gameObject); // map, slots + towers, hero, managers, FX pool
             if (createdCamera != null) Destroy(createdCamera.gameObject);
-            RuntimeTemplates.Dispose();
+            RuntimeTemplates.Dispose(); // also clears parked pool instances of the templates
             Content?.Destroy();
             Time.timeScale = 1f;
         }

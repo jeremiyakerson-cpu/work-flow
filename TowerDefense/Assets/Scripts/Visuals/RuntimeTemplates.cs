@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TowerDefense.Pooling;
 using TowerDefense.Visuals.Pure;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -49,10 +50,14 @@ namespace TowerDefense.Visuals
 
         /// <summary>
         /// Destroy every template and clear the prefab fields this registry set
-        /// (fields pointing at real prefabs are left alone).
+        /// (fields pointing at real prefabs are left alone). Also calls
+        /// GameObjectPool.Clear(): parked clones of the destroyed templates would
+        /// otherwise linger until the scene unloads. Despawn live enemies and
+        /// projectiles first (e.g. WaveManager.ClearEnemies).
         /// </summary>
         public static void Dispose()
         {
+            GameObjectPool.Clear();
             foreach (var d in AssignedTowers)
             {
                 if (d == null) continue;
@@ -239,17 +244,22 @@ namespace TowerDefense.Visuals
                 case ProjectileArtKind.Arrow: projectile.speed = 16f; face = true; scale = 0.8f; break;
                 case ProjectileArtKind.Shard: projectile.speed = 15f; face = true; scale = 0.8f; impactColor = Palette.Ice; break;
                 case ProjectileArtKind.Orb: projectile.speed = 12f; pulse = 0.12f; scale = 0.8f; impactColor = Palette.Magic; break;
-                case ProjectileArtKind.Shell: projectile.speed = 10f; spin = 360f; scale = 0.7f; break;
+                case ProjectileArtKind.Shell:
+                    // Lobbed by default (TowerData.projectileArcHeight overrides); flight time is arc-independent.
+                    projectile.speed = 10f; projectile.arcHeight = 1.1f; spin = 360f; scale = 0.7f;
+                    break;
                 case ProjectileArtKind.Flask:
-                    projectile.speed = 11f; spin = 540f; scale = 0.7f; impactColor = Palette.Toxic;
+                    projectile.speed = 11f; projectile.arcHeight = 0.7f; spin = 540f; scale = 0.7f; impactColor = Palette.Toxic;
                     impact = Mathf.Max(impact, 0.7f); // always splash visually
                     break;
             }
+            projectile.rotateToVelocity = face;
             VisualBuilder.Sprite(spriteRoot, "Body", SpriteFactory.Projectile(kind), SortingOrders.Projectiles, Vector3.zero, scale);
 
+            TrailRenderer trail = null;
             if (kind == ProjectileArtKind.Orb || kind == ProjectileArtKind.Shard)
             {
-                var trail = go.AddComponent<TrailRenderer>();
+                trail = go.AddComponent<TrailRenderer>();
                 trail.sharedMaterial = SpriteFactory.SpriteMaterial;
                 trail.sortingOrder = SortingOrders.Projectiles - 1;
                 trail.time = 0.15f;
@@ -262,7 +272,7 @@ namespace TowerDefense.Visuals
                 trail.endColor = new Color(c.r, c.g, c.b, 0f);
             }
 
-            go.AddComponent<ProjectileVisual>().Setup(spriteRoot, kind, face, spin, pulse, impact, impactColor);
+            go.AddComponent<ProjectileVisual>().Setup(spriteRoot, trail, kind, spin, pulse, impact, impactColor);
             if (data != null) Projectiles[data] = go;
             return go;
         }
@@ -367,13 +377,8 @@ namespace TowerDefense.Visuals
         private static GameObject BuildBarricadeTemplate()
         {
             GameObject go = NewTemplate("Barricade");
+            // Barricade polls for enemies itself (EnemyQuery), so it needs no collider or rigidbody.
             Barricade b = go.AddComponent<Barricade>();
-            var col = go.AddComponent<CircleCollider2D>();
-            col.isTrigger = true;
-            col.radius = 0.7f;
-            var rb = go.AddComponent<Rigidbody2D>();
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.gravityScale = 0f;
             SortingGroup group = VisualBuilder.Group(go, SortingOrders.Units);
 
             Transform body = VisualBuilder.Child(go.transform, "Body", Vector3.zero);

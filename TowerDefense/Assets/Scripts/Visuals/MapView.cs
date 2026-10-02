@@ -66,6 +66,7 @@ namespace TowerDefense.Visuals
             uint seed = StableHash.Fnv1a(level.id);
 
             var paths = new List<IReadOnlyList<Vec2f>>();
+            var drawnPaths = new List<IReadOnlyList<Vec2f>>();
             if (level.paths != null)
                 foreach (var def in level.paths)
                 {
@@ -73,13 +74,15 @@ namespace TowerDefense.Visuals
                     var pts = new Vec2f[def.points.Count];
                     for (int i = 0; i < pts.Length; i++) pts[i] = new Vec2f(def.points[i].x, def.points[i].y);
                     paths.Add(pts);
+                    // Roads entering/leaving at the map edge continue off-screen (visual only).
+                    drawnPaths.Add(PathGeometry.ExtendEdgeEnds(pts, WorldSize.x, WorldSize.y, 1.5f, GroundMargin));
                 }
 
             BuildGround(level, seed);
-            for (int i = 0; i < paths.Count; i++) BuildPathLayers(paths[i], level.pathColor, i);
-            BuildPebbles(paths, level.pathColor, seed);
+            for (int i = 0; i < drawnPaths.Count; i++) BuildPathLayers(drawnPaths[i], level.pathColor, i);
+            BuildPebbles(drawnPaths, level.pathColor, seed);
             var markers = BuildMarkers(paths, level);
-            BuildDecor(level, paths, markers, seed);
+            BuildDecor(level, drawnPaths, markers, seed);
             BuildVignette();
         }
 

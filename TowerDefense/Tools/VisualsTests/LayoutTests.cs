@@ -96,6 +96,21 @@ namespace TowerDefense.Visuals.Tests
         }
 
         [Test]
+        public void ExtendEdgeEnds_PushesOnlyEdgeEndpointsOutward()
+        {
+            var path = new[] { new Vec2f(-1, 5), new Vec2f(10, 5), new Vec2f(10, 9) };
+            Vec2f[] e = PathGeometry.ExtendEdgeEnds(path, 32f, 18f, 1.5f, 10f);
+            Assert.That(e[0].X, Is.EqualTo(-11f).Within(1e-4));
+            Assert.That(e[0].Y, Is.EqualTo(5f).Within(1e-4));
+            Assert.That(e[1].X, Is.EqualTo(10f));
+            Assert.That(e[2].Y, Is.EqualTo(9f), "mid-map end stays put");
+            Assert.That(path[0].X, Is.EqualTo(-1f), "input untouched");
+
+            var exit = new[] { new Vec2f(5, 5), new Vec2f(31.2f, 5) };
+            Assert.That(PathGeometry.ExtendEdgeEnds(exit, 32f, 18f, 1.5f, 10f)[1].X, Is.EqualTo(41.2f).Within(1e-4));
+        }
+
+        [Test]
         public void RectSignedDistance()
         {
             Assert.That(PathGeometry.RectSignedDistance(new Vec2f(16, 9), 32, 18), Is.EqualTo(-9f).Within(1e-4));
@@ -313,6 +328,7 @@ namespace TowerDefense.Visuals.Tests
         [TestCase("Artillery", false, false, true, false, false, TowerArtKind.Artillery)]
         [TestCase("frost", false, false, false, true, false, TowerArtKind.Frost)]
         [TestCase("venom_spire", false, false, false, false, true, TowerArtKind.Poison)]
+        [TestCase("alchemist", false, false, false, false, false, TowerArtKind.Poison)]
         [TestCase("tower7", true, false, false, false, false, TowerArtKind.Mage)]
         [TestCase("tower8", false, false, true, false, false, TowerArtKind.Artillery)]
         [TestCase("tower9", false, false, false, true, false, TowerArtKind.Frost)]

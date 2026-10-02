@@ -19,7 +19,7 @@ namespace TowerDefense.Visuals.Pure
         {
             string k = id == null ? string.Empty : id.ToLowerInvariant();
             if (Has(k, "frost", "ice", "freeze", "cold", "snow")) return TowerArtKind.Frost;
-            if (Has(k, "poison", "venom", "toxic", "plague", "acid")) return TowerArtKind.Poison;
+            if (Has(k, "poison", "venom", "toxic", "plague", "acid", "alchem")) return TowerArtKind.Poison;
             if (Has(k, "artillery", "cannon", "bomb", "mortar", "catapult", "dwarf")) return TowerArtKind.Artillery;
             if (Has(k, "mage", "magic", "wizard", "arcane", "sorcer")) return TowerArtKind.Mage;
             if (Has(k, "archer", "arrow", "bow", "ranger", "crossbow", "marksman")) return TowerArtKind.Archer;

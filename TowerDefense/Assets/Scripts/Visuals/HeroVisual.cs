@@ -23,7 +23,6 @@ namespace TowerDefense.Visuals
 
         private const float FlashDuration = 0.25f;
 
-        private Vector3 lastPosition;
         private float facing = 1f;
         private float phase;
         private float flashTimer;
@@ -50,7 +49,6 @@ namespace TowerDefense.Visuals
                 hero.Respawned += OnRespawned;
                 hero.AbilityUsed += OnAbilityUsed;
             }
-            lastPosition = transform.position;
             flashTimer = 0f;
             sortOrder = int.MinValue;
             if (ghost != null) ghost.enabled = false;
@@ -97,8 +95,6 @@ namespace TowerDefense.Visuals
             if (hero == null) return;
             float dt = Time.deltaTime;
             Vector3 p = transform.position;
-            Vector3 delta = p - lastPosition;
-            lastPosition = p;
 
             if (hero.IsDead)
             {
@@ -112,7 +108,9 @@ namespace TowerDefense.Visuals
                 return;
             }
 
-            if (Mathf.Abs(delta.x) > 0.0005f) facing = delta.x >= 0f ? 1f : -1f;
+            // HeroUnit tracks facing (walking direction, or toward the enemy it fights).
+            Vector2 dir = hero.FacingDirection;
+            if (Mathf.Abs(dir.x) > 0.2f) facing = dir.x >= 0f ? 1f : -1f;
             bool moving = hero.IsMoving;
             phase += dt * (moving ? 12f : 2.5f);
             if (bodyPivot != null)
