@@ -46,11 +46,10 @@ jobs:
           key: nuget-${{ runner.os }}-${{ hashFiles('TowerDefense/Tools/**/*.csproj') }}
           restore-keys: nuget-${{ runner.os }}-
 
-      - name: Compile check + core tests
+      # Runtime + Editor stub compile, then every engine-free NUnit suite
+      # (core, content, platform: save/audio/haptics, visuals).
+      - name: Compile check + engine-free tests
         run: Tools/check.sh
-
-      - name: Platform tests (save system, audio synthesis, throttling, haptics gate)
-        run: dotnet test Tools/PlatformTests/PlatformTests.csproj -nologo
 
       - name: Offline audit (no networking, tracking or online packages)
         run: Tools/offline-audit.sh

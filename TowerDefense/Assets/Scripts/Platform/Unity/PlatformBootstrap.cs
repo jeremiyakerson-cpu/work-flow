@@ -1,5 +1,6 @@
 using TowerDefense.Audio;
 using TowerDefense.Persistence;
+using TowerDefense.UI;
 using UnityEngine;
 
 namespace TowerDefense.Platform
@@ -9,7 +10,8 @@ namespace TowerDefense.Platform
     /// no matter how the game scene is assembled:
     ///   1. loads the save (SaveRuntime),
     ///   2. creates "[Platform]" (DontDestroyOnLoad) with AppLifecycle + SaveAutosaveDriver,
-    ///   3. binds Haptics and the AudioManager ("[Audio]") to the saved settings.
+    ///   3. binds Haptics and the AudioManager ("[Audio]") to the saved settings,
+    ///   4. installs UiFeedbackAdapter as UIRoot.Feedback (click sound + tick) if none is set.
     /// AudioManager and the gameplay haptics then bind themselves to
     /// GameManager.Instance whenever one appears.
     ///
@@ -43,6 +45,9 @@ namespace TowerDefense.Platform
 
             AudioManager audio = AudioManager.EnsureExists();
             audio.BindSettings(save.Settings);
+
+            // Button click sound + selection haptic, unless integration installed its own.
+            if (UIRoot.Feedback == null) UIRoot.Feedback = new UiFeedbackAdapter();
             return Root;
         }
 

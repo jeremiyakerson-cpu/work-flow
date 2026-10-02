@@ -34,10 +34,15 @@ The repo contains only the files that matter: `Assets/` scripts and plugins,
 4. Menu **Tower Defense > iOS > Create Bootstrap Scene**: creates the empty
    `Assets/Scenes/Main.unity` and puts it first in Build Settings. The game
    builds itself from code at runtime (`[RuntimeInitializeOnLoadMethod]`).
-5. **File > Build Profiles** (or Build Settings) > iOS > **Switch Platform**.
-6. Press Play once: the console should show no errors; the platform services
+5. **Active Input Handling** (Edit > Project Settings > Player > Other
+   Settings) must be **Input Manager (Old)** or **Both**: the game reads
+   touches through the legacy `UnityEngine.Input` + `StandaloneInputModule`.
+   Step 3 switches a "New"-only project to Old (restart the Editor when it
+   says so). Do not add `com.unity.inputsystem` to `Packages/manifest.json`.
+6. **File > Build Profiles** (or Build Settings) > iOS > **Switch Platform**.
+7. Press Play once: the console should show no errors; the platform services
    create `[Platform]` and `[Audio]` objects under DontDestroyOnLoad.
-7. **Commit** the generated files so every machine (and CI) gets identical
+8. **Commit** the generated files so every machine (and CI) gets identical
    GUIDs and settings:
    - all `*.meta` files under `Assets/` (never let two people generate them separately),
    - `ProjectSettings/*.asset`, `ProjectSettings/ProjectVersion.txt`,
@@ -84,6 +89,7 @@ What the build applies (`Assets/Editor/Build/IOSProjectSetup.cs`):
 | Background | Does not run in background; suspends (`appInBackgroundBehavior = Suspend`) |
 | Audio session | `muteOtherAudioSources = false` (Ambient: mixes with the player's music, obeys the silent switch) |
 | Network | `requiresPersistentWiFi = false`, `allowHTTPDownload = false` |
+| Input | Active Input Handling forced from "New" to "Old" if needed (legacy Input Manager) |
 
 Runtime (`AppLifecycle`): 60 fps target, landscape lock, screen kept awake
 and edge gestures deferred **only while a wave is running**, save flushed and
@@ -193,8 +199,8 @@ Never change it after release: saves live in that app's container.
 Runs on pull requests and pushes to `main` that touch `TowerDefense/**`:
 
 - **checks** (always, no license): `Tools/check.sh` (stub compile of runtime
-  and editor scripts + core tests), `Tools/PlatformTests`, and the offline
-  audit with its self-test.
+  and editor scripts + every engine-free suite: core, content, platform,
+  visuals) and the offline audit with its self-test.
 - **ios-gate** + **ios-build** (pushes to `main` and manual runs): exports the
   Xcode project with `game-ci/unity-builder@v4` on Linux and uploads it as an
   artifact. Signing and upload remain a Mac step. A job-level `if` cannot read
@@ -218,8 +224,8 @@ the matching image is published.
 
 ```bash
 cd TowerDefense
-Tools/check.sh                                   # compile all scripts against stubs + core tests
-dotnet test Tools/PlatformTests/PlatformTests.csproj   # save, audio, throttling, haptics gate
+Tools/check.sh                                   # stub compile + all engine-free suites (incl. PlatformTests)
+dotnet test Tools/PlatformTests/PlatformTests.csproj   # just save, audio, throttling, haptics gate
 Tools/offline-audit.sh && Tools/offline-audit.sh --self-test
 ```
 
@@ -236,6 +242,9 @@ accidental `UnityEngine` dependency there breaks the build.
   adds an `AudioListener` if the scene has none.
 - **Game pauses when the Editor loses focus**: only on device; focus loss is
   ignored in the Editor, backgrounding (pause) is not.
+- **`InvalidOperationException: You are trying to read Input using the
+  UnityEngine.Input class, but you have switched active Input handling to
+  Input System package`**: set Active Input Handling to Old or Both (see 2.5).
 - **Signing errors**: bundle id still the placeholder, or no team selected.
 - **"Multiple commands produce PrivacyInfo.xcprivacy"**: a second manifest was
   added manually to the same target; keep only the one under `Assets/Plugins/iOS`.

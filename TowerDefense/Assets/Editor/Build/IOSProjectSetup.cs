@@ -50,6 +50,7 @@ namespace TowerDefense.BuildTools
         {
             ApplyIdentity(buildNumber);
             ApplyPlatform();
+            EnsureLegacyInputHandling();
             if (saveAssets) AssetDatabase.SaveAssets();
         }
 
@@ -138,6 +139,39 @@ namespace TowerDefense.BuildTools
             catch (Exception e)
             {
                 Debug.LogWarning("[Build] Could not set deferSystemGesturesMode: " + e.Message);
+            }
+        }
+
+        /// <summary>ProjectSettings.asset "activeInputHandler": 0 = Input Manager (Old), 1 = Input System (New), 2 = Both.</summary>
+        public const int InputHandlerOld = 0;
+        public const int InputHandlerNew = 1;
+
+        /// <summary>
+        /// The game reads touches through the legacy Input Manager
+        /// (UnityEngine.Input + StandaloneInputModule). If the project is set to
+        /// "Input System Package (New)" only, switch it to Old: with the new-only
+        /// setting every UnityEngine.Input call throws. "Old" and "Both" are kept.
+        /// There is no public PlayerSettings API for this, so it goes through the
+        /// serialized PlayerSettings object. Unity applies it after an Editor restart.
+        /// </summary>
+        public static void EnsureLegacyInputHandling()
+        {
+            try
+            {
+                UnityEngine.Object[] assets = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/ProjectSettings.asset");
+                if (assets == null || assets.Length == 0 || assets[0] == null) return;
+                var so = new SerializedObject(assets[0]);
+                SerializedProperty prop = so.FindProperty("activeInputHandler");
+                if (prop == null || prop.intValue != InputHandlerNew) return;
+                prop.intValue = InputHandlerOld;
+                so.ApplyModifiedProperties();
+                Debug.LogWarning("[Build] Active Input Handling was 'Input System Package (New)'; set to 'Input Manager (Old)' " +
+                                 "because the game uses UnityEngine.Input. Restart the Editor for it to take effect.");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[Build] Could not check Active Input Handling: " + e.Message +
+                                 ". Set Player Settings > Other > Active Input Handling to 'Input Manager (Old)' or 'Both'.");
             }
         }
 

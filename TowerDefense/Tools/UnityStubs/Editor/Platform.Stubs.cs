@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 namespace UnityEditor
 {
+    public static partial class AssetDatabase
+    {
+        public static UnityEngine.Object[] LoadAllAssetsAtPath(string assetPath) => null;
+    }
+
     public enum iOSAppInBackgroundBehavior { Custom = -1, Suspend = 0, Exit = 1 }
 
     public static partial class PlayerSettings
