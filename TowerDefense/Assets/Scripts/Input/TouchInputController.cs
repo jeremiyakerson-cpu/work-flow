@@ -9,7 +9,8 @@ namespace TowerDefense.Input
     /// Unified touch + mouse controller for the battlefield. Owns camera pan/zoom
     /// (one-finger drag, pinch, inertia, clamped to level bounds) and turns taps
     /// into world actions: build slots (TowerPlacement.HandleTap), hero selection
-    /// and move orders, spell targeting, and "empty ground" taps that close menus.
+    /// and move orders (tap hero then road, or drag the hero onto the road), spell
+    /// targeting, and "empty ground" taps that close menus.
     /// Touches that start over uGUI are ignored for their whole lifetime.
     /// Desktop fallbacks: left click/drag, right-drag pan, mouse wheel zoom
     /// (Esc is routed through UIRoot's back stack, see CancelModes()).
@@ -90,6 +91,7 @@ namespace TowerDefense.Input
         private Vector2 primaryStart, primaryLast, secondaryLast;
         private float primaryStartTime, lastMoveTime;
         private bool dragging, multiTouch, tapAllowed, gestureAnnounced, pinchPrimed;
+        private bool heroDragCandidate, heroDragging;
         private readonly List<int> ignoredFingers = new List<int>(10);
         private Vector2 velocity;
         private int lastTouchFrame = -100;
@@ -289,9 +291,11 @@ namespace TowerDefense.Input
                 lastTouchFrame = Time.frameCount;
                 ProcessTouches(touchCount, cam);
             }
-            else if (Time.frameCount - lastTouchFrame > 2)
+            else
             {
-                ProcessMouse(cam);
+                // Touches vanished without an Ended phase (app interruption): drop the gesture.
+                if (primaryId >= 0) ResetGesture();
+                if (Time.frameCount - lastTouchFrame > 2) ProcessMouse(cam);
             }
 
             if (primaryId == NoFinger) ApplyInertia(cam);
@@ -321,8 +325,10 @@ namespace TowerDefense.Input
                 else if (t.fingerId == secondaryId) { p2 = t.position; hasS = true; }
             }
 
+            if (!hasS) secondaryId = NoFinger;
             if (hasP && hasS) Pinch(p1, p2, cam);
             else if (hasP) Drag(p1, cam);
+            else ResetGesture(); // primary touch lost without an Ended phase
         }
 
         private void ProcessMouse(Camera cam)
@@ -369,6 +375,9 @@ namespace TowerDefense.Input
                 gestureAnnounced = false;
                 tapAllowed = canTap;
                 velocity = Vector2.zero;
+                heroDragging = false;
+                // A press that starts on the hero can drag it to a new spot instead of panning.
+                heroDragCandidate = canTap && InputEnabled && !targeting && !IsGameBlocked() && IsNearHero(pos, Cam);
             }
             else if (secondaryId == NoFinger && id >= 0 && primaryId >= 0)
             {
@@ -377,6 +386,8 @@ namespace TowerDefense.Input
                 multiTouch = true;
                 pinchPrimed = false;
                 velocity = Vector2.zero;
+                heroDragCandidate = false;
+                if (heroDragging) { heroDragging = false; DeselectHero(); }
                 AnnounceGesture();
             }
         }
@@ -384,6 +395,17 @@ namespace TowerDefense.Input
         private void FingerUp(int id, Vector2 pos, bool canceled)
         {
             if (ignoredFingers.Remove(id)) return;
+
+            if (id == primaryId && heroDragging)
+            {
+                heroDragging = false;
+                heroDragCandidate = false;
+                primaryId = NoFinger;
+                velocity = Vector2.zero;
+                if (canceled || !InputEnabled || IsGameBlocked()) DeselectHero();
+                else OrderHeroTo(ScreenToWorld(pos));
+                return;
+            }
 
             if (id == primaryId)
             {
@@ -421,8 +443,14 @@ namespace TowerDefense.Input
                 float threshold = Mathf.Max(6f, dragThresholdPoints * PixelsPerPoint);
                 if ((pos - primaryStart).sqrMagnitude < threshold * threshold) return;
                 dragging = true;
+                if (heroDragCandidate && SelectHero())
+                {
+                    heroDragging = true;
+                    return;
+                }
                 AnnounceGesture();
             }
+            if (heroDragging) { primaryLast = pos; return; }
 
             Vector2 delta = pos - primaryLast;
             primaryLast = pos;
@@ -516,6 +544,9 @@ namespace TowerDefense.Input
 
         private void ResetGesture()
         {
+            if (heroDragging) DeselectHero();
+            heroDragging = false;
+            heroDragCandidate = false;
             primaryId = NoFinger;
             secondaryId = NoFinger;
             dragging = false;
@@ -581,17 +612,7 @@ namespace TowerDefense.Input
                 if (heroColliderHit || heroNear) { DeselectHero(); return; }
                 if (slot != null) { DeselectHero(); slot.HandleTap(); return; }
 
-                if (TryProjectOntoPath(p, pathTolerance, out Vector3 dest))
-                {
-                    hero.MoveTo(dest);
-                    DeselectHero();
-                    HeroMoveOrdered?.Invoke(dest);
-                }
-                else
-                {
-                    InvalidTap?.Invoke(world);
-                    DeselectHero();
-                }
+                OrderHeroTo(world);
                 return;
             }
 
@@ -599,6 +620,33 @@ namespace TowerDefense.Input
             if (slot != null) { slot.HandleTap(); return; }
             if (heroNear) { SelectHero(); return; }
             EmptyTapped?.Invoke(world);
+        }
+
+        /// <summary>Send the selected hero to the nearest path point, or flag an invalid spot.</summary>
+        private void OrderHeroTo(Vector3 world)
+        {
+            if (hero != null && !hero.IsDead &&
+                TryProjectOntoPath(new Vector2(world.x, world.y), pathTolerance, out Vector3 dest))
+            {
+                hero.MoveTo(dest);
+                DeselectHero();
+                HeroMoveOrdered?.Invoke(dest);
+            }
+            else
+            {
+                DeselectHero();
+                InvalidTap?.Invoke(world);
+            }
+        }
+
+        private bool IsNearHero(Vector2 screenPos, Camera cam)
+        {
+            if (hero == null || hero.IsDead || cam == null) return false;
+            Vector3 w = ScreenToWorld(screenPos);
+            Vector3 h = hero.transform.position;
+            float radius = Mathf.Max(0.5f, heroTapRadiusPoints * PixelsPerPoint * WorldPerPixel(cam));
+            float dx = w.x - h.x, dy = w.y - h.y;
+            return dx * dx + dy * dy <= radius * radius;
         }
 
         private static bool TryProjectOntoPath(Vector2 p, float tolerance, out Vector3 result)

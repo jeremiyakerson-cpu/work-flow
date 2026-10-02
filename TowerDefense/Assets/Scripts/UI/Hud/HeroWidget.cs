@@ -54,7 +54,7 @@ namespace TowerDefense.UI
             UIFactory.Place(ability.Rect, Vector2.zero, Vector2.zero, new Vector2(PortraitSize + UITheme.Spacing, 50f),
                             new Vector2(AbilitySize, AbilitySize));
             abilityShade = UIFactory.RadialShade(ability.Face.transform, UITheme.CooldownShade);
-            abilityLabel = UIFactory.Label(ability.transform, "", UITheme.FontSmall - 6, UITheme.TextDim);
+            abilityLabel = UIFactory.Label(ability.transform, "", UITheme.FontSmall - 4, UITheme.TextDim);
             UIFactory.Place(abilityLabel.rectTransform, new Vector2(0.5f, 0f), new Vector2(0.5f, 1f), new Vector2(0f, -2f),
                             new Vector2(AbilitySize + 60f, 34f));
             abilityLabel.horizontalOverflow = HorizontalWrapMode.Overflow;

@@ -26,6 +26,8 @@ namespace TowerDefense.UI
         public static WorldIndicator Create(string name, Sprite sprite, int sortingOrder)
         {
             var go = new GameObject(name);
+            // Lives as long as the (persistent) UI that owns it; the owner destroys it.
+            DontDestroyOnLoad(go);
             var ind = go.AddComponent<WorldIndicator>();
             ind.sr = go.AddComponent<SpriteRenderer>();
             ind.sr.sprite = sprite;

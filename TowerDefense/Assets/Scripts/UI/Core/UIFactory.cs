@@ -199,6 +199,7 @@ namespace TowerDefense.UI
 
             Image face = Image(root, "Face", sprite, color);
             if (sliced) SetRadius(face, radius);
+            else face.preserveAspect = true; // keep circles round inside the raised rect
             Stretch(face.rectTransform);
             float depth = Mathf.Clamp(size.y * 0.07f, 4f, 10f);
             face.rectTransform.offsetMin = new Vector2(0f, depth);

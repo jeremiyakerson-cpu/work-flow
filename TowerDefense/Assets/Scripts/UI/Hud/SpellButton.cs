@@ -46,7 +46,7 @@ namespace TowerDefense.UI
             UIFactory.Stretch(activeRing.rectTransform, -12f);
             activeRing.gameObject.SetActive(false);
 
-            Text name = UIFactory.Label(View.transform, def.displayName, UITheme.FontSmall - 6, UITheme.TextDim);
+            Text name = UIFactory.Label(View.transform, def.displayName, UITheme.FontSmall - 4, UITheme.TextDim);
             UIFactory.Place(name.rectTransform, new Vector2(0.5f, 0f), new Vector2(0.5f, 1f), new Vector2(0f, -2f), new Vector2(Size + 60f, 34f));
             name.horizontalOverflow = HorizontalWrapMode.Overflow;
 

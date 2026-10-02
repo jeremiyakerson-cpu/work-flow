@@ -106,7 +106,7 @@ namespace TowerDefense.UI
             switch (step)
             {
                 case TutorialStep.Build: return "Tap a build spot to place a tower.";
-                case TutorialStep.MoveHero: return "Tap your hero, then tap the road to move them.";
+                case TutorialStep.MoveHero: return "Drag your hero onto the road, or tap the hero and then the road.";
                 default: return "Tap the pulsing wave button to call the next wave early for bonus gold.";
             }
         }

@@ -188,7 +188,7 @@ namespace TowerDefense.UI
 
             if (!string.IsNullOrEmpty(e.subtitle) && !e.locked)
             {
-                Text sub = UIFactory.Label(face, e.subtitle, UITheme.FontSmall - 6, UITheme.TextDim);
+                Text sub = UIFactory.Label(face, e.subtitle, UITheme.FontSmall - 4, UITheme.TextDim);
                 UIFactory.Place(sub.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -178f), new Vector2(330f, 34f));
             }
             return card;

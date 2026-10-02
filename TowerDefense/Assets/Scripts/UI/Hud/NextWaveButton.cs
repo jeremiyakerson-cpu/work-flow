@@ -32,6 +32,8 @@ namespace TowerDefense.UI
         private bool atSpawn;
         private bool visible;
         private int shownBonus = int.MinValue;
+        private int shownSeconds = int.MinValue;
+        private string captionPrefix = "";
         private float lastFill = -1f;
 
         public NextWaveButton(RectTransform hud)
@@ -60,7 +62,8 @@ namespace TowerDefense.UI
             UIFactory.Stretch(bonusLabel.rectTransform);
             bonusLabel.rectTransform.offsetMin = new Vector2(46f, 0f);
 
-            caption = UIFactory.Label(button.Face.transform, "", UITheme.FontSmall - 6, UITheme.Text);
+            caption = UIFactory.Label(button.Face.transform, "", UITheme.FontSmall - 2, UITheme.Text, TextAnchor.MiddleCenter, FontStyle.Bold);
+            caption.horizontalOverflow = HorizontalWrapMode.Overflow;
             UIFactory.Place(caption.rectTransform, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 10f), new Vector2(Size, 30f));
 
             Root.gameObject.SetActive(false);
@@ -92,7 +95,8 @@ namespace TowerDefense.UI
                 Root.gameObject.SetActive(show);
                 if (show)
                 {
-                    caption.text = wm.CurrentWave == 0 ? "START" : "NEXT";
+                    captionPrefix = wm.CurrentWave == 0 ? "START " : "NEXT ";
+                    shownSeconds = int.MinValue;
                     UITween.Scale(Root, Vector3.zero, Vector3.one, 0.3f, Ease.OutBack);
                     shownBonus = int.MinValue;
                     lastFill = -1f;
@@ -105,6 +109,13 @@ namespace TowerDefense.UI
             {
                 shownBonus = bonus;
                 bonusLabel.text = "+" + NumberCache.Get(bonus);
+            }
+
+            int seconds = Mathf.CeilToInt(wm.TimeUntilNextWave);
+            if (seconds != shownSeconds)
+            {
+                shownSeconds = seconds; // rebuilt once per second, not per frame
+                caption.text = captionPrefix + NumberCache.Get(seconds) + "s";
             }
 
             float fill = wm.delayBetweenWaves > 0f ? Mathf.Clamp01(wm.TimeUntilNextWave / wm.delayBetweenWaves) : 0f;
