@@ -90,6 +90,11 @@ file `Tools/UnityStubs/<Area>.Stubs.cs` (or `Editor/<Area>.Stubs.cs`) using
   frame, cache `LayerMask.GetMask`, prefer `OverlapCircle` with a
   `ContactFilter2D` + reused buffer where it matters).
 - `UnityEngine.Random` vs `System.Random`: always qualify if both are in scope.
+- Inside any `namespace TowerDefense.*`, `Input` resolves to the `TowerDefense.Input`
+  namespace: write `UnityEngine.Input.GetTouch(...)`, never bare `Input.`.
+- Input uses the legacy Input Manager ("Active Input Handling" = Old or Both).
+- Pooled objects (enemies, projectiles) are reused: never hold an `Enemy` across
+  frames without also storing and comparing its `SpawnId`.
 - Respect `Time.timeScale` for gameplay; UI animations use unscaled time.
 - iOS: landscape only, safe-area aware UI, 60 fps target, no network.
 - Keep comment density/style of the original scripts: `/// <summary>` on

@@ -1,3 +1,6 @@
+// Lives in the engine-free TowerDefense.Core assembly so the rules layer can use
+// these types, but stays in the global namespace so gameplay scripts are unaffected.
+
 /// <summary>
 /// Shared enums used across Tower, Enemy, and Projectile.
 /// This is what makes towers feel different from each other (KR-style):

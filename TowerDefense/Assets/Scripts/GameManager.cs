@@ -1,4 +1,5 @@
 using System;
+using TowerDefense.Core;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +23,13 @@ public class GameManager : MonoBehaviour
     public bool IsVictory { get; private set; } = false;
     public bool IsPaused { get; private set; } = false;
     public float GameSpeed { get; private set; } = 1f;
+    /// <summary>True once the level is won or lost.</summary>
+    public bool IsFinished => IsGameOver || IsVictory;
+    /// <summary>
+    /// Level result in stars: 1-3 after a victory (from lives kept vs StartingLives,
+    /// KR thresholds), 0 after a loss or while still playing.
+    /// </summary>
+    public int Stars => IsVictory ? StarRating.Rate(Lives, StartingLives) : 0;
 
     [Header("UI Events - hook these up in the Inspector")]
     public UnityEvent<int> onGoldChanged;
@@ -52,7 +60,10 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Instance == this) Instance = null;
+        if (Instance != this) return;
+        Instance = null;
+        // Don't leave the next scene (menus) frozen after a game over/victory/pause.
+        Time.timeScale = 1f;
     }
 
     /// <summary>Reset economy for a level (called by the level loader before waves start).</summary>
@@ -63,6 +74,7 @@ public class GameManager : MonoBehaviour
         StartingLives = lives;
         IsGameOver = false;
         IsVictory = false;
+        ApplyTimeScale(); // un-freeze if a previous level ended without a scene reload
         onGoldChanged?.Invoke(Gold);
         GoldChanged?.Invoke(Gold);
         onLivesChanged?.Invoke(Lives);
@@ -72,16 +84,20 @@ public class GameManager : MonoBehaviour
     // ---------- Economy ----------
     public void AddGold(int amount)
     {
-        Gold += amount;
+        if (amount == 0) return;
+        // Negative amounts are allowed (penalties) but gold never goes below 0 or overflows.
+        Gold = (int)Math.Max(0L, Math.Min((long)Gold + amount, EconomyRules.MaxGold));
         onGoldChanged?.Invoke(Gold);
         GoldChanged?.Invoke(Gold);
     }
 
-    public bool CanAfford(int amount) => Gold >= amount;
+    public bool CanAfford(int amount) => amount <= 0 || Gold >= amount;
 
+    /// <summary>Spend gold if affordable. Negative amounts are rejected (use AddGold to give gold).</summary>
     public bool SpendGold(int amount)
     {
-        if (Gold < amount) return false;
+        if (amount < 0 || Gold < amount) return false;
+        if (amount == 0) return true;
         Gold -= amount;
         onGoldChanged?.Invoke(Gold);
         GoldChanged?.Invoke(Gold);
@@ -91,7 +107,7 @@ public class GameManager : MonoBehaviour
     // ---------- Lives / Game Over ----------
     public void DamageBase(int amount)
     {
-        if (IsGameOver || IsVictory) return;
+        if (IsGameOver || IsVictory || amount <= 0) return;
         Lives = Mathf.Max(0, Lives - amount);
         onLivesChanged?.Invoke(Lives);
         LivesChanged?.Invoke(Lives);
@@ -101,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     private void TriggerGameOver()
     {
+        if (IsGameOver || IsVictory) return;
         IsGameOver = true;
         Time.timeScale = 0f;
         onGameOver?.Invoke();
@@ -119,6 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        IsPaused = false;
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene(
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
@@ -137,7 +155,7 @@ public class GameManager : MonoBehaviour
     {
         if (!IsPaused) return;
         IsPaused = false;
-        if (!IsGameOver && !IsVictory) Time.timeScale = GameSpeed;
+        ApplyTimeScale();
         PausedChanged?.Invoke(false);
     }
 
@@ -149,9 +167,15 @@ public class GameManager : MonoBehaviour
     /// <summary>1x / 2x / 3x fast-forward. Applied immediately unless paused or finished.</summary>
     public void SetGameSpeed(float speed)
     {
-        GameSpeed = Mathf.Clamp(speed, 0.25f, 4f);
-        if (!IsPaused && !IsGameOver && !IsVictory) Time.timeScale = GameSpeed;
+        GameSpeed = speed > 0f ? Mathf.Clamp(speed, 0.25f, 4f) : 1f; // NaN/0 would freeze or break time
+        ApplyTimeScale();
         SpeedChanged?.Invoke(GameSpeed);
+    }
+
+    // Single place that decides Time.timeScale: frozen while paused or finished.
+    private void ApplyTimeScale()
+    {
+        Time.timeScale = IsPaused || IsGameOver || IsVictory ? 0f : GameSpeed;
     }
 
     // ---------- Wave event forwarding (called by WaveManager) ----------
@@ -168,13 +192,9 @@ public class GameManager : MonoBehaviour
     }
 
     // ---------- Enemy event forwarding (called by Enemy.cs) ----------
-    public void OnEnemyKilled(Enemy e)
-    {
-        if (WaveManager.Instance != null) WaveManager.Instance.NotifyEnemyGone();
-    }
+    // Wave bookkeeping is no longer done here: enemies unregister themselves from
+    // WaveManager exactly once when they die, leak or are removed.
+    public void OnEnemyKilled(Enemy e) { }
 
-    public void OnEnemyLeaked(Enemy e)
-    {
-        if (WaveManager.Instance != null) WaveManager.Instance.NotifyEnemyGone();
-    }
+    public void OnEnemyLeaked(Enemy e) { }
 }

@@ -1,3 +1,4 @@
+using TowerDefense.Core;
 using UnityEngine;
 
 /// <summary>
@@ -50,16 +51,43 @@ public class TowerData : ScriptableObject
     public string pathAName = "Sniper";
     public float pathADamageMult = 2f;
     public float pathARangeMult = 1.25f;
+    public float pathAFireRateMult = 1f;
+    public bool pathAAppliesSlow = false;
     public int pathACost = 80;
 
     [Header("Branch B (e.g. 'Barrage' - speed/utility focus)")]
     public string pathBName = "Barrage";
     public float pathBFireRateMult = 1.6f;
+    public float pathBDamageMult = 1f;
+    public float pathBRangeMult = 1f;
     public bool pathBAppliesSlow = true;
     public int pathBCost = 80;
 
     [Header("Final Tier (level 3->4, applies on top of chosen branch)")]
     public float level4DamageMult = 1.4f;
     public float level4FireRateMult = 1.2f;
+    public float level4RangeMult = 1f;
     public int level4Cost = 140;
+
+    [Header("Projectile")]
+    [Tooltip("Arc height for lobbed shots (artillery). 0 = straight homing shot. Overrides the projectile prefab when > 0.")]
+    public float projectileArcHeight = 0f;
+
+    /// <summary>Engine-free copy of the stats/upgrade curve for TowerUpgradeMath.</summary>
+    public TowerUpgradeSpec ToUpgradeSpec()
+    {
+        return new TowerUpgradeSpec
+        {
+            range = range, fireRate = fireRate, damage = damage, baseCost = baseCost,
+            appliesSlow = appliesSlow, appliesPoison = appliesPoison,
+            level2DamageMult = level2DamageMult, level2RangeMult = level2RangeMult,
+            level2FireRateMult = level2FireRateMult, level2Cost = level2Cost,
+            pathADamageMult = pathADamageMult, pathARangeMult = pathARangeMult, pathAFireRateMult = pathAFireRateMult,
+            pathAAppliesSlow = pathAAppliesSlow, pathACost = pathACost,
+            pathBDamageMult = pathBDamageMult, pathBRangeMult = pathBRangeMult, pathBFireRateMult = pathBFireRateMult,
+            pathBAppliesSlow = pathBAppliesSlow, pathBCost = pathBCost,
+            level4DamageMult = level4DamageMult, level4RangeMult = level4RangeMult,
+            level4FireRateMult = level4FireRateMult, level4Cost = level4Cost,
+        };
+    }
 }
