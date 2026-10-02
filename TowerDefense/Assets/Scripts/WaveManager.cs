@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TowerDefense.Core;
+using TowerDefense.Pooling;
 using UnityEngine;
 
 /// <summary>
-/// The heart of the "never-ending" wave system. Generates waves procedurally
-/// with a difficulty curve that scales indefinitely, pulling enemy identity
-/// (armor/moveType/prefab) from EnemyData assets and applying the wave curve
-/// on top. Tune the curves in the Inspector - no code changes needed to
-/// rebalance. Supports several paths per map (enemies alternate between them)
-/// and an optional win condition (wavesToWin) for campaign levels.
+/// The heart of the "never-ending" wave system. Each wave is planned by the
+/// engine-free <see cref="WavePlanner"/> (seeded, deterministic) from the curve
+/// fields below, then this component executes the plan: spawning pooled enemies
+/// on time and on the right path, tracking who is alive, and running the
+/// between-wave countdown. Enemy identity (armor/moveType/prefab) comes from
+/// EnemyData assets; the curve scales their stats. Tune the curves in the
+/// Inspector - no code changes needed to rebalance. Supports several paths per
+/// map and an optional win condition (wavesToWin) for campaign levels.
 /// </summary>
 public class WaveManager : MonoBehaviour
 {
@@ -38,6 +42,22 @@ public class WaveManager : MonoBehaviour
     [Tooltip("Per-level scale on the health curve (LevelData.difficultyMultiplier).")]
     public float difficultyMultiplier = 1f;
 
+    [Header("Curve Limits & Extras")]
+    [Tooltip("Kill reward grows by this fraction of the base per wave (0.05 = +5%/wave).")]
+    public float rewardGrowthPerWave = 0.05f;
+    [Tooltip("Cap on the compounded speed multiplier (0 = uncapped). Keeps endless waves catchable by projectiles.")]
+    public float maxSpeedScale = 3f;
+    [Tooltip("Cap on enemies per regular wave (0 = uncapped). Health keeps compounding past the cap.")]
+    public int maxEnemiesPerWave = 0;
+    [Tooltip("Boss speed relative to the wave's speed curve.")]
+    public float bossSpeedMultiplier = 0.6f;
+    [Tooltip("Regular enemies escorting a boss, as a fraction of a normal wave (0 = boss alone).")]
+    [Range(0f, 2f)] public float bossEscortFraction = 0f;
+    [Tooltip("An enemy type with these base stats gets exactly the curve's values; others scale relative to it.")]
+    public float referenceHealth = 10f;
+    public float referenceSpeed = 2f;
+    public int referenceReward = 5;
+
     [Header("Wave Composition")]
     public int baseEnemyCount = 6;
     public int enemyCountGrowthPerWave = 1;
@@ -52,13 +72,32 @@ public class WaveManager : MonoBehaviour
     [Tooltip("Gold per second of countdown skipped when the player calls the next wave early.")]
     public float earlyCallGoldPerSecond = 2f;
 
+    [Header("Randomness & Pooling")]
+    [Tooltip("Wave composition seed. 0 = a new random seed every run; any other value replays the same waves.")]
+    public int seed = 0;
+    [Tooltip("Inactive enemies created per enemy type when a level is applied, to avoid hitches on wave 1.")]
+    public int prewarmPerType = 6;
+
     public int CurrentWave { get; private set; } = 0;
     public bool WaveInProgress { get; private set; } = false;
     public bool IsRunning { get; private set; } = false;
-    public int EnemiesAlive => enemiesAlive;
+    public int EnemiesAlive => activeEnemies.Count;
+    /// <summary>Every living enemy spawned by this manager (including summons). Don't modify.</summary>
+    public IReadOnlyList<Enemy> ActiveEnemies => activeEnemies;
     /// <summary>Seconds until the next wave auto-starts; 0 while a wave is active.</summary>
     public float TimeUntilNextWave { get; private set; }
-    public bool IsCountingDown => IsRunning && !WaveInProgress && enemiesAlive == 0 && TimeUntilNextWave > 0f;
+    public bool IsCountingDown => IsRunning && !WaveInProgress && activeEnemies.Count == 0 && TimeUntilNextWave > 0f;
+    /// <summary>The seed actually used for wave plans this run (resolved from `seed`).</summary>
+    public int ActiveSeed
+    {
+        get
+        {
+            if (activeSeed == 0) activeSeed = seed != 0 ? seed : NewRandomSeed();
+            return activeSeed;
+        }
+    }
+    /// <summary>The plan of the wave currently (or most recently) spawning. Null before wave 1.</summary>
+    public WavePlan CurrentPlan { get; private set; }
 
     /// <summary>Fired when a wave begins spawning: (wave number, is boss wave).</summary>
     public event Action<int, bool> WaveSpawning;
@@ -66,9 +105,13 @@ public class WaveManager : MonoBehaviour
     public event Action<Enemy> EnemySpawned;
 
     private readonly List<IReadOnlyList<Vector3>> paths = new List<IReadOnlyList<Vector3>>();
-    private int nextPathIndex;
-    private int enemiesAlive = 0;
+    private readonly List<Vector3> fallbackPath = new List<Vector3>();
+    private readonly List<Enemy> activeEnemies = new List<Enemy>();
+    private readonly List<EnemyTypeInfo> enemyTypes = new List<EnemyTypeInfo>();
+    private readonly List<EnemyTypeInfo> bossTypes = new List<EnemyTypeInfo>();
+    private readonly WaveCurve curve = new WaveCurve();
     private bool skipCountdown;
+    private int activeSeed;
     private Coroutine loop;
 
     private void Awake()
@@ -86,11 +129,16 @@ public class WaveManager : MonoBehaviour
         if (autoStart) StartWaves();
     }
 
-    /// <summary>Use world-space paths (spawn first, exit last). Enemies alternate between them.</summary>
+    // Unity stops coroutines on disable; keep IsRunning truthful so StartWaves works again.
+    private void OnDisable()
+    {
+        StopWaves();
+    }
+
+    /// <summary>Use world-space paths (spawn first, exit last). Enemies are spread across them.</summary>
     public void SetPaths(IEnumerable<IReadOnlyList<Vector3>> worldPaths)
     {
         paths.Clear();
-        nextPathIndex = 0;
         if (worldPaths == null) return;
         foreach (var p in worldPaths)
             if (p != null && p.Count >= 2) paths.Add(p);
@@ -101,12 +149,15 @@ public class WaveManager : MonoBehaviour
     {
         if (level == null) return;
         var worldPaths = new List<IReadOnlyList<Vector3>>();
-        foreach (var def in level.paths)
+        if (level.paths != null)
         {
-            if (def == null || def.points == null) continue;
-            var pts = new List<Vector3>(def.points.Count);
-            foreach (var p in def.points) pts.Add(new Vector3(p.x, p.y, 0f));
-            worldPaths.Add(pts);
+            foreach (var def in level.paths)
+            {
+                if (def == null || def.points == null) continue;
+                var pts = new List<Vector3>(def.points.Count);
+                foreach (var p in def.points) pts.Add(new Vector3(p.x, p.y, 0f));
+                worldPaths.Add(pts);
+            }
         }
         SetPaths(worldPaths);
         if (level.enemyPool != null && level.enemyPool.Count > 0) enemyPool = new List<EnemyData>(level.enemyPool);
@@ -114,6 +165,7 @@ public class WaveManager : MonoBehaviour
         bossEveryNWaves = level.bossEveryNWaves;
         wavesToWin = level.wavesToWin;
         difficultyMultiplier = level.difficultyMultiplier;
+        PrewarmPools(prewarmPerType);
     }
 
     public IReadOnlyList<IReadOnlyList<Vector3>> Paths => paths;
@@ -121,6 +173,11 @@ public class WaveManager : MonoBehaviour
     public void StartWaves()
     {
         if (IsRunning) return;
+        if (!isActiveAndEnabled)
+        {
+            Debug.LogWarning("WaveManager.StartWaves called while the WaveManager is inactive.");
+            return;
+        }
         IsRunning = true;
         loop = StartCoroutine(RunForever());
     }
@@ -130,6 +187,42 @@ public class WaveManager : MonoBehaviour
         if (loop != null) StopCoroutine(loop);
         loop = null;
         IsRunning = false;
+        WaveInProgress = false;
+        skipCountdown = false;
+    }
+
+    /// <summary>
+    /// Back to "before wave 1" for a replay without reloading the scene: stops
+    /// the loop, removes every living enemy (no rewards/leaks) and picks a new
+    /// seed if `seed` is 0. Call StartWaves afterwards.
+    /// </summary>
+    public void ResetWaves()
+    {
+        StopWaves();
+        ClearEnemies();
+        CurrentWave = 0;
+        CurrentPlan = null;
+        TimeUntilNextWave = 0f;
+        activeSeed = 0;
+    }
+
+    /// <summary>Use a specific seed from now on (daily challenge, replays). 0 = random.</summary>
+    public void SetSeed(int newSeed)
+    {
+        seed = newSeed;
+        activeSeed = 0;
+    }
+
+    /// <summary>Remove every living enemy without rewards or leaks.</summary>
+    public void ClearEnemies()
+    {
+        for (int i = activeEnemies.Count - 1; i >= 0; i--)
+        {
+            if (i >= activeEnemies.Count) continue; // a despawn can remove more than one entry
+            Enemy e = activeEnemies[i];
+            if (e != null) e.DespawnSilently();
+        }
+        activeEnemies.Clear();
     }
 
     /// <summary>
@@ -138,126 +231,189 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     public int CallNextWaveEarly()
     {
-        if (!IsCountingDown) return 0;
-        int bonus = Mathf.RoundToInt(TimeUntilNextWave * earlyCallGoldPerSecond);
+        if (!IsCountingDown || skipCountdown) return 0;
+        int bonus = EconomyRules.EarlyCallBonus(TimeUntilNextWave, earlyCallGoldPerSecond);
         if (bonus > 0 && GameManager.Instance != null) GameManager.Instance.AddGold(bonus);
         skipCountdown = true;
         return bonus;
     }
 
     public bool IsBossWave(int waveNumber) =>
-        bossPool != null && bossPool.Count > 0 && bossEveryNWaves > 0 && waveNumber % bossEveryNWaves == 0;
+        WavePlanner.IsBossWave(waveNumber, bossEveryNWaves, CountSpawnable(bossPool));
+
+    /// <summary>
+    /// The deterministic plan for any wave number with the current settings
+    /// (same result the spawner will use). Handy for "next wave" previews.
+    /// </summary>
+    public WavePlan PlanWave(int waveNumber)
+    {
+        BuildCurve();
+        BuildTypes(enemyPool, enemyTypes);
+        BuildTypes(bossPool, bossTypes);
+        return WavePlanner.Plan(waveNumber, curve, enemyTypes, bossTypes, Mathf.Max(1, paths.Count), ActiveSeed);
+    }
+
+    /// <summary>Resolve a plan entry's EnemyData (null if the pools changed since planning).</summary>
+    public EnemyData GetEnemyData(in WaveSpawn spawn)
+    {
+        List<EnemyData> pool = spawn.IsBoss ? bossPool : enemyPool;
+        return pool != null && spawn.TypeIndex >= 0 && spawn.TypeIndex < pool.Count ? pool[spawn.TypeIndex] : null;
+    }
+
+    /// <summary>Create inactive enemies ahead of time for every type in both pools.</summary>
+    public void PrewarmPools(int perType)
+    {
+        if (perType <= 0) return;
+        if (enemyPool != null)
+            foreach (var d in enemyPool) if (d != null && d.prefab != null) GameObjectPool.Prewarm(d.prefab, perType);
+        if (bossPool != null)
+            foreach (var d in bossPool) if (d != null && d.prefab != null) GameObjectPool.Prewarm(d.prefab, 1);
+    }
+
+    private bool GameEnded => GameManager.Instance != null && (GameManager.Instance.IsGameOver || GameManager.Instance.IsVictory);
 
     private IEnumerator RunForever()
     {
         // Initial grace period before wave 1 so the player can build.
-        yield return Countdown(delayBetweenWaves);
-
-        // This loop never ends in endless mode - difficulty keeps compounding via the curves above.
-        while (true)
-        {
-            CurrentWave++;
-            yield return StartCoroutine(SpawnWave(CurrentWave));
-
-            while (enemiesAlive > 0)
-                yield return null;
-
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.OnWaveCleared(CurrentWave);
-                if (wavesToWin > 0 && CurrentWave >= wavesToWin)
-                {
-                    GameManager.Instance.TriggerVictory();
-                    IsRunning = false;
-                    yield break;
-                }
-            }
-
-            yield return Countdown(delayBetweenWaves);
-        }
-    }
-
-    private IEnumerator Countdown(float seconds)
-    {
-        TimeUntilNextWave = seconds;
+        TimeUntilNextWave = delayBetweenWaves;
         skipCountdown = false;
         while (TimeUntilNextWave > 0f && !skipCountdown)
         {
-            TimeUntilNextWave -= Time.deltaTime;
             yield return null;
+            if (GameEnded) { EndLoop(); yield break; }
+            TimeUntilNextWave -= Time.deltaTime;
         }
         TimeUntilNextWave = 0f;
         skipCountdown = false;
-    }
 
-    private IEnumerator SpawnWave(int waveNumber)
-    {
-        WaveInProgress = true;
-        bool isBossWave = IsBossWave(waveNumber);
-        if (GameManager.Instance != null) GameManager.Instance.OnWaveStarted(waveNumber);
-        WaveSpawning?.Invoke(waveNumber, isBossWave);
-
-        float health = baseHealth * difficultyMultiplier * Mathf.Pow(healthGrowthPerWave, waveNumber - 1);
-        float speed = baseSpeed * Mathf.Pow(speedGrowthPerWave, waveNumber - 1);
-        int reward = Mathf.RoundToInt(baseGoldReward * (1f + 0.05f * (waveNumber - 1)));
-
-        if (isBossWave)
+        // This loop never ends in endless mode - difficulty keeps compounding via the curves above.
+        // Everything runs inside this one coroutine so StopWaves really stops spawning too.
+        while (true)
         {
-            EnemyData boss = bossPool[UnityEngine.Random.Range(0, bossPool.Count)];
-            SpawnEnemy(boss, health * boss.bossHealthMultiplier, speed * 0.6f, reward * boss.bossGoldMultiplier);
+            if (GameEnded) { EndLoop(); yield break; }
+
+            CurrentWave++;
+            WavePlan plan = PlanWave(CurrentWave);
+            CurrentPlan = plan;
+            WaveInProgress = true;
+            if (GameManager.Instance != null) GameManager.Instance.OnWaveStarted(CurrentWave);
+            WaveSpawning?.Invoke(CurrentWave, plan.IsBossWave);
+
+            // Spawn on schedule. Overshoot carries into the next delay, so the
+            // cadence stays exact at any frame rate or game speed.
+            float wait = 0f;
+            for (int i = 0; i < plan.Spawns.Count; i++)
+            {
+                WaveSpawn s = plan.Spawns[i];
+                wait += s.Delay;
+                while (wait > 0f)
+                {
+                    yield return null;
+                    if (GameEnded) { EndLoop(); yield break; }
+                    wait -= Time.deltaTime;
+                }
+                SpawnFromPlan(s);
+            }
             WaveInProgress = false;
-            yield break;
+
+            while (activeEnemies.Count > 0)
+            {
+                yield return null;
+                if (GameEnded) { EndLoop(); yield break; }
+            }
+            if (GameEnded) { EndLoop(); yield break; }
+
+            if (GameManager.Instance != null) GameManager.Instance.OnWaveCleared(CurrentWave);
+            if (wavesToWin > 0 && CurrentWave >= wavesToWin)
+            {
+                if (GameManager.Instance != null) GameManager.Instance.TriggerVictory();
+                EndLoop();
+                yield break;
+            }
+
+            TimeUntilNextWave = delayBetweenWaves;
+            skipCountdown = false;
+            while (TimeUntilNextWave > 0f && !skipCountdown)
+            {
+                yield return null;
+                if (GameEnded) { EndLoop(); yield break; }
+                TimeUntilNextWave -= Time.deltaTime;
+            }
+            TimeUntilNextWave = 0f;
+            skipCountdown = false;
         }
+    }
 
-        int count = baseEnemyCount + enemyCountGrowthPerWave * (waveNumber - 1);
-        for (int i = 0; i < count; i++)
-        {
-            EnemyData enemyData = PickEnemyData(waveNumber);
-            if (enemyData == null) continue;
-
-            // Per-type base stats scale the wave curve, so a "tank" stays tankier than a "runner".
-            float typeHealth = health * (enemyData.baseHealth / 10f);
-            float typeSpeed = speed * (enemyData.baseSpeed / 2f);
-            int typeReward = Mathf.Max(1, Mathf.RoundToInt(reward * (enemyData.baseGoldReward / 5f)));
-            SpawnEnemy(enemyData, typeHealth, typeSpeed, typeReward);
-            yield return new WaitForSeconds(spawnInterval);
-        }
-
+    private void EndLoop()
+    {
+        loop = null;
+        IsRunning = false;
         WaveInProgress = false;
+        TimeUntilNextWave = 0f;
     }
 
-    private EnemyData PickEnemyData(int waveNumber)
+    private void SpawnFromPlan(in WaveSpawn s)
     {
-        if (enemyPool == null || enemyPool.Count == 0) return null;
-        List<EnemyData> available = new List<EnemyData>();
-        foreach (var data in enemyPool)
-        {
-            if (data != null && waveNumber >= data.unlockWave)
-                available.Add(data);
-        }
-        if (available.Count == 0) return enemyPool[0];
-        return available[UnityEngine.Random.Range(0, available.Count)];
-    }
-
-    private IReadOnlyList<Vector3> NextPath()
-    {
-        if (paths.Count > 0)
-        {
-            var p = paths[nextPathIndex % paths.Count];
-            nextPathIndex++;
-            return p;
-        }
-        var fallback = new List<Vector3>();
-        if (pathWaypoints != null)
-            foreach (var t in pathWaypoints) if (t != null) fallback.Add(t.position);
-        return fallback;
-    }
-
-    private Enemy SpawnEnemy(EnemyData enemyData, float health, float speed, int reward)
-    {
-        IReadOnlyList<Vector3> path = NextPath();
+        EnemyData data = GetEnemyData(s);
+        if (data == null) return;
+        IReadOnlyList<Vector3> path = PathFor(s.PathIndex);
         Vector3 origin = path.Count > 0 ? path[0] : (spawnPoint != null ? spawnPoint.position : transform.position);
-        return SpawnInternal(enemyData, path, health, speed, reward, 0, origin);
+        Enemy e = SpawnInternal(data, path, s.Health, s.Speed, s.Reward, 0, origin);
+        if (e != null && s.IsBoss) e.IsBoss = true;
+    }
+
+    private IReadOnlyList<Vector3> PathFor(int index)
+    {
+        if (paths.Count > 0) return paths[Mathf.Abs(index) % paths.Count];
+        fallbackPath.Clear();
+        if (pathWaypoints != null)
+            foreach (var t in pathWaypoints) if (t != null) fallbackPath.Add(t.position);
+        // Enemies keep a reference to their path, so hand out a copy.
+        return new List<Vector3>(fallbackPath);
+    }
+
+    private void BuildCurve()
+    {
+        curve.BaseHealth = baseHealth;
+        curve.HealthGrowthPerWave = healthGrowthPerWave;
+        curve.BaseSpeed = baseSpeed;
+        curve.SpeedGrowthPerWave = speedGrowthPerWave;
+        curve.MaxSpeedScale = maxSpeedScale;
+        curve.BaseGoldReward = baseGoldReward;
+        curve.RewardGrowthPerWave = rewardGrowthPerWave;
+        curve.DifficultyMultiplier = difficultyMultiplier;
+        curve.BaseEnemyCount = baseEnemyCount;
+        curve.EnemyCountGrowthPerWave = enemyCountGrowthPerWave;
+        curve.MaxEnemiesPerWave = maxEnemiesPerWave;
+        curve.SpawnInterval = spawnInterval;
+        curve.BossEveryNWaves = bossEveryNWaves;
+        curve.BossSpeedMultiplier = bossSpeedMultiplier;
+        curve.BossEscortFraction = bossEscortFraction;
+        curve.ReferenceHealth = referenceHealth;
+        curve.ReferenceSpeed = referenceSpeed;
+        curve.ReferenceReward = referenceReward;
+    }
+
+    private static void BuildTypes(List<EnemyData> pool, List<EnemyTypeInfo> into)
+    {
+        into.Clear();
+        if (pool == null) return;
+        foreach (var d in pool) into.Add(d != null && d.prefab != null ? d.ToTypeInfo() : EnemyTypeInfo.Unavailable);
+    }
+
+    // Same rule the planner applies (BuildTypes): entries need data and a prefab.
+    private static int CountSpawnable(List<EnemyData> pool)
+    {
+        if (pool == null) return 0;
+        int n = 0;
+        foreach (var d in pool) if (d != null && d.prefab != null && d.spawnWeight > 0f) n++;
+        return n;
+    }
+
+    private static int NewRandomSeed()
+    {
+        int s = unchecked((int)DateTime.UtcNow.Ticks ^ Environment.TickCount);
+        return s != 0 ? s : 1;
     }
 
     /// <summary>
@@ -279,25 +435,31 @@ public class WaveManager : MonoBehaviour
             return null;
         }
 
-        GameObject go = Instantiate(enemyData.prefab, position, Quaternion.identity);
+        GameObject go = GameObjectPool.Spawn(enemyData.prefab, position, Quaternion.identity);
+        if (go == null) return null;
         Enemy e = go.GetComponent<Enemy>();
         if (e == null)
         {
             Debug.LogError($"EnemyData '{enemyData.enemyName}' prefab has no Enemy.cs attached.");
-            Destroy(go);
+            GameObjectPool.Despawn(go);
             return null;
         }
 
-        // Count before Init: abilities attached during Init may spawn summons immediately.
-        enemiesAlive++;
+        // Register before Init: abilities attached during Init may spawn summons
+        // (or even kill this enemy) immediately.
+        if (!activeEnemies.Contains(e)) activeEnemies.Add(e);
         e.Init(enemyData, path, health, speed, reward, startWaypointIndex, position);
-        EnemySpawned?.Invoke(e);
+        if (!e.IsDead) EnemySpawned?.Invoke(e);
         return e;
     }
 
-    // Called by GameManager on enemy death or leak
-    public void NotifyEnemyGone()
+    /// <summary>Called by Enemy when it dies, leaks or is removed. Safe to call more than once.</summary>
+    public void UnregisterEnemy(Enemy e)
     {
-        enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
+        activeEnemies.Remove(e);
     }
+
+    /// <summary>Obsolete: enemies now unregister themselves (UnregisterEnemy). Kept for old callers; does nothing.</summary>
+    [Obsolete("Enemies unregister themselves; counting is automatic.")]
+    public void NotifyEnemyGone() { }
 }
