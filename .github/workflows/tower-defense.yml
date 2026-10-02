@@ -1,0 +1,119 @@
+name: Tower defense (Unity iOS)
+
+on:
+  pull_request:
+    paths:
+      - "TowerDefense/**"
+      - ".github/workflows/tower-defense.yml"
+  push:
+    branches: [main]
+    paths:
+      - "TowerDefense/**"
+      - ".github/workflows/tower-defense.yml"
+  workflow_dispatch:
+    inputs:
+      ios_build:
+        description: "Also export the iOS Xcode project (needs Unity license secrets)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tower-defense-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Fast, license-free checks: compile every script against the Unity API
+  # stubs, run the engine-free NUnit suites and the offline audit.
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: TowerDefense
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('TowerDefense/Tools/**/*.csproj') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Compile check + core tests
+        run: Tools/check.sh
+
+      - name: Platform tests (save system, audio synthesis, throttling, haptics gate)
+        run: dotnet test Tools/PlatformTests/PlatformTests.csproj -nologo
+
+      - name: Offline audit (no networking, tracking or online packages)
+        run: Tools/offline-audit.sh
+
+      - name: Offline audit self-test
+        run: Tools/offline-audit.sh --self-test
+
+  # A job-level `if` cannot read `secrets`, so this tiny job turns
+  # "are the Unity license secrets configured?" into an output.
+  ios-gate:
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'workflow_dispatch' && inputs.ios_build) || github.event_name == 'push'
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        run: |
+          if [ -n "$UNITY_LICENSE" ] || { [ -n "$UNITY_SERIAL" ] && [ -n "$UNITY_EMAIL" ] && [ -n "$UNITY_PASSWORD" ]; }; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "Unity license secrets found: the iOS export job will run."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Unity license secrets not configured; skipping the iOS export (see TowerDefense/Docs/IOS_BUILD.md)."
+          fi
+
+  # Optional: export the Xcode project with Unity (Linux runner + iOS module).
+  # Signing and the App Store upload happen on a Mac (see Docs/IOS_BUILD.md).
+  ios-build:
+    needs: [checks, ios-gate]
+    if: needs.ios-gate.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: TowerDefense/Library
+          key: unity-library-ios-${{ hashFiles('TowerDefense/Packages/manifest.json', 'TowerDefense/ProjectSettings/ProjectVersion.txt') }}
+          restore-keys: unity-library-ios-
+
+      - uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          projectPath: TowerDefense
+          targetPlatform: iOS
+          buildName: TowerDefense
+          buildMethod: TowerDefense.BuildTools.BuildScript.BuildIOS
+          versioning: None # marketing version comes from IOSProjectSetup
+          # Passed through to Unity's command line; BuildScript reads -buildNumber (CFBundleVersion).
+          customParameters: -buildNumber ${{ github.run_number }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TowerDefense-iOS-xcode-${{ github.run_number }}
+          path: build/iOS
+          retention-days: 14
