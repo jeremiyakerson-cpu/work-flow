@@ -135,6 +135,36 @@ namespace TowerDefense.Tests
         }
 
         [Test]
+        public void TwoTypesDebutingTogether_BothAppear()
+        {
+            var types = new List<EnemyTypeInfo>
+            {
+                new EnemyTypeInfo(10f, 2f, 5, spawnWeight: 1000f),
+                new EnemyTypeInfo(10f, 2f, 5, unlockWave: 4, spawnWeight: 0.001f),
+                new EnemyTypeInfo(10f, 2f, 5, unlockWave: 4, spawnWeight: 0.001f),
+            };
+            for (int seed = 0; seed < 30; seed++)
+            {
+                var plan = WavePlanner.Plan(4, Curve(), types, null, 1, seed);
+                bool a = false, b = false;
+                foreach (var s in plan.Spawns) { a |= s.TypeIndex == 1; b |= s.TypeIndex == 2; }
+                Assert.That(a && b, Is.True, $"seed {seed}");
+            }
+        }
+
+        [Test]
+        public void BossUnlockGating_LaterBossOnlyFromItsUnlockWave()
+        {
+            bool sawLateBoss = false;
+            for (int seed = 0; seed < 40; seed++)
+            {
+                Assert.That(WavePlanner.Plan(10, Curve(), Types(), Bosses(), 1, seed).Spawns[0].TypeIndex, Is.EqualTo(0));
+                if (WavePlanner.Plan(30, Curve(), Types(), Bosses(), 1, seed).Spawns[0].TypeIndex == 1) sawLateBoss = true;
+            }
+            Assert.That(sawLateBoss, Is.True);
+        }
+
+        [Test]
         public void NothingUnlocked_FallsBackToEarliestTypes()
         {
             var types = new List<EnemyTypeInfo> { new EnemyTypeInfo(10f, 2f, 5, unlockWave: 4), new EnemyTypeInfo(10f, 2f, 5, unlockWave: 9) };

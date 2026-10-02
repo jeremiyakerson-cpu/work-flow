@@ -80,6 +80,15 @@ public class Enemy : MonoBehaviour
     private int waypointIndex = 0;
     private Collider2D[] colliders;
 
+    // Prefab-authored identity stats, restored on every Init so a recycled enemy
+    // initialised without EnemyData doesn't inherit its previous life's armor etc.
+    private bool defaultsCaptured;
+    private int defaultDamageToBase;
+    private ArmorType defaultArmor;
+    private EnemyMoveType defaultMoveType;
+    private float defaultMeleeDamage;
+    private float defaultAttackInterval;
+
     // --- Blocking (chokepoint) state ---
     private Transform blocker;
     private IBlockable blockerTarget;
@@ -92,6 +101,18 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         colliders = GetComponentsInChildren<Collider2D>(true);
+        CaptureDefaults();
+    }
+
+    private void CaptureDefaults()
+    {
+        if (defaultsCaptured) return;
+        defaultsCaptured = true;
+        defaultDamageToBase = damageToBase;
+        defaultArmor = armor;
+        defaultMoveType = moveType;
+        defaultMeleeDamage = meleeDamage;
+        defaultAttackInterval = attackInterval;
     }
 
     /// <summary>
@@ -158,6 +179,12 @@ public class Enemy : MonoBehaviour
 
     private void ResetRuntimeState()
     {
+        CaptureDefaults();
+        damageToBase = defaultDamageToBase;
+        armor = defaultArmor;
+        moveType = defaultMoveType;
+        meleeDamage = defaultMeleeDamage;
+        attackInterval = defaultAttackInterval;
         SpawnId = ++nextSpawnId;
         IsDead = false;
         IsBoss = false;
