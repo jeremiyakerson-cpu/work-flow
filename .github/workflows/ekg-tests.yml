@@ -4,10 +4,14 @@ on:
   pull_request:
     paths-ignore:
       - "betting-desk/**"
+      - "TowerDefense/**"
+      - ".github/workflows/tower-defense.yml"
   push:
     branches: [main]
     paths-ignore:
       - "betting-desk/**"
+      - "TowerDefense/**"
+      - ".github/workflows/tower-defense.yml"
   workflow_dispatch:
 
 permissions:
