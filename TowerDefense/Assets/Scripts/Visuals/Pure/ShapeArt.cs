@@ -576,9 +576,15 @@ namespace TowerDefense.Visuals.Pure
             });
         }
 
+        /// <summary>Glyph scale inside its 64 px canvas.</summary>
+        public const float GlyphScale = 1.15f;
+
+        /// <summary>World width of a DigitFont cell in a glyph sprite shown at scale 1 (64 px canvas = 1 unit).</summary>
+        public const float GlyphCellWidth = GlyphScale * DigitFont.CellWidth * 0.5f;
+
         public static void Glyph(PixelCanvas c, char ch)
         {
-            Sdf shape = DigitFont.GlyphShape(ch, 1.15f);
+            Sdf shape = DigitFont.GlyphShape(ch, GlyphScale);
             c.Draw(shape, ShapeStyle.Toon(Rgba.White, 0.13f, 0.25f, 0.35f));
         }
 

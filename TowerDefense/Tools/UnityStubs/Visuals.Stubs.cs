@@ -16,6 +16,11 @@ namespace UnityEngine.Rendering
 
 namespace UnityEngine
 {
+    public sealed partial class GameObject
+    {
+        public UnityEngine.SceneManagement.Scene scene => default;
+    }
+
     public partial class TrailRenderer
     {
         public float minVertexDistance { get; set; }
