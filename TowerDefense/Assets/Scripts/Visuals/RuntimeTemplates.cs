@@ -205,7 +205,7 @@ namespace TowerDefense.Visuals
             var pips = new SpriteRenderer[4];
             for (int i = 0; i < pips.Length; i++)
             {
-                float x = (i - 1.5f) * 0.2f;
+                float x = (i - 1.5f) * 0.25f;
                 pips[i] = VisualBuilder.Sprite(body, "Pip" + (i + 1), SpriteFactory.Pip, 12, new Vector3(x, lift - 0.66f, 0f), 0.55f);
                 pips[i].enabled = false;
             }
