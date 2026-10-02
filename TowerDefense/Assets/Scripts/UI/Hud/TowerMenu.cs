@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TowerDefense.Input;
+using TowerDefense.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -340,25 +341,26 @@ namespace TowerDefense.UI
                 {
                     Item up = AddItem(ItemKind.Upgrade, 90f, UISprites.Triangle, null, UITheme.Primary, tower.NextUpgradeCost(), false, 90f);
                     up.title = "Upgrade to level 2";
-                    up.body = Mults(d.level2DamageMult, d.level2RangeMult, d.level2FireRateMult);
-                    up.previewRange = tower.Range * d.level2RangeMult;
+                    TowerStats next = tower.PreviewStats(2, Tower.UpgradePath.None);
+                    up.body = Delta(next);
+                    up.previewRange = next.Range;
                     up.execute = () => { if (tower != null && tower.Upgrade()) AfterChange(true); };
                 }
                 else if (level == 2 && tower.chosenPath == Tower.UpgradePath.None)
                 {
-                    AddBranch(Tower.UpgradePath.PathA, 135f, d.pathAName,
-                              Mults(d.pathADamageMult, d.pathARangeMult, 1f), tower.Range * d.pathARangeMult);
-                    AddBranch(Tower.UpgradePath.PathB, 45f, d.pathBName,
-                              Mults(1f, 1f, d.pathBFireRateMult) + (d.pathBAppliesSlow && !d.appliesSlow ? "\nAdds slow on hit" : ""),
-                              tower.Range);
+                    TowerStats a = tower.PreviewStats(3, Tower.UpgradePath.PathA);
+                    TowerStats b = tower.PreviewStats(3, Tower.UpgradePath.PathB);
+                    AddBranch(Tower.UpgradePath.PathA, 135f, d.pathAName, Delta(a), a.Range);
+                    AddBranch(Tower.UpgradePath.PathB, 45f, d.pathBName, Delta(b), b.Range);
                 }
                 else if (level == 3)
                 {
                     Item fin = AddItem(ItemKind.Final, 90f, UISprites.Star, null, UITheme.Gold, tower.NextUpgradeCost(), false);
                     string branch = tower.chosenPath == Tower.UpgradePath.PathA ? d.pathAName : d.pathBName;
                     fin.title = "Master " + branch;
-                    fin.body = Mults(d.level4DamageMult, 1f, d.level4FireRateMult);
-                    fin.previewRange = tower.Range;
+                    TowerStats max = tower.PreviewStats(4, tower.chosenPath);
+                    fin.body = Delta(max);
+                    fin.previewRange = max.Range;
                     fin.execute = () => { if (tower != null && tower.UpgradeFinal()) AfterChange(true); };
                 }
                 else
@@ -588,6 +590,17 @@ namespace TowerDefense.UI
             else if (!d.canTargetGround) sb.Append("\nAir targets only");
             return sb.ToString();
         }
+
+        /// <summary>Upgrade preview from Tower.PreviewStats (the same math the upgrade applies), relative to current stats.</summary>
+        private string Delta(TowerStats next)
+        {
+            string text = Mults(Ratio(next.Damage, tower.Damage), Ratio(next.Range, tower.Range), Ratio(next.FireRate, tower.FireRate));
+            if (next.AppliesSlow && !tower.AppliesSlow) text += "\nAdds slow on hit";
+            if (next.AppliesPoison && !tower.AppliesPoison) text += "\nAdds poison on hit";
+            return text;
+        }
+
+        private static float Ratio(float next, float current) => current > 0f ? next / current : 1f;
 
         private static string Mults(float damage, float range, float rate)
         {

@@ -372,6 +372,23 @@ public class WaveManager : MonoBehaviour
         return new List<Vector3>(fallbackPath);
     }
 
+    /// <summary>
+    /// Health/speed/reward a regular enemy of this type gets on a wave, from the
+    /// same curve the wave planner uses. Summon/split abilities call this so their
+    /// minions scale exactly like wave spawns.
+    /// </summary>
+    public void ScaledStats(EnemyData data, int waveNumber, out float health, out float speed, out int reward)
+    {
+        BuildCurve();
+        int wave = Mathf.Max(1, waveNumber);
+        var types = new[] { data != null ? data.ToTypeInfo() : EnemyTypeInfo.Unavailable };
+        WaveSpawn s = WavePlanner.MakeSpawn(curve, types, 0, wave,
+                                            WavePlanner.HealthAt(curve, wave), WavePlanner.SpeedAt(curve, wave), 0f, 0);
+        health = s.Health;
+        speed = s.Speed;
+        reward = s.Reward;
+    }
+
     private void BuildCurve()
     {
         curve.BaseHealth = baseHealth;

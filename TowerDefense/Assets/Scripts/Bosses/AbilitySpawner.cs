@@ -11,18 +11,12 @@ namespace TowerDefense.Bosses
     public static class AbilitySpawner
     {
         /// <summary>
-        /// Health/speed/reward an enemy type would get in the current wave,
-        /// mirroring WaveManager's curve (per-type base stats scale the curve).
+        /// Health/speed/reward an enemy type would get in the current wave, from
+        /// WaveManager's own curve so summons never drift from wave spawns.
         /// </summary>
         public static void WaveScaledStats(WaveManager wm, EnemyData data, out float health, out float speed, out int reward)
         {
-            int wave = Mathf.Max(1, wm.CurrentWave);
-            float curveHealth = wm.baseHealth * wm.difficultyMultiplier * Mathf.Pow(wm.healthGrowthPerWave, wave - 1);
-            float curveSpeed = wm.baseSpeed * Mathf.Pow(wm.speedGrowthPerWave, wave - 1);
-            float curveReward = wm.baseGoldReward * (1f + 0.05f * (wave - 1));
-            health = curveHealth * (data.baseHealth / 10f);
-            speed = curveSpeed * (data.baseSpeed / 2f);
-            reward = Mathf.Max(0, Mathf.RoundToInt(curveReward * (data.baseGoldReward / 5f)));
+            wm.ScaledStats(data, wm.CurrentWave, out health, out speed, out reward);
         }
 
         /// <summary>True if a spawn can be placed on this source's path right now.</summary>
