@@ -13,7 +13,9 @@ namespace TowerDefense.Platform
     ///  - screen stays awake only while a game is actually running;
     ///  - edge swipes deferred only during gameplay (no accidental home swipes);
     ///  - low-memory warning: unload unused assets, collect, free haptic engines;
-    ///  - gameplay haptics bound to whichever GameManager is current.
+    ///  - gameplay haptics bound to whichever GameManager is current;
+    ///  - the chosen game speed saved as Settings.LastGameSpeed (restoring it
+    ///    when a level starts is up to the level flow).
     /// </summary>
     [AddComponentMenu("")]
     [DisallowMultipleComponent]
@@ -33,6 +35,7 @@ namespace TowerDefense.Platform
         public bool IsInGameplay => inGameplay;
 
         private readonly GameplayHaptics gameplayHaptics = new GameplayHaptics();
+        private GameManager speedSource;
         private bool inGameplay;
         private bool suspended;
 
@@ -54,6 +57,7 @@ namespace TowerDefense.Platform
             if (Instance != this) return;
             Application.lowMemory -= HandleLowMemory;
             gameplayHaptics.Unbind();
+            TrackSpeed(null);
             Instance = null;
         }
 
@@ -74,6 +78,7 @@ namespace TowerDefense.Platform
 
         private void Update()
         {
+            if (Instance != this) return; // duplicate pending destruction
             GameManager gm = GameManager.Instance;
 
             // Keep gameplay haptics bound to the current GameManager.
@@ -82,6 +87,8 @@ namespace TowerDefense.Platform
                 gameplayHaptics.BindToGameplay(gm, WaveManager.Instance);
             else if (gameplayHaptics.IsBound && !gameplayHaptics.HasWaveManager && WaveManager.Instance != null)
                 gameplayHaptics.AttachWaveManager(WaveManager.Instance);
+
+            if (!ReferenceEquals(gm, speedSource)) TrackSpeed(gm);
 
             bool running = gm != null && !gm.IsPaused && !gm.IsGameOver && !gm.IsVictory;
             if (running != inGameplay) ApplyGameplayState(running, force: false);
@@ -100,6 +107,19 @@ namespace TowerDefense.Platform
                 ? UnityEngine.iOS.SystemGestureDeferMode.All
                 : UnityEngine.iOS.SystemGestureDeferMode.None;
 #endif
+        }
+
+        /// <summary>Remember the player's fast-forward choice (Settings.LastGameSpeed) whenever it changes.</summary>
+        private void TrackSpeed(GameManager gm)
+        {
+            if (!ReferenceEquals(speedSource, null)) speedSource.SpeedChanged -= HandleSpeedChanged;
+            speedSource = gm;
+            if (gm != null) gm.SpeedChanged += HandleSpeedChanged;
+        }
+
+        private static void HandleSpeedChanged(float speed)
+        {
+            SaveRuntime.Service.Settings.SetLastGameSpeed(speed);
         }
 
         // iOS: pause(true) when the app is backgrounded; focus(false) also for

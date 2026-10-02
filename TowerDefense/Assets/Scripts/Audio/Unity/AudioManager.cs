@@ -306,6 +306,7 @@ namespace TowerDefense.Audio
 
         private void Update()
         {
+            if (Instance != this) return; // duplicate pending destruction
             FinishRenderIfDone();
             UpdateMusicFade();
             if (autoBindGameplay) AutoBind();
