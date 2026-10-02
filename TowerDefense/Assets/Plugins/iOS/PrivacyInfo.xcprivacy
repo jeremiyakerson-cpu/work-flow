@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  App privacy manifest (Apple-required since May 2024).
+  Unity 6 merges every PrivacyInfo.xcprivacy under Assets/Plugins into the
+  UnityFramework manifest at Xcode export; the engine's own required-reason
+  declarations (system boot time 35F9.1, disk space E174.1, file timestamps
+  0A2A.1/C617.1, user defaults CA92.1) are added by Unity itself.
+
+  This game: no tracking, no tracking domains, no data collected (everything
+  stays on the device, nothing is sent anywhere).
+  Required-reason APIs our own code triggers:
+    - User defaults (PlayerPrefs is backed by NSUserDefaults): CA92.1
+      "access info from the same app that wrote it".
+    - File timestamp (stat() behind File.Exists / File.Replace on the save
+      file in the app container): C617.1 "files inside the app container".
+-->
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
