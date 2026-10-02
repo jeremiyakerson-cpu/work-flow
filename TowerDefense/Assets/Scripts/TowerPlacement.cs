@@ -30,9 +30,12 @@ public class TowerPlacement : MonoBehaviour
     {
         if (builtTower != null) return false; // slot occupied
         if (towerData == null || towerPrefab == null) return false;
-        if (!GameManager.Instance.SpendGold(towerData.baseCost)) return false;
+        // No GameManager (sandbox scenes) = free building, like Tower upgrades.
+        if (GameManager.Instance != null && !GameManager.Instance.SpendGold(towerData.baseCost)) return false;
 
         builtTower = Instantiate(towerPrefab, transform.position, Quaternion.identity, transform);
+        // Runtime templates are active objects, but a prefab saved inactive must still come out live.
+        if (!builtTower.activeSelf) builtTower.SetActive(true);
         Tower t = builtTower.GetComponent<Tower>();
         if (t != null) t.Init(towerData);
         AnySlotChanged?.Invoke(this);
@@ -47,12 +50,14 @@ public class TowerPlacement : MonoBehaviour
     /// <summary>Sell the tower here for its refund value. Returns gold gained (0 if empty).</summary>
     public int Sell()
     {
-        Tower t = GetBuiltTower();
         if (builtTower == null) return 0;
+        Tower t = GetBuiltTower();
         int refund = t != null ? t.SellValue() : 0;
+        // Deactivate now: Destroy is deferred to end of frame and the tower must not fire again.
+        builtTower.SetActive(false);
         Destroy(builtTower);
         builtTower = null;
-        if (refund > 0) GameManager.Instance.AddGold(refund);
+        if (refund > 0 && GameManager.Instance != null) GameManager.Instance.AddGold(refund);
         AnySlotChanged?.Invoke(this);
         return refund;
     }

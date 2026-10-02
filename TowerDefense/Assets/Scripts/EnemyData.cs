@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TowerDefense.Core;
 using UnityEngine;
 
 /// <summary>
@@ -36,6 +37,8 @@ public class EnemyData : ScriptableObject
     [Header("Wave Gating")]
     [Tooltip("This enemy type won't appear in the spawn pool before this wave number.")]
     public int unlockWave = 1;
+    [Tooltip("Relative chance to be picked among unlocked types (1 = normal, 0 = never in regular waves).")]
+    [Min(0f)] public float spawnWeight = 1f;
 
     [Header("Boss Only")]
     public bool isBoss = false;
@@ -45,4 +48,11 @@ public class EnemyData : ScriptableObject
     [Header("Abilities (bosses and elites)")]
     [Tooltip("Each entry attaches runtime behaviour to the spawned enemy (charge, summon, enrage...).")]
     public List<EnemyAbilityData> abilities = new List<EnemyAbilityData>();
+
+    /// <summary>Engine-free view of this type for the WavePlanner.</summary>
+    public EnemyTypeInfo ToTypeInfo()
+    {
+        return new EnemyTypeInfo(baseHealth, baseSpeed, baseGoldReward, unlockWave, spawnWeight,
+                                 moveType == EnemyMoveType.Flying, bossHealthMultiplier, bossGoldMultiplier);
+    }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 /// The single most "Kingdom Rush" system: one controllable hero that the
 /// player drops on the path, repositions to plug leaks, and pops an active
 /// ability on cooldown. Dies -> goes on a respawn timer instead of being gone
-/// forever.
+/// forever. Blocks one ground enemy at a time; if every enemy in reach is
+/// already held (by a barricade, say) it helps fight one instead of idling.
 /// </summary>
 public class HeroUnit : MonoBehaviour, IBlockable
 {
@@ -36,23 +37,48 @@ public class HeroUnit : MonoBehaviour, IBlockable
     public event Action<HeroUnit> Respawned;
     public event Action<HeroUnit> AbilityUsed;
 
+    private static readonly Enemy[] engageBuffer = new Enemy[EnemyQuery.BufferSize];
+
     private float currentHealth;
+    private bool healthInitialized;
     private float attackTimer;
     private float respawnTimer;
     private Enemy engagedEnemy;
+    private int engagedSpawnId;
+    private bool ownsBlock;
     private bool isDead = false;
     private bool isMoving;
     private Vector3 moveTarget;
 
+    /// <summary>The enemy the hero is fighting, or null.</summary>
+    public Enemy EngagedEnemy => EngagedValid() ? engagedEnemy : null;
+    public float CurrentHealth { get { EnsureHealth(); return currentHealth; } }
+    /// <summary>Unit direction the hero walks (or faces its opponent). For sprite flipping.</summary>
+    public Vector2 FacingDirection { get; private set; } = Vector2.right;
+
     private void Awake()
     {
-        currentHealth = maxHealth;
         lastPlacedPosition = transform.position;
         moveTarget = transform.position;
     }
 
+    // Health is initialised lazily (not in Awake) so code that does AddComponent
+    // and then configures maxHealth gets the configured value.
+    private void EnsureHealth()
+    {
+        if (healthInitialized) return;
+        healthInitialized = true;
+        currentHealth = maxHealth;
+    }
+
+    private void Start()
+    {
+        EnsureHealth();
+    }
+
     private void Update()
     {
+        EnsureHealth();
         if (isDead)
         {
             respawnTimer -= Time.deltaTime;
@@ -64,20 +90,23 @@ public class HeroUnit : MonoBehaviour, IBlockable
 
         if (isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, moveTarget, moveSpeed * Time.deltaTime);
+            Vector3 before = transform.position;
+            transform.position = Vector3.MoveTowards(before, moveTarget, moveSpeed * Time.deltaTime);
+            Face(transform.position - before);
             if (Vector3.Distance(transform.position, moveTarget) < 0.02f) isMoving = false;
             return; // walking heroes don't engage - lets the player pull them out of a fight
         }
 
-        if (engagedEnemy != null && (engagedEnemy.IsDead || !engagedEnemy.gameObject.activeInHierarchy))
-            engagedEnemy = null;
+        if (engagedEnemy != null && !EngagedValid())
+            ClearEngaged();
 
         if (engagedEnemy != null)
         {
+            Face(engagedEnemy.transform.position - transform.position);
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0f)
             {
-                attackTimer = attackInterval;
+                attackTimer = Mathf.Max(0.05f, attackInterval);
                 engagedEnemy.TakeDamage(attackDamage, damageType);
             }
         }
@@ -88,20 +117,57 @@ public class HeroUnit : MonoBehaviour, IBlockable
         }
     }
 
+    // Still the same living enemy, still in reach, and (if we were blocking it) still held by us.
+    private bool EngagedValid()
+    {
+        Enemy e = engagedEnemy;
+        if (e == null || e.IsDead || e.SpawnId != engagedSpawnId || !e.gameObject.activeInHierarchy) return false;
+        if (ownsBlock) return e.Blocker == transform;
+        // Assisting: drop it once it walks away (whoever held it let go).
+        Vector3 d = e.transform.position - transform.position;
+        float reach = attackRange * 1.25f;
+        return d.x * d.x + d.y * d.y <= reach * reach;
+    }
+
     private void TryEngageNearbyEnemy()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy"));
-        foreach (var hit in hits)
+        Vector3 here = transform.position;
+        int n = EnemyQuery.OverlapEnemies(here, attackRange, engageBuffer);
+        Enemy free = null, held = null;
+        float freeSqr = float.PositiveInfinity, heldSqr = float.PositiveInfinity;
+        for (int i = 0; i < n; i++)
         {
-            Enemy e = hit.GetComponent<Enemy>();
-            if (e == null) continue;
-            if (e.TryGetBlocked(transform))
-            {
-                engagedEnemy = e;
-                attackTimer = 0f;
-                return;
-            }
+            Enemy e = engageBuffer[i];
+            if (e.IsFlying) continue;
+            Vector3 d = e.transform.position - here;
+            float sqr = d.x * d.x + d.y * d.y;
+            if (!e.IsBlocked) { if (sqr < freeSqr) { freeSqr = sqr; free = e; } }
+            else if (sqr < heldSqr) { heldSqr = sqr; held = e; }
         }
+        Array.Clear(engageBuffer, 0, n);
+
+        if (free != null && free.TryGetBlocked(transform)) Engage(free, true);
+        else if (held != null) Engage(held, false);
+    }
+
+    private void Engage(Enemy e, bool blocking)
+    {
+        engagedEnemy = e;
+        engagedSpawnId = e.SpawnId;
+        ownsBlock = blocking;
+        attackTimer = 0f;
+    }
+
+    private void ClearEngaged()
+    {
+        engagedEnemy = null;
+        engagedSpawnId = 0;
+        ownsBlock = false;
+    }
+
+    private void Face(Vector3 delta)
+    {
+        if (delta.x * delta.x + delta.y * delta.y > 1e-8f) FacingDirection = new Vector2(delta.x, delta.y).normalized;
     }
 
     /// <summary>
@@ -119,11 +185,16 @@ public class HeroUnit : MonoBehaviour, IBlockable
 
     protected virtual void PerformAbility()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, abilityRadius, LayerMask.GetMask("Enemy"));
-        foreach (var hit in hits)
+        // Rented buffer: kills during the loop can trigger callbacks that query again.
+        Enemy[] buffer = EnemyQuery.RentBuffer();
+        try
         {
-            Enemy e = hit.GetComponent<Enemy>();
-            e?.TakeDamage(abilityDamage, damageType);
+            int n = EnemyQuery.OverlapEnemies(transform.position, abilityRadius, buffer);
+            for (int i = 0; i < n; i++) buffer[i].TakeDamage(abilityDamage, damageType);
+        }
+        finally
+        {
+            EnemyQuery.ReturnBuffer(buffer);
         }
     }
 
@@ -157,15 +228,19 @@ public class HeroUnit : MonoBehaviour, IBlockable
 
     private void ReleaseEngaged()
     {
-        if (engagedEnemy != null) engagedEnemy.ReleaseFromBlock();
-        engagedEnemy = null;
+        // Only let go of an enemy we're actually holding (not one we were assisting on,
+        // and not a recycled object that is now a different enemy).
+        if (ownsBlock && engagedEnemy != null && engagedEnemy.SpawnId == engagedSpawnId && engagedEnemy.Blocker == transform)
+            engagedEnemy.ReleaseFromBlock();
+        ClearEngaged();
     }
 
     // ---------------- Damage / Death ----------------
 
     public void ReceiveMeleeDamage(float amount)
     {
-        if (isDead) return;
+        EnsureHealth();
+        if (isDead || !(amount > 0f)) return;
         currentHealth -= amount;
         if (currentHealth <= 0f) Die();
     }
@@ -174,6 +249,7 @@ public class HeroUnit : MonoBehaviour, IBlockable
     {
         isDead = true;
         isMoving = false;
+        currentHealth = 0f;
         ReleaseEngaged();
         respawnTimer = respawnTime;
         // Hide instead of SetActive(false): this component keeps ticking the respawn timer.
@@ -197,7 +273,16 @@ public class HeroUnit : MonoBehaviour, IBlockable
         foreach (var c in GetComponentsInChildren<Collider2D>(true)) c.enabled = present;
     }
 
-    public float HealthPercent() => currentHealth / maxHealth;
+    private void OnDisable()
+    {
+        ReleaseEngaged();
+    }
+
+    public float HealthPercent()
+    {
+        EnsureHealth();
+        return maxHealth > 0f ? Mathf.Clamp01(currentHealth / maxHealth) : 0f;
+    }
     public bool IsDead => isDead;
     public bool IsMoving => isMoving;
 }
