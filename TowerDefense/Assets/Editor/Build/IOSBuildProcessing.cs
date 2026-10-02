@@ -12,9 +12,10 @@ using UnityEngine;
 namespace TowerDefense.BuildTools
 {
     /// <summary>
-    /// Re-applies the iOS Player Settings before every iOS build, including
-    /// builds started from File > Build Settings, so a forgotten menu click
-    /// cannot ship portrait or Mono.
+    /// Guards every iOS build, including builds started from File > Build Settings:
+    /// if the key Player Settings are wrong (portrait allowed, Mono), they are applied
+    /// and the build fails, because settings changed after a build has started only
+    /// take effect on the next build. BuildScript.BuildIOS applies them up front.
     /// </summary>
     public sealed class IOSBuildPreprocess : IPreprocessBuildWithReport
     {
@@ -23,7 +24,15 @@ namespace TowerDefense.BuildTools
         public void OnPreprocessBuild(BuildReport report)
         {
             if (report.summary.platform != BuildTarget.iOS) return;
-            IOSProjectSetup.Apply(null, saveAssets: false);
+            bool settingsOk =
+                PlayerSettings.GetScriptingBackend(NamedBuildTarget.iOS) == ScriptingImplementation.IL2CPP &&
+                !PlayerSettings.allowedAutorotateToPortrait &&
+                !PlayerSettings.allowedAutorotateToPortraitUpsideDown;
+            if (settingsOk) return;
+
+            IOSProjectSetup.Apply(null, saveAssets: true);
+            throw new BuildFailedException("iOS Player Settings were not applied, so they have been applied now. " +
+                                           "Start the build again (or use Tower Defense > iOS > Build).");
         }
     }
 
@@ -117,17 +126,17 @@ namespace TowerDefense.BuildTools
             try
             {
                 string[] manifests = Directory.GetFiles(projectPath, "PrivacyInfo.xcprivacy", SearchOption.AllDirectories);
-                bool declaresNoTracking = false;
+                // Unity writes its own engine manifest too, so only a copy of ours (under the
+                // exported Libraries/Plugins folder) proves the game's declarations shipped.
+                bool ours = false;
                 foreach (string m in manifests)
-                {
-                    string text = File.ReadAllText(m);
-                    if (text.Contains("NSPrivacyTracking")) declaresNoTracking = true;
-                }
-                if (manifests.Length == 0 || !declaresNoTracking)
-                    Debug.LogWarning("[Build] No privacy manifest found in the Xcode project. Add Assets/Plugins/iOS/PrivacyInfo.xcprivacy " +
-                                     "to the UnityFramework target (see Docs/IOS_BUILD.md) before uploading.");
+                    if (m.Replace('\\', '/').Contains("/Plugins/")) ours = true;
+                if (!ours)
+                    Debug.LogWarning("[Build] The game's PrivacyInfo.xcprivacy (Assets/Plugins/iOS) was not found in the Xcode project. " +
+                                     "Select it in Unity and tick iOS in the plugin Inspector, or add it to the UnityFramework target " +
+                                     "(see Docs/IOS_BUILD.md) before uploading.");
                 else
-                    Debug.Log("[Build] Privacy manifest present (" + manifests.Length + " file(s)).");
+                    Debug.Log("[Build] Game privacy manifest present (" + manifests.Length + " manifest file(s) in total).");
             }
             catch (Exception e)
             {

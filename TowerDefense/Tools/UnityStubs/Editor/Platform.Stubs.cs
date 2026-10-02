@@ -10,11 +10,14 @@ namespace UnityEditor
         public static UnityEngine.Object[] LoadAllAssetsAtPath(string assetPath) => null;
     }
 
-    public enum iOSAppInBackgroundBehavior { Custom = -1, Suspend = 0, Exit = 1 }
+    public enum iOSAppInBackgroundBehavior { Custom = -1, Suspend = 0, [System.Obsolete("Exit is no longer supported on iOS", true)] Exit = 1 }
+    public enum InsecureHttpOption { NotAllowed = 0, DevelopmentOnly = 1, AlwaysAllowed = 2 }
 
     public static partial class PlayerSettings
     {
         public static bool muteOtherAudioSources { get; set; }
+        public static InsecureHttpOption insecureHttpOption { get; set; }
+        public static ScriptingImplementation GetScriptingBackend(UnityEditor.Build.NamedBuildTarget buildTarget) => default;
         public static int accelerometerFrequency { get; set; }
         public static bool useAnimatedAutorotation { get; set; }
         public static void SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget buildTarget, string identifier) { }

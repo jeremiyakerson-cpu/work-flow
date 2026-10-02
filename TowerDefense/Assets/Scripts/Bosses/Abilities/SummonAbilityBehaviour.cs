@@ -10,6 +10,8 @@ namespace TowerDefense.Bosses
         private float cooldownLeft;
         // Allocated once per spawn of the summoner, pruned in place.
         private readonly List<Enemy> minions = new List<Enemy>(12);
+        // SpawnId per minion: a pooled minion recycled as another enemy must stop counting.
+        private readonly List<int> minionIds = new List<int>(12);
 
         public int MinionsAlive
         {
@@ -25,6 +27,7 @@ namespace TowerDefense.Bosses
             base.Bind(owner, data);
             config = data as SummonAbility;
             minions.Clear();
+            minionIds.Clear();
             cooldownLeft = config != null ? config.initialDelay : 0f;
         }
 
@@ -63,6 +66,7 @@ namespace TowerDefense.Bosses
                 Enemy m = AbilitySpawner.Spawn(config.minion, path, waypoint, pos, health, speed, reward);
                 if (m == null) continue;
                 minions.Add(m);
+                minionIds.Add(m.SpawnId);
                 spawned++;
             }
             if (spawned > 0) RaiseTriggered();
@@ -70,9 +74,16 @@ namespace TowerDefense.Bosses
 
         private void PruneDead()
         {
-            // Unity's == null is true for destroyed enemies; IsDead covers pooled ones.
+            // Unity's == null is true for destroyed enemies; IsDead and SpawnId cover pooled ones.
             for (int i = minions.Count - 1; i >= 0; i--)
-                if (minions[i] == null || minions[i].IsDead) minions.RemoveAt(i);
+            {
+                Enemy m = minions[i];
+                if (m == null || m.IsDead || m.SpawnId != minionIds[i])
+                {
+                    minions.RemoveAt(i);
+                    minionIds.RemoveAt(i);
+                }
+            }
         }
     }
 }

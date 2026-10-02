@@ -118,7 +118,7 @@ namespace TowerDefense.BuildTools
 
             // Offline: no persistent Wi-Fi, no plain-HTTP exception in Info.plist.
             PlayerSettings.iOS.requiresPersistentWiFi = false;
-            PlayerSettings.iOS.allowHTTPDownload = false;
+            PlayerSettings.insecureHttpOption = InsecureHttpOption.NotAllowed;
         }
 
         /// <summary>

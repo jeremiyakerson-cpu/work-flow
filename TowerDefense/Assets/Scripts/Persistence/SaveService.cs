@@ -178,11 +178,14 @@ namespace TowerDefense.Persistence
             return outcome;
         }
 
-        /// <summary>Record an endless run. Returns true on a new best wave.</summary>
-        public bool RecordEndlessResult(int wave)
+        /// <summary>
+        /// Record an endless run. Returns true on a new best wave. Pass countGame = false
+        /// when RecordLevelResult already counted this run for its map.
+        /// </summary>
+        public bool RecordEndlessResult(int wave, bool countGame = true)
         {
             wave = SaveValidator.Clamp(wave, 0, SaveValidator.MaxWave);
-            Data.stats.gamesPlayed++;
+            if (countGame) Data.stats.gamesPlayed++;
             bool best = wave > Data.endlessBestWave;
             if (best) Data.endlessBestWave = wave;
             MarkDirty();

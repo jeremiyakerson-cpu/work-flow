@@ -133,6 +133,16 @@ namespace TowerDefense.PlatformTests
         }
 
         [Test]
+        public void EndlessRun_RecordedPerMapAndGlobally_CountsOneGame()
+        {
+            service.RecordLevelResult("meadow_endless", 0, 17);
+            Assert.IsTrue(service.RecordEndlessResult(17, countGame: false));
+            Assert.AreEqual(17, service.GetBestWave("meadow_endless"));
+            Assert.AreEqual(17, service.EndlessBestWave);
+            Assert.AreEqual(1, service.Data.stats.gamesPlayed);
+        }
+
+        [Test]
         public void Tutorials_AreRememberedOnce()
         {
             Assert.IsFalse(service.IsTutorialSeen("build"));

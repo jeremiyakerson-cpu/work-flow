@@ -45,6 +45,8 @@ namespace TowerDefense.App
         private GameHud hud;
         private TouchInputController input;
         private bool resultShown;
+        private bool endlessRecorded;
+        private int lastEndlessWaves;
 
 #if !TD_SANDBOX && !TD_NO_APP_AUTOBOOT
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -106,6 +108,8 @@ namespace TowerDefense.App
                 footer = $"{progression.TotalStars()} / {progression.MaxStars} stars",
                 onPlayCampaign = ShowCampaignSelect,
                 onEndless = ShowEndlessSelect,
+                // Rebuild the menu on close so the star total reflects a progress reset.
+                onSettings = () => MenuScreens.ShowSettings(settings, ShowMainMenu),
                 settings = settings,
             });
         }
@@ -168,12 +172,13 @@ namespace TowerDefense.App
             MenuScreens.CloseAll();
             level = data;
             resultShown = false;
+            endlessRecorded = false;
+            lastEndlessWaves = 0;
 
             levelRoot = new GameObject("[Level] " + data.id);
             Transform root = levelRoot.transform;
 
             map = MapView.Build(data, root);
-            GameplayFx.Bind(root);
             CameraSetup.Frame(cam, data.worldSize);
 
             // AddComponent runs Awake immediately (sets Instance); autoStart off so
@@ -185,6 +190,7 @@ namespace TowerDefense.App
             waves.autoStart = false;
             waves.ApplyLevel(data);
             game.Configure(data.startingGold, data.startingLives);
+            GameplayFx.Bind(root); // after WaveManager exists, so FX attach to this level's waves
 
             RuntimeTemplates.SpawnSlots(data, root);
             hero = RuntimeTemplates.SpawnHero(data.heroStart, root);
@@ -225,6 +231,7 @@ namespace TowerDefense.App
         {
             if (resultShown || game == null) return;
             resultShown = true;
+            MarkTutorialSeenIfFirstLevel();
             int stars = game.Stars;
             LevelResultOutcome outcome = save.RecordLevelResult(level.id, stars, waves.CurrentWave);
             save.Flush();
@@ -252,11 +259,11 @@ namespace TowerDefense.App
         {
             if (resultShown || game == null) return;
             resultShown = true;
-            int wave = waves.CurrentWave;
+            MarkTutorialSeenIfFirstLevel();
             bool endless = level.IsEndless;
             int previousBest = save.GetBestWave(level.id);
-            save.RecordLevelResult(level.id, 0, wave);
-            if (endless) save.RecordEndlessResult(wave);
+            int wave = endless ? RecordEndlessRun() : waves.CurrentWave;
+            if (!endless) save.RecordLevelResult(level.id, 0, wave);
             save.Flush();
 
             MenuScreens.ShowDefeat(new ResultsData
@@ -278,6 +285,27 @@ namespace TowerDefense.App
             });
         }
 
+        /// <summary>
+        /// Save an endless run once (defeat, restart or quit) and return waves survived:
+        /// the wave in progress when the run ended doesn't count.
+        /// </summary>
+        private int RecordEndlessRun()
+        {
+            if (endlessRecorded || waves == null) return lastEndlessWaves;
+            endlessRecorded = true;
+            bool waveUnfinished = waves.WaveInProgress || waves.EnemiesAlive > 0;
+            lastEndlessWaves = Mathf.Max(0, waveUnfinished ? waves.CurrentWave - 1 : waves.CurrentWave);
+            save.RecordLevelResult(level.id, 0, lastEndlessWaves);
+            save.RecordEndlessResult(lastEndlessWaves, countGame: false);
+            return lastEndlessWaves;
+        }
+
+        private void MarkTutorialSeenIfFirstLevel()
+        {
+            if (catalog.CampaignLevels.Count > 0 && catalog.CampaignLevels[0] == level)
+                save.MarkTutorialSeen(FirstLevelTutorialId);
+        }
+
         private LevelData NextCampaignLevel(LevelData current)
         {
             if (current == null || current.IsEndless) return null;
@@ -294,6 +322,8 @@ namespace TowerDefense.App
         /// <summary>Destroy everything the current level created. Safe to call when no level is loaded.</summary>
         private void TeardownLevel()
         {
+            // An endless run abandoned from the pause menu still counts toward the best wave.
+            if (level != null && level.IsEndless && waves != null && waves.CurrentWave > 0) RecordEndlessRun();
             if (game != null)
             {
                 game.VictoryTriggered -= OnVictory;
