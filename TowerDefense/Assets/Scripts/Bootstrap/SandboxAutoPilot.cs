@@ -76,19 +76,17 @@ namespace TowerDefense.Bootstrap
             {
                 i++;
                 Tower t = slot != null ? slot.GetBuiltTower() : null;
-                if (t == null || !t.CanUpgrade()) continue;
-                switch (t.upgradeLevel)
+                if (t == null || t.IsMaxLevel) continue;
+                if (t.CanUpgrade())
                 {
-                    case 1:
-                        if (gm.CanAfford(t.NextUpgradeCost()) && t.Upgrade()) return;
-                        break;
-                    case 2:
-                        var path = (i & 1) == 0 ? Tower.UpgradePath.PathA : Tower.UpgradePath.PathB;
-                        if (gm.CanAfford(t.BranchCost(path)) && t.ChooseBranch(path)) return;
-                        break;
-                    case 3:
-                        if (gm.CanAfford(t.NextUpgradeCost()) && t.UpgradeFinal()) return;
-                        break;
+                    // Levels 1->2 and 2->3: plain linear upgrades.
+                    if (gm.CanAfford(t.NextUpgradeCost()) && t.Upgrade()) return;
+                }
+                else if (t.CanSpecialize)
+                {
+                    // Level 3->4: alternate the two specializations across slots.
+                    var path = (i & 1) == 0 ? Tower.UpgradePath.PathA : Tower.UpgradePath.PathB;
+                    if (gm.CanAfford(t.BranchCost(path)) && t.ChooseBranch(path)) return;
                 }
             }
         }

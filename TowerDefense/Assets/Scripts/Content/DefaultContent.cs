@@ -51,125 +51,35 @@ namespace TowerDefense.Content
 
         // ================================================================ towers
 
+        // Numbers and names live in the engine-free TowerBalance table so the
+        // balance rules (cost curve, monotonic DPS) are unit-tested on plain .NET.
         private static List<TowerData> BuildTowers(List<Object> created)
         {
             var list = new List<TowerData>();
-
-            // Archer: cheap, fast, single target, hits air. Falls off against heavy armor.
-            var archer = Tower(created, ContentIds.Archer, "Archer Tower",
-                "Fast volleys of arrows. Cheap, reliable, hits flyers. Weak against heavy armor.",
-                DamageType.Physical, range: 4.5f, fireRate: 1.4f, damage: 4f, cost: 70);
-            Linear(archer, cost: 50, dmg: 1.4f, range: 1.1f, rate: 1.15f);
-            BranchA(archer, "Marksmen", dmg: 2.0f, range: 1.25f, cost: 110);
-            BranchB(archer, "Volley Rangers", rate: 1.7f, slow: false, cost: 100);
-            Final(archer, dmg: 1.35f, rate: 1.15f, cost: 160);
-            list.Add(archer);
-
-            // Mage: slow, heavy magic bolts that ignore armor and deal +25% to heavy armor.
-            var mage = Tower(created, ContentIds.Mage, "Mage Tower",
-                "Arcane bolts ignore armor and scorch heavily armored foes. Slow to fire.",
-                DamageType.Magic, range: 4.0f, fireRate: 0.6f, damage: 11f, cost: 100);
-            Linear(mage, cost: 70, dmg: 1.45f, range: 1.1f, rate: 1.1f);
-            BranchA(mage, "Archmage", dmg: 2.0f, range: 1.2f, cost: 150);
-            BranchB(mage, "Arcane Barrage", rate: 1.8f, slow: false, cost: 140);
-            Final(mage, dmg: 1.4f, rate: 1.15f, cost: 220);
-            list.Add(mage);
-
-            // Artillery: splash, ground only. Clears packs; can't touch flyers.
-            var artillery = Tower(created, ContentIds.Artillery, "Artillery",
-                "Lobs explosive shells that hit everything in the blast. Cannot target flyers.",
-                DamageType.Physical, range: 4.2f, fireRate: 0.4f, damage: 14f, cost: 120);
-            artillery.splashRadius = 1.5f;
-            artillery.canTargetFlying = false;
-            Linear(artillery, cost: 80, dmg: 1.45f, range: 1.1f, rate: 1.1f);
-            BranchA(artillery, "Big Bertha", dmg: 2.0f, range: 1.2f, cost: 170);
-            BranchB(artillery, "Mortar Battery", rate: 1.7f, slow: false, cost: 160);
-            Final(artillery, dmg: 1.4f, rate: 1.15f, cost: 250);
-            list.Add(artillery);
-
-            // Frost: low damage, strong slow. Force multiplier for every other tower.
-            var frost = Tower(created, ContentIds.Frost, "Frost Spire",
-                "Freezing shards slow enemies to a crawl, buying time for your other towers.",
-                DamageType.Magic, range: 3.8f, fireRate: 1.0f, damage: 2.5f, cost: 90);
-            frost.appliesSlow = true;
-            frost.slowMultiplier = 0.55f;
-            frost.slowDuration = 1.6f;
-            Linear(frost, cost: 60, dmg: 1.4f, range: 1.1f, rate: 1.15f);
-            BranchA(frost, "Glacier Spire", dmg: 2.2f, range: 1.3f, cost: 120);
-            BranchB(frost, "Blizzard", rate: 1.8f, slow: true, cost: 120);
-            Final(frost, dmg: 1.4f, rate: 1.2f, cost: 180);
-            list.Add(frost);
-
-            // Alchemist: poison flasks with a small splash. Poison ignores armor and stops regeneration.
-            var alchemist = Tower(created, ContentIds.Alchemist, "Alchemist Lab",
-                "Hurls poison flasks: damage over time that ignores armor and stops trolls regenerating.",
-                DamageType.Poison, range: 4.0f, fireRate: 0.8f, damage: 3f, cost: 100);
-            alchemist.splashRadius = 1.0f;
-            alchemist.appliesPoison = true;
-            alchemist.poisonDps = 4f;
-            alchemist.poisonDuration = 4f;
-            // Used by the Acid Rain branch (pathBAppliesSlow): sticky acid, mild slow.
-            alchemist.slowMultiplier = 0.75f;
-            alchemist.slowDuration = 1f;
-            Linear(alchemist, cost: 70, dmg: 1.4f, range: 1.1f, rate: 1.1f);
-            BranchA(alchemist, "Plague Doctor", dmg: 2.0f, range: 1.2f, cost: 140);
-            BranchB(alchemist, "Acid Rain", rate: 1.7f, slow: true, cost: 130);
-            Final(alchemist, dmg: 1.35f, rate: 1.15f, cost: 200);
-            list.Add(alchemist);
-
+            foreach (TowerBalanceEntry entry in TowerBalance.Create())
+                list.Add(Tower(created, entry));
             return list;
         }
 
-        private static TowerData Tower(List<Object> created, string id, string name, string description,
-                                       DamageType type, float range, float fireRate, float damage, int cost)
+        private static TowerData Tower(List<Object> created, TowerBalanceEntry e)
         {
             var t = Track(created, ScriptableObject.CreateInstance<TowerData>());
-            t.name = id;
-            t.id = id;
-            t.towerName = name;
-            t.description = description;
-            t.damageType = type;
-            t.range = range;
-            t.fireRate = fireRate;
-            t.damage = damage;
-            t.baseCost = cost;
-            t.canTargetGround = true;
-            t.canTargetFlying = true;
-            t.splashRadius = 0f;
-            t.appliesSlow = false;
-            t.appliesPoison = false;
+            t.name = e.Id;
+            t.id = e.Id;
+            t.towerName = e.Name;
+            t.description = e.Description;
+            t.damageType = e.DamageType;
+            t.canTargetGround = e.CanTargetGround;
+            t.canTargetFlying = e.CanTargetFlying;
+            t.slowMultiplier = e.SlowMultiplier;
+            t.slowDuration = e.SlowDuration;
+            t.poisonDuration = e.PoisonDuration;
+            t.pathAName = e.PathAName;
+            t.pathADescription = e.PathADescription;
+            t.pathBName = e.PathBName;
+            t.pathBDescription = e.PathBDescription;
+            t.ApplyUpgradeSpec(e.Spec);
             return t;
-        }
-
-        private static void Linear(TowerData t, int cost, float dmg, float range, float rate)
-        {
-            t.level2Cost = cost;
-            t.level2DamageMult = dmg;
-            t.level2RangeMult = range;
-            t.level2FireRateMult = rate;
-        }
-
-        private static void BranchA(TowerData t, string name, float dmg, float range, int cost)
-        {
-            t.pathAName = name;
-            t.pathADamageMult = dmg;
-            t.pathARangeMult = range;
-            t.pathACost = cost;
-        }
-
-        private static void BranchB(TowerData t, string name, float rate, bool slow, int cost)
-        {
-            t.pathBName = name;
-            t.pathBFireRateMult = rate;
-            t.pathBAppliesSlow = slow;
-            t.pathBCost = cost;
-        }
-
-        private static void Final(TowerData t, float dmg, float rate, int cost)
-        {
-            t.level4DamageMult = dmg;
-            t.level4FireRateMult = rate;
-            t.level4Cost = cost;
         }
 
         // ================================================================ enemies

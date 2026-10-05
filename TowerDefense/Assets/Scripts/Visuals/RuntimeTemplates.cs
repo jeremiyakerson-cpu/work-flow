@@ -185,7 +185,7 @@ namespace TowerDefense.Visuals
             return go;
         }
 
-        /// <summary>Tower template: base, turret (with firePoint), accent pennants, level pips, TowerVisual.</summary>
+        /// <summary>Tower template: base, turret (with firePoint), accent pennants, 3 level pips, elite crown + aura, TowerVisual.</summary>
         public static GameObject BuildTowerTemplate(TowerData data)
         {
             if (data != null && Towers.TryGetValue(data, out var cached) && cached != null) return cached;
@@ -198,17 +198,24 @@ namespace TowerDefense.Visuals
 
             const float lift = 0.2f;
             Transform body = VisualBuilder.Child(go.transform, "Body", Vector3.zero);
+            // Elite aura behind everything; tinted by the chosen specialization at level 4.
+            SpriteRenderer eliteAura = VisualBuilder.Sprite(body, "EliteAura", SpriteFactory.SoftGlow, 9, new Vector3(0f, lift, 0f), 2.7f);
+            eliteAura.enabled = false;
             VisualBuilder.Sprite(body, "Base", SpriteFactory.TowerBase(kind), 10, new Vector3(0f, lift, 0f));
             SpriteRenderer accent = VisualBuilder.Sprite(body, "Accent", SpriteFactory.TowerAccent(kind), 11, new Vector3(0f, lift, 0f));
             accent.enabled = false;
 
-            var pips = new SpriteRenderer[4];
+            // Three linear-level pips, then a crown slot for the specialization (mirrors the menu).
+            var pips = new SpriteRenderer[Tower.MaxLinearLevel];
             for (int i = 0; i < pips.Length; i++)
             {
                 float x = (i - 1.5f) * 0.25f;
                 pips[i] = VisualBuilder.Sprite(body, "Pip" + (i + 1), SpriteFactory.Pip, 12, new Vector3(x, lift - 0.66f, 0f), 0.55f);
                 pips[i].enabled = false;
             }
+            SpriteRenderer eliteCrown = VisualBuilder.Sprite(body, "EliteCrown", SpriteFactory.Crown, 13,
+                                                             new Vector3(0.47f, lift - 0.62f, 0f), 0.42f, Palette.Gold);
+            eliteCrown.enabled = false;
 
             Transform turret = VisualBuilder.Child(body, "Turret", new Vector3(0f, lift + ShapeArt.TurretMountY(kind), 0f));
             Transform turretSprite = VisualBuilder.Sprite(turret, "TurretSprite", SpriteFactory.TowerTurret(kind), 20, Vector3.zero).transform;
@@ -219,7 +226,7 @@ namespace TowerDefense.Visuals
 
             var visual = go.AddComponent<TowerVisual>();
             bool rotates = kind != TowerArtKind.Mage;
-            visual.Setup(tower, group, body, turret, turretSprite, muzzle, accent, pips, rotates);
+            visual.Setup(tower, group, body, turret, turretSprite, muzzle, accent, pips, eliteCrown, eliteAura, rotates);
 
             if (data != null) Towers[data] = go;
             return go;

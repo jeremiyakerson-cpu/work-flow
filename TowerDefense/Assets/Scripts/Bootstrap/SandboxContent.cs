@@ -41,7 +41,10 @@ namespace TowerDefense.Bootstrap
             artillery.splashRadius = 1.2f;
             artillery.canTargetFlying = false;
             artillery.pathAName = "Big Bertha";
+            artillery.pathADescription = "Huge shells, huge blast.";
             artillery.pathBName = "Rapid Mortar";
+            artillery.pathBDescription = "Fires twice as often.";
+            artillery.pathASplashBonus = 0.5f;
             c.Towers.Add(artillery);
 
             // --- Enemies -----------------------------------------------------------
@@ -122,10 +125,10 @@ namespace TowerDefense.Bootstrap
             t.fireRate = rate;
             t.damage = dmg;
             t.baseCost = cost;
-            t.level2Cost = Mathf.RoundToInt(cost * 0.6f);
-            t.pathACost = Mathf.RoundToInt(cost * 1.1f);
-            t.pathBCost = Mathf.RoundToInt(cost * 1.1f);
-            t.level4Cost = Mathf.RoundToInt(cost * 1.8f);
+            t.level2Cost = Mathf.RoundToInt(cost * 0.8f);
+            t.level3Cost = Mathf.RoundToInt(cost * 1.1f);
+            t.pathACost = Mathf.RoundToInt(cost * 1.6f);
+            t.pathBCost = Mathf.RoundToInt(cost * 1.6f);
             return t;
         }
 

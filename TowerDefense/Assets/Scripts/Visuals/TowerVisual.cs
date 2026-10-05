@@ -5,9 +5,12 @@ namespace TowerDefense.Visuals
 {
     /// <summary>
     /// Presentation for a built tower: turret tracks <see cref="Tower.CurrentTarget"/>,
-    /// recoils and flashes when this tower fires, shows level pips, tints its
-    /// pennants with the chosen branch colour, grows slightly per level and
-    /// pops in when built. Pure presentation: never touches combat state.
+    /// recoils and flashes when this tower fires and pops in when built.
+    /// Upgrades read at a glance: three level pips, a size step per level and
+    /// pennants that go cream (L2) then gold (L3). The specialization (L4) is
+    /// the elite look: pennants in the branch colour, a gold crown next to the
+    /// pips, a pulsing branch-coloured aura and the biggest size step.
+    /// Pure presentation: never touches combat state.
     /// </summary>
     public sealed class TowerVisual : MonoBehaviour
     {
@@ -19,6 +22,8 @@ namespace TowerDefense.Visuals
         [SerializeField] private SpriteRenderer muzzle;
         [SerializeField] private SpriteRenderer accent;
         [SerializeField] private SpriteRenderer[] pips;
+        [SerializeField] private SpriteRenderer eliteCrown;
+        [SerializeField] private SpriteRenderer eliteAura;
         [SerializeField] private bool rotateTurret = true;
         [SerializeField] private float turnSpeed = 540f;
         [SerializeField] private float recoilDistance = 0.12f;
@@ -28,6 +33,13 @@ namespace TowerDefense.Visuals
         private const float RecoilDuration = 0.16f;
         private const float MuzzleDuration = 0.08f;
         private const float PulseDuration = 0.4f;
+        private const float AuraAlpha = 0.42f;
+        private const float AuraPulse = 0.14f;
+        private const float AuraSpeed = 2.6f;
+
+        // Body scale per level (index = level): a visible jump each step, biggest for the elite.
+        private static readonly float[] LevelScale = { 1f, 1f, 1.08f, 1.16f, 1.27f };
+        private static readonly Color Level2Accent = new Color(0.95f, 0.92f, 0.85f, 1f);
 
         private float popTimer;
         private float recoilTimer;
@@ -40,7 +52,8 @@ namespace TowerDefense.Visuals
 
         /// <summary>Wire references (template builder only).</summary>
         internal void Setup(Tower owner, SortingGroup sortingGroup, Transform bodyRoot, Transform turretPivot, Transform turretVisual,
-                            SpriteRenderer muzzleFlash, SpriteRenderer accentRenderer, SpriteRenderer[] levelPips, bool rotates)
+                            SpriteRenderer muzzleFlash, SpriteRenderer accentRenderer, SpriteRenderer[] levelPips,
+                            SpriteRenderer crown, SpriteRenderer aura, bool rotates)
         {
             tower = owner;
             group = sortingGroup;
@@ -50,6 +63,8 @@ namespace TowerDefense.Visuals
             muzzle = muzzleFlash;
             accent = accentRenderer;
             pips = levelPips;
+            eliteCrown = crown;
+            eliteAura = aura;
             rotateTurret = rotates;
         }
 
@@ -108,8 +123,7 @@ namespace TowerDefense.Visuals
             // Pop-in with overshoot, then a gentle pulse on upgrade.
             if (body != null)
             {
-                float levelScale = 1f + 0.06f * Mathf.Max(0, (tower != null ? tower.upgradeLevel : 1) - 1);
-                float s = levelScale;
+                float s = ScaleForLevel(tower != null ? tower.upgradeLevel : 1);
                 if (popTimer < PopDuration)
                 {
                     popTimer += udt;
@@ -145,7 +159,13 @@ namespace TowerDefense.Visuals
                 VisualBuilder.SetVisible(muzzle, on);
                 if (on) VisualBuilder.SetAlpha(muzzle, Mathf.Clamp01(muzzleTimer / MuzzleDuration));
             }
+
+            // Elite aura breathes with game time (freezes on pause like the rest of the world).
+            if (eliteAura != null && eliteAura.enabled)
+                VisualBuilder.SetAlpha(eliteAura, AuraAlpha + AuraPulse * Mathf.Sin(Time.time * AuraSpeed));
         }
+
+        private static float ScaleForLevel(int level) => LevelScale[Mathf.Clamp(level, 0, LevelScale.Length - 1)];
 
         private float AngleTo(Vector3 worldTarget)
         {
@@ -158,14 +178,26 @@ namespace TowerDefense.Visuals
             if (tower == null) return;
             shownLevel = tower.upgradeLevel;
             shownPath = tower.chosenPath;
+            bool elite = tower.IsSpecialized;
             if (pips != null)
                 for (int i = 0; i < pips.Length; i++)
                     if (pips[i] != null) pips[i].enabled = i < shownLevel;
             if (accent != null)
             {
-                bool branched = shownPath != Tower.UpgradePath.None;
-                accent.enabled = branched || shownLevel >= 2;
-                accent.color = Palette.BranchColor(shownPath, new Color(0.95f, 0.92f, 0.85f, 1f));
+                accent.enabled = elite || shownLevel >= 2;
+                Color levelColor = shownLevel >= Tower.MaxLinearLevel ? Palette.Gold : Level2Accent;
+                accent.color = elite ? Palette.BranchColor(shownPath, levelColor) : levelColor;
+            }
+            if (eliteCrown != null) eliteCrown.enabled = elite;
+            if (eliteAura != null)
+            {
+                eliteAura.enabled = elite;
+                if (elite)
+                {
+                    Color c = Palette.BranchColor(shownPath, Palette.Gold);
+                    c.a = AuraAlpha;
+                    eliteAura.color = c;
+                }
             }
         }
 

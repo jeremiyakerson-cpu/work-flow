@@ -19,28 +19,86 @@ to `Assets/Content/Generated/` for Inspector tuning; load them with
 
 ## Towers
 
-DPS is single-target, unupgraded → fully upgraded (branch A / B). Branch A
-always raises damage+range, branch B fire rate (Tower.cs rules).
+The numbers live in the engine-free table `Content/TowerBalance.cs`;
+`DefaultContent` copies each entry into a `TowerData`
+(`TowerData.ApplyUpgradeSpec`). `Tools/ContentTests/TowerBalanceTests.cs`
+checks the rules below against those exact numbers.
 
-| id | Name | Type | Cost | Range | Rate | Dmg | DPS L1 → A4 / B4 | Branch A | Branch B | Role |
-|---|---|---|---|---|---|---|---|---|---|---|
-| archer | Archer Tower | Physical | 70 | 4.5 | 1.4 | 4 | 5.6 → 28 / 24 | Marksmen | Volley Rangers | Cheap, fast, hits air; poor vs Heavy |
-| mage | Mage Tower | Magic | 100 | 4.0 | 0.6 | 11 | 6.6 → 34 / 31 | Archmage | Arcane Barrage | The Heavy-armor answer (×1.25) |
-| artillery | Artillery | Physical, splash 1.5 | 120 | 4.2 | 0.4 | 14 | 5.6/target → 29 / 24 | Big Bertha | Mortar Battery | Packs; **ground only** |
-| frost | Frost Spire | Magic, slow 0.55×1.6s | 90 | 3.8 | 1.0 | 2.5 | 2.5 → 15 / 12 | Glacier Spire | Blizzard | Force multiplier for every other tower |
-| alchemist | Alchemist Lab | Poison, splash 1.0, 4 dps × 4s | 100 | 4.0 | 0.8 | 3 | 2.4 + 4 poison → 11.5 / 9.8 + 4 | Plague Doctor | Acid Rain (adds 0.75× slow) | Ignores armor, stops regeneration |
+### Upgrade model
 
-Upgrade costs (L2 / A / B / L4): archer 50/110/100/160, mage 70/150/140/220,
-artillery 80/170/160/250, frost 60/120/120/180, alchemist 70/140/130/200.
-A fully upgraded tower costs ~4–5× its base price, so a level's gold buys
-a few maxed towers plus a spread of level-1/2 ones.
+KR style: **build (L1) → L2 → L3 → specialization (L4)**.
+
+- L1 → L2 and L2 → L3 are plain upgrades with no choice (`Tower.Upgrade()`).
+  Each one multiplies damage, range and fire rate. Poison towers also multiply
+  `poisonDps` (`levelNPoisonMult`), and splash towers add to `splashRadius`
+  (`levelNSplashBonus`, in world units).
+- At L3 the player picks one of two named elite variants
+  (`Tower.ChooseBranch(PathA|PathB)`). The branch applies its own multipliers
+  and bonuses on top of L3 and may grant slow (`pathXAppliesSlow`) or splash
+  (a splash bonus on a single-target tower). This is the capstone: nothing
+  comes after it.
+- Branch A is always the **damage and range** elite (bigger hits, longer
+  reach). Branch B is the **fire-rate and utility** elite (faster, plus area,
+  slow or poison spread).
+- Cost curve: build < L2 < L3 < specialization. Each step costs more than the
+  last, and the specialization is the most expensive. A specialized tower
+  costs about 5.6–6× its build price in total. Selling refunds 70% of
+  everything invested.
+- Power curve: about ×1.55 total DPS per linear step, then ×1.4–2.3 for the
+  specialization (tests require ≥ ×1.35 and ≥ ×1.4).
+
+### Base stats (L1)
+
+| id | Name | Type | Build | Range | Rate | Dmg | DPS | Extras | Role |
+|---|---|---|---|---|---|---|---|---|---|
+| archer | Archer Tower | Physical | 70 | 4.5 | 1.4 | 4 | 5.6 | — | Cheap, fast, hits air; poor vs Heavy |
+| mage | Mage Tower | Magic | 100 | 4.0 | 0.6 | 11 | 6.6 | — | The Heavy-armor answer (×1.25) |
+| artillery | Artillery | Physical | 120 | 4.2 | 0.4 | 14 | 5.6/target | splash 1.5, **ground only** | Pack clearer |
+| frost | Frost Spire | Magic | 90 | 3.8 | 1.0 | 2.5 | 2.5 | slow 0.55× for 1.6s | Force multiplier for every other tower |
+| alchemist | Alchemist Lab | Poison | 100 | 4.0 | 0.8 | 3 | 2.4 + 4 poison | splash 1.0, poison 4s | Ignores armor, stops regeneration |
+
+### Upgrade costs
+
+| id | L2 | L3 | Spec A | Spec B | Total (A / B) |
+|---|---|---|---|---|---|
+| archer | 80 | 110 | 160 | 150 | 420 / 410 |
+| mage | 110 | 150 | 220 | 210 | 580 / 570 |
+| artillery | 130 | 180 | 260 | 250 | 690 / 680 |
+| frost | 100 | 130 | 190 | 180 | 510 / 500 |
+| alchemist | 110 | 150 | 220 | 210 | 580 / 570 |
+
+### Stats per level
+
+Single-target DPS = damage × rate, before resistances. "+p" is poison DPS on
+one target (poison refreshes and never stacks).
+
+| id | L1 | L2 | L3 | Spec A | Spec B |
+|---|---|---|---|---|---|
+| archer | 4 dmg, 1.4/s, r4.5: **5.6** | 5.4, 1.61/s, r4.86: **8.7** | 7.3, 1.85/s, r5.25: **13.5** | 14.6, 1.85/s, r6.3: **27.0** | 7.3, 3.43/s, r5.25: **25.0** |
+| mage | 11, 0.6/s, r4.0: **6.6** | 15.4, 0.66/s, r4.32: **10.2** | 21.6, 0.73/s, r4.67: **15.7** | 43.1, 0.73/s, r5.37: **31.3** | 21.6, 1.38/s, r4.67: **29.7** |
+| artillery | 14, 0.4/s, r4.2, splash 1.5: **5.6** | 19.6, 0.44/s, r4.45, splash 1.65: **8.6** | 27.4, 0.48/s, r4.72, splash 1.8: **13.3** | 54.9, 0.48/s, r5.19, splash 2.4: **26.6** | 27.4, 0.87/s, r4.72, splash 1.9: **23.9** |
+| frost | 2.5, 1.0/s, r3.8: **2.5** | 3.5, 1.1/s, r4.1: **3.9** | 4.9, 1.21/s, r4.43: **5.9** | 10.8, 1.21/s, r5.32: **13.0** | 5.4, 1.57/s, r4.43, splash 1.2: **8.5** |
+| alchemist | 3, 0.8/s, r4.0, splash 1.0: **2.4 +4p** | 4.1, 0.88/s, r4.32, splash 1.1: **3.6 +5.6p** | 5.5, 0.97/s, r4.67, splash 1.2: **5.3 +7.8p** | 7.1, 0.97/s, r5.13, splash 1.2: **6.9 +15.7p** | 5.5, 1.45/s, r4.67, splash 1.7, slows: **7.9 +11.0p** |
+
+### Specializations (L4 elites)
+
+| Tower | A (damage/range) | B (rate/utility) |
+|---|---|---|
+| Archer | **Marksmen**: longbow snipers, heavy arrows (×2 dmg) and the longest reach (×1.2 range) | **Volley Rangers**: rapid volleys (×1.85 rate) that shred swarms and flyers |
+| Mage | **Archmage**: devastating blasts (×2 dmg, ×1.15 range); melts armored knights | **Arcane Barrage**: a torrent of rapid bolts (×1.9 rate) |
+| Artillery | **Big Bertha**: colossal shells (×2 dmg, ×1.1 range) and a huge blast (+0.6 splash) | **Mortar Battery**: rapid barrage (×1.8 rate, +0.1 splash) that pins packs |
+| Frost | **Glacier Spire**: long-range ice lances (×2.2 dmg, ×1.2 range) | **Blizzard**: gains a 1.2 area (splash slow) with ×1.3 rate and ×1.1 dmg; slows whole groups |
+| Alchemist | **Plague Doctor**: poison ×2, ×1.3 impact dmg, ×1.1 range | **Acid Rain**: wide splashes (+0.5), ×1.5 rate, poison ×1.4, adds a 0.75× slow |
 
 Design intent: every enemy archetype has a "right answer" and a "wrong
 answer" tower. Archers are gold-efficient on swarms but hopeless on knights;
-mages are the opposite. Artillery is the best pack-clearer but bats, wyverns
-and the drake fly over its shells. Frost does little damage itself but every
-slowed enemy spends longer in range of everything else. Poison ignores armor
-and resets regeneration, so it is the troll counter.
+mages are the opposite (a mage beats an archer against Heavy armor at every
+level and in every branch pairing, which is tested). Artillery is the best
+pack-clearer, but bats, wyverns and the drake fly over its shells. Frost does
+little damage itself (less than an archer at every linear level), but every
+slowed enemy spends longer in range of everything else, and Blizzard spreads
+that slow over an area. Poison ignores armor and resets regeneration, so it
+is the troll counter, and its DPS now grows with every upgrade.
 
 Visual hints: `ContentVisualHints.TowerTint(tower)` (TowerData has no tint
 field), `WantsProjectile(tower)` (artillery/alchemist need one for the
@@ -129,6 +187,9 @@ with stars on a locked level can't skip the chain.
 
 - `Tools/ContentTests/run.sh` (plain .NET): geometry math, every rule of the
   layout validator, every campaign and endless map validated with zero
-  errors and zero warnings, map-shape assertions, progression rules.
+  errors and zero warnings, map-shape assertions, progression rules, and the
+  tower balance rules (cost curve, strictly rising DPS L1 < L2 < L3 < either
+  specialization, power jump per step, poison/splash growth, role identities,
+  distinct elite names).
 - In Unity: `Tower Defense/Content/Validate Levels`, or
   `LevelValidator.Validate(level, rules, requirePrefabs)` at runtime.

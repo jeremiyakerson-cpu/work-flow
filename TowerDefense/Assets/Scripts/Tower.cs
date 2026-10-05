@@ -58,7 +58,19 @@ public class Tower : MonoBehaviour
     /// <summary>The enemy being shot at this frame, or null.</summary>
     public Enemy CurrentEnemy => currentEnemy;
     public bool IsInitialized => initialized;
-    public bool IsMaxLevel => upgradeLevel >= TowerUpgradeMath.MaxLevel;
+    /// <summary>Last level reached by plain Upgrade() calls; level 4 is the specialization.</summary>
+    public const int MaxLinearLevel = TowerUpgradeMath.MaxLinearLevel;
+    /// <summary>The specialized (elite) level. Nothing comes after it.</summary>
+    public const int MaxLevel = TowerUpgradeMath.MaxLevel;
+    public bool IsMaxLevel => upgradeLevel >= MaxLevel;
+    /// <summary>True once ChooseBranch has turned this tower into its elite variant (level 4).</summary>
+    public bool IsSpecialized => upgradeLevel >= MaxLevel && chosenPath != UpgradePath.None;
+    /// <summary>True at level 3 before a branch is chosen: ChooseBranch is the next (and last) step.</summary>
+    public bool CanSpecialize => initialized && upgradeLevel == MaxLinearLevel && chosenPath == UpgradePath.None;
+    /// <summary>Splash radius of the current level (0 = single target).</summary>
+    public float SplashRadius => stats.SplashRadius;
+    /// <summary>Poison damage per second of the current level (0 if the tower doesn't poison).</summary>
+    public float PoisonDps => stats.PoisonDps;
     /// <summary>Core-side view of chosenPath.</summary>
     public UpgradeBranch Branch => ToBranch(chosenPath);
 
@@ -190,14 +202,14 @@ public class Tower : MonoBehaviour
         {
             damage = stats.Damage,
             damageType = data.damageType,
-            splashRadius = data.splashRadius,
+            splashRadius = stats.SplashRadius,
             canTargetGround = data.canTargetGround,
             canTargetFlying = data.canTargetFlying,
             appliesSlow = stats.AppliesSlow,
             slowMultiplier = data.slowMultiplier,
             slowDuration = data.slowDuration,
             appliesPoison = stats.AppliesPoison,
-            poisonDps = data.poisonDps,
+            poisonDps = stats.PoisonDps,
             poisonDuration = data.poisonDuration,
         };
     }
@@ -256,52 +268,61 @@ public class Tower : MonoBehaviour
 
     // ---------------- Upgrades (curves in TowerData, math in Core) ----------------
 
-    public bool CanUpgrade() => initialized && upgradeLevel < TowerUpgradeMath.MaxLevel;
-    /// <summary>Gold for the next step; at level 2 the cheaper branch. 0 at max level.</summary>
+    /// <summary>True when another plain (linear) upgrade is available: level 1 or 2.</summary>
+    public bool CanUpgrade() => initialized && upgradeLevel < MaxLinearLevel;
+    /// <summary>Gold for the next linear upgrade (level 1 or 2). 0 at level 3 (use BranchCost) and level 4.</summary>
     public int NextUpgradeCost() => initialized ? TowerUpgradeMath.NextUpgradeCost(spec, upgradeLevel, ToBranch(chosenPath)) : 0;
-    /// <summary>Cost of the branch choice at level 2 (each branch can be priced separately).</summary>
-    public int BranchCost(UpgradePath path) => initialized ? TowerUpgradeMath.BranchCost(spec, ToBranch(path)) : 0;
+    /// <summary>Gold to specialize into <paramref name="path"/> at level 3 (each branch is priced separately). 0 for None.</summary>
+    public int BranchCost(UpgradePath path) =>
+        initialized && path != UpgradePath.None ? TowerUpgradeMath.BranchCost(spec, ToBranch(path)) : 0;
     /// <summary>Gold returned when sold: a fraction of everything spent on this tower.</summary>
     public int SellValue() => EconomyRules.SellRefund(totalInvested, sellRefundFraction);
-    /// <summary>Stats this tower would have after an upgrade (for upgrade-menu previews).</summary>
+    /// <summary>
+    /// Stats this tower would have at (level, path), for upgrade-menu previews. Exactly
+    /// TowerUpgradeMath.StatsAt, so it throws for unreachable states: pass None for
+    /// levels 1-3 and PathA/PathB for level 4.
+    /// </summary>
     public TowerStats PreviewStats(int level, UpgradePath path) => TowerUpgradeMath.StatsAt(spec, level, ToBranch(path));
 
-    /// <summary>Level 1->2: standard linear upgrade, no choice involved.</summary>
+    /// <summary>Designer name of a specialization (data.pathAName / pathBName), or "" for None.</summary>
+    public string BranchName(UpgradePath path)
+    {
+        if (data == null) return "";
+        return path == UpgradePath.PathA ? data.pathAName : path == UpgradePath.PathB ? data.pathBName : "";
+    }
+
+    /// <summary>One-line description of a specialization, or "" for None.</summary>
+    public string BranchDescription(UpgradePath path)
+    {
+        if (data == null) return "";
+        return path == UpgradePath.PathA ? data.pathADescription : path == UpgradePath.PathB ? data.pathBDescription : "";
+    }
+
+    /// <summary>Linear upgrade: level 1->2 or 2->3. No choice involved. False at level 3+ (specialize instead).</summary>
     public bool Upgrade()
     {
-        if (!initialized || upgradeLevel != 1) return false;
+        if (!CanUpgrade()) return false;
         if (!TrySpend(NextUpgradeCost())) return false;
 
-        upgradeLevel = 2;
+        upgradeLevel++;
         RecalculateStats();
         RaiseUpgraded();
         return true;
     }
 
     /// <summary>
-    /// Level 2->3: the KR-style specialization choice. Call with PathA or
-    /// PathB from your upgrade UI (show data.pathAName / data.pathBName as
-    /// button labels so the UI reads whatever the designer named the branch).
+    /// Level 3->4: the KR-style specialization, the tower's capstone. Call with
+    /// PathA or PathB from your upgrade UI (show data.pathAName / pathBName and
+    /// their descriptions so the UI reads whatever the designer named the branch).
+    /// Only valid at level 3.
     /// </summary>
     public bool ChooseBranch(UpgradePath path)
     {
-        if (!initialized || upgradeLevel != 2 || chosenPath != UpgradePath.None || path == UpgradePath.None) return false;
+        if (!CanSpecialize || (path != UpgradePath.PathA && path != UpgradePath.PathB)) return false;
         if (!TrySpend(BranchCost(path))) return false;
 
         chosenPath = path;
-        upgradeLevel = 3;
-        RecalculateStats();
-        RaiseUpgraded();
-        return true;
-    }
-
-    /// <summary>Level 3->4: final tier, amplifies whichever branch was chosen.</summary>
-    public bool UpgradeFinal()
-    {
-        if (!initialized || upgradeLevel != 3) return false;
-        if (!TrySpend(NextUpgradeCost())) return false;
-
-        upgradeLevel = 4;
+        upgradeLevel = MaxLevel;
         RecalculateStats();
         RaiseUpgraded();
         return true;
