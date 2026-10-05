@@ -12,3 +12,6 @@ def _isolated_history(tmp_path, monkeypatch):
     from app import main
     monkeypatch.setattr(main, "HISTORY_DB", str(tmp_path / "history.sqlite3"))
     monkeypatch.setattr(main, "_history", None)
+    monkeypatch.setattr(main, "THRESHOLDS_FILE", str(tmp_path / "thresholds.json"))
+    monkeypatch.setattr(main, "_thresholds", None)
+    monkeypatch.setattr(main, "_sharp_cache", {})

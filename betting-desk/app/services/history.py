@@ -106,6 +106,15 @@ class HistoryStore:
         with self._lock, self._connect() as con:
             return [dict(r) for r in con.execute(q + " ORDER BY ts, id", args)]
 
+    def league_rows(self, league: str, markets: Sequence[str] = GAME_MARKETS) -> list[dict]:
+        """Every stored row for one league's game markets (what book sharpness reads)."""
+        if not os.path.exists(self.path) or not markets:
+            return []
+        q = (f"SELECT * FROM snapshots WHERE league=? AND market IN ({','.join('?' * len(markets))})"
+             " ORDER BY ts, id")
+        with self._lock, self._connect() as con:
+            return [dict(r) for r in con.execute(q, [league, *markets])]
+
 
 # ---------- flattening what the fetchers return ----------
 

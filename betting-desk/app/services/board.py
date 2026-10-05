@@ -15,7 +15,7 @@ from typing import Any, Sequence
 from ..math_engine import (
     devig, hold, overround, implied_to_american, ev_percent,
     expected_value, kelly_fraction, american_to_decimal,
-    consensus_fair_probs, push_possible,
+    consensus_fair_probs, weighted_consensus_fair_probs, push_possible,
 )
 
 MIN_BOOKS_FOR_CONSENSUS = 3
@@ -209,6 +209,7 @@ def fair_estimate(
     method: str = "power",
     sharp_book: str | None = None,
     exclude: str | None = None,
+    weights: dict[str, float] | None = None,
 ) -> tuple[list[float], str] | None:
     """
     (fair probabilities, source label) from every book except `exclude`.
@@ -223,12 +224,19 @@ def fair_estimate(
     the fair price toward that book's own number, which shrinks every edge
     it has (and every overlay it hides) by roughly 1/N. The book being
     graded must not mark its own homework.
+
+    weights: optional {book: weight} from the book-sharpness model
+    (services/sharpness.py). Only the 3+ book consensus uses them, and the
+    source label says "weighted consensus". None keeps the plain average.
     """
     pool = {b: p for b, p in book_prices.items() if b != exclude}
     if not pool:
         return None
     if sharp_book and sharp_book in pool:
         fair, source = devig(pool[sharp_book], method), f"sharp:{sharp_book}"
+    elif len(pool) >= MIN_BOOKS_FOR_CONSENSUS and weights:
+        fair = weighted_consensus_fair_probs(pool, weights, method)
+        source = f"weighted consensus:{len(pool)} books"
     elif len(pool) >= MIN_BOOKS_FOR_CONSENSUS:
         fair, source = consensus_fair_probs(pool, method), f"consensus:{len(pool)} books"
     elif len(pool) == 1:
@@ -263,6 +271,7 @@ def analyse_market(
     stake: float,
     method: str = "power",
     sharp_book: str | None = None,
+    weights: dict[str, float] | None = None,
 ) -> dict | None:
     """
     Fair price, hold, best available price and EV for one market, with any
@@ -285,7 +294,7 @@ def analyse_market(
     if not usable:
         return None
 
-    market = fair_estimate(usable, method, sharp_book)
+    market = fair_estimate(usable, method, sharp_book, weights=weights)
     if market is None:
         return None
     fair, source = market
@@ -295,7 +304,7 @@ def analyse_market(
 
     def fair_without(book: str) -> tuple[list[float], str] | None:
         if book not in loo:
-            loo[book] = fair_estimate(usable, method, sharp_book, exclude=book)
+            loo[book] = fair_estimate(usable, method, sharp_book, exclude=book, weights=weights)
         return loo[book]
 
     sides: list[dict] = []
@@ -370,6 +379,8 @@ def build_board(
     sharp_book: str | None = None,
     min_edge: float = 0.0,
     markets: Sequence[str] = GAME_MARKETS,
+    book_weights: dict[str, dict[str, float]] | None = None,
+    min_edges: dict[str, float] | None = None,
 ) -> dict:
     """
     The full board: every game, every market you have prices for, with fair
@@ -377,6 +388,11 @@ def build_board(
 
     markets limits which game markets are analysed. Every game still carries
     all three keys; one not asked for is None, same as one nobody quotes.
+
+    book_weights: {market: {book: weight}} from the sharpness model; a
+    market missing from it uses the plain consensus.
+    min_edges: {market: min edge} the user adopted (see services/thresholds);
+    a market missing from it uses min_edge.
     """
     merged = match_games(espn_games, odds_games)
     games_out: list[dict] = []
@@ -417,7 +433,8 @@ def build_board(
                     if not prices:
                         entry["markets"][market] = None
                         continue
-                    res = analyse_market(prices, labels, your_books, stake, method, sharp_book)
+                    res = analyse_market(prices, labels, your_books, stake, method, sharp_book,
+                                         weights=(book_weights or {}).get(market))
                     if res:
                         pts = _main_points(g, market, home_name, away_name)
                         for side, pt in zip(res["sides"], pts):
@@ -431,9 +448,10 @@ def build_board(
                 entry["markets"][market] = res
 
                 if res:
+                    floor = (min_edges or {}).get(market, min_edge)
                     for side in res["sides"]:
                         for yb in side["your_books"]:
-                            if is_play(yb, min_edge):
+                            if is_play(yb, floor):
                                 plays.append({
                                     "game": g.get("name"),
                                     "start_utc": g.get("start_utc"),
@@ -444,6 +462,7 @@ def build_board(
                                     "odds_id": entry["odds_id"],
                                     **_play_fields(yb),
                                     "book_count": res["book_count"],
+                                    **({"min_edge_applied": floor} if min_edges is not None else {}),
                                 })
         games_out.append(entry)
 

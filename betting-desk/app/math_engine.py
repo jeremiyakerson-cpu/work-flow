@@ -6,6 +6,7 @@ The one judgement call is which de-vig method you trust; see devig().
 """
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass, asdict
 from typing import Iterable, Sequence
 
@@ -226,6 +227,141 @@ def consensus_fair_probs(
     avg = [sum(r[i] for r in rows) / len(rows) for i in range(n)]
     total = sum(avg)
     return [a / total for a in avg]
+
+
+def weighted_consensus_fair_probs(
+    book_markets: dict[str, list[float]],
+    weights: dict[str, float] | None,
+    method: str = "power",
+    exclude: str | None = None,
+) -> list[float]:
+    """
+    Weighted average of de-vigged probabilities, renormalised to sum to 1.
+
+    weights: {book: w}. A book missing from weights gets 1.0, so None (or
+    all-equal weights) is exactly consensus_fair_probs(). Weights must be
+    positive; a book cannot be weighted out of the market, only down.
+    """
+    rows: list[tuple[float, list[float]]] = []
+    for book, prices in book_markets.items():
+        if book == exclude or not prices:
+            continue
+        w = 1.0 if weights is None else float(weights.get(book, 1.0))
+        if not w > 0.0:
+            raise ValueError(f"weight for {book} must be positive, got {w}")
+        rows.append((w, devig(prices, method)))
+    if not rows:
+        raise ValueError("no books left to build a consensus from")
+    n = len(rows[0][1])
+    if any(len(r) != n for _, r in rows):
+        raise ValueError("all books must quote the same number of outcomes")
+    wsum = sum(w for w, _ in rows)
+    avg = [sum(w * r[i] for w, r in rows) / wsum for i in range(n)]
+    total = sum(avg)
+    return [a / total for a in avg]
+
+
+# ---------- scoring a probability ----------
+
+_P_FLOOR = 1e-9
+
+
+def kl_divergence(target: Sequence[float], estimate: Sequence[float]) -> float:
+    """
+    KL(target || estimate) in nats: the extra log-loss you pay per event by
+    forecasting `estimate` when the outcome is drawn from `target`.
+
+    Zero when they match, always >= 0. This is "log-loss against the
+    closing line" with the close's own entropy subtracted, so a 50/50
+    market and a 90/10 market are scored on the same footing.
+    """
+    if len(target) != len(estimate):
+        raise ValueError("target and estimate must have the same length")
+    out = 0.0
+    for t, e in zip(target, estimate):
+        if t <= 0.0:
+            continue
+        out += t * (_log(t) - _log(max(e, _P_FLOOR)))
+    return max(0.0, out)
+
+
+def _log(x: float) -> float:
+    return math.log(x)
+
+
+def brier_score(probs: Sequence[float], outcomes: Sequence[int]) -> float:
+    """Mean squared error of binary forecasts. 0 is perfect; 0.25 is a coin flip at 50%."""
+    if len(probs) != len(outcomes) or not probs:
+        raise ValueError("need the same, non-zero number of forecasts and outcomes")
+    return sum((p - y) ** 2 for p, y in zip(probs, outcomes)) / len(probs)
+
+
+def log_loss(probs: Sequence[float], outcomes: Sequence[int]) -> float:
+    """Mean binary log-loss in nats, with probabilities clamped off 0 and 1."""
+    if len(probs) != len(outcomes) or not probs:
+        raise ValueError("need the same, non-zero number of forecasts and outcomes")
+    tot = 0.0
+    for p, y in zip(probs, outcomes):
+        p = min(max(p, _P_FLOOR), 1.0 - _P_FLOOR)
+        tot -= _log(p) if y else _log(1.0 - p)
+    return tot / len(probs)
+
+
+def wilson_interval(successes: float, n: int, z: float = 1.96) -> tuple[float, float] | None:
+    """Wilson score interval for a binomial rate. None when n is 0."""
+    if n <= 0:
+        return None
+    p = successes / n
+    denom = 1.0 + z * z / n
+    centre = (p + z * z / (2 * n)) / denom
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def linear_fit(xs: Sequence[float], ys: Sequence[float]) -> dict | None:
+    """
+    Ordinary least squares y = a + b*x with standard errors.
+
+    Returns {a, b, se_a, se_b, cov_ab, n, residual_sd}, or None with fewer
+    than 3 points or no spread in x.
+    """
+    n = len(xs)
+    if n != len(ys) or n < 3:
+        return None
+    mx, my = sum(xs) / n, sum(ys) / n
+    sxx = sum((x - mx) ** 2 for x in xs)
+    if sxx <= 0.0:
+        return None
+    sxy = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    b = sxy / sxx
+    a = my - b * mx
+    sse = sum((y - a - b * x) ** 2 for x, y in zip(xs, ys))
+    s2 = sse / (n - 2)
+    return {
+        "a": a, "b": b, "n": n,
+        "se_a": math.sqrt(s2 * (1.0 / n + mx * mx / sxx)),
+        "se_b": math.sqrt(s2 / sxx),
+        "cov_ab": -mx * s2 / sxx,
+        "residual_sd": math.sqrt(s2),
+    }
+
+
+def break_even_x(fit: dict) -> tuple[float, float] | None:
+    """
+    x where the fitted line crosses zero (-a/b) and its delta-method
+    standard error. None when the slope is not positive.
+    """
+    a, b = fit["a"], fit["b"]
+    if not b > 0.0:
+        return None
+    x0 = -a / b
+    var = (fit["se_a"] ** 2 + x0 * x0 * fit["se_b"] ** 2 + 2.0 * x0 * fit["cov_ab"]) / (b * b)
+    return x0, math.sqrt(max(var, 0.0))
+
+
+def clv_vs_fair(american: float, close_fair_prob: float) -> float:
+    """Closing-line value: your price against the de-vigged close. 0.02 = +2% EV at close."""
+    return close_fair_prob * american_to_decimal(american) - 1.0
 
 
 def find_edges(
