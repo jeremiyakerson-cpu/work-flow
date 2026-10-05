@@ -83,6 +83,7 @@
       <p class="study-pearl">💡 ${g.pearls}</p>
       <h4>Don't confuse it with…</h4>
       ${g.confuse.map((c) => `<p class="study-confuse"><strong>${c.with}:</strong> ${c.how}</p>`).join("")}
+      ${g.source ? `<p class="study-source"><small>Source: ${g.source}</small></p>` : ""}
     `;
   }
 
@@ -99,6 +100,7 @@
         <div class="med-row"><span class="med-label">USE</span><span>${m.use}</span></div>
         <div class="med-row"><span class="med-label">CAUTION</span><span>${m.caution}</span></div>
         <p class="med-pearl">💡 ${m.pearl}</p>
+        ${m.source ? `<p class="med-source"><small>Source: ${m.source}</small></p>` : ""}
       </div>`
     ).join("");
   }
