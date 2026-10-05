@@ -201,6 +201,27 @@ namespace TowerDefense.PlatformTests
         }
 
         [Test]
+        public void ResultsFromNewerBuildModes_AreNotCreditedToNormal()
+        {
+            var d = new SaveData
+            {
+                levels = new List<LevelRecord>
+                {
+                    new LevelRecord
+                    {
+                        levelId = "meadow", bestStars = 3, bestWave = 15, completed = true,
+                        modes = new List<ModeRecord> { new ModeRecord { mode = 4, bestStars = 3, bestWave = 15, completed = true } },
+                    },
+                },
+            };
+
+            SaveValidator.Sanitize(d);
+
+            LevelRecord meadow = d.FindLevel("meadow");
+            Assert.IsNull(meadow.FindMode(DifficultyMode.Normal), "a downgraded file must not invent a Normal clear");
+        }
+
+        [Test]
         public void UnknownDifficulty_IsRecordedAsNormal()
         {
             service.RecordLevelResult("meadow", (DifficultyMode)17, 2, 9);

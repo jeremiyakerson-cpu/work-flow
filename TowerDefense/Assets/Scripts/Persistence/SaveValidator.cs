@@ -107,14 +107,17 @@ namespace TowerDefense.Persistence
                     for (int k = 0; k < r.modes.Count; k++)
                     {
                         ModeRecord m = r.modes[k];
-                        if (m == null || !Difficulty.IsDefined(m.mode)) continue;
+                        if (m == null) continue;
                         int ms = Clamp(m.bestStars, 0, MaxStars);
                         int mw = Clamp(m.bestWave, 0, MaxWave);
                         bool mc = m.completed || ms > 0;
-                        Merge(existing.GetOrAddMode((DifficultyMode)m.mode), ms, mw, mc);
+                        // Unknown modes (a newer build's file) still back the top-level bests,
+                        // so they are not misattributed to Normal below; they are just not kept.
                         modeStars = Math.Max(modeStars, ms);
                         modeWave = Math.Max(modeWave, mw);
                         modeCompleted |= mc;
+                        if (!Difficulty.IsDefined(m.mode)) continue;
+                        Merge(existing.GetOrAddMode((DifficultyMode)m.mode), ms, mw, mc);
                     }
                 }
 

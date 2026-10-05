@@ -76,9 +76,15 @@ difficulties and write Normal.
   first-time defeat.
 - **Hard pushes on every axis a little rather than one axis a lot.** +35% health
   and +10% speed raise the damage you need by about half; 15% less starting gold
-  and 10% less per kill tighten the build order; half the lives make leaks
+  and a 10% kill-reward cut tighten the build order; half the lives make leaks
   costly without making them instantly fatal, and the 3-star bar on 10 lives is
   "leak at most one".
+  - Rewards are whole gold, so the 10% cut rounds away on cheap kills early
+    (a 5-gold enemy still pays 5; 1-2 gold summons pay the same on every
+    difficulty). It bites from mid-game on, as wave growth raises rewards.
+  - Lives round half up: a 15-life map gives 8 on Hard, which makes its 3-star
+    bar (and so the Impossible unlock there) a no-leak run. Tune per map if
+    that's too strict.
 - **Impossible is a mastery mode.** It adds more of the same (health, speed,
   economy) and two rule changes: a single life, so any leak ends the run, and no
   early-call gold, so you can't snowball by rushing waves. It is gated behind a
