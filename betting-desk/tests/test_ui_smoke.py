@@ -2,8 +2,10 @@
 Browser smoke test for the UI, against a real server in demo mode.
 
 Loads the board, applies filters, tracks a play, and checks it shows up in
-the tracker, gets graded in the Results view, and exports to CSV. Runs at
-phone width to catch horizontal overflow too.
+the tracker, gets graded in the Results view, and exports to CSV. Then the
+live layer: the auto-refresh budget meter, alert settings, an edge alert
+toasting in-page and landing in the history, and a manual scheduler run.
+Runs at phone width to catch horizontal overflow too.
 
 Needs Playwright and a Chromium:  pip install -r requirements-dev.txt
 then `playwright install chromium`, or point BD_CHROMIUM at an existing
@@ -15,6 +17,7 @@ import os
 import socket
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.request
 
@@ -34,18 +37,22 @@ def _free_port() -> int:
 @pytest.fixture(scope="module")
 def server():
     port = _free_port()
-    env = {**os.environ, "DEMO_MODE": "1", "ODDS_API_KEY": ""}
+    env = {**os.environ, "DEMO_MODE": "1", "ODDS_API_KEY": "", "DESK_PASSWORD": "",
+           "AUTO_REFRESH": "1", "AUTO_REFRESH_LEAGUES": "mlb,nba"}
+    # a file, not a pipe: a pipe nobody reads fills up and stalls the server
+    log = tempfile.TemporaryFile()
     proc = subprocess.Popen(
         [sys.executable, "-m", "uvicorn", "app.main:app", "--port", str(port), "--log-level", "warning"],
-        cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
     url = f"http://127.0.0.1:{port}"
     for _ in range(100):
         try:
-            urllib.request.urlopen(url + "/api/health", timeout=1)
+            urllib.request.urlopen(url + "/api/health", timeout=1).close()
             break
         except OSError:
             if proc.poll() is not None:
-                pytest.fail("server exited: " + proc.stdout.read().decode(errors="replace"))
+                log.seek(0)
+                pytest.fail("server exited: " + log.read().decode(errors="replace"))
             time.sleep(0.1)
     else:
         proc.kill()
@@ -53,6 +60,7 @@ def server():
     yield url
     proc.terminate()
     proc.wait(timeout=10)
+    log.close()
 
 
 @pytest.fixture(scope="module")
@@ -128,5 +136,41 @@ def test_board_filter_track_results(server, browser, tmp_path):
     assert len(lines) == 2 and side in lines[1]
 
     # no sideways scrolling at phone width, no script errors
+    assert page.evaluate("document.documentElement.scrollWidth") <= 375
+    assert errors == []
+
+
+def test_alerts_meter_and_scheduler(server, browser):
+    page = browser.new_page(viewport={"width": 375, "height": 800})
+    errors = []
+    page.on("pageerror", lambda e: errors.append(str(e)))
+    page.goto(server + "/")
+
+    # budget meter in the header: demo runs cost nothing, so 0 of the default 15
+    page.wait_for_function("document.querySelector('#auto').textContent.includes('/15')")
+    assert "0/15" in page.inner_text("#auto")
+
+    # alert settings: a threshold the demo MLB board's +0.5% play clears
+    page.click("#auto")                                   # the meter opens the Alerts tab
+    page.wait_for_selector("#al-edge")
+    assert "Auto-refresh" in page.inner_text("#out")
+    page.fill("#al-edge", "0.3")
+    page.click("[data-act=al-save]")
+    page.wait_for_function("document.querySelector('#al-edge') && document.querySelector('#al-edge').value === '0.3'")
+
+    # a refresh finds the play: an in-page toast, then it's in the history
+    page.click("#tabs >> text=Board")
+    page.click("#go")
+    page.wait_for_selector(".toast", timeout=10000)
+    assert "%" in page.inner_text(".toast")
+    page.click("#tabs >> text=Alerts")
+    page.wait_for_selector(".al")
+    assert "edge" in page.inner_text(".al").lower()
+
+    # a manual scheduler run shows up in the recent-runs log
+    page.click("[data-sch-run=nba]")
+    page.wait_for_function("document.querySelector('#out').innerText.includes('Recent:')", timeout=10000)
+    assert "NBA" in page.inner_text("#out")
+
     assert page.evaluate("document.documentElement.scrollWidth") <= 375
     assert errors == []

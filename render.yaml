@@ -1,0 +1,37 @@
+# Render Blueprint for betting-desk/ (the rest of this repo is not deployed).
+# One click: https://render.com/deploy?repo=https://github.com/jeremiyakerson-cpu/work-flow
+# See betting-desk/README.md, "Deploy it".
+services:
+  - type: web
+    name: betting-desk
+    runtime: docker
+    dockerfilePath: ./betting-desk/Dockerfile
+    dockerContext: ./betting-desk
+    plan: free                 # sleeps when idle, so auto-refresh only runs while it's awake; see README
+    healthCheckPath: /healthz  # the only route open without DESK_PASSWORD
+    numInstances: 1            # one scheduler, one daily budget
+    autoDeploy: true
+    buildFilter:
+      paths: ["betting-desk/**"]
+    envVars:
+      - key: ODDS_API_KEY      # entered in the Render dashboard; never in git, never sent to the browser
+        sync: false
+      - key: DESK_PASSWORD     # random by default so a fresh deploy is never public; read or change it in the dashboard
+        generateValue: true
+      - key: DEMO_MODE
+        value: "0"
+      - key: YOUR_BOOKS
+        value: fanduel,draftkings
+      - key: AUTO_REFRESH
+        value: "0"
+      - key: AUTO_REFRESH_LEAGUES
+        value: nfl
+      - key: AUTO_REFRESH_DAILY_CREDITS
+        value: "15"
+      - key: ENABLE_PROPS
+        value: "0"
+    # Paid plans only: keep line history, alerts and today's spend across deploys.
+    # disk:
+    #   name: desk-data
+    #   mountPath: /app/data
+    #   sizeGB: 1

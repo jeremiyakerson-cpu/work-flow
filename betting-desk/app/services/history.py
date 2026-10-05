@@ -15,7 +15,8 @@ from __future__ import annotations
 import os
 import sqlite3
 import threading
-from typing import Any, Iterable, Sequence
+from contextlib import contextmanager
+from typing import Any, Iterable, Iterator, Sequence
 
 from .board import GAME_MARKETS, fair_estimate, main_line, _norm
 from ..math_engine import implied_to_american
@@ -52,13 +53,20 @@ class HistoryStore:
         self._lock = threading.Lock()
         self._ready = False
 
-    def _connect(self) -> sqlite3.Connection:
+    @contextmanager
+    def _connect(self) -> Iterator[sqlite3.Connection]:
+        # sqlite3's own context manager commits but never closes; close here
+        # so connections don't leak (Python 3.13+ reports them as errors).
         con = sqlite3.connect(self.path)
-        con.row_factory = sqlite3.Row
-        if not self._ready:
-            con.executescript(_SCHEMA)
-            self._ready = True
-        return con
+        try:
+            con.row_factory = sqlite3.Row
+            if not self._ready:
+                con.executescript(_SCHEMA)
+                self._ready = True
+            with con:
+                yield con
+        finally:
+            con.close()
 
     def record(self, league: str, rows: Iterable[dict], ts: str) -> int:
         """Store rows that differ from the latest stored value. Returns rows written."""
