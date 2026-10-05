@@ -27,27 +27,52 @@ const SCENARIO_FOCUS = {
   "massive-pe": "nonshockable-arrest",
 };
 
+const SCENARIO_DIFFICULTY_KEY = "ekg-scenario-difficulty";
+
+// Run state. The adaptive logic (branching, difficulty, timeline) lives in
+// EkgScenarioEngine; this holds the engine run plus UI-only bits.
+// stageIdx mirrors run.stageIdx for callers outside this file.
 const scState = {
   scenario: null,
+  run: null,
   stageIdx: 0,
-  correct: 0,
-  log: [], // { text, correct }
+  difficulty: null,
   startTime: null,
   elapsedId: null,
-  misses: [], // { question, intervention, rationale, critical }
-  criticalMisses: 0,
-  death: false, // two critical misses while the patient is unstable
+  decisionStart: null, // when the current decision was posed
+  countdownId: null,
   deathShown: false,
   logged: false, // this run already written to the code log
   stageAnswered: false, // current stage already graded (blocks double taps)
+  lastRhythm: null,
 };
 
-// A stage is "critical" when the patient has no solid pulse — misses
-// there cost time the patient doesn't have. Two of them lose the patient.
-const CRITICAL_MISS_LIMIT = 2;
-
 function scStageCritical(st) {
-  return !!(st.scene && st.scene.pulse !== "PRESENT");
+  return EkgScenarioEngine.isCritical(st);
+}
+
+function scDifficulty() {
+  if (scState.difficulty) return scState.difficulty;
+  const saved = scStoreGet(SCENARIO_DIFFICULTY_KEY);
+  return EkgScenarioEngine.DIFFICULTY[saved] ? saved : EkgScenarioEngine.DEFAULT_DIFFICULTY;
+}
+
+function scSetDifficulty(key) {
+  if (!EkgScenarioEngine.DIFFICULTY[key]) return;
+  scState.difficulty = key;
+  try {
+    localStorage.setItem(SCENARIO_DIFFICULTY_KEY, key);
+  } catch {}
+  scRenderDifficulty();
+}
+
+function scRenderDifficulty() {
+  const cur = scDifficulty();
+  document.querySelectorAll("#sc-difficulty .sc-diff-btn").forEach((b) => {
+    b.setAttribute("aria-pressed", String(b.dataset.diff === cur));
+  });
+  const note = document.getElementById("sc-diff-note");
+  if (note) note.textContent = EkgScenarioEngine.difficultyConfig(cur).blurb;
 }
 
 function scFmtElapsed(ms) {
@@ -135,7 +160,9 @@ function scMakeCard(s, opts = {}) {
 }
 
 function scOpenPicker() {
+  scStopCountdown();
   scShow("sc-picker");
+  scRenderDifficulty();
 
   const statsEl = document.getElementById("sc-stats-line");
   const line = window.EkgStats ? EkgStats.summaryLine() : null;
@@ -166,16 +193,20 @@ function scOpenPicker() {
   EkgGenerator.listGenerated().forEach((s) => genGrid.appendChild(scMakeCard(s, { generated: true })));
 }
 
+// Distractor pool: every stage the app knows (authored + generated library).
+function scDistractorPool() {
+  const all = EKG_SCENARIOS.concat(window.EkgGenerator ? EkgGenerator.listGenerated() : []);
+  return EkgScenarioEngine.buildDistractorPool(all);
+}
+
 function scStart(scenario) {
+  scStopCountdown();
   scState.scenario = scenario;
+  scState.run = EkgScenarioEngine.createRun(scenario, scDifficulty(), { pool: scDistractorPool() });
   scState.stageIdx = 0;
-  scState.correct = 0;
-  scState.log = [];
-  scState.misses = [];
-  scState.criticalMisses = 0;
-  scState.death = false;
   scState.deathShown = false;
   scState.logged = false;
+  scState.lastRhythm = null;
   scShow("sc-shell");
   scStartClock();
   scRenderStage();
@@ -189,34 +220,45 @@ function scFocusOf() {
 function scLogRun(outcome) {
   if (scState.logged || !window.EkgCodeLog) return;
   scState.logged = true;
+  const run = scState.run;
   EkgCodeLog.add({
     title: scState.scenario.title,
     scenarioId: scState.scenario.id,
     generated: !!scState.scenario.generated,
     focus: scFocusOf(),
     outcome,
-    correct: scState.correct,
-    answered: scState.log.length,
+    correct: run.correct,
+    answered: new Set(run.timeline.map((e) => e.stage)).size,
     total: scState.scenario.stages.length,
     durationMs: scState.startTime ? Date.now() - scState.startTime : 0,
-    misses: scState.misses,
+    misses: run.misses,
+    difficulty: run.difficulty,
+    metrics: EkgScenarioEngine.metrics(run),
+    timeline: run.timeline,
   });
 }
 
 // ---------- stage rendering ----------
 
 function scStage() {
-  return scState.scenario.stages[scState.stageIdx];
+  return scState.run.current;
 }
 
 function scRenderStage() {
   const s = scState.scenario;
+  const run = scState.run;
   const st = scStage();
+  scState.stageIdx = run.stageIdx;
 
   document.getElementById("sc-title").textContent = s.title;
-  document.getElementById("sc-progress").textContent = `Decision ${scState.stageIdx + 1} of ${s.stages.length}`;
+  document.getElementById("sc-progress").textContent =
+    `Decision ${run.stageIdx + 1} of ${s.stages.length}` + (run.attempt > 0 ? " · the patient is reacting" : "");
+  const badge = document.getElementById("sc-diff-badge");
+  badge.textContent = run.cfg.label.toUpperCase();
+  badge.className = `sc-diff-badge diff-${run.difficulty}`;
 
-  scRenderMonitor(st);
+  scRenderMonitor(st, { sweep: scState.lastRhythm !== null && scState.lastRhythm !== st.rhythm });
+  scState.lastRhythm = st.rhythm;
   scRenderScene(st.scene);
   scRenderLog();
 
@@ -230,6 +272,8 @@ function scRenderStage() {
   document.getElementById("sc-next-btn").hidden = true;
   scState.stageAnswered = false;
 
+  scRenderHint(st);
+
   // choices
   const order = scShuffle(st.choices.map((_, i) => i));
   const correctIndex = order.indexOf(st.answer);
@@ -242,9 +286,94 @@ function scRenderStage() {
     btn.addEventListener("click", () => scAnswer(displayIdx, correctIndex, container));
     container.appendChild(btn);
   });
+  container.dataset.correctIndex = String(correctIndex);
+
+  scState.decisionStart = Date.now();
+  scMaybeInterrupt(container);
+  scStartCountdown();
 }
 
-function scRenderMonitor(st) {
+// Guided mode: a hint on every decision (existing coaching text only).
+function scRenderHint(st) {
+  const el = document.getElementById("sc-hint");
+  const run = scState.run;
+  if (!run.cfg.hints) {
+    el.hidden = true;
+    el.textContent = "";
+    return;
+  }
+  const bits = [];
+  if (scStageCritical(st)) bits.push("No solid pulse — this decision is time-critical.");
+  if (st.eliminated) bits.push(`${st.eliminated} wrong option${st.eliminated === 1 ? " has" : "s have"} been removed.`);
+  const fh = window.EkgCodeLog ? EkgCodeLog.focusHint(scFocusOf()) : null;
+  if (fh) bits.push(`Remember to ${fh}`);
+  el.hidden = !bits.length;
+  el.textContent = bits.length ? `💡 ${bits.join(" ")}` : "";
+}
+
+// Expert mode: a non-clinical interruption that blocks the choices until
+// it's handled. The decision clock keeps running.
+function scMaybeInterrupt(container) {
+  const box = document.getElementById("sc-interrupt");
+  const run = scState.run;
+  if (!EkgScenarioEngine.shouldInterrupt(run)) {
+    box.hidden = true;
+    return;
+  }
+  document.getElementById("sc-interrupt-text").textContent = EkgScenarioEngine.pickInterruption(run);
+  box.hidden = false;
+  container.classList.add("sc-blocked");
+  container.querySelectorAll(".softkey").forEach((b) => (b.disabled = true));
+  const btn = document.getElementById("sc-interrupt-btn");
+  btn.focus({ preventScroll: true });
+}
+
+function scDismissInterrupt() {
+  document.getElementById("sc-interrupt").hidden = true;
+  const container = document.getElementById("sc-softkeys");
+  container.classList.remove("sc-blocked");
+  container.querySelectorAll(".softkey").forEach((b) => (b.disabled = false));
+  const first = container.querySelector(".softkey");
+  if (first) first.focus({ preventScroll: true });
+}
+
+// ---------- decision clock (expert) ----------
+
+function scStopCountdown() {
+  if (scState.countdownId) {
+    clearInterval(scState.countdownId);
+    scState.countdownId = null;
+  }
+  const el = document.getElementById("sc-countdown");
+  if (el) el.hidden = true;
+}
+
+function scStartCountdown() {
+  scStopCountdown();
+  const limit = EkgScenarioEngine.timeLimitMs(scState.run);
+  if (!limit) return;
+  const el = document.getElementById("sc-countdown");
+  el.hidden = false;
+  const tick = () => {
+    const left = limit - (Date.now() - scState.decisionStart);
+    el.textContent = `DECIDE ${scFmtElapsed(Math.max(0, left) + 999)}`;
+    el.classList.toggle("urgent", left <= 5000);
+    if (left <= 0) {
+      scStopCountdown();
+      scTimeout();
+    }
+  };
+  tick();
+  scState.countdownId = setInterval(tick, 250);
+}
+
+function scTimeout() {
+  if (scState.stageAnswered) return;
+  document.getElementById("sc-interrupt").hidden = true;
+  scGrade({ timedOut: true, displayIdx: -1 });
+}
+
+function scRenderMonitor(st, opts = {}) {
   const v = st.vitals || {};
   const fmt = (x) => (x === null || x === undefined ? "--" : x);
   document.getElementById("sc-vital-hr").textContent = fmt(v.hr);
@@ -255,10 +384,12 @@ function scRenderMonitor(st) {
 
   const alarm = document.getElementById("sc-alarm-banner");
   const lethal = ["vf_coarse", "vf_fine", "asystole", "vt", "torsades"];
+  const namesRhythm = !scState.run || scState.run.cfg.alarmNamesRhythm;
   if (lethal.includes(st.rhythm)) {
     alarm.hidden = false;
-    alarm.textContent =
-      st.rhythm === "asystole"
+    alarm.textContent = !namesRhythm
+      ? "*** ALARM — CHECK PATIENT ***"
+      : st.rhythm === "asystole"
         ? "*** ASYSTOLE — CHECK PATIENT ***"
         : st.rhythm.startsWith("vf")
         ? "*** V-FIB — CHECK PATIENT ***"
@@ -272,6 +403,7 @@ function scRenderMonitor(st) {
     hr: v.hr,
     perfusing: st.scene && st.scene.pulse !== "ABSENT",
     lethal: !alarm.hidden,
+    sweep: !!opts.sweep,
   });
 }
 
@@ -428,14 +560,24 @@ function scRenderScene(scene) {
   `;
 }
 
+function scLogTags(e) {
+  const tags = [];
+  if (e.timedOut) tags.push("TIMED OUT");
+  if (e.late) tags.push("LATE");
+  if (e.attempt > 0) tags.push("2ND TRY");
+  if (e.next === "takeover") tags.push("TEAM LEADER");
+  return tags.map((t) => `<span class="sc-log-tag">${t}</span>`).join("");
+}
+
 function scRenderLog() {
   const list = document.getElementById("sc-log");
-  if (scState.log.length === 0) {
+  const tl = scState.run ? scState.run.timeline : [];
+  if (tl.length === 0) {
     list.innerHTML = `<li class="sc-log-empty">No interventions yet</li>`;
     return;
   }
-  list.innerHTML = scState.log
-    .map((e) => `<li class="${e.correct ? "log-ok" : "log-miss"}">${e.correct ? "✓" : "✗"} ${e.text}</li>`)
+  list.innerHTML = tl
+    .map((e) => `<li class="${e.correct ? "log-ok" : "log-miss"}">${e.correct ? "✓" : "✗"} ${e.text} ${scLogTags(e)}</li>`)
     .join("");
 }
 
@@ -443,62 +585,82 @@ function scRenderLog() {
 
 function scAnswer(displayIdx, correctIndex, container) {
   if (scState.stageAnswered) return; // double tap / second choice
+  scGrade({ displayIdx, correct: displayIdx === correctIndex });
+}
+
+// Grade the current decision (a tap, or the expert clock running out) and
+// show what happens to the patient.
+function scGrade({ displayIdx, correct, timedOut = false }) {
+  if (scState.stageAnswered) return;
   scState.stageAnswered = true;
+  scStopCountdown();
+  const run = scState.run;
   const st = scStage();
-  const isCorrect = displayIdx === correctIndex;
-  if (isCorrect) scState.correct++;
-  if (window.EkgStats) {
+  const now = Date.now();
+  const res = EkgScenarioEngine.resolve(run, {
+    correct,
+    timedOut,
+    atMs: now - scState.startTime,
+    decisionMs: now - scState.decisionStart,
+  });
+
+  if (window.EkgStats && run.attempt === 0) {
     EkgStats.record({
       kind: "scenario",
       category: null,
       rhythm: st.rhythm,
-      focus: scState.scenario.focus || SCENARIO_FOCUS[scState.scenario.id] || null,
-      correct: isCorrect,
+      focus: scFocusOf(),
+      correct: res.correct,
     });
   }
 
-  const btns = container.querySelectorAll(".softkey");
-  btns.forEach((btn, i) => {
+  const container = document.getElementById("sc-softkeys");
+  const correctIndex = Number(container.dataset.correctIndex);
+  container.querySelectorAll(".softkey").forEach((btn, i) => {
+    btn.disabled = false;
     btn.classList.add("disabled");
     btn.setAttribute("aria-disabled", "true");
-    if (i === correctIndex) btn.classList.add("correct");
-    else if (i === displayIdx) btn.classList.add("incorrect");
+    if (i === correctIndex && res.reveal) btn.classList.add("correct");
+    else if (i === displayIdx && !res.correct) btn.classList.add("incorrect");
   });
 
-  const critical = scStageCritical(st);
-  if (!isCorrect) {
-    scState.misses.push({ question: st.question, intervention: st.intervention, rationale: st.rationale, critical });
-    if (critical) {
-      scState.criticalMisses++;
-      if (scState.criticalMisses >= CRITICAL_MISS_LIMIT) scState.death = true;
-    }
-  }
-
   const rationale = document.getElementById("sc-rationale");
-  rationale.hidden = false;
-  rationale.className = `rationale ${isCorrect ? "is-correct" : "is-incorrect"}`;
-  rationale.innerHTML = `<strong>${isCorrect ? "Correct." : "Not quite."}</strong> ${st.rationale}`;
+  if (res.reveal) {
+    rationale.hidden = false;
+    rationale.className = `rationale ${res.correct ? "is-correct" : "is-incorrect"}`;
+    const head = res.correct ? "Correct." : timedOut ? "Time ran out." : "Not quite.";
+    rationale.innerHTML = `<strong>${head}</strong> ${st.rationale}`;
+  } else {
+    // A branch re-poses this decision: keep the answer hidden so the
+    // second attempt is still a real decision.
+    rationale.hidden = false;
+    rationale.className = "rationale is-incorrect";
+    rationale.innerHTML = `<strong>${timedOut ? "Time ran out." : "Not quite."}</strong> The answer stays hidden — you'll get another chance as the patient's condition changes.`;
+  }
 
   const outcome = document.getElementById("sc-outcome");
   outcome.hidden = false;
-  if (scState.death) {
+  const limit = run.cfg.criticalLimit;
+  if (run.death) {
     outcome.textContent =
       "The delay is one too many. The rhythm on the monitor degrades and the ETCO2 falls — the patient is slipping away despite the team's efforts.";
-  } else if (!isCorrect && critical && scState.criticalMisses === CRITICAL_MISS_LIMIT - 1) {
+  } else if (!res.correct && res.critical && run.criticalMisses === limit - 1) {
     outcome.textContent =
-      st.outcome + " ⚠ That miss cost precious seconds with no pulse — another critical miss and this patient may not be recoverable.";
+      EkgScenarioEngine.outcomeText(run, res) +
+      " ⚠ That miss cost precious seconds with no pulse — another critical miss and this patient may not be recoverable.";
   } else {
-    outcome.textContent = st.outcome;
+    outcome.textContent = EkgScenarioEngine.outcomeText(run, res);
   }
 
-  scState.log.push({ text: st.intervention, correct: isCorrect });
   scRenderLog();
 
   const nextBtn = document.getElementById("sc-next-btn");
   nextBtn.hidden = false;
-  nextBtn.textContent = scState.death
+  nextBtn.textContent = run.death
     ? "Continue →"
-    : scState.stageIdx === scState.scenario.stages.length - 1
+    : res.next === "branch"
+    ? "See what happens →"
+    : run.stageIdx === scState.scenario.stages.length - 1
     ? "Debrief →"
     : "Continue the code →";
   nextBtn.focus({ preventScroll: true });
@@ -507,20 +669,21 @@ function scAnswer(displayIdx, correctIndex, container) {
 
 function scNext() {
   if (!scState.stageAnswered) return;
-  if (scState.death && !scState.deathShown) {
+  const run = scState.run;
+  if (run.death && !scState.deathShown) {
     scState.deathShown = true;
     scRenderDeath();
     return;
   }
-  if (scState.death) {
+  if (run.death) {
     scDebrief("died");
     return;
   }
-  if (scState.stageIdx === scState.scenario.stages.length - 1) {
+  const where = EkgScenarioEngine.advance(run);
+  if (where === "debrief") {
     scDebrief("completed");
     return;
   }
-  scState.stageIdx++;
   scRenderStage();
 }
 
@@ -530,6 +693,7 @@ function scRenderDeath() {
   document.getElementById("sc-progress").textContent = "Resuscitation terminated";
 
   scRenderMonitor({
+    sweep: true,
     rhythm: "asystole",
     vitals: { hr: 0, spo2: null, nibp: "--/--", rr: 0, etco2: null },
     scene: { pulse: "ABSENT" },
@@ -542,6 +706,8 @@ function scRenderDeath() {
   document.getElementById("sc-question").textContent =
     "In the simulator, every lost patient is a free lesson — the debrief shows exactly which decisions to take back.";
   document.getElementById("sc-softkeys").innerHTML = "";
+  document.getElementById("sc-hint").hidden = true;
+  document.getElementById("sc-interrupt").hidden = true;
   document.getElementById("sc-rationale").hidden = true;
   const outcome = document.getElementById("sc-outcome");
   outcome.hidden = true;
@@ -551,15 +717,26 @@ function scRenderDeath() {
   nextBtn.textContent = "Debrief →";
 }
 
+const IDEAL_STATUS = {
+  "on-time": { icon: "✓", label: "on time", cls: "log-ok" },
+  late: { icon: "⏱", label: "late", cls: "log-late" },
+  recovered: { icon: "↻", label: "2nd try", cls: "log-late" },
+  team: { icon: "✗", label: "team leader", cls: "log-miss" },
+  missed: { icon: "✗", label: "missed", cls: "log-miss" },
+  "not-reached": { icon: "–", label: "not reached", cls: "log-skip" },
+};
+
 function scDebrief(outcome = "completed") {
+  scStopCountdown();
   const s = scState.scenario;
+  const run = scState.run;
   const total = s.stages.length;
   if (outcome === "completed") {
     const key = SCENARIO_BEST_PREFIX + s.id;
     const best = Number(scStoreGet(key) ?? -1);
-    if (scState.correct > best) {
+    if (run.correct > best) {
       try {
-        localStorage.setItem(key, String(scState.correct));
+        localStorage.setItem(key, String(run.correct));
       } catch {}
     }
   }
@@ -568,14 +745,14 @@ function scDebrief(outcome = "completed") {
   scLogRun(outcome);
   scShow("sc-debrief");
   document.getElementById("sc-debrief-title").textContent = s.title;
-  document.getElementById("sc-debrief-score").textContent = `${scState.correct} / ${total}`;
+  document.getElementById("sc-debrief-score").textContent = `${run.correct} / ${total}`;
   document.getElementById("sc-debrief-time").textContent = scFmtElapsed(Date.now() - scState.startTime);
 
   const banner = document.getElementById("sc-debrief-banner");
   if (outcome === "died") {
     banner.hidden = false;
     banner.className = "exam-banner exam-fail";
-    banner.innerHTML = `<strong>PATIENT LOST</strong> — two critical decisions were missed while the patient had no solid pulse.`;
+    banner.innerHTML = `<strong>PATIENT LOST</strong> — too many critical decisions were missed while the patient had no solid pulse.`;
   } else {
     banner.hidden = true;
   }
@@ -583,14 +760,16 @@ function scDebrief(outcome = "completed") {
   const verdict = document.getElementById("sc-debrief-verdict");
   if (outcome === "died")
     verdict.textContent = "In the simulator this is a free lesson. The pointers below are the decisions to take back — then run it again.";
-  else if (scState.correct === total) verdict.textContent = "Flawless code — every decision on the first try.";
-  else if (scState.correct >= total - 1) verdict.textContent = "Strong run — one decision to review below.";
+  else if (run.correct === total) verdict.textContent = "Flawless code — every decision on the first try.";
+  else if (run.correct >= total - 1) verdict.textContent = "Strong run — one decision to review below.";
   else verdict.textContent = "The patient made it because the team backstopped the misses — review the pointers below.";
+
+  scRenderMetrics(run);
 
   // pointers from this run's misses
   const ptsEl = document.getElementById("sc-debrief-pointers");
-  if (scState.misses.length && window.EkgCodeLog) {
-    const pts = EkgCodeLog.pointersFor({ misses: scState.misses });
+  if (run.misses.length && window.EkgCodeLog) {
+    const pts = EkgCodeLog.pointersFor({ misses: run.misses });
     ptsEl.hidden = false;
     ptsEl.innerHTML =
       `<h3>Pointers from this run</h3>` +
@@ -600,10 +779,20 @@ function scDebrief(outcome = "completed") {
     ptsEl.innerHTML = "";
   }
 
-  document.getElementById("sc-debrief-log").innerHTML = scState.log
+  // your code vs. the ideal sequence (the scenario's keyed steps, in order)
+  document.getElementById("sc-debrief-ideal").innerHTML = EkgScenarioEngine.compare(run)
+    .map((row) => {
+      const meta = IDEAL_STATUS[row.status];
+      const when = row.t != null ? scFmtElapsed(row.t) : "--:--";
+      return `<li class="${meta.cls}"><span class="sc-ideal-time">${when}</span><span class="sc-ideal-step">${row.text}</span><span class="sc-ideal-status">${meta.icon} ${meta.label}</span></li>`;
+    })
+    .join("");
+
+  // the full timeline: every decision, including branch re-poses
+  document.getElementById("sc-debrief-log").innerHTML = run.timeline
     .map(
-      (e, i) =>
-        `<li class="${e.correct ? "log-ok" : "log-miss"}"><span class="sc-log-step">${i + 1}</span> ${e.correct ? "✓" : "✗"} ${e.text}</li>`
+      (e) =>
+        `<li class="${e.correct ? "log-ok" : "log-miss"}"><span class="sc-log-step">${scFmtElapsed(e.t)}</span> ${e.correct ? "✓" : "✗"} ${e.text} ${scLogTags(e)}</li>`
     )
     .join("");
 
@@ -616,18 +805,40 @@ function scDebrief(outcome = "completed") {
   document.getElementById("sc-debrief-fresh-reason").textContent = fresh.reason || "";
 }
 
+function scRenderMetrics(run) {
+  const m = EkgScenarioEngine.metrics(run);
+  const fmt = (ms) => (ms == null ? "—" : scFmtElapsed(ms));
+  const cells = [
+    ["DIFFICULTY", run.cfg.label],
+    ["TIME TO 1ST SHOCK", fmt(m.timeToFirstShockMs)],
+    ["TIME TO EPI", fmt(m.timeToEpiMs)],
+  ];
+  if (m.timeToCardioversionMs != null) cells.push(["TIME TO CARDIOVERSION", fmt(m.timeToCardioversionMs)]);
+  cells.push(["AVG DECISION", m.meanDecisionMs == null ? "—" : `${Math.round(m.meanDecisionMs / 1000)} s`]);
+  cells.push(["LATE / TIMED OUT", `${m.lateDecisions} / ${m.timeouts}`]);
+  cells.push(["BRANCHES", String(m.branches)]);
+  document.getElementById("sc-debrief-metrics").innerHTML = cells
+    .map(([k, v]) => `<div class="sc-metric"><span class="sc-metric-value">${v}</span><span class="sc-metric-label">${k}</span></div>`)
+    .join("");
+}
+
 // ---------- wiring ----------
 
 function scInit() {
   document.getElementById("mode-scenario").addEventListener("click", scOpenPicker);
   document.getElementById("sc-picker-back").addEventListener("click", () => scShow("start-screen"));
+  document.querySelectorAll("#sc-difficulty .sc-diff-btn").forEach((b) =>
+    b.addEventListener("click", () => scSetDifficulty(b.dataset.diff))
+  );
+  document.getElementById("sc-interrupt-btn").addEventListener("click", scDismissInterrupt);
   document.getElementById("sc-exit-btn").addEventListener("click", () => {
     scStopClock();
+    scStopCountdown();
     // An exited run with at least one decision made still counts: it goes
     // to the log and still seeds a fresh generated case.
-    if (scState.log.length > 0 && !scState.logged) {
+    if (scState.run && scState.run.timeline.length > 0 && !scState.logged) {
       // Leaving after the patient was already lost is still a loss.
-      scLogRun(scState.death ? "died" : "abandoned");
+      scLogRun(scState.run.death ? "died" : "abandoned");
       EkgGenerator.generate();
     }
     scOpenPicker();

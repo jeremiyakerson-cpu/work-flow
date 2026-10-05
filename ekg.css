@@ -1730,3 +1730,217 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ================= ADAPTIVE SCENARIOS ================= */
+
+.sc-countdown[hidden],
+.sc-hint[hidden],
+.sc-interrupt[hidden] {
+  display: none;
+}
+
+.sc-difficulty {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 6px;
+}
+
+.sc-diff-btn {
+  flex: 1 1 0;
+  min-width: 88px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-dim);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.sc-diff-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.sc-diff-note {
+  margin: 0 0 16px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.sc-diff-badge,
+.sc-countdown {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.sc-diff-badge.diff-expert { color: #ff8080; border-color: rgba(255, 128, 128, 0.5); }
+.sc-diff-badge.diff-guided { color: var(--complete); border-color: var(--complete); }
+
+.sc-countdown {
+  font-variant-numeric: tabular-nums;
+  color: var(--queued);
+  border-color: var(--queued);
+}
+
+.sc-countdown.urgent {
+  color: #ff5050;
+  border-color: #ff5050;
+}
+
+.sc-hint {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--accent-dim);
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.sc-interrupt {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--queued);
+  background: var(--queued-bg);
+  font-size: 0.88rem;
+}
+
+.sc-interrupt p {
+  margin: 0 0 10px;
+}
+
+.sc-softkeys.sc-blocked {
+  opacity: 0.45;
+}
+
+.sc-log-tag {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+.sc-debrief-log .sc-log-step {
+  width: auto;
+  min-width: 42px;
+  margin-right: 4px;
+}
+
+.sc-debrief-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.sc-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+.sc-metric-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.sc-metric-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.07em;
+  color: var(--text-faint);
+}
+
+.sc-ideal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.sc-ideal li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--bg-panel);
+}
+
+.sc-ideal-time {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.sc-ideal-step {
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.sc-ideal-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sc-ideal li.log-ok .sc-ideal-status { color: var(--complete); }
+.sc-ideal li.log-late .sc-ideal-status { color: var(--queued); }
+.sc-ideal li.log-miss .sc-ideal-status { color: #ff8080; }
+.sc-ideal li.log-skip .sc-ideal-status { color: var(--text-faint); }
+.sc-log .log-late { color: var(--queued); }
+
+.codelog-diff {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+
+.codelog-metrics {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .sc-ideal li {
+    grid-template-columns: 40px minmax(0, 1fr);
+  }
+  .sc-ideal-status {
+    grid-column: 2;
+  }
+}

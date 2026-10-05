@@ -47,10 +47,18 @@
     } catch {}
   }
 
+  const DIFFICULTY_LABEL = { guided: "GUIDED", standard: "STANDARD", expert: "EXPERT" };
+
   /*
    * entry: { title, scenarioId, generated, focus, outcome, correct,
    *          answered, total, durationMs, misses:[{question, intervention,
-   *          rationale, critical}], t }
+   *          rationale, critical, rhythm?, timedOut?}], t,
+   *          difficulty?, metrics?: { timeToFirstShockMs, timeToEpiMs,
+   *          timeToCardioversionMs, lateDecisions, timeouts, branches,
+   *          recovered, meanDecisionMs },
+   *          timeline?: [{ t, stage, attempt, text, rhythm, correct, late,
+   *          timedOut, critical, decisionMs, branch, next }] }
+   * (difficulty/metrics/timeline/rhythm are absent on older entries.)
    */
   function add(entry) {
     const list = load();
@@ -77,6 +85,38 @@
       critical: miss.critical,
       text: `${miss.question} → ${firstSentence(miss.rationale)}`,
     }));
+  }
+
+  /*
+   * Per-rhythm decision record across recent logged runs — the one
+   * learner-data read the scenario generator uses to target weak rhythms.
+   * Returns { [rhythmKey]: { seen, missed, rate } } counting first attempts
+   * at each decision (timeline entries with attempt 0). Older entries
+   * without a timeline contribute only their misses that carry a rhythm.
+   */
+  const WEAKNESS_WINDOW = 30; // most recent runs considered
+
+  function rhythmWeakness() {
+    const out = {};
+    const bump = (r, missed) => {
+      if (!r) return;
+      const b = out[r] || (out[r] = { seen: 0, missed: 0, rate: 0 });
+      b.seen++;
+      if (missed) b.missed++;
+    };
+    for (const e of load().slice(0, WEAKNESS_WINDOW)) {
+      if (Array.isArray(e.timeline)) {
+        e.timeline.filter((x) => x && x.attempt === 0).forEach((x) => bump(x.rhythm, !x.correct));
+      } else {
+        (e.misses || []).forEach((m) => bump(m.rhythm, true));
+      }
+    }
+    for (const r of Object.keys(out)) out[r].rate = out[r].missed / out[r].seen;
+    return out;
+  }
+
+  function focusHint(focus) {
+    return FOCUS_HINT[focus] || null;
   }
 
   // Cross-run coaching: recurring weak focus areas, deaths, and streaks.
@@ -125,6 +165,19 @@
     return out;
   }
 
+  function metricsLine(e) {
+    const m = e.metrics;
+    if (!m) return "";
+    const bits = [];
+    if (m.timeToFirstShockMs != null) bits.push(`1st shock ${fmtDuration(m.timeToFirstShockMs)}`);
+    if (m.timeToEpiMs != null) bits.push(`epi ${fmtDuration(m.timeToEpiMs)}`);
+    if (m.timeToCardioversionMs != null) bits.push(`cardioversion ${fmtDuration(m.timeToCardioversionMs)}`);
+    if (m.lateDecisions) bits.push(`${m.lateDecisions} late`);
+    if (m.timeouts) bits.push(`${m.timeouts} timed out`);
+    if (m.branches) bits.push(`${m.branches} branch${m.branches === 1 ? "" : "es"}`);
+    return bits.length ? `<div class="codelog-metrics">${bits.join(" · ")}</div>` : "";
+  }
+
   function fmtDuration(ms) {
     if (!ms && ms !== 0) return "";
     const s = Math.floor(ms / 1000);
@@ -163,9 +216,11 @@
         <div class="codelog-entry ${meta.cls}">
           <div class="codelog-entry-head">
             <span class="codelog-badge">${meta.label}</span>
+            ${DIFFICULTY_LABEL[e.difficulty] ? `<span class="codelog-diff">${DIFFICULTY_LABEL[e.difficulty]}</span>` : ""}
             <span class="codelog-title">${e.title}</span>
             <span class="codelog-meta">${e.correct}/${e.answered} decisions · ${fmtDuration(e.durationMs)} · ${d.toLocaleDateString()} ${d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</span>
           </div>
+          ${metricsLine(e)}
           ${ptsHtml}
         </div>`;
       })
@@ -187,5 +242,5 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 
-  window.EkgCodeLog = { add, list, count, patterns, pointersFor, open };
+  window.EkgCodeLog = { add, list, count, patterns, pointersFor, rhythmWeakness, focusHint, fmtDuration, open };
 })();

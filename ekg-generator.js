@@ -1053,18 +1053,45 @@
 
   // ---------- arc registry + adaptive selection ----------
 
+  // `rhythms`: the rhythms each arc drills, matched against the code log's
+  // per-rhythm misses so generation can target a learner's weakest rhythms.
   const ARCS = [
-    { key: "shockable", focus: "shockable-arrest", categories: ["code"], build: arcShockable },
-    { key: "pea", focus: "nonshockable-arrest", categories: ["code", "condition"], build: (rng) => arcNonShockable(rng, "pea") },
-    { key: "asystole", focus: "nonshockable-arrest", categories: ["code", "condition"], build: (rng) => arcNonShockable(rng, "asystole") },
-    { key: "brady", focus: "bradycardia", categories: ["meds", "rhythm"], build: arcBradycardia },
-    { key: "tachy", focus: "tachycardia", categories: ["meds", "rhythm"], build: arcTachy },
-    { key: "torsades", focus: "torsades-qt", categories: ["meds"], build: arcTorsades },
-    { key: "stablevt", focus: "stable-vt-acs", categories: ["condition", "code"], build: arcStableVt },
+    { key: "shockable", focus: "shockable-arrest", categories: ["code"], rhythms: ["vf_coarse", "vf_fine", "vt"], build: arcShockable },
+    { key: "pea", focus: "nonshockable-arrest", categories: ["code", "condition"], rhythms: [], build: (rng) => arcNonShockable(rng, "pea") },
+    { key: "asystole", focus: "nonshockable-arrest", categories: ["code", "condition"], rhythms: ["asystole"], build: (rng) => arcNonShockable(rng, "asystole") },
+    { key: "brady", focus: "bradycardia", categories: ["meds", "rhythm"], rhythms: ["sinus_brady", "mobitz2", "avb3", "pacer_noncapture"], build: arcBradycardia },
+    { key: "tachy", focus: "tachycardia", categories: ["meds", "rhythm"], rhythms: ["svt", "afib"], build: arcTachy },
+    { key: "torsades", focus: "torsades-qt", categories: ["meds"], rhythms: ["torsades"], build: arcTorsades },
+    { key: "stablevt", focus: "stable-vt-acs", categories: ["condition", "code"], rhythms: ["vt"], build: arcStableVt },
   ];
+
+  const RHYTHM_EVIDENCE = 4; // first-attempt decisions on a rhythm before its miss rate counts fully
+
+  function codeLogWeakness() {
+    try {
+      return window.EkgCodeLog && EkgCodeLog.rhythmWeakness ? EkgCodeLog.rhythmWeakness() : {};
+    } catch {
+      return {};
+    }
+  }
+
+  // The arc's weakest rhythm in the code log, evidence-weighted:
+  // { rhythm, seen, missed, rate, score } or null with no history.
+  function weakestRhythm(arc, weakness) {
+    let best = null;
+    for (const r of arc.rhythms || []) {
+      const w = weakness[r];
+      if (!w || !w.seen) continue;
+      const evidence = Math.min(1, w.seen / RHYTHM_EVIDENCE);
+      const score = 0.5 * (1 - evidence) + w.rate * evidence;
+      if (!best || score > best.score) best = { rhythm: r, ...w, score };
+    }
+    return best;
+  }
 
   function arcScores() {
     const p = window.EkgStats ? EkgStats.profile() : { byFocus: {}, byCategory: {} };
+    const weakness = codeLogWeakness();
     return ARCS.map((arc) => {
       let score = 0.5;
       const f = p.byFocus[arc.focus];
@@ -1083,7 +1110,11 @@
         }
       }
       if (catN) score = 0.6 * score + 0.4 * (catMiss / catN);
-      return { arc, score };
+      // code-log rhythm history outweighs the profile: a rhythm the learner
+      // keeps missing in codes pulls its arc up, one they handle pulls it down
+      const weak = weakestRhythm(arc, weakness);
+      if (weak) score = 0.4 * score + 0.6 * weak.score;
+      return { arc, score, weak };
     });
   }
 
@@ -1106,7 +1137,16 @@
     return scores[scores.length - 1];
   }
 
+  function rhythmName(key) {
+    const g = window.EkgEducation && EkgEducation.RHYTHM_GUIDE && EkgEducation.RHYTHM_GUIDE[key];
+    return g ? g.name : key.replace(/_/g, " ");
+  }
+
   function focusReason(picked) {
+    const w = picked.weak;
+    if (w && w.seen >= 2 && w.rate >= 0.34) {
+      return `Targeting a weak rhythm from your code log: you missed ${w.missed} of ${w.seen} decisions on ${rhythmName(w.rhythm).toLowerCase()}.`;
+    }
     const p = window.EkgStats ? EkgStats.profile() : { total: 0 };
     if (p.total < 5) return "Exploring the case library — answer more questions and generation will target your weak areas.";
     const f = p.byFocus[picked.arc.focus];
@@ -1151,6 +1191,7 @@
       title: `${body.title} · #${shortId}`,
       blurb: body.blurb,
       reason: focusReason(picked),
+      targetRhythm: picked.weak && picked.weak.rate >= 0.34 ? picked.weak.rhythm : null,
       stages: body.stages,
     };
     const lib = loadLibrary();
@@ -1167,5 +1208,5 @@
     saveLibrary(loadLibrary().filter((s) => s.id !== id));
   }
 
-  window.EkgGenerator = { generate, listGenerated, removeGenerated };
+  window.EkgGenerator = { generate, listGenerated, removeGenerated, arcScores: () => arcScores().map((s) => ({ key: s.arc.key, focus: s.arc.focus, score: s.score, weak: s.weak })) };
 })();

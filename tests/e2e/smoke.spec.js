@@ -132,8 +132,9 @@ test("code scenario: authored case to debrief, logged once", async ({ page, erro
   }
   await expect(page.locator("#sc-debrief")).toBeVisible();
   const [score, total] = (await page.locator("#sc-debrief-score").textContent()).split(" / ").map(Number);
-  // a lost patient ends the run early, so answered stages can be < total
-  expect(stages).toBeLessThanOrEqual(total);
+  // a lost patient ends the run early, so answered stages can be < total;
+  // a missed decision is re-posed once (branching), so at most 2 per stage
+  expect(stages).toBeLessThanOrEqual(total * 2);
   expect(score).toBeLessThanOrEqual(stages);
   await expect(page.locator("#sc-debrief-log li")).toHaveCount(stages);
 
