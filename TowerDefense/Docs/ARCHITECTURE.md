@@ -50,8 +50,8 @@ code uses `TowerDefense.<Area>` namespaces.
 
 | Type | Contract |
 |---|---|
-| `GameManager` | `Instance`, `Gold`, `Lives`, `StartingLives`, `IsGameOver`, `IsVictory`, `IsPaused`, `GameSpeed`; `Configure(gold,lives)`, `AddGold`, `CanAfford`, `SpendGold`, `DamageBase`, `TriggerVictory`, `RestartGame`, `Pause/Resume/TogglePause`, `SetGameSpeed`; C# events `GoldChanged, LivesChanged, WaveStarted, WaveCleared, GameOverTriggered, VictoryTriggered, PausedChanged, SpeedChanged` (+ original UnityEvents) |
-| `WaveManager` | `Instance`, `ApplyLevel(LevelData)`, `SetPaths(...)`, `Paths`, `StartWaves/StopWaves`, `autoStart`, `wavesToWin`, `CurrentWave`, `WaveInProgress`, `IsRunning`, `EnemiesAlive`, `TimeUntilNextWave`, `IsCountingDown`, `CallNextWaveEarly()`, `IsBossWave(n)`, `SpawnExtra(...)`, events `WaveSpawning(int,bool)`, `EnemySpawned(Enemy)` |
+| `GameManager` | `Instance`, `Gold`, `Lives`, `StartingLives`, `IsGameOver`, `IsVictory`, `IsPaused`, `GameSpeed`; `Configure(gold,lives)` (Normal), `Configure(baseGold, baseLives, DifficultyMode)`, `CurrentDifficulty`, `AddGold`, `CanAfford`, `SpendGold`, `DamageBase`, `TriggerVictory`, `RestartGame`, `Pause/Resume/TogglePause`, `SetGameSpeed`; C# events `GoldChanged, LivesChanged, WaveStarted, WaveCleared, GameOverTriggered, VictoryTriggered, PausedChanged, SpeedChanged` (+ original UnityEvents) |
+| `WaveManager` | `Instance`, `ApplyLevel(LevelData)` (Normal), `ApplyLevel(LevelData, DifficultyMode)`, `Difficulty`, `EarlyCallBonusEnabled`, `EarlyCallBonusPreview`, `SetPaths(...)`, `Paths`, `StartWaves/StopWaves`, `autoStart`, `wavesToWin`, `CurrentWave`, `WaveInProgress`, `IsRunning`, `EnemiesAlive`, `TimeUntilNextWave`, `IsCountingDown`, `CallNextWaveEarly()`, `IsBossWave(n)`, `SpawnExtra(...)`, events `WaveSpawning(int,bool)`, `EnemySpawned(Enemy)` |
 | `Enemy` | `Init(EnemyData, IReadOnlyList<Vector3> path, health, speed, reward, startWaypointIndex=0, startPosition=null)`, `Data`, `IsDead`, `IsBoss`, `CurrentHealth`, `maxHealth`, `HealthPercent()`, `PathProgress`, `Path`, `WaypointIndex`, `IsBlocked`, `IsFlying`, `SpeedMultiplier`, `Invulnerable`, `Heal`, `TakeDamage`, `ApplySlow/ApplyPoison`, `IsSlowed/IsPoisoned`, `TryGetBlocked/ReleaseFromBlock`; events `Damaged, Died, Leaked`, static `AnyDamaged, AnyDied, AnyLeaked` |
 | `Tower` | `Init(TowerData)`, `data`, `Range/FireRate/Damage`, `targetPriority`, `upgradeLevel`, `chosenPath`, `MaxLinearLevel` (3), `MaxLevel` (4), `CanUpgrade()` (L1–2), `Upgrade()` (L1→2→3), `CanSpecialize`, `IsSpecialized`, `ChooseBranch(path)` (L3→4 specialization), `BranchName/BranchDescription(path)`, `NextUpgradeCost()`, `BranchCost(path)`, `PreviewStats(level, path)`, `SplashRadius`, `PoisonDps`, `SellValue()`, `TotalInvested`, `ApplyHit(Enemy)`; events `Upgraded`, static `AnyFired, AnyUpgraded` |
 | `TowerPlacement` | `TryBuild(TowerData)`, `TryBuild(TowerData, GameObject)`, `GetBuiltTower()`, `IsOccupied`, `Sell()`, `HandleTap()`; static events `SlotTapped, AnySlotChanged` |
@@ -61,6 +61,13 @@ code uses `TowerDefense.<Area>` namespaces.
 | `EnemyData` | original fields + `id`, `description`, `tint`, `visualScale`, `abilities` (`List<EnemyAbilityData>`) |
 | `EnemyAbilityData` / `EnemyAbilityBehaviour` | `Attach(Enemy)` adds a behaviour; `Bind(Enemy, data)`. Enemy destroys behaviours on despawn |
 | `LevelData` | `id, displayName, description, worldSize, paths (List<PathDefinition>{points}), buildSlots, heroStart, startingGold, startingLives, wavesToWin (0=endless), difficultyMultiplier, enemyPool, bossPool, bossEveryNWaves, groundColor, pathColor, accentColor` |
+
+## Difficulty modes
+
+`TowerDefense.Core.Difficulty` / `DifficultyRules` (engine-free) define Easy / Normal / Hard /
+Impossible. Normal is the identity, so authored level numbers are Normal balance. Rules flow
+through the wave curve (`WaveManager.ApplyLevel(level, mode)`) and `GameManager.Configure`.
+Saves keep stars and best waves per difficulty (schema v3). See `Docs/DIFFICULTY.md`.
 
 ## Folder ownership (parallel workstreams)
 

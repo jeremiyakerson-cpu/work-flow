@@ -3,8 +3,10 @@
 Kingdom Rush–style 2D tower defense for iPhone and iPad. Fully offline: no
 network, accounts, ads or tracking. The game runs with **zero art, audio,
 prefab or scene assets**: sprites are drawn procedurally, sound effects and
-music are synthesized, and content (5 towers, 10 enemies, 4 bosses, 5 maps +
-endless variants) is built in code. Started from the 11 core scripts in the
+music are synthesized, and content (5 towers with 3 upgrade levels and two
+elite specializations each, 10 enemies, 4 bosses, 5 maps + endless variants)
+is built in code. Every level is playable on Easy, Normal, Hard and
+Impossible (unlocked per map by 3 stars on Hard: 1 life, no early-call bonus). Started from the 11 core scripts in the
 Google Drive "Tower defense" folder (`Docs/SETUP_GUIDE.md`).
 
 ## Run it
@@ -32,4 +34,4 @@ CI runs both (`.github/workflows/tower-defense.yml`).
 | `Assets/Scripts/Visuals`, `Bootstrap` | Procedural art, runtime templates, map, FX; sandbox |
 | `Assets/Scripts/Platform`, `Persistence`, `Audio` | Lifecycle, haptics, crash-safe saves, synthesized audio |
 | `Assets/Scripts/App` | `GameApp`: menu → level select → level → results flow |
-| `Docs/` | Architecture & ownership, content balance, iOS build guide |
+| `Docs/` | Architecture & ownership, content balance (`CONTENT.md`), difficulty (`DIFFICULTY.md`), iOS build guide |

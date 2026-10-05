@@ -36,6 +36,8 @@ public class Projectile : MonoBehaviour
     /// <summary>Where the projectile will land (tracks the target while it lives).</summary>
     public Vector3 TargetPoint => targetPoint;
     public Tower Owner => owner;
+    /// <summary>Splash radius snapshotted from the tower when fired (grows with upgrades). 0 = single target.</summary>
+    public float SplashRadius => hit.splashRadius;
 
     public void Init(Transform targetEnemy, float dmg, DamageType type, Tower sourceTower)
     {

@@ -23,6 +23,7 @@ namespace TowerDefense.Visuals
 
         private float age;
         private bool impacted;
+        private Projectile projectile;
 
         internal void Setup(Transform sprite, TrailRenderer trailRenderer, ProjectileArtKind artKind, float spin, float pulseAmount,
                             float splashRadius, Color color)
@@ -34,6 +35,11 @@ namespace TowerDefense.Visuals
             pulse = pulseAmount;
             impactRadius = splashRadius;
             impactColor = color;
+        }
+
+        private void Awake()
+        {
+            projectile = GetComponent<Projectile>();
         }
 
         private void OnEnable()
@@ -82,9 +88,11 @@ namespace TowerDefense.Visuals
         {
             if (impacted) return;
             impacted = true;
-            if (impactRadius <= 0f || !GameplayFx.CanSpawn) return;
-            if (kind == ProjectileArtKind.Flask) GameplayFx.Splash(transform.position, impactRadius, impactColor);
-            else GameplayFx.Explosion(transform.position, impactRadius, impactColor);
+            // The live shot's radius grows with tower upgrades; the template value is the level-1 size.
+            float radius = projectile != null && projectile.SplashRadius > 0f ? projectile.SplashRadius : impactRadius;
+            if (radius <= 0f || !GameplayFx.CanSpawn) return;
+            if (kind == ProjectileArtKind.Flask) GameplayFx.Splash(transform.position, radius, impactColor);
+            else GameplayFx.Explosion(transform.position, radius, impactColor);
         }
     }
 }
