@@ -10,8 +10,9 @@ namespace TowerDefense.UI
     /// <summary>
     /// Kingdom Rush style radial menu around a tapped build slot. Empty slot: a
     /// ring of tower buttons (cost tags, greyed when unaffordable). Built slot:
-    /// upgrade / branch / final buttons, level pips, sell and a target-priority
-    /// cycle. First tap selects and explains (tooltip + range preview), a second
+    /// "upgrade to level N" at levels 1-2, the two named specializations at
+    /// level 3, the elite's name at level 4; plus level pips (3 + a
+    /// specialization star), sell and a target-priority cycle. First tap selects and explains (tooltip + range preview), a second
     /// tap on the same button confirms. Follows the slot on screen, stays inside
     /// the safe area and closes on pan/zoom, empty taps, hero selection, pause.
     /// </summary>
@@ -30,7 +31,11 @@ namespace TowerDefense.UI
         public bool IsOpen { get; private set; }
         public TowerPlacement CurrentSlot => slot;
 
-        private enum ItemKind { Build, Upgrade, Branch, Final, Max, Sell, Priority }
+        private enum ItemKind { Build, Upgrade, Branch, Elite, Sell, Priority }
+
+        // Specialization accents; match the in-world branch colours (Visuals Palette.BranchA / BranchB).
+        private static readonly Color BranchAColor = new Color(0.91f, 0.33f, 0.24f, 1f);
+        private static readonly Color BranchBColor = new Color(0.18f, 0.77f, 0.71f, 1f);
 
         private sealed class Item
         {
@@ -56,7 +61,8 @@ namespace TowerDefense.UI
         private Text tooltipTitle;
         private Text tooltipBody;
         private RectTransform pipsRoot;
-        private readonly Image[] pips = new Image[4];
+        private readonly Image[] pips = new Image[Tower.MaxLinearLevel];
+        private Image elitePip;
         private WorldIndicator rangeRing;
 
         private readonly List<Item> items = new List<Item>(8);
@@ -146,14 +152,20 @@ namespace TowerDefense.UI
             Image ringEdge = UIFactory.Image(root, "RingEdge", UISprites.Ring(0.04f), UITheme.WithAlpha(UITheme.Parchment, 0.5f));
             UIFactory.Center(ringEdge.rectTransform, Vector2.zero, new Vector2(2f * RingRadius + 48f, 2f * RingRadius + 48f));
 
+            // Three level pips, a gap, then a larger star for the specialization.
+            const float pip = 26f, step = 36f, star = 40f, gap = 14f;
+            float pipsWidth = (pips.Length - 1) * step + pip + gap + star;
             pipsRoot = UIFactory.Rect("Pips", root);
-            UIFactory.Center(pipsRoot, new Vector2(0f, -RingRadius * 0.36f), new Vector2(4 * 26f + 3 * 10f, 26f));
+            UIFactory.Center(pipsRoot, new Vector2(0f, -RingRadius * 0.36f), new Vector2(pipsWidth, star));
             for (int i = 0; i < pips.Length; i++)
             {
-                Image pip = UIFactory.Image(pipsRoot, "Pip" + i, UISprites.Circle, UITheme.StarOff);
-                UIFactory.Place(pip.rectTransform, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(i * 36f, 0f), new Vector2(26f, 26f));
-                pips[i] = pip;
+                Image p = UIFactory.Image(pipsRoot, "Pip" + i, UISprites.Circle, UITheme.StarOff);
+                UIFactory.Place(p.rectTransform, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(i * step, 0f), new Vector2(pip, pip));
+                pips[i] = p;
             }
+            elitePip = UIFactory.Image(pipsRoot, "Specialization", UISprites.Star, UITheme.StarOff);
+            UIFactory.Place(elitePip.rectTransform, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f),
+                            new Vector2((pips.Length - 1) * step + pip + gap, 0f), new Vector2(star, star));
 
             itemsRoot = UIFactory.Stretch(UIFactory.Rect("Items", root));
 
@@ -335,31 +347,38 @@ namespace TowerDefense.UI
             pipsRoot.gameObject.SetActive(tower != null);
             if (tower != null && tower.data != null)
             {
-                TowerData d = tower.data;
                 int level = tower.upgradeLevel;
                 if (tower.CanUpgrade())
                 {
+                    // Levels 1-2: one linear upgrade, no choice.
+                    int nextLevel = level + 1;
                     Item up = AddItem(ItemKind.Upgrade, 90f, UISprites.Triangle, null, UITheme.Primary, tower.NextUpgradeCost(), false, 90f);
-                    up.title = "Upgrade to level " + (level + 1);
-                    TowerStats next = tower.PreviewStats(level + 1, Tower.UpgradePath.None);
+                    up.title = "Upgrade to level " + nextLevel;
+                    TowerStats next = tower.PreviewStats(nextLevel, Tower.UpgradePath.None);
                     up.body = Delta(next);
                     up.previewRange = next.Range;
                     up.execute = () => { if (tower != null && tower.Upgrade()) AfterChange(true); };
                 }
                 else if (tower.CanSpecialize)
                 {
-                    TowerStats a = tower.PreviewStats(Tower.MaxLevel, Tower.UpgradePath.PathA);
-                    TowerStats b = tower.PreviewStats(Tower.MaxLevel, Tower.UpgradePath.PathB);
-                    AddBranch(Tower.UpgradePath.PathA, 135f, d.pathAName, Delta(a), a.Range);
-                    AddBranch(Tower.UpgradePath.PathB, 45f, d.pathBName, Delta(b), b.Range);
+                    // Level 3: pick one of the two elite variants (the capstone).
+                    AddBranch(Tower.UpgradePath.PathA, 135f);
+                    AddBranch(Tower.UpgradePath.PathB, 45f);
                 }
                 else
                 {
-                    Item max = AddItem(ItemKind.Max, 90f, null, "MAX", UITheme.Neutral, 0, false);
-                    max.title = "Fully upgraded";
-                    max.body = "This tower has reached its final tier.";
-                    max.previewRange = tower.Range;
-                    max.view.Interactable = false;
+                    // Level 4: the elite's name and stats; only sell and target priority remain.
+                    Tower.UpgradePath path = tower.chosenPath;
+                    string name = ShortName(tower.BranchName(path), "Elite");
+                    Item elite = AddItem(ItemKind.Elite, 90f, null, name, BranchColor(path), 0, false);
+                    Image crown = UIFactory.Image(elite.view.Face.transform, "EliteStar", UISprites.Star, UITheme.Gold);
+                    UIFactory.Place(crown.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 0.5f), new Vector2(0f, -6f), new Vector2(40f, 40f));
+                    // Keep the name clear of the star.
+                    if (elite.view.Label != null)
+                        elite.view.Label.rectTransform.offsetMax = new Vector2(elite.view.Label.rectTransform.offsetMax.x, -30f);
+                    elite.title = name;
+                    elite.body = EliteBody(tower.BranchDescription(path));
+                    elite.previewRange = tower.Range;
                 }
 
                 Item prio = AddItem(ItemKind.Priority, 0f, null, PriorityShort(tower.targetPriority), UITheme.Secondary, 0, false);
@@ -389,15 +408,20 @@ namespace TowerDefense.UI
             };
         }
 
-        private void AddBranch(Tower.UpgradePath path, float angle, string name, string body, float previewRange)
+        private void AddBranch(Tower.UpgradePath path, float angle)
         {
-            Item b = AddItem(ItemKind.Branch, angle, null, name, path == Tower.UpgradePath.PathA ? UITheme.Danger : UITheme.Secondary,
-                             tower.BranchCost(path), false);
-            b.title = name;
-            b.body = body;
-            b.previewRange = previewRange;
+            string name = ShortName(tower.BranchName(path), path == Tower.UpgradePath.PathA ? "Branch A" : "Branch B");
+            TowerStats preview = tower.PreviewStats(Tower.MaxLevel, path);
+            Item b = AddItem(ItemKind.Branch, angle, null, name, BranchColor(path), tower.BranchCost(path), false);
+            b.title = "Specialize: " + name;
+            string description = tower.BranchDescription(path);
+            b.body = string.IsNullOrEmpty(description) ? Delta(preview) : description + "\n" + Delta(preview);
+            b.previewRange = preview.Range;
             b.execute = () => { if (tower != null && tower.ChooseBranch(path)) AfterChange(true); };
         }
+
+        private static Color BranchColor(Tower.UpgradePath path) =>
+            path == Tower.UpgradePath.PathA ? BranchAColor : path == Tower.UpgradePath.PathB ? BranchBColor : UITheme.Neutral;
 
         private Item AddItem(ItemKind kind, float angleDeg, Sprite icon, string text, Color color, int cost, bool whiteIcon,
                              float iconRotation = 0f, float iconScale = 0.55f)
@@ -460,7 +484,7 @@ namespace TowerDefense.UI
                 Select(index);
                 return;
             }
-            if (item.kind == ItemKind.Max) { Select(index); return; }
+            if (item.kind == ItemKind.Elite) { Select(index); return; }
 
             if (selected != index)
             {
@@ -485,7 +509,7 @@ namespace TowerDefense.UI
             Item item = items[index];
             for (int i = 0; i < items.Count; i++)
             {
-                bool on = i == index && items[i].kind != ItemKind.Priority && items[i].kind != ItemKind.Max &&
+                bool on = i == index && items[i].kind != ItemKind.Priority && items[i].kind != ItemKind.Elite &&
                           (items[i].cost <= 0 || gm == null || gm.CanAfford(items[i].cost));
                 if (items[i].checkBadge != null && items[i].checkBadge.gameObject.activeSelf != on)
                 {
@@ -554,6 +578,9 @@ namespace TowerDefense.UI
         {
             int level = tower != null ? tower.upgradeLevel : 0;
             for (int i = 0; i < pips.Length; i++) pips[i].color = i < level ? UITheme.Gold : UITheme.StarOff;
+            bool elite = tower != null && tower.IsSpecialized;
+            elitePip.color = elite ? BranchColor(tower.chosenPath) : UITheme.StarOff;
+            elitePip.rectTransform.localScale = elite ? Vector3.one * 1.15f : Vector3.one;
         }
 
         // ------------------------------------------------------------------ text helpers (built on open only)
@@ -584,13 +611,40 @@ namespace TowerDefense.UI
         /// <summary>Upgrade preview from Tower.PreviewStats (the same math the upgrade applies), relative to current stats.</summary>
         private string Delta(TowerStats next)
         {
-            string text = Mults(Ratio(next.Damage, tower.Damage), Ratio(next.Range, tower.Range), Ratio(next.FireRate, tower.FireRate));
-            if (next.AppliesSlow && !tower.AppliesSlow) text += "\nAdds slow on hit";
-            if (next.AppliesPoison && !tower.AppliesPoison) text += "\nAdds poison on hit";
-            return text;
+            var sb = new System.Text.StringBuilder(160);
+            float dpsNow = tower.Dps + tower.PoisonDps, dpsNext = next.TotalDps;
+            sb.Append("DPS ").Append(dpsNow.ToString("0.#")).Append(" -> ").Append(dpsNext.ToString("0.#")).Append('\n');
+            sb.Append(Mults(Ratio(next.Damage, tower.Damage), Ratio(next.Range, tower.Range), Ratio(next.FireRate, tower.FireRate)));
+            if (next.PoisonDps > tower.PoisonDps + 0.001f && tower.PoisonDps > 0f)
+                sb.Append("\nPoison x").Append(Ratio(next.PoisonDps, tower.PoisonDps).ToString("0.##"));
+            if (next.SplashRadius > tower.SplashRadius + 0.001f)
+            {
+                if (tower.SplashRadius > 0f) sb.Append("\nSplash radius +").Append((next.SplashRadius - tower.SplashRadius).ToString("0.##"));
+                else sb.Append("\nAdds area damage (radius ").Append(next.SplashRadius.ToString("0.#")).Append(')');
+            }
+            if (next.AppliesSlow && !tower.AppliesSlow) sb.Append("\nAdds slow on hit");
+            if (next.AppliesPoison && !tower.AppliesPoison) sb.Append("\nAdds poison on hit");
+            return sb.ToString();
         }
 
+        /// <summary>Tooltip for a specialized tower: its description plus current stats.</summary>
+        private string EliteBody(string description)
+        {
+            var sb = new System.Text.StringBuilder(160);
+            if (!string.IsNullOrEmpty(description)) sb.Append(description).Append('\n');
+            sb.Append("Damage ").Append(tower.Damage.ToString("0.#")).Append("   Rate ").Append(tower.FireRate.ToString("0.##")).Append("/s\n");
+            sb.Append("Range ").Append(tower.Range.ToString("0.#"));
+            if (tower.SplashRadius > 0f) sb.Append("   Splash ").Append(tower.SplashRadius.ToString("0.#"));
+            if (tower.PoisonDps > 0f) sb.Append("\nPoison ").Append(tower.PoisonDps.ToString("0.#")).Append("/s");
+            sb.Append("\nFully upgraded elite.");
+            return sb.ToString();
+        }
+
+        private static string ShortName(string name, string fallback) =>
+            string.IsNullOrEmpty(name) ? fallback : name.Trim();
+
         private static float Ratio(float next, float current) => current > 0f ? next / current : 1f;
+
 
         private static string Mults(float damage, float range, float rate)
         {
