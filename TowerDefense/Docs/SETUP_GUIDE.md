@@ -42,7 +42,7 @@ Then:
    to the path width.
 6. **UI**: hook `GameManager` UnityEvents to HUD text. Tower shop buttons
    call `TowerShopUI.SelectTower(towerData, towerPrefab)`; upgrade buttons
-   call `tower.Upgrade()` / `tower.ChooseBranch(path)` / `tower.UpgradeFinal()`.
+   call `tower.Upgrade()` (levels 1→2→3) / `tower.ChooseBranch(path)` (specialization at level 3).
 
 ## Why ScriptableObjects matter here
 Before: adding a tower meant a new prefab AND tuning fields scattered across
@@ -59,7 +59,7 @@ a `MonoBehaviour`. Now: `Tower.cs` is generic — it just reads whatever
 1. **Chokepoints** — `IBlockable` + `Enemy.TryGetBlocked()`: ground enemies
    stop and melee a Hero/Barricade instead of walking through.
 2. **Armor triangle** — `ArmorType` × `DamageType` in `CombatEnums.cs`.
-3. **Branching upgrades** — `Tower.ChooseBranch()` at level 2, data-defined.
+3. **Branching upgrades** — three linear levels, then `Tower.ChooseBranch()` specializes at level 3, data-defined.
 4. **Respawning hero** — disables on death, returns after `respawnTime`.
 5. **Status effects** — slow/poison, tactical layering on top of damage.
 
