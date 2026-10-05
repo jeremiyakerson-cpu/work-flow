@@ -66,9 +66,34 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    /// <summary>Reset economy for a level (called by the level loader before waves start).</summary>
+    /// <summary>Reset economy for a level (called by the level loader before waves start). Normal difficulty, exact values.</summary>
     public void Configure(int gold, int lives)
     {
+        ConfigureExact(gold, lives, DifficultyMode.Normal);
+    }
+
+    /// <summary>
+    /// Reset economy for a level on a difficulty: <paramref name="baseGold"/> and
+    /// <paramref name="baseLives"/> are the level's authored (Normal) values and are
+    /// scaled by the difficulty's rules (lives never below 1; Impossible = 1 life).
+    /// Pair with WaveManager.ApplyLevel(level, mode) so enemies scale too.
+    /// </summary>
+    public void Configure(int baseGold, int baseLives, DifficultyMode mode)
+    {
+        DifficultyMode m = Difficulty.IsDefined(mode) ? mode : DifficultyMode.Normal;
+        DifficultyRules rules = Difficulty.Rules(m);
+        ConfigureExact(rules.ApplyStartingGold(baseGold), rules.ApplyLives(baseLives), m);
+    }
+
+    /// <summary>Difficulty the current level was configured with (Normal unless Configure got a mode).</summary>
+    public DifficultyMode CurrentDifficulty { get; private set; } = DifficultyMode.Normal;
+
+    /// <summary>Rules of <see cref="CurrentDifficulty"/>.</summary>
+    public DifficultyRules CurrentDifficultyRules => Difficulty.Rules(CurrentDifficulty);
+
+    private void ConfigureExact(int gold, int lives, DifficultyMode mode)
+    {
+        CurrentDifficulty = mode;
         Gold = gold;
         Lives = lives;
         StartingLives = lives;
