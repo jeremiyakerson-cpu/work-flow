@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TowerDefense.Content;
+using TowerDefense.Core;
 
 namespace TowerDefense.Levels
 {
@@ -11,6 +12,9 @@ namespace TowerDefense.Levels
     ///  - Level N+1 unlocks once level N has at least RequiredStarsToAdvance stars (default 1).
     ///  - A level's endless variant ("id_endless") unlocks once that campaign level
     ///    has at least RequiredStarsForEndless stars (default 1, i.e. beaten once).
+    ///  - Stars count on any difficulty for the two rules above.
+    ///  - Difficulties: Easy/Normal/Hard are open on every unlocked level; Impossible
+    ///    needs 3 stars on Hard on that map (see <see cref="IsDifficultyUnlocked"/>).
     /// </summary>
     public sealed class CampaignProgression
     {
@@ -18,17 +22,32 @@ namespace TowerDefense.Levels
 
         private readonly string[] order;
         private readonly Func<string, int> starLookup;
+        private readonly Func<string, DifficultyMode, int> modeStarLookup;
 
         public int RequiredStarsToAdvance { get; }
         public int RequiredStarsForEndless { get; }
 
+        /// <param name="starLookup">levelId -> best stars on any difficulty (unlocks the next level and endless).</param>
         public CampaignProgression(IReadOnlyList<string> levelOrder, Func<string, int> starLookup,
+                                   int requiredStarsToAdvance = 1, int requiredStarsForEndless = 1)
+            : this(levelOrder, starLookup, null, requiredStarsToAdvance, requiredStarsForEndless)
+        {
+        }
+
+        /// <param name="starLookup">levelId -> best stars on any difficulty (unlocks the next level and endless).</param>
+        /// <param name="modeStarLookup">
+        /// (levelId, difficulty) -> stars on that difficulty (unlocks Impossible). Null = every
+        /// result counts as Normal (a save from before difficulties).
+        /// </param>
+        public CampaignProgression(IReadOnlyList<string> levelOrder, Func<string, int> starLookup,
+                                   Func<string, DifficultyMode, int> modeStarLookup,
                                    int requiredStarsToAdvance = 1, int requiredStarsForEndless = 1)
         {
             if (levelOrder == null) throw new ArgumentNullException(nameof(levelOrder));
             order = new string[levelOrder.Count];
             for (int i = 0; i < order.Length; i++) order[i] = levelOrder[i];
             this.starLookup = starLookup ?? (_ => 0);
+            this.modeStarLookup = modeStarLookup;
             RequiredStarsToAdvance = Math.Max(0, requiredStarsToAdvance);
             RequiredStarsForEndless = Math.Max(0, requiredStarsForEndless);
         }
@@ -43,6 +62,30 @@ namespace TowerDefense.Levels
             int s = starLookup(levelId);
             return s < 0 ? 0 : (s > MaxStarsPerLevel ? MaxStarsPerLevel : s);
         }
+
+        /// <summary>
+        /// Stars on one difficulty, clamped to 0..3. Endless ids read their base campaign map.
+        /// Without a per-difficulty lookup every result counts as Normal.
+        /// </summary>
+        public int Stars(string levelId, DifficultyMode mode)
+        {
+            string id = ContentIds.BaseLevelId(levelId);
+            if (string.IsNullOrEmpty(id)) return 0;
+            int s = modeStarLookup != null ? modeStarLookup(id, mode) : (mode == DifficultyMode.Normal ? starLookup(id) : 0);
+            return s < 0 ? 0 : (s > MaxStarsPerLevel ? MaxStarsPerLevel : s);
+        }
+
+        /// <summary>
+        /// Can this level (campaign or endless id) be started on <paramref name="mode"/>?
+        /// Easy/Normal/Hard whenever the level is unlocked; Impossible also needs
+        /// 3 stars on Hard on the map (the base campaign map for endless variants).
+        /// </summary>
+        public bool IsDifficultyUnlocked(string levelId, DifficultyMode mode) =>
+            Difficulty.IsUnlocked(mode, IsUnlocked(levelId), Stars(levelId, Difficulty.ImpossibleUnlockMode));
+
+        /// <summary>The mode to start with: <paramref name="mode"/>, or Hard while Impossible is locked on this map.</summary>
+        public DifficultyMode ClampDifficulty(string levelId, DifficultyMode mode) =>
+            Difficulty.ClampToUnlocked(mode, Stars(levelId, Difficulty.ImpossibleUnlockMode));
 
         /// <summary>Position in the campaign, -1 if not a campaign level. Endless ids map to their base level.</summary>
         public int IndexOf(string levelId)

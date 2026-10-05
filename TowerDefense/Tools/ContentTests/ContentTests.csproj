@@ -13,7 +13,8 @@
   <ItemGroup>
     <Compile Include="../../Assets/Scripts/Levels/Layout/**/*.cs" />
     <Compile Include="../../Assets/Scripts/Content/ContentIds.cs" />
-    <!-- Tower balance table + the engine-free upgrade math it is checked against. -->
+    <!-- Tower balance table + the engine-free Core it is checked against
+         (upgrade math, difficulty unlock rules used by CampaignProgression). -->
     <Compile Include="../../Assets/Scripts/Content/TowerBalance.cs" />
     <Compile Include="../../Assets/Scripts/Core/**/*.cs" />
     <Compile Include="*.cs" />

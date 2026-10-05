@@ -145,6 +145,14 @@ namespace TowerDefense.UI
                 UIFactory.Place(lt.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -150f), new Vector2(1000f, 56f));
             }
 
+            // Difficulty badge in the top-left corner, clear of the centred heading.
+            if (data.showDifficulty)
+            {
+                Image badge = DifficultyStyle.Badge(p, data.difficulty, UITheme.FontSmall - 2);
+                UIFactory.Place(badge.rectTransform, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -40f), new Vector2(240f, 60f));
+                UITween.Scale(badge.transform, Vector3.zero, Vector3.one, 0.35f, Ease.OutBack, 0.25f);
+            }
+
             float statsTop = -230f;
             if (data.victory && !data.isEndless)
             {
@@ -193,6 +201,12 @@ namespace TowerDefense.UI
             if (data.extraStats != null)
                 for (int i = 0; i < data.extraStats.Count; i++)
                     StatLine(stats, data.extraStats[i].Key, data.extraStats[i].Value);
+            if (!string.IsNullOrEmpty(data.difficultyHint))
+            {
+                Text hint = UIFactory.Label(stats, data.difficultyHint, UITheme.FontBody, UITheme.Highlight, TextAnchor.MiddleCenter, FontStyle.Bold);
+                hint.rectTransform.sizeDelta = new Vector2(900f, 64f);
+                UITween.Scale(hint.transform, Vector3.zero, Vector3.one, 0.4f, Ease.OutBack, 1.2f);
+            }
 
             // Buttons: Menu | Retry | Next (whichever exist), centred along the bottom.
             RectTransform row2 = UIFactory.Rect("Actions", p);

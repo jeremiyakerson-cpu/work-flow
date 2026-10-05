@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TowerDefense.Core;
 
 namespace TowerDefense.UI
 {
@@ -30,8 +31,44 @@ namespace TowerDefense.UI
         public bool isEndless;
         /// <summary>Best wave reached (endless entries).</summary>
         public int bestWave;
+        /// <summary>Show a badge with <see cref="hardestCleared"/> (the level was won at least once).</summary>
+        public bool hasCleared;
+        /// <summary>Hardest difficulty the level was won on (badge in the card corner).</summary>
+        public DifficultyMode hardestCleared;
         /// <summary>Free slot for the caller (e.g. the LevelData).</summary>
         public object userData;
+    }
+
+    /// <summary>One choice in the difficulty picker.</summary>
+    public sealed class DifficultyOption
+    {
+        public DifficultyMode mode;
+        /// <summary>Defaults to Difficulty.DisplayName(mode).</summary>
+        public string title;
+        /// <summary>Short modifier lines ("+35% enemy HP", "10 lives").</summary>
+        public IReadOnlyList<string> modifiers;
+        /// <summary>One-line flavour text shown for the selected option.</summary>
+        public string description;
+        /// <summary>Best stars on this difficulty (campaign).</summary>
+        public int bestStars;
+        /// <summary>Best wave on this difficulty (endless).</summary>
+        public int bestWave;
+        public bool locked;
+        /// <summary>Shown on a locked card and in the toast when it is tapped.</summary>
+        public string lockedHint;
+    }
+
+    /// <summary>What the difficulty picker shows.</summary>
+    public sealed class DifficultyPickerData
+    {
+        public string levelTitle;
+        /// <summary>Records show "Best: wave N" instead of stars.</summary>
+        public bool isEndless;
+        public IReadOnlyList<DifficultyOption> options;
+        /// <summary>Preselected mode (the last one used). A locked or missing mode selects the first unlocked option.</summary>
+        public DifficultyMode selected = DifficultyMode.Normal;
+        /// <summary>Label of the confirm button.</summary>
+        public string startLabel = "Start";
     }
 
     /// <summary>Pause menu actions. onResume is required; null restart/quit hide their buttons.</summary>
@@ -61,6 +98,11 @@ namespace TowerDefense.UI
         public bool isEndless;
         public int bestWave;
         public bool isNewBest;
+        /// <summary>Show the difficulty the level was played on.</summary>
+        public bool showDifficulty;
+        public DifficultyMode difficulty = DifficultyMode.Normal;
+        /// <summary>Optional next-step line, e.g. "3 stars on Hard unlocks Impossible".</summary>
+        public string difficultyHint;
         /// <summary>Optional extra rows, e.g. ("Gold earned", "1,240").</summary>
         public IReadOnlyList<KeyValuePair<string, string>> extraStats;
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TowerDefense.Core;
 using TowerDefense.Input;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,6 +42,8 @@ namespace TowerDefense.UI
         private AnimatedCounter lives;
         private AnimatedCounter gold;
         private Text waveLabel;
+        private RectTransform difficultyRoot;
+        private Image difficultyBadge;
         private UIButtonView pauseButton;
         private UIButtonView speedButton;
         private HeroWidget heroWidget;
@@ -165,6 +168,7 @@ namespace TowerDefense.UI
                 gold.SetImmediate(gm.Gold);
                 RefreshSpeed(gm.GameSpeed);
             }
+            ShowDifficulty(gm != null ? gm.CurrentDifficulty : DifficultyMode.Normal);
             if (wm != null) wm.WaveSpawning += OnWaveSpawning;
             if (input != null)
             {
@@ -224,6 +228,11 @@ namespace TowerDefense.UI
             UIFactory.Place(wave.rectTransform, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(m, -m - 128f), new Vector2(330f, 72f));
             waveLabel = UIFactory.Label(wave.transform, "", UITheme.FontBody, UITheme.Parchment, TextAnchor.MiddleCenter, FontStyle.Bold);
             UIFactory.Stretch(waveLabel.rectTransform, 6f);
+
+            // Difficulty badge right of the wave pill (filled in on Attach).
+            difficultyRoot = UIFactory.Rect("DifficultySlot", rect);
+            UIFactory.Place(difficultyRoot, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(m + 330f + 14f, -m - 128f - 8f),
+                            new Vector2(210f, 56f));
 
             // Pause + speed (top-right).
             pauseButton = UIFactory.IconButton(rect, UISprites.PauseIcon, OnPauseTapped, UITheme.Neutral, UITheme.IconButton, false, 0.6f);
@@ -503,6 +512,17 @@ namespace TowerDefense.UI
             {
                 if (modeHint != null) modeHint.gameObject.SetActive(false);
             });
+        }
+
+        /// <summary>
+        /// Small difficulty badge next to the wave counter. Bind shows GameManager.CurrentDifficulty;
+        /// call again if the difficulty is configured after Bind.
+        /// </summary>
+        public void ShowDifficulty(DifficultyMode mode)
+        {
+            if (difficultyBadge != null) Destroy(difficultyBadge.gameObject);
+            difficultyBadge = DifficultyStyle.Badge(difficultyRoot, mode, UITheme.FontSmall - 4);
+            UIFactory.Stretch(difficultyBadge.rectTransform);
         }
 
         /// <summary>Show a custom announcement banner (e.g. level intro).</summary>

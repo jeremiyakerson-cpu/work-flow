@@ -78,6 +78,20 @@ public class WaveManager : MonoBehaviour
     [Tooltip("Inactive enemies created per enemy type when a level is applied, to avoid hitches on wave 1.")]
     public int prewarmPerType = 6;
 
+    /// <summary>
+    /// Difficulty applied on top of the curve above (ApplyLevel / SetDifficulty).
+    /// Health, speed, rewards and boss health all scale through the curve, so plans,
+    /// previews and summons (ScaledStats) agree. Normal changes nothing.
+    /// </summary>
+    public DifficultyMode Difficulty { get; private set; } = DifficultyMode.Normal;
+    /// <summary>The rules for <see cref="Difficulty"/>.</summary>
+    public DifficultyRules DifficultyRules => TowerDefense.Core.Difficulty.Rules(Difficulty);
+    /// <summary>False on modes without the early-call bonus (Impossible): calling early still works but pays 0.</summary>
+    public bool EarlyCallBonusEnabled => DifficultyRules.EarlyCallBonusEnabled;
+    /// <summary>Gold CallNextWaveEarly would pay right now (0 when not counting down or the bonus is disabled).</summary>
+    public int EarlyCallBonusPreview =>
+        IsCountingDown && !skipCountdown ? DifficultyRules.EarlyCallBonus(TimeUntilNextWave, earlyCallGoldPerSecond) : 0;
+
     public int CurrentWave { get; private set; } = 0;
     public bool WaveInProgress { get; private set; } = false;
     public bool IsRunning { get; private set; } = false;
@@ -144,10 +158,14 @@ public class WaveManager : MonoBehaviour
             if (p != null && p.Count >= 2) paths.Add(p);
     }
 
-    /// <summary>Configure paths, enemy pools and rules from a LevelData asset.</summary>
-    public void ApplyLevel(LevelData level)
+    /// <summary>Configure paths, enemy pools and rules from a LevelData asset, on Normal difficulty.</summary>
+    public void ApplyLevel(LevelData level) => ApplyLevel(level, DifficultyMode.Normal);
+
+    /// <summary>Configure paths, enemy pools and rules from a LevelData asset on a difficulty.</summary>
+    public void ApplyLevel(LevelData level, DifficultyMode mode)
     {
         if (level == null) return;
+        SetDifficulty(mode);
         var worldPaths = new List<IReadOnlyList<Vector3>>();
         if (level.paths != null)
         {
@@ -166,6 +184,15 @@ public class WaveManager : MonoBehaviour
         wavesToWin = level.wavesToWin;
         difficultyMultiplier = level.difficultyMultiplier;
         PrewarmPools(prewarmPerType);
+    }
+
+    /// <summary>
+    /// Change the difficulty (normally via ApplyLevel before waves start). Takes effect
+    /// from the next planned wave; enemies already on the field keep their stats.
+    /// </summary>
+    public void SetDifficulty(DifficultyMode mode)
+    {
+        Difficulty = TowerDefense.Core.Difficulty.IsDefined(mode) ? mode : DifficultyMode.Normal;
     }
 
     public IReadOnlyList<IReadOnlyList<Vector3>> Paths => paths;
@@ -227,12 +254,13 @@ public class WaveManager : MonoBehaviour
 
     /// <summary>
     /// Skip the between-wave countdown (KR "call early"). Returns bonus gold
-    /// awarded for the time skipped, 0 if no countdown was running.
+    /// awarded for the time skipped, 0 if no countdown was running or the
+    /// difficulty has no early-call bonus (the wave is still called early).
     /// </summary>
     public int CallNextWaveEarly()
     {
         if (!IsCountingDown || skipCountdown) return 0;
-        int bonus = EconomyRules.EarlyCallBonus(TimeUntilNextWave, earlyCallGoldPerSecond);
+        int bonus = DifficultyRules.EarlyCallBonus(TimeUntilNextWave, earlyCallGoldPerSecond);
         if (bonus > 0 && GameManager.Instance != null) GameManager.Instance.AddGold(bonus);
         skipCountdown = true;
         return bonus;
@@ -250,6 +278,9 @@ public class WaveManager : MonoBehaviour
         BuildCurve();
         BuildTypes(enemyPool, enemyTypes);
         BuildTypes(bossPool, bossTypes);
+        DifficultyRules rules = DifficultyRules;
+        if (!rules.IsIdentity)
+            for (int i = 0; i < bossTypes.Count; i++) bossTypes[i] = rules.ApplyToBoss(bossTypes[i]);
         return WavePlanner.Plan(waveNumber, curve, enemyTypes, bossTypes, Mathf.Max(1, paths.Count), ActiveSeed);
     }
 
@@ -409,6 +440,7 @@ public class WaveManager : MonoBehaviour
         curve.ReferenceHealth = referenceHealth;
         curve.ReferenceSpeed = referenceSpeed;
         curve.ReferenceReward = referenceReward;
+        DifficultyRules.ApplyTo(curve); // health / speed / reward multipliers; no-op on Normal
     }
 
     private static void BuildTypes(List<EnemyData> pool, List<EnemyTypeInfo> into)
