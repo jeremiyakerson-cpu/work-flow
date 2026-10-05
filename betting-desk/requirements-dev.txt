@@ -1,4 +1,5 @@
 -r requirements.txt
-pytest>=8
-respx>=0.21          # mocks ESPN / The Odds API in the robustness and results tests
-playwright>=1.45     # UI smoke test; then `playwright install chromium` (or set BD_CHROMIUM)
+pytest==9.1.1
+respx==0.23.1         # mocks ESPN / The Odds API in the robustness and results tests
+httpx2==2.13.1        # Starlette's TestClient transport (plain httpx there is deprecated)
+playwright==1.63.0    # UI smoke test; then `playwright install chromium` (or set BD_CHROMIUM)

@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - "betting-desk/**"
+      - "render.yaml"
       - ".github/workflows/betting-desk-tests.yml"
   push:
     branches: [main]
     paths:
       - "betting-desk/**"
+      - "render.yaml"
       - ".github/workflows/betting-desk-tests.yml"
 
 permissions:
@@ -23,18 +25,40 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12"]
+        # Every CPython the pinned requirements ship wheels for. 3.15 joins
+        # once pydantic-core publishes 3.15 wheels for the pinned version.
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: betting-desk/requirements*.txt
       - name: Install
-        run: pip install -r requirements.txt -r requirements-dev.txt
-      - name: Test (offline; no API key, demo fixtures and fakes only)
+        run: pip install -r requirements-dev.txt
+      - name: Install Chromium for the UI smoke test (one Python is enough)
+        if: matrix.python-version == '3.13'
+        run: python -m playwright install --with-deps chromium
+      - name: Test (offline; no API key, demo fixtures and fakes only; warnings are errors)
         env:
           ODDS_API_KEY: ""
           DEMO_MODE: ""
-        run: python -m pytest tests -q
+          DESK_PASSWORD: ""
+          AUTO_REFRESH: ""
+        run: python -m pytest tests -q -W error -rs
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Build the image
+        run: docker build -t betting-desk betting-desk
+      - name: Boot it in demo mode behind a password and probe it
+        run: |
+          docker run -d --name bd -p 8000:8000 -e DEMO_MODE=1 -e DESK_PASSWORD=ci-secret betting-desk
+          for i in $(seq 1 30); do curl -fsS localhost:8000/healthz && break; sleep 1; done
+          test "$(curl -s -o /dev/null -w '%{http_code}' localhost:8000/api/health)" = 401
+          curl -fsS -u x:ci-secret localhost:8000/api/board/nfl | grep -q '"demo_mode":true'
+      - if: always()
+        run: docker logs bd || true

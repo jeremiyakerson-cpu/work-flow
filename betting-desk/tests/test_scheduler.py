@@ -83,13 +83,14 @@ def test_idle_with_no_games_spends_nothing():
 
 def test_hard_daily_budget_stops_runs_and_resets_at_midnight_utc():
     clock = Clock()
-    s, calls = make(clock, [T0 + 110 * 60], budget=10, cost=3)   # every 15 min near the game
-    for _ in range(6):
+    s, calls = make(clock, [T0 + 28 * 60], budget=10, cost=3)   # inside the close window
+    s.tiers = [(0, 5)]                                    # every 5 min, to reach the cap fast
+    for _ in range(3):
         s.tick()
-        clock.t += 15 * 60
-    assert len(calls) == 3 and s.spent == 9               # a 4th run would make 12 > 10
-    skipped = s.tick()
-    assert skipped and "daily budget" in skipped[0]["skipped"]
+        clock.t += 5 * 60
+    assert len(calls) == 3 and s.spent == 9
+    skipped = s.tick()                                    # a 4th run would make 12 > 10
+    assert skipped and "daily budget" in skipped[0]["skipped"] and len(calls) == 3
     assert s.budget()["remaining_today"] == 1
 
     # next UTC day: budget is back, cadence resumes for tomorrow's game
@@ -110,6 +111,18 @@ def test_far_from_game_runs_only_use_their_share():
     assert len(calls) == 2
     assert "saving the rest" in s.leagues_state["nfl"]["skip"]
     assert s.can_spend(3, far=False) is None              # near-game runs still allowed
+
+
+def test_last_run_is_kept_for_the_close():
+    clock = Clock()
+    s, calls = make(clock, [T0 + 100 * 60], budget=9, cost=3, far_share=1)  # every 15 min
+    for _ in range(5):                                    # 100 down to 40 min out
+        s.tick()
+        clock.t += 15 * 60
+    assert len(calls) == 2                                # the third run is held back
+    assert "right before the start" in s.leagues_state["nfl"]["skip"]
+    s.tick()                                              # 25 min out: the close snapshot
+    assert len(calls) == 3 and s.spent == 9
 
 
 def test_monthly_reserve_floor():

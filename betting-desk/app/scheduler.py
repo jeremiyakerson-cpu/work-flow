@@ -21,6 +21,10 @@ Why it is shaped like this:
   AUTO_REFRESH_FAR_HOURS before the next start may use only
   AUTO_REFRESH_FAR_SHARE of the day's budget; the rest is kept for the
   hours before games, which is when the snapshot doubles as a closing line.
+- **There is always one run left for the close.** Until a game is within
+  AUTO_REFRESH_CLOSE_MINUTES (30), runs leave one run's worth of the budget
+  unspent, so the snapshot right before the start (the closing line) is
+  never the one that gets skipped.
 - **The month has a floor.** When the API reports AUTO_REFRESH_RESERVE
   credits or fewer left, the scheduler stops so manual refreshes still work.
 - **Schedules are free.** Start times come from The Odds API's /events
@@ -120,6 +124,7 @@ class Scheduler:
         cadence: str | list[tuple[int, int]] = DEFAULT_CADENCE,
         far_hours: float = 3.0,
         far_share: float = 0.5,
+        close_minutes: float = 30.0,
         horizon_days: float = 7.0,
         credits_left: Callable[[], int | None] = lambda: None,
         state_path: str | None = DEFAULT_PATH,
@@ -135,6 +140,7 @@ class Scheduler:
         self.tiers = parse_cadence(cadence) if isinstance(cadence, str) else list(cadence)
         self.far_seconds = far_hours * 3600
         self.far_share = min(1.0, max(0.0, far_share))
+        self.close_seconds = close_minutes * 60
         self.horizon = horizon_days * 86400
         self.state_path = state_path
         self._lock = threading.Lock()
@@ -205,8 +211,13 @@ class Scheduler:
             "resets_at": tomorrow.isoformat(),
         }
 
-    def can_spend(self, cost: int, far: bool, now: float | None = None) -> str | None:
-        """None if a run costing `cost` is allowed now; otherwise the reason it isn't."""
+    def can_spend(self, cost: int, far: bool = False, close: bool = True,
+                  now: float | None = None) -> str | None:
+        """
+        None if a run costing `cost` is allowed now; otherwise the reason it
+        isn't. `far`: more than far_hours before the next start. `close`:
+        within close_minutes of it (manual runs count as close).
+        """
         now = self.clock() if now is None else now
         with self._lock:
             self._roll_day(now)
@@ -216,6 +227,8 @@ class Scheduler:
         if far and spent + cost > self.daily_budget * self.far_share:
             return (f"saving the rest of today's budget for the hours before games "
                     f"({spent}/{int(self.daily_budget * self.far_share)} credits allowed this far out)")
+        if not close and spent + cost + self.cost_per_run > self.daily_budget:
+            return "keeping the last run of today's budget for the snapshot right before the start"
         left = self.credits_left()
         if left is not None and left - cost < self.reserve:
             return f"monthly reserve: {left} credits left, floor is {self.reserve}"
@@ -252,7 +265,7 @@ class Scheduler:
         st = self.leagues_state.setdefault(league, {})
         if not upcoming or upcoming[0] - now > self.horizon:
             return {"league": league, "next_start": _iso(upcoming[0]) if upcoming else None,
-                    "interval_min": None, "due_at": None, "far": True,
+                    "interval_min": None, "due_at": None, "far": True, "close": False,
                     "idle": (f"next game is more than {self.horizon / 86400:g} days out"
                              if upcoming else "no upcoming games")}
         to_start = upcoming[0] - now
@@ -260,7 +273,8 @@ class Scheduler:
         last = st.get("last_run")
         due = now if last is None else last + interval * 60
         return {"league": league, "next_start": _iso(upcoming[0]), "interval_min": interval,
-                "due_at": due, "far": to_start > self.far_seconds, "idle": None}
+                "due_at": due, "far": to_start > self.far_seconds,
+                "close": to_start <= self.close_seconds, "idle": None}
 
     # ---------- running ----------
 
@@ -275,7 +289,7 @@ class Scheduler:
             if p["idle"] or p["due_at"] is None or p["due_at"] > now:
                 self.leagues_state[lg]["skip"] = p["idle"]
                 continue
-            reason = self.can_spend(self.cost_per_run, p["far"], now)
+            reason = self.can_spend(self.cost_per_run, p["far"], p["close"], now)
             if reason:
                 self.leagues_state[lg]["skip"] = reason
                 done.append({"league": lg, "skipped": reason})
@@ -288,7 +302,7 @@ class Scheduler:
         """Snapshot one league now. Books the actual cost. Never raises."""
         now = self.clock() if now is None else now
         if manual:
-            reason = self.can_spend(self.cost_per_run, False, now)
+            reason = self.can_spend(self.cost_per_run, now=now)
             if reason:
                 return {"league": league, "skipped": reason}
         with self._run_lock:
@@ -368,6 +382,7 @@ class Scheduler:
             "budget": self.budget(now),
             "cadence": [{"more_than_min": t // 60, "every_min": m} for t, m in self.tiers],
             "far_hours": self.far_seconds / 3600,
+            "close_minutes": self.close_seconds / 60,
             "leagues": leagues,
             "runs": list(reversed(self.runs[-20:])),
             "now": _iso(now),

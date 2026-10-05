@@ -17,6 +17,7 @@ import os
 import socket
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.request
 
@@ -38,17 +39,20 @@ def server():
     port = _free_port()
     env = {**os.environ, "DEMO_MODE": "1", "ODDS_API_KEY": "", "DESK_PASSWORD": "",
            "AUTO_REFRESH": "1", "AUTO_REFRESH_LEAGUES": "mlb,nba"}
+    # a file, not a pipe: a pipe nobody reads fills up and stalls the server
+    log = tempfile.TemporaryFile()
     proc = subprocess.Popen(
         [sys.executable, "-m", "uvicorn", "app.main:app", "--port", str(port), "--log-level", "warning"],
-        cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
     url = f"http://127.0.0.1:{port}"
     for _ in range(100):
         try:
-            urllib.request.urlopen(url + "/api/health", timeout=1)
+            urllib.request.urlopen(url + "/api/health", timeout=1).close()
             break
         except OSError:
             if proc.poll() is not None:
-                pytest.fail("server exited: " + proc.stdout.read().decode(errors="replace"))
+                log.seek(0)
+                pytest.fail("server exited: " + log.read().decode(errors="replace"))
             time.sleep(0.1)
     else:
         proc.kill()
@@ -56,6 +60,7 @@ def server():
     yield url
     proc.terminate()
     proc.wait(timeout=10)
+    log.close()
 
 
 @pytest.fixture(scope="module")

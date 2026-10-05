@@ -125,6 +125,7 @@ def scheduler() -> scheduler_mod.Scheduler:
             cadence=cadence,
             far_hours=_env_num("AUTO_REFRESH_FAR_HOURS", 3),
             far_share=_env_num("AUTO_REFRESH_FAR_SHARE", 0.5),
+            close_minutes=_env_num("AUTO_REFRESH_CLOSE_MINUTES", 30),
             horizon_days=_env_num("AUTO_REFRESH_HORIZON_DAYS", 7),
             credits_left=lambda: _client.usage.remaining if _client is not None else None,
             state_path=None if DEMO_MODE else SCHEDULER_STATE,

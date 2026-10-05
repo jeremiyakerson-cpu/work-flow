@@ -34,6 +34,10 @@ When you're ready for live data, get a key at <https://the-odds-api.com>
 
 API explorer lives at <http://127.0.0.1:8000/docs>.
 
+Want it to keep itself current? Set `AUTO_REFRESH=1` (see
+[Keeping it live](#keeping-it-live-auto-refresh-and-alerts)). Want it on a
+URL? See [Deploy it](#deploy-it).
+
 ---
 
 ## What each piece does
@@ -46,11 +50,14 @@ app/
   services/board.py   joins the two feeds, runs the math, surfaces plays
   services/props.py   pairs and de-vigs per-event markets (props, periods, alts)
   services/history.py line-movement snapshots (SQLite) and price history
-  main.py             FastAPI routes
+  scheduler.py        optional auto-refresh: cadence by time-to-game, hard daily credit budget
+  alerts.py           edge-threshold and line-move alerts, evaluated on every board
+  main.py             FastAPI routes, password gate
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
 tests/                run with `python3 -m pytest tests/` (see Tests below)
-data/                 line-movement snapshots (SQLite, gitignored, created on first live refresh)
+data/                 history, alerts, scheduler spend (gitignored, created on first use)
+Dockerfile            the deployable image; ../render.yaml and railway.json point at it
 ```
 
 ---
@@ -65,6 +72,11 @@ data/                 line-movement snapshots (SQLite, gitignored, created on fi
   price *closest to fair* instead, labelled as a reference point, not a play.
 - **Credits pill** (top right): credits left on The Odds API after the last
   call. Amber under 50, red at zero.
+- **Budget meter** (under it): the auto-refresh's credits spent today against
+  its daily budget, or "auto-refresh off". Tap it for the Alerts tab.
+- **Alerts tab**: thresholds, browser notifications, the scheduler's state
+  (next game, cadence, next run, recent runs, pause, run now) and the alert
+  history. New alerts also pop up as toasts on any tab.
 - **Tracked tab**: tap ☆ on any price to log it (stored in `localStorage`,
   this browser only). Every board refresh before the game starts records that
   book's current price; once ESPN says the game is live (or the clock passes
@@ -179,6 +191,87 @@ Consequences worth knowing:
 
 ---
 
+## Keeping it live: auto-refresh and alerts
+
+### Auto-refresh (off by default)
+
+`AUTO_REFRESH=1` starts a background thread that snapshots the board for each
+league in `AUTO_REFRESH_LEAGUES`. A scheduled snapshot is the same board a
+Refresh builds: it writes line history and runs alerts.
+
+| Time to the next start | Snapshot every |
+|---|---|
+| more than 24h | 6 hours |
+| 6 to 24h | 2 hours |
+| 2 to 6h | 45 min |
+| 30 min to 2h | 15 min |
+| under 30 min | 10 min |
+| no game in the next 7 days | never |
+
+Change the tiers with `AUTO_REFRESH_CADENCE=24h=360,6h=120,2h=45,30m=15,0=10`.
+Start times come from The Odds API's `/events`, which is free.
+
+The credit rules are the point:
+
+- **Hard daily budget**, `AUTO_REFRESH_DAILY_CREDITS` (default 15, about a
+  30th of the free tier). A run that would go over is skipped, not trimmed.
+  It resets at 00:00 UTC. The *actual* cost from the API's headers is what
+  gets booked, so a cache hit costs 0.
+- **The close gets priority.** Runs more than `AUTO_REFRESH_FAR_HOURS` (3)
+  before the next game may use only `AUTO_REFRESH_FAR_SHARE` (half) of the
+  day's budget. The rest is kept for the hours before games, which is when a
+  snapshot doubles as a closing line.
+- **One run is always left for the close.** Until a game is within
+  `AUTO_REFRESH_CLOSE_MINUTES` (30) of starting, runs leave one run's worth
+  of budget unspent, so the snapshot just before the start is never the one
+  that gets skipped.
+- **Monthly floor.** At `AUTO_REFRESH_RESERVE` (100) credits left in the
+  month it stops, so your own refreshes still work.
+- Spend and the run log persist in `data/scheduler.json` across restarts.
+
+With the defaults, an NFL Sunday with a 17:00 UTC (1pm ET) kickoff runs at
+00:00 and 02:00 (the far-from-game half of the budget), then 14:00 and 14:45,
+holds back, and spends the last 3 credits at 16:30, 30 minutes before kickoff.
+That's 15 credits, at 3 per 3-market board. The budget is per day, not per
+game, so the 4pm and night games get no scheduled snapshots unless you raise
+it. That trade is deliberate.
+
+The page picks up scheduled snapshots without spending. When it sees a newer
+run for the league on screen, it reloads the board with `cached_only=1`, which
+reprices the scheduler's last fetch and never calls the API.
+
+Run **one** server worker: every worker would start its own scheduler and
+spend its own budget. `GET /api/scheduler` shows the state, and
+`POST /api/scheduler/pause`, `/resume` and `/run/{league}` drive it. Run now
+still goes through the budget.
+
+### Alerts
+
+Every board the server builds, yours or the scheduler's, is compared with the
+previous one for that league:
+
+- **Edge**: one of your books' prices reaches `min_edge` EV (default 3%) and
+  wasn't there on the last board. It alerts once. If it drops below and comes
+  back, it alerts again.
+- **Move**: a market's fair probability moves `move_prob` or more (default
+  3 points) between boards, or a spread or total's main line moves
+  `move_points` or more (default 1). Named after the side that got more
+  likely.
+
+A board with stale or failed odds is ignored, so a feed outage doesn't re-fire
+every alert when the feed recovers. Finished games never alert. The defaults
+come from `ALERT_MIN_EDGE`, `ALERT_MOVE_PROB` and `ALERT_MOVE_POINTS`, and the
+Alerts tab changes them for everyone using the server. "Use board filter"
+copies your Min edge filter across.
+
+In the browser, new alerts show as toasts. Switch on **Browser
+notifications** in the Alerts tab and you also get system notifications while
+the page is open in a tab, even a background one. Notifications need
+`localhost` or HTTPS. History is kept in `data/alerts.json` (last 500) and
+only in memory in demo mode.
+
+---
+
 ## The cost model — read this before you burn the month
 
 The Odds API charges **markets × regions** credits per call, not one.
@@ -236,6 +329,14 @@ the consensus every US book instead of just the two you're grading.
 | `POST /api/results` | free | grade tracked plays from ESPN final scores |
 | `GET /api/convert` | free | odds converter |
 | `GET /api/usage` | free | credits left |
+| `GET /api/alerts?after=&limit=` | free | alert history, newest first, plus `unread`, `latest_id`, `config` |
+| `POST /api/alerts/config` | free | `{enabled, min_edge, move_prob, move_points}`, fractions (0.03 = 3%) |
+| `POST /api/alerts/read` | free | `{upto}` marks alerts read (all if omitted) |
+| `DELETE /api/alerts` | free | clear the history |
+| `GET /api/scheduler` | free | auto-refresh: enabled, budget, per-league next game / cadence / next run, recent runs |
+| `POST /api/scheduler/pause` · `/resume` | free | |
+| `POST /api/scheduler/run/{league}` | credits | snapshot now, within the daily budget (`429` if over, `409` if auto-refresh is off) |
+| `GET /healthz` | free | `{"ok": true}`; the only route open when `DESK_PASSWORD` is set |
 
 Leagues: `mlb nfl ncaaf nba wnba ncaab nhl epl mls`. An unknown league is a `400`.
 Demo fixtures: `mlb nfl ncaaf nba nhl`.
@@ -247,6 +348,7 @@ Demo fixtures: `mlb nfl ncaaf nba nhl`.
 | `markets` | `h2h,spreads,totals` | any subset. Anything else is a `400` pointing at `/api/props`. Every game still carries all three keys, and ones you didn't ask for are `null` |
 | `books` | all US books | book keys for the Odds API call |
 | `stake`, `method`, `min_edge` | env defaults | as before. A bad `method` is a `400` |
+| `cached_only` | `false` | never spend: reprice the last response fetched for these markets and books, however old. Nothing cached yet is an `odds` error of kind `cache_miss` |
 
 These are **additive** fields, and nothing existing was removed or renamed:
 
@@ -261,6 +363,10 @@ These are **additive** fields, and nothing existing was removed or renamed:
   leave-one-out fair that entry was graded against. `ev_per_dollar`,
   `ev_dollars` and `kelly` can now be `null` (see the fair-value section).
   `plays[].fair_*` now come from the same leave-one-out fair (pass 2)
+- `alerts`: the alerts this board raised (empty with `cached_only`),
+  `odds_fetched_at` (when the prices were actually fetched; older than
+  `generated_at` on a cache hit), `cached_only`, and `origin`
+  (`manual` or `scheduled`) (round 3)
 
 ### Props / per-event params
 
@@ -289,8 +395,9 @@ never one averaged number.
 Every live board refresh, and every live props/markets call, writes the prices
 it fetched to a SQLite file, `data/history.sqlite3` (gitignored). Only changes
 are written: a refresh inside the cache window, or on a quiet market, adds
-nothing. There is no background poller, because polling spends credits; the
-history is exactly as fine-grained as your refreshes. Set `RECORD_HISTORY=0`
+nothing. Nothing polls unless you switch on auto-refresh, because polling spends
+credits; the history is exactly as fine-grained as your refreshes, plus the scheduler's if
+you turn it on (next section). Set `RECORD_HISTORY=0`
 to turn it off, or `HISTORY_DB=/path/file.sqlite3` to move it. A write failure
 (read-only disk, say) is reported in the board's `history.error` and never
 fails the board.
@@ -325,18 +432,51 @@ in demo mode.
 
 ---
 
-## Tests
+## Deploy it
+
+The image is `betting-desk/Dockerfile`: Python 3.13 slim, non-root, one
+uvicorn worker on `$PORT`. The Odds API key lives only in the host's
+environment. The browser only talks to the app, never to The Odds API, so the
+key never reaches a page.
+
+**Set `DESK_PASSWORD` on anything with a public URL.** With it set, every
+route except `/healthz` needs HTTP Basic auth (any username, that password),
+`/docs` included. The browser asks once per session. The comparison is
+constant-time. Serve it over HTTPS, which Render and Railway do by default.
+Without it, anyone with the URL can spend your credits.
+
+### Render (one click)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/jeremiyakerson-cpu/work-flow)
+
+The Blueprint is `render.yaml` at the repo root. It deploys only
+`betting-desk/` and only redeploys when that folder changes. It asks for
+`ODDS_API_KEY` and **generates a random `DESK_PASSWORD`**, which you can read
+or change under Environment in the dashboard.
+
+- Render's **free** plan sleeps after about 15 idle minutes and has no
+  persistent disk. The desk works fine there, but auto-refresh only runs
+  while it's awake, and history, alerts and today's spend start over on each
+  deploy. The spend cap still holds within a run, and a fresh day's budget is
+  never more than `AUTO_REFRESH_DAILY_CREDITS`.
+- For unattended auto-refresh, switch to an always-on plan, uncomment the
+  `disk` block (mounted at `/app/data`), and set `AUTO_REFRESH=1`.
+
+### Railway
+
+New project → Deploy from GitHub repo → this repo. In the service settings,
+set **Root Directory** to `betting-desk` and **Config file** to
+`/betting-desk/railway.json`, which gives the Dockerfile build, the `/healthz`
+check and one replica. Add `ODDS_API_KEY` and `DESK_PASSWORD` as variables,
+and add a volume at `/app/data` to keep history and alerts.
+
+### Anywhere with Docker
 
 ```bash
-pip install -r requirements-dev.txt
-playwright install chromium        # or: export BD_CHROMIUM=/path/to/chrome
-python3 -m pytest tests/
+cd betting-desk
+docker build -t betting-desk .
+docker run -p 8000:8000 --env-file .env -v desk-data:/app/data betting-desk
 ```
-
-`test_ui_smoke.py` starts the app in demo mode on a spare port and drives it
-in Chromium at phone width: load the board, filter it, track a play, see it
-graded in Results, export CSV. It skips itself if Playwright or a browser
-isn't installed; everything else needs no network.
 
 ---
 
@@ -396,13 +536,14 @@ the parlay EV is the point.
 
 ## Next things worth building
 
-1. **Server-side closing lines.** The Tracked tab captures closes from your
-   own refreshes; a scheduled snapshot just before each start would make them
-   exact.
-2. **Scheduled snapshots.** Line history is recorded on every refresh (see
-   `/api/history`). A cron that refreshes on a schedule would give steam moves
-   without clicking, at a credit cost per run.
-3. **Deploy it.** Railway or Render, free tier, keeps the key server-side.
+1. **Server-side closing lines.** The scheduler already snapshots every 10
+   minutes before games. Storing the last pre-start snapshot per event as
+   the official close would let the Tracked tab read closes from the server
+   instead of your own refreshes.
+2. **Per-user alert settings.** Thresholds are server-wide, which is right for
+   one person and wrong for a shared desk.
+3. **Push that doesn't need an open tab.** Web Push or an email/SMS hook, for
+   alerts while every tab is closed.
 
 ---
 
@@ -410,10 +551,18 @@ the parlay EV is the point.
 
 ```bash
 pip install -r requirements-dev.txt
+playwright install chromium  # UI smoke test only; or: export BD_CHROMIUM=/path/to/chrome
 python3 -m pytest tests/     # everything, offline, no key
 python3 tests/test_math.py   # 46 assertions on the arithmetic (still runs standalone)
 python3 tests/test_e2e.py    # board build against Odds-API-shaped fixtures
 ```
+
+`test_ui_smoke.py` starts the app in demo mode on a spare port and drives it
+in Chromium at phone width. It loads the board, filters it, tracks a play,
+sees it graded in Results and exports CSV. Then it checks the budget meter,
+saves an alert threshold, sees an edge alert toast and land in the history,
+and runs the scheduler by hand. It skips itself if Playwright or a browser
+isn't installed. Everything else needs no network.
 
 All of it runs offline. The math tests include known-value checks: two -110
 legs price to +264, a -110/-110 market holds 4.545%, and EV at the breakeven
@@ -426,6 +575,18 @@ consensus and leave-one-out math, multi-way and one-sided markets;
 `tests/test_robustness.py` mocks ESPN and The Odds API with respx and covers
 timeouts, connection errors, 401/429/5xx, non-JSON bodies, wrong top-level
 shapes, junk rows, stale-cache fallback and per-market failure isolation.
+`tests/test_scheduler.py` walks a fake clock through cadence tiers, the daily
+budget and its UTC rollover, the far-from-game cap, the monthly reserve,
+booked-vs-estimated cost and restarts. `tests/test_alerts.py` covers edge
+crossings, moves, de-duplication, ignored stale boards, persistence and
+`cached_only` never spending. `tests/test_access.py` covers the password gate.
 
-CI: `.github/workflows/betting-desk-tests.yml` runs the suite on Python 3.11
-and 3.12 for every PR that touches `betting-desk/`.
+Dependencies are pinned in `requirements*.txt`. To refresh, bump a pin, run
+the suite with `-W error`, and commit. `httpx2` is there because Starlette's
+`TestClient` deprecated plain `httpx`. The app itself still uses `httpx`.
+
+CI: `.github/workflows/betting-desk-tests.yml` runs the suite with warnings as
+errors on Python 3.11, 3.12, 3.13 and 3.14, runs the Chromium smoke test on
+3.13, and builds the Docker image and probes it behind a password. It runs on
+every PR that touches `betting-desk/` or `render.yaml`. Python 3.15 is left
+out until the pinned pydantic-core ships wheels for it.
