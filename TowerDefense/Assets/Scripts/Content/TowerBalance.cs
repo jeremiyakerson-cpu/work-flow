@@ -107,7 +107,7 @@ namespace TowerDefense.Content
             BranchA(alchemist, "Plague Doctor", "A virulent plague: poison twice as deadly.",
                     cost: 220, dmg: 1.3f, range: 1.1f, poison: 2.0f);
             BranchB(alchemist, "Acid Rain", "Wide corrosive splashes that burn and slow whole packs.",
-                    cost: 210, rate: 1.5f, poison: 1.25f, splash: 0.5f, slow: true);
+                    cost: 210, rate: 1.5f, poison: 1.4f, splash: 0.5f, slow: true);
             list.Add(alchemist);
 
             return list;

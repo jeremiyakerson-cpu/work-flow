@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <!-- Engine-free content tests (workstream 2): level geometry, the layout
-       validator run over every authored map, endless variants and campaign
-       progression. Compiles only the UnityEngine-free content files. -->
+       validator run over every authored map, endless variants, campaign
+       progression and the shipped tower balance rules. Compiles only the UnityEngine-free content files. -->
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
@@ -13,6 +13,9 @@
   <ItemGroup>
     <Compile Include="../../Assets/Scripts/Levels/Layout/**/*.cs" />
     <Compile Include="../../Assets/Scripts/Content/ContentIds.cs" />
+    <!-- Tower balance table + the engine-free upgrade math it is checked against. -->
+    <Compile Include="../../Assets/Scripts/Content/TowerBalance.cs" />
+    <Compile Include="../../Assets/Scripts/Core/**/*.cs" />
     <Compile Include="*.cs" />
   </ItemGroup>
   <ItemGroup>
