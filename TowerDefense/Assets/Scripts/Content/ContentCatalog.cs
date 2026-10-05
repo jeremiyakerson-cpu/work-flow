@@ -138,6 +138,17 @@ namespace TowerDefense.Content
             return new CampaignProgression(campaignOrder, starLookup, requiredStarsToAdvance, requiredStarsForEndless);
         }
 
+        /// <summary>
+        /// Unlock rules with per-difficulty stars: starLookup is the best on any difficulty
+        /// (levelId -> 0..3), modeStarLookup the stars on one difficulty (unlocks Impossible).
+        /// </summary>
+        public CampaignProgression CreateProgression(Func<string, int> starLookup,
+                                                     Func<string, TowerDefense.Core.DifficultyMode, int> modeStarLookup,
+                                                     int requiredStarsToAdvance = 1, int requiredStarsForEndless = 1)
+        {
+            return new CampaignProgression(campaignOrder, starLookup, modeStarLookup, requiredStarsToAdvance, requiredStarsForEndless);
+        }
+
         /// <summary>Run LevelValidator over every level in the catalog.</summary>
         public List<LevelIssue> ValidateLevels(bool requirePrefabs = false)
         {

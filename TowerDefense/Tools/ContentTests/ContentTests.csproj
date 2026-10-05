@@ -13,6 +13,8 @@
   <ItemGroup>
     <Compile Include="../../Assets/Scripts/Levels/Layout/**/*.cs" />
     <Compile Include="../../Assets/Scripts/Content/ContentIds.cs" />
+    <!-- Difficulty unlock rules (CampaignProgression); Core is engine-free. -->
+    <Compile Include="../../Assets/Scripts/Core/**/*.cs" />
     <Compile Include="*.cs" />
   </ItemGroup>
   <ItemGroup>
