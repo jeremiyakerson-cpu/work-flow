@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TowerDefense.Content;
+using TowerDefense.Core;
 using TowerDefense.Input;
 using TowerDefense.Levels;
 using TowerDefense.Persistence;
@@ -44,6 +45,7 @@ namespace TowerDefense.App
         private HeroUnit hero;
         private GameHud hud;
         private TouchInputController input;
+        private DifficultyMode difficulty = DifficultyMode.Normal;
         private bool resultShown;
         private bool endlessRecorded;
         private int lastEndlessWaves;
@@ -78,7 +80,8 @@ namespace TowerDefense.App
             UIRoot.Create();
 
             catalog = ContentCatalog.Default;
-            progression = catalog.CreateProgression(id => save.GetBestStars(id));
+            // Unlocks read the save live: best on any difficulty, plus per-difficulty stars for Impossible.
+            progression = catalog.CreateProgression(id => save.GetBestStars(id), (id, mode) => save.GetBestStars(id, mode));
 
             RuntimeTemplates.Initialize();
             RuntimeTemplates.AssignTowerPrefabs(catalog.Towers);
@@ -119,12 +122,15 @@ namespace TowerDefense.App
             var entries = new List<LevelSelectEntry>();
             foreach (LevelData l in catalog.CampaignLevels)
             {
+                bool cleared = save.TryGetHardestCompleted(l.id, out DifficultyMode hardest);
                 entries.Add(new LevelSelectEntry
                 {
                     id = l.id,
                     title = l.displayName,
                     subtitle = $"{l.wavesToWin} waves",
-                    stars = save.GetBestStars(l.id),
+                    stars = save.GetBestStars(l.id), // best across difficulties
+                    hasCleared = cleared,
+                    hardestCleared = hardest,
                     locked = !progression.IsUnlocked(l.id),
                     userData = l,
                 });
@@ -161,16 +167,58 @@ namespace TowerDefense.App
                 if (UIRoot.Instance != null) UIRoot.Instance.ShowToast(entry.isEndless ? "Earn a star on this map first" : "Finish the previous level first");
                 return;
             }
-            if (entry.userData is LevelData picked) StartLevel(picked);
+            if (entry.userData is LevelData picked) ShowDifficultyPicker(picked);
+        }
+
+        /// <summary>
+        /// Difficulty modal over level select: four modes with their modifiers and the
+        /// best result on each, Impossible locked until 3 stars on Hard on this map,
+        /// the last used mode preselected. Back returns to level select.
+        /// </summary>
+        private void ShowDifficultyPicker(LevelData picked)
+        {
+            bool endless = picked.IsEndless;
+            string baseId = ContentIds.BaseLevelId(picked.id);
+            LevelData baseLevel = catalog.GetLevel(baseId);
+            var options = new List<DifficultyOption>(Difficulty.All.Length);
+            foreach (DifficultyMode mode in Difficulty.All)
+            {
+                options.Add(new DifficultyOption
+                {
+                    mode = mode,
+                    title = Difficulty.DisplayName(mode),
+                    modifiers = Difficulty.ModifierLines(mode, picked.startingLives),
+                    description = Difficulty.Description(mode),
+                    bestStars = endless ? 0 : save.GetBestStars(picked.id, mode),
+                    bestWave = endless ? save.GetBestWave(picked.id, mode) : 0,
+                    locked = !progression.IsDifficultyUnlocked(picked.id, mode),
+                    lockedHint = mode == DifficultyMode.Impossible
+                        ? Difficulty.ImpossibleUnlockHint + (endless ? " (campaign)" : "")
+                        : "Level locked",
+                });
+            }
+            MenuScreens.ShowDifficultyPicker(new DifficultyPickerData
+            {
+                levelTitle = endless ? (baseLevel != null ? baseLevel.displayName : picked.displayName) + " · Endless" : picked.displayName,
+                isEndless = endless,
+                options = options,
+                selected = progression.ClampDifficulty(picked.id, save.LastDifficulty),
+            }, mode =>
+            {
+                if (!progression.IsDifficultyUnlocked(picked.id, mode)) return;
+                save.LastDifficulty = mode;
+                StartLevel(picked, mode);
+            });
         }
 
         // ------------------------------------------------------------------ level session
 
-        private void StartLevel(LevelData data)
+        private void StartLevel(LevelData data, DifficultyMode mode)
         {
             TeardownLevel();
             MenuScreens.CloseAll();
             level = data;
+            difficulty = Difficulty.IsDefined(mode) ? mode : DifficultyMode.Normal;
             resultShown = false;
             endlessRecorded = false;
             lastEndlessWaves = 0;
@@ -188,8 +236,9 @@ namespace TowerDefense.App
             waves = new GameObject("WaveManager").AddComponent<WaveManager>();
             waves.transform.SetParent(root, false);
             waves.autoStart = false;
-            waves.ApplyLevel(data);
-            game.Configure(data.startingGold, data.startingLives);
+            // Both scale from the level's authored (Normal) values by the difficulty's rules.
+            waves.ApplyLevel(data, difficulty);
+            game.Configure(data.startingGold, data.startingLives, difficulty);
             GameplayFx.Bind(root); // after WaveManager exists, so FX attach to this level's waves
 
             RuntimeTemplates.SpawnSlots(data, root);
@@ -201,12 +250,13 @@ namespace TowerDefense.App
             input.SetHero(hero);
 
             bool firstLevel = catalog.CampaignLevels.Count > 0 && catalog.CampaignLevels[0] == data;
+            DifficultyMode playMode = difficulty; // restart keeps the difficulty
             hud = GameHud.Bind(game, waves, hero, catalog.Towers, new HudOptions
             {
                 input = input,
                 settings = settings,
                 spells = new[] { BarricadeSpell(root) },
-                onRestart = () => StartLevel(data),
+                onRestart = () => StartLevel(data, playMode),
                 onQuitToMenu = QuitToMenu,
                 showTutorial = firstLevel && !save.IsTutorialSeen(FirstLevelTutorialId),
                 onTutorialFinished = () => save.MarkTutorialSeen(FirstLevelTutorialId),
@@ -233,26 +283,47 @@ namespace TowerDefense.App
             resultShown = true;
             MarkTutorialSeenIfFirstLevel();
             int stars = game.Stars;
-            LevelResultOutcome outcome = save.RecordLevelResult(level.id, stars, waves.CurrentWave);
+            DifficultyMode mode = difficulty;
+            LevelData played = level;
+            LevelResultOutcome outcome = save.RecordLevelResult(played.id, mode, stars, waves.CurrentWave);
             save.Flush();
 
-            LevelData next = NextCampaignLevel(level);
+            LevelData next = NextCampaignLevel(played);
             MenuScreens.ShowVictory(new ResultsData
             {
                 victory = true,
-                levelTitle = level.displayName,
+                levelTitle = played.displayName,
                 stars = stars,
                 wave = waves.CurrentWave,
-                wavesToWin = level.wavesToWin,
+                wavesToWin = played.wavesToWin,
                 livesLeft = game.Lives,
                 startingLives = game.StartingLives,
                 isNewBest = outcome.NewBestStars,
+                showDifficulty = true,
+                difficulty = mode,
+                difficultyHint = DifficultyHint(played, mode, outcome.UnlockedImpossible),
             }, new ResultsCallbacks
             {
-                onNext = next != null && progression.IsUnlocked(next.id) ? () => StartLevel(next) : (System.Action)null,
-                onRetry = () => StartLevel(level),
+                // Next keeps the difficulty, except Impossible drops to Hard where it isn't unlocked yet.
+                onNext = next != null && progression.IsUnlocked(next.id)
+                    ? () => StartLevel(next, progression.ClampDifficulty(next.id, mode))
+                    : (System.Action)null,
+                onRetry = () => StartLevel(played, mode),
                 onMenu = QuitToMenu,
             });
+        }
+
+        /// <summary>
+        /// Results-screen next step for the difficulty ladder: on Hard, "3 stars on Hard
+        /// unlocks Impossible" until earned, and a celebration the moment it is.
+        /// </summary>
+        private string DifficultyHint(LevelData played, DifficultyMode mode, bool unlockedImpossibleNow)
+        {
+            if (played == null || played.IsEndless) return null;
+            if (unlockedImpossibleNow) return "Impossible unlocked on this map!";
+            if (mode != Difficulty.ImpossibleUnlockMode) return null;
+            if (progression.IsDifficultyUnlocked(played.id, DifficultyMode.Impossible)) return null;
+            return Difficulty.ImpossibleUnlockStars + " stars on " + Difficulty.DisplayName(mode) + " unlocks Impossible";
         }
 
         private void OnDefeat()
@@ -261,26 +332,32 @@ namespace TowerDefense.App
             resultShown = true;
             MarkTutorialSeenIfFirstLevel();
             bool endless = level.IsEndless;
-            int previousBest = save.GetBestWave(level.id);
+            DifficultyMode mode = difficulty;
+            LevelData played = level;
+            // Endless bests are per difficulty: compare against this difficulty's record.
+            int previousBest = save.GetBestWave(played.id, mode);
             int wave = endless ? RecordEndlessRun() : waves.CurrentWave;
-            if (!endless) save.RecordLevelResult(level.id, 0, wave);
+            if (!endless) save.RecordLevelResult(played.id, mode, 0, wave);
             save.Flush();
 
             MenuScreens.ShowDefeat(new ResultsData
             {
                 victory = false,
-                levelTitle = level.displayName,
+                levelTitle = played.displayName,
                 stars = 0,
                 wave = wave,
-                wavesToWin = level.wavesToWin,
+                wavesToWin = played.wavesToWin,
                 livesLeft = 0,
                 startingLives = game.StartingLives,
                 isEndless = endless,
                 bestWave = Mathf.Max(previousBest, wave),
                 isNewBest = endless && wave > previousBest,
+                showDifficulty = true,
+                difficulty = mode,
+                difficultyHint = DifficultyHint(played, mode, false),
             }, new ResultsCallbacks
             {
-                onRetry = () => StartLevel(level),
+                onRetry = () => StartLevel(played, mode),
                 onMenu = QuitToMenu,
             });
         }
@@ -295,8 +372,8 @@ namespace TowerDefense.App
             endlessRecorded = true;
             bool waveUnfinished = waves.WaveInProgress || waves.EnemiesAlive > 0;
             lastEndlessWaves = Mathf.Max(0, waveUnfinished ? waves.CurrentWave - 1 : waves.CurrentWave);
-            save.RecordLevelResult(level.id, 0, lastEndlessWaves);
-            save.RecordEndlessResult(lastEndlessWaves, countGame: false);
+            save.RecordLevelResult(level.id, difficulty, 0, lastEndlessWaves);
+            save.RecordEndlessResult(lastEndlessWaves, difficulty, countGame: false);
             return lastEndlessWaves;
         }
 

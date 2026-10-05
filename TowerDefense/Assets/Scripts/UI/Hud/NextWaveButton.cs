@@ -7,7 +7,8 @@ namespace TowerDefense.UI
 {
     /// <summary>
     /// "Call next wave" button: visible while WaveManager.IsCountingDown, shows the
-    /// countdown as a draining ring plus the early-call bonus, and calls
+    /// countdown as a draining ring plus the early-call bonus (hidden on difficulties
+    /// without one, e.g. Impossible), and calls
     /// CallNextWaveEarly() on tap. Optionally pinned to the first path's spawn
     /// point on screen (KR style), clamped inside the HUD's safe area.
     /// </summary>
@@ -24,6 +25,7 @@ namespace TowerDefense.UI
         private readonly UIButtonView button;
         private readonly Image timerRing;
         private readonly Text bonusLabel;
+        private readonly GameObject bonusPill;
         private readonly Text caption;
         private readonly Transform pulse;
 
@@ -55,6 +57,7 @@ namespace TowerDefense.UI
             pulse = button.Face.transform;
 
             Image pill = UIFactory.Panel(Root, "Bonus", UITheme.Shade(UITheme.Panel, 0.9f), 26f, false);
+            bonusPill = pill.gameObject;
             UIFactory.Place(pill.rectTransform, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 0f), new Vector2(170f, 54f));
             Image coin = UIFactory.Image(pill.transform, "Coin", UISprites.Coin, Color.white);
             UIFactory.Place(coin.rectTransform, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(8f, 0f), new Vector2(42f, 42f));
@@ -104,8 +107,12 @@ namespace TowerDefense.UI
             }
             if (!visible) return;
 
-            int bonus = Mathf.RoundToInt(wm.TimeUntilNextWave * wm.earlyCallGoldPerSecond);
-            if (bonus != shownBonus)
+            // Same rule CallNextWaveEarly pays out. Difficulties without the bonus
+            // (Impossible) hide the pill; the button still calls the wave early.
+            bool bonusEnabled = wm.EarlyCallBonusEnabled;
+            if (bonusEnabled != bonusPill.activeSelf) bonusPill.SetActive(bonusEnabled);
+            int bonus = bonusEnabled ? wm.EarlyCallBonusPreview : 0;
+            if (bonusEnabled && bonus != shownBonus)
             {
                 shownBonus = bonus;
                 bonusLabel.text = "+" + NumberCache.Get(bonus);

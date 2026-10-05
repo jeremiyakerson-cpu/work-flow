@@ -191,6 +191,14 @@ namespace TowerDefense.UI
                 Text sub = UIFactory.Label(face, e.subtitle, UITheme.FontSmall - 4, UITheme.TextDim);
                 UIFactory.Place(sub.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -178f), new Vector2(330f, 34f));
             }
+
+            // Hardest difficulty cleared: a small pill straddling the top-right corner.
+            if (e.hasCleared && !e.locked)
+            {
+                Image badge = DifficultyStyle.Badge(face, e.hardestCleared, UITheme.FontSmall - 8);
+                // Pivot on the edge: sticks out 19 units, inside the grid's 20-unit top padding (not clipped).
+                UIFactory.Place(badge.rectTransform, new Vector2(1f, 1f), new Vector2(1f, 0.5f), new Vector2(-12f, -2f), new Vector2(180f, 42f));
+            }
             return card;
         }
 
