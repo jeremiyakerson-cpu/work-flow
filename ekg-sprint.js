@@ -21,6 +21,7 @@
     misses: [],
     monitor: null,
     lastKey: null,
+    shownAt: 0,
   };
 
   function loadBest() {
@@ -126,6 +127,7 @@
       btn.addEventListener("click", () => answer(choiceKey, btn, container));
       container.appendChild(btn);
     });
+    st.shownAt = Date.now();
   }
 
   function answer(choiceKey, btn, container) {
@@ -135,7 +137,16 @@
     if (correct) st.correct++;
     else st.misses.push(st.current);
     if (window.EkgStats) {
-      EkgStats.record({ kind: "sprint", category: "rhythm", rhythm: st.current, focus: null, correct });
+      EkgStats.record({
+        kind: "sprint",
+        category: "rhythm",
+        rhythm: st.current,
+        focus: null,
+        correct,
+        item: "s:" + st.current,
+        ms: Date.now() - st.shownAt,
+        chosen: choiceKey,
+      });
     }
 
     container.querySelectorAll(".softkey").forEach((b) => {

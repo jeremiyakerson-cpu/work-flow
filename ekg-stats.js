@@ -9,6 +9,7 @@
 (function () {
   const STATS_KEY = "ekg-zoll-trainer-stats-v1";
   const MAX_EVENTS = 400; // rolling window of most-recent answers
+  const listeners = [];
 
   function load() {
     try {
@@ -31,14 +32,29 @@
    *   rhythm: rhythm key shown on the monitor,
    *   focus: clinical focus tag (scenario arcs / question topics),
    *   correct: boolean,
-   *   t: epoch ms
+   *   t: epoch ms,
+   *   optional — used by the adaptive mastery model (ekg-adaptive.js):
+   *   item: "q:<question id>" | "s:<rhythm key>",
+   *   ms: response time,
+   *   chosen: rhythm key picked on a missed strip
    * }
    */
   function record(event) {
     const data = load();
-    data.events.push({ ...event, t: Date.now() });
+    const e = { ...event, t: Date.now() };
+    data.events.push(e);
     if (data.events.length > MAX_EVENTS) data.events.splice(0, data.events.length - MAX_EVENTS);
     save(data);
+    for (const fn of listeners) {
+      try {
+        fn(e);
+      } catch {}
+    }
+  }
+
+  // Subscribe to every recorded answer (the adaptive model listens here).
+  function onRecord(fn) {
+    listeners.push(fn);
   }
 
   function bucketize(events, keyFn) {
@@ -104,5 +120,5 @@
     } catch {}
   }
 
-  window.EkgStats = { record, profile, weakness, summaryLine, reset };
+  window.EkgStats = { record, onRecord, profile, weakness, summaryLine, reset };
 })();

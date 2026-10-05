@@ -1442,6 +1442,76 @@
 .mastery-bad .mastery-pct { color: #ff5050; }
 .mastery-bad { border-left: 3px solid #ff5050; }
 .mastery-none .mastery-pct { color: var(--text-faint); }
+.mastery-chip { flex-wrap: wrap; }
+.mastery-name { min-width: 0; }
+.mastery-detail { display: block; color: var(--text-faint); font-size: 0.7rem; margin-top: 2px; }
+.mastery-pct small { color: var(--text-faint); font-weight: 500; }
+.mastery-bar {
+  flex-basis: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.mastery-bar > span { display: block; height: 100%; background: currentColor; }
+.mastery-good .mastery-bar { color: var(--complete); }
+.mastery-warn .mastery-bar { color: var(--priority); }
+.mastery-bad .mastery-bar { color: #ff5050; }
+.prog-note { color: var(--text-dim); font-size: 0.82rem; margin: -4px 0 12px; max-width: 640px; }
+
+/* ============ ADAPTIVE: HOME CARD + PRACTICE ============ */
+
+.next-card {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-dim);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.next-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.next-card h2 { font-size: 1.05rem; margin: 0; }
+.next-streak { color: var(--priority); font-size: 0.8rem; font-weight: 600; }
+.next-goal { margin: 12px 0 8px; }
+.next-goal-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.next-goal .breakdown-track { width: 100%; }
+.next-steps { margin: 10px 0 12px; padding-left: 20px; color: var(--text); font-size: 0.88rem; line-height: 1.5; }
+.next-step::marker { color: var(--accent); font-weight: 700; }
+.mastery-strip { display: flex; gap: 2px; height: 10px; }
+.mastery-seg { flex: 1 1 0; min-width: 0; border-radius: 2px; background: var(--border); }
+.mastery-seg-good { background: var(--complete); }
+.mastery-seg-warn { background: var(--priority); }
+.mastery-seg-bad { background: #ff5050; }
+.next-mastery-label { font-size: 0.75rem; color: var(--text-dim); margin: 6px 0 12px; }
+.next-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.next-actions .start-btn { margin: 0; }
+
+.ad-reason {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+.ad-reason-due { background: var(--priority-bg); color: var(--priority); }
+.ad-reason-weak { background: rgba(255, 80, 80, 0.12); color: #ff8080; }
+.ad-reason-new { background: var(--complete-bg); color: var(--complete); }
+.ad-vitals { color: var(--text-dim); font-size: 0.82rem; margin: 6px 0 0; font-variant-numeric: tabular-nums; }
+.ad-mastery-delta { color: var(--text-dim); font-size: 0.8rem; margin: 10px 0; }
+.ad-changes { max-width: 560px; margin: 0 auto 16px; text-align: left; display: grid; gap: 6px; }
+.ad-changes h3 { font-size: 1rem; margin: 0 0 4px; }
+.ad-next-due { color: var(--text-dim); max-width: 560px; margin: 0 auto 20px; }
+#ad-results .next-actions { justify-content: center; }
 
 .exam-history { max-width: 560px; display: flex; flex-direction: column; gap: 6px; }
 .exam-history-row {
@@ -1641,7 +1711,8 @@
   display: block;
 }
 
-#sprint-canvas {
+#sprint-canvas,
+#ad-canvas {
   height: 160px;
   border-radius: 4px;
 }
@@ -1700,7 +1771,8 @@
   }
 
   #ekg-canvas,
-  #sprint-canvas {
+  #sprint-canvas,
+  #ad-canvas {
     height: 150px;
   }
 
@@ -1713,6 +1785,7 @@
 @media (max-height: 480px) and (orientation: landscape) {
   #ekg-canvas,
   #sprint-canvas,
+  #ad-canvas,
   #sc-ekg-canvas {
     height: 120px;
   }
