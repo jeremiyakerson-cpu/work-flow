@@ -6,14 +6,18 @@ Then: http://127.0.0.1:8000  (UI)  /docs  (API explorer)
 """
 from __future__ import annotations
 
+import base64
+import binascii
+import contextlib
 import datetime as dt
 import logging
 import os
 import re
+import secrets
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
@@ -25,13 +29,27 @@ from .sources.odds_api import (
 from .services.board import build_board
 from .services.props import analyse_event_markets
 from .services import history
+from . import alerts as alerts_mod
 from . import demo
 from . import math_engine as M
+from . import scheduler as scheduler_mod
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(os.path.dirname(APP_DIR), "static")
 
-app = FastAPI(title="Betting Desk", version="1.0")
+
+@contextlib.asynccontextmanager
+async def lifespan(_app: FastAPI):
+    sched = scheduler()
+    if sched.start():
+        log.info("auto-refresh on: %s, %d credits/day", ",".join(sched.leagues), sched.daily_budget)
+    try:
+        yield
+    finally:
+        sched.stop()
+
+
+app = FastAPI(title="Betting Desk", version="1.0", lifespan=lifespan)
 
 # ---- config from env ----
 YOUR_BOOKS = tuple(
@@ -50,8 +68,86 @@ PROPS_MAX_MARKETS = int(os.getenv("PROPS_MAX_MARKETS", "5"))
 RECORD_HISTORY = os.getenv("RECORD_HISTORY", "1") not in ("", "0", "false", "False")
 HISTORY_DB = os.getenv("HISTORY_DB") or history.DEFAULT_DB
 
+# Auto-refresh (off by default; see app/scheduler.py for the cadence and budget rules).
+AUTO_REFRESH = os.getenv("AUTO_REFRESH", "") not in ("", "0", "false", "False")
+AUTO_REFRESH_LEAGUES = tuple(
+    x.strip().lower() for x in os.getenv("AUTO_REFRESH_LEAGUES", "mlb").split(",") if x.strip())
+AUTO_REFRESH_MARKETS = tuple(
+    x.strip() for x in os.getenv("AUTO_REFRESH_MARKETS", "h2h,spreads,totals").split(",") if x.strip())
+SCHEDULER_STATE = os.getenv("SCHEDULER_STATE") or scheduler_mod.DEFAULT_PATH
+ALERTS_FILE = os.getenv("ALERTS_FILE") or alerts_mod.DEFAULT_PATH
+# Shared password for a deployed instance. Blank = no protection (fine on 127.0.0.1).
+DESK_PASSWORD = os.getenv("DESK_PASSWORD", "")
+
 log = logging.getLogger("betting_desk")
 _history: history.HistoryStore | None = None
+_alerts: alerts_mod.AlertStore | None = None
+_scheduler: scheduler_mod.Scheduler | None = None
+
+
+def _env_num(name: str, default: float) -> float:
+    try:
+        return float(os.getenv(name, "") or default)
+    except ValueError:
+        log.warning("%s is not a number; using %s", name, default)
+        return default
+
+
+def alert_store() -> alerts_mod.AlertStore:
+    global _alerts
+    path = None if DEMO_MODE else ALERTS_FILE
+    if _alerts is None or _alerts.path != path:
+        _alerts = alerts_mod.AlertStore(path)
+    return _alerts
+
+
+def scheduler() -> scheduler_mod.Scheduler:
+    global _scheduler
+    if _scheduler is None:
+        bad = [lg for lg in AUTO_REFRESH_LEAGUES if lg not in SPORT_KEYS]
+        if bad:
+            log.warning("AUTO_REFRESH_LEAGUES: ignoring unknown %s", ", ".join(bad))
+        markets = tuple(m for m in AUTO_REFRESH_MARKETS if m in GAME_MARKETS) or GAME_MARKETS
+        try:
+            cadence = scheduler_mod.parse_cadence(
+                os.getenv("AUTO_REFRESH_CADENCE") or scheduler_mod.DEFAULT_CADENCE)
+        except ValueError as e:
+            log.warning("AUTO_REFRESH_CADENCE: %s; using the default", e)
+            cadence = scheduler_mod.parse_cadence(scheduler_mod.DEFAULT_CADENCE)
+        _scheduler = scheduler_mod.Scheduler(
+            lambda lg: _scheduled_fetch(lg, markets),
+            _schedule_starts,
+            leagues=tuple(lg for lg in AUTO_REFRESH_LEAGUES if lg in SPORT_KEYS),
+            enabled=AUTO_REFRESH,
+            daily_budget=int(_env_num("AUTO_REFRESH_DAILY_CREDITS", 15)),
+            cost_per_run=0 if DEMO_MODE else estimate_cost(markets),
+            reserve=int(_env_num("AUTO_REFRESH_RESERVE", 100)),
+            cadence=cadence,
+            far_hours=_env_num("AUTO_REFRESH_FAR_HOURS", 3),
+            far_share=_env_num("AUTO_REFRESH_FAR_SHARE", 0.5),
+            horizon_days=_env_num("AUTO_REFRESH_HORIZON_DAYS", 7),
+            credits_left=lambda: _client.usage.remaining if _client is not None else None,
+            state_path=None if DEMO_MODE else SCHEDULER_STATE,
+        )
+    return _scheduler
+
+
+def _scheduled_fetch(league: str, markets: tuple[str, ...]) -> dict:
+    """One scheduled snapshot: the same board a Refresh builds, with the credits it really cost."""
+    before = _client.usage.calls_this_session if _client is not None else 0
+    res = _board(league, markets=markets, origin="scheduled")
+    cost: int | None = 0
+    if not DEMO_MODE and _client is not None and _client.usage.calls_this_session > before:
+        cost = _client.usage.last_cost      # None when the header was missing: book the estimate
+    return {"cost": cost, "board": res, "alerts": res.get("alerts") or []}
+
+
+def _schedule_starts(league: str) -> list:
+    """Start times for the cadence. Free: /events costs no credits; demo reads the fixture."""
+    if DEMO_MODE:
+        d = demo.demo_league(league)
+        return [e.get("commence_time") for e in (d["odds"] if d else [])]
+    return [e.get("commence_time") for e in odds_client().events(league) if isinstance(e, dict)]
 
 
 def history_store() -> history.HistoryStore:
@@ -108,6 +204,39 @@ def _csv(v: str) -> tuple[str, ...]:
 def _demo_label(league: str) -> str:
     d = demo.demo_league(league)
     return d["label"] if d else "DEMO MODE (no fixture for this league)"
+
+
+# ---------------- access protection ----------------
+
+_OPEN_PATHS = ("/healthz",)
+
+
+def _password_ok(header: str | None) -> bool:
+    """HTTP Basic with any username; only the password is checked."""
+    if not header or not header.lower().startswith("basic "):
+        return False
+    try:
+        raw = base64.b64decode(header[6:].strip(), validate=True).decode("utf-8")
+    except (binascii.Error, UnicodeDecodeError):
+        return False
+    _, _, pw = raw.partition(":")
+    return secrets.compare_digest(pw.encode(), DESK_PASSWORD.encode())
+
+
+@app.middleware("http")
+async def require_password(request: Request, call_next):
+    """With DESK_PASSWORD set, every route but /healthz needs it (browser login prompt)."""
+    if DESK_PASSWORD and request.url.path not in _OPEN_PATHS \
+            and not _password_ok(request.headers.get("authorization")):
+        return JSONResponse({"detail": "Password required."}, status_code=401,
+                            headers={"WWW-Authenticate": 'Basic realm="Betting Desk", charset="UTF-8"'})
+    return await call_next(request)
+
+
+@app.get("/healthz", include_in_schema=False)
+def healthz() -> dict:
+    """Liveness for a host's health check. Open even with DESK_PASSWORD; says nothing else."""
+    return {"ok": True}
 
 
 # ---------------- catalog (free, no network) ----------------
@@ -213,13 +342,16 @@ def board(
     books: str = Query("", description="Comma-separated book keys; blank = all US books"),
     min_edge: float = Query(0.0, description="Only list plays above this EV per dollar"),
     method: str = Query(default=None, description="power | multiplicative | additive"),
+    cached_only: bool = Query(False, description="Never spend: reprice the last fetched odds"),
 ) -> dict:
     """
     The refresh button. Pulls ESPN's slate and the odds feed, joins them,
     de-vigs every market and reports where your books beat fair value.
 
     Cost: len(markets) credits when scoped to up to 10 books, otherwise
-    len(markets) x regions.
+    len(markets) x regions. With cached_only=true it costs nothing: it
+    reprices whatever the last refresh (yours or the scheduler's) fetched for
+    the same markets and books, or reports a cache_miss error.
     """
     league = _league(league)
     mk = _csv(markets)
@@ -230,13 +362,22 @@ def board(
                  "Player props and other per-event markets live at /api/props and /api/markets.")
     if method and method not in M.DEVIG_METHODS:
         raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    return _board(league, stake=stake, markets=mk, books=books, min_edge=min_edge,
+                  method=method, cached_only=cached_only)
 
+
+def _board(league: str, *, markets: tuple[str, ...], stake: float | None = None, books: str = "",
+           min_edge: float = 0.0, method: str | None = None, cached_only: bool = False,
+           origin: str = "manual") -> dict:
+    """Body of the board route, shared with the scheduler. Inputs already validated."""
+    mk = markets
     errors: list[dict] = []     # one entry per upstream that failed; the board still renders
     client: OddsAPI | None = None
     stale = False
     odds_games: list[dict] = []
     espn_games: list[dict] = []
     history_info: dict = {"recorded": 0, "enabled": False}
+    odds_fetched_at: str | None = None
 
     if DEMO_MODE:
         d = demo.demo_league(league)
@@ -250,13 +391,18 @@ def board(
         if client is not None:
             bk = _csv(books) or None
             try:
-                odds_games = normalise_game_lines(client.odds(league, markets=mk, bookmakers=bk))
+                extra = {"cached_only": True} if cached_only else {}
+                odds_games = normalise_game_lines(
+                    client.odds(league, markets=mk, bookmakers=bk, **extra))
                 stale = client.last_stale
+                fetched = getattr(client, "last_fetched_at", None)
+                if fetched:
+                    odds_fetched_at = dt.datetime.fromtimestamp(fetched, dt.timezone.utc).isoformat()
             except OddsAPIError as e:
                 errors.append(_err("odds", e.kind, str(e)))
             except Exception as e:   # unknown league, a parser surprise - still render the slate
                 errors.append(_err("odds", "unexpected", f"{type(e).__name__}: {e}"))
-            if odds_games and not stale:
+            if odds_games and not stale and not cached_only:
                 try:
                     history_info = _record(league, history.rows_from_game_lines(odds_games))
                 except Exception as e:   # history is a nice-to-have
@@ -300,6 +446,15 @@ def board(
                 else ("The Odds API" + (" (cached, feed failing)" if stale else "")
                       if odds_games else "unavailable"),
     }
+    result["odds_fetched_at"] = odds_fetched_at
+    result["cached_only"] = cached_only
+    result["origin"] = origin
+    # Alerts: a repriced cache is the same lines again, so it can't be news.
+    try:
+        result["alerts"] = [] if cached_only else alert_store().evaluate(league, result, origin)
+    except Exception as e:      # alerts are a nice-to-have; never cost the board
+        log.warning("alert evaluation failed: %s", e)
+        result["alerts"] = []
     if DEMO_MODE:
         result["demo_mode"] = True
         if demo.demo_league(league) is None:
@@ -319,10 +474,11 @@ def board_by_query(
     books: str = Query(""),
     min_edge: float = Query(0.0),
     method: str = Query(default=None),
+    cached_only: bool = Query(False),
 ) -> dict:
     """Same as /api/board/{league}, with the league as ?sport=."""
     return board(sport, stake=stake, markets=markets, books=books,
-                 min_edge=min_edge, method=method)
+                 min_edge=min_edge, method=method, cached_only=cached_only)
 
 
 @app.get("/api/events/{league}")
@@ -612,6 +768,87 @@ def results(req: ResultsRequest) -> dict:
     return out
 
 
+# ---------------- alerts + auto-refresh (free) ----------------
+
+class AlertConfig(BaseModel):
+    enabled: bool | None = None
+    min_edge: float | None = Field(default=None, ge=0.0, le=1.0)
+    move_prob: float | None = Field(default=None, gt=0.0, le=1.0)
+    move_points: float | None = Field(default=None, gt=0.0, le=50.0)
+
+
+class AlertsRead(BaseModel):
+    upto: int | None = None
+
+
+@app.get("/api/alerts")
+def get_alerts(after: int = Query(0, ge=0, description="Only alerts with id above this"),
+               limit: int = Query(100, ge=1, le=500)) -> dict:
+    """
+    Alert history, newest first: plays crossing your edge threshold and sharp
+    market moves, from your refreshes and the scheduler's. Poll with
+    ?after=<latest_id> for just the new ones.
+    """
+    st = alert_store()
+    rows = st.list(after=after, limit=limit)
+    return {"alerts": rows, "latest_id": st.seq, "unread": st.unread(),
+            "read_upto": st.read_upto, "config": st.config,
+            "persisted": st.path is not None, "fetched_at": _now()}
+
+
+@app.post("/api/alerts/config")
+def set_alert_config(cfg: AlertConfig) -> dict:
+    """Thresholds as fractions: min_edge 0.03 = 3% EV, move_prob 0.03 = 3 points of probability."""
+    return {"config": alert_store().set_config(cfg.model_dump(exclude_none=True))}
+
+
+@app.post("/api/alerts/read")
+def read_alerts(req: AlertsRead) -> dict:
+    st = alert_store()
+    return {"read_upto": st.mark_read(req.upto), "unread": st.unread()}
+
+
+@app.delete("/api/alerts")
+def clear_alerts() -> dict:
+    alert_store().clear()
+    return {"cleared": True}
+
+
+@app.get("/api/scheduler")
+def scheduler_status() -> dict:
+    """Auto-refresh state: on/off, today's credit budget, next run per league, recent runs."""
+    out = scheduler().status()
+    out["demo_mode"] = DEMO_MODE
+    if not out["enabled"]:
+        out["note"] = "Auto-refresh is off. Set AUTO_REFRESH=1 (and AUTO_REFRESH_LEAGUES) in .env."
+    return out
+
+
+@app.post("/api/scheduler/pause")
+def scheduler_pause() -> dict:
+    scheduler().paused = True
+    return scheduler_status()
+
+
+@app.post("/api/scheduler/resume")
+def scheduler_resume() -> dict:
+    scheduler().paused = False
+    return scheduler_status()
+
+
+@app.post("/api/scheduler/run/{league}")
+def scheduler_run(league: str) -> dict:
+    """Snapshot one league now, through the same daily budget. A 429 if the budget says no."""
+    league = _league(league)
+    sched = scheduler()
+    if not sched.enabled:
+        raise HTTPException(409, "Auto-refresh is off. Set AUTO_REFRESH=1 to use the scheduler.")
+    res = sched.run(league, manual=True)
+    if res.get("skipped"):
+        raise HTTPException(429, f"Not run: {res['skipped']}.")
+    return {"run": res, "budget": sched.budget()}
+
+
 @app.get("/api/convert")
 def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:
@@ -659,6 +896,8 @@ def health() -> dict:
         "demo_mode": DEMO_MODE,
         "props_enabled": ENABLE_PROPS,
         "history_recording": RECORD_HISTORY and not DEMO_MODE,
+        "auto_refresh": AUTO_REFRESH,
+        "password_protected": bool(DESK_PASSWORD),
         "time": _now(),
     }
 

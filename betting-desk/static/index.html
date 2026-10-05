@@ -224,6 +224,44 @@
   .res.push,.res.pending,.res.live,.res.unknown,.res.ungradeable{background:var(--rule);color:var(--chalk)}
   .clv small{font-family:var(--body);font-weight:400;font-size:10px;color:var(--dim);display:block;text-align:right}
 
+  /* ---- live: budget meter, toasts, alerts ---- */
+  .auto{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;color:var(--dim);background:none;
+    border:0;padding:2px 0;cursor:pointer;font-family:inherit}
+  .auto .meter{display:inline-block;width:46px;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+  .auto .meter i{display:block;height:100%;background:var(--up)}
+  .auto.warn .meter i{background:var(--brass)} .auto.full .meter i{background:var(--down)}
+  .auto.on{color:var(--chalk)}
+  .meterbig{height:8px;border-radius:4px;background:var(--rule);overflow:hidden;margin:6px 0 4px}
+  .meterbig i{display:block;height:100%;background:var(--up)}
+  .meterbig.warn i{background:var(--brass)} .meterbig.full i{background:var(--down)}
+  .toasts{position:fixed;bottom:calc(78px + env(safe-area-inset-bottom));right:10px;left:10px;z-index:60;display:flex;flex-direction:column;
+    align-items:flex-end;gap:8px;pointer-events:none}
+  .toast{pointer-events:auto;max-width:360px;width:100%;background:var(--felt-3);border:1px solid var(--rule);
+    border-left:3px solid var(--up);border-radius:3px;padding:10px 12px;font-size:12.5px;
+    box-shadow:0 6px 20px rgba(0,0,0,.45);cursor:pointer}
+  .toast.move{border-left-color:var(--brass)}
+  .toast b{display:block;font-size:13.5px;margin-bottom:2px}
+  .toast span{color:var(--dim)}
+  .al{background:var(--felt-2);border:1px solid var(--rule);border-left:3px solid var(--up);border-radius:3px;
+    padding:10px 12px;margin-bottom:8px}
+  .al.move{border-left-color:var(--brass)}
+  .al.unread{background:var(--felt-3)}
+  .al .l1{display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:14px;font-weight:600}
+  .al .l1 small{font-weight:400;font-size:11px;color:var(--dim);white-space:nowrap}
+  .al .l2{font-size:11.5px;color:var(--dim);margin-top:3px;line-height:1.5}
+  .panel{background:var(--felt-2);border:1px solid var(--rule);border-radius:4px;padding:11px 12px;margin-bottom:12px;font-size:13px}
+  .panel h3{font-family:var(--display);font-size:17px;margin:0 0 6px}
+  .panel .muted{color:var(--dim);font-size:11.5px;line-height:1.5}
+  .form{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end;margin-top:8px}
+  .form label{display:flex;flex-direction:column;gap:3px;font-size:10px;color:var(--dim);letter-spacing:.05em;
+    text-transform:uppercase;flex:1 1 110px;max-width:170px}
+  .form input[type=number]{background:var(--felt);border:1px solid var(--rule);color:var(--chalk);font-size:13px;
+    padding:8px 9px;border-radius:3px;width:100%;font-family:inherit}
+  .form .chk{flex-direction:row;align-items:center;gap:6px;text-transform:none;font-size:12.5px;color:var(--chalk);letter-spacing:0}
+  table.sch{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+  table.sch th{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600;text-align:left;padding:5px 4px;border-bottom:1px solid var(--rule)}
+  table.sch td{padding:5px 4px;border-bottom:1px solid var(--rule);vertical-align:top}
+
   @media (min-width:900px){
     main,.filters,header,.rail,.tabs,.note{max-width:1180px;margin-left:auto;margin-right:auto}
     .gamegrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
@@ -236,6 +274,7 @@
   <div class="top">
     <h1>Betting <span>Desk</span></h1>
     <div class="stamp"><span class="credits" id="credits" title="The Odds API credits remaining">credits …</span><br>
+      <button class="auto" id="auto" title="Auto-refresh credit budget for today">auto …</button><br>
       <span id="stamp">Not refreshed yet</span></div>
   </div>
   <div class="controls">
@@ -259,6 +298,7 @@
   <label>Sort<select id="f-sort"></select></label>
 </div>
 <main id="out"></main>
+<div class="toasts" id="toasts" aria-live="polite"></div>
 <p class="note" id="note"></p>
 
 <div class="scrim" id="scrim"></div>
@@ -280,9 +320,9 @@
 const LEAGUE_LABELS={mlb:"MLB",nfl:"NFL",ncaaf:"CFB",nba:"NBA",nhl:"NHL",ncaab:"CBB",wnba:"WNBA",epl:"EPL",mls:"MLS"};
 // Replaced by /api/sports when the backend serves it; this list is the fallback.
 let LEAGUES=Object.entries(LEAGUE_LABELS), CATALOG=null;
-const TABS=["Board","Plays","Tracked","Injuries"];
+const TABS=["Board","Plays","Tracked","Alerts","Injuries"];
 const MARKET_NAMES={h2h:"Moneyline",spreads:"Spread",totals:"Total"};
-const TRACK_KEY="bd.tracked.v1", PREF_KEY="bd.prefs.v1";
+const TRACK_KEY="bd.tracked.v1", PREF_KEY="bd.prefs.v1", ALERT_KEY="bd.alerts.v1";
 
 const store={
   get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},
@@ -297,6 +337,10 @@ let REG={};   // render-time registry of priced sides, keyed for the slip/track 
 let PROPS={}; // per-game props panels: "league|odds_id" -> {open,state,data,cost,msg}
 let HIST={};  // per-game line-movement panels: "league|odds_id" -> {open,state,markets:{key:data|{error}}}
 let lastResultsCheck=0, resultsBusy=false, resultsErr=null;
+// Alerts + auto-refresh. alertPrefs is per browser: notifications on/off and the last alert toasted.
+let ALERTS={list:[],unread:0,latest:0,config:null,loaded:false,err:null}, SCHED=null, autoApplied={};
+const alertPrefs=Object.assign({notify:false,seen:null},store.get(ALERT_KEY,{}));
+const saveAlertPrefs=()=>store.set(ALERT_KEY,alertPrefs);
 
 const $=id=>document.getElementById(id);
 const out=$("out"),rail=$("rail"),tabsEl=$("tabs");
@@ -336,9 +380,10 @@ async function loadCatalog(){
 TABS.forEach(t=>{const b=document.createElement("button");b.className="tab";b.textContent=t;
   b.setAttribute("role","tab");
   b.onclick=()=>{tab=t;savePrefs();render();if(t==="Injuries"&&!inj)loadInjuries();
-    if(t==="Tracked")checkResults(false);};tabsEl.appendChild(b);});
+    if(t==="Tracked")checkResults(false);if(t==="Alerts")openAlerts();};tabsEl.appendChild(b);});
 
 $("go").onclick=refresh;
+$("auto").onclick=()=>{tab="Alerts";savePrefs();render();openAlerts();};
 $("stake").onchange=()=>{if(data)refresh();};
 $("method").onchange=()=>{if(data)refresh();};
 $("f-book").onchange=e=>{prefs.book=e.target.value;savePrefs();render();};
@@ -365,6 +410,7 @@ async function refresh(){
     data=normalise(j);
     if(data.usage)setUsage(data.usage);
     updateTracked(data);
+    if(Array.isArray(j.alerts)&&j.alerts.length)pollAlerts();
   }catch(e){
     if(want!==league)return;
     loadErr=e.name==="AbortError"?"The server took too long to answer (45s).":String(e.message||e);
@@ -463,16 +509,23 @@ function bestPlay(){
 const playKey=p=>[league,p.game,p.market,p.side,p.point??"",p.book].join("|");
 
 /* ---------------- render ---------------- */
+function renderTabs(){
+  [...tabsEl.children].forEach((b,i)=>{b.setAttribute("aria-selected",TABS[i]===tab);
+    if(TABS[i]==="Tracked")b.textContent=`Tracked${tracked.length?` (${tracked.length})`:""}`;
+    if(TABS[i]==="Alerts")b.textContent=`Alerts${ALERTS.unread?` (${ALERTS.unread})`:""}`;});
+}
+// Background polls repaint the Alerts tab, and only the chrome anywhere else.
+function repaint(){if(tab==="Alerts"){if(!out.contains(document.activeElement))render();}else{renderTabs();renderAuto();}}
 function render(){
   [...rail.children].forEach((b,i)=>b.setAttribute("aria-selected",LEAGUES[i][0]===league));
-  [...tabsEl.children].forEach((b,i)=>{b.setAttribute("aria-selected",TABS[i]===tab);
-    if(TABS[i]==="Tracked")b.textContent=`Tracked${tracked.length?` (${tracked.length})`:""}`;});
+  renderTabs();
   if(data&&data.generated_at)
-    $("stamp").textContent=`Refreshed ${new Date(data.generated_at).toLocaleTimeString()}`;
-  renderCredits();
+    $("stamp").textContent=`${data.auto?"Auto-updated":"Refreshed"} ${new Date(data.odds_fetched_at||data.generated_at).toLocaleTimeString()}`;
+  renderCredits();renderAuto();
   syncFilters();
   REG={};
   if(tab==="Tracked")return renderTracked();
+  if(tab==="Alerts")return renderAlerts();
   if(tab==="Injuries")return renderInjuries();
 
   const top=statusBanners();
@@ -1043,6 +1096,181 @@ function exportCSV(){
   document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
 
+/* ---------------- alerts + auto-refresh ----------------
+   Alerts are evaluated on the server for every board (yours and the
+   scheduler's), so this page only polls the free /api/alerts and
+   /api/scheduler routes. When the scheduler has pulled new lines for the
+   league on screen, the board is repriced with cached_only=1: never a credit. */
+const POLL_MS=30000;
+async function pollAlerts(){
+  try{
+    const r=await fetch("/api/alerts?limit=200");if(!r.ok)throw new Error(`HTTP ${r.status}`);
+    const j=await r.json();
+    ALERTS={list:j.alerts||[],unread:j.unread||0,latest:j.latest_id||0,readUpto:j.read_upto||0,
+      config:j.config,persisted:j.persisted,loaded:true,err:null};
+    // First visit in this browser, or the server's history was reset: don't replay it all as toasts.
+    if(alertPrefs.seen==null||alertPrefs.seen>ALERTS.latest)alertPrefs.seen=ALERTS.latest;
+    const fresh=ALERTS.list.filter(a=>a.id>alertPrefs.seen).reverse();
+    if(fresh.length){alertPrefs.seen=fresh[fresh.length-1].id;announce(fresh);}
+    saveAlertPrefs();
+    if(tab==="Alerts"&&document.visibilityState==="visible")markRead();
+  }catch(e){ALERTS.err=String(e.message||e);}
+  repaint();
+}
+function announce(list){
+  const box=$("toasts"),show=list.slice(-3);
+  show.forEach(a=>{const d=document.createElement("div");d.className="toast "+(a.kind==="move"?"move":"edge");
+    d.setAttribute("role","status");
+    d.innerHTML=`<b>${h(a.title)}</b><span>${h(a.detail||"")}</span>`;
+    d.onclick=()=>{d.remove();tab="Alerts";savePrefs();render();openAlerts();};
+    box.appendChild(d);setTimeout(()=>d.remove(),9000);});
+  if(list.length>show.length){const d=document.createElement("div");d.className="toast";
+    d.innerHTML=`<b>+${list.length-show.length} more alert${list.length-show.length===1?"":"s"}</b><span>See the Alerts tab.</span>`;
+    d.onclick=()=>{d.remove();tab="Alerts";savePrefs();render();openAlerts();};
+    box.appendChild(d);setTimeout(()=>d.remove(),9000);}
+  if(alertPrefs.notify&&"Notification" in window&&Notification.permission==="granted"){
+    try{
+      if(list.length>3)new Notification(`Betting Desk: ${list.length} new alerts`,{body:list.slice(-3).map(a=>a.title).join("\n"),tag:"bd-alerts"});
+      else list.forEach(a=>new Notification(a.title,{body:a.detail||"",tag:"bd-"+a.id}));
+    }catch(e){}
+  }
+}
+async function markRead(){
+  if(!ALERTS.unread)return;
+  try{const r=await fetch("/api/alerts/read",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({upto:ALERTS.latest})});if(r.ok){ALERTS.unread=0;renderTabs();}}catch(e){}
+}
+function openAlerts(){pollAlerts();pollScheduler();markRead();}
+async function pollScheduler(){
+  try{const r=await fetch("/api/scheduler");if(!r.ok)throw new Error(`HTTP ${r.status}`);SCHED=await r.json();}
+  catch(e){SCHED={error:String(e.message||e)};}
+  repaint();
+  applyScheduled();
+}
+// The scheduler pulled new lines for the league on screen: reprice from cache, for free.
+async function applyScheduled(){
+  if(!SCHED||!Array.isArray(SCHED.leagues)||!data||busy)return;
+  const lg=SCHED.leagues.find(x=>x.league===league);
+  if(!lg||!lg.last_run_at||autoApplied[league]===lg.last_run_at)return;
+  const seenAt=Date.parse(data.odds_fetched_at||data.generated_at||0)||0;
+  if(Date.parse(lg.last_run_at)<=seenAt){autoApplied[league]=lg.last_run_at;return;}
+  autoApplied[league]=lg.last_run_at;
+  const want=league;
+  try{
+    const r=await fetch(`/api/board/${want}?stake=${encodeURIComponent($("stake").value||10)}&method=${$("method").value}&cached_only=1`);
+    const j=await r.json();
+    if(!r.ok||!j||want!==league||busy)return;
+    if((j.errors||[]).some(e=>e.source==="odds"))return;   // cache miss: keep what's on screen
+    data=normalise(j);data.auto=true;updateTracked(data);render();
+  }catch(e){}
+}
+function renderAuto(){
+  const el=$("auto"),s=SCHED;
+  el.className="auto";
+  if(!s){el.textContent="auto …";return;}
+  if(s.error){el.textContent="auto ?";el.title=s.error;return;}
+  if(!s.enabled){el.textContent="auto-refresh off";el.title=s.note||"";return;}
+  const b=s.budget||{},frac=b.daily?Math.min(1,b.spent_today/b.daily):1;
+  el.classList.add("on",frac>=1?"full":frac>=.75?"warn":"ok");
+  el.innerHTML=`${s.paused?"paused":"auto"} <span class="meter" aria-hidden="true"><i style="width:${(frac*100).toFixed(0)}%"></i></span> ${b.spent_today}/${b.daily}`;
+  el.title=`Auto-refresh: ${b.spent_today} of ${b.daily} credits spent today (resets ${fmtTime(b.resets_at)})`;
+}
+const ago=iso=>{const t=Date.parse(iso);if(!t)return "";const m=Math.round((Date.now()-t)/60000);
+  return m<1?"just now":m<60?`${m} min ago`:m<1440?`${Math.round(m/60)} h ago`:fmtDay(iso);};
+function notifyState(){
+  if(!("Notification" in window))return ["unsupported","This browser has no notifications."];
+  if(Notification.permission==="denied")return ["blocked","Blocked in browser settings for this site."];
+  if(alertPrefs.notify&&Notification.permission==="granted")return ["on","On for this browser."];
+  return ["off","Off. Alerts still show on this page."];
+}
+async function toggleNotify(){
+  if(!("Notification" in window))return;
+  if(alertPrefs.notify){alertPrefs.notify=false;saveAlertPrefs();render();return;}
+  let p=Notification.permission;
+  if(p==="default"){try{p=await Notification.requestPermission();}catch(e){}}
+  alertPrefs.notify=p==="granted";saveAlertPrefs();render();
+}
+function renderAlerts(){
+  const c=ALERTS.config||{},[ns,nmsg]=notifyState();
+  let html="";
+  if(ALERTS.err)html+=`<div class="banner err"><b>Couldn't load alerts</b><span>${h(ALERTS.err)}</span></div>`;
+  html+=`<div class="panel"><h3>Alert me when</h3>
+    <div class="muted">Checked on every board the server builds — your refreshes and the scheduler's.
+    Shared by everyone using this server.</div>
+    <div class="form">
+      <label>Edge at least %<input id="al-edge" type="number" step="0.5" min="0" max="100" value="${c.min_edge!=null?+(c.min_edge*100).toFixed(2):3}"></label>
+      <label>Fair prob moves pts<input id="al-prob" type="number" step="0.5" min="0.5" max="100" value="${c.move_prob!=null?+(c.move_prob*100).toFixed(2):3}"></label>
+      <label>Line moves by<input id="al-pts" type="number" step="0.5" min="0.5" max="50" value="${c.move_points??1}"></label>
+      <label class="chk"><input id="al-on" type="checkbox" ${c.enabled!==false?"checked":""}> Alerts on</label>
+      <button class="btn" data-act="al-save">Save</button>
+      <button class="btn" data-act="al-edge-from-filter" title="Copy the board's Min edge filter">Use board filter (${+prefs.edge||0}%)</button>
+    </div>
+    <div class="form" style="align-items:center">
+      <button class="btn ${ns==="on"?"on":""}" data-act="al-notify" ${ns==="unsupported"||ns==="blocked"?"disabled":""}>
+        Browser notifications: ${ns}</button><span class="muted">${h(nmsg)}</span></div></div>`;
+  html+=schedHTML();
+  const list=ALERTS.list;
+  html+=`<div class="sechead"><h2>History</h2><span>${list.length?`${list.length} alert${list.length===1?"":"s"}${ALERTS.persisted===false?" · demo: kept in memory":""}`:""}</span></div>`;
+  if(!ALERTS.loaded)html+=`<div class="skel" style="height:60px"></div>`;
+  else if(!list.length)html+=`<div class="empty"><strong>No alerts yet</strong>
+    You'll get one when a price at your books clears your edge threshold, or a market moves sharply between two refreshes.</div>`;
+  else{
+    html+=list.map(a=>`<div class="al ${a.kind==="move"?"move":"edge"}${a.id>(ALERTS.readUpto??Infinity)?" unread":""}">
+      <div class="l1"><span>${h(a.title)}</span><small>${h(ago(a.at))}</small></div>
+      <div class="l2">${h(a.detail||"")}<br>${h(String(a.league||"").toUpperCase())} · ${a.kind==="move"?"line move":"edge"} ·
+      ${a.origin==="scheduled"?"auto-refresh":"your refresh"}${a.start_utc?" · starts "+h(fmtTime(a.start_utc)):""}</div></div>`).join("");
+    html+=`<div style="text-align:center;margin:14px 0"><button class="btn danger" data-act="al-clear">Clear alert history</button></div>`;
+  }
+  out.innerHTML=html;wire();
+}
+function schedHTML(){
+  const s=SCHED;
+  if(!s)return `<div class="panel"><h3>Auto-refresh</h3><div class="muted">Loading…</div></div>`;
+  if(s.error)return `<div class="panel"><h3>Auto-refresh</h3><div class="muted">${h(s.error)}</div></div>`;
+  if(!s.enabled)return `<div class="panel"><h3>Auto-refresh is off</h3><div class="muted">
+    The server can snapshot lines on its own, more often as games get close, inside a hard daily credit budget.
+    Set <b>AUTO_REFRESH=1</b> and <b>AUTO_REFRESH_LEAGUES</b> in .env and restart. Off by default so it never spends without you asking.</div></div>`;
+  const b=s.budget||{},frac=b.daily?Math.min(1,b.spent_today/b.daily):1;
+  const runs=(s.runs||[]).slice(0,8);
+  return `<div class="panel"><h3>Auto-refresh ${s.paused?"(paused)":s.running?"":"(not running)"}</h3>
+    <div class="muted">${b.spent_today} of ${b.daily} credits spent today · ${b.cost_per_run} per run ·
+      resets ${h(fmtTime(b.resets_at))}. Runs more than ${s.far_hours}h before a game may use ${b.far_cap} of them.
+      ${b.credits_left!=null?`Stops at ${b.reserve} credits left this month (now ${b.credits_left}).`:""}</div>
+    <div class="meterbig ${frac>=1?"full":frac>=.75?"warn":""}" role="meter" aria-valuemin="0" aria-valuemax="${b.daily}" aria-valuenow="${b.spent_today}" aria-label="Credits spent today"><i style="width:${(frac*100).toFixed(0)}%"></i></div>
+    <table class="sch"><tr><th>League</th><th>Next game</th><th>Every</th><th>Next run</th><th></th></tr>
+    ${(s.leagues||[]).map(l=>`<tr><td>${h(LEAGUE_LABELS[l.league]||l.league)}</td>
+      <td>${l.next_start?h(fmtTime(l.next_start)):"—"}</td><td>${l.interval_min?l.interval_min+" min":"—"}</td>
+      <td>${l.waiting?`<span class="muted">${h(l.waiting)}</span>`:l.next_run_at?h(fmtTime(l.next_run_at)):"—"}
+        ${l.error?`<br><span class="neg">${h(l.error)}</span>`:""}</td>
+      <td><button class="btn" data-sch-run="${h(l.league)}">Run now</button></td></tr>`).join("")}</table>
+    <div class="form"><button class="btn" data-act="${s.paused?"sch-resume":"sch-pause"}">${s.paused?"Resume":"Pause"}</button></div>
+    ${runs.length?`<div class="muted" style="margin-top:8px">Recent: ${runs.map(r=>
+      `${h(LEAGUE_LABELS[r.league]||r.league)} ${h(ago(r.at))} · ${r.ok?`${r.cost} cr, ${r.plays} plays${r.alerts?`, ${r.alerts} alerts`:""}`:`failed: ${h(r.error||"")}`}`).join("<br>")}</div>`:""}
+  </div>`;
+}
+async function saveAlertConfig(){
+  const num=id=>{const v=parseFloat($(id).value);return isNaN(v)?null:v;};
+  const body={enabled:$("al-on").checked};
+  const e=num("al-edge"),p=num("al-prob"),pt=num("al-pts");
+  if(e!=null)body.min_edge=Math.max(0,Math.min(100,e))/100;
+  if(p!=null&&p>0)body.move_prob=Math.min(100,p)/100;
+  if(pt!=null&&pt>0)body.move_points=Math.min(50,pt);
+  try{const r=await fetch("/api/alerts/config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    const j=await r.json();if(!r.ok)throw new Error(typeof j.detail==="string"?j.detail:`HTTP ${r.status}`);
+    ALERTS.config=j.config;ALERTS.err=null;}
+  catch(e){ALERTS.err=`Saving settings failed: ${e.message||e}`;}
+  document.activeElement&&document.activeElement.blur&&document.activeElement.blur();render();
+}
+async function schedAction(path){
+  try{const r=await fetch(path,{method:"POST"});const j=await r.json().catch(()=>({}));
+    if(!r.ok)throw new Error(typeof j.detail==="string"?j.detail:`HTTP ${r.status}`);}
+  catch(e){ALERTS.err=String(e.message||e);}
+  await pollScheduler();pollAlerts();
+}
+function pollAll(){if(document.visibilityState==="visible"){pollAlerts();pollScheduler();}}
+setInterval(pollAll,POLL_MS);
+document.addEventListener("visibilitychange",pollAll);
+
 /* ---------------- wiring ---------------- */
 function wire(){
   out.querySelectorAll("[data-slip]").forEach(el=>el.onclick=()=>toggleSlip(el.dataset.slip));
@@ -1071,7 +1299,16 @@ function wire(){
     if(a==="scores")checkResults(true);
     if(a==="csv")exportCSV();
     if(a==="clear-tracked"&&confirm("Remove every tracked play from this browser?")){tracked=[];saveTracked();render();}
+    if(a==="al-save")saveAlertConfig();
+    if(a==="al-edge-from-filter"){$("al-edge").value=+prefs.edge||0;saveAlertConfig();}
+    if(a==="al-notify")toggleNotify();
+    if(a==="al-clear"&&confirm("Clear the alert history for everyone using this server?"))
+      fetch("/api/alerts",{method:"DELETE"}).then(pollAlerts,pollAlerts);
+    if(a==="sch-pause")schedAction("/api/scheduler/pause");
+    if(a==="sch-resume")schedAction("/api/scheduler/resume");
   });
+  out.querySelectorAll("[data-sch-run]").forEach(el=>el.onclick=()=>{el.disabled=true;
+    schedAction(`/api/scheduler/run/${encodeURIComponent(el.dataset.schRun)}`);});
 }
 
 function toggleSlip(k){
@@ -1142,9 +1379,10 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")shut();});
 let rsz;window.addEventListener("resize",()=>{clearTimeout(rsz);rsz=setTimeout(()=>{if(tab==="Tracked"&&prefs.tview==="results")render();},150);});
 $("note").textContent="Schedules, scores and injuries: ESPN, free. Odds: The Odds API, "+
   "billed per credit. Research only — nothing here places a bet or touches a sportsbook account.";
-render();priceSlip();loadUsage();loadCatalog();
+render();priceSlip();loadUsage();loadCatalog();pollAlerts();pollScheduler();
 if(tab==="Tracked")checkResults(false);
 if(tab==="Injuries")loadInjuries();
+if(tab==="Alerts")markRead();
 </script>
 </body>
 </html>

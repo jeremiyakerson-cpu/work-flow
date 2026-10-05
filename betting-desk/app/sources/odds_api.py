@@ -92,7 +92,7 @@ def estimate_cost(
 class OddsAPIError(RuntimeError):
     """
     A failed Odds API call. `kind` is one of: timeout, network, auth,
-    request, rate_limit, upstream, malformed.
+    request, rate_limit, upstream, malformed, cache_miss.
     """
 
     def __init__(self, kind: str, message: str, status: int | None = None):
@@ -152,12 +152,13 @@ class OddsAPI:
         self.cache_ttl = cache_ttl
         self.timeout = timeout
         self.last_stale = False
+        self.last_fetched_at: float | None = None
         self.usage = Usage()
         self._cache: dict[str, _CacheEntry] = {}
 
     # ---------- plumbing ----------
 
-    def _get(self, path: str, params: dict, cache: bool = True) -> Any:
+    def _get(self, path: str, params: dict, cache: bool = True, cached_only: bool = False) -> Any:
         """
         GET with a TTL cache. Every failure mode (timeout, connection error,
         401/422/429, 5xx, a body that isn't JSON) raises OddsAPIError with a
@@ -165,12 +166,25 @@ class OddsAPI:
         response for the same request is still in memory, that is returned
         instead, flagged via `self.last_stale`, so a flaky feed degrades to
         slightly old numbers rather than none.
+
+        `cached_only=True` never touches the network (so never spends a
+        credit): it returns the last response for this request however old,
+        or raises OddsAPIError("cache_miss"). `self.last_fetched_at` is the
+        epoch time the returned data was fetched.
         """
         key = path + repr(sorted(params.items()))
         self.last_stale = False
-        hit = self._cache.get(key) if cache else None
+        hit = self._cache.get(key) if cache or cached_only else None
+        if cached_only:
+            if hit is None:
+                raise OddsAPIError("cache_miss", "Nothing cached for this request yet; "
+                                   "a normal refresh (or the scheduler) has to fetch it first.")
+            self.usage.cache_hits += 1
+            self.last_fetched_at = hit.at
+            return hit.value
         if hit and (time.time() - hit.at) < self.cache_ttl:
             self.usage.cache_hits += 1
+            self.last_fetched_at = hit.at
             return hit.value
 
         try:
@@ -178,11 +192,13 @@ class OddsAPI:
         except OddsAPIError:
             if hit is not None:
                 self.last_stale = True
+                self.last_fetched_at = hit.at
                 return hit.value
             raise
 
+        self.last_fetched_at = time.time()
         if cache:
-            self._cache[key] = _CacheEntry(data, time.time())
+            self._cache[key] = _CacheEntry(data, self.last_fetched_at)
         return data
 
     def _fetch(self, path: str, params: dict) -> Any:
@@ -228,13 +244,15 @@ class OddsAPI:
         markets: tuple[str, ...] = ("h2h", "spreads", "totals"),
         regions: str = "us",
         bookmakers: tuple[str, ...] | None = None,
+        cached_only: bool = False,
     ) -> list[dict]:
         """
         Game lines for a whole league in one call.
 
         Passing bookmakers instead of regions is cheaper when you only care
         about a few books: bookmakers-based calls cost markets x 1, not
-        markets x regions.
+        markets x regions. `cached_only` serves the last response and never
+        spends (see `_get`).
         """
         key = sport_key(league)
         params: dict[str, Any] = {
@@ -246,7 +264,7 @@ class OddsAPI:
             params["bookmakers"] = ",".join(bookmakers)
         else:
             params["regions"] = regions
-        return self._get(f"/sports/{key}/odds", params)
+        return self._get(f"/sports/{key}/odds", params, cached_only=cached_only)
 
     def events(self, league: str) -> list[dict]:
         """Event list with ids. Free - needed to request props."""
