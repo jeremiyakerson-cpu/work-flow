@@ -46,6 +46,10 @@ app/
   services/board.py   joins the two feeds, runs the math, surfaces plays
   services/props.py   pairs and de-vigs per-event markets (props, periods, alts)
   services/history.py line-movement snapshots (SQLite) and price history
+  services/sharpness.py   which books predict the close; consensus weights
+  services/calibration.py reliability, Brier, CLV by sport/market/edge
+  services/thresholds.py  suggested min edge per sport/market; adopted ones
+  demo_adaptive.py    synthetic history + tracked plays for the adaptive model
   main.py             FastAPI routes
   demo.py             frozen fixtures so you can run with no key
 static/index.html     the UI
@@ -132,6 +136,12 @@ In priority order:
 2. **A consensus** of every book in the feed, *excluding the book you're
    grading*, so it isn't marking its own homework. Needs 3+ books.
 3. **A single book**, labelled as such so you know the number is weak.
+
+With `weighting=sharp` (or `FAIR_WEIGHTING=sharp`), step 2 becomes a
+**weighted consensus**: each book counts in proportion to how well its prices
+have predicted the closing line in that sport and market. See
+[Adaptive model](#adaptive-model). Off by default; with thin history it is
+the plain average anyway.
 
 Every market reports which of these it used, in `fair_source`. If it says
 `single book:fanduel`, treat the edge as noise.
@@ -234,6 +244,12 @@ the consensus every US book instead of just the two you're grading.
 | `GET /api/history/{league}/{event_id}?market=` | free | line movement for one market: every price the desk has stored, per book, and the fair price over time |
 | `POST /api/parlay` | free | price a slip, EV, singles comparison |
 | `POST /api/results` | free | grade tracked plays from ESPN final scores |
+| `GET /api/sharpness/{league}?market=` | free | which books' prices best predicted the close, and the consensus weights that implies |
+| `POST /api/calibration` (`GET` in demo) | free | calibration (reliability, Brier) and CLV by sport/market/edge for your tracked plays |
+| `POST /api/thresholds/suggest` | free | suggested min edge per sport/market from your plays' CLV. Never applied by itself |
+| `GET /api/thresholds` | free | the thresholds you adopted |
+| `PUT /api/thresholds/{league}/{market}` | free | adopt one: `{"min_edge": 0.015, "note": "..."}` |
+| `DELETE /api/thresholds/{league}/{market}` | free | drop one |
 | `GET /api/convert` | free | odds converter |
 | `GET /api/usage` | free | credits left |
 
@@ -247,6 +263,8 @@ Demo fixtures: `mlb nfl ncaaf nba nhl`.
 | `markets` | `h2h,spreads,totals` | any subset. Anything else is a `400` pointing at `/api/props`. Every game still carries all three keys, and ones you didn't ask for are `null` |
 | `books` | all US books | book keys for the Odds API call |
 | `stake`, `method`, `min_edge` | env defaults | as before. A bad `method` is a `400` |
+| `weighting` | `FAIR_WEIGHTING` (`equal`) | `equal` or `sharp`: weight the consensus by book sharpness. Anything else is a `400` |
+| `edge_profile` | `none` (`adopted` if `APPLY_ADOPTED_THRESHOLDS=1`) | `adopted` uses your adopted per-market min edge in place of `min_edge` for those markets |
 
 These are **additive** fields, and nothing existing was removed or renamed:
 
@@ -257,6 +275,11 @@ These are **additive** fields, and nothing existing was removed or renamed:
 - `plays[].odds_id`, plus `markets` at the top level
 - `history`: `{recorded, enabled, error?}`, how many price changes this
   refresh wrote to the line-movement store (pass 2)
+- `weighting`: `{mode, weighted_markets, weights: {market: {book: w}}, source?,
+  thin_markets?: {market: reason}}`. `fair_source` reads
+  `weighted consensus:N books` where weights applied (round 3)
+- `edge_profile`: `{mode, min_edges: {market: edge}, default_min_edge}`; with
+  `edge_profile=adopted`, `plays[]` also carry `min_edge_applied` (round 3)
 - `sides[].your_books[]` gained `fair_prob`, `fair_price`, `fair_source`: the
   leave-one-out fair that entry was graded against. `ev_per_dollar`,
   `ev_dollars` and `kelly` can now be `null` (see the fair-value section).
@@ -322,6 +345,144 @@ out, ending exactly at the fixture's current prices, so the last `fair[]`
 point equals the board's fair price. MLB's history is synthetic too, even
 though its final prices are the real Sep 15 board. Nothing is written to disk
 in demo mode.
+
+---
+
+## Adaptive model
+
+Three things the desk learns from what it has recorded, instead of fixed
+settings. All of it is free (it reads data already fetched), all of it is
+explainable through a route, and none of it changes the board unless you ask.
+
+### Book sharpness: `GET /api/sharpness/{league}`
+
+Question: which books' prices best predict the closing line, per sport and
+market? For every game in the history store that has started:
+
+1. Each book's quote is rebuilt at every moment something moved, up to the
+   start. The **close** is the last pre-start state, on the main line.
+2. The target for book *B* is the de-vigged consensus of the **other** books
+   at the close (leave-one-out), so no book gets credit for agreeing with
+   itself. Needs 2+ other books.
+3. At every pre-start state where *B* quoted the closing line, *B*'s
+   de-vigged probabilities are scored with **KL divergence** against that
+   target: log-loss against the close minus the close's own entropy, so a
+   50/50 market and a 90/10 market are on the same footing. Averaged per
+   game, then across games. Lower is sharper.
+
+Weights: for independent noisy estimates the best blend weights each by
+1/variance, and for small errors KL is proportional to squared error, so a
+book's **raw weight** is `(1/KL) / mean(1/KL)` across scored books. It is
+then **shrunk toward 1** by `n / (n + SHARP_PRIOR_EVENTS)` (n = the book's
+scored games) and **clipped** to `[SHARP_WEIGHT_MIN, SHARP_WEIGHT_MAX]`. The
+board's consensus becomes the weighted mean of de-vigged probabilities,
+renormalised; the graded book is still left out of its own fair price.
+
+**Fallback.** A market is weighted only when it has `SHARP_MIN_EVENTS`
+closed games (default 20) and 3+ books with `SHARP_MIN_BOOK_EVENTS` (5) scored
+games each. Otherwise its status is `thin`, with a `reason`, and the board
+uses the plain consensus. A sharp book (`SHARP_BOOK`) still takes priority,
+and 1-2 book markets are unchanged.
+
+Response, per market: `status` (`ok` | `thin`), `events`, `reason`,
+`weights` (`null` unless ok), and `books[]` with `rank`, `events`,
+`observations`, `mean_kl`, `mean_abs_err` and `mean_bias` (on the home /
+Over side; > 0 means the book had it too likely), `raw_weight`, `weight`.
+Plus `config` (every knob in force) and `metric`. Params: `market` (any of
+`h2h,spreads,totals`), `method`. Results are cached for
+`SHARPNESS_CACHE_TTL` seconds (600).
+
+| Env | Default | |
+|---|---|---|
+| `FAIR_WEIGHTING` | `equal` | board default; `sharp` turns weighting on without the query param |
+| `SHARP_MIN_EVENTS` | 20 | closed games in a market before weights apply |
+| `SHARP_MIN_BOOK_EVENTS` | 5 | games before one book's score counts |
+| `SHARP_PRIOR_EVENTS` | 20 | shrinkage strength toward equal weight |
+| `SHARP_WEIGHT_MIN` / `MAX` | 0.25 / 4 | clip |
+
+The history store only fills from your own refreshes, so live weights take
+a few weeks of normal use to appear. Game markets only; props aren't scored.
+
+### Calibration and CLV: `POST /api/calibration`
+
+The tracker lives in the browser, so you send the plays and nothing is
+stored. Body: `{"plays": [...], "bins": 10}` (up to 5000 plays). Each play is
+either flat:
+
+```json
+{"league": "nfl", "market": "spreads", "book": "fanduel", "price": -105,
+ "stake": 10, "point": -3.5, "fair_prob": 0.53, "ev_per_dollar": 0.035,
+ "result": "won", "close_fair_prob": 0.545, "close_point": -3.5}
+```
+
+or the tracker's own `localStorage` object as-is (`close: {price, point,
+fair_prob}`, `outcome`, `result: {result}` are read). `price` is required;
+`ev_per_dollar` is derived from `fair_prob` when missing; a `close_point`
+different from `point` means no CLV (different bet).
+
+Response:
+
+- `status`: `ok`, `not_enough_data` (fewer than 30 graded plays, numbers
+  still shown with a `note`) or `no_plays`
+- `entry` and `close`: `n`, `brier`, `log_loss`, `base_rate`,
+  `brier_base_rate` (always forecasting the observed win rate),
+  `brier_skill`, `mean_pred`, `ece`, and `reliability[]` buckets with `n`,
+  `mean_pred`, `observed`, a 95% Wilson `ci95`, `gap`, `inside_ci` and
+  `status` (`thin` under 10 plays). `entry` scores the tool's fair price when
+  you logged; `close` scores the closing fair price on the same plays, the
+  benchmark to beat. Pushes and ungraded plays are left out.
+- `clv`: `overall`, `by_league`, `by_market`, `by_league_market`, `by_edge`
+  (`<0%`, `0-1%`, `1-2%`, `2-3%`, `3-5%`, `5%+` of entry EV). Each has
+  `plays`, `with_clv`, `mean_clv`, `clv_se`, `beat_close_pct`,
+  `mean_entry_ev`, `edge_realisation` (mean CLV / mean entry EV: how much of
+  the shown edge survived), `record`, `profit`, `roi`.
+
+`GET /api/calibration` returns the synthetic report in demo mode and
+`no_plays` live.
+
+### Suggested thresholds: `POST /api/thresholds/suggest`
+
+Same body as calibration (plus optional `min_plays`). Per (league, market):
+
+1. Fit `CLV = a + b × entry_edge` by least squares over plays with a close.
+   `b` is how much of a shown edge survives; `a` the offset.
+2. The **break-even edge** is `-a/b`: below it the marginal play is expected
+   to lose to the close. Rounded **up** to the 0.5% grid (0-8%).
+3. The plays that threshold keeps must beat the close with one-sided 90%
+   confidence (mean CLV − 1.28 SE > 0, 20+ plays).
+
+Statuses: `suggested`, `not_enough_data` (fewer than 40 plays with a close;
+`needed` says how many more), `edge_not_predictive` (slope not clearly > 0:
+bigger shown edges aren't better bets here), `no_threshold_beats_close`.
+Each comes with a `reason`, the `fit` (`intercept`, `slope`, `slope_se`,
+`break_even_edge`, `break_even_se`) and the full `curve` (per threshold:
+`plays`, `mean_clv`, `clv_se`, `clv_lower`, `qualifies`, `graded`, `roi`).
+CLV is the criterion, not profit, because it reads in tens of plays where
+results need thousands.
+
+**Nothing is applied automatically.** To use a suggestion:
+
+1. `PUT /api/thresholds/nfl/spreads` with `{"min_edge": 0.015}`. Stored in
+   `data/thresholds.json` (`THRESHOLDS_FILE`); in demo mode in memory only.
+2. Ask the board for `edge_profile=adopted`. Adopted markets use their own
+   min edge; the rest use `min_edge`. `APPLY_ADOPTED_THRESHOLDS=1` makes
+   `adopted` the default, and `edge_profile=none` still overrides it.
+
+### Demo mode
+
+Everything above works with `DEMO_MODE=1`, on fixtures labelled `DEMO
+FIXTURE (synthetic adaptive-model data)`:
+
+- **Sharpness**: 30 finished games per demo league, all three markets. Each
+  book's price is the close plus noise of a fixed size per book
+  (`demo_adaptive.BOOK_NOISE`: DraftKings tightest, Caesars loosest), so the
+  ranking is known and the tests check the model recovers it.
+  `/api/board/nfl?weighting=sharp` shows the weighted fair price.
+- **Calibration and thresholds**: ~680 tracked plays. The entry fair price
+  overstates edges by a per-league amount (`EDGE_OVERSTATEMENT`), so CLV is
+  negative on small shown edges and positive on big ones, and NHL needs a
+  bigger edge than NFL. Some markets are deliberately too small and come back
+  `not_enough_data`.
 
 ---
 
@@ -422,6 +583,8 @@ through the real routes, main-line selection, prop pairing, the props opt-in
 and dry run, and the cache saving credits. `tests/test_fair_price.py` proves the
 consensus and leave-one-out math, multi-way and one-sided markets;
 `tests/test_history.py` covers the snapshot store and `/api/history`;
+`tests/test_adaptive.py` proves the sharpness, weighting, calibration and
+threshold math on hand-worked inputs and covers their routes;
 `tests/test_api_validation.py` covers bad input on the free routes.
 `tests/test_robustness.py` mocks ESPN and The Odds API with respx and covers
 timeouts, connection errors, 401/429/5xx, non-JSON bodies, wrong top-level

@@ -10,12 +10,13 @@ import datetime as dt
 import logging
 import os
 import re
-from typing import Any
+import time
+from typing import Annotated, Any
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 from .sources import espn
 from .sources.odds_api import (
@@ -25,7 +26,11 @@ from .sources.odds_api import (
 from .services.board import build_board
 from .services.props import analyse_event_markets
 from .services import history
+from .services import sharpness as sharp
+from .services.calibration import calibration_report
+from .services.thresholds import ThresholdConfig, ThresholdStore, suggest_thresholds
 from . import demo
+from . import demo_adaptive
 from . import math_engine as M
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -49,6 +54,18 @@ PROPS_MAX_MARKETS = int(os.getenv("PROPS_MAX_MARKETS", "5"))
 # Line movement: live fetches are written to a local SQLite file (gitignored).
 RECORD_HISTORY = os.getenv("RECORD_HISTORY", "1") not in ("", "0", "false", "False")
 HISTORY_DB = os.getenv("HISTORY_DB") or history.DEFAULT_DB
+# Adaptive model. FAIR_WEIGHTING=sharp weights the consensus by measured book
+# sharpness by default; "equal" (the default) keeps the plain average and
+# ?weighting=sharp opts in per request. Adopted min-edge thresholds live in a
+# JSON file and only apply with ?edge_profile=adopted (or APPLY_ADOPTED_THRESHOLDS=1).
+WEIGHTING_MODES = ("equal", "sharp")
+FAIR_WEIGHTING = os.getenv("FAIR_WEIGHTING") or "equal"
+if FAIR_WEIGHTING not in WEIGHTING_MODES:     # a typo in .env must not 400 every board
+    FAIR_WEIGHTING = "equal"
+THRESHOLDS_FILE = os.getenv("THRESHOLDS_FILE") or os.path.join(
+    os.path.dirname(history.DEFAULT_DB), "thresholds.json")
+APPLY_ADOPTED_THRESHOLDS = os.getenv("APPLY_ADOPTED_THRESHOLDS", "") not in ("", "0", "false", "False")
+SHARPNESS_CACHE_TTL = int(os.getenv("SHARPNESS_CACHE_TTL", "600"))
 
 log = logging.getLogger("betting_desk")
 _history: history.HistoryStore | None = None
@@ -72,6 +89,32 @@ def _record(league: str, rows: list[dict]) -> dict:
         return {"recorded": 0, "enabled": True, "error": str(e)}
 
 _client: OddsAPI | None = None
+_thresholds: ThresholdStore | None = None
+_sharp_cache: dict[tuple, tuple[float, dict]] = {}
+
+
+def threshold_store() -> ThresholdStore:
+    """Adopted thresholds. Demo mode keeps them in memory: nothing written to disk."""
+    global _thresholds
+    path = None if DEMO_MODE else THRESHOLDS_FILE
+    if _thresholds is None or _thresholds.path != path:
+        _thresholds = ThresholdStore(path)
+    return _thresholds
+
+
+def sharpness_for(league: str, method: str) -> tuple[dict, str]:
+    """(sharpness report, source label), cached for SHARPNESS_CACHE_TTL seconds."""
+    key = (league, method, DEMO_MODE, HISTORY_DB)
+    hit = _sharp_cache.get(key)
+    if hit and time.monotonic() - hit[0] < SHARPNESS_CACHE_TTL:
+        return hit[1]
+    if DEMO_MODE:
+        rows, source = demo_adaptive.demo_sharpness_rows(league), demo_adaptive.LABEL
+    else:
+        rows, source = history_store().league_rows(league), "local snapshots of The Odds API"
+    report = sharp.sharpness_report(rows, league, method, config=sharp.SharpnessConfig.from_env())
+    _sharp_cache[key] = (time.monotonic(), (report, source))
+    return report, source
 
 
 def odds_client() -> OddsAPI:
@@ -213,6 +256,12 @@ def board(
     books: str = Query("", description="Comma-separated book keys; blank = all US books"),
     min_edge: float = Query(0.0, description="Only list plays above this EV per dollar"),
     method: str = Query(default=None, description="power | multiplicative | additive"),
+    weighting: Annotated[str | None, Query(
+        description="equal | sharp. sharp weights the consensus by measured book sharpness "
+                    "(see /api/sharpness); markets without enough history stay equal")] = None,
+    edge_profile: Annotated[str | None, Query(
+        description="'adopted' uses the min edges you adopted at /api/thresholds per market; "
+                    "'none' ignores them")] = None,
 ) -> dict:
     """
     The refresh button. Pulls ESPN's slate and the odds feed, joins them,
@@ -230,6 +279,12 @@ def board(
                  "Player props and other per-event markets live at /api/props and /api/markets.")
     if method and method not in M.DEVIG_METHODS:
         raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    weighting = weighting or FAIR_WEIGHTING
+    if weighting not in WEIGHTING_MODES:
+        raise HTTPException(400, f"weighting must be one of {', '.join(WEIGHTING_MODES)}")
+    edge_profile = edge_profile or ("adopted" if APPLY_ADOPTED_THRESHOLDS else "none")
+    if edge_profile not in ("adopted", "none"):
+        raise HTTPException(400, "edge_profile must be 'adopted' or 'none'")
 
     errors: list[dict] = []     # one entry per upstream that failed; the board still renders
     client: OddsAPI | None = None
@@ -268,6 +323,27 @@ def board(
         except Exception as e:
             errors.append(_err("schedule", "unexpected", f"{type(e).__name__}: {e}"))
 
+    weighting_info: dict[str, Any] = {"mode": weighting, "weighted_markets": [], "weights": {}}
+    book_weights = None
+    if weighting == "sharp":
+        try:
+            report, wsource = sharpness_for(league, method or DEVIG_METHOD)
+            book_weights = sharp.weights_for_board(report)
+            weighting_info.update({
+                "weighted_markets": sorted(book_weights), "weights": book_weights,
+                "source": wsource,
+                "thin_markets": {m: r["reason"] for m, r in report["markets"].items()
+                                 if r["status"] != "ok"},
+            })
+        except Exception as e:   # the board still prices on the plain consensus
+            errors.append(_err("sharpness", "unexpected", f"{type(e).__name__}: {e}"))
+    min_edges = None
+    if edge_profile == "adopted":
+        try:
+            min_edges = threshold_store().for_league(league)
+        except Exception as e:
+            errors.append(_err("thresholds", "unexpected", f"{type(e).__name__}: {e}"))
+
     kwargs = dict(
         your_books=YOUR_BOOKS,
         stake=stake if stake is not None else DEFAULT_STAKE,
@@ -275,6 +351,8 @@ def board(
         sharp_book=SHARP_BOOK,
         min_edge=min_edge,
         markets=mk,
+        book_weights=book_weights,
+        min_edges=min_edges,
     )
     try:
         result = build_board(espn_games, odds_games, **kwargs)
@@ -290,6 +368,9 @@ def board(
     result["markets"] = list(mk)
     result["usage"] = client.usage.to_dict() if client else {"demo": DEMO_MODE}
     result["history"] = history_info
+    result["weighting"] = weighting_info
+    result["edge_profile"] = {"mode": edge_profile, "min_edges": min_edges or {},
+                              "default_min_edge": min_edge}
     result["errors"] = errors
     result["degraded"] = bool(errors) or stale
     result["stale_odds"] = stale
@@ -319,10 +400,13 @@ def board_by_query(
     books: str = Query(""),
     min_edge: float = Query(0.0),
     method: str = Query(default=None),
+    weighting: Annotated[str | None, Query()] = None,
+    edge_profile: Annotated[str | None, Query()] = None,
 ) -> dict:
     """Same as /api/board/{league}, with the league as ?sport=."""
     return board(sport, stake=stake, markets=markets, books=books,
-                 min_edge=min_edge, method=method)
+                 min_edge=min_edge, method=method, weighting=weighting,
+                 edge_profile=edge_profile)
 
 
 @app.get("/api/events/{league}")
@@ -612,6 +696,167 @@ def results(req: ResultsRequest) -> dict:
     return out
 
 
+# ---------------- adaptive model (free, reads recorded data) ----------------
+
+@app.get("/api/sharpness/{league}")
+def sharpness(
+    league: str,
+    market: str = Query("", description="h2h, spreads or totals; blank = all three"),
+    method: str = Query(default=None),
+) -> dict:
+    """
+    Which books' prices best predicted the closing line, per market, and the
+    consensus weights that implies. The board uses these weights only with
+    weighting=sharp, and only for markets whose status is "ok".
+    """
+    league = _league(league)
+    if method and method not in M.DEVIG_METHODS:
+        raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    mk = _csv(market)
+    bad = [m for m in mk if m not in GAME_MARKETS]
+    if bad:
+        raise HTTPException(400, f"Sharpness covers {', '.join(GAME_MARKETS)}; got {', '.join(bad)}.")
+    try:
+        report, source = sharpness_for(league, method or DEVIG_METHOD)
+    except Exception as e:
+        raise HTTPException(500, f"History store unreadable: {e}")
+    if mk:
+        report = {**report, "markets": {m: r for m, r in report["markets"].items() if m in mk}}
+    out = {**report, "default_weighting": FAIR_WEIGHTING, "source": source, "fetched_at": _now(),
+           "note": ("Weights apply on the board with weighting=sharp. Markets marked 'thin' "
+                    "keep the plain consensus until enough closed games are recorded.")}
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
+class AdaptivePlay(BaseModel):
+    """A tracked play, flat. The tracker's own objects are accepted too (see _flatten)."""
+    id: str | None = None
+    league: str = "unknown"
+    market: str = "unknown"
+    book: str | None = None
+    price: float
+    stake: float | None = None
+    point: float | None = None
+    fair_prob: float | None = None
+    ev_per_dollar: float | None = None
+    result: str | None = None
+    close_fair_prob: float | None = None
+    close_point: float | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _flatten(cls, v: Any) -> Any:
+        """Take the tracker's shape: close {price, point, fair_prob}, outcome, result {result}."""
+        if not isinstance(v, dict):
+            return v
+        v = dict(v)
+        close = v.get("close")
+        if isinstance(close, dict) and v.get("closed", True):
+            v.setdefault("close_fair_prob", close.get("fair_prob"))
+            v.setdefault("close_point", close.get("point"))
+        res = v.get("result")
+        if isinstance(res, dict):
+            res = res.get("result")
+        v["result"] = v.get("outcome") or (res if isinstance(res, str) else None)
+        return v
+
+
+class AdaptiveRequest(BaseModel):
+    plays: list[AdaptivePlay] = Field(default_factory=list, max_length=5000)
+    bins: int = Field(default=10, ge=2, le=20)
+    min_plays: int | None = Field(default=None, ge=10, le=5000)
+
+
+def _adaptive_plays(req: AdaptiveRequest | None) -> tuple[list[dict], str]:
+    if req and req.plays:
+        return [p.model_dump() for p in req.plays], "your tracked plays"
+    if DEMO_MODE:
+        return demo_adaptive.demo_tracked_plays(), demo_adaptive.LABEL
+    return [], "no plays sent"
+
+
+@app.post("/api/calibration")
+def calibration(req: AdaptiveRequest) -> dict:
+    """
+    Were the tool's fair probabilities calibrated, and did your prices beat
+    the close? Send the tracker's plays; nothing is stored. Demo mode with
+    no plays reports on a synthetic set.
+    """
+    plays, source = _adaptive_plays(req)
+    out = {**calibration_report(plays, bins=req.bins), "source": source, "fetched_at": _now()}
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
+@app.get("/api/calibration")
+def calibration_demo(bins: int = Query(10, ge=2, le=20)) -> dict:
+    """GET form: the demo report in demo mode; live, POST your plays instead."""
+    return calibration(AdaptiveRequest(bins=bins))
+
+
+@app.post("/api/thresholds/suggest")
+def thresholds_suggest(req: AdaptiveRequest) -> dict:
+    """
+    Suggested min edge per sport/market from your plays' CLV. Never applied:
+    adopt one with PUT /api/thresholds/{league}/{market}.
+    """
+    plays, source = _adaptive_plays(req)
+    cfg = ThresholdConfig(min_plays=req.min_plays) if req.min_plays else ThresholdConfig()
+    out = {**suggest_thresholds(plays, cfg), "adopted": threshold_store().load(),
+           "source": source, "fetched_at": _now()}
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
+_MARKET_KEY = re.compile(r"^[a-z0-9_]{1,64}$")
+
+
+class AdoptRequest(BaseModel):
+    min_edge: float = Field(ge=-0.05, le=0.25)
+    note: str | None = Field(default=None, max_length=500)
+
+
+@app.get("/api/thresholds")
+def thresholds_adopted() -> dict:
+    """Thresholds you have adopted, per league and market."""
+    return {"adopted": threshold_store().load(), "applied_by_default": APPLY_ADOPTED_THRESHOLDS,
+            "storage": "memory (demo)" if DEMO_MODE else THRESHOLDS_FILE, "fetched_at": _now()}
+
+
+def _threshold_key(league: str, market: str) -> tuple[str, str]:
+    league = _league(league)
+    if not _MARKET_KEY.match(market or ""):
+        raise HTTPException(400, "market must be a market key like spreads or player_points.")
+    return league, market
+
+
+@app.put("/api/thresholds/{league}/{market}")
+def thresholds_adopt(league: str, market: str, req: AdoptRequest) -> dict:
+    """Opt in: use this min edge for this league/market when the board asks for edge_profile=adopted."""
+    league, market = _threshold_key(league, market)
+    try:
+        entry = threshold_store().adopt(league, market, req.min_edge, req.note)
+    except OSError as e:
+        raise HTTPException(500, f"Couldn't save thresholds: {e}")
+    return {"league": league, "market": market, **entry}
+
+
+@app.delete("/api/thresholds/{league}/{market}")
+def thresholds_remove(league: str, market: str) -> dict:
+    league, market = _threshold_key(league, market)
+    try:
+        removed = threshold_store().remove(league, market)
+    except OSError as e:
+        raise HTTPException(500, f"Couldn't save thresholds: {e}")
+    if not removed:
+        raise HTTPException(404, f"No adopted threshold for {league}/{market}.")
+    return {"league": league, "market": market, "removed": True}
+
+
 @app.get("/api/convert")
 def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:
@@ -659,6 +904,8 @@ def health() -> dict:
         "demo_mode": DEMO_MODE,
         "props_enabled": ENABLE_PROPS,
         "history_recording": RECORD_HISTORY and not DEMO_MODE,
+        "fair_weighting": FAIR_WEIGHTING,
+        "apply_adopted_thresholds": APPLY_ADOPTED_THRESHOLDS,
         "time": _now(),
     }
 
