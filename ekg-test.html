@@ -57,6 +57,24 @@
     </div>
 
     <div id="mode-select" class="mode-select">
+      <section class="next-card" id="next-card" aria-labelledby="next-card-title">
+        <div class="next-card-head">
+          <h2 id="next-card-title">What to study next</h2>
+          <span class="next-streak" id="next-streak"></span>
+        </div>
+        <div class="next-goal">
+          <div class="next-goal-label"><span>Today</span><span id="next-goal-count">0 / 15</span></div>
+          <div class="breakdown-track"><div class="breakdown-fill" id="next-goal-fill" style="width:0%"></div></div>
+        </div>
+        <ol class="next-steps" id="next-steps"></ol>
+        <div class="mastery-strip" id="next-mastery" role="img"></div>
+        <p class="next-mastery-label" id="next-mastery-label"></p>
+        <div class="next-actions">
+          <button class="start-btn" id="mode-adaptive" type="button">🧠 Start adaptive practice</button>
+          <button class="discard-btn" id="next-study" type="button" hidden></button>
+        </div>
+      </section>
+
       <h2 class="menu-heading">Learn</h2>
       <button class="mode-card mode-card-study" id="mode-study">
         <span class="mode-card-title">📖 Study guide</span>
@@ -374,6 +392,70 @@
 
   <!-- ============ PROGRESS ============ -->
 
+  <!-- ============ ADAPTIVE PRACTICE ============ -->
+
+  <div id="adaptive-screen" hidden>
+    <div class="sc-head">
+      <div>
+        <h2>Adaptive practice</h2>
+        <span class="sc-progress">Spaced repetition · weak and look-alike rhythms first · difficulty follows your mastery</span>
+      </div>
+      <button class="discard-btn" id="adaptive-back" type="button">← Back to menu</button>
+    </div>
+
+    <div id="ad-run">
+      <div class="test-meta">
+        <span id="ad-progress">Item 1 / 15</span>
+        <span class="ad-reason" id="ad-reason"></span>
+        <span class="test-score" id="ad-score">0 correct</span>
+      </div>
+      <div class="question-panel question-stem-panel">
+        <span class="q-category" id="ad-category"></span>
+        <p class="q-stem" id="ad-stem"></p>
+        <p class="ad-vitals" id="ad-vitals" hidden></p>
+      </div>
+      <div class="monitor-bezel">
+        <div class="monitor-topbar">
+          <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-mode-badge">ADAPTIVE PRACTICE</span>
+          <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
+        </div>
+        <div class="monitor-screen study-screen-inner">
+          <div class="trace-col">
+            <div class="trace-label">LEAD II</div>
+            <canvas id="ad-canvas" width="900" height="160"></canvas>
+          </div>
+        </div>
+        <div class="monitor-softkeys" id="ad-choices"></div>
+      </div>
+      <div class="question-panel question-feedback" id="ad-feedback-wrap" hidden>
+        <div class="rationale" id="ad-feedback" aria-live="polite"></div>
+        <p class="ad-mastery-delta" id="ad-delta"></p>
+        <button class="next-btn" id="ad-next" type="button">Next →</button>
+      </div>
+    </div>
+
+    <div id="ad-results" class="results-screen" hidden>
+      <h2>Round complete</h2>
+      <div class="score-hero">
+        <div class="score-hero-cell">
+          <div class="score-hero-value" id="ad-final-score">0 / 15</div>
+          <div class="score-hero-label">CORRECT</div>
+        </div>
+        <div class="score-hero-cell">
+          <div class="score-hero-value" id="ad-final-mastered">0 / 0</div>
+          <div class="score-hero-label">RHYTHMS MASTERED</div>
+        </div>
+      </div>
+      <div class="ad-changes" id="ad-changes"></div>
+      <p class="ad-next-due" id="ad-next-due"></p>
+      <div class="next-actions">
+        <button class="start-btn" id="ad-again" type="button">Another round</button>
+        <button class="discard-btn" id="ad-results-back" type="button">← Back to menu</button>
+      </div>
+    </div>
+  </div>
+
   <div id="progress-screen" hidden>
     <div class="sc-head">
       <div>
@@ -386,6 +468,7 @@
     <h3 class="prog-heading">Accuracy by category</h3>
     <div class="breakdown prog-breakdown" id="prog-categories"></div>
     <h3 class="prog-heading">Rhythm mastery</h3>
+    <p class="prog-note" id="prog-mastery-note">Mastery blends recent accuracy, how much you have practised, response speed, and how long since you last saw the rhythm.</p>
     <div class="mastery-grid" id="prog-rhythms"></div>
     <h3 class="prog-heading">Comprehensive exam history</h3>
     <div class="exam-history" id="prog-exams"></div>
@@ -446,6 +529,7 @@
 <script src="ekg-scenarios.js"></script>
 <script src="ekg-education.js"></script>
 <script src="ekg-stats.js"></script>
+<script src="ekg-adaptive.js"></script>
 <script src="ekg-generator.js"></script>
 <script src="ekg-monitor.js"></script>
 <script src="ekg-codelog.js"></script>
@@ -454,6 +538,7 @@
 <script src="ekg-study.js"></script>
 <script src="ekg-sprint.js"></script>
 <script src="ekg-progress.js"></script>
+<script src="ekg-adaptive-ui.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

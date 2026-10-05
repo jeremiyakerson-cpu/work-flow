@@ -3,7 +3,7 @@
 // Bump CACHE_VERSION whenever CORE_ASSETS changes; old caches are deleted
 // on activate. tests/unit/service-worker.test.js fails if a page references
 // a file (or an ekg-*.js exists) that is not precached here.
-const CACHE_VERSION = 10;
+const CACHE_VERSION = 11;
 const CACHE_PREFIX = "ekg-trainer-";
 const CACHE_NAME = `${CACHE_PREFIX}v${CACHE_VERSION}`;
 const CORE_ASSETS = [
@@ -18,6 +18,7 @@ const CORE_ASSETS = [
   "ekg-scenarios.js",
   "ekg-education.js",
   "ekg-stats.js",
+  "ekg-adaptive.js",
   "ekg-generator.js",
   "ekg-monitor.js",
   "ekg-codelog.js",
@@ -26,6 +27,7 @@ const CORE_ASSETS = [
   "ekg-study.js",
   "ekg-sprint.js",
   "ekg-progress.js",
+  "ekg-adaptive-ui.js",
   "manifest.webmanifest",
   "icon.svg",
   "icon-192.png",

@@ -51,21 +51,40 @@
       cats.appendChild(row);
     }
 
-    // rhythm mastery grid
+    // rhythm mastery grid — the adaptive model's mastery score when it is
+    // loaded, plain accuracy otherwise
     const grid = document.getElementById("prog-rhythms");
     grid.innerHTML = "";
+    const LEVEL_CLS = { mastered: "good", learning: "warn", weak: "bad", new: "none" };
+    const model = window.EkgAdaptive ? new Map(EkgAdaptive.rhythmMastery().map((r) => [r.key, r])) : null;
     for (const key of Object.keys(EkgEducation.RHYTHM_GUIDE)) {
-      const b = p.byRhythm[key];
       let cls = "none";
       let label = "—";
-      if (b && b.total > 0) {
-        const pct = Math.round(b.accuracy * 100);
-        label = `${pct}%`;
-        cls = pct >= 80 ? "good" : pct >= 50 ? "warn" : "bad";
+      let detail = "";
+      let fill = 0;
+      const r = model && model.get(key);
+      if (r) {
+        cls = LEVEL_CLS[r.level];
+        if (r.n > 0) {
+          fill = Math.round(r.mastery * 100);
+          label = `${fill}%`;
+          detail = `${r.level} · ${r.n} answer${r.n === 1 ? "" : "s"}, ${Math.round(r.accuracy * 100)}% right`;
+        } else {
+          detail = "not practised yet";
+        }
+      } else {
+        const b = p.byRhythm[key];
+        if (b && b.total > 0) {
+          fill = Math.round(b.accuracy * 100);
+          label = `${fill}%`;
+          cls = fill >= 80 ? "good" : fill >= 50 ? "warn" : "bad";
+        }
       }
       const chip = document.createElement("div");
       chip.className = `mastery-chip mastery-${cls}`;
-      chip.innerHTML = `<span class="mastery-name">${EkgEducation.RHYTHM_GUIDE[key].name}</span><span class="mastery-pct">${label}</span>`;
+      chip.innerHTML = `<span class="mastery-name">${EkgEducation.RHYTHM_GUIDE[key].name}${
+        detail ? `<small class="mastery-detail">${detail}</small>` : ""
+      }</span><span class="mastery-pct">${label}</span><span class="mastery-bar" aria-hidden="true"><span style="width:${fill}%"></span></span>`;
       grid.appendChild(chip);
     }
 
@@ -86,8 +105,9 @@
   }
 
   function resetAll() {
-    if (!confirm("Reset ALL tracked progress? This clears your stats, exam history, sprint best, and scenario best scores (generated cases stay).")) return;
+    if (!confirm("Reset ALL tracked progress? This clears your stats, mastery and review schedule, exam history, sprint best, and scenario best scores (generated cases stay).")) return;
     EkgStats.reset();
+    if (window.EkgAdaptive) EkgAdaptive.reset();
     localStorage.removeItem(EXAM_HISTORY_KEY);
     localStorage.removeItem("ekg-sprint-best-v1");
     Object.keys(localStorage)

@@ -35,6 +35,7 @@ const ALL_SCREENS = [
   "sprint-screen",
   "progress-screen",
   "codelog-screen",
+  "adaptive-screen",
 ];
 
 window.showScreen = function (id) {
@@ -45,6 +46,8 @@ window.showScreen = function (id) {
   // New screens start at the top (matters on phones, where the previous
   // screen may have been scrolled far down).
   window.scrollTo(0, 0);
+  // Lets the home "what to study next" card refresh when the menu returns.
+  document.dispatchEvent(new CustomEvent("ekg:screen", { detail: { id } }));
 };
 
 // localStorage can throw (Safari private mode, quota, disabled storage);
@@ -78,6 +81,7 @@ const state = {
   remainingSeconds: 0,
   deadline: 0, // epoch ms when a timed run expires (while the run is open)
   timerId: null,
+  shownAt: 0, // when the current question appeared (response time)
 };
 
 function shuffle(arr) {
@@ -304,6 +308,7 @@ function renderQuestion() {
 
   renderMonitor(q);
   renderChoices(q);
+  state.shownAt = Date.now();
 
   document.getElementById("rationale").hidden = true;
   const nextBtn = document.getElementById("next-btn");
@@ -386,7 +391,15 @@ function selectAnswer(q, displayIdx, correctIndex, container) {
   if (isCorrect) state.score++;
   saveSession();
   if (window.EkgStats) {
-    EkgStats.record({ kind: "quiz", category: q.category, rhythm: q.rhythm, focus: null, correct: isCorrect });
+    EkgStats.record({
+      kind: "quiz",
+      category: q.category,
+      rhythm: q.rhythm,
+      focus: null,
+      correct: isCorrect,
+      item: "q:" + q.id,
+      ms: Date.now() - state.shownAt,
+    });
   }
 
   const btns = container.querySelectorAll(".softkey");

@@ -9,7 +9,13 @@
   let currentKey = "nsr";
   let tab = "rhythms";
 
-  function open() {
+  // `key` (optional) jumps straight to that rhythm, e.g. from the
+  // "what to study next" card.
+  function open(key) {
+    if (typeof key === "string" && RHYTHM_GUIDE[key]) {
+      currentKey = key;
+      tab = "rhythms";
+    }
     window.showScreen("study-screen");
     renderTabs();
     if (tab === "rhythms") renderRhythms();
@@ -106,7 +112,7 @@
   }
 
   function init() {
-    document.getElementById("mode-study").addEventListener("click", open);
+    document.getElementById("mode-study").addEventListener("click", () => open());
     document.getElementById("study-back").addEventListener("click", () => window.showScreen("start-screen"));
     document.getElementById("study-tab-rhythms").addEventListener("click", () => {
       tab = "rhythms";

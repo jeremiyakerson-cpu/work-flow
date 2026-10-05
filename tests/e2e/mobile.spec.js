@@ -69,6 +69,13 @@ test("every screen fits a 375px phone", async ({ page, errors }) => {
   await page.click("#codelog-back");
   await page.click("#sc-picker-back");
 
+  await page.click("#mode-adaptive");
+  await check(page, "adaptive practice");
+  await canvasFits(page, "ad-canvas");
+  await page.locator("#ad-choices .softkey").first().click();
+  await check(page, "adaptive feedback");
+  await page.click("#adaptive-back");
+
   await page.click("#mode-progress");
   await check(page, "progress");
 
