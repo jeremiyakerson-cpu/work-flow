@@ -1,4 +1,5 @@
 using System;
+using TowerDefense.Core;
 
 namespace TowerDefense.Persistence
 {
@@ -18,6 +19,7 @@ namespace TowerDefense.Persistence
         public event Action<float> SfxVolumeChanged;
         public event Action<bool> HapticsEnabledChanged;
         public event Action<float> LastGameSpeedChanged;
+        public event Action<DifficultyMode> LastDifficultyChanged;
         /// <summary>Any setting changed (also raised once after a load replaces all values).</summary>
         public event Action Changed;
 
@@ -35,6 +37,19 @@ namespace TowerDefense.Persistence
         public float SfxVolume { get => GetSfxVolume(); set => SetSfxVolume(value); }
         public bool HapticsEnabled { get => GetHapticsEnabled(); set => SetHapticsEnabled(value); }
         public float LastGameSpeed { get => GetLastGameSpeed(); set => SetLastGameSpeed(value); }
+        public DifficultyMode LastDifficulty { get => GetLastDifficulty(); set => SetLastDifficulty(value); }
+
+        /// <summary>Last difficulty picked (unknown saved values read as Normal).</summary>
+        public DifficultyMode GetLastDifficulty() => Difficulty.FromInt(S.lastDifficulty);
+
+        public void SetLastDifficulty(DifficultyMode value)
+        {
+            SettingsData s = S;
+            if (!Difficulty.IsDefined(value) || (int)value == s.lastDifficulty) return;
+            s.lastDifficulty = (int)value;
+            LastDifficultyChanged?.Invoke(value);
+            Commit();
+        }
 
         /// <summary>Linear 0..1.</summary>
         public float GetMusicVolume() => S.musicVolume;
@@ -90,6 +105,7 @@ namespace TowerDefense.Persistence
             SfxVolumeChanged?.Invoke(s.sfxVolume);
             HapticsEnabledChanged?.Invoke(s.hapticsEnabled);
             LastGameSpeedChanged?.Invoke(s.lastGameSpeed);
+            LastDifficultyChanged?.Invoke(Difficulty.FromInt(s.lastDifficulty));
             Changed?.Invoke();
         }
 

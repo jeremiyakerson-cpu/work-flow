@@ -15,6 +15,9 @@
     <Compile Include="../../Assets/Scripts/Persistence/**/*.cs" Exclude="../../Assets/Scripts/Persistence/**/Unity/**" />
     <Compile Include="../../Assets/Scripts/Audio/**/*.cs" Exclude="../../Assets/Scripts/Audio/**/Unity/**" />
     <Compile Include="../../Assets/Scripts/Platform/**/*.cs" Exclude="../../Assets/Scripts/Platform/**/Unity/**" />
+    <!-- Saves store results per difficulty (TowerDefense.Core.DifficultyMode). Core is
+         engine-free (noEngineReferences asmdef), so the whole folder compiles here. -->
+    <Compile Include="../../Assets/Scripts/Core/**/*.cs" />
     <Compile Include="*.cs" />
   </ItemGroup>
   <ItemGroup>

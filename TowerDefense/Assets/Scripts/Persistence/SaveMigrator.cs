@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using TowerDefense.Core;
 
 namespace TowerDefense.Persistence
 {
@@ -22,6 +24,7 @@ namespace TowerDefense.Persistence
         private static readonly Action<SaveData>[] Steps =
         {
             MigrateV1ToV2,
+            MigrateV2ToV3,
         };
 
         /// <summary>
@@ -68,6 +71,37 @@ namespace TowerDefense.Persistence
                     data.levels.RemoveAt(i);
                 }
             }
+        }
+
+        /// <summary>
+        /// v2: one best stars / best wave per level and one endless best wave.
+        /// v3: results per difficulty. Everything played before difficulties
+        /// existed was Normal, so existing records move to Normal; the top-level
+        /// fields stay as the across-difficulty bests. The last difficulty starts at Normal.
+        /// </summary>
+        private static void MigrateV2ToV3(SaveData data)
+        {
+            if (data.levels != null)
+            {
+                for (int i = 0; i < data.levels.Count; i++)
+                {
+                    LevelRecord r = data.levels[i];
+                    if (r == null) continue;
+                    if (r.modes == null) r.modes = new List<ModeRecord>();
+                    if (r.modes.Count > 0) continue; // already per-difficulty (hand edit / partial write)
+                    r.modes.Add(new ModeRecord
+                    {
+                        mode = (int)DifficultyMode.Normal,
+                        bestStars = r.bestStars,
+                        bestWave = r.bestWave,
+                        completed = r.completed,
+                    });
+                }
+            }
+            if (data.endlessBestWaves == null) data.endlessBestWaves = new List<ModeWaveRecord>();
+            if (data.endlessBestWaves.Count == 0 && data.endlessBestWave > 0)
+                data.endlessBestWaves.Add(new ModeWaveRecord { mode = (int)DifficultyMode.Normal, bestWave = data.endlessBestWave });
+            if (data.settings != null) data.settings.lastDifficulty = (int)DifficultyMode.Normal;
         }
     }
 }

@@ -1,15 +1,23 @@
 using System;
+using TowerDefense.Core;
 
 namespace TowerDefense.Persistence
 {
     /// <summary>What changed when a level result was recorded (for "New best!" UI).</summary>
     public struct LevelResultOutcome
     {
+        /// <summary>Difficulty the result was recorded on. Every field below is for this difficulty.</summary>
+        public DifficultyMode Mode;
         public int PreviousStars;
         public int PreviousBestWave;
         public bool NewBestStars;
         public bool NewBestWave;
+        /// <summary>First win on this difficulty.</summary>
         public bool FirstCompletion;
+        /// <summary>First win on this level on any difficulty.</summary>
+        public bool FirstCompletionAnyMode;
+        /// <summary>This result unlocked Impossible on the map (first 3-star win on Hard).</summary>
+        public bool UnlockedImpossible;
     }
 
     /// <summary>
@@ -145,13 +153,19 @@ namespace TowerDefense.Persistence
 
         // ------------------------------------------------------------------ progress
 
+        /// <summary>Record a finished level on Normal (pre-difficulty callers).</summary>
+        public LevelResultOutcome RecordLevelResult(string levelId, int stars, int wave) =>
+            RecordLevelResult(levelId, DifficultyMode.Normal, stars, wave);
+
         /// <summary>
-        /// Record a finished campaign level. Keeps the best stars and best wave,
-        /// counts the game, and counts a victory when <paramref name="stars"/> &gt; 0.
+        /// Record a finished level on a difficulty. Keeps the best stars and best wave
+        /// for that difficulty (and the across-difficulty bests), counts the game, and
+        /// counts a victory when <paramref name="stars"/> &gt; 0. Unknown modes count as Normal.
         /// </summary>
-        public LevelResultOutcome RecordLevelResult(string levelId, int stars, int wave)
+        public LevelResultOutcome RecordLevelResult(string levelId, DifficultyMode mode, int stars, int wave)
         {
-            var outcome = new LevelResultOutcome();
+            mode = Difficulty.FromInt((int)mode);
+            var outcome = new LevelResultOutcome { Mode = mode };
             string id = SaveValidator.CleanId(levelId);
             stars = SaveValidator.Clamp(stars, 0, SaveValidator.MaxStars);
             wave = SaveValidator.Clamp(wave, 0, SaveValidator.MaxWave);
@@ -167,49 +181,139 @@ namespace TowerDefense.Persistence
                     r = new LevelRecord { levelId = id };
                     Data.levels.Add(r);
                 }
-                outcome.PreviousStars = r.bestStars;
-                outcome.PreviousBestWave = r.bestWave;
-                outcome.FirstCompletion = stars > 0 && !r.completed;
-                if (stars > r.bestStars) { r.bestStars = stars; outcome.NewBestStars = true; }
-                if (wave > r.bestWave) { r.bestWave = wave; outcome.NewBestWave = true; }
-                if (stars > 0) r.completed = true;
+                r.FoldUnbackedIntoNormal();
+                ModeRecord m = r.GetOrAddMode(mode);
+                outcome.PreviousStars = m.bestStars;
+                outcome.PreviousBestWave = m.bestWave;
+                outcome.FirstCompletion = stars > 0 && !m.completed;
+                outcome.FirstCompletionAnyMode = stars > 0 && !r.completed;
+                bool impossibleBefore = Difficulty.IsImpossibleUnlocked(StarsOn(r, Difficulty.ImpossibleUnlockMode));
+                if (stars > m.bestStars) { m.bestStars = stars; outcome.NewBestStars = true; }
+                if (wave > m.bestWave) { m.bestWave = wave; outcome.NewBestWave = true; }
+                if (stars > 0) m.completed = true;
+                r.RefreshTotals();
+                outcome.UnlockedImpossible = !impossibleBefore &&
+                                             Difficulty.IsImpossibleUnlocked(StarsOn(r, Difficulty.ImpossibleUnlockMode));
             }
             MarkDirty();
             return outcome;
         }
 
+        /// <summary>Record an endless run on Normal (pre-difficulty callers). Returns true on a new best wave.</summary>
+        public bool RecordEndlessResult(int wave, bool countGame = true) =>
+            RecordEndlessResult(wave, DifficultyMode.Normal, countGame);
+
         /// <summary>
-        /// Record an endless run. Returns true on a new best wave. Pass countGame = false
-        /// when RecordLevelResult already counted this run for its map.
+        /// Record an endless run on a difficulty. Returns true on a new best wave for that
+        /// difficulty. Pass countGame = false when RecordLevelResult already counted this run for its map.
         /// </summary>
-        public bool RecordEndlessResult(int wave, bool countGame = true)
+        public bool RecordEndlessResult(int wave, DifficultyMode mode, bool countGame = true)
         {
+            mode = Difficulty.FromInt((int)mode);
             wave = SaveValidator.Clamp(wave, 0, SaveValidator.MaxWave);
             if (countGame) Data.stats.gamesPlayed++;
-            bool best = wave > Data.endlessBestWave;
-            if (best) Data.endlessBestWave = wave;
+            ModeWaveRecord r = FindEndless(mode);
+            if (r == null)
+            {
+                r = new ModeWaveRecord { mode = (int)mode };
+                Data.endlessBestWaves.Add(r);
+            }
+            bool best = wave > r.bestWave;
+            if (best) r.bestWave = wave;
+            if (wave > Data.endlessBestWave) Data.endlessBestWave = wave;
             MarkDirty();
             return best;
         }
 
+        /// <summary>Best endless wave on any map, any difficulty.</summary>
         public int EndlessBestWave => Data.endlessBestWave;
 
+        /// <summary>Best endless wave on any map on one difficulty.</summary>
+        public int GetEndlessBestWave(DifficultyMode mode)
+        {
+            ModeWaveRecord r = FindEndless(mode);
+            return r != null ? r.bestWave : 0;
+        }
+
+        /// <summary>Best stars on a level across every difficulty (what unlocks the next level).</summary>
         public int GetBestStars(string levelId)
         {
             LevelRecord r = Data.FindLevel(levelId);
             return r != null ? r.bestStars : 0;
         }
 
+        /// <summary>Best stars on a level on one difficulty.</summary>
+        public int GetBestStars(string levelId, DifficultyMode mode) => StarsOn(Data.FindLevel(levelId), mode);
+
+        /// <summary>Furthest wave on a level across every difficulty.</summary>
         public int GetBestWave(string levelId)
         {
             LevelRecord r = Data.FindLevel(levelId);
             return r != null ? r.bestWave : 0;
         }
 
+        /// <summary>Furthest wave on a level on one difficulty (endless maps: the per-difficulty record).</summary>
+        public int GetBestWave(string levelId, DifficultyMode mode)
+        {
+            LevelRecord r = Data.FindLevel(levelId);
+            ModeRecord m = r != null ? r.FindMode(mode) : null;
+            return m != null ? m.bestWave : 0;
+        }
+
+        /// <summary>Won at least once on any difficulty.</summary>
         public bool IsLevelCompleted(string levelId)
         {
             LevelRecord r = Data.FindLevel(levelId);
             return r != null && r.completed;
+        }
+
+        /// <summary>Won at least once on this difficulty.</summary>
+        public bool IsLevelCompleted(string levelId, DifficultyMode mode)
+        {
+            LevelRecord r = Data.FindLevel(levelId);
+            ModeRecord m = r != null ? r.FindMode(mode) : null;
+            return m != null && m.completed;
+        }
+
+        /// <summary>
+        /// Hardest difficulty this level was won on (level select badge).
+        /// False when it was never won.
+        /// </summary>
+        public bool TryGetHardestCompleted(string levelId, out DifficultyMode mode)
+        {
+            mode = DifficultyMode.Normal;
+            LevelRecord r = Data.FindLevel(levelId);
+            if (r == null || r.modes == null) return false;
+            bool found = false;
+            for (int i = 0; i < r.modes.Count; i++)
+            {
+                ModeRecord m = r.modes[i];
+                if (m == null || !m.completed || !Difficulty.IsDefined(m.mode)) continue;
+                if (!found || m.mode > (int)mode) mode = (DifficultyMode)m.mode;
+                found = true;
+            }
+            return found;
+        }
+
+        /// <summary>Difficulty preselected in the picker (the last one started).</summary>
+        public DifficultyMode LastDifficulty
+        {
+            get => Settings.GetLastDifficulty();
+            set => Settings.SetLastDifficulty(value);
+        }
+
+        private static int StarsOn(LevelRecord r, DifficultyMode mode)
+        {
+            ModeRecord m = r != null ? r.FindMode(mode) : null;
+            return m != null ? m.bestStars : 0;
+        }
+
+        private ModeWaveRecord FindEndless(DifficultyMode mode)
+        {
+            if (Data.endlessBestWaves == null) Data.endlessBestWaves = new System.Collections.Generic.List<ModeWaveRecord>();
+            for (int i = 0; i < Data.endlessBestWaves.Count; i++)
+                if (Data.endlessBestWaves[i] != null && Data.endlessBestWaves[i].mode == (int)mode) return Data.endlessBestWaves[i];
+            return null;
         }
 
         /// <summary>Sum of best stars over all levels (for unlock gates).</summary>
