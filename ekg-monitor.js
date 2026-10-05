@@ -193,10 +193,14 @@
       st.hr = opts.hr || 0;
       st.perfusing = !!opts.perfusing;
       st.lethal = !!opts.lethal;
+      // opts.sweep: the patient's rhythm changed mid-code — keep the old
+      // trace on screen and let the sweep write the new rhythm over it, the
+      // way a real monitor shows a conversion, instead of a hard cut.
+      const old = opts.sweep && st.curr ? { curr: st.curr, pleth: st.plethCurr } : null;
       resynth();
-      st.prev = st.curr;
-      st.plethPrev = st.plethCurr;
-      resynth();
+      st.prev = old ? old.curr : st.curr;
+      st.plethPrev = old ? old.pleth : st.plethCurr;
+      if (!old) resynth();
       st.head = 0;
       st.lastTs = null;
       st.dirty = true;

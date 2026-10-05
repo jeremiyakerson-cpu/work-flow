@@ -191,6 +191,12 @@
       <p>Multi-stage megacodes. Each decision you make advances the code — and the rhythm on the monitor changes with the patient's condition.</p>
       <p class="sc-stats-line" id="sc-stats-line"></p>
     </div>
+    <div class="sc-difficulty" id="sc-difficulty" role="group" aria-label="Scenario difficulty">
+      <button type="button" class="sc-diff-btn" data-diff="guided" aria-pressed="false">Guided</button>
+      <button type="button" class="sc-diff-btn" data-diff="standard" aria-pressed="true">Standard</button>
+      <button type="button" class="sc-diff-btn" data-diff="expert" aria-pressed="false">Expert</button>
+    </div>
+    <p class="sc-diff-note" id="sc-diff-note"></p>
     <h3 class="sc-section-heading">Authored cases</h3>
     <div class="sc-picker-grid" id="sc-picker-grid"></div>
     <h3 class="sc-section-heading">Generated for you</h3>
@@ -207,6 +213,8 @@
         <h2 id="sc-title"></h2>
         <span class="sc-progress" id="sc-progress"></span>
         <span class="sc-elapsed" id="sc-elapsed">ELAPSED 00:00</span>
+        <span class="sc-diff-badge" id="sc-diff-badge"></span>
+        <span class="sc-countdown" id="sc-countdown" role="timer" aria-label="Time left for this decision" hidden></span>
       </div>
       <button class="discard-btn" id="sc-exit-btn">Exit scenario</button>
     </div>
@@ -267,6 +275,11 @@
     <div class="question-panel">
       <p class="sc-narrative" id="sc-narrative"></p>
       <p class="q-stem sc-question" id="sc-question"></p>
+      <p class="sc-hint" id="sc-hint" hidden></p>
+      <div class="sc-interrupt" id="sc-interrupt" role="alert" hidden>
+        <p id="sc-interrupt-text"></p>
+        <button type="button" class="discard-btn" id="sc-interrupt-btn">Delegate it — back to the patient</button>
+      </div>
       <div class="monitor-softkeys sc-softkeys" id="sc-softkeys"></div>
       <div class="rationale" id="sc-rationale" aria-live="polite" hidden></div>
       <p class="sc-outcome" id="sc-outcome" aria-live="polite" hidden></p>
@@ -406,9 +419,14 @@
         <div class="score-hero-label">CODE DURATION</div>
       </div>
     </div>
+    <div class="sc-debrief-metrics" id="sc-debrief-metrics"></div>
     <div class="sc-debrief-pointers" id="sc-debrief-pointers" hidden></div>
     <div class="sc-debrief-log-wrap">
-      <h3>Event log</h3>
+      <h3>Your code vs. the ideal sequence</h3>
+      <ol class="sc-ideal" id="sc-debrief-ideal"></ol>
+    </div>
+    <div class="sc-debrief-log-wrap">
+      <h3>Timeline</h3>
       <ul class="sc-log sc-debrief-log" id="sc-debrief-log"></ul>
     </div>
     <div class="sc-debrief-fresh" id="sc-debrief-fresh" hidden>
@@ -450,6 +468,7 @@
 <script src="ekg-monitor.js"></script>
 <script src="ekg-codelog.js"></script>
 <script src="ekg-test.js"></script>
+<script src="ekg-scenario-engine.js"></script>
 <script src="ekg-scenario.js"></script>
 <script src="ekg-study.js"></script>
 <script src="ekg-sprint.js"></script>
