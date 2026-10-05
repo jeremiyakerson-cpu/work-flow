@@ -154,6 +154,20 @@ def kelly_fraction(american: float, true_prob: float) -> float:
     return max(0.0, f)
 
 
+def push_possible(point: float | None) -> bool:
+    """
+    True when a line can land exactly (a whole-number spread or total).
+
+    De-vigging a -3 or a total of 44 gives win-given-no-push probabilities,
+    because the book refunds the push. EV and Kelly sign are still right,
+    but the EV magnitude is overstated by the (unknown) push probability,
+    so these lines are flagged rather than silently treated as two-way.
+    """
+    if point is None:
+        return False
+    return float(point).is_integer()
+
+
 def breakeven_prob(american: float) -> float:
     """Win rate needed just to break even at this price."""
     return american_to_implied(american)
@@ -310,10 +324,14 @@ def parlay_report(legs: Sequence[dict], stake: float = 10.0) -> dict:
         fair_prob = 1.0
         for f in fairs:
             fair_prob *= f
+        # EV off the exact decimal, not the rounded American display price:
+        # rounding a long parlay's American odds moves EV by whole cents.
+        ev_unit = fair_prob * (dec - 1.0) - (1.0 - fair_prob)
         out["fair_prob"] = round(fair_prob, 6)
-        out["ev_dollars"] = round(expected_value(stake, am, fair_prob), 2)
-        out["ev_per_dollar"] = round(ev_percent(am, fair_prob), 6)
-        out["total_hold"] = round(1.0 - book_prob / fair_prob, 6)
+        out["ev_dollars"] = round(stake * ev_unit, 2)
+        out["ev_per_dollar"] = round(ev_unit, 6)
+        # a leg with fair_prob 0 makes the slip unwinnable; hold is undefined
+        out["total_hold"] = round(1.0 - book_prob / fair_prob, 6) if fair_prob > 0 else None
     else:
         out["notes"].append(
             "EV not computed: at least one leg has no fair-price estimate."

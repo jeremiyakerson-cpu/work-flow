@@ -7,18 +7,25 @@ Then: http://127.0.0.1:8000  (UI)  /docs  (API explorer)
 from __future__ import annotations
 
 import datetime as dt
+import logging
 import os
+import re
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from .sources import espn
-from .sources.odds_api import OddsAPI, normalise_game_lines, normalise_props, PROP_MARKETS
+from .sources.odds_api import (
+    OddsAPI, OddsAPIError, normalise_game_lines, normalise_props, SPORT_KEYS,
+    GAME_MARKETS, PROP_MARKETS, DEFAULT_PROP_MARKETS, estimate_cost,
+)
 from .services.board import build_board
-from .demo import ODDS_FIXTURE, ESPN_FIXTURE
+from .services.props import analyse_event_markets
+from .services import history
+from . import demo
 from . import math_engine as M
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -35,6 +42,34 @@ DEVIG_METHOD = os.getenv("DEVIG_METHOD", "power")
 DEFAULT_STAKE = float(os.getenv("DEFAULT_STAKE", "10"))
 CACHE_TTL = int(os.getenv("CACHE_TTL", "120"))
 DEMO_MODE = os.getenv("DEMO_MODE", "") not in ("", "0", "false", "False")
+# Props and other per-event markets cost a credit per market per game. Live
+# calls to them are refused unless you switch this on. Demo mode ignores it.
+ENABLE_PROPS = os.getenv("ENABLE_PROPS", "") not in ("", "0", "false", "False")
+PROPS_MAX_MARKETS = int(os.getenv("PROPS_MAX_MARKETS", "5"))
+# Line movement: live fetches are written to a local SQLite file (gitignored).
+RECORD_HISTORY = os.getenv("RECORD_HISTORY", "1") not in ("", "0", "false", "False")
+HISTORY_DB = os.getenv("HISTORY_DB") or history.DEFAULT_DB
+
+log = logging.getLogger("betting_desk")
+_history: history.HistoryStore | None = None
+
+
+def history_store() -> history.HistoryStore:
+    global _history
+    if _history is None or _history.path != HISTORY_DB:
+        _history = history.HistoryStore(HISTORY_DB)
+    return _history
+
+
+def _record(league: str, rows: list[dict]) -> dict:
+    """Write a snapshot. Never lets a disk problem break the route that paid for the data."""
+    if not RECORD_HISTORY or DEMO_MODE:
+        return {"recorded": 0, "enabled": RECORD_HISTORY and not DEMO_MODE}
+    try:
+        return {"recorded": history_store().record(league, rows, _now()), "enabled": True}
+    except Exception as e:     # disk full, read-only checkout, locked file...
+        log.warning("history write failed: %s", e)
+        return {"recorded": 0, "enabled": True, "error": str(e)}
 
 _client: OddsAPI | None = None
 
@@ -49,14 +84,72 @@ def odds_client() -> OddsAPI:
     return _client
 
 
+def _league(league: str) -> str:
+    lg = league.lower()
+    if lg not in SPORT_KEYS:
+        raise HTTPException(400, f"Unknown league '{league}'. Try one of: {', '.join(SPORT_KEYS)}.")
+    return lg
+
+
+_EVENT_ID = re.compile(r"^[A-Za-z0-9_-]{1,64}$")
+
+
+def _event_id(event_id: str) -> str:
+    """Odds API ids are hex; demo ids are slugs. Anything else never reaches a URL path."""
+    if not _EVENT_ID.match(event_id or ""):
+        raise HTTPException(400, "event_id must be letters, digits, '-' or '_'.")
+    return event_id
+
+
+def _csv(v: str) -> tuple[str, ...]:
+    return tuple(x.strip() for x in v.split(",") if x.strip())
+
+
+def _demo_label(league: str) -> str:
+    d = demo.demo_league(league)
+    return d["label"] if d else "DEMO MODE (no fixture for this league)"
+
+
+# ---------------- catalog (free, no network) ----------------
+
+@app.get("/api/sports")
+def sports() -> dict:
+    """Every league the desk knows, with its markets and demo coverage."""
+    return {
+        "demo_mode": DEMO_MODE,
+        "props_enabled": ENABLE_PROPS or DEMO_MODE,
+        "props_max_markets": PROPS_MAX_MARKETS,
+        "sports": [{
+            "league": lg,
+            "odds_api_key": key,
+            "game_markets": list(GAME_MARKETS),
+            "prop_markets": PROP_MARKETS.get(lg, []),
+            "default_prop_markets": DEFAULT_PROP_MARKETS.get(lg, []),
+            "demo_fixture": demo.demo_league(lg) is not None,
+        } for lg, key in SPORT_KEYS.items()],
+    }
+
+
 # ---------------- schedule / context (free) ----------------
 
 @app.get("/api/schedule/{league}")
-def schedule(league: str, date: str | None = None) -> dict:
+def schedule(league: str, date: str | None = None,
+             week: int | None = Query(None, description="NFL/NCAAF week number")) -> dict:
     """ESPN scoreboard. Free, no quota. date is YYYY-MM-DD."""
-    d = dt.date.fromisoformat(date) if date else None
+    league = _league(league)
+    if DEMO_MODE:
+        d = demo.demo_league(league)
+        games = list(d["espn"]) if d else []
+        return {"league": league, "count": len(games), "games": games,
+                "source": _demo_label(league), "fetched_at": _now()}
     try:
-        games = espn.scoreboard(league, d)
+        d = dt.date.fromisoformat(date) if date else None
+    except ValueError:
+        raise HTTPException(400, "date must be YYYY-MM-DD")
+    try:
+        games = espn.scoreboard(league, d, week=week)
+    except espn.ESPNError as e:
+        raise HTTPException(429 if e.kind == "rate_limit" else 502, f"ESPN request failed: {e}")
     except Exception as e:
         raise HTTPException(502, f"ESPN request failed: {e}")
     return {"league": league, "count": len(games), "games": games,
@@ -65,6 +158,10 @@ def schedule(league: str, date: str | None = None) -> dict:
 
 @app.get("/api/standings/{league}")
 def get_standings(league: str) -> dict:
+    league = _league(league)
+    if DEMO_MODE:
+        return {"league": league, "standings": _demo_standings(league),
+                "source": _demo_label(league), "fetched_at": _now()}
     try:
         return {"league": league, "standings": espn.standings(league),
                 "source": "ESPN (free)", "fetched_at": _now()}
@@ -74,10 +171,36 @@ def get_standings(league: str) -> dict:
 
 @app.get("/api/injuries/{league}")
 def get_injuries(league: str) -> dict:
-    rows = espn.injuries(league)
+    league = _league(league)
+    if DEMO_MODE:
+        rows = list(demo.INJURIES_FIXTURE.get(league, []))
+        source = "DEMO FIXTURE (synthetic injuries)"
+    else:
+        try:
+            rows = espn.injuries(league)
+        except Exception as e:   # injuries are context, never worth an error page
+            return {"league": league, "count": 0, "injuries": [], "error": str(e),
+                    "source": "ESPN (free)", "fetched_at": _now()}
+        source = "ESPN (free)"
     return {"league": league, "count": len(rows), "injuries": rows,
             "note": "Empty is a normal answer; ESPN injury coverage varies by league.",
-            "source": "ESPN (free)", "fetched_at": _now()}
+            "source": source, "fetched_at": _now()}
+
+
+def _demo_standings(league: str) -> list[dict]:
+    """Records straight off the demo slate. Nothing derived beyond W-L."""
+    d = demo.demo_league(league)
+    rows: dict[str, dict] = {}
+    for g in (d["espn"] if d else []):
+        for t in (g["home"], g["away"]):
+            rec = (t.get("record") or "").split("-")
+            rows[t["name"]] = {
+                "abbr": t["abbr"], "name": t["name"],
+                "wins": float(rec[0]) if len(rec) > 1 else None,
+                "losses": float(rec[1]) if len(rec) > 1 else None,
+                "win_pct": None, "point_diff": None, "group": None,
+            }
+    return list(rows.values())
 
 
 # ---------------- the board (costs credits) ----------------
@@ -86,7 +209,7 @@ def get_injuries(league: str) -> dict:
 def board(
     league: str,
     stake: float = Query(default=None, description="Dollar stake for EV"),
-    markets: str = Query("h2h,spreads,totals"),
+    markets: str = Query("h2h,spreads,totals", description="Any of h2h, spreads, totals"),
     books: str = Query("", description="Comma-separated book keys; blank = all US books"),
     min_edge: float = Query(0.0, description="Only list plays above this EV per dollar"),
     method: str = Query(default=None, description="power | multiplicative | additive"),
@@ -95,107 +218,300 @@ def board(
     The refresh button. Pulls ESPN's slate and the odds feed, joins them,
     de-vigs every market and reports where your books beat fair value.
 
-    Cost: len(markets) credits when scoped to books, otherwise
+    Cost: len(markets) credits when scoped to up to 10 books, otherwise
     len(markets) x regions.
     """
+    league = _league(league)
+    mk = _csv(markets)
+    bad = [m for m in mk if m not in GAME_MARKETS]
+    if bad or not mk:
+        raise HTTPException(
+            400, f"Board markets are {', '.join(GAME_MARKETS)}; got {', '.join(bad) or 'none'}. "
+                 "Player props and other per-event markets live at /api/props and /api/markets.")
+    if method and method not in M.DEVIG_METHODS:
+        raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+
+    errors: list[dict] = []     # one entry per upstream that failed; the board still renders
+    client: OddsAPI | None = None
+    stale = False
+    odds_games: list[dict] = []
+    espn_games: list[dict] = []
+    history_info: dict = {"recorded": 0, "enabled": False}
+
     if DEMO_MODE:
-        odds_games = normalise_game_lines(ODDS_FIXTURE)
-        espn_games = list(ESPN_FIXTURE)
-        client = None
+        d = demo.demo_league(league)
+        odds_games = normalise_game_lines(d["odds"]) if d else []
+        espn_games = list(d["espn"]) if d else []
     else:
-        client = odds_client()
-        mk = tuple(m.strip() for m in markets.split(",") if m.strip())
-        bk = tuple(b.strip() for b in books.split(",") if b.strip()) or None
         try:
-            raw = client.odds(league, markets=mk, bookmakers=bk)
-        except Exception as e:
-            raise HTTPException(502, f"Odds API request failed: {e}")
-        odds_games = normalise_game_lines(raw)
+            client = odds_client()
+        except HTTPException as e:
+            errors.append(_err("odds", "config", str(e.detail)))
+        if client is not None:
+            bk = _csv(books) or None
+            try:
+                odds_games = normalise_game_lines(client.odds(league, markets=mk, bookmakers=bk))
+                stale = client.last_stale
+            except OddsAPIError as e:
+                errors.append(_err("odds", e.kind, str(e)))
+            except Exception as e:   # unknown league, a parser surprise - still render the slate
+                errors.append(_err("odds", "unexpected", f"{type(e).__name__}: {e}"))
+            if odds_games and not stale:
+                try:
+                    history_info = _record(league, history.rows_from_game_lines(odds_games))
+                except Exception as e:   # history is a nice-to-have
+                    errors.append(_err("history", "unexpected", f"{type(e).__name__}: {e}"))
         try:
             espn_games = espn.scoreboard(league)
-        except Exception:
-            espn_games = []   # odds alone still beat nothing
+        except espn.ESPNError as e:
+            errors.append(_err("schedule", e.kind, str(e)))   # odds alone still beat nothing
+        except Exception as e:
+            errors.append(_err("schedule", "unexpected", f"{type(e).__name__}: {e}"))
 
-    result = build_board(
-        espn_games, odds_games,
+    kwargs = dict(
         your_books=YOUR_BOOKS,
         stake=stake if stake is not None else DEFAULT_STAKE,
         method=method or DEVIG_METHOD,
         sharp_book=SHARP_BOOK,
         min_edge=min_edge,
+        markets=mk,
     )
+    try:
+        result = build_board(espn_games, odds_games, **kwargs)
+    except Exception as e:
+        # last resort: something in the joined data broke the builder. Show the
+        # bare slate without prices rather than a 500.
+        errors.append(_err("board", "unexpected", f"{type(e).__name__}: {e}"))
+        try:
+            result = build_board(espn_games, [], **kwargs)
+        except Exception:
+            result = build_board([], [], **kwargs)
     result["league"] = league
-    result["usage"] = client.usage.to_dict() if client else {"demo": True}
+    result["markets"] = list(mk)
+    result["usage"] = client.usage.to_dict() if client else {"demo": DEMO_MODE}
+    result["history"] = history_info
+    result["errors"] = errors
+    result["degraded"] = bool(errors) or stale
+    result["stale_odds"] = stale
     result["sources"] = {
-        "schedule": "DEMO FIXTURE (frozen Sep 15 2026)" if DEMO_MODE
+        "schedule": _demo_label(league) if DEMO_MODE
                     else ("ESPN (free)" if espn_games else "unavailable"),
-        "odds": "DEMO FIXTURE (frozen Sep 15 2026)" if DEMO_MODE else "The Odds API",
+        "odds": _demo_label(league) if DEMO_MODE
+                else ("The Odds API" + (" (cached, feed failing)" if stale else "")
+                      if odds_games else "unavailable"),
     }
     if DEMO_MODE:
         result["demo_mode"] = True
+        if demo.demo_league(league) is None:
+            result["note"] = f"No demo fixture for {league}. Demo covers: {', '.join(demo.DEMO_LEAGUES)}."
     return result
+
+
+def _err(source: str, kind: str, message: str) -> dict:
+    return {"source": source, "kind": kind, "message": message}
+
+
+@app.get("/api/board")
+def board_by_query(
+    sport: str = Query(..., description="League key, e.g. nfl"),
+    stake: float = Query(default=None),
+    markets: str = Query("h2h,spreads,totals"),
+    books: str = Query(""),
+    min_edge: float = Query(0.0),
+    method: str = Query(default=None),
+) -> dict:
+    """Same as /api/board/{league}, with the league as ?sport=."""
+    return board(sport, stake=stake, markets=markets, books=books,
+                 min_edge=min_edge, method=method)
+
+
+@app.get("/api/events/{league}")
+def events(league: str) -> dict:
+    """Odds API event ids for a league - what /api/props needs. Free."""
+    league = _league(league)
+    if DEMO_MODE:
+        d = demo.demo_league(league)
+        raw = d["odds"] if d else []
+        source, usage_ = _demo_label(league), {"demo": True}
+    else:
+        client = odds_client()
+        try:
+            raw = client.events(league)
+        except Exception as e:
+            raise HTTPException(502, f"Odds API request failed: {e}")
+        source, usage_ = "The Odds API (free endpoint)", client.usage.to_dict()
+    rows = [{
+        "odds_id": e.get("id"),
+        "home": e.get("home_team"),
+        "away": e.get("away_team"),
+        "start_utc": e.get("commence_time"),
+        "demo_props": DEMO_MODE and e.get("id") in demo.PROPS_FIXTURE,
+    } for e in raw]
+    return {"league": league, "count": len(rows), "events": rows,
+            "source": source, "usage": usage_, "fetched_at": _now()}
+
+
+def _event_markets(
+    league: str, event_id: str, mk: tuple[str, ...], books: str,
+    stake: float | None, min_edge: float, method: str | None, dry_run: bool,
+) -> dict:
+    """Shared body of /api/props and /api/markets."""
+    event_id = _event_id(event_id)
+    if not mk:
+        raise HTTPException(400, f"No markets asked for and no defaults configured for {league}.")
+    if len(mk) > PROPS_MAX_MARKETS:
+        raise HTTPException(
+            400, f"{len(mk)} markets asked for; the cap is {PROPS_MAX_MARKETS} per call "
+                 "(each one is a credit). Raise PROPS_MAX_MARKETS if you mean it.")
+    if method and method not in M.DEVIG_METHODS:
+        raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    bk = _csv(books) or None
+    cost = estimate_cost(mk, bk)
+    base = {"league": league, "event_id": event_id, "markets": list(mk),
+            "estimated_cost": 0 if DEMO_MODE else cost}
+
+    if dry_run:
+        return {**base, "dry_run": True,
+                "note": "Nothing fetched. estimated_cost is an upper bound in credits."}
+
+    if DEMO_MODE:
+        blob = demo.demo_event_markets(event_id, mk)
+        if blob is None:
+            raise HTTPException(
+                404, f"No demo props for event {event_id}. "
+                     f"Demo events with props: {', '.join(demo.PROPS_FIXTURE)}.")
+        usage_, source = {"demo": True}, demo.PROPS_LABEL
+    else:
+        if not ENABLE_PROPS:
+            raise HTTPException(
+                403, f"Per-event markets are off. This call would cost up to {cost} credits. "
+                     "Set ENABLE_PROPS=1 to allow them, or pass dry_run=true to price it.")
+        client = odds_client()
+        try:
+            blob = client.event_odds(league, event_id, markets=mk, bookmakers=bk)
+        except OddsAPIError as e:
+            raise HTTPException(429 if e.kind == "rate_limit" else 502,
+                                f"Odds API request failed: {e}")
+        except Exception as e:
+            raise HTTPException(502, f"Odds API request failed: {e}")
+        usage_, source = client.usage.to_dict(), "The Odds API"
+        _record(league, history.rows_from_event_blob(blob))
+
+    res = analyse_event_markets(
+        blob, YOUR_BOOKS,
+        stake=stake if stake is not None else DEFAULT_STAKE,
+        method=method or DEVIG_METHOD, sharp_book=SHARP_BOOK, min_edge=min_edge,
+    )
+    out = {**base, **res, "count": len(res["props"]), "usage": usage_,
+           "source": source, "fetched_at": _now()}
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
 
 
 @app.get("/api/props/{league}/{event_id}")
 def props(
     league: str,
     event_id: str,
-    markets: str = Query(default=""),
-    books: str = Query(""),
+    markets: str = Query(default="", description="Prop market keys; blank = the league's short default list"),
+    books: str = Query("", description="Book keys; blank = US region (same cost for up to 10 books)"),
     stake: float = Query(default=None),
+    min_edge: float = Query(0.0),
+    method: str = Query(default=None),
+    dry_run: bool = Query(False, description="Price the call in credits without making it"),
 ) -> dict:
     """
-    Player props for one event, with every book's price side by side.
+    Player props for one event, de-vigged, with plays above min_edge.
 
-    This is the expensive endpoint. One call costs one credit per market,
-    so five markets on one game is five credits. Pull it per game, not
-    across a slate, unless you mean to.
+    This is the expensive endpoint and it is opt-in: live calls need
+    ENABLE_PROPS=1. One call costs one credit per market, so five markets
+    on one game is five credits. Pull it per game, not across a slate.
     """
-    client = odds_client()
-    mk = tuple(m.strip() for m in markets.split(",") if m.strip()) \
-         or tuple(PROP_MARKETS.get(league, []))
-    if not mk:
-        raise HTTPException(400, f"No prop markets configured for {league}.")
-    bk = tuple(b.strip() for b in books.split(",") if b.strip()) or YOUR_BOOKS
+    league = _league(league)
+    mk = _csv(markets) or tuple(DEFAULT_PROP_MARKETS.get(league, []))
+    return _event_markets(league, event_id, mk, books, stake, min_edge, method, dry_run)
 
-    try:
-        blob = client.event_odds(league, event_id, markets=mk, bookmakers=bk)
-    except Exception as e:
-        raise HTTPException(502, f"Odds API request failed: {e}")
 
-    rows = normalise_props(blob)
-    s = stake if stake is not None else DEFAULT_STAKE
+@app.get("/api/props")
+def props_by_query(
+    sport: str = Query(...),
+    event_id: str = Query(...),
+    markets: str = Query(""),
+    books: str = Query(""),
+    stake: float = Query(default=None),
+    min_edge: float = Query(0.0),
+    method: str = Query(default=None),
+    dry_run: bool = Query(False),
+) -> dict:
+    """Same as /api/props/{league}/{event_id}, with ?sport=&event_id=."""
+    return props(sport, event_id, markets=markets, books=books, stake=stake,
+                 min_edge=min_edge, method=method, dry_run=dry_run)
 
-    # pair Over with Under per (market, player, point) so props can be de-vigged
-    paired: dict[tuple, dict] = {}
-    for r in rows:
-        k = (r["market"], r["player"], r["point"])
-        paired.setdefault(k, {"market": r["market"], "player": r["player"],
-                              "point": r["point"], "over": {}, "under": {}})
-        side = (r["side"] or "").lower()
-        if side in ("over", "under"):
-            paired[k][side] = r["prices"]
-        else:
-            paired[k].setdefault("other", {})[r["side"]] = r["prices"]
 
-    out = []
-    for v in paired.values():
-        books_both = {b: [v["over"][b], v["under"][b]]
-                      for b in set(v["over"]) & set(v["under"])
-                      if v["over"][b] is not None and v["under"][b] is not None}
-        analysis = None
-        if books_both:
-            from .services.board import analyse_market
-            analysis = analyse_market(books_both, ["Over", "Under"],
-                                      YOUR_BOOKS, s, DEVIG_METHOD, SHARP_BOOK)
-        out.append({**v, "analysis": analysis,
-                    "note": None if books_both else
-                            "Only one side quoted - cannot strip vig on this prop."})
+@app.get("/api/markets/{league}/{event_id}")
+def event_markets(
+    league: str,
+    event_id: str,
+    markets: str = Query(..., description="Any per-event market keys, e.g. totals_h1,player_points"),
+    books: str = Query(""),
+    stake: float = Query(default=None),
+    min_edge: float = Query(0.0),
+    method: str = Query(default=None),
+    dry_run: bool = Query(False),
+) -> dict:
+    """
+    Any per-event market The Odds API serves (period lines, alternates,
+    props), paired and de-vigged. No defaults: you name what you pay for.
+    Same opt-in and cost rules as /api/props.
+    """
+    league = _league(league)
+    return _event_markets(league, event_id, _csv(markets), books, stake,
+                          min_edge, method, dry_run)
 
-    out.sort(key=lambda r: (r["market"], r["player"] or ""))
-    return {"league": league, "event_id": event_id, "markets": list(mk),
-            "count": len(out), "props": out,
-            "usage": client.usage.to_dict(), "fetched_at": _now()}
+
+# ---------------- line movement (free, reads what was already fetched) ----------------
+
+@app.get("/api/history/{league}/{event_id}")
+def price_history(
+    league: str,
+    event_id: str,
+    market: str = Query("h2h", description="h2h, spreads, totals, or any per-event market key"),
+    book: str = Query("", description="One book key; blank = every book"),
+    player: str = Query("", description="Props: only this player's lines"),
+    method: str = Query(default=None),
+) -> dict:
+    """
+    Price history for one market in one event, per book, plus the fair
+    price over time for game markets. Costs nothing: it only reads snapshots
+    the board and markets routes stored when they fetched. Demo mode serves
+    a synthetic history for every demo game.
+    """
+    league = _league(league)
+    event_id = _event_id(event_id)
+    if method and method not in M.DEVIG_METHODS:
+        raise HTTPException(400, f"method must be one of {', '.join(M.DEVIG_METHODS)}")
+    if DEMO_MODE:
+        rows = demo.demo_history_rows(event_id)
+        if rows is None:
+            raise HTTPException(404, f"No demo game with id {event_id}. See /api/events/{league}.")
+        source = demo.HISTORY_LABEL
+    else:
+        try:
+            rows = history_store().rows(event_id, market)
+        except Exception as e:
+            raise HTTPException(500, f"History store unreadable: {e}")
+        source = "local snapshots of The Odds API"
+    rows = [r for r in rows if r.get("league") in (None, league)]
+    res = history.build_history(rows, market, book=book or None, player=player or None,
+                                method=method or DEVIG_METHOD, sharp_book=SHARP_BOOK)
+    out = {"league": league, "event_id": event_id, **res, "source": source,
+           "recording": RECORD_HISTORY and not DEMO_MODE, "fetched_at": _now()}
+    if not res["snapshots"]:
+        out["note"] = ("No snapshots for this market yet. History is recorded each time "
+                       "the board (or a props/markets call) fetches this event.")
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
 
 
 # ---------------- parlay pricing (free, no network) ----------------
@@ -203,13 +519,21 @@ def props(
 class Leg(BaseModel):
     label: str
     american: float
+
+    @field_validator("american")
+    @classmethod
+    def _real_price(cls, v: float) -> float:
+        if -100 < v < 100:
+            raise ValueError("american odds are <= -100 or >= +100")
+        return v
+
     fair_prob: float | None = Field(default=None, ge=0.0, le=1.0)
     game_id: str | None = None
 
 
 class ParlayRequest(BaseModel):
     legs: list[Leg]
-    stake: float = 10.0
+    stake: float = Field(default=10.0, gt=0)
 
 
 @app.post("/api/parlay")
@@ -249,17 +573,62 @@ def price_parlay(req: ParlayRequest) -> dict:
     return report
 
 
+# ---------------- tracker results (free, ESPN scores) ----------------
+
+class TrackedPlay(BaseModel):
+    id: str
+    league: str
+    market: str
+    side: str | None = None
+    point: float | None = None
+    espn_id: str | None = None
+    start_utc: str | None = None
+    game: str | None = None
+    home: str | None = None
+    away: str | None = None
+
+
+class ResultsRequest(BaseModel):
+    plays: list[TrackedPlay] = Field(default_factory=list, max_length=500)
+
+
+@app.post("/api/results")
+def results(req: ResultsRequest) -> dict:
+    """
+    Grade tracked plays against ESPN final scores: won / lost / push, or
+    pending / live if the game isn't over. Moneyline, spread and total only;
+    anything else comes back "ungradeable" for you to grade by hand.
+
+    ESPN failures never 500: they're listed in errors and the affected plays
+    come back status "unknown". Demo mode invents a final per game and marks
+    every result synthetic.
+    """
+    from .services.results import grade_plays
+    out = grade_plays([p.model_dump() for p in req.plays], espn.scoreboard, demo=DEMO_MODE)
+    out["source"] = "DEMO: synthetic final scores" if DEMO_MODE else "ESPN (free)"
+    out["fetched_at"] = _now()
+    if DEMO_MODE:
+        out["demo_mode"] = True
+    return out
+
+
 @app.get("/api/convert")
 def convert(american: float | None = None, decimal: float | None = None,
             prob: float | None = None) -> dict:
     """Odds converter. Pass any one of american, decimal or prob."""
     if american is not None:
+        if -100 < american < 100:
+            raise HTTPException(400, "american odds are <= -100 or >= +100.")
         d = M.american_to_decimal(american)
         p = M.american_to_implied(american)
     elif decimal is not None:
+        if decimal <= 1.0:
+            raise HTTPException(400, "decimal odds must be greater than 1.")
         d, p = decimal, 1.0 / decimal
         american = M.decimal_to_american(decimal)
     elif prob is not None:
+        if not 0.0 < prob < 1.0:
+            raise HTTPException(400, "prob must be strictly between 0 and 1.")
         p, d = prob, 1.0 / prob
         american = M.implied_to_american(prob)
     else:
@@ -271,6 +640,8 @@ def convert(american: float | None = None, decimal: float | None = None,
 
 @app.get("/api/usage")
 def usage() -> dict:
+    if DEMO_MODE and not os.getenv("ODDS_API_KEY"):
+        return {"demo": True, "credits_remaining": None, "note": "Demo mode spends no credits."}
     try:
         return odds_client().usage.to_dict()
     except HTTPException:
@@ -285,6 +656,9 @@ def health() -> dict:
         "sharp_book": SHARP_BOOK,
         "devig_method": DEVIG_METHOD,
         "odds_key_present": bool(os.getenv("ODDS_API_KEY")),
+        "demo_mode": DEMO_MODE,
+        "props_enabled": ENABLE_PROPS,
+        "history_recording": RECORD_HISTORY and not DEMO_MODE,
         "time": _now(),
     }
 

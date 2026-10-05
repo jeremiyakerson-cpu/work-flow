@@ -35,17 +35,70 @@ SPORT_KEYS: dict[str, str] = {
     "mls":   "soccer_usa_mls",
 }
 
-# Common player-prop market keys, per sport. Verify against the live
+# Featured game markets. These are the only markets the bulk /odds endpoint
+# serves; everything else (props, periods, alternates) is per-event.
+GAME_MARKETS: tuple[str, ...] = ("h2h", "spreads", "totals")
+
+# Player-prop market keys, per sport. Verify against the live
 # /sports/{key}/events/{id}/markets endpoint - these change.
 PROP_MARKETS: dict[str, list[str]] = {
     "mlb": ["batter_home_runs", "batter_hits", "batter_total_bases",
             "batter_rbis", "pitcher_strikeouts"],
     "nfl": ["player_pass_yds", "player_rush_yds", "player_reception_yds",
             "player_receptions", "player_anytime_td"],
+    "ncaaf": ["player_pass_yds", "player_rush_yds", "player_reception_yds",
+              "player_anytime_td"],
     "nba": ["player_points", "player_rebounds", "player_assists",
             "player_threes"],
+    "nhl": ["player_points", "player_shots_on_goal",
+            "player_goal_scorer_anytime"],
+}
+
+# What a props call asks for when you don't name markets. Deliberately
+# short: every market is a credit, per game, per refresh.
+DEFAULT_PROP_MARKETS: dict[str, list[str]] = {
+    "mlb": ["batter_hits", "pitcher_strikeouts"],
+    "nfl": ["player_pass_yds", "player_anytime_td"],
+    "ncaaf": ["player_pass_yds", "player_rush_yds"],
+    "nba": ["player_points", "player_rebounds"],
     "nhl": ["player_points", "player_shots_on_goal"],
 }
+
+
+def sport_key(league: str) -> str:
+    key = SPORT_KEYS.get(league)
+    if not key:
+        raise ValueError(f"no Odds API sport key for {league}")
+    return key
+
+
+def estimate_cost(
+    markets: tuple[str, ...] | list[str],
+    bookmakers: tuple[str, ...] | list[str] | None = None,
+    regions: str = "us",
+) -> int:
+    """
+    Upper bound on credits for one call: markets x regions. Each group of
+    up to ten bookmakers counts as one region. The API bills only markets
+    that come back with data, so the real charge can be lower, never higher.
+    """
+    if bookmakers:
+        region_units = -(-len(bookmakers) // 10)
+    else:
+        region_units = len([r for r in regions.split(",") if r.strip()]) or 1
+    return len(markets) * region_units
+
+
+class OddsAPIError(RuntimeError):
+    """
+    A failed Odds API call. `kind` is one of: timeout, network, auth,
+    request, rate_limit, upstream, malformed.
+    """
+
+    def __init__(self, kind: str, message: str, status: int | None = None):
+        super().__init__(message)
+        self.kind = kind
+        self.status = status
 
 
 @dataclass
@@ -54,6 +107,7 @@ class Usage:
     used: int | None = None
     last_cost: int | None = None
     calls_this_session: int = 0
+    cache_hits: int = 0
 
     def update(self, headers: httpx.Headers) -> None:
         def as_int(k: str) -> int | None:
@@ -62,8 +116,10 @@ class Usage:
                 return int(v) if v is not None else None
             except ValueError:
                 return None
-        self.remaining = as_int("x-requests-remaining")
-        self.used = as_int("x-requests-used")
+        # a header missing from an error response keeps the last known value
+        rem, used = as_int("x-requests-remaining"), as_int("x-requests-used")
+        self.remaining = rem if rem is not None else self.remaining
+        self.used = used if used is not None else self.used
         self.last_cost = as_int("x-requests-last")
         self.calls_this_session += 1
 
@@ -73,6 +129,7 @@ class Usage:
             "credits_used": self.used,
             "last_call_cost": self.last_cost,
             "calls_this_session": self.calls_this_session,
+            "cache_hits": self.cache_hits,
         }
 
 
@@ -88,39 +145,73 @@ class OddsAPI:
     tool you can hammer and one that eats your month in an afternoon.
     """
 
-    def __init__(self, api_key: str, cache_ttl: int = 120):
+    def __init__(self, api_key: str, cache_ttl: int = 120, timeout: float = 20.0):
         if not api_key:
             raise ValueError("ODDS_API_KEY is not set")
         self.api_key = api_key
         self.cache_ttl = cache_ttl
+        self.timeout = timeout
+        self.last_stale = False
         self.usage = Usage()
         self._cache: dict[str, _CacheEntry] = {}
 
     # ---------- plumbing ----------
 
     def _get(self, path: str, params: dict, cache: bool = True) -> Any:
+        """
+        GET with a TTL cache. Every failure mode (timeout, connection error,
+        401/422/429, 5xx, a body that isn't JSON) raises OddsAPIError with a
+        `kind` the caller can branch on. If the call fails but an older
+        response for the same request is still in memory, that is returned
+        instead, flagged via `self.last_stale`, so a flaky feed degrades to
+        slightly old numbers rather than none.
+        """
         key = path + repr(sorted(params.items()))
-        if cache:
-            hit = self._cache.get(key)
-            if hit and (time.time() - hit.at) < self.cache_ttl:
-                return hit.value
+        self.last_stale = False
+        hit = self._cache.get(key) if cache else None
+        if hit and (time.time() - hit.at) < self.cache_ttl:
+            self.usage.cache_hits += 1
+            return hit.value
 
-        params = {**params, "apiKey": self.api_key}
-        with httpx.Client(headers={"User-Agent": "betting-desk/1.0"}) as c:
-            r = c.get(f"{BASE}{path}", params=params, timeout=20.0)
-            self.usage.update(r.headers)
-            if r.status_code == 401:
-                raise RuntimeError("Odds API rejected the key (401).")
-            if r.status_code == 422:
-                raise RuntimeError(f"Odds API rejected the request (422): {r.text[:200]}")
-            if r.status_code == 429:
-                raise RuntimeError("Odds API rate limit or quota exhausted (429).")
-            r.raise_for_status()
-            data = r.json()
+        try:
+            data = self._fetch(path, params)
+        except OddsAPIError:
+            if hit is not None:
+                self.last_stale = True
+                return hit.value
+            raise
 
         if cache:
             self._cache[key] = _CacheEntry(data, time.time())
         return data
+
+    def _fetch(self, path: str, params: dict) -> Any:
+        params = {**params, "apiKey": self.api_key}
+        try:
+            with httpx.Client(headers={"User-Agent": "betting-desk/1.0"}) as c:
+                r = c.get(f"{BASE}{path}", params=params, timeout=self.timeout)
+        except httpx.TimeoutException as e:
+            raise OddsAPIError("timeout", f"Odds API timed out after {self.timeout:.0f}s.") from e
+        except httpx.HTTPError as e:
+            raise OddsAPIError("network", f"Could not reach the Odds API: {e}") from e
+
+        self.usage.update(r.headers)
+        if r.status_code == 401:
+            raise OddsAPIError("auth", "Odds API rejected the key (401).", 401)
+        if r.status_code == 422:
+            raise OddsAPIError("request", f"Odds API rejected the request (422): {r.text[:200]}", 422)
+        if r.status_code == 429:
+            retry = r.headers.get("retry-after")
+            raise OddsAPIError(
+                "rate_limit",
+                "Odds API rate limit or monthly quota exhausted (429)."
+                + (f" Retry after {retry}s." if retry else ""), 429)
+        if r.status_code >= 400:
+            raise OddsAPIError("upstream", f"Odds API returned HTTP {r.status_code}.", r.status_code)
+        try:
+            return r.json()
+        except ValueError as e:
+            raise OddsAPIError("malformed", "Odds API returned a body that is not JSON.") from e
 
     def clear_cache(self) -> None:
         self._cache.clear()
@@ -145,9 +236,7 @@ class OddsAPI:
         about a few books: bookmakers-based calls cost markets x 1, not
         markets x regions.
         """
-        key = SPORT_KEYS.get(league)
-        if not key:
-            raise ValueError(f"no Odds API sport key for {league}")
+        key = sport_key(league)
         params: dict[str, Any] = {
             "markets": ",".join(markets),
             "oddsFormat": "american",
@@ -161,7 +250,7 @@ class OddsAPI:
 
     def events(self, league: str) -> list[dict]:
         """Event list with ids. Free - needed to request props."""
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         return self._get(f"/sports/{key}/events", {"dateFormat": "iso"})
 
     def event_odds(
@@ -176,7 +265,7 @@ class OddsAPI:
         Player props for one event. Costs len(markets) credits per call when
         scoped to bookmakers. This is where the quota goes.
         """
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         params: dict[str, Any] = {
             "markets": ",".join(markets),
             "oddsFormat": "american",
@@ -189,23 +278,47 @@ class OddsAPI:
         return self._get(f"/sports/{key}/events/{event_id}/odds", params)
 
     def scores(self, league: str, days_from: int = 1) -> list[dict]:
-        key = SPORT_KEYS[league]
+        key = sport_key(league)
         return self._get(f"/sports/{key}/scores",
                          {"daysFrom": days_from, "dateFormat": "iso"})
 
 
 # ---------- normalisation ----------
 
-def normalise_game_lines(events: list[dict]) -> list[dict]:
+def _price(v: Any) -> float | None:
+    """An American price, or None if the feed sent something unusable."""
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        try:
+            v = float(v)
+        except (TypeError, ValueError):
+            return None
+    if v != v or v in (float("inf"), float("-inf")):   # NaN / inf
+        return None
+    # American odds live outside (-100, 100); 0 or +50 would blow up the math
+    if -100 < v < 100:
+        return None
+    return v
+
+
+def _list(v: Any) -> list:
+    return v if isinstance(v, list) else []
+
+
+def normalise_game_lines(events: Any) -> list[dict]:
     """
     Flatten the Odds API shape into one row per game with a
     {book: {market: {outcome: price}}} structure.
 
     Keeps every book. Filtering to your books happens later, because the
     books you cannot bet are exactly what makes the consensus useful.
+
+    Malformed pieces (non-dict events, missing teams, prices that are not
+    numbers) are dropped rather than raising - a partial board beats none.
     """
     out: list[dict] = []
-    for ev in events:
+    for ev in _list(events):
+        if not isinstance(ev, dict) or not ev.get("home_team") or not ev.get("away_team"):
+            continue
         row = {
             "odds_id": ev.get("id"),
             "sport_key": ev.get("sport_key"),
@@ -214,17 +327,23 @@ def normalise_game_lines(events: list[dict]) -> list[dict]:
             "away": ev.get("away_team"),
             "books": {},
         }
-        for bm in ev.get("bookmakers", []) or []:
+        for bm in _list(ev.get("bookmakers")):
+            if not isinstance(bm, dict) or not bm.get("key"):
+                continue
             bkey = bm.get("key")
             blob: dict[str, Any] = {"last_update": bm.get("last_update")}
-            for mk in bm.get("markets", []) or []:
+            for mk in _list(bm.get("markets")):
+                if not isinstance(mk, dict) or not mk.get("key"):
+                    continue
                 mkey = mk.get("key")
                 entries = []
-                for o in mk.get("outcomes", []) or []:
+                for o in _list(mk.get("outcomes")):
+                    if not isinstance(o, dict) or not isinstance(o.get("name"), str):
+                        continue
                     entries.append({
                         "name": o.get("name"),
-                        "price": o.get("price"),
-                        "point": o.get("point"),
+                        "price": _price(o.get("price")),
+                        "point": o.get("point") if isinstance(o.get("point"), (int, float)) else None,
                         "description": o.get("description"),
                     })
                 blob[mkey] = entries
@@ -233,7 +352,7 @@ def normalise_game_lines(events: list[dict]) -> list[dict]:
     return out
 
 
-def normalise_props(event_blob: dict) -> list[dict]:
+def normalise_props(event_blob: Any) -> list[dict]:
     """
     One row per (market, player, side), with every book's price attached.
 
@@ -241,11 +360,19 @@ def normalise_props(event_blob: dict) -> list[dict]:
     on a rushing-yards number than on a moneyline.
     """
     rows: dict[tuple, dict] = {}
-    for bm in event_blob.get("bookmakers", []) or []:
+    if not isinstance(event_blob, dict):
+        return []
+    for bm in _list(event_blob.get("bookmakers")):
+        if not isinstance(bm, dict):
+            continue
         book = bm.get("key")
-        for mk in bm.get("markets", []) or []:
+        for mk in _list(bm.get("markets")):
+            if not isinstance(mk, dict):
+                continue
             market = mk.get("key")
-            for o in mk.get("outcomes", []) or []:
+            for o in _list(mk.get("outcomes")):
+                if not isinstance(o, dict):
+                    continue
                 player = o.get("description") or o.get("name")
                 side = o.get("name")
                 point = o.get("point")
@@ -257,5 +384,5 @@ def normalise_props(event_blob: dict) -> list[dict]:
                     "point": point,
                     "prices": {},
                 })
-                rows[k]["prices"][book] = o.get("price")
+                rows[k]["prices"][book] = _price(o.get("price"))
     return list(rows.values())
