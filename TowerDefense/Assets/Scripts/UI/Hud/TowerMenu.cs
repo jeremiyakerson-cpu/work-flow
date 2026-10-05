@@ -337,31 +337,21 @@ namespace TowerDefense.UI
             {
                 TowerData d = tower.data;
                 int level = tower.upgradeLevel;
-                if (level == 1)
+                if (tower.CanUpgrade())
                 {
                     Item up = AddItem(ItemKind.Upgrade, 90f, UISprites.Triangle, null, UITheme.Primary, tower.NextUpgradeCost(), false, 90f);
-                    up.title = "Upgrade to level 2";
-                    TowerStats next = tower.PreviewStats(2, Tower.UpgradePath.None);
+                    up.title = "Upgrade to level " + (level + 1);
+                    TowerStats next = tower.PreviewStats(level + 1, Tower.UpgradePath.None);
                     up.body = Delta(next);
                     up.previewRange = next.Range;
                     up.execute = () => { if (tower != null && tower.Upgrade()) AfterChange(true); };
                 }
-                else if (level == 2 && tower.chosenPath == Tower.UpgradePath.None)
+                else if (tower.CanSpecialize)
                 {
-                    TowerStats a = tower.PreviewStats(3, Tower.UpgradePath.PathA);
-                    TowerStats b = tower.PreviewStats(3, Tower.UpgradePath.PathB);
+                    TowerStats a = tower.PreviewStats(Tower.MaxLevel, Tower.UpgradePath.PathA);
+                    TowerStats b = tower.PreviewStats(Tower.MaxLevel, Tower.UpgradePath.PathB);
                     AddBranch(Tower.UpgradePath.PathA, 135f, d.pathAName, Delta(a), a.Range);
                     AddBranch(Tower.UpgradePath.PathB, 45f, d.pathBName, Delta(b), b.Range);
-                }
-                else if (level == 3)
-                {
-                    Item fin = AddItem(ItemKind.Final, 90f, UISprites.Star, null, UITheme.Gold, tower.NextUpgradeCost(), false);
-                    string branch = tower.chosenPath == Tower.UpgradePath.PathA ? d.pathAName : d.pathBName;
-                    fin.title = "Master " + branch;
-                    TowerStats max = tower.PreviewStats(4, tower.chosenPath);
-                    fin.body = Delta(max);
-                    fin.previewRange = max.Range;
-                    fin.execute = () => { if (tower != null && tower.UpgradeFinal()) AfterChange(true); };
                 }
                 else
                 {
