@@ -1,62 +1,65 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
-import { Bullets, C, mono, Panel, prog, rise, Scene } from "../theme";
+import { C, caps, Em, Points, prog, rise, sans, Scene } from "../theme";
 
-const LINES: { t: string; c?: string; at: number }[] = [
-  { t: '$ claude "fix the flaky checkout tests"', c: C.text, at: 40 },
-  { t: "› reading 4 repos · 1,284 files", at: 78 },
-  { t: "› root cause: race in session cache", c: C.accent, at: 104 },
-  { t: "› patch written · 3 files changed", at: 130 },
-  { t: "› running the test suite…", at: 152 },
-  { t: "✓ 212 passed · 0 failed", c: C.teal, at: 184 },
+const STEPS: { t: string; at: number }[] = [
+  { t: "Reads 4 repositories, 1,284 files", at: 78 },
+  { t: "Finds the root cause: a race in the session cache", at: 104 },
+  { t: "Writes the patch, 3 files changed", at: 130 },
+  { t: "Runs the full test suite", at: 152 },
 ];
+const REQUEST = "Fix the flaky checkout tests";
 
-const Terminal: React.FC = () => {
+/** An illustrative work log, set as an editorial panel rather than a terminal. */
+const WorkLog: React.FC = () => {
   const frame = useCurrentFrame();
+  const typed = Math.round(prog(frame, 40, 30) * REQUEST.length);
   return (
-    <Panel style={{ ...rise(frame, 24, 26), width: 820, alignSelf: "flex-start", overflow: "hidden" }}>
-      <div style={{ display: "flex", gap: 12, padding: "24px 28px", borderBottom: `2px solid ${C.line}` }}>
-        {[0, 1, 2].map((i) => (
-          <span key={i} style={{ width: 18, height: 18, borderRadius: 9, background: C.line }} />
-        ))}
-        <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 20, color: C.muted }}>
-          illustration
-        </span>
+    <div style={{ ...rise(frame, 24, 30), width: 780, flex: "none", background: C.stone, padding: "36px 50px 38px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", ...caps(19, C.espresso), fontWeight: 400 }}>
+        <span>Work log</span>
+        <span style={{ opacity: 0.6 }}>Illustration</span>
       </div>
-      <div style={{ padding: "34px 36px 42px", fontFamily: mono, fontSize: 30, lineHeight: 1.75, minHeight: 400 }}>
-        {LINES.map((l, i) => {
-          // First line types out; the rest appear as output.
-          const chars = i === 0 ? Math.round(prog(frame, l.at, 30) * l.t.length) : l.t.length;
-          return (
-            <div key={l.t} style={{ color: l.c ?? C.muted, opacity: i === 0 ? 1 : prog(frame, l.at, 10), whiteSpace: "pre" }}>
-              {l.t.slice(0, chars)}
-              {i === 0 && frame < 76 && Math.floor(frame / 8) % 2 === 0 ? "▍" : ""}
-            </div>
-          );
-        })}
+      <div style={{ fontSize: 52, fontStyle: "italic", lineHeight: 1.1, margin: "18px 0 18px", minHeight: 58 }}>
+        “{REQUEST.slice(0, typed)}
+        {typed === REQUEST.length ? "”" : ""}
       </div>
-    </Panel>
+      {STEPS.map((s, i) => (
+        <div
+          key={s.t}
+          style={{
+            opacity: prog(frame, s.at, 14),
+            display: "flex",
+            gap: 26,
+            alignItems: "baseline",
+            padding: "13px 0",
+            borderTop: `2px solid ${C.taupe}`,
+            fontFamily: sans,
+            fontWeight: 300,
+            fontSize: 30,
+          }}
+        >
+          <span style={{ ...caps(18, C.olive), flex: "none" }}>0{i + 1}</span>
+          <span>{s.t}</span>
+        </div>
+      ))}
+      <div style={{ opacity: prog(frame, 184, 16), borderTop: `2px solid ${C.espresso}`, paddingTop: 20, marginTop: 2, ...caps(22, C.espresso) }}>
+        212 passed &nbsp;·&nbsp; 0 failed
+      </div>
+    </div>
   );
 };
 
 export const Coding: React.FC = () => (
   <Scene
     index="01"
-    kicker="CODING"
-    title={<>Works across <span style={{ color: C.accent }}>whole codebases</span></>}
-    source="69.9% on FrontierSWE v2 (Fable 5.1: 56.3%) · Anthropic, Nov 2026"
+    kicker="Coding"
+    title={<>Works across <Em>whole codebases</Em></>}
+    source="69.9% on FrontierSWE v2, up from 56.3% for Fable 5.1 · Anthropic, Nov 2026"
   >
-    <div style={{ display: "flex", gap: 80, width: "100%" }}>
-      <div style={{ flex: 1 }}>
-        <Bullets
-          items={[
-            "Takes on large, loosely defined problems",
-            "Tests its own work as it goes",
-            "Finds root causes earlier models missed",
-          ]}
-        />
-      </div>
-      <Terminal />
+    <div style={{ display: "flex", gap: 90, width: "100%", alignItems: "center" }}>
+      <Points items={["Takes on large, loosely defined problems", "Tests its own work as it goes", "Finds root causes earlier models missed"]} />
+      <WorkLog />
     </div>
   </Scene>
 );

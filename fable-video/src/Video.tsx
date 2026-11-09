@@ -3,7 +3,7 @@ import { AbsoluteFill } from "remotion";
 import { linearTiming, TransitionSeries } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import { Background } from "./theme";
-import { Intro } from "./scenes/Intro";
+import { Intro, Outro } from "./scenes/Intro";
 import { Coding } from "./scenes/Coding";
 import { Agents } from "./scenes/Agents";
 import { Benchmarks } from "./scenes/Benchmarks";
@@ -19,7 +19,7 @@ export const SCENES: { name: string; frames: number; el: React.ReactNode }[] = [
   { name: "Vision", frames: 210, el: <Vision /> },
   { name: "Price", frames: 180, el: <Price /> },
   { name: "GoodToKnow", frames: 210, el: <GoodToKnow /> },
-  { name: "Outro", frames: 120, el: <Intro outro /> },
+  { name: "Outro", frames: 120, el: <Outro /> },
 ];
 export const TOTAL = SCENES.reduce((a, s) => a + s.frames, 0) - T * (SCENES.length - 1);
 

@@ -3,69 +3,76 @@ import { AbsoluteFill, Easing, interpolate, staticFile, useCurrentFrame } from "
 import { loadFont } from "@remotion/fonts";
 
 // Fonts are bundled in public/fonts (SIL Open Font License) so renders work offline.
-export const display = "Space Grotesk";
-export const mono = "JetBrains Mono";
-const faces: [string, string, string][] = [
-  [display, "space-grotesk", "400"],
-  [display, "space-grotesk", "500"],
-  [display, "space-grotesk", "700"],
-  [mono, "jetbrains-mono", "400"],
-  [mono, "jetbrains-mono", "500"],
+export const serif = "Cormorant Garamond";
+export const sans = "Jost";
+const faces: [string, string, string, "normal" | "italic"][] = [
+  [serif, "cormorant-garamond", "300", "normal"],
+  [serif, "cormorant-garamond", "300", "italic"],
+  [serif, "cormorant-garamond", "400", "normal"],
+  [serif, "cormorant-garamond", "400", "italic"],
+  [sans, "jost", "300", "normal"],
+  [sans, "jost", "400", "normal"],
+  [sans, "jost", "500", "normal"],
 ];
-for (const [family, file, weight] of faces) {
-  loadFont({ family, weight, url: staticFile(`fonts/${file}-latin-${weight}-normal.woff2`) });
+for (const [family, file, weight, style] of faces) {
+  loadFont({ family, weight, style, url: staticFile(`fonts/${file}-latin-${weight}-${style}.woff2`) });
 }
 
+// House palette: linen, stone and espresso neutrals, olive as the one green, rust as a small accent.
 export const C = {
-  bg: "#0D0F14",
-  panel: "#161A22",
-  line: "#2A303C",
-  text: "#F3EFE7",
-  muted: "#A0A7B4",
-  accent: "#F4A657",
-  teal: "#5FD4C4",
-  barMid: "#6B7382",
-  barLow: "#3D4350",
+  linen: "#F2EDE4",
+  stone: "#D9CFC1",
+  taupe: "#A8977F",
+  espresso: "#3B2A1E",
+  olive: "#737158",
+  deepOlive: "#4A4A36",
+  sage: "#B9BDA3",
+  rust: "#6E2A20",
 };
 
 export const ease = Easing.bezier(0.16, 1, 0.3, 1);
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 /** 0 → 1 progress starting at `start`, lasting `dur` frames. */
-export const prog = (frame: number, start: number, dur = 20) =>
+export const prog = (frame: number, start: number, dur = 24) =>
   interpolate(frame, [start, start + dur], [0, 1], { ...clamp, easing: ease });
 
 /** Fade + rise entrance style. */
-export const rise = (frame: number, start: number, dur = 20, dist = 44) => {
+export const rise = (frame: number, start: number, dur = 26, dist = 36) => {
   const p = prog(frame, start, dur);
   return { opacity: p, translate: `0px ${(1 - p) * dist}px` };
 };
 
-export const Background: React.FC = () => {
+/** Small tracked-caps label. */
+export const caps = (size = 24, color: string = C.olive): React.CSSProperties => ({
+  fontFamily: sans,
+  fontWeight: 500,
+  fontSize: size,
+  letterSpacing: "0.22em",
+  textTransform: "uppercase",
+  color,
+});
+
+export const nums: React.CSSProperties = { fontVariantNumeric: "lining-nums tabular-nums" };
+
+/** The one italic, rust-coloured phrase in a headline. */
+export const Em: React.FC<{ children: React.ReactNode; color?: string }> = ({ children, color = C.rust }) => (
+  <span style={{ fontStyle: "italic", color }}>{children}</span>
+);
+
+export const Background: React.FC = () => <AbsoluteFill style={{ backgroundColor: C.linen }} />;
+
+/** A hairline that draws in from the left. */
+export const Rule: React.FC<{ at: number; color?: string; style?: React.CSSProperties }> = ({
+  at,
+  color = C.taupe,
+  style,
+}) => {
   const frame = useCurrentFrame();
-  const x = 30 + Math.sin(frame / 140) * 12;
-  const y = 28 + Math.cos(frame / 170) * 10;
-  return (
-    <AbsoluteFill style={{ backgroundColor: C.bg }}>
-      <AbsoluteFill
-        style={{
-          background: `radial-gradient(900px 700px at ${x}% ${y}%, rgba(244,166,87,0.16), transparent 70%), radial-gradient(1000px 800px at ${100 - x}% ${100 - y}%, rgba(95,212,196,0.10), transparent 70%)`,
-        }}
-      />
-      <AbsoluteFill
-        style={{
-          backgroundImage: `linear-gradient(${C.line}55 1px, transparent 1px), linear-gradient(90deg, ${C.line}55 1px, transparent 1px)`,
-          backgroundSize: "96px 96px",
-          backgroundPosition: `${-frame * 0.25}px ${-frame * 0.15}px`,
-          opacity: 0.35,
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 85%)",
-        }}
-      />
-    </AbsoluteFill>
-  );
+  return <div style={{ height: 2, background: color, width: `${prog(frame, at, 40) * 100}%`, ...style }} />;
 };
 
-/** Standard scene chrome: numbered kicker, headline, body, optional source line. */
+/** Standard scene chrome: numbered eyebrow, serif headline, hairline, body, source line. */
 export const Scene: React.FC<{
   index: string;
   kicker: string;
@@ -75,45 +82,20 @@ export const Scene: React.FC<{
 }> = ({ index, kicker, title, source, children }) => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{ padding: "96px 120px", fontFamily: display, color: C.text }}>
-      <div
-        style={{
-          ...rise(frame, 4, 18, 20),
-          fontFamily: mono,
-          fontSize: 28,
-          letterSpacing: 4,
-          color: C.accent,
-          display: "flex",
-          alignItems: "center",
-          gap: 20,
-        }}
-      >
-        <span>{index}</span>
-        <span style={{ width: 64 * prog(frame, 8, 24), height: 2, background: C.accent }} />
-        <span>{kicker}</span>
+    <AbsoluteFill style={{ padding: "100px 130px 84px", fontFamily: serif, color: C.espresso, backgroundColor: C.linen, fontVariantNumeric: "lining-nums" }}>
+      <div style={{ ...rise(frame, 4, 22, 16), ...caps(24), display: "flex", justifyContent: "space-between" }}>
+        <span>
+          {index} &nbsp;/&nbsp; {kicker}
+        </span>
+        <span style={{ color: C.taupe }}>Claude Fable 5.2</span>
       </div>
-      <div
-        style={{
-          ...rise(frame, 10, 24),
-          fontSize: 96,
-          fontWeight: 700,
-          lineHeight: 1.05,
-          letterSpacing: -2.5,
-          marginTop: 28,
-        }}
-      >
+      <div style={{ ...rise(frame, 10, 30), fontSize: 132, fontWeight: 300, lineHeight: 1.02, letterSpacing: -2, marginTop: 30 }}>
         {title}
       </div>
-      <div style={{ flex: 1, display: "flex", alignItems: "center", margin: "40px 0", minHeight: 0 }}>{children}</div>
+      <Rule at={18} style={{ marginTop: 40 }} />
+      <div style={{ flex: 1, display: "flex", alignItems: "center", minHeight: 0, padding: "34px 0" }}>{children}</div>
       {source ? (
-        <div
-          style={{
-            opacity: prog(frame, 40, 30) * 0.9,
-            fontFamily: mono,
-            fontSize: 22,
-            color: C.muted,
-          }}
-        >
+        <div style={{ ...caps(21, C.espresso), letterSpacing: "0.14em", fontWeight: 400, opacity: prog(frame, 40, 30) * 0.62 }}>
           {source}
         </div>
       ) : null}
@@ -121,57 +103,27 @@ export const Scene: React.FC<{
   );
 };
 
-export const Bullets: React.FC<{ items: string[]; start?: number; gap?: number }> = ({
-  items,
-  start = 30,
-  gap = 22,
-}) => {
+/** Numbered 01 / 02 / 03 points separated by hairlines. */
+export const Points: React.FC<{ items: string[]; start?: number; gap?: number }> = ({ items, start = 32, gap = 22 }) => {
   const frame = useCurrentFrame();
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 34 }}>
+    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
       {items.map((t, i) => (
         <div
           key={t}
           style={{
             ...rise(frame, start + i * gap),
             display: "flex",
-            gap: 26,
-            alignItems: "flex-start",
-            fontSize: 46,
-            lineHeight: 1.2,
-            fontWeight: 500,
+            gap: 40,
+            alignItems: "baseline",
+            padding: "30px 0",
+            borderTop: i === 0 ? "none" : `2px solid ${C.stone}`,
           }}
         >
-          <span
-            style={{
-              flex: "none",
-              width: 16,
-              height: 16,
-              borderRadius: 8,
-              background: C.accent,
-              marginTop: 20,
-            }}
-          />
-          <span>{t}</span>
+          <span style={{ ...caps(22, C.taupe), flex: "none", width: 50 }}>0{i + 1}</span>
+          <span style={{ fontSize: 54, lineHeight: 1.12, fontWeight: 400 }}>{t}</span>
         </div>
       ))}
     </div>
   );
 };
-
-export const Panel: React.FC<{ style?: React.CSSProperties; children: React.ReactNode }> = ({
-  style,
-  children,
-}) => (
-  <div
-    style={{
-      background: C.panel,
-      border: `2px solid ${C.line}`,
-      borderRadius: 28,
-      boxShadow: "0 40px 100px rgba(0,0,0,0.45)",
-      ...style,
-    }}
-  >
-    {children}
-  </div>
-);
