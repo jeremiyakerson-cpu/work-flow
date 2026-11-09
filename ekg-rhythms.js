@@ -87,27 +87,27 @@ function addFn(arr, duration, fn) {
 }
 
 const RHYTHMS = {
-  nsr: () => {
+  nsr: (rate = 76) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(76, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.15 });
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.15 });
     return arr;
   },
 
-  sinus_brady: () => {
+  sinus_brady: (rate = 44) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(44, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.18 });
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.18 });
     return arr;
   },
 
-  sinus_tach: () => {
+  sinus_tach: (rate = 122) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(122, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.95, pr: 0.13, tAmp: 0.22 });
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.95, pr: 0.13, tAmp: 0.22 });
     return arr;
   },
 
-  svt: () => {
+  svt: (rate = 186) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(186, STRIP_SECONDS), STRIP_SECONDS, {
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, {
       amp: 0.9,
       includeP: false,
       tAmp: 0.18,
@@ -155,9 +155,9 @@ const RHYTHMS = {
     return arr;
   },
 
-  avb1: () => {
+  avb1: (rate = 70) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(70, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.32 });
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.32 });
     return arr;
   },
 
@@ -230,9 +230,9 @@ const RHYTHMS = {
     return arr;
   },
 
-  junctional: () => {
+  junctional: (rate = 48) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(48, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.9, includeP: false, tAmp: 0.22 });
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.9, includeP: false, tAmp: 0.22 });
     return arr;
   },
 
@@ -251,9 +251,9 @@ const RHYTHMS = {
     return arr;
   },
 
-  vt: () => {
+  vt: (rate = 178) => {
     const arr = makeArray();
-    addBeats(arr, regularTimes(178, STRIP_SECONDS), STRIP_SECONDS, {
+    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, {
       amp: 1.1,
       includeP: false,
       wide: true,
@@ -310,9 +310,17 @@ const RHYTHMS = {
   },
 };
 
-function synthesizeRhythm(key) {
+// Rhythms whose rate the caller may set (regular rhythms where "the rate"
+// is a single number). Others keep their clinically-fixed defaults.
+const RATE_FLEXIBLE = new Set(["nsr", "sinus_brady", "sinus_tach", "svt", "avb1", "junctional", "vt"]);
+
+function synthesizeRhythm(key, rateHint) {
   const fn = RHYTHMS[key];
   if (!fn) return RHYTHMS.nsr();
+  if (rateHint && RATE_FLEXIBLE.has(key)) {
+    // keep within the sane band for a 6-second strip
+    return fn(Math.max(20, Math.min(260, rateHint)));
+  }
   return fn();
 }
 

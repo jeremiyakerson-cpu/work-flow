@@ -256,7 +256,7 @@
 
 .monitor-screen {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 1fr 132px;
   gap: 12px;
   background: #010604;
   border-radius: 10px;
@@ -268,10 +268,36 @@
 .vitals-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
-  padding-right: 10px;
+  gap: 7px;
+  order: 2;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding-left: 10px;
 }
+
+.trace-col { order: 1; }
+
+/* Zoll-style numeric tiles with alarm-limit markers */
+.vitals-col .vital {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 6px;
+  padding: 5px 8px;
+  position: relative;
+}
+
+.vital::after {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  color: #3e4852;
+  font-variant-numeric: tabular-nums;
+  margin-top: 1px;
+}
+
+.vital.hr::after { content: "\25B4 150  \25BE 50"; }
+.vital.spo2::after { content: "\25BE 90"; }
+.vital.nibp::after { content: "\25B4 160  \25BE 90"; }
+.vital.etco2::after { content: "\25B4 50  \25BE 30"; }
 
 .vital {
   line-height: 1.1;
@@ -294,10 +320,10 @@
 }
 
 .vital.hr .vital-value { color: #39ff8f; }
-.vital.spo2 .vital-value { color: #4fd1ff; }
+.vital.spo2 .vital-value { color: #ff6b6b; }
 .vital.nibp .vital-value { color: #ffffff; font-size: 1.1rem; }
 .vital.rr .vital-value { color: #ffd23f; font-size: 1.2rem; }
-.vital.etco2 .vital-value { color: #c9a2ff; font-size: 1.2rem; }
+.vital.etco2 .vital-value { color: #ffd23f; font-size: 1.2rem; }
 
 .trace-col {
   position: relative;
@@ -653,9 +679,10 @@
   .vitals-col {
     flex-direction: row;
     flex-wrap: wrap;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-right: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-left: 0;
+    padding-top: 10px;
     padding-bottom: 10px;
   }
   .vital { flex: 1 1 40%; }
@@ -798,7 +825,7 @@
 }
 
 .sc-monitor-screen {
-  grid-template-columns: 104px 1fr;
+  grid-template-columns: 1fr 112px;
   min-height: 190px;
 }
 
@@ -988,9 +1015,10 @@
   .sc-monitor-screen .vitals-col {
     flex-direction: row;
     flex-wrap: wrap;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-right: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-left: 0;
+    padding-top: 10px;
     padding-bottom: 10px;
   }
   .sc-monitor-screen .vital { flex: 1 1 40%; }
@@ -1729,4 +1757,27 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ================= ZOLL SOFTBAR (cosmetic menu strip) ================= */
+
+.zoll-softbar {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  pointer-events: none;
+}
+
+.zoll-softbar span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #7c8895;
+  background: #10151b;
+  border: 1px solid #242b33;
+  border-bottom-width: 3px;
+  border-radius: 5px;
+  padding: 5px 4px;
 }

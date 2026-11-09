@@ -88,6 +88,42 @@
     return arr;
   }
 
+  // Capnography: square-ish breath waveform — sharp expiratory upstroke,
+  // alveolar plateau with a slight upslope, sharp inspiratory downstroke.
+  // Amplitude scales with the EtCO2 value (50 mmHg = full scale). Flat when
+  // there is no ventilation.
+  function makeCapno(rr, level, n) {
+    const arr = new Float32Array(n);
+    if (!rr || !level) return arr;
+    const dur = EkgRhythms.STRIP_SECONDS;
+    const breath = 60 / rr;
+    const amp = Math.min(1.1, level / 50);
+    for (let i = 0; i < n; i++) {
+      const t = (i / n) * dur;
+      const ph = (t % breath) / breath;
+      let v;
+      if (ph < 0.06) v = ph / 0.06;
+      else if (ph < 0.52) v = 1 + 0.06 * ((ph - 0.06) / 0.46);
+      else if (ph < 0.6) v = 1.06 * (1 - (ph - 0.52) / 0.08);
+      else v = 0;
+      arr[i] = v * amp;
+    }
+    return arr;
+  }
+
+  // The monitor MEASURES its rate like a real Zoll: median R-R interval of
+  // the detected QRS complexes on the current strip. Null when unmeasurable.
+  function measuredRate(beats) {
+    if (beats.length < 2) return null;
+    const iv = [];
+    for (let i = 1; i < beats.length; i++) iv.push((beats[i] - beats[i - 1]) * EkgRhythms.STRIP_SECONDS);
+    iv.sort((a, b) => a - b);
+    return Math.round(60 / iv[Math.floor(iv.length / 2)]);
+  }
+
+  // Rhythms a real monitor flags as unanalyzable rather than rating.
+  const NO_RATE = (rhythm) => rhythm === "asystole" || (rhythm || "").startsWith("vf");
+
   function drawGrid(ctx, w, h) {
     ctx.fillStyle = "#020a06";
     ctx.fillRect(0, 0, w, h);
@@ -109,12 +145,13 @@
   }
 
   // Draw one channel as a swept trace: current strip left of the head,
-  // previous strip to the right of the erase gap.
-  function drawChannel(ctx, curr, prev, head, x0, y0, w, h, scale, color, glow) {
+  // previous strip to the right of the erase gap. anchor "mid" centers the
+  // trace in the band (EKG/pleth); "low" sits it on the band's floor (capno).
+  function drawChannel(ctx, curr, prev, head, x0, y0, w, h, scale, color, glow, anchor = "mid") {
     const n = curr.length;
     const headX = head * w;
     const gapX = GAP_FRAC * w * 2;
-    const midY = y0 + h / 2;
+    const baseY = anchor === "low" ? y0 + h - 5 : y0 + h / 2;
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.lineJoin = "round";
@@ -125,7 +162,7 @@
     let started = false;
     for (let x = 0; x <= headX; x += 1.5) {
       const i = Math.min(n - 1, Math.floor((x / w) * n));
-      const y = midY - curr[i] * scale;
+      const y = baseY - curr[i] * scale;
       if (!started) {
         ctx.moveTo(x0 + x, y);
         started = true;
@@ -137,7 +174,7 @@
     started = false;
     for (let x = headX + gapX; x <= w; x += 1.5) {
       const i = Math.min(n - 1, Math.floor((x / w) * n));
-      const y = midY - prev[i] * scale;
+      const y = baseY - prev[i] * scale;
       if (!started) {
         ctx.moveTo(x0 + x, y);
         started = true;
@@ -150,7 +187,7 @@
     const hi = Math.min(n - 1, Math.floor(head * n));
     ctx.fillStyle = "#eafff2";
     ctx.beginPath();
-    ctx.arc(x0 + headX, midY - curr[hi] * scale, 2.6, 0, Math.PI * 2);
+    ctx.arc(x0 + headX, baseY - curr[hi] * scale, 2.6, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -165,9 +202,16 @@
       beats: [],
       plethCurr: null,
       plethPrev: null,
+      capnoCurr: null,
+      capnoPrev: null,
       hr: 0,
       perfusing: false,
       lethal: false,
+      capno: false, // third (EtCO2) waveform band
+      rr: 0,
+      etco2: null,
+      hrEl: null, // element the measured rate is written to
+      flashUntil: 0, // beat-heart flash deadline (ms timestamp)
       head: 0,
       lastTs: null,
       lastAlarm: 0,
@@ -176,10 +220,28 @@
       dirty: true, // reduced-motion: strip changed since the last draw
     };
 
+    // Ventilation drives the capno trace: spontaneous breaths at the charted
+    // rate, or ~10/min bag ventilations when EtCO2 is present during arrest.
+    function capnoParams() {
+      const rate = st.rr > 0 ? st.rr : st.etco2 ? 10 : 0;
+      const level = st.etco2 != null ? st.etco2 : st.rr > 0 ? 38 : 0;
+      return { rate, level };
+    }
+
     function resynth() {
-      st.curr = EkgRhythms.synthesizeRhythm(st.rhythm);
+      // Rate-flexible rhythms synthesize at the charted rate, so the strip,
+      // the stem, and the measured number all agree.
+      st.curr = EkgRhythms.synthesizeRhythm(st.rhythm, st.hr || undefined);
       st.beats = detectBeats(st.curr);
       st.plethCurr = makePleth(st.perfusing ? st.hr : 0, st.curr.length);
+      if (st.capno) {
+        const { rate, level } = capnoParams();
+        st.capnoCurr = makeCapno(rate, level, st.curr.length);
+      }
+      if (st.hrEl) {
+        const r = NO_RATE(st.rhythm) ? null : measuredRate(st.beats);
+        st.hrEl.textContent = r === null ? "--" : r;
+      }
     }
 
     function setRhythm(rhythm, opts = {}) {
@@ -193,9 +255,14 @@
       st.hr = opts.hr || 0;
       st.perfusing = !!opts.perfusing;
       st.lethal = !!opts.lethal;
+      st.capno = !!opts.capno;
+      st.rr = opts.rr || 0;
+      st.etco2 = opts.etco2 != null ? opts.etco2 : null;
+      st.hrEl = opts.hrEl || null;
       resynth();
       st.prev = st.curr;
       st.plethPrev = st.plethCurr;
+      st.capnoPrev = st.capnoCurr;
       resynth();
       st.head = 0;
       st.lastTs = null;
@@ -219,21 +286,23 @@
       const prevHead = st.head;
       st.head += dt / EkgRhythms.STRIP_SECONDS;
 
-      // QRS beeps for beats the head just crossed
-      if (soundOn && audioCtx && canvas.offsetParent !== null) {
-        for (const b of st.beats) {
-          if (b > prevHead && b <= st.head) qrsBeep();
+      // Beats the head just crossed: QRS beep + the beat-heart flash
+      for (const b of st.beats) {
+        if (b > prevHead && b <= st.head) {
+          st.flashUntil = ts + 150;
+          if (soundOn && audioCtx && canvas.offsetParent !== null) qrsBeep();
         }
-        if (st.lethal && ts - st.lastAlarm > 1800) {
-          alarmBeep();
-          st.lastAlarm = ts;
-        }
+      }
+      if (soundOn && audioCtx && canvas.offsetParent !== null && st.lethal && ts - st.lastAlarm > 1800) {
+        alarmBeep();
+        st.lastAlarm = ts;
       }
 
       if (st.head >= 1) {
         st.head -= 1;
         st.prev = st.curr;
         st.plethPrev = st.plethCurr;
+        st.capnoPrev = st.capnoCurr;
         resynth(); // fresh strip: stochastic rhythms never visibly loop
         st.dirty = true;
       }
@@ -262,8 +331,11 @@
 
       drawGrid(ctx, cssW, cssH);
 
-      const ekgH = cssH * 0.68;
-      const plethH = cssH - ekgH;
+      // Band layout: EKG on top, SpO2 pleth below (red, as on a Zoll),
+      // and an EtCO2 capnograph (yellow) when the monitor has one on.
+      const ekgH = cssH * (st.capno ? 0.52 : 0.68);
+      const plethH = st.capno ? cssH * 0.26 : cssH - ekgH;
+      const capnoH = st.capno ? cssH - ekgH - plethH : 0;
 
       drawChannel(ctx, st.curr, st.prev, head, 0, 0, cssW, ekgH, ekgH * 0.34, "#39ff8f", "rgba(57,255,143,0.55)");
       drawChannel(
@@ -276,19 +348,52 @@
         cssW,
         plethH,
         plethH * 0.62,
-        "#4fd1ff",
-        "rgba(79,209,255,0.5)"
+        "#ff6b6b",
+        "rgba(255,107,107,0.5)"
       );
+      if (st.capno) {
+        drawChannel(
+          ctx,
+          st.capnoCurr,
+          st.capnoPrev,
+          head,
+          0,
+          ekgH + plethH,
+          cssW,
+          capnoH,
+          (capnoH - 8) * 0.82,
+          "#ffd23f",
+          "rgba(255,210,63,0.45)",
+          "low"
+        );
+      }
 
-      // channel divider + pleth label
+      // channel dividers + labels, like the real screen's band annotations
       ctx.strokeStyle = "rgba(255,255,255,0.07)";
       ctx.beginPath();
       ctx.moveTo(0, ekgH + 0.5);
       ctx.lineTo(cssW, ekgH + 0.5);
+      if (st.capno) {
+        ctx.moveTo(0, ekgH + plethH + 0.5);
+        ctx.lineTo(cssW, ekgH + plethH + 0.5);
+      }
       ctx.stroke();
-      ctx.fillStyle = "rgba(79,209,255,0.75)";
       ctx.font = "9px sans-serif";
-      ctx.fillText("PLETH SpO2", 6, ekgH + 11);
+      ctx.fillStyle = "rgba(57,255,143,0.8)";
+      ctx.fillText("II  1.0 mV", 6, 11);
+      ctx.fillStyle = "rgba(255,107,107,0.8)";
+      ctx.fillText("SpO2", 6, ekgH + 11);
+      if (st.capno) {
+        ctx.fillStyle = "rgba(255,210,63,0.8)";
+        ctx.fillText("EtCO2", 6, ekgH + plethH + 11);
+      }
+
+      // beat heart: flashes with each QRS the sweep head crosses
+      if (!still && ts < st.flashUntil) {
+        ctx.fillStyle = "#39ff8f";
+        ctx.font = "15px sans-serif";
+        ctx.fillText("♥", cssW - 22, 16);
+      }
     }
 
     function stop() {

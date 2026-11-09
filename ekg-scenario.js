@@ -266,6 +266,10 @@ function scRenderMonitor(st) {
     hr: v.hr,
     perfusing: st.scene && st.scene.pulse !== "ABSENT",
     lethal: !alarm.hidden,
+    capno: true,
+    rr: v.rr || 0,
+    etco2: v.etco2 != null ? v.etco2 : null,
+    hrEl: document.getElementById("sc-vital-hr"),
   });
 }
 
