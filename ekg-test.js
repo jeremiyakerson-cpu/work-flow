@@ -350,6 +350,12 @@ function renderMonitor(q) {
     // pleth runs only when the question's patient is actually perfusing
     perfusing: !!(v.hr && v.hr > 0 && v.nibp && v.nibp !== "--/--"),
     lethal: alarmed,
+    capno: true,
+    rr: v.rr || 0,
+    etco2: v.etco2 != null ? v.etco2 : null,
+    // the HR tile reads what the monitor measures off the strip, like a
+    // real Zoll — not a pre-printed number
+    hrEl: document.getElementById("vital-hr"),
   });
 }
 
