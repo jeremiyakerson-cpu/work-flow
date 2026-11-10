@@ -1345,6 +1345,33 @@
 }
 .study-confuse { color: var(--text-dim); font-size: 0.86rem; }
 
+/* Medications tab: treatment line and section titles under the strip */
+.med-tx {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.med-tx .med-label { width: 82px; }
+
+.med-section {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.med-grid + .med-section { margin-top: 22px; }
+
+.med-grid[hidden] { display: none; }
+.med-card-match { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+
 /* Med cards */
 .med-grid {
   display: grid;

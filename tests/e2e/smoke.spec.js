@@ -15,8 +15,21 @@ test("study guide: rhythms, live strip and med cards", async ({ page, errors }) 
   await buttons.nth(3).click();
   await expect(page.locator(".study-rhythm-btn.active")).toHaveText(await buttons.nth(3).textContent());
   await expect(page.locator("#study-criteria .crit-cell")).toHaveCount(5);
+  // medications sit directly under the strip, which stays on screen
   await page.click("#study-tab-meds");
+  await expect(page.locator("#study-canvas")).toBeVisible();
+  await expect(page.locator("#study-criteria")).toBeHidden();
   await expect(page.locator(".med-card").first()).toBeVisible();
+  const strip = await page.locator(".study-bezel").boundingBox();
+  const meds = await page.locator("#study-meds").boundingBox();
+  expect(meds.y).toBeGreaterThanOrEqual(strip.y + strip.height);
+  expect(meds.y - (strip.y + strip.height)).toBeLessThan(40);
+  // picking a rhythm swaps in the drugs for that rhythm
+  await page.locator(".study-rhythm-btn", { hasText: "Torsades" }).click();
+  await expect(page.locator(".med-card-match h4").first()).toHaveText("Magnesium sulfate");
+  await page.click("#study-tab-rhythms");
+  await expect(page.locator("#study-criteria")).toBeVisible();
+  await expect(page.locator("#study-meds")).toBeHidden();
   await page.click("#study-back");
   await expect(page.locator("#mode-select")).toBeVisible();
 });

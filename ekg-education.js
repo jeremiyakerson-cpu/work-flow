@@ -306,4 +306,27 @@ const MED_GUIDE = [
   },
 ];
 
-window.EkgEducation = { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE };
+// Which medication cards belong under each rhythm's strip in the study
+// guide (names must match MED_GUIDE). An empty list means no drug is
+// indicated — the rhythm's `tx` line says what to do instead.
+const RHYTHM_MEDS = {
+  nsr: [],
+  sinus_brady: ["Atropine", "Dopamine", "Epinephrine"],
+  sinus_tach: [],
+  svt: ["Adenosine", "Diltiazem"],
+  afib: ["Diltiazem", "Metoprolol", "Amiodarone"],
+  aflutter: ["Diltiazem", "Metoprolol"],
+  avb1: [],
+  mobitz1: ["Atropine"],
+  mobitz2: ["Atropine", "Dopamine", "Epinephrine"],
+  avb3: ["Atropine", "Dopamine", "Epinephrine"],
+  junctional: ["Atropine"],
+  pvc_bigeminy: ["Magnesium sulfate"],
+  vt: ["Amiodarone", "Lidocaine", "Epinephrine"],
+  torsades: ["Magnesium sulfate", "Lidocaine"],
+  vf_coarse: ["Epinephrine", "Amiodarone", "Lidocaine"],
+  vf_fine: ["Epinephrine", "Amiodarone", "Lidocaine"],
+  asystole: ["Epinephrine"],
+};
+
+window.EkgEducation = { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE, RHYTHM_MEDS };
