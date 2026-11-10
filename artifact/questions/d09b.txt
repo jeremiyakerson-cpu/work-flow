@@ -1,0 +1,235 @@
+# Domain 9 — Mental Health Emergencies (topics 3-5)
+
+@ 9.3
+? A 29-year-old has sudden palpitations, chest tightness, tingling hands and a feeling she is about to die. Symptoms peaked within ten minutes. What must the nurse do before attributing this to a panic attack?
++ Obtain vital signs and an ECG to exclude a medical cause
+- Tell her it is only anxiety | Cardiac and pulmonary causes present the same way.
+- Give a sedative immediately | Sedation before assessment can mask a serious illness.
+- Send her to the waiting room to calm down | Chest symptoms require prompt evaluation.
+= Panic is a diagnosis of exclusion; dysrhythmia, pulmonary embolism, thyroid disease and stimulant use must be considered.
+
+? Which nursing approach helps most during a panic attack?
++ Stay with the patient and give short, calm directions
+- Leave the patient alone to settle | Being left alone increases fear.
+- Give a detailed explanation of anxiety disorders | A person in panic cannot process complex information.
+- Ask the patient to describe childhood events | Exploration is inappropriate during the acute episode.
+= A calm presence, simple statements and coached slow breathing help the patient regain control.
+
+? A hyperventilating patient has numbness around the mouth and cramped, flexed fingers. Which blood gas disturbance explains this?
++ Respiratory alkalosis
+- Respiratory acidosis | Rapid breathing lowers, not raises, carbon dioxide.
+- Metabolic acidosis | The cause is ventilatory.
+- Metabolic alkalosis | The cause is ventilatory.
+= Blowing off carbon dioxide raises the pH and lowers ionized calcium, causing tingling and carpopedal spasm.
+
+? A 58-year-old with no history of anxiety has new "panic attacks" with weight loss, heat intolerance, tremor and a resting heart rate of 118. Which test is most relevant?
++ Thyroid-stimulating hormone
+- A hemoglobin A1c | It does not explain the picture.
+- A lipid panel | It does not explain the picture.
+- A vitamin B12 level | It does not explain the picture.
+= New anxiety in mid-life with weight loss, heat intolerance and tachycardia suggests hyperthyroidism.
+
+? A patient is given a short supply of lorazepam for panic disorder. Which teaching point is most important?
++ It is for short-term use because of the risk of dependence
+- It should be taken daily for life | Long-term use leads to tolerance and dependence.
+- It is safe to combine with alcohol | The combination causes dangerous sedation.
+- It can be stopped abruptly after months of use | Abrupt withdrawal can cause seizures.
+= Benzodiazepines relieve acute anxiety, but long-term management relies on an SSRI and psychotherapy.
+
+? A patient in a severe anxiety state is about to be discharged. When should the nurse give detailed medication teaching?
++ After the anxiety has decreased, with written instructions as well
+- Immediately, while the patient is most anxious | Severe anxiety narrows attention and blocks learning.
+- Never, as the patient cannot learn | Teaching is possible once anxiety falls.
+- Only to a relative | The patient should be included when able.
+= At severe and panic levels of anxiety the perceptual field narrows; teaching waits until the patient can attend.
+
+? A combat veteran in the ED startles violently and shouts when a tray is dropped nearby. He appears to be reliving an event. What should the nurse do?
++ Speak calmly from in front of him, tell him where he is and that he is safe
+- Grab his arms to steady him | Touch during a flashback may be perceived as an attack.
+- Approach quietly from behind | An unseen approach increases the threat.
+- Tell him sharply to stop | Commands escalate fear.
+= During a flashback the nurse reorients gently, avoids sudden movement and touch, and keeps the environment quiet.
+
+? A college student has palpitations, tremor and anxiety during exam week. Which question is most useful?
++ "How many energy drinks or caffeine tablets have you had?"
+- "Do you prefer morning or evening classes?" | It does not identify a cause.
+- "What is your favourite subject?" | It is irrelevant.
+- "Do you live on campus?" | It does not identify a cause.
+= Stimulants such as caffeine and decongestants are common, reversible causes of anxiety symptoms.
+
+? Two hours after surviving a fatal car crash, an uninjured passenger is trembling, tearful and says she feels numb. What is the most appropriate nursing response?
++ Provide a quiet space, stay with her and explain that these reactions are common
+- Tell her she is lucky to be alive | That dismisses her distress.
+- Press her to describe the crash in detail | Forced recounting can worsen distress.
+- Refer her straight to long-term psychiatric care | An acute stress reaction usually resolves with support.
+= Early support focuses on safety, calm, connection and practical help rather than detailed debriefing.
+
+? A patient starting an SSRI for panic disorder asks when it will work. What should the nurse say?
++ "It usually takes several weeks, and you may feel a little more jittery at first."
+- "You will feel better within an hour." | SSRIs do not act immediately.
+- "Stop it if you don't feel better in two days." | Early discontinuation prevents benefit.
+- "Double the dose if you still feel anxious tomorrow." | Self-adjustment is unsafe.
+= SSRIs take two to six weeks to work and can cause early activation; adherence and follow-up are stressed.
+
+? A 74-year-old with COPD becomes newly anxious and shaky after her medications were changed. Which medication is the most likely cause?
++ A higher dose of albuterol with a new course of prednisone
+- A daily multivitamin | It does not cause anxiety.
+- A stool softener | It does not cause anxiety.
+- Acetaminophen | It does not cause anxiety.
+= Beta agonists and corticosteroids commonly cause tremor, palpitations and anxiety, especially in older adults.
+
+@ 9.4
+? A 79-year-old widower presents repeatedly with fatigue, poor appetite, weight loss and insomnia. Tests are normal. He says, "I'm just no use to anyone." What should the nurse consider?
++ Depression, with assessment of suicide risk
+- Normal ageing | Persistent low mood and worthlessness are not normal ageing.
+- Dementia | His memory is not the main problem.
+- Malingering | The symptoms are genuine.
+= Older adults often present with physical complaints; older men have the highest suicide rate.
+
+? A 19-year-old began an SSRI two weeks ago. What should the nurse tell her parents to watch for?
++ New or worsening suicidal thoughts or agitation
+- Hair loss | It is not a typical early effect.
+- Loss of hearing | It is not an effect of SSRIs.
+- Yellowing of the nails | It is not an effect of SSRIs.
+= Antidepressants carry a warning about increased suicidal thinking in people under 25 early in treatment.
+
+? A patient taking sertraline was given tramadol yesterday. He is agitated and sweating, with a temperature of 39.2 C, tremor and rhythmic jerking at the ankles. What should the nurse suspect?
++ Serotonin syndrome
+- Neuroleptic malignant syndrome | That follows antipsychotics and develops over days with rigidity rather than clonus.
+- Opioid withdrawal | Withdrawal does not cause clonus and high fever.
+- Heat exhaustion | The drug combination and clonus point elsewhere.
+= Combining serotonergic drugs causes agitation, autonomic instability and clonus, usually within hours.
+
+? A patient taking phenelzine develops a pounding headache and BP 226/124 after a meal of aged cheese and cured sausage. What caused this?
++ A reaction between the MAO inhibitor and tyramine in the food
+- An allergy to dairy | Allergy does not cause severe hypertension.
+- Food poisoning | That causes vomiting and diarrhea.
+- A panic attack | Panic does not raise blood pressure to this degree.
+= MAO inhibitors block the breakdown of tyramine, which releases norepinephrine and causes hypertensive crisis.
+
+? A patient has not slept for four days. He talks rapidly, jumps between topics and says he has bought three cars because he is "about to be a billionaire." Which nursing intervention is appropriate?
++ Place him in a low-stimulation area and set calm, consistent limits
+- Encourage him to join a group discussion | Groups overstimulate a manic patient.
+- Debate his business plans with him | Arguing escalates the mania.
+- Give him a stimulating puzzle | Stimulation worsens symptoms.
+= Mania is managed with a quiet environment, clear limits, attention to safety, fluids and food he can eat on the move.
+
+? A patient on lithium has had vomiting and diarrhea for three days. He now has a coarse tremor, unsteady gait and confusion. What should the nurse suspect?
++ Lithium toxicity
+- Alcohol intoxication | There is no history of drinking.
+- Worsening mania | These are neurologic signs, not mood symptoms.
+- Viral labyrinthitis | That does not cause tremor and confusion.
+= Dehydration reduces lithium excretion; coarse tremor, ataxia and confusion indicate toxicity.
+
+? Which treatment should the nurse anticipate for significant lithium toxicity?
++ IV normal saline, with hemodialysis if severe
+- Activated charcoal | Lithium is not adsorbed by charcoal.
+- A thiazide diuretic | Thiazides raise lithium levels.
+- An NSAID for the tremor | NSAIDs raise lithium levels.
+= Saline promotes lithium excretion; dialysis is used for high levels, severe symptoms or kidney impairment.
+
+? A patient with bipolar disorder was started on an antidepressant alone two weeks ago. He is now euphoric, sleeps two hours a night and is spending recklessly. What has happened?
++ The antidepressant has triggered a manic episode
+- The depression has been cured | This is a switch into mania, not recovery.
+- He has developed an allergy | These are not allergic symptoms.
+- The dose is too low | A higher dose would worsen the mania.
+= Antidepressants without a mood stabilizer can precipitate mania in bipolar disorder.
+
+? A severely depressed patient began treatment ten days ago and now has more energy, although his mood is still very low. Why is this a period of increased concern?
++ He may now have the energy to act on suicidal thoughts
+- He is developing mania | Low mood with more energy is not mania.
+- The medication has stopped working | Energy returning is an early effect.
+- He no longer needs observation | Observation should be closer, not less.
+= Energy and motivation often improve before mood, raising suicide risk in the early weeks of treatment.
+
+? A patient took an intentional overdose of bupropion. Which complication should the nurse prepare for?
++ Seizures
+- Hypoglycemia | That is not the characteristic effect.
+- Bradycardia with heart block | Tachycardia is more typical.
+- Respiratory depression alone | Seizures are the main danger.
+= Bupropion lowers the seizure threshold, and overdose commonly causes seizures and dysrhythmias.
+
+? A patient with a mood disorder lies motionless and mute, stares fixedly, and holds any posture in which her arm is placed. Which medication is first-line?
++ A benzodiazepine such as lorazepam
+- A high-potency antipsychotic | Antipsychotics can worsen this condition.
+- A stimulant | It is not the treatment.
+- An opioid | It is not the treatment.
+= Immobility, mutism and waxy flexibility indicate catatonia, which often responds dramatically to lorazepam.
+
+@ 9.5
+? A man who drinks a litre of vodka daily had his last drink 60 hours ago. He is confused, sees snakes on the floor, and has a temperature of 38.7 C, HR 142 and BP 188/104. What is this condition?
++ Delirium tremens
+- Alcohol intoxication | Intoxication occurs with drinking, not three days after stopping.
+- Wernicke encephalopathy | That causes confusion with ataxia and eye signs, not autonomic storm.
+- Hepatic encephalopathy | That does not cause this degree of hyperadrenergic activity.
+= Delirium tremens develops 48-96 hours after the last drink with delirium, hallucinations and autonomic instability.
+
+? Which medication class is first-line for alcohol withdrawal?
++ Benzodiazepines
+- Antipsychotics alone | They lower the seizure threshold and do not prevent delirium tremens.
+- Opioids | They do not treat alcohol withdrawal.
+- Beta blockers alone | They hide signs without preventing seizures.
+= Benzodiazepines substitute for alcohol at the GABA receptor, preventing seizures and delirium tremens.
+
+? What is the purpose of a withdrawal scale such as the CIWA-Ar?
++ To match benzodiazepine dosing to the severity of symptoms
+- To measure the blood alcohol level | The scale is a clinical assessment.
+- To diagnose liver failure | It does not assess the liver.
+- To decide who needs restraints | That is not its purpose.
+= Symptom-triggered dosing guided by a validated scale gives enough medication without over-sedation.
+
+? A patient with alcohol dependence had his last drink ten hours ago. Which symptom is expected first?
++ Tremor with anxiety and sweating
+- Delirium with hallucinations | Delirium tremens appears two to four days later.
+- Coma | Coma is not an early withdrawal sign.
+- Slow heart rate | Withdrawal causes tachycardia.
+= Minor withdrawal begins 6-12 hours after the last drink; seizures peak at 12-48 hours and delirium tremens later.
+
+? An intoxicated man with a scalp wound was drowsy but rousable an hour ago. He is now difficult to wake. What should the nurse do?
++ Reassess immediately and notify the provider of the change
+- Let him sleep it off | A falling level of consciousness must not be assumed to be alcohol.
+- Give coffee | It does nothing for an intracranial injury.
+- Dim the lights and close the door | That delays recognition of deterioration.
+= Intoxication should improve with time; a declining level of consciousness suggests head injury or another cause.
+
+? A patient who uses heroin daily has yawning, a runny nose, gooseflesh, dilated pupils, abdominal cramps and diarrhea. What is happening?
++ Opioid withdrawal
+- Opioid overdose | Overdose causes pinpoint pupils and slow breathing.
+- Alcohol withdrawal | That causes tremor and autonomic hyperactivity without gooseflesh and rhinorrhea.
+- Stimulant intoxication | That causes agitation and hypertension.
+= Opioid withdrawal is intensely uncomfortable but rarely life threatening; it is treated with buprenorphine or symptomatic care.
+
+? A patient who injected fentanyl two hours ago asks for buprenorphine. He has no withdrawal signs yet. Why should the first dose be delayed?
++ Given too early, it can precipitate sudden severe withdrawal
+- It has no effect on fentanyl users | It is effective when timed correctly.
+- It will cause an overdose | Its partial agonist action makes overdose less likely.
+- It must be given only in a clinic | It can be started in the ED.
+= Buprenorphine displaces full agonists from the receptor; it is started once moderate withdrawal is present.
+
+? A patient abruptly stopped taking high-dose alprazolam four days ago and has had a seizure. What is the appropriate treatment?
++ A benzodiazepine followed by a gradual taper
+- Phenytoin alone | It is not effective for sedative withdrawal seizures.
+- Naloxone | It does not treat sedative withdrawal.
+- Observation without medication | Untreated withdrawal can be fatal.
+= Abrupt benzodiazepine withdrawal causes seizures and delirium; the drug is restarted and slowly reduced.
+
+? A patient who used methamphetamine is agitated and paranoid with a temperature of 39.8 C, HR 156 and BP 198/118. What should the nurse anticipate?
++ IV benzodiazepines and active cooling
+- A beta blocker as the only treatment | Benzodiazepines are first-line for stimulant toxicity.
+- Physical restraint alone | Struggling against restraints worsens hyperthermia.
+- Haloperidol alone in large doses | It can lower the seizure threshold and impair heat loss.
+= Sedation with benzodiazepines controls agitation, blood pressure and heat production in stimulant toxicity.
+
+? A patient is ready for discharge after an opioid overdose reversed with naloxone. Which intervention has the greatest potential to prevent death?
++ Giving a take-home naloxone kit with teaching for the patient and family
+- Warning the patient never to use again | Warnings alone do not prevent overdose.
+- Withholding all follow-up to discourage return visits | That increases risk.
+- Advising the patient to use alone | Using alone increases the risk of death.
+= Naloxone distribution and linkage to treatment reduce deaths after non-fatal overdose.
+
+? A patient with an alcohol-related injury says he has "thought about cutting down." Which nursing approach is most effective?
++ A brief, non-judgmental conversation linking his drinking to the injury, with referral
+- A lecture on the dangers of alcohol | Lecturing provokes defensiveness.
+- Avoiding the subject to prevent embarrassment | That misses a teachable moment.
+- Telling him he is an alcoholic | Labelling damages rapport.
+= Screening, brief intervention and referral in the ED reduce harmful drinking, especially when a patient shows readiness to change.

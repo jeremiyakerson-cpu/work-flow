@@ -1,0 +1,235 @@
+# Domain 9 — Mental Health Emergencies (topics 6-8)
+
+@ 9.6
+? An 82-year-old was alert and oriented yesterday. Today she is confused, drowsy at times and agitated at others, and cannot follow a conversation. Which condition does this describe?
++ Delirium
+- Alzheimer's dementia | Dementia develops gradually over months to years.
+- Depression | Depression does not cause fluctuating consciousness.
+- Normal ageing | Acute confusion is never normal.
+= Delirium has an acute onset and a fluctuating course with impaired attention and awareness.
+
+? Which feature best distinguishes delirium from early dementia at the bedside?
++ Inability to maintain attention
+- Memory loss for recent events | Memory loss occurs in both.
+- Disorientation to date | That occurs in both.
+- Difficulty finding words | That occurs in both.
+= Inattention, tested with tasks such as reciting the months backwards, is the cardinal feature of delirium.
+
+? Which presentation of delirium is most likely to be missed?
++ A quiet, withdrawn patient who sleeps most of the day
+- A patient pulling at lines and shouting | Hyperactive delirium draws attention.
+- A patient trying to climb out of bed | That behaviour is quickly noticed.
+- A patient hitting staff | That behaviour is quickly noticed.
+= Hypoactive delirium is common, carries a worse prognosis and is often mistaken for fatigue or depression.
+
+? An 86-year-old from a care home has new delirium. Which cause should be looked for first?
++ Infection, such as urinary tract infection or pneumonia
+- A brain tumour | It is far less common than infection.
+- Schizophrenia | New psychosis at this age is unlikely to be primary psychiatric illness.
+- Vitamin C deficiency | It is not a common cause.
+= Infection, medications, dehydration, pain, urinary retention and constipation are the most frequent triggers in older adults.
+
+? Which nursing intervention best helps a delirious older patient?
++ Make sure glasses and hearing aids are in place and reorient frequently
+- Apply wrist restraints to prevent wandering | Restraints worsen delirium and cause injury.
+- Keep the room bright and noisy overnight | Sleep disruption worsens delirium.
+- Change the assigned nurse every hour | Unfamiliar faces increase confusion.
+= Sensory aids, orientation, familiar people, normal sleep-wake cycles and mobility reduce the severity and duration of delirium.
+
+? Which tool is widely used to screen for delirium?
++ The Confusion Assessment Method
+- The Glasgow Coma Scale | It measures level of consciousness after injury, not delirium.
+- The Braden Scale | It predicts pressure injury risk.
+- The Apgar score | It assesses newborns.
+= The Confusion Assessment Method tests acute onset or fluctuation, inattention, disorganized thinking and altered consciousness.
+
+? An 84-year-old cannot sleep in the ED. Which order should the nurse question?
++ Diphenhydramine 50 mg
+- Dimming the lights | It promotes sleep.
+- Reducing overnight vital sign checks if stable | It protects sleep.
+- A warm blanket | It promotes comfort.
+= Anticholinergic drugs and benzodiazepines commonly precipitate delirium and falls in older adults.
+
+? A patient with dementia is calm in the morning but becomes restless, confused and tearful every late afternoon. What is this pattern called?
++ Sundowning
+- Delirium tremens | That is alcohol withdrawal.
+- Mania | Mania is sustained elevated mood, not a daily evening pattern.
+- A transient ischemic attack | That causes focal deficits.
+= Sundowning is evening worsening of confusion in dementia, eased by routine, adequate light and reduced stimulation.
+
+? A confused older adult arrives alone by ambulance. Which information is most important for telling delirium from dementia?
++ The patient's usual mental state, from a relative or caregiver
+- The patient's own account of her memory | A confused patient cannot report reliably.
+- The patient's shoe size | It is irrelevant.
+- The name of her dentist | It is irrelevant.
+= Knowing whether the confusion is new or long-standing is the key to identifying delirium.
+
+? Why is delirium treated as a medical emergency?
++ It signals an underlying illness and is linked to higher mortality
+- It always progresses to dementia | It often resolves once the cause is treated.
+- It is contagious | It is not an infection.
+- It is purely a psychiatric condition | It has medical causes.
+= Delirium reflects acute brain dysfunction from a medical cause; finding and treating that cause improves outcome.
+
+? A patient with dementia, vivid visual hallucinations and a shuffling gait is agitated. Haloperidol is ordered. Why should the nurse question it?
++ Patients with Lewy body dementia can have severe, even fatal, reactions to antipsychotics
+- Haloperidol does not work in older adults | It works but carries particular danger here.
+- Haloperidol causes hypoglycemia | That is not its effect.
+- The patient is allergic to all sedatives | No allergy is described.
+= Lewy body dementia combines hallucinations, parkinsonism and fluctuating cognition with marked sensitivity to antipsychotics.
+
+@ 9.7
+? A 17-year-old with anorexia nervosa is brought in after fainting. Which set of findings is expected?
++ Bradycardia, low blood pressure, low temperature and fine downy body hair
+- Tachycardia, hypertension and fever | Starvation slows metabolism.
+- Obesity with high blood sugar | Those are not features of anorexia.
+- Bounding pulses and flushed skin | Those are not features of anorexia.
+= Starvation lowers metabolic rate, producing bradycardia, hypotension, hypothermia and lanugo.
+
+? Which finding in a patient with anorexia nervosa indicates the need for hospital admission?
++ A heart rate of 36 with a potassium of 2.6 mEq/L
+- A wish to eat only vegetarian food | Preference alone is not an indication.
+- Mild constipation | It is common and not dangerous alone.
+- Dry skin | It is common and not dangerous alone.
+= Severe bradycardia, hypotension, electrolyte disturbance, ECG changes or very low weight signal medical instability.
+
+? A severely malnourished patient begins nutritional therapy. On the third day she is weak and short of breath, with a new irregular pulse. Which laboratory abnormality is most likely?
++ Low phosphate
+- High sodium | It is not the characteristic disturbance.
+- High calcium | It is not the characteristic disturbance.
+- Low chloride | It is not the characteristic disturbance.
+= Refeeding drives phosphate, potassium and magnesium into cells, causing heart failure, dysrhythmia and weakness.
+
+? A 20-year-old has swollen cheeks, eroded tooth enamel and calluses over the knuckles of one hand. Her weight is normal. Which condition should the nurse suspect?
++ Bulimia nervosa
+- Anorexia nervosa, restricting type | That causes marked weight loss without signs of purging.
+- Mumps | Mumps does not erode enamel or cause knuckle calluses.
+- Rheumatoid arthritis | That does not cause dental erosion.
+= Self-induced vomiting causes parotid swelling, enamel erosion and calluses on the hand used to trigger the gag reflex.
+
+? A patient who vomits several times a day has a potassium of 2.4 mEq/L. Which monitoring is the priority?
++ Continuous cardiac monitoring
+- Daily weights | They do not detect dysrhythmia.
+- Hourly temperature | It is not the priority.
+- A sleep diary | It is not the priority.
+= Hypokalemia flattens T waves, produces U waves and prolongs the QT interval, risking fatal dysrhythmia.
+
+? A patient who misuses laxatives daily has profuse diarrhea and weakness. Which acid-base and electrolyte pattern is expected?
++ Metabolic acidosis with low potassium
+- Metabolic alkalosis with high potassium | Diarrhea loses bicarbonate and potassium.
+- Respiratory acidosis with high sodium | The disturbance is metabolic.
+- Respiratory alkalosis with high chloride | The disturbance is metabolic.
+= Loss of bicarbonate-rich stool causes a non-anion-gap metabolic acidosis with hypokalemia; vomiting causes alkalosis.
+
+? Which statement by the nurse is most therapeutic for a patient with anorexia nervosa?
++ "I'm concerned about your heart rate and want to help keep you safe."
+- "You look so thin; you just need to eat." | Comments on appearance and simple commands are counterproductive.
+- "You look healthy to me." | That may be heard as "fat" and reinforces the illness.
+- "If you cared about your family you would eat." | Guilt damages the therapeutic relationship.
+= Communication focuses on health and safety rather than weight or appearance and avoids blame.
+
+? What is the most common medical cause of death in anorexia nervosa?
++ Cardiac dysrhythmia
+- Stroke | It is not the usual cause.
+- Kidney stones | They are not fatal in this way.
+- Asthma | It is unrelated.
+= Electrolyte disturbance and a wasted myocardium cause fatal dysrhythmias; suicide is the other leading cause of death.
+
+? A patient with severe anorexia is dehydrated with BP 84/50. How should IV fluids be given?
++ Cautiously, in small volumes, with close monitoring
+- As rapidly as possible in large boluses | A weakened heart is easily overloaded.
+- As a large dextrose infusion | A glucose load can precipitate refeeding problems.
+- Not at all | Careful correction is needed.
+= Cardiac muscle mass is reduced, so aggressive fluids can cause heart failure; correction is slow with electrolyte monitoring.
+
+? A 16-year-old distance runner has a second stress fracture this year, has had no periods for eight months and eats very little. What does this combination suggest?
++ Low energy availability affecting hormones and bone density
+- Normal training effects | Repeated stress fractures and amenorrhea are not normal.
+- Simple overuse injury | The pattern points to an underlying eating problem.
+- Early menopause | That is very unlikely at 16.
+= Inadequate energy intake with menstrual loss and low bone density is a recognized syndrome in athletes and needs eating disorder assessment.
+
+? A 15-year-old with anorexia has a heart rate of 34 and refuses admission. Her parents want her treated. What is the correct course?
++ Admit her with her parents' consent
+- Discharge her, since she refuses | She is a minor with a life-threatening condition.
+- Wait until she agrees | Delay risks cardiac arrest.
+- Call the police to arrest her | This is a medical, not a criminal, matter.
+= Parents can consent to necessary treatment for a minor, and severe medical instability requires admission.
+
+@ 9.8
+? When is it appropriate to apply physical restraints to a patient?
++ When less restrictive measures have failed and there is imminent risk of harm
+- When the unit is short staffed | Convenience is never a justification.
+- When a patient is verbally rude | Rudeness is not a danger.
+- When a patient refuses medication | Refusal alone does not justify restraint.
+= Restraint is a last resort for immediate danger to the patient or others after alternatives have been tried.
+
+? A patient was restrained in an emergency before a provider could be reached. What is required next?
++ An order obtained as soon as possible, with a face-to-face evaluation within one hour
+- No order, because it was an emergency | An order is still required promptly.
+- A standing order that covers the rest of the stay | Standing and as-needed restraint orders are not permitted.
+- An order written the next morning | That is too late.
+= Restraint for violent or self-destructive behaviour requires a timely order and an in-person evaluation within one hour.
+
+? What is the maximum duration of a single restraint order for violent behaviour in an adult?
++ Four hours
+- Twenty-four hours | Each order for an adult is limited to four hours.
+- Twelve hours | That exceeds the limit.
+- Until the patient is discharged | Orders are time limited and must be renewed.
+= Orders are limited to four hours for adults, two hours for ages 9 to 17 and one hour for younger children, with renewal after reassessment.
+
+? A patient in four-point restraints for violent behaviour must be monitored. Which practice is correct?
++ Continuous observation with frequent checks of circulation, skin and comfort
+- A check once per shift | That frequency is unsafe.
+- Monitoring only if the patient calls out | A restrained patient may be unable to call.
+- No monitoring once he is asleep | Risk persists during sleep.
+= Restrained patients are observed continuously and assessed frequently for circulation, breathing, hydration and toileting needs.
+
+? In which position should a restrained patient be placed?
++ Supine with the head of the bed raised
+- Prone with weight on the back | Prone restraint can cause fatal asphyxia.
+- Prone with the arms tied behind | That position restricts breathing.
+- On the floor with staff kneeling on the chest | Pressure on the chest prevents breathing.
+= Face-up positioning with the head elevated protects the airway and reduces aspiration risk.
+
+? How should restraint straps be secured?
++ With quick-release ties to the bed frame
+- With a tight double knot to the side rail | Side rails move and knots cannot be released quickly.
+- With tape around the wrists | Tape injures skin and cannot be released quickly.
+- To the head of the stretcher above the patient | That position risks shoulder injury.
+= Quick-release ties on a fixed part of the frame allow immediate release in an emergency and prevent injury when rails move.
+
+? A restrained patient has become calm, is following directions and says he will not harm anyone. Forty minutes remain on the order. What should the nurse do?
++ Begin removing the restraints
+- Leave them on until the order expires | Restraints end as soon as the behaviour that required them stops.
+- Wait until the next shift | Unnecessary restraint is harmful.
+- Add a sedative to keep him calm | He no longer meets criteria for intervention.
+= Restraints are discontinued at the earliest possible time once release criteria are met, regardless of the time left.
+
+? A patient with dementia who keeps getting out of bed is given a large dose of a sedative solely to keep him still. How is this classified?
++ Chemical restraint
+- Standard treatment | The drug is not treating a diagnosed condition.
+- Palliative care | Sedation for convenience is not palliation.
+- Fall prevention | Sedation increases fall risk.
+= A drug used to restrict movement or control behaviour, and not as standard treatment, is a chemical restraint with the same safeguards.
+
+? Which situation meets the usual criteria for an involuntary psychiatric hold?
++ A patient with a mental illness who states a plan to kill herself tonight
+- A patient who refuses a recommended medication | Refusal alone is not grounds.
+- A patient who is homeless but caring for himself | Homelessness alone is not grounds.
+- A patient with unusual religious beliefs | Beliefs alone are not grounds.
+= Involuntary holds require a mental disorder with danger to self, danger to others or grave disability, and are time limited.
+
+? Which documentation is required for a restrained patient?
++ The behaviour that required it, alternatives tried, monitoring findings and release criteria
+- Only the time restraints were applied | That is incomplete.
+- The nurse's opinion of the patient's character | Opinion is not documentation.
+- Nothing, if an order is on file | The order does not replace nursing documentation.
+= Complete documentation shows that restraint was necessary, monitored and ended as soon as possible.
+
+? During a busy night a nurse suggests restraining a wandering, confused patient "so we can get our work done." What is the correct response?
++ Restraint for staff convenience is prohibited; alternatives must be used
+- It is acceptable if a relative agrees | Family consent does not justify convenience restraint.
+- It is acceptable for one hour | Any use for convenience is prohibited.
+- It is acceptable if soft restraints are used | The type does not change the rule.
+= Restraints may never be used for convenience, discipline or retaliation; a sitter, relocation near the desk or family presence are alternatives.
