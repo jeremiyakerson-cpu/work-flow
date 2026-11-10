@@ -13,7 +13,7 @@ const { validateScenario, validateChoices, validateVitals, hasMarkup } = require
 const ctx = load(["ekg-rhythms.js", "ekg-questions.js", "ekg-scenarios.js", "ekg-education.js"]);
 const RHYTHM_KEYS = Object.keys(vm.runInContext("RHYTHMS", ctx));
 const { EKG_QUESTIONS, EKG_SCENARIOS, EkgEducation, EkgRhythms } = ctx;
-const { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE } = EkgEducation;
+const { RHYTHM_GUIDE, RHYTHM_GROUPS, SPRINT_CONFUSION, MED_GUIDE, RHYTHM_MEDS } = EkgEducation;
 const CATEGORIES = ["rhythm", "meds", "condition", "code"];
 
 // Rhythms whose strip is (near-)flat by design.
@@ -122,6 +122,18 @@ test("every medication card is complete", async (t) => {
       for (const f of ["name", "cls", "dose", "use", "caution", "pearl"]) assert.ok(m[f], f);
       assert.ok(!names.has(m.name), "duplicate medication card");
       names.add(m.name);
+    });
+  }
+});
+
+test("every rhythm lists its medications, and each one has a card", async (t) => {
+  const cards = new Set(MED_GUIDE.map((m) => m.name));
+  assert.deepEqual(Object.keys(RHYTHM_MEDS).sort(), [...RHYTHM_KEYS].sort());
+  for (const [key, names] of Object.entries(RHYTHM_MEDS)) {
+    await t.test(key, () => {
+      assert.ok(Array.isArray(names));
+      assert.equal(new Set(names).size, names.length, "duplicate medication");
+      for (const n of names) assert.ok(cards.has(n), `no medication card named "${n}"`);
     });
   }
 });
