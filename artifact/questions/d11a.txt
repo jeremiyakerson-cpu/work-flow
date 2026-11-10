@@ -1,0 +1,214 @@
+# Domain 11 — Head, Eye, Ear, Nose & Throat Emergencies (topics 0-2)
+
+@ 11.0
+? A man arrives with a brisk nosebleed and is holding a tissue loosely under his nose. What should the triage nurse instruct him to do?
++ Sit upright, lean forward and pinch the soft part of the nose firmly for at least 10 minutes
+- Tilt the head back and pinch the bridge | Blood runs down the throat, and the bony bridge cannot be compressed.
+- Lie flat with a cold pack on the forehead | Lying flat increases swallowing of blood and aspiration risk.
+- Blow the nose hard every minute to clear clots | Repeated blowing dislodges the clot.
+= Continuous pressure on the soft nasal alae compresses the anterior septal vessels where most nosebleeds arise.
+
+? Where do most nosebleeds originate?
++ The anterior nasal septum
+- The posterior nasal cavity | Posterior bleeds are less common and more severe.
+- The maxillary sinus | The sinuses are not the usual source.
+- The nasopharynx | That is not the usual source.
+= About nine in ten nosebleeds come from Kiesselbach's plexus on the anterior septum.
+
+? An 82-year-old on warfarin has bleeding from both nostrils that continues despite correct pressure, with blood running down the back of the throat. What should the nurse suspect?
++ A posterior nosebleed
+- A simple anterior bleed | Anterior bleeds usually stop with pressure.
+- A sinus infection | Infection does not cause brisk bilateral bleeding.
+- Bleeding gums | The source is nasal.
+= Posterior bleeding is heavier, drains into the pharynx and is more common in older, hypertensive or anticoagulated patients.
+
+? A patient has posterior nasal packing placed. What is the appropriate disposition and monitoring?
++ Admission with continuous oxygen saturation and cardiac monitoring
+- Discharge with advice to return in a week | Posterior packs can cause hypoxia and bradycardia.
+- Observation in the waiting room | Close monitoring is required.
+- Discharge with oral antihistamines | They do not address the risks.
+= Posterior packing can compromise the airway and trigger a vagal response, so patients are admitted and monitored.
+
+? Pressure alone has not stopped an anterior nosebleed. Which topical medication is commonly applied next?
++ A vasoconstrictor spray such as oxymetazoline
+- A steroid nasal spray | It has no immediate hemostatic effect.
+- A saline rinse | Rinsing dislodges clot.
+- An antihistamine spray | It does not constrict vessels.
+= A topical vasoconstrictor followed by further pressure stops most anterior bleeds; cautery or packing follows if needed.
+
+? A patient is discharged with anterior nasal packing in place. Which instruction is correct?
++ Do not blow the nose, and sneeze with the mouth open
+- Remove the packing at home tonight | The pack is removed by a clinician after a few days.
+- Take ibuprofen for discomfort | NSAIDs impair clotting.
+- Lift weights as usual | Straining can restart bleeding.
+= Avoiding pressure changes and antiplatelet drugs protects the clot until the pack is removed.
+
+? A patient on warfarin has a nosebleed. Which laboratory test is most relevant?
++ INR
+- Amylase | It is unrelated.
+- Thyroid-stimulating hormone | It is unrelated.
+- Lipid panel | It is unrelated.
+= An elevated INR explains difficult bleeding and guides reversal or dose adjustment.
+
+? A 6-year-old has frequent nosebleeds along with easy bruising and bleeding gums. What should the nurse consider?
++ An underlying bleeding disorder
+- Nose picking alone | That does not explain the bruising and gum bleeding.
+- Seasonal allergies | They do not cause bruising.
+- A normal childhood finding | The combination warrants evaluation.
+= Recurrent nosebleeds with other bleeding signs suggest a clotting or platelet disorder.
+
+? A patient with a nosebleed has soaked several towels and now has HR 128 and BP 88/50. What is the priority?
++ Establish IV access and send blood for type and screen while bleeding control continues
+- Wait until the bleeding stops before starting an IV | Shock needs immediate treatment.
+- Give an oral iron tablet | Iron does not treat acute blood loss.
+- Discharge once the bleeding slows | The patient is in hemorrhagic shock.
+= Significant blood loss from epistaxis is resuscitated like any other hemorrhage.
+
+? Two days after nasal packing was placed, a patient has a high fever, a diffuse red rash, vomiting and BP 84/48. What should the nurse suspect?
++ Toxic shock syndrome
+- An expected reaction to the packing | These are signs of a life-threatening illness.
+- A common cold | A cold does not cause shock and rash.
+- A food allergy | The timing and findings point to the packing.
+= Nasal packing can harbour toxin-producing staphylococci; the pack is removed and the patient treated for shock.
+
+@ 11.1
+? A 12-year-old's permanent front tooth was knocked out 15 minutes ago. The tooth is in the parent's hand. What is the best immediate action?
++ Rinse it gently, hold it by the crown and replace it in the socket
+- Scrub the root clean with a brush | Scrubbing destroys the ligament cells needed for reattachment.
+- Wrap it in dry gauze | Drying kills the root surface cells within minutes.
+- Soak it in tap water | Water damages the root cells.
+= Reimplantation within about 30-60 minutes gives the best outcome; if not possible, the tooth is stored in milk or a tooth-preservation solution.
+
+? A 3-year-old's primary front tooth is knocked out. What should the nurse advise?
++ The tooth is not reimplanted
+- Push it back into the socket at once | Reimplanting a primary tooth can damage the developing permanent tooth.
+- Store it in milk for reimplantation tomorrow | Primary teeth are not replaced.
+- Glue it in with tissue adhesive | That is inappropriate.
+= Avulsed primary teeth are left out to protect the permanent tooth bud beneath.
+
+? A patient has a fractured tooth with a pink, bleeding spot visible in the centre and severe pain with air or cold. Why is this a dental emergency?
++ The pulp is exposed and will become infected
+- Only the enamel is chipped | An enamel-only fracture is painless and not urgent.
+- The tooth will grow back | Permanent teeth do not regenerate.
+- The pain will pass without treatment | Exposed pulp needs covering and urgent dental care.
+= A fracture into the pulp exposes nerve and vessels; it is covered and referred for immediate dental treatment.
+
+? A patient with a dental abscess has swelling under the jaw, cannot open the mouth more than a finger's width and has difficulty swallowing. What does this indicate?
++ Spread of infection into the deep spaces of the neck
+- An expected course for a toothache | Trismus and dysphagia are warning signs.
+- A reaction to analgesics | The findings indicate spreading infection.
+- Temporomandibular joint strain | It does not cause fever and swelling under the jaw.
+= Trismus, dysphagia and submandibular swelling signal deep neck infection that threatens the airway.
+
+? Three days after a wisdom tooth extraction, a patient has severe throbbing pain radiating to the ear and a foul taste. The socket looks empty. What is this condition?
++ Dry socket
+- A normal healing socket | Normal healing does not cause escalating pain on day three.
+- A dental abscess | An abscess causes swelling and pus.
+- A fractured jaw | That would follow trauma with malocclusion.
+= Loss of the clot exposes bone; the socket is irrigated and packed with a medicated dressing.
+
+? A patient is bleeding steadily from a tooth socket two hours after an extraction. What should the nurse do first?
++ Have the patient bite firmly on folded gauze for 20 to 30 minutes
+- Ask the patient to rinse and spit repeatedly | Rinsing and spitting dislodge the clot.
+- Give a drink through a straw | Suction pulls the clot out.
+- Apply heat to the cheek | Heat increases bleeding.
+= Sustained direct pressure over the socket controls most post-extraction bleeding.
+
+? A 22-year-old under heavy stress has painful, bleeding gums with a grey film, punched-out ulcers between the teeth and very bad breath. What is the most likely condition?
++ Acute necrotizing ulcerative gingivitis
+- Simple plaque gingivitis | That is painless and lacks ulceration.
+- Oral thrush | Thrush forms white plaques that wipe off.
+- Herpes labialis | That affects the lips with vesicles.
+= "Trench mouth" is a bacterial infection of the gums treated with debridement, antiseptic rinses and antibiotics.
+
+? A 67-year-old man with diabetes reports aching in his lower jaw that comes on when he climbs stairs and eases with rest. His teeth look healthy. What should the nurse do?
++ Obtain a 12-lead ECG
+- Refer him to a dentist next month | Exertional jaw pain can be angina.
+- Offer a warm salt-water rinse | It does not address a cardiac cause.
+- Reassure him that it is arthritis | A dangerous cause has not been excluded.
+= Jaw pain brought on by exertion and relieved by rest is an anginal equivalent until proven otherwise.
+
+? After a fall a child has a broken front tooth, and a piece is missing. He has a new cough. What should the nurse anticipate?
++ A chest radiograph to look for an aspirated fragment
+- Reassurance that the piece was swallowed | A cough raises concern for aspiration.
+- A search of the playground only | The fragment may be in the airway.
+- A dental referral in two weeks without imaging | Aspiration must be excluded first.
+= Missing tooth fragments may be embedded in the lip or aspirated; a cough makes aspiration likely.
+
+? A patient has severe toothache with no swelling or fever. Which analgesic approach is first-line?
++ An NSAID, alone or with acetaminophen
+- An opioid as the first choice | NSAIDs are at least as effective for dental pain and safer.
+- Aspirin held against the gum | Aspirin burns the mucosa.
+- An antibiotic alone for pain | Antibiotics do not relieve pain without infection.
+= Dental pain is inflammatory, and NSAIDs with acetaminophen outperform opioids for most patients.
+
+@ 11.2
+? A worker arrives with drain cleaner splashed in both eyes. What should the nurse do first?
++ Begin copious irrigation immediately
+- Measure visual acuity | Acuity is deferred in a chemical injury.
+- Take a full history of the product | History is obtained while irrigation is under way.
+- Apply an eye patch | A patch holds the chemical against the eye.
+= A chemical splash is the one eye emergency in which treatment precedes visual acuity; every second of delay increases damage.
+
+? How does the nurse know when irrigation of a chemical eye injury can stop?
++ The tear pH is between 7.0 and 7.4 several minutes after irrigation is paused
+- One litre of fluid has been used | Volume alone is not an endpoint.
+- The patient says the pain has gone | Pain relief does not show that the chemical is cleared.
+- Ten minutes have passed | Alkali burns may need far longer.
+= Irrigation continues until the pH is neutral and stays neutral on rechecking.
+
+? Which eye injury carries the worst prognosis?
++ A splash of concentrated alkali
+- A splash of dilute vinegar | A weak acid causes a superficial injury.
+- A splash of soapy water | It is a mild irritant.
+- A speck of dust | It causes minor irritation.
+= Alkalis penetrate the cornea rapidly and continue to destroy deeper structures.
+
+? A carpenter was struck in the eye by a nail. The pupil is teardrop shaped and dark tissue is visible at the edge of the cornea. What should the nurse do?
++ Place a rigid shield over the eye without pressure and keep him NPO
+- Apply a pressure patch | Pressure can push out the contents of the eye.
+- Instil antibiotic drops | Nothing is put into an open globe.
+- Measure the eye pressure | Tonometry is contraindicated.
+= A teardrop pupil and exposed uveal tissue indicate an open globe; the eye is shielded and vomiting prevented.
+
+? A patient hit by a racquetball has a layer of blood settling in the lower part of the anterior chamber. How should the nurse position the patient?
++ Head of the bed raised 30 to 45 degrees
+- Flat on the back | Lying flat spreads blood across the visual axis.
+- Prone | It increases pressure in the eye.
+- Trendelenburg | It raises pressure in the eye.
+= With a hyphema, elevation lets blood settle inferiorly; the eye is shielded and aspirin and NSAIDs avoided.
+
+? A patient has eye pain, tearing and a gritty sensation after being poked by a child's fingernail. Which test confirms a corneal abrasion?
++ Fluorescein staining under blue light
+- A pupil dilation test | It does not show an abrasion.
+- A colour vision test | It does not show an abrasion.
+- A visual field test | It does not show an abrasion.
+= Fluorescein pools in areas where the corneal epithelium is missing and glows green under cobalt-blue light.
+
+? A patient with a corneal abrasion asks to take the numbing eye drops home because they relieved the pain. What should the nurse explain?
++ Repeated use delays healing and can damage the cornea
+- They are safe to use hourly for a week | Prolonged use is toxic to the cornea.
+- They are available over the counter | They are not dispensed for home use.
+- They are stronger than oral analgesics and preferred | They are not prescribed for home use.
+= Topical anaesthetics impair epithelial healing and remove the protective blink reflex.
+
+? A contact lens wearer has a painful red eye with a white spot on the cornea. What should the nurse anticipate?
++ Same-day ophthalmology review and antibiotic drops that cover Pseudomonas
+- Reinserting the lens as a bandage | Lens wear must stop.
+- An eye patch and next-week follow-up | Patching promotes bacterial growth, and delay risks perforation.
+- Lubricating drops only | A corneal ulcer needs antibiotics.
+= Contact lens-related keratitis is often caused by Pseudomonas and can destroy the cornea within a day.
+
+? A man felt something strike his eye while hammering metal. His vision is slightly blurred and only a tiny wound is seen. Which imaging study is appropriate?
++ A CT scan of the orbits
+- An MRI of the orbits | A metal fragment can move in the magnetic field and cause blindness.
+- No imaging, as the wound is small | High-velocity fragments penetrate with minimal external signs.
+- A dental radiograph | It does not image the globe.
+= Metal-on-metal injuries can drive a fragment into the eye; CT locates it and MRI is avoided.
+
+? After blunt trauma, a patient has a bulging, rock-hard eye with rapidly falling vision and severe pain. Which procedure should the nurse prepare for?
++ An emergency lateral canthotomy
+- A routine eye patch | It does not relieve the pressure.
+- A slit-lamp examination tomorrow | Vision will be lost within about two hours.
+- Irrigation with saline | There is no chemical injury.
+= Bleeding behind the eye compresses the optic nerve; releasing the lateral canthal tendon decompresses the orbit.

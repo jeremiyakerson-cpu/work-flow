@@ -1,0 +1,214 @@
+# Domain 11 — Head, Eye, Ear, Nose & Throat Emergencies (topics 3-5)
+
+@ 11.3
+? A 70-year-old with atrial fibrillation suddenly loses all vision in the right eye. There is no pain or redness. How should the triage nurse treat this presentation?
++ As a time-critical emergency equivalent to a stroke
+- As a routine eye complaint for a clinic referral | Retinal ischemia causes permanent loss within hours.
+- As conjunctivitis | Conjunctivitis does not cause sudden blindness.
+- As a migraine | Migraine aura is transient and usually affects both visual fields.
+= Sudden painless loss of vision in one eye suggests central retinal artery occlusion, an ocular stroke that needs immediate evaluation.
+
+? A patient has a severely painful red eye, blurred vision with halos around lights, nausea and a pupil that is mid-dilated and does not react. The eye feels very hard. What is the most likely diagnosis?
++ Acute angle-closure glaucoma
+- Conjunctivitis | Conjunctivitis does not cause a fixed pupil or severe pain with halos.
+- Corneal abrasion | An abrasion does not harden the globe or fix the pupil.
+- Retinal detachment | Detachment is painless.
+= Sudden blockage of aqueous drainage sharply raises pressure in the eye, causing pain, halos, a cloudy cornea and a fixed mid-dilated pupil.
+
+? Which treatment should the nurse anticipate for acute angle-closure glaucoma?
++ Pressure-lowering eye drops and IV acetazolamide
+- Dilating drops | Dilation worsens the angle closure.
+- An eye patch and discharge | Untreated high pressure destroys the optic nerve.
+- Antibiotic ointment | The condition is not infectious.
+= Topical and systemic agents lower the pressure urgently until laser iridotomy can be performed.
+
+? A patient reports flashes of light and a shower of new floaters, followed by a dark curtain moving across the vision of one eye. There is no pain. What should the nurse suspect?
++ Retinal detachment
+- Angle-closure glaucoma | That is painful with a red eye.
+- Cataract | Cataracts develop gradually.
+- Corneal ulcer | An ulcer is painful with a red eye.
+= Flashes, floaters and a curtain-like field loss indicate the retina is separating and needs urgent ophthalmology review.
+
+? A 28-year-old woman has lost vision in one eye over two days. Moving the eye is painful, and colours look washed out. Which condition is most likely?
++ Optic neuritis
+- Retinal detachment | Detachment is painless.
+- Central retinal artery occlusion | That is sudden and painless.
+- Conjunctivitis | It does not cause vision loss or pain on movement.
+= Painful eye movement with reduced colour vision in a young adult suggests optic neuritis, which is associated with multiple sclerosis.
+
+? A patient cannot read any line on the eye chart, even the largest letter. What should the nurse test next?
++ Ability to count fingers, then to see hand movement, then to perceive light
+- Nothing further; record "blind" | Lesser degrees of vision must be documented.
+- Colour vision only | Acuity is graded before colour.
+- Pupil size only | That does not grade vision.
+= Visual acuity is documented in descending steps: counting fingers, hand motion, light perception and no light perception.
+
+? A patient describes a shade coming down over one eye for about five minutes, after which vision returned to normal. What should the nurse recognize?
++ This is a warning sign of stroke that needs urgent evaluation
+- This is eye strain | Transient monocular blindness is vascular.
+- This needs only an optician's appointment | A stroke may follow within days.
+- This is a normal effect of ageing | It is not.
+= Amaurosis fugax is a transient ischemic attack of the retina, often from carotid disease.
+
+? A patient known to have narrow drainage angles is wheezing. Which order should the nurse clarify before giving?
++ Nebulized ipratropium by a loosely fitting mask
+- Supplemental oxygen | Oxygen does not affect eye pressure.
+- Oral prednisone | A short course is not the immediate concern.
+- A chest radiograph | It does not affect the eyes.
+= Anticholinergic mist reaching the eyes dilates the pupils and can precipitate angle closure; a mouthpiece or well-fitted mask reduces exposure.
+
+? Four days after cataract surgery, a patient has increasing eye pain, falling vision and a layer of white material in the front of the eye. What does this indicate?
++ Infection inside the eye requiring emergency ophthalmology
+- Normal postoperative healing | Pain and vision loss are not expected.
+- A reaction to the eye shield | A shield does not cause these findings.
+- Dry eye | Dry eye does not cause vision loss with a white fluid level.
+= Postoperative endophthalmitis threatens the eye and needs immediate intraocular antibiotics.
+
+? Which patient with a red eye needs the most urgent ophthalmology evaluation?
++ A patient with eye pain, reduced vision and sensitivity to light
+- A patient with itching and watery discharge in both eyes | That suggests allergic conjunctivitis.
+- A patient with a gritty feeling and morning crusting | That suggests bacterial conjunctivitis.
+- A patient with a painless bright red patch on the white of the eye | A subconjunctival hemorrhage is benign.
+= Pain, vision loss and photophobia are red flags for keratitis, iritis or glaucoma rather than simple conjunctivitis.
+
+@ 11.4
+? A 19-year-old has a severe sore throat on one side, a muffled voice, difficulty opening the mouth and a uvula pushed to the opposite side. What is the most likely diagnosis?
++ Peritonsillar abscess
+- Viral pharyngitis | It does not displace the uvula or cause trismus.
+- Epiglottitis | The oropharynx looks normal in epiglottitis.
+- Strep throat | It causes exudate without uvular deviation.
+= A collection of pus beside the tonsil causes unilateral pain, a "hot potato" voice, trismus and deviation of the uvula.
+
+? Which treatment should the nurse anticipate for a peritonsillar abscess?
++ Needle aspiration or incision and drainage with antibiotics
+- Antihistamines and rest | They do not treat an abscess.
+- A throat lozenge and discharge | Pus must be drained.
+- Emergency tracheostomy in every case | Most are drained without a surgical airway.
+= Drainage relieves symptoms and prevents spread; antibiotics and hydration follow.
+
+? A 45-year-old has a sore throat far worse than the appearance of his throat would suggest, with painful swallowing, a muffled voice and drooling. He prefers to sit leaning forward. What should the nurse suspect?
++ Epiglottitis
+- Tonsillitis | The throat would look inflamed.
+- A common cold | A cold does not cause drooling and a muffled voice.
+- Reflux | Reflux does not cause this presentation.
+= Severe throat pain with a near-normal oropharynx, drooling and a tripod posture suggests supraglottic swelling.
+
+? How should the nurse care for an adult with suspected epiglottitis while awaiting the airway team?
++ Keep him sitting upright with airway equipment at the bedside
+- Lay him flat for a throat swab | Lying flat and manipulation can close the airway.
+- Send him to radiology unaccompanied | He must not leave monitored care.
+- Give oral fluids to soothe the throat | He cannot swallow safely.
+= The patient stays in the position of comfort, is disturbed as little as possible and is never left without airway support.
+
+? A patient with poor dentition has firm swelling under both sides of the jaw, a tongue pushed upward and a hard, tender floor of the mouth. What is this condition?
++ Ludwig's angina
+- Mumps | Mumps swells the parotid glands in front of the ears.
+- Peritonsillar abscess | That is unilateral and does not raise the tongue.
+- An allergic reaction | Allergy does not cause a hard, tender floor of the mouth with fever.
+= Ludwig's angina is a rapidly spreading cellulitis of the submandibular space, usually from a dental infection.
+
+? What is the greatest immediate threat in Ludwig's angina?
++ Airway obstruction
+- Tooth loss | It is not life threatening.
+- Hearing loss | It is not associated.
+- Facial scarring | It is not the immediate danger.
+= Swelling displaces the tongue upward and backward; the airway is secured early, and the patient is kept upright.
+
+? A 3-year-old has a fever, drools and holds his neck stiffly, refusing to look up. His voice is muffled. Which condition should the nurse suspect?
++ Retropharyngeal abscess
+- Teething | Teething does not cause neck stiffness with fever and a muffled voice.
+- Otitis media | It does not cause drooling or neck stiffness.
+- Croup | Croup causes a barking cough and stridor.
+= A deep neck abscess behind the pharynx causes fever, drooling and refusal to extend the neck in young children.
+
+? A 9-year-old has fever, a sore throat with white patches on the tonsils and tender glands at the front of the neck. He has no cough. Why is antibiotic treatment important if a strep test is positive?
++ To prevent rheumatic fever
+- To prevent the common cold | Antibiotics do not prevent viral illness.
+- To prevent asthma | There is no link.
+- To prevent tooth decay | That is not the purpose.
+= Treating streptococcal pharyngitis prevents rheumatic fever and suppurative complications.
+
+? A 17-year-old has a sore throat, extreme fatigue, swollen glands at the back of the neck and a positive mononucleosis test. Which discharge instruction is most important?
++ Avoid contact sports for at least three weeks
+- Return to football practice tomorrow | The enlarged spleen can rupture with minor trauma.
+- Take amoxicillin for ten days | Amoxicillin causes a rash in mononucleosis and does not treat it.
+- Stay in bed for a month | Prolonged bed rest is unnecessary.
+= The spleen is enlarged and fragile; contact and strenuous activity are avoided until cleared.
+
+? A child who had a tonsillectomy seven days ago is swallowing frequently and spits bright red blood. What should the nurse do?
++ Treat it as an emergency: keep the child upright, obtain IV access and notify ENT
+- Reassure the parents that a little blood is normal | Bleeding a week after surgery can become massive.
+- Give ice chips and discharge | The child needs urgent assessment.
+- Ask the child to gargle with salt water | Gargling can dislodge clot.
+= Secondary hemorrhage occurs 5-10 days after tonsillectomy when the scab separates; frequent swallowing is an early sign.
+
+@ 11.5
+? A patient is distressed by a buzzing, moving sensation in the ear. A live cockroach is seen in the canal. What should be done before removal?
++ Kill the insect by filling the canal with mineral oil or lidocaine
+- Shine a light to draw it out | Insects often move deeper.
+- Pull it out alive with forceps | A struggling insect damages the canal and eardrum.
+- Irrigate with cold water | Cold water causes vertigo and does not kill the insect quickly.
+= Immobilizing the insect first prevents further injury and pain during removal.
+
+? A child has pushed a dried bean into his ear canal. Which removal method should be avoided?
++ Irrigation with water
+- Removal with a small hook under direct vision | That is an acceptable method.
+- Removal with suction | That is an acceptable method.
+- Referral to ENT if it cannot be grasped | That is appropriate.
+= Vegetable matter absorbs water and swells, wedging the object more tightly.
+
+? A toddler has a button battery lodged in one nostril. How urgent is removal?
++ Emergent, because tissue damage begins within hours
+- Routine, at a clinic visit next week | The battery causes burns and septal perforation.
+- Not needed; it will fall out | It will not, and damage is progressive.
+- Only if the child develops a fever | Waiting causes permanent injury.
+= Button batteries cause liquefaction necrosis from electrical current and leakage and are removed immediately without irrigation.
+
+? A 3-year-old has had foul-smelling, pus-like discharge from one nostril for a week. What is the most likely cause?
++ A foreign body in the nose
+- Seasonal allergy | Allergy causes clear discharge from both nostrils.
+- A common cold | A cold affects both nostrils without a foul smell.
+- A broken nose | There is no history of trauma.
+= One-sided purulent nasal discharge in a young child means a retained foreign body until proven otherwise.
+
+? Which technique can remove a smooth nasal foreign body from a cooperative young child?
++ The parent blows into the child's mouth while the clear nostril is held closed
+- Pushing the object backward with a swab | That risks aspiration.
+- Asking the child to sniff hard | Sniffing draws the object deeper.
+- Irrigating the nostril with a syringe | Fluid can be aspirated.
+= Positive pressure from the "parent's kiss" often expels the object without instruments.
+
+? A child has placed a small magnet in each nostril, and they have attached across the septum. Why is this urgent?
++ The magnets compress the septum and cause necrosis and perforation
+- The magnets will affect the child's heart | They do not.
+- The magnets are poisonous | The danger is mechanical.
+- The magnets will dissolve | They will not.
+= Paired magnets across the septum cut off the blood supply to the tissue between them.
+
+? A provider has made two unsuccessful attempts to remove a hard bead from a crying child's ear, and the canal is now bleeding. What is the best course?
++ Stop and refer to ENT
+- Keep trying with larger forceps | Repeated attempts cause swelling and can perforate the eardrum.
+- Irrigate forcefully | A traumatized canal should not be irrigated.
+- Send the child home with the bead in place and no follow-up | The object still needs removal.
+= Repeated attempts cause edema and injury; removal under magnification or sedation is safer.
+
+? A patient with ear tubes asks to have earwax flushed out. What should the nurse do?
++ Decline irrigation, because the eardrum is not intact
+- Irrigate with cold water | Irrigation is contraindicated, and cold water causes vertigo.
+- Irrigate with hydrogen peroxide | Fluid would enter the middle ear.
+- Irrigate with extra pressure | Pressure adds further harm.
+= Irrigation is contraindicated with a perforation or tubes; when it is used, the water is at body temperature to avoid vertigo.
+
+? After a bead is removed from a child's right nostril, what else should the nurse check?
++ The other nostril and both ears
+- The child's eyesight | It is unrelated.
+- The child's reflexes | They are unrelated.
+- Nothing further | Children often place more than one object.
+= Young children frequently insert several objects, so all accessible openings are inspected.
+
+? While cleaning her ear with a cotton swab, a woman was bumped and felt sudden sharp pain. She now has reduced hearing and a little blood in the canal. What should the nurse teach?
++ Keep the ear dry; most perforations heal on their own
+- Flush the ear with water to clear the blood | Water in the middle ear causes infection.
+- Use over-the-counter drops that dry out swimmer's ear | Those drops are painful and unsafe with a perforation.
+- Pack the canal tightly with cotton | Packing traps moisture and debris.
+= A traumatic eardrum perforation usually heals within weeks if kept dry; vertigo or major hearing loss needs prompt ENT review.

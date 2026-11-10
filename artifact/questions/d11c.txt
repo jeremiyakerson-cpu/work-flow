@@ -1,0 +1,214 @@
+# Domain 11 — Head, Eye, Ear, Nose & Throat Emergencies (topics 6-8)
+
+@ 11.6
+? A patient struck in the face with a bat has severe midface swelling and blood pooling in the mouth. What is the nurse's first priority?
++ Maintaining a clear airway
+- Applying ice to the swelling | Comfort measures follow airway control.
+- Photographing the injuries | Documentation follows stabilization.
+- Arranging a facial CT | Imaging follows stabilization.
+= Bleeding, swelling and loss of bony support can obstruct the airway quickly in facial trauma.
+
+? When the examiner gently pulls on a patient's upper teeth, the whole middle of the face moves. What does this indicate?
++ A Le Fort fracture of the midface
+- A simple nasal fracture | An isolated nasal fracture does not make the maxilla mobile.
+- A mandible fracture | The lower jaw is separate from the midface.
+- A dental abscess | Infection does not cause a mobile midface.
+= Mobility of the maxilla indicates a Le Fort fracture; nasal tubes are avoided because of possible skull base injury.
+
+? After a punch to the jaw, a patient says his teeth "don't fit together," and there is bruising under the tongue. What is the most likely injury?
++ Mandible fracture
+- Temporomandibular joint strain | Strain does not cause malocclusion with sublingual bruising.
+- Dental abscess | It does not follow trauma in this way.
+- Parotid injury | It does not cause malocclusion.
+= Malocclusion, trismus and a sublingual hematoma are classic signs of a fractured mandible.
+
+? A conscious patient with a bilateral mandible fracture is struggling to breathe while lying on his back. There is no concern for spinal injury. What should the nurse do?
++ Help him sit up and lean forward
+- Keep him flat and add a pillow | Lying back lets the tongue fall against the airway.
+- Give a sedative | Sedation worsens loss of airway tone.
+- Place a nasopharyngeal airway forcefully | Force risks further injury; position is the first step.
+= Loss of the jaw's anterior support lets the tongue fall backward; sitting forward lets it and any blood fall away from the airway.
+
+? A patient yawned widely and now cannot close her mouth. Her jaw juts forward and she is drooling. What has happened, and how is it treated?
++ The jaw has dislocated; it is reduced with downward and backward pressure on the lower molars
+- The jaw is fractured; it is wired shut | There was no trauma, and the pattern is typical of dislocation.
+- She has tetanus; she needs antitoxin | Tetanus locks the jaw closed, not open.
+- She has a stroke; she needs a head CT | Stroke does not fix the jaw open.
+= Anterior mandibular dislocation follows wide opening; after reduction the patient avoids opening the mouth widely and eats a soft diet.
+
+? After a punch to the nose, a patient has a soft, bluish, bulging swelling on the nasal septum that blocks one side. Why does this need urgent treatment?
++ Undrained blood destroys the septal cartilage
+- It always causes a fatal nosebleed | That is not the concern.
+- It indicates a skull fracture | It is a local complication.
+- It will resolve with ice alone | It must be drained.
+= A septal hematoma cuts the cartilage off from its blood supply, leading to necrosis and a collapsed nasal bridge.
+
+? A patient struck on the cheek has a flattened cheekbone, numbness of the cheek and upper lip, and pain on opening the mouth. Which fracture is most likely?
++ A fracture of the zygomatic complex
+- A nasal fracture | It does not flatten the cheek or numb the lip.
+- A frontal bone fracture | It affects the forehead.
+- A mandibular condyle fracture | It does not flatten the cheek.
+= A zygomatic "tripod" fracture depresses the cheek, injures the infraorbital nerve and impinges on the jaw muscles.
+
+? Clear fluid drips from the nose of a patient with facial fractures. On gauze, it forms a pale ring around a central spot of blood. What does this suggest, and what should the nurse avoid?
++ Cerebrospinal fluid leak; avoid packing the nose or passing tubes through it
+- Allergic rhinitis; give an antihistamine | The ring sign points to cerebrospinal fluid.
+- A normal nosebleed; pack the nose firmly | Packing increases the risk of meningitis.
+- Sinus drainage; ask the patient to blow the nose | Blowing forces air and bacteria inside the skull.
+= A halo of clear fluid around blood suggests a leak through a skull base fracture; the nose is left unobstructed.
+
+? A deep laceration crosses the cheek in front of the ear, and the patient cannot raise the eyebrow or close the eye on that side. What should the nurse anticipate?
++ Specialist surgical consultation before closure
+- Simple closure by the first available provider | Injured nerve or duct must be explored and repaired.
+- Tissue adhesive and discharge | That would seal in a significant injury.
+- No treatment, as it will recover | Unrepaired nerve injury causes permanent paralysis.
+= A cheek laceration with facial weakness indicates injury to the facial nerve, and the parotid duct may also be involved.
+
+? A patient with an orbital floor fracture is being discharged. Which instruction is most important?
++ Do not blow your nose
+- Sleep flat on the injured side | Elevation of the head is preferred.
+- Use nasal decongestant drops every hour | That frequency is excessive.
+- Wear contact lenses to protect the eye | Lenses are not protective.
+= Nose blowing forces air from the sinus into the orbit, causing swelling and risking infection or vision loss.
+
+@ 11.7
+? An 18-month-old has a fever and is pulling at the right ear after a cold. The eardrum is red and bulging. Which treatment is first-line when antibiotics are indicated?
++ High-dose amoxicillin
+- Antibiotic ear drops | Drops do not reach the middle ear through an intact eardrum.
+- An oral antihistamine | It does not treat infection.
+- A decongestant spray | It does not treat infection.
+= Acute otitis media is a middle ear infection; amoxicillin is first-line, with analgesia for pain.
+
+? A swimmer has ear pain that is much worse when the outer ear is pulled or the small flap in front of the canal is pressed. The canal is red and swollen. What is the diagnosis?
++ Otitis externa
+- Otitis media | Middle ear infection does not hurt on moving the outer ear.
+- Mastoiditis | That causes swelling behind the ear.
+- Temporomandibular joint pain | That is felt with chewing, not ear movement.
+= Infection of the ear canal causes pain on traction of the pinna or pressure on the tragus and is treated with topical drops.
+
+? An 80-year-old with diabetes has severe, deep ear pain that keeps him awake, with discharge and tissue growing on the floor of the canal. Why is this serious?
++ The infection can invade the skull base
+- It is a simple case of swimmer's ear | The severity and risk factors point to an invasive infection.
+- It always clears with drops alone | It requires prolonged systemic antibiotics.
+- It is caused by earwax | Wax does not cause this picture.
+= Necrotizing otitis externa, usually from Pseudomonas, spreads to bone in older or immunocompromised patients and can cause cranial nerve palsies.
+
+? A 4-year-old with a recent ear infection has swelling and redness behind the ear, which is pushed forward and down. What should the nurse suspect?
++ Mastoiditis
+- An insect bite | A bite does not displace the ear after an ear infection.
+- Swimmer's ear | That does not cause swelling behind the ear.
+- Mumps | Mumps swells the gland in front of and below the ear.
+= Infection spreading into the mastoid bone causes postauricular swelling and protrusion of the ear and needs IV antibiotics.
+
+? A child with otitis media was screaming with ear pain overnight. This morning the pain is suddenly better and there is pus on the pillow. What has happened?
++ The eardrum has ruptured
+- The infection has cleared | Drainage means perforation, not cure.
+- The ear tube has fallen out | No tubes were described.
+- Earwax has melted | Wax does not cause this sequence.
+= Pressure in the middle ear ruptures the drum, relieving pain; most perforations heal, and the ear is kept dry.
+
+? An adult has had nasal congestion and facial pressure for 12 days, with thick discoloured discharge that began to improve and then worsened. What does this pattern suggest?
++ Acute bacterial sinusitis
+- A viral cold | Symptoms beyond ten days or a second worsening suggest bacterial infection.
+- Allergic rhinitis | Allergy causes clear discharge and itching.
+- A nasal foreign body | That is unusual in adults and is one sided.
+= Bacterial sinusitis is suggested by symptoms lasting more than ten days or by worsening after initial improvement.
+
+? A child with sinusitis develops a swollen, red eyelid with a bulging eye, pain on eye movement and blurred vision. What should the nurse anticipate?
++ An urgent CT scan and IV antibiotics
+- Antihistamine eye drops | The findings indicate a deep infection.
+- A warm compress and discharge | Delay risks blindness and intracranial spread.
+- An eye patch | It does not treat the infection.
+= Orbital cellulitis, often from sinus infection, threatens vision and can extend to the brain.
+
+? Which finding distinguishes orbital cellulitis from infection limited to the eyelid?
++ Pain when the eye moves
+- Redness of the eyelid | That occurs in both.
+- Swelling of the eyelid | That occurs in both.
+- A mild fever | That occurs in both.
+= Pain with eye movement, bulging of the eye and reduced vision indicate that infection lies behind the orbital septum.
+
+? How should the nurse straighten the ear canal to instil drops in a 2-year-old?
++ Pull the ear down and back
+- Pull the ear up and back | That is the technique for older children and adults.
+- Push the ear forward | That does not straighten the canal.
+- Do not touch the ear | The canal must be straightened for the drops to enter.
+= In children under about three the canal is straightened by pulling the pinna down and back; in adults it is pulled up and back.
+
+? A patient with sinus congestion has used an over-the-counter decongestant nasal spray several times a day for three weeks and is now more blocked than ever. What is the cause?
++ Rebound congestion from overuse of the spray
+- An allergy to the spray | The pattern is one of rebound.
+- A deviated septum | That does not develop over three weeks.
+- A new bacterial infection | The spray history explains the symptoms.
+= Topical decongestants used for more than about three days cause rebound swelling of the nasal lining.
+
+@ 11.8
+? A 48-year-old woke this morning unable to hear from her left ear. She has no pain, and the ear canal and eardrum look normal. How should the nurse triage this?
++ As an urgent problem needing prompt evaluation and treatment
+- As a routine problem for a clinic visit in a month | Delay reduces the chance of recovery.
+- As earwax, with advice to use drops | The canal is clear.
+- As a normal effect of ageing | Age-related loss is gradual and affects both ears.
+= Sudden sensorineural hearing loss is an otologic emergency in which early treatment improves the chance of recovery.
+
+? Which treatment is most commonly started for sudden sensorineural hearing loss?
++ Corticosteroids
+- Antibiotic ear drops | There is no infection of the canal.
+- Antihistamines | They are not effective.
+- Ear irrigation | There is no wax to remove.
+= Steroids started as early as possible, ideally within two weeks, are the standard initial treatment.
+
+? A tuning fork is placed in the middle of the forehead of a patient with sudden hearing loss in the left ear. The sound is heard louder in the right ear. What does this suggest?
++ Sensorineural loss in the left ear
+- Conductive loss in the left ear | Sound would be louder in the affected ear.
+- Normal hearing | The sound would be heard equally.
+- Conductive loss in the right ear | The complaint is in the left ear, and the pattern fits nerve loss there.
+= In the Weber test, sound moves toward the better ear in sensorineural loss and toward the affected ear in conductive loss.
+
+? In the Rinne test, a patient hears the tuning fork longer on the bone behind the ear than beside the ear canal. What type of hearing loss is this?
++ Conductive
+- Sensorineural | Air conduction stays better than bone conduction in sensorineural loss.
+- Normal hearing | Air conduction is normally better than bone conduction.
+- Central | The test does not identify central loss.
+= Bone conduction better than air conduction indicates a problem transmitting sound through the canal or middle ear.
+
+? A patient reports sudden hearing loss in one ear. What should be checked first?
++ The ear canal and eardrum, with an otoscope
+- A CT scan of the head | A simple examination comes first.
+- A full blood count | It does not identify the common causes.
+- Vision | It is unrelated.
+= Impacted wax, fluid or a foreign body cause conductive loss and are quickly identified on examination.
+
+? A 66-year-old has sudden hearing loss in one ear with severe vertigo, slurred speech and an unsteady gait. What should the nurse suspect?
++ A stroke in the posterior circulation
+- Simple earwax | Wax does not cause slurred speech or ataxia.
+- An ear infection | Infection does not cause these neurologic signs.
+- Motion sickness | That does not cause hearing loss or slurred speech.
+= Hearing loss with vertigo and brainstem or cerebellar signs can result from occlusion of an artery supplying the inner ear and brainstem.
+
+? Which medication is most likely to cause hearing loss?
++ IV gentamicin
+- Oral amoxicillin | It is not ototoxic.
+- Acetaminophen at normal doses | It is not ototoxic.
+- An oral antihistamine | It is not ototoxic.
+= Aminoglycosides, loop diuretics given rapidly, cisplatin and high-dose salicylates damage the inner ear.
+
+? A patient woke with drooping of one side of the face. He cannot wrinkle his forehead or close the eye on that side. Arm and leg strength are normal. What is the most likely diagnosis?
++ Bell's palsy
+- A stroke | A cortical stroke spares the forehead and usually affects a limb.
+- A dental abscess | It does not paralyse the face.
+- Trigeminal neuralgia | That causes facial pain, not weakness.
+= Weakness of the whole side of the face, including the forehead, indicates a peripheral facial nerve lesion.
+
+? A patient has facial weakness on one side, severe ear pain and small blisters in the ear canal. What should the nurse anticipate?
++ An antiviral medication with a corticosteroid
+- Antibiotic ear drops only | The cause is viral.
+- An antifungal cream | The cause is not fungal.
+- Reassurance without treatment | Untreated cases recover poorly.
+= Reactivation of the varicella-zoster virus in the facial nerve causes facial palsy with a painful vesicular rash in the ear.
+
+? A patient with Bell's palsy cannot close the right eye. Which teaching protects the eye?
++ Use lubricating drops during the day and tape the eye closed at night
+- Leave the eye open to the air | The cornea dries and ulcerates.
+- Rub the eye often to stimulate tears | Rubbing damages the unprotected cornea.
+- Wear a contact lens for protection | A lens does not prevent drying.
+= Without blinking the cornea dries; lubrication and closure of the eye at night prevent abrasion and ulceration.
