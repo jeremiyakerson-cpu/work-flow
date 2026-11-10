@@ -1,0 +1,215 @@
+# Domain 3 — Trauma & Multisystem Shock (topics 6-8)
+
+@ 3.6
+? An adult has partial-thickness burns covering the entire front of the trunk and the whole left arm. Using the rule of nines, what percentage of body surface area is burned?
++ 27%
+- 18% | That counts the anterior trunk only.
+- 36% | That would require the whole trunk, front and back.
+- 45% | That overestimates by adding areas that are not burned.
+= The anterior trunk is 18% and each entire arm is 9%, giving 27%.
+
+? A 70 kg adult sustained 40% TBSA burns two hours ago. Using a 4 mL/kg/% TBSA formula, at what rate should lactated Ringer's run to deliver the first half on schedule?
++ About 930 mL per hour
+- About 470 mL per hour | That spreads the first half over twelve hours.
+- About 700 mL per hour | That counts eight hours from arrival instead of from the burn.
+- About 1,400 mL per hour | That delivers the first half in four hours.
+= The total is 11,200 mL; half (5,600 mL) is due within eight hours of the burn, leaving six hours, or roughly 930 mL per hour.
+! Starting-rate formulas differ (4 mL/kg/% Parkland vs 2 mL/kg/% in current ABA/ATLS guidance); the arithmetic here uses the formula named in the stem.
+
+? Which finding best indicates that fluid resuscitation is adequate in an adult with major burns?
++ Urine output of 0.5 mL/kg per hour
+- A heart rate below 60/min | Bradycardia is not a resuscitation target.
+- Urine output of 10 mL per hour | That output signals under-resuscitation.
+- Disappearance of pain | Pain does not reflect perfusion.
+= Formulas only set the starting rate; fluids are titrated to urine output of about 0.5 mL/kg/h in adults and 1 mL/kg/h in small children.
+
+? A man rescued from a house fire has singed nasal hairs, soot in the mouth and a hoarse voice. SpO2 is 97%. What should the nurse anticipate?
++ Early endotracheal intubation
+- Discharge after a normal chest radiograph | Early films are normal despite serious airway injury.
+- Nebulized saline and reassessment tomorrow | Airway edema progresses over hours.
+- A nasal cannula and transfer to a general ward | He needs airway protection and close monitoring.
+= Hoarseness, soot and facial burns after an enclosed-space fire predict airway edema; the airway is secured before swelling makes it impossible.
+
+? A patient with full-thickness burns encircling the chest has rising airway pressures and falling tidal volumes on the ventilator. What procedure should the nurse prepare for?
++ Escharotomy
+- Fasciotomy of the forearm | Fasciotomy releases muscle compartments, not chest eschar.
+- Needle decompression | There is no sign of pneumothorax.
+- Chest physiotherapy | Percussion does not release a rigid burn.
+= Circumferential eschar acts as a tourniquet, restricting chest expansion; incision through it restores movement.
+
+? A burn on the forearm is dry, leathery and white with no blanching, and the patient feels no pain when it is touched. How should this be classified?
++ Full thickness
+- Superficial | Superficial burns are red, painful and blanch.
+- Superficial partial thickness | Those are moist, blistered and very painful.
+- Deep frostbite | The mechanism described is a burn.
+= Full-thickness burns destroy the dermis and its nerve endings, leaving insensate leathery tissue.
+
+? A cook splashed hot oil on her forearm ten minutes ago, producing a red blistered area the size of her palm. What is the best immediate care?
++ Cool the area under cool running water
+- Apply ice directly to the burn | Ice causes vasoconstriction and deepens the injury.
+- Apply butter to seal the wound | Greasy substances trap heat and contaminate the wound.
+- Break the blisters and scrub the area | Opening blisters invites infection.
+= Cool running water for up to about 20 minutes limits burn depth and relieves pain.
+
+? Which burn patient meets criteria for referral to a burn centre?
++ A patient with a partial-thickness burn of the palm and fingers
+- A patient with a sunburn over the shoulders | Superficial burns do not need referral.
+- A patient with a 2% partial-thickness burn of the thigh | A small burn in a non-critical area is managed locally.
+- A patient with a superficial scald on the forearm | Minor superficial injury does not meet criteria.
+= Burns of the hands, face, feet, genitalia, perineum or major joints, as well as electrical, chemical, inhalation and large or full-thickness burns, warrant referral.
+
+? A lineman survived contact with a high-voltage line. He has small entry and exit wounds and his urine is dark red-brown. What should the nurse anticipate?
++ Increasing IV fluids to maintain a high urine output
+- Restricting fluids because the burns look small | Surface wounds greatly underestimate deep muscle injury.
+- Sending urine for culture and waiting | The pigment is myoglobin, not infection.
+- Giving a loop diuretic as the first step | Diuresis without volume worsens renal injury.
+= High-voltage injury destroys deep muscle; myoglobinuria requires vigorous fluids, with cardiac monitoring for dysrhythmias.
+
+? Lightning strikes a group of hikers. One is pulseless and not breathing; three others are conscious with burns and limb pain. Who should be treated first?
++ The pulseless hiker who is not breathing
+- The hiker with the most painful burns | Pain does not indicate a threat to life.
+- The hiker with the largest burn area | The conscious victims will survive a delay.
+- The hiker who is most frightened | Emotional distress is not the priority.
+= Lightning causes cardiac and respiratory arrest that often responds to prompt resuscitation, so triage is reversed.
+
+@ 3.7
+? A patient with a pelvic fracture has BP 82/50, HR 134, flat neck veins and cool, pale skin. Which type of shock is this?
++ Hypovolemic
+- Cardiogenic | Cardiogenic shock shows distended neck veins and pulmonary congestion.
+- Neurogenic | Neurogenic shock shows bradycardia with warm skin.
+- Septic | Septic shock shows fever and, early, warm flushed skin.
+= Blood loss lowers preload, producing flat neck veins, tachycardia and vasoconstriction.
+
+? After a diving injury, a patient with a C6 fracture has BP 78/42, HR 48 and warm, dry skin below the level of injury. Which shock state is present?
++ Neurogenic shock
+- Hemorrhagic shock | Bleeding causes tachycardia and cool, clammy skin.
+- Cardiogenic shock | There is no evidence of pump failure or congestion.
+- Anaphylactic shock | There is no allergen exposure, urticaria or bronchospasm.
+= Loss of sympathetic tone after a high cord injury causes vasodilation with unopposed vagal bradycardia.
+
+? Which finding helps distinguish cardiogenic shock from hypovolemic shock?
++ Jugular venous distension with crackles
+- Tachycardia | A fast heart rate occurs in both.
+- Cool, clammy skin | Vasoconstriction occurs in both.
+- Low urine output | Renal hypoperfusion occurs in both.
+= Pump failure backs blood up into the lungs and veins, whereas hypovolemia empties the venous system.
+
+? A ventilated trauma patient becomes hypotensive with distended neck veins, a deviated trachea and absent breath sounds on one side. Which category of shock is this?
++ Obstructive
+- Distributive | Distributive shock involves vasodilation, not a blocked circulation.
+- Hypovolemic | Neck veins would be flat.
+- Cardiogenic | The pump itself is not the primary problem.
+= Tension pneumothorax, tamponade and massive pulmonary embolism obstruct blood flow through the central circulation.
+
+? An 80-year-old from a nursing home has temperature 39.1 C, BP 84/46, HR 122, warm flushed skin and a bounding pulse. Which shock state is most likely?
++ Septic shock
+- Hemorrhagic shock | Bleeding produces cool pale skin and a weak pulse.
+- Neurogenic shock | There is no cord injury and the heart rate is fast.
+- Cardiogenic shock | Skin would be cool with signs of congestion.
+= Early septic shock is a distributive state with vasodilation, fever and a hyperdynamic circulation.
+
+? An 82-year-old fell and has a tender, distended abdomen. BP is 92/58 and HR 74. He takes metoprolol. How should the nurse interpret the heart rate?
++ The beta blocker may be masking a compensatory tachycardia
+- A normal rate rules out significant bleeding | Medication and age blunt the usual response.
+- The rate indicates neurogenic shock | There is no spinal mechanism.
+- The rate shows the patient is well hydrated | Hydration cannot be inferred from the rate.
+= Older adults on beta blockers may not mount tachycardia, so a "normal" rate does not exclude hemorrhagic shock.
+
+? A patient with neurogenic shock remains hypotensive after a modest fluid bolus. What should the nurse anticipate next?
++ A vasopressor infusion
+- Repeated large fluid boluses | The vascular space is dilated, not empty, and overload causes pulmonary edema.
+- A beta blocker | Slowing an already slow heart worsens output.
+- A diuretic | Removing volume worsens hypotension.
+= Neurogenic shock is treated with judicious fluids followed by vasopressors, with atropine for symptomatic bradycardia.
+
+? Which laboratory value best reflects tissue hypoperfusion in a patient in shock?
++ Serum lactate
+- Serum sodium | Sodium does not track perfusion.
+- Hemoglobin on arrival | Early hemoglobin can be normal despite major blood loss.
+- White blood cell count | It reflects inflammation, not oxygen delivery.
+= Lactate rises with anaerobic metabolism; its clearance is used to judge the response to resuscitation.
+
+? A trauma patient has HR 124 and a systolic pressure of 100 mmHg. What is the shock index, and what does it suggest?
++ 1.24; significant hypoperfusion is likely
+- 0.8; the patient is stable | The arithmetic is inverted.
+- 24; the monitor is malfunctioning | That subtracts instead of dividing.
+- 0.5; the value is normal | That does not match these vital signs.
+= Shock index is heart rate divided by systolic pressure; values above about 0.9-1.0 indicate occult shock.
+
+? A patient in hypovolemic shock is placed head-down in Trendelenburg by a new technician. What should the nurse do?
++ Return the patient to a flat supine position
+- Leave the position because it improves cardiac output | Any benefit is brief and unproven.
+- Increase the tilt for a greater effect | Steeper tilt impairs ventilation and raises intracranial pressure.
+- Sit the patient upright | Sitting reduces venous return.
+= Trendelenburg positioning is not recommended; it compromises breathing, raises intracranial pressure and risks aspiration.
+
+@ 3.8
+? A woman at 32 weeks' gestation is supine on a backboard after a crash. BP is 86/50. What should the nurse do first?
++ Tilt the board to the left or manually displace the uterus
+- Raise the head of the board 45 degrees | Head elevation does not relieve vena caval compression.
+- Give a vasopressor | The cause is mechanical and reversible.
+- Place her in Trendelenburg | Head-down positioning worsens compression and breathing.
+= After about 20 weeks the uterus compresses the vena cava when the patient lies supine, reducing venous return.
+
+? Why can a pregnant trauma patient appear stable despite serious blood loss?
++ Her expanded blood volume lets her lose a large amount before vital signs change
+- Pregnancy raises blood pressure throughout | Pressure normally falls in mid-pregnancy.
+- The fetus donates blood to the mother | Uterine flow is diverted away from the fetus, not toward the mother.
+- Pregnancy hormones prevent tachycardia | The resting heart rate rises in pregnancy.
+= Pregnancy increases blood volume by up to half; maternal signs lag while uterine perfusion falls and the fetus becomes distressed first.
+
+? A woman at 30 weeks was in a low-speed crash. She feels well and has a normal examination. What monitoring is required?
++ Continuous fetal and uterine monitoring for at least four hours
+- A single fetal heart check before discharge | A single check misses evolving abruption.
+- No monitoring, since the trauma was minor | Abruption can follow minor trauma.
+- Repeat ultrasound in one week only | Ultrasound misses many abruptions.
+= Placental abruption may follow even minor trauma; cardiotocographic monitoring for at least four hours detects contractions and fetal distress.
+
+? A pregnant trauma patient is Rh negative. Which order should the nurse anticipate?
++ Rh immune globulin within 72 hours
+- Rh immune globulin only if she delivers | Fetomaternal hemorrhage can occur with trauma alone.
+- A platelet transfusion | Platelets are unrelated to Rh sensitization.
+- No treatment unless the baby is Rh positive | Fetal type is unknown and prophylaxis is not delayed.
+= Abdominal trauma can cause fetomaternal hemorrhage; Rh immune globulin prevents maternal sensitization.
+
+? What is the most effective way to protect the fetus in a seriously injured pregnant patient?
++ Resuscitate the mother
+- Deliver the fetus before any other treatment | Delivery is not the first step in a salvageable mother.
+- Limit maternal oxygen to avoid fetal harm | Maternal oxygenation supports the fetus.
+- Withhold imaging and medications | Necessary tests and treatments are not withheld.
+= Fetal survival depends on maternal oxygenation and perfusion, so standard resuscitation priorities apply.
+
+? A 4-year-old struck by a car has HR 168, capillary refill of 4 seconds and cool mottled legs. BP is 92/60. How should the nurse interpret these findings?
++ Compensated shock requiring immediate treatment
+- A normal response to pain and fear | Delayed refill and mottling indicate poor perfusion.
+- Stable circulation, because pressure is normal | Children maintain pressure until late.
+- Neurogenic shock | That would show bradycardia and warm skin.
+= Children compensate with tachycardia and vasoconstriction; hypotension is a late, pre-arrest sign.
+
+? An 18 kg child in hemorrhagic shock is ordered an initial isotonic crystalloid bolus. What volume should the nurse prepare?
++ 360 mL
+- 90 mL | That is 5 mL/kg, which is too little.
+- 180 mL | That is 10 mL/kg, the dose used for packed red cells.
+- 1,000 mL | An adult bolus would overload a child.
+= The pediatric bolus is 20 mL/kg, here 360 mL, with early blood products if shock persists.
+
+? An unconscious 2-year-old is supine on a backboard and the neck is flexed forward. How should the nurse achieve neutral alignment?
++ Place padding under the shoulders and torso
+- Place a pillow under the head | That increases flexion.
+- Extend the neck fully | Hyperextension can obstruct a child's airway and harm the cord.
+- Turn the head to the side | Rotation moves a possibly injured spine.
+= A young child's large occiput flexes the neck when lying flat; raising the torso restores neutral position and opens the airway.
+
+? A 6-year-old has respiratory distress after being struck in the chest by a car. The chest radiograph shows a large pulmonary contusion with no rib fractures. Why?
++ A child's ribs are flexible and transmit force to the lung without breaking
+- Children's lungs are more fragile than adults' | The difference lies in the chest wall, not the lung tissue.
+- The radiograph must be faulty | The finding is typical.
+- Rib fractures in children never show on film | Fractures can be seen when present.
+= The compliant pediatric chest wall allows serious internal injury without external signs or fractures.
+
+? A 4-month-old is brought in with a spiral femur fracture. The caregiver says the infant rolled off a couch. What is the nurse's responsibility?
++ Report suspected abuse to child protective services
+- Accept the explanation, since falls are common | The injury does not match the infant's developmental ability.
+- Confront the caregiver and demand the truth | Confrontation is not the nurse's role and may endanger the child.
+- Wait for a second injury before acting | Delay leaves the infant at risk.
+= An injury inconsistent with the history or developmental stage raises suspicion of abuse, and nurses are mandated reporters.

@@ -1,0 +1,214 @@
+# Domain 3 — Trauma & Multisystem Shock (topics 3-5)
+
+@ 3.3
+? A restrained driver has BP 78/44 and HR 132 after two units of blood. The bedside ultrasound shows free fluid in the right upper quadrant. What is the next step?
++ Immediate transfer to the operating room for laparotomy
+- CT of the abdomen and pelvis with contrast | An unstable patient should not go to the scanner.
+- Admission for serial abdominal examinations | Observation is for stable patients.
+- Diagnostic peritoneal lavage to confirm | The positive ultrasound already answers the question.
+= A hypotensive patient with a positive FAST has intra-abdominal hemorrhage and needs operative control.
+
+? A cyclist who fell onto the handlebars reports left upper abdominal pain and pain at the tip of the left shoulder. Which organ is most likely injured?
++ Spleen
+- Liver | Liver injury refers pain to the right shoulder.
+- Appendix | Appendiceal pain is right lower quadrant and not traumatic.
+- Bladder | Bladder injury causes suprapubic pain and hematuria.
+= Blood irritating the left hemidiaphragm refers pain to the left shoulder, known as Kehr's sign.
+
+? A passenger has a band of bruising across the lower abdomen from a lap belt. The first CT is normal and he is stable. Why is he admitted for observation?
++ Bowel and mesenteric injuries may not appear on early imaging
+- Bruising always indicates a splenic rupture | The spleen is not the organ typically injured by a lap belt.
+- The bruise will need surgical drainage | Abdominal wall bruising is not drained.
+- He requires prophylactic antibiotics | Antibiotics are not given for a bruise.
+= A seat belt sign is associated with hollow viscus injury and lumbar fractures that can declare themselves hours later.
+
+? A pedestrian struck by a truck has an unstable pelvis and BP 82/50. Which intervention should the nurse apply?
++ A pelvic binder centred over the greater trochanters
+- A binder wrapped around the upper abdomen | Placement above the pelvis does not close the pelvic ring.
+- Traction splints on both legs | Traction does not stabilize the pelvis and may worsen it.
+- Military anti-shock trousers inflated fully | These are no longer recommended.
+= A circumferential binder at the level of the greater trochanters reduces pelvic volume and tamponades venous bleeding.
+
+? A colleague prepares to "rock" the pelvis again to recheck stability in a patient already found to have an unstable pelvic fracture. What should the nurse say?
++ "Repeated manipulation can dislodge clot and increase bleeding."
+- "Go ahead; rechecking every hour is standard." | Repeated testing is harmful once instability is known.
+- "Push harder so we can feel the crepitus." | Greater force increases hemorrhage.
+- "Only rock it after the binder comes off." | The binder stays on and the pelvis is not re-tested.
+= The pelvis is assessed gently once; further movement disrupts clot and can restart life-threatening bleeding.
+
+? A patient has loops of bowel protruding through a knife wound. How should the nurse manage the wound?
++ Cover the bowel with sterile saline-moistened dressings
+- Gently push the bowel back inside | Replacing bowel risks contamination and strangulation.
+- Cover it with dry gauze and tape tightly | Dry dressings adhere to and desiccate bowel.
+- Pour povidone-iodine over the bowel | Antiseptics damage the serosa.
+= Eviscerated organs are kept moist and covered and are not reduced outside the operating room.
+
+? A construction worker arrives with a length of rebar through the upper abdomen. He is awake with stable vital signs. What is the correct management of the object?
++ Stabilize it in place with bulky dressings
+- Remove it promptly to control bleeding | The object may be tamponading vessels.
+- Twist it gently to check how deep it lies | Movement causes further injury.
+- Shorten it by bending it at the skin | Bending transmits force to the tissues.
+= Impaled objects are secured and removed only in the operating room where bleeding can be controlled.
+
+? A patient has fractures of the right ninth to eleventh ribs and right upper quadrant tenderness after a fall. Which injury should the nurse anticipate?
++ Liver laceration
+- Splenic rupture | The spleen lies under the left lower ribs.
+- Pancreatic transection | That follows mid-epigastric impact.
+- Sigmoid perforation | The sigmoid is in the left lower quadrant.
+= Lower right rib fractures are associated with injury to the underlying liver.
+
+? Twelve hours after a fall, a patient develops bruising over both flanks. What does this finding suggest?
++ Retroperitoneal bleeding
+- Superficial abrasion from the fall | Delayed flank bruising has a deeper source.
+- An allergic reaction to contrast | Contrast reactions cause hives, not flank ecchymosis.
+- Liver failure | Hepatic failure does not cause this localized pattern.
+= Grey Turner's sign, flank ecchymosis, appears hours after retroperitoneal hemorrhage.
+
+? A patient with a pelvic fracture has suprapubic pain, cannot void and has gross hematuria after catheter placement. Which study should the nurse anticipate?
++ A retrograde cystogram
+- An intravenous pyelogram alone | It poorly evaluates the bladder.
+- A plain abdominal film alone | Plain films cannot show a bladder tear.
+- A scrotal ultrasound | It does not evaluate the bladder.
+= Gross hematuria with a pelvic fracture suggests bladder rupture, which is confirmed by a cystogram.
+
+@ 3.4
+? Six hours after a cast was applied for a tibial fracture, a patient reports severe, deep pain that opioids do not relieve and that worsens when the toes are passively extended. What is the nurse's interpretation?
++ Developing compartment syndrome
+- Normal fracture pain | Pain out of proportion that worsens with passive stretch is a warning sign.
+- Deep vein thrombosis | Thrombosis does not cause pain on passive stretch this early.
+- Opioid tolerance | Tolerance does not explain stretch pain.
+= Pain out of proportion to the injury and pain with passive stretch are the earliest signs of compartment syndrome.
+
+? For a patient with suspected compartment syndrome in a casted leg, which action should the nurse take while awaiting the surgeon?
++ Have the cast split and keep the limb at heart level
+- Elevate the leg high on several pillows | Elevation lowers arterial inflow to tissue already under pressure.
+- Apply ice packs around the cast | Cold causes vasoconstriction and worsens ischemia.
+- Give more opioid and recheck in two hours | Waiting risks irreversible muscle and nerve death.
+= Constriction is released and the limb is kept level to preserve perfusion pressure until fasciotomy.
+
+? A nurse says compartment syndrome is unlikely because the pedal pulse is still present. Why is this incorrect?
++ Loss of the pulse is a late finding that appears after tissue damage
+- A pulse is never present distal to a fracture | Pulses are usually present in an uncomplicated fracture.
+- The pulse is an early and reliable sign | Arterial flow persists until compartment pressure is very high.
+- Pulses cannot be felt through swelling | Swelling does not make this assessment meaningless.
+= Compartment pressures compromise capillary perfusion long before they occlude arteries.
+
+? A patient has an open tibial fracture with bone visible. What should the nurse do first after hemorrhage is controlled?
++ Cover the wound with a sterile saline dressing and prepare IV antibiotics
+- Push the bone end back under the skin | Reduction outside surgery drags contamination into the wound.
+- Scrub the bone with antiseptic solution | Antiseptics damage tissue and do not replace surgical debridement.
+- Leave the wound uncovered for inspection | An open wound needs protection from further contamination.
+= Open fractures are covered, splinted and given early IV antibiotics and tetanus prophylaxis before operative debridement.
+
+? A patient has an isolated closed mid-shaft femur fracture with a shortened, painful thigh. Which device is appropriate?
++ A traction splint
+- A sling and swathe | Those immobilize the upper limb.
+- A knee immobilizer alone | It does not control femoral shaft displacement.
+- A pelvic binder | A binder stabilizes the pelvic ring, not the femoral shaft.
+= Traction splinting realigns a mid-shaft femur fracture, relieving pain and limiting bleeding into the thigh.
+
+? Two days after a femur fracture, a patient becomes confused and short of breath with tiny red spots across the chest and axillae. What does the nurse suspect?
++ Fat embolism syndrome
+- Opioid overdose | Opioids do not cause a petechial rash.
+- Pneumonia | Pneumonia does not cause petechiae and confusion together.
+- Allergic reaction | Allergy causes hives, not petechiae.
+= Hypoxemia, neurologic change and petechiae 24-72 hours after a long-bone fracture form the classic triad of fat embolism.
+
+? A patient arrives with an amputated thumb carried in a cup. How should the nurse care for the amputated part?
++ Wrap it in saline-moistened gauze, seal it in a bag and place the bag on ice water
+- Place it directly on ice | Direct contact freezes and destroys the tissue.
+- Soak it in a container of sterile water | Soaking macerates the tissue.
+- Keep it warm under a blanket | Warmth shortens the time the part stays viable.
+= The part is kept cool but not frozen and not soaked, to preserve it for possible replantation.
+
+? A front-seat passenger whose knees struck the dashboard has a shortened, internally rotated, adducted right leg. Why is prompt reduction essential?
++ To reduce the risk of avascular necrosis of the femoral head
+- To prevent leg-length growth disturbance | Growth plates are not the adult concern.
+- To prevent a fat embolism | Dislocation does not cause fat embolism.
+- To allow immediate weight bearing | Early weight bearing is not the goal.
+= A posterior hip dislocation threatens the blood supply to the femoral head, and delay beyond about six hours raises the risk of necrosis.
+
+? A patient's knee dislocation reduced spontaneously before arrival. The foot is warm with palpable pulses. Which assessment is still essential?
++ Ankle-brachial index and serial vascular checks
+- A single pulse check, then discharge | Popliteal injury can be present despite palpable pulses.
+- Range-of-motion testing only | Motion testing does not assess the artery.
+- A straight-leg raise test | That evaluates nerve root irritation.
+= Knee dislocation carries a high rate of popliteal artery injury, which may present late with intimal tears.
+
+? A man is freed after his legs were trapped under a collapsed wall for six hours. Which complication should the nurse anticipate?
++ Hyperkalemia and myoglobin-induced kidney injury
+- Hypokalemia and polyuria | Muscle breakdown releases potassium, and urine output falls.
+- Hypercalcemia and constipation | Calcium usually falls early as it deposits in injured muscle.
+- Metabolic alkalosis | Crush injury produces acidosis.
+= Reperfusion of crushed muscle releases potassium and myoglobin, causing dysrhythmias and renal failure; aggressive fluids are started early.
+
+@ 3.5
+? A gardener has a deep laceration contaminated with soil. His last tetanus booster was seven years ago and he completed the primary series. What does he need?
++ A tetanus toxoid-containing booster
+- Nothing, because he is covered for ten years | Dirty wounds need a booster if more than five years have passed.
+- Tetanus immune globulin only | Immune globulin is for those without a complete primary series.
+- Both booster and immune globulin | Immune globulin is unnecessary with a complete primary series.
+= For contaminated wounds a booster is given when the last dose was more than five years ago; for clean minor wounds the interval is ten years.
+
+? A patient with a puncture wound from a rusty nail has never been vaccinated against tetanus. What should the nurse anticipate?
++ Tetanus immune globulin and the first dose of vaccine at separate sites
+- Vaccine alone | Vaccine takes weeks to protect an unimmunized person.
+- Immune globulin alone | Passive protection is short lived and active immunity is still needed.
+- Oral antibiotics alone | Antibiotics do not neutralize tetanus toxin.
+= Unimmunized patients with tetanus-prone wounds receive passive protection with immune globulin plus active immunization.
+
+? Which intervention does the most to prevent infection in a contaminated laceration?
++ High-volume irrigation under pressure
+- Soaking the wound in povidone-iodine | Soaking does not remove debris and antiseptics damage tissue.
+- Pouring hydrogen peroxide into the wound | Peroxide is toxic to healing tissue.
+- Applying antibiotic ointment before closure | Ointment does not remove bacteria or debris.
+= Mechanical irrigation with saline or clean water removes bacteria and foreign material and is the key step in wound care.
+
+? During infiltration of lidocaine for a large laceration repair, the patient reports numbness around the mouth, ringing in the ears and a metallic taste. What should the nurse do?
++ Ask the provider to stop the injection and prepare for possible seizures
+- Reassure the patient that this is normal | These are early signs of systemic toxicity.
+- Encourage slow deep breathing only | Breathing techniques do not treat toxicity.
+- Offer a sip of water for the taste | That ignores an evolving emergency.
+= Perioral numbness, tinnitus and a metallic taste precede seizures and cardiac collapse in local anaesthetic toxicity; lipid emulsion is the antidote.
+
+? Which wound is the best candidate for delayed rather than immediate closure?
++ A deep puncture wound to the foot sustained 14 hours ago
+- A clean facial laceration from glass two hours ago | Fresh clean facial wounds are closed primarily.
+- A clean kitchen-knife cut to the forearm one hour ago | A fresh clean wound is closed primarily.
+- A shallow scalp laceration three hours old | Scalp wounds heal well with primary closure.
+= Old, contaminated or puncture wounds carry a high infection risk and are left open or closed later.
+
+? A painter accidentally injected his fingertip with a high-pressure paint sprayer. There is only a pinpoint wound and mild discomfort. What is the priority?
++ Emergent hand surgery consultation
+- Cleaning the wound and discharge | The small entry wound hides extensive deep injury.
+- A digital block and warm soaks | These delay definitive care and soaks may spread the material.
+- Oral antibiotics and next-week follow-up | Delay leads to tissue necrosis and amputation.
+= High-pressure injection drives material along tendon sheaths; early surgical debridement is needed despite a benign appearance.
+
+? A man has a small laceration over the knuckle of his dominant hand after punching someone in the mouth. How should this wound be managed?
++ Irrigate thoroughly, leave it open and give antibiotics
+- Close it with tissue adhesive | Sealing a human bite traps virulent bacteria.
+- Suture it tightly to protect the joint | Closure markedly raises infection risk.
+- Apply a bandage and no other treatment | These wounds frequently involve the joint and become infected.
+= A clenched-fist injury is a human bite that often enters the joint; it is explored, irrigated, left open and treated with antibiotics.
+
+? A machine has stripped the skin from the back of a worker's hand, leaving a flap attached at one edge. How should the nurse handle the flap?
++ Rinse gently, lay it back in position and cover with a moist saline dressing
+- Trim the flap off to tidy the wound | Viable skin may be needed for coverage.
+- Leave the flap hanging and apply dry gauze | Tension and drying kill the flap.
+- Apply a tight elastic bandage | Pressure compromises the flap's blood supply.
+= Avulsed or degloved tissue is preserved, kept moist and protected until a surgeon decides on its viability.
+
+? A patient with diabetes has a leg wound with rapidly spreading redness, pain far out of proportion, grey blisters and a crackling feel under the skin. Temperature is 39.4 C and HR 126. What is needed?
++ Urgent surgical debridement and broad-spectrum IV antibiotics
+- Oral antibiotics and a recheck in 48 hours | The infection will progress within hours.
+- Warm compresses and limb elevation | Local measures do not halt necrosis.
+- A topical antifungal cream | The infection is deep and bacterial.
+= Pain out of proportion, crepitus, bullae and systemic toxicity indicate necrotizing soft tissue infection, a surgical emergency.
+
+? A child had a cheek laceration sutured today. When should the nurse tell the parents to return for suture removal?
++ In three to five days
+- In ten to fourteen days | That interval is for joints and the back and causes facial scarring.
+- In three weeks | Sutures left this long leave track marks.
+- Only if the sutures do not fall out | Non-absorbable sutures must be removed.
+= Facial sutures are removed early, at about three to five days, to minimize scarring.

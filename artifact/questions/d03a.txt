@@ -1,0 +1,215 @@
+# Domain 3 — Trauma & Multisystem Shock (topics 0-2)
+
+@ 3.0
+? A motorcyclist arrives with bright red blood spurting from a mangled lower leg. He is moaning and breathing spontaneously. What is the first action in the primary survey?
++ Control the bleeding with direct pressure or a tourniquet
+- Apply a cervical collar and backboard | Spinal precautions matter, but exsanguination kills first.
+- Insert two large-bore IV lines | Access cannot replace blood that is still being lost.
+- Obtain a full set of vital signs | Measurement does not treat an immediately lethal problem.
+= Obvious life-threatening external hemorrhage is controlled first, before the airway is addressed.
+
+? An unresponsive driver from a rollover crash has gurgling respirations. How should the nurse open the airway?
++ Jaw thrust with manual stabilization of the cervical spine
+- Head tilt with chin lift | Extending the neck may worsen an unstable cervical injury.
+- Turning the head to one side | Rotation moves a possibly injured spine.
+- Flexing the neck forward on a pillow | Flexion narrows the airway and endangers the cord.
+= In trauma the airway is opened with a jaw thrust while the head is held in neutral alignment, then suctioned.
+
+? A trauma patient opens his eyes only to pain, makes incomprehensible sounds and withdraws from pain. What is his Glasgow Coma Scale score, and what does it mean for the airway?
++ 8; a definitive airway is needed
+- 11; observation is adequate | The score is overcounted.
+- 5; care should be withdrawn | The score is undercounted and does not decide prognosis.
+- 13; a nasal cannula is adequate | The score is overcounted and the airway is at risk.
+= Eyes 2, verbal 2 and motor 4 total 8; a score of 8 or less usually means the airway cannot be protected.
+
+? During the exposure step of the primary survey, the patient's clothing has been cut away and injuries inspected. What must the nurse do next?
++ Cover the patient with warm blankets and warm the room
+- Leave the patient uncovered for repeat inspection | Prolonged exposure causes hypothermia.
+- Apply ice packs to all contusions | Cooling adds to heat loss in a trauma patient.
+- Give room-temperature fluids rapidly | Unwarmed fluids lower the core temperature.
+= Trauma patients lose heat quickly, and hypothermia worsens coagulopathy and acidosis, so warming follows exposure at once.
+
+? While performing the secondary survey the nurse finds that the patient has become newly confused with a falling blood pressure. What is the correct response?
++ Stop and return to the primary survey
+- Finish the head-to-toe assessment first | A change in condition takes priority over completing the survey.
+- Record the change and reassess in 15 minutes | Deterioration needs immediate re-evaluation.
+- Move directly to the CT scanner | An unstable patient should be reassessed and stabilized first.
+= Any deterioration prompts immediate reassessment of airway, breathing, circulation and disability.
+
+? Which combination is known as the lethal triad of trauma?
++ Hypothermia, acidosis and coagulopathy
+- Hypertension, bradycardia and irregular breathing | That is Cushing's triad of raised intracranial pressure.
+- Hypotension, muffled heart sounds and distended neck veins | That is Beck's triad of tamponade.
+- Fever, jaundice and right upper quadrant pain | That is Charcot's triad of cholangitis.
+= Hypothermia, acidosis and coagulopathy reinforce one another and drive mortality in the bleeding patient.
+
+? A patient with facial fractures and clear fluid draining from the nose needs gastric decompression. Which route should the nurse use?
++ Orogastric
+- Nasogastric | A nasal tube can pass through a fractured cribriform plate into the cranium.
+- Nasoduodenal | Any nasal route carries the same risk.
+- No decompression is ever allowed | Decompression is permitted by the oral route.
+= Midface or suspected basilar skull fractures contraindicate nasal tubes; the oral route is used.
+
+? A man who fell astride a beam has blood at the urethral meatus and a scrotal hematoma. A urinary catheter is ordered. What should the nurse do?
++ Withhold insertion and anticipate a retrograde urethrogram
+- Insert a smaller catheter gently | Any blind catheterization can complete a partial urethral tear.
+- Insert the catheter and report bleeding afterwards | The damage would already be done.
+- Ask the patient to bear down during insertion | Straining does not make insertion safe.
+= Blood at the meatus, perineal or scrotal hematoma or a high-riding prostate suggest urethral injury, which is imaged before catheterization.
+
+? What is the main purpose of log-rolling a trauma patient during the secondary survey?
++ To inspect and palpate the back while keeping the spine aligned
+- To check the patient's ability to cooperate | Cooperation is not the purpose.
+- To drain blood from the chest | Positioning is not used to drain a hemothorax.
+- To relieve pressure on the abdomen | That is not the reason for the maneuver.
+= The posterior surfaces hide wounds, deformity and spinal tenderness; the roll is performed with the spine held in line.
+
+? An adult struck by a car is alert with stable vital signs. Which history element is most useful for predicting hidden injuries?
++ Mechanism of injury, such as vehicle speed and point of impact
+- The patient's occupation | Occupation does not predict injury pattern.
+- The time of the last tetanus booster | Tetanus status matters later for wounds.
+- The patient's insurance carrier | It has no clinical relevance.
+= Mechanism and energy transfer guide the search for occult injuries when the initial examination is reassuring.
+
+@ 3.1
+? A chainsaw injury to the thigh continues to bleed briskly through a pressure dressing held firmly for several minutes. What is the next step?
++ Apply a tourniquet above the wound
+- Remove the dressing to inspect the wound again | Lifting the dressing disrupts any clot that has formed.
+- Elevate the leg and continue as before | Elevation alone will not stop arterial bleeding.
+- Apply a cold pack over the dressing | Cold does not control arterial hemorrhage.
+= When direct pressure fails to control life-threatening extremity bleeding, a tourniquet is applied.
+
+? Where and how should a limb tourniquet be applied?
++ Two to three inches above the wound, tightened until bleeding stops
+- Directly over the wound, tightened until uncomfortable | It must be proximal and tight enough to occlude arterial flow.
+- Over the nearest joint for better grip | Joints prevent effective compression of the artery.
+- Loosely, so venous return is preserved | A loose tourniquet blocks veins only and increases bleeding.
+= A tourniquet goes proximal to the wound, not over a joint, and is tightened until bleeding stops; the time is recorded.
+
+? Twenty minutes after a tourniquet controlled a brachial artery bleed, the patient begs to have it loosened because of pain. What should the nurse do?
++ Leave it in place and treat the pain
+- Loosen it briefly every ten minutes | Intermittent release causes rebleeding and clot loss.
+- Remove it and reapply pressure dressings | Removal belongs to the surgical team once control is possible.
+- Move it further down the arm | Repositioning distal to the wound would not control bleeding.
+= Tourniquet pain is expected; the device stays on until definitive hemorrhage control is available.
+
+? A stab wound high in the groin is bleeding heavily and is too proximal for a tourniquet. Which technique should be used?
++ Pack the wound tightly with hemostatic gauze and hold firm pressure
+- Cover the wound with a loose sterile dressing | A loose dressing exerts no pressure on the vessel.
+- Apply a tourniquet around the waist | A tourniquet cannot compress junctional vessels.
+- Clamp blindly into the wound | Blind clamping injures nerves and vessels.
+= Junctional bleeding in the groin, axilla or neck is controlled by deep wound packing and sustained direct pressure.
+
+? A massive transfusion protocol is activated for a patient with a shattered pelvis. In what ratio should blood components be given?
++ About 1 red cell unit to 1 plasma to 1 platelet
+- 6 red cell units before any plasma | Delaying plasma and platelets worsens dilutional coagulopathy.
+- Plasma only until the laboratory results return | Red cells are needed for oxygen delivery.
+- 3 L of crystalloid for every red cell unit | Large crystalloid volumes dilute clotting factors.
+= Balanced resuscitation approximating whole blood (1:1:1) reduces death from hemorrhage.
+
+? A patient with hemorrhagic shock arrives 90 minutes after injury. Which medication should the nurse anticipate to reduce bleeding?
++ Tranexamic acid
+- Vitamin K | Vitamin K acts slowly and treats warfarin effect.
+- Protamine sulfate | Protamine reverses heparin.
+- Desmopressin as the first-line agent | It is not the standard antifibrinolytic in trauma.
+= Tranexamic acid inhibits clot breakdown and lowers mortality when given within three hours of injury.
+
+? During a massive transfusion the patient develops perioral tingling, hypotension and a prolonged QT interval. What is the likely cause?
++ Hypocalcemia from the citrate in stored blood
+- Hyperkalemia from red cell breakdown | Hyperkalemia peaks T waves rather than lengthening the QT.
+- Hypermagnesemia | Magnesium excess is not a transfusion effect.
+- Fluid overload | Overload causes crackles and hypertension, not these findings.
+= Citrate binds ionized calcium; rapid transfusion requires calcium monitoring and replacement.
+
+? A patient with a penetrating abdominal wound is alert with BP 86/54 while the operating room is prepared. What is the appropriate fluid strategy?
++ Limit fluids and accept a low-normal pressure until bleeding is controlled
+- Give crystalloid until the systolic pressure exceeds 120 | Raising pressure dislodges clots and dilutes clotting factors.
+- Withhold all blood products until surgery | Blood is the appropriate resuscitation fluid.
+- Start a vasopressor to normalize pressure | Pressors do not replace volume and worsen tissue perfusion.
+= Permissive hypotension in penetrating torso trauma limits bleeding until surgical control, provided there is no head injury.
+
+? A 24-year-old woman in hemorrhagic shock needs blood before her type is known. Which red cells should be issued?
++ O negative
+- O positive | Rh-positive blood risks sensitizing a woman of childbearing age.
+- AB positive | AB red cells are compatible only with AB recipients.
+- A negative | Type A cells are unsafe for an unknown recipient.
+= O-negative red cells are given to females of childbearing potential to avoid Rh sensitization.
+
+? Which finding is the earliest sign of hemorrhagic shock in a previously healthy adult?
++ Tachycardia with a narrowed pulse pressure
+- A systolic pressure below 90 mmHg | Hypotension appears only after about 30% of blood volume is lost.
+- Absent urine output | Anuria is a late sign.
+- Unresponsiveness | Coma indicates profound, late shock.
+= Compensation maintains systolic pressure early; rising heart rate and narrowing pulse pressure appear first.
+
+@ 3.2
+? A patient stabbed in the right chest has severe dyspnea, BP 76/40, distended neck veins and absent breath sounds on the right. What should the nurse prepare for immediately?
++ Needle decompression of the right chest
+- A portable chest radiograph to confirm | The diagnosis is clinical and waiting for imaging can be fatal.
+- Pericardiocentesis | Unilateral absent breath sounds point to the pleura, not the pericardium.
+- Rapid sequence intubation first | Positive pressure will worsen an undrained tension pneumothorax.
+= Tension pneumothorax is treated on clinical findings with immediate decompression, followed by a chest tube.
+! Preferred adult decompression site (4th-5th intercostal space anterior to the mid-axillary line vs 2nd intercostal space mid-clavicular) varies by course edition.
+
+? A patient has a gunshot wound to the chest that makes a sucking sound with each breath. Which dressing is appropriate?
++ A vented chest seal or an occlusive dressing taped on three sides
+- A dry gauze pad taped loosely | Gauze lets air continue to enter the pleural space.
+- A fully sealed dressing taped on all four sides | A complete seal can convert the wound to a tension pneumothorax.
+- A wet-to-dry dressing | It does not prevent air entry.
+= A one-way seal stops air entering during inspiration while letting it escape during expiration.
+
+? After an occlusive dressing is applied to an open chest wound, the patient becomes more dyspneic and hypotensive with tracheal deviation. What should the nurse do first?
++ Lift one edge of the dressing to release trapped air
+- Tape the dressing down more firmly | A tighter seal traps more air.
+- Place the patient flat with legs raised | Positioning does not relieve intrapleural pressure.
+- Give a sedative for anxiety | The distress has a mechanical cause.
+= Trapped air under a sealed dressing causes tension physiology; briefly opening the seal lets it escape.
+
+? A chest tube placed for a hemothorax drains 1,600 mL of blood immediately. What does the nurse anticipate?
++ Preparation for the operating room
+- Clamping the tube to slow the loss | Clamping hides ongoing bleeding and compresses the lung.
+- Removing the chest tube | The tube is needed to monitor output.
+- Routine observation on a general unit | This volume signals a surgical bleed.
+= Initial output over 1,500 mL, or continuing loss above 200 mL per hour, indicates massive hemothorax needing thoracotomy.
+
+? A segment of the left chest wall moves inward on inspiration and outward on expiration after a crash. What is the priority for this patient?
++ Oxygen, effective analgesia and monitoring for respiratory failure
+- Sandbags placed on the loose segment | External splinting restricts ventilation.
+- Tight circumferential chest strapping | Binding promotes atelectasis and pneumonia.
+- Fluid boluses to expand the lungs | Excess fluid worsens the underlying contusion.
+= Flail chest impairs ventilation mainly through pain and the pulmonary contusion beneath it.
+
+? A patient with a pulmonary contusion had SpO2 97% on arrival. Eight hours later it is 89% with increasing work of breathing. How should the nurse interpret this?
++ Expected progression of the contusion that needs escalation of respiratory support
+- A sign that the pulse oximeter is faulty | The change fits the natural course of contusion.
+- Anxiety that needs reassurance only | Falling saturation has a physical cause.
+- Evidence that too little IV fluid was given | Extra fluid aggravates contused lung.
+= Pulmonary contusion worsens over 24-48 hours as edema and hemorrhage fill the alveoli.
+
+? The nurse notes continuous bubbling in the water-seal chamber of a chest drainage system. What does this indicate?
++ An air leak in the patient or the system
+- Normal function of the suction control | Suction bubbling occurs in the suction chamber, not the water seal.
+- A blocked chest tube | Obstruction stops fluctuation rather than causing bubbling.
+- Full re-expansion of the lung | Re-expansion ends bubbling and tidaling.
+= Continuous water-seal bubbling means air is entering the system; connections and the insertion site are checked.
+
+? A driver whose chest struck the steering wheel has a sternal fracture and new frequent premature ventricular contractions. What should the nurse suspect?
++ Blunt cardiac injury
+- Costochondritis | Inflammation of cartilage does not cause dysrhythmias.
+- Esophageal rupture | Rupture causes mediastinal air and fever, not ectopy.
+- Gastroesophageal reflux | Reflux does not follow blunt trauma in this way.
+= Anterior chest impact can bruise the myocardium; a 12-lead ECG and cardiac monitoring are indicated.
+
+? A patient who fell 30 feet has chest pain, a widened mediastinum on chest radiograph and unequal arm pressures. Which injury is most likely?
++ Traumatic aortic injury
+- Simple rib fracture | Rib fractures do not widen the mediastinum.
+- Tracheobronchial tear | That causes air leak and subcutaneous emphysema.
+- Diaphragmatic rupture | That shows bowel in the chest.
+= Rapid deceleration tears the aorta near the ligamentum arteriosum, widening the mediastinum.
+
+? An 81-year-old has four right-sided rib fractures after a fall. Which intervention best prevents complications?
++ Adequate analgesia with deep breathing and incentive spirometry
+- A rib belt to limit chest movement | Binders reduce ventilation and promote pneumonia.
+- Strict bed rest for a week | Immobility increases pulmonary complications.
+- Withholding opioids to avoid sedation | Uncontrolled pain causes splinting and atelectasis.
+= Older adults with multiple rib fractures are at high risk of pneumonia; pain control allows deep breathing and coughing.
