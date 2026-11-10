@@ -1,0 +1,226 @@
+[
+  {
+    "id": "PHYS-001",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client with end-stage renal disease misses two hemodialysis sessions and reports muscle weakness and tingling around the mouth. The nurse obtains a 12-lead ECG. Which finding is most consistent with the suspected electrolyte imbalance?",
+    "options": [
+      "Prolonged QT interval with flattened T waves",
+      "Tall, peaked T waves with widened QRS complex",
+      "Prominent U waves with ST segment depression",
+      "Shortened QT interval with tall P waves"
+    ],
+    "answer": [1],
+    "rationale": "Missed dialysis leads to potassium retention and hyperkalemia. Classic ECG changes of hyperkalemia progress from tall, peaked T waves to a widened QRS complex and, if untreated, to a sine-wave pattern and cardiac arrest. Prolonged QT with flattened T waves and prominent U waves with ST depression are findings of hypokalemia, not hyperkalemia, and a shortened QT interval with tall P waves is not a recognized hyperkalemia pattern.",
+    "nursing_concept": "Hyperkalemia — ECG recognition"
+  },
+  {
+    "id": "PHYS-002",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client's potassium level results at 6.8 mEq/L (6.8 mmol/L) and the ECG shows peaked T waves and a widened QRS. Which prescribed intervention should the nurse anticipate administering first?",
+    "options": [
+      "Sodium polystyrene sulfonate orally",
+      "IV calcium gluconate",
+      "IV regular insulin with dextrose",
+      "Oral potassium-restricted diet teaching"
+    ],
+    "answer": [1],
+    "rationale": "When hyperkalemia produces ECG changes suggesting cardiac membrane instability, the priority is to stabilize the cardiac cell membrane with IV calcium gluconate, which acts within minutes but does not lower the serum potassium level. Insulin with dextrose and sodium polystyrene sulfonate both lower or remove potassium but act more slowly and do not protect the heart in the interim; dietary teaching is not an acute emergency intervention.",
+    "nursing_concept": "Hyperkalemia — cardiac membrane stabilization priority"
+  },
+  {
+    "id": "PHYS-003",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client is admitted with severe hyponatremia (serum sodium 118 mEq/L [118 mmol/L]). Which assessment findings should the nurse expect? Select all that apply.",
+    "options": [
+      "Confusion and lethargy",
+      "Headache",
+      "Seizures",
+      "Muscle cramps",
+      "Positive Chvostek's sign",
+      "Polyuria with dilute urine",
+      "Hyperreflexia with tremors"
+    ],
+    "answer": [0, 1, 2, 3],
+    "rationale": "Severe hyponatremia causes cerebral edema from water shifting into brain cells, producing neurologic manifestations such as confusion, lethargy, headache, seizures, and coma, along with muscle cramps and weakness from altered neuromuscular excitability. A positive Chvostek's sign and hyperreflexia/tremors are characteristic of hypocalcemia and hypomagnesemia, not hyponatremia, and polyuria with dilute urine is a finding of diabetes insipidus, which would cause hypernatremia, not hyponatremia.",
+    "nursing_concept": "Severe hyponatremia — neurologic manifestations"
+  },
+  {
+    "id": "PHYS-004",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who is 24 hours postoperative following a total thyroidectomy reports tingling around the lips and fingertips. The nurse taps the facial nerve just anterior to the ear and observes twitching of the facial muscles on that side. Which imbalance does this finding suggest?",
+    "options": [
+      "Hypercalcemia",
+      "Hypocalcemia",
+      "Hypernatremia",
+      "Hypomagnesemia is ruled out by this finding"
+    ],
+    "answer": [1],
+    "rationale": "A positive Chvostek's sign (facial muscle twitching when the facial nerve is tapped) along with perioral and fingertip tingling suggests hypocalcemia, a known risk after thyroidectomy if the parathyroid glands are inadvertently damaged or removed, since the parathyroid glands regulate calcium. Hypercalcemia produces the opposite picture (lethargy, weakness, decreased reflexes), and hypernatremia does not classically cause this sign. Hypomagnesemia can also cause a positive Chvostek's sign and is not ruled out by this finding, making that option incorrect as stated.",
+    "nursing_concept": "Post-thyroidectomy hypocalcemia — Chvostek's sign"
+  },
+  {
+    "id": "PHYS-005",
+    "category": "Physiological Adaptation",
+    "subcategory": "Hemodynamics",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "A client who sustained a traumatic abdominal injury has a heart rate of 118 beats/min, blood pressure of 108/76 mmHg, respiratory rate of 24 breaths/min, cool clammy skin, and mild anxiety. Urine output over the last hour is 35 mL. Which stage of shock does this presentation reflect?",
+    "options": [
+      "Compensated (early) shock",
+      "Decompensated (progressive) shock",
+      "Irreversible shock",
+      "Neurogenic shock with bradycardia"
+    ],
+    "answer": [0],
+    "rationale": "In compensated (early) shock, sympathetic nervous system activation maintains blood pressure within a near-normal range through tachycardia and vasoconstriction (cool, clammy skin) even as perfusion begins to suffer, and urine output typically remains marginal but present. Decompensated shock features hypotension and significantly falling urine output as compensatory mechanisms fail. Irreversible shock involves multi-organ failure unresponsive to treatment. Neurogenic shock classically presents with bradycardia and warm, dry skin from loss of sympathetic tone, which does not match this presentation.",
+    "nursing_concept": "Stages of shock — recognizing compensated shock"
+  },
+  {
+    "id": "PHYS-006",
+    "category": "Physiological Adaptation",
+    "subcategory": "Hemodynamics",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A client in the intensive care unit develops septic shock. Which assessment findings are consistent with the decompensated (progressive) stage of septic shock? Select all that apply.",
+    "options": [
+      "Systolic blood pressure of 78 mmHg despite fluid resuscitation",
+      "Urine output of 10 mL/hr",
+      "Serum lactate of 6 mmol/L",
+      "Mottled, cool extremities with delayed capillary refill",
+      "Alert and fully oriented mental status",
+      "Heart rate of 142 beats/min with a thready pulse"
+    ],
+    "answer": [0, 1, 2, 3, 5],
+    "rationale": "Decompensated (progressive) shock reflects failing compensatory mechanisms: hypotension unresponsive to initial fluids, oliguria, elevated lactate from anaerobic metabolism and poor tissue perfusion, mottled/cool skin from severe peripheral vasoconstriction, and a rapid, weak (thready) pulse as cardiac output falls. Being alert and fully oriented is inconsistent with progressive shock, in which decreased cerebral perfusion typically causes confusion, restlessness, or decreasing level of consciousness.",
+    "nursing_concept": "Septic shock — decompensated stage findings"
+  },
+  {
+    "id": "PHYS-007",
+    "category": "Physiological Adaptation",
+    "subcategory": "Medical Emergencies",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client receiving an IV antibiotic infusion suddenly develops facial and tongue swelling, audible stridor, widespread urticaria, and a blood pressure of 78/44 mmHg. Place the nurse's actions in the priority order in which they should be performed.",
+    "options": [
+      "Administer intramuscular epinephrine",
+      "Stop the antibiotic infusion and disconnect the IV tubing at the port closest to the client",
+      "Call for the rapid response/emergency team and prepare for possible advanced airway management",
+      "Give supplemental oxygen and place the client in a supine position with legs elevated as tolerated",
+      "Initiate a rapid infusion of IV isotonic fluids"
+    ],
+    "answer": [1, 0, 2, 3, 4],
+    "rationale": "For suspected anaphylaxis, the first action is to stop the causative agent by discontinuing the infusion and disconnecting the tubing at the client so no further drug is delivered. Epinephrine IM is the priority life-saving medication and should be given immediately next, before other supportive measures. The nurse then calls for emergency assistance and prepares for a possible advanced airway, since laryngeal edema/stridor can progress to airway obstruction. Supplemental oxygen and positioning to support perfusion follow, and rapid IV fluid administration to treat hypotension/distributive shock comes after the airway and epinephrine priorities are addressed.",
+    "nursing_concept": "Anaphylaxis — emergency response sequence"
+  },
+  {
+    "id": "PHYS-008",
+    "category": "Physiological Adaptation",
+    "subcategory": "Unexpected Response to Therapies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Within 5 minutes of starting a first-time infusion of an IV antibiotic, a client reports a feeling of impending doom, develops audible wheezing, and the nurse notes a new diffuse hive-like rash. What is the nurse's priority action?",
+    "options": [
+      "Slow the infusion rate and reassess in 15 minutes",
+      "Administer oral diphenhydramine and continue the infusion",
+      "Stop the infusion immediately and prepare to administer epinephrine",
+      "Apply a cool compress to the rash and document the finding"
+    ],
+    "answer": [2],
+    "rationale": "A sense of impending doom, wheezing, and urticaria shortly after starting a new IV medication are signs of anaphylaxis, a life-threatening hypersensitivity reaction. The priority is to stop the infusion immediately to halt further antigen exposure and prepare to administer epinephrine, the first-line treatment. Slowing the infusion (A) or continuing it after only an oral antihistamine (B) allows continued exposure to the trigger, and treating the rash alone (D) ignores the systemic, airway-threatening nature of the reaction.",
+    "nursing_concept": "Anaphylaxis — priority action on recognition"
+  },
+  {
+    "id": "PHYS-009",
+    "category": "Physiological Adaptation",
+    "subcategory": "Pathophysiology",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client with type 1 diabetes presents with Kussmaul respirations, fruity-smelling breath, a blood glucose of 480 mg/dL (26.6 mmol/L), and arterial blood gas results showing pH 7.22 and serum bicarbonate 12 mEq/L (12 mmol/L). Which condition is most consistent with this presentation?",
+    "options": [
+      "Hyperosmolar hyperglycemic state",
+      "Diabetic ketoacidosis",
+      "Somogyi effect",
+      "Dawn phenomenon"
+    ],
+    "answer": [1],
+    "rationale": "Kussmaul respirations (deep, rapid breathing to blow off CO2), fruity/acetone breath odor, hyperglycemia, and a metabolic acidosis with low pH and low bicarbonate are hallmark findings of diabetic ketoacidosis (DKA), caused by absolute insulin deficiency and ketone body production, most common in type 1 diabetes. Hyperosmolar hyperglycemic state typically presents with much higher glucose levels, profound dehydration, and minimal to no ketoacidosis because some residual insulin is present. The Somogyi effect and dawn phenomenon describe patterns of morning hyperglycemia, not an acute acidotic crisis.",
+    "nursing_concept": "DKA vs. HHS — distinguishing features"
+  },
+  {
+    "id": "PHYS-010",
+    "category": "Physiological Adaptation",
+    "subcategory": "Illness Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "hard",
+    "stem": "A client is admitted in diabetic ketoacidosis with a blood glucose of 520 mg/dL (28.9 mmol/L), blood pressure of 88/54 mmHg, and heart rate of 128 beats/min. The provider's orders include IV isotonic fluids, an IV regular insulin infusion, and potassium replacement. Which action should the nurse take first?",
+    "options": [
+      "Begin the IV regular insulin infusion",
+      "Begin IV isotonic fluid resuscitation",
+      "Administer the potassium replacement",
+      "Obtain a stat hemoglobin A1c level"
+    ],
+    "answer": [1],
+    "rationale": "In DKA management, the priority sequence is fluids first, then insulin, with careful attention to potassium. This client shows signs of significant intravascular volume depletion (hypotension, tachycardia), so IV isotonic fluid resuscitation is the first priority to restore perfusion and begin diluting the glucose concentration. Starting insulin before adequate fluid resuscitation can worsen hypotension and shift potassium intracellularly, risking dangerous hypokalemia; potassium should not be given until the client's renal function and serum potassium level are confirmed adequate. A hemoglobin A1c reflects long-term glycemic control and has no role in acute management.",
+    "nursing_concept": "DKA management — fluids before insulin"
+  },
+  {
+    "id": "PHYS-011",
+    "category": "Physiological Adaptation",
+    "subcategory": "Medical Emergencies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A client reports substernal chest pressure radiating to the left arm, diaphoresis, and nausea that began 20 minutes ago. Which action should the nurse take first?",
+    "options": [
+      "Obtain a detailed history of the client's cardiac risk factors",
+      "Notify the client's family of the symptoms",
+      "Obtain a 12-lead ECG and notify the provider immediately",
+      "Ask the client to rate the pain on a 0-10 scale before doing anything else"
+    ],
+    "answer": [2],
+    "rationale": "Chest pressure radiating to the arm with diaphoresis and nausea is a classic presentation of acute coronary syndrome. Time is myocardial tissue, so the priority is to obtain a 12-lead ECG promptly and notify the provider so reperfusion decisions can be made quickly, consistent with current emphasis on rapid ECG acquisition and door-to-treatment time goals. A detailed history and pain rating are important but should not delay ECG acquisition, and notifying the family is not a priority during an acute emergency.",
+    "nursing_concept": "Acute coronary syndrome — rapid ECG priority"
+  },
+  {
+    "id": "PHYS-012",
+    "category": "Physiological Adaptation",
+    "subcategory": "Illness Management",
+    "item_type": "sata",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "A client with a suspected infection develops a temperature of 39.4°C (102.9°F), heart rate of 128 beats/min, respiratory rate of 26 breaths/min, and blood pressure of 82/50 mmHg. The nurse suspects sepsis progressing toward septic shock. Which actions should the nurse anticipate as part of the initial sepsis management bundle? Select all that apply.",
+    "options": [
+      "Obtain blood cultures from two different sites before starting antibiotics",
+      "Administer broad-spectrum IV antibiotics as soon as possible after cultures are drawn",
+      "Begin rapid IV isotonic fluid resuscitation",
+      "Measure serum lactate level",
+      "Withhold antibiotics until culture and sensitivity results are finalized",
+      "Delay fluid resuscitation until blood pressure drops below 70 mmHg systolic"
+    ],
+    "answer": [0, 1, 2, 3],
+    "rationale": "Early recognition and management of sepsis focuses on obtaining blood cultures before starting antibiotics (so the causative organism can still be identified), giving broad-spectrum antibiotics as soon as possible afterward, beginning prompt IV fluid resuscitation to restore perfusion, and measuring serum lactate to assess tissue hypoperfusion and guide treatment. Antibiotics should never be withheld pending final culture results, as this delay increases mortality, and fluid resuscitation should begin promptly once hypoperfusion or hypotension is identified rather than waiting for further deterioration.",
+    "nursing_concept": "Sepsis recognition and early management bundle"
+  }
+]

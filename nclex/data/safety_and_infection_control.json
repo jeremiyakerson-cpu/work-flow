@@ -1,0 +1,222 @@
+[
+  {
+    "id": "SIC-001",
+    "category": "Safety and Infection Control",
+    "subcategory": "Standard/Transmission-Based/Other Precautions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A client is admitted with suspected active pulmonary tuberculosis. In addition to standard precautions, which type of isolation room and personal protective equipment should the nurse plan to use?",
+    "options": [
+      "A private room with the door left open and a standard surgical mask",
+      "An airborne infection isolation room (negative pressure) with a fit-tested N95 or higher-level respirator",
+      "A private room with the door closed and a surgical mask with eye protection",
+      "Cohorting the client with another client who has a respiratory infection, using a surgical mask"
+    ],
+    "answer": [1],
+    "rationale": "Mycobacterium tuberculosis is spread by airborne droplet nuclei (<5 microns) that remain suspended in air and travel on air currents, so airborne precautions require a negative-pressure airborne infection isolation room (AIIR) with the door closed and a fit-tested N95 respirator or powered air-purifying respirator (PAPR). A surgical mask (A, C) does not filter fine airborne particles and is used for droplet precautions, not airborne. Cohorting with another respiratory client (D) is inappropriate because the causative organisms differ and cross-contamination could occur; TB clients are not cohorted with non-TB clients.",
+    "nursing_concept": "Airborne precautions — TB, measles, varicella; AIIR + N95/PAPR"
+  },
+  {
+    "id": "SIC-002",
+    "category": "Safety and Infection Control",
+    "subcategory": "Standard/Transmission-Based/Other Precautions",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "The nurse is caring for a client placed on droplet precautions for suspected seasonal influenza. Which actions are appropriate? Select all that apply.",
+    "options": [
+      "Wear a surgical mask when within 3 to 6 feet of the client",
+      "Place the client in a private room, or cohort with another client with the same confirmed infection, per facility policy",
+      "Wear an N95 or higher-level respirator for all client contact",
+      "Perform hand hygiene before and after client contact",
+      "Instruct visitors to wear a surgical mask when in the client's room",
+      "Transport the client without a mask whenever leaving the room for tests"
+    ],
+    "answer": [0, 1, 3, 4],
+    "rationale": "Droplet precautions are used for organisms spread by large respiratory droplets (e.g., influenza, pertussis, mumps, meningococcus) that travel only short distances. A surgical mask worn within about 3-6 feet of the client (A) is sufficient — an N95 respirator (C) is reserved for airborne precautions and is not required here. A private room or cohorting with a client who has the same confirmed infection (B), hand hygiene before and after contact (D), and having visitors mask in the room (E) are all appropriate. If the client must leave the room, the client should wear a surgical mask (not go unmasked, F) to protect others in transit.",
+    "nursing_concept": "Droplet precautions — surgical mask within 3-6 ft, no negative pressure required"
+  },
+  {
+    "id": "SIC-003",
+    "category": "Safety and Infection Control",
+    "subcategory": "Standard/Transmission-Based/Other Precautions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client develops profuse watery diarrhea and is diagnosed with Clostridioides difficile infection. In addition to donning a gown and gloves for contact precautions, which hand hygiene method should the nurse use after providing care?",
+    "options": [
+      "Alcohol-based hand sanitizer only",
+      "Soap and water hand washing",
+      "Antimicrobial foam hand sanitizer",
+      "Hand hygiene is not required if gloves were worn throughout care"
+    ],
+    "answer": [1],
+    "rationale": "C. difficile produces spores that are resistant to alcohol-based hand hygiene products; only mechanical friction with soap and water reliably removes the spores from the hands. Alcohol-based gel or foam sanitizers (A, C), even antimicrobial ones, do not kill or adequately remove C. difficile spores. Gloves reduce contamination but do not eliminate the need for hand hygiene immediately after glove removal (D) — hands must always be washed.",
+    "nursing_concept": "Contact precautions — C. difficile requires soap-and-water hand hygiene, not alcohol gel"
+  },
+  {
+    "id": "SIC-004",
+    "category": "Safety and Infection Control",
+    "subcategory": "Use of Restraints/Safety Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "hard",
+    "stem": "A client with delirium repeatedly attempts to pull out an endotracheal tube despite reorientation, having a family member remain at the bedside, and use of mitts. The provider writes an order for bilateral wrist restraints. Which action should the nurse take before applying the restraints?",
+    "options": [
+      "Apply the restraints and notify the provider afterward",
+      "Verify that the order specifies the type of restraint, the behavior necessitating it, and a time limit",
+      "Sedate the client to reduce agitation and avoid needing the restraints",
+      "Delay application until written consent is obtained from the family"
+    ],
+    "answer": [1],
+    "rationale": "Restraints require a current, time-limited provider order (per facility policy, typically renewed at defined intervals, not to exceed 24 hours) that specifies the type of restraint and the specific behavior warranting its use; the nurse must confirm the order meets these criteria before applying the device. Less restrictive alternatives were already attempted, so restraints are appropriate here, but applying first and notifying later (A) reverses the correct sequence except in true self-limited emergencies where an order must still be obtained within a defined short window. Sedation alone (C) is a chemical restraint decision separate from the physical restraint order and is not a substitute for correct restraint procedure. Most facility policies do not require a separate signed family consent form before applying a clinically indicated restraint (D), though the family should be informed.",
+    "nursing_concept": "Restraint use — requires specific, time-limited provider order; least restrictive alternative first"
+  },
+  {
+    "id": "SIC-005",
+    "category": "Safety and Infection Control",
+    "subcategory": "Use of Restraints/Safety Devices",
+    "item_type": "sata",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "The nurse is caring for a client in bilateral wrist restraints applied for severe agitation that places the client at risk for self-injury. Which nursing actions are appropriate? Select all that apply.",
+    "options": [
+      "Tie the restraint straps to the movable side rails of the bed",
+      "Secure the restraint straps using a quick-release knot that can be released rapidly in an emergency",
+      "Assess circulation, skin integrity, and neurovascular status at least every 2 hours, or more often per facility policy",
+      "Release one limb at a time on a rotating schedule to allow range of motion and repositioning, per facility policy",
+      "Continue the restraints indefinitely without reassessing for a less restrictive alternative",
+      "Document the client's behavior, the less restrictive measures attempted, and the client's response to the restraints"
+    ],
+    "answer": [1, 2, 3, 5],
+    "rationale": "Restraint straps must be secured to the stationary bed frame with a quick-release knot (B), never to a movable side rail (A), because raising or lowering the rail could tighten the strap and injure the client. The nurse must assess circulation, skin integrity, and neurovascular status at least every 2 hours or more frequently per facility policy (C), release each limb periodically to allow range of motion and reposition the client (D), and document the behavior, prior less restrictive interventions, and the client's response (F). Restraints must be reassessed regularly and discontinued as soon as the client no longer meets criteria, never continued indefinitely without reassessment (E) or used for staff convenience.",
+    "nursing_concept": "Restraint safety — secure to bed frame, q2h assessment minimum, periodic release, ongoing need reassessment"
+  },
+  {
+    "id": "SIC-006",
+    "category": "Safety and Infection Control",
+    "subcategory": "Accident/Injury Prevention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "An older adult client is admitted with a Morse Fall Scale score of 65, indicating high fall risk. Which intervention should the nurse implement as the priority to reduce the client's risk of falling?",
+    "options": [
+      "Apply a vest restraint to keep the client in bed at all times",
+      "Assign the client to a room farthest from the nurses' station for a quieter environment",
+      "Keep the bed in the lowest position, ensure the call light is within reach, and provide non-skid footwear",
+      "Instruct the client to call for assistance only when getting up to use the bathroom at night"
+    ],
+    "answer": [2],
+    "rationale": "Evidence-based fall-prevention interventions include keeping the bed in the lowest position, ensuring the call light is within reach, providing non-skid footwear, clearing the path to the bathroom, and rounding frequently. Restraints (A) are not a first-line fall-prevention measure — they are a last resort after less restrictive strategies fail and can themselves increase injury risk. Placing the client farther from the nurses' station (B) delays staff response time and increases risk. Limiting assistance calls to only nighttime bathroom trips (D) is too restrictive; the client should be instructed to call for help with any transfer or ambulation.",
+    "nursing_concept": "Fall prevention — bed low, call light in reach, non-skid footwear, frequent rounding"
+  },
+  {
+    "id": "SIC-007",
+    "category": "Safety and Infection Control",
+    "subcategory": "Emergency Response Plan",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A fire alarm sounds and the nurse discovers smoke coming from a supply room on the unit. Using the RACE protocol, place the nurse's actions in the correct order.",
+    "options": [
+      "Activate the nearest fire alarm pull station and notify the hospital operator/switchboard",
+      "Extinguish the fire with a fire extinguisher if it is small and can be done safely, or close the door if it cannot be safely extinguished",
+      "Rescue and remove any clients in immediate danger from the fire or smoke",
+      "Contain the fire by closing all doors and windows in the affected area"
+    ],
+    "answer": [2, 0, 3, 1],
+    "rationale": "RACE stands for Rescue, Alarm, Contain, Extinguish. The nurse first rescues anyone in immediate danger (C), then activates the alarm and notifies the operator (A), then contains the fire by closing doors and windows to limit smoke and fire spread (D), and finally extinguishes a small, containable fire using a fire extinguisher (following the PASS technique) or closes the door and evacuates if it cannot be safely extinguished (B). Performing these steps out of order — for example extinguishing before rescuing clients or sounding the alarm — delays life-saving actions and allows the fire to spread further before help is summoned.",
+    "nursing_concept": "Fire safety — RACE sequence and PASS technique for extinguisher use"
+  },
+  {
+    "id": "SIC-008",
+    "category": "Safety and Infection Control",
+    "subcategory": "Handling Hazardous/Infectious Materials",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A nurse sustains a needlestick injury from a used insulin syringe while caring for a client whose bloodborne pathogen status is unknown. What should the nurse do first?",
+    "options": [
+      "Report the exposure to the employee/occupational health department",
+      "Wash the puncture site immediately with soap and water",
+      "Apply a tourniquet above the puncture site to prevent systemic spread",
+      "Squeeze the site repeatedly to force out as much blood as possible"
+    ],
+    "answer": [1],
+    "rationale": "The immediate first action after a needlestick or sharps injury is to wash the exposed skin thoroughly with soap and water (or flush mucous membranes with water or saline) to reduce the pathogen load at the site. Reporting the exposure to employee/occupational health (A) is essential for post-exposure evaluation and prophylaxis but occurs after this initial first aid step. Applying a tourniquet (C) is not recommended and does not reduce infection risk. Aggressively squeezing the site (D) has no proven benefit and may cause additional tissue trauma.",
+    "nursing_concept": "Sharps/needlestick injury — immediate first aid is washing with soap and water"
+  },
+  {
+    "id": "SIC-009",
+    "category": "Safety and Infection Control",
+    "subcategory": "Error Prevention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A nurse is preparing to administer a scheduled dose of oral furosemide to a client with dementia who frequently misidentifies herself. Which action best demonstrates the 'rights' of safe medication administration to prevent error?",
+    "options": [
+      "Verifying the client's identity using two identifiers and comparing the medication against the medication administration record (MAR) at the bedside immediately before giving it",
+      "Preparing the medications for all assigned clients at the start of the shift to save time later",
+      "Confirming the client's identity by asking her to state her name before giving the medication",
+      "Documenting the medication as given as soon as it is removed from the automated dispensing cabinet"
+    ],
+    "answer": [0],
+    "rationale": "The 'rights' of safe medication administration (right client, drug, dose, route, time, and documentation) are upheld by verifying identity with two identifiers — such as name and date of birth, or an armband barcode — and confirming the medication against the MAR at the bedside just before giving it. Preparing multiple clients' medications in advance (B) increases the risk of mix-ups. Relying only on a stated name (C) is unreliable, especially in a client with dementia who may misidentify herself; a second identifier (e.g., barcode scan or armband) is essential. Documenting before the dose is actually given (D) risks charting a medication as administered when it was not, violating the right documentation and creating a patient safety hazard if the nurse is interrupted.",
+    "nursing_concept": "Rights of medication administration — two identifiers, bedside verification, chart after giving"
+  },
+  {
+    "id": "SIC-010",
+    "category": "Safety and Infection Control",
+    "subcategory": "Reporting of Incident/Event/Irregular Occurrence/Variance",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A nurse administers a medication to the wrong client because of a mix-up in room numbers. The client is assessed and has no adverse effects, and the provider has been notified. What is the nurse's next priority action?",
+    "options": [
+      "Complete an incident/occurrence report as a factual, objective account of the event for the facility's quality-improvement process",
+      "Write in the client's medical record that an incident report was completed",
+      "Avoid documenting the medication error in the medical record to reduce legal liability",
+      "Wait to see if the client develops symptoms before completing any report of the event"
+    ],
+    "answer": [0],
+    "rationale": "Incident/occurrence reports are risk-management and quality-improvement tools used to identify system issues and prevent recurrence; they should be completed promptly with an objective, factual account of what happened. The medical record should contain the objective clinical facts of the event — the medication given, time, assessment findings, and provider notification — but should never state that an incident report was filed (B), since the report itself is a separate quality/risk document. The error and clinical facts must still be documented factually in the chart, not omitted (C), and reporting should not be delayed while waiting for symptoms to appear (D); the event should be reported promptly regardless of outcome.",
+    "nursing_concept": "Incident reporting — objective, non-punitive quality-improvement tool; not referenced in the chart"
+  },
+  {
+    "id": "SIC-011",
+    "category": "Safety and Infection Control",
+    "subcategory": "Ergonomic Principles",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "The nurse is preparing to reposition a client who is unable to assist with movement in bed. Which action best demonstrates correct use of ergonomic principles to prevent injury to the nurse?",
+    "options": [
+      "Bend at the waist and use the back muscles to lift the client",
+      "Use a mechanical lift or friction-reducing device with adequate additional staff to assist",
+      "Reach across the bed from the opposite side to pull the client toward the nurse",
+      "Lift the client alone and quickly to minimize time spent in an awkward position"
+    ],
+    "answer": [1],
+    "rationale": "Current safe client-handling practice favors using mechanical lifts, friction-reducing devices, and adequate staff rather than manual lifting, since manual patient handling is a leading cause of nurse musculoskeletal injury. Bending at the waist and lifting with the back (A), reaching across the bed in a twisted position (C), and lifting a fully dependent client alone (D) all place excessive strain on the nurse's spine and are inconsistent with evidence-based, minimal-manual-lift policies.",
+    "nursing_concept": "Ergonomics/body mechanics — mechanical lifts and adequate staff over manual lifting"
+  },
+  {
+    "id": "SIC-012",
+    "category": "Safety and Infection Control",
+    "subcategory": "Home Safety",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A home health nurse is completing a home safety assessment for an older adult client with a history of falls who lives alone. Which finding requires the most immediate follow-up teaching?",
+    "options": [
+      "Grab bars installed in the shower and beside the toilet",
+      "Loose throw rugs on the hardwood floor in the hallway leading to the bedroom",
+      "A nightlight plugged in along the path from the bedroom to the bathroom",
+      "Non-skid mats placed in the bathtub"
+    ],
+    "answer": [1],
+    "rationale": "Loose throw rugs are a well-established tripping hazard for older adults, especially along a frequently traveled nighttime path, and should be removed or secured with non-slip backing; this finding needs immediate correction. Grab bars (A), a nightlight along the walking path (C), and non-skid bathtub mats (D) are all appropriate, already-in-place fall-prevention measures that do not require corrective teaching.",
+    "nursing_concept": "Home safety assessment — removing throw rugs/tripping hazards is a priority for fall-prone older adults"
+  }
+]

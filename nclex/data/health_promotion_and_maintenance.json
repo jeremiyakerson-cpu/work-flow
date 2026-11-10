@@ -1,0 +1,224 @@
+[
+  {
+    "id": "HPM-001",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Developmental Stages and Transitions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A nurse is caring for a 2-year-old who insists on putting on their own shoes, becomes tearful and shouts \"No, me do it!\" when the parent tries to help, and resists sitting still for a diaper change. According to Erikson's theory of psychosocial development, which statement best explains this behavior?",
+    "options": [
+      "The child is exhibiting stranger anxiety typical of the trust versus mistrust stage",
+      "The child is working through the developmental task of autonomy versus shame and doubt by asserting independence",
+      "The child is displaying signs of an attachment disorder that warrants an immediate referral",
+      "The child is regressing because the industry versus inferiority stage was not successfully achieved"
+    ],
+    "answer": [1],
+    "rationale": "Toddlers (roughly 1 to 3 years) are working through Erikson's autonomy versus shame and doubt stage, during which insisting on doing things independently, negativism, and brief frustration/tantrums when thwarted are expected, healthy attempts to establish self-control and independence. Trust versus mistrust (A) is the infancy stage (birth to about 18 months) centered on the caregiver relationship, not self-assertion. Labeling normal toddler independence as an attachment disorder (C) is an overreaction to developmentally expected behavior. Industry versus inferiority (D) applies to school-age children (about 6 to 12 years) mastering skills and competence, not toddlers.",
+    "nursing_concept": "Erikson's psychosocial stages — toddler autonomy vs. shame and doubt"
+  },
+  {
+    "id": "HPM-002",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Ante/Intra/Postpartum and Newborn Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "At 1 minute after birth, a newborn has a heart rate of 130 beats/min, a slow and irregular respiratory effort, some flexion of the extremities, a grimace in response to suctioning, and a pink body with blue hands and feet. What is this newborn's 1-minute APGAR score?",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "10"
+    ],
+    "answer": [1],
+    "rationale": "Each APGAR component is scored 0-2: heart rate >100 beats/min = 2 points; slow, irregular respirations = 1 point; some flexion of extremities (muscle tone) = 1 point; grimace/facial movement in response to stimulation (reflex irritability) = 1 point; and a pink body with blue extremities, i.e., acrocyanosis (color) = 1 point. The total is 2+1+1+1+1 = 6, not 4, 8, or 10.",
+    "nursing_concept": "APGAR scoring at 1 and 5 minutes"
+  },
+  {
+    "id": "HPM-003",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Ante/Intra/Postpartum and Newborn Care",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A nurse is performing an initial assessment of a full-term newborn 2 hours after an uncomplicated vaginal birth. Which findings should the nurse recognize as expected for this newborn? Select all that apply.",
+    "options": [
+      "Toes fan outward and the big toe dorsiflexes when the sole of the foot is stroked (positive Babinski reflex)",
+      "Axillary temperature of 36.5°C (97.7°F)",
+      "Sustained respiratory rate of 70 breaths/min at rest",
+      "Symmetric abduction and extension of the arms in response to a sudden loud noise (positive Moro reflex)",
+      "Apical heart rate of 130 beats/min",
+      "Bluish discoloration of the hands and feet with a pink body (acrocyanosis)",
+      "Anterior fontanel that is firm, bulging, and tense while the newborn is quiet and not crying"
+    ],
+    "answer": [0, 1, 3, 4, 5],
+    "rationale": "A positive Babinski reflex (A) is a normal newborn finding that disappears by about 1 year of age. An axillary temperature of 36.5°C (B), a heart rate of 130 beats/min (E), a positive Moro reflex (D), and acrocyanosis (F) are all expected newborn findings. A sustained respiratory rate of 70 breaths/min (C) is tachypnea outside the normal newborn range of about 30-60 breaths/min at rest and should be reported, not assumed normal. A firm, bulging, tense anterior fontanel while quiet (G) is an abnormal finding suggestive of increased intracranial pressure; a normal fontanel is soft and flat (it may bulge briefly only with crying or straining).",
+    "nursing_concept": "Expected newborn reflexes and vital sign ranges"
+  },
+  {
+    "id": "HPM-004",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Ante/Intra/Postpartum and Newborn Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Two hours after a vaginal delivery, the nurse palpates a client's fundus and finds it boggy and displaced above the umbilicus toward the right side. The perineal pad is saturated with lochia rubra. What should the nurse do first?",
+    "options": [
+      "Notify the primary care provider immediately",
+      "Administer intramuscular oxytocin per protocol",
+      "Massage the fundus until it becomes firm",
+      "Document the finding and reassess in 1 hour"
+    ],
+    "answer": [2],
+    "rationale": "A boggy, poorly contracted fundus signals uterine atony, the leading cause of early postpartum hemorrhage, so the nurse's immediate independent action is to massage the fundus until it firms up. Fundal displacement above the umbilicus and to one side classically indicates a full bladder pressing the uterus out of midline; if massage does not keep the fundus firm, the nurse should next have the client void or catheterize as needed, but reducing active hemorrhage risk with massage comes first. Administering oxytocin (B) may follow if massage alone is ineffective, and notifying the provider (A) or simply reassessing later (D) both delay an intervention the nurse can and should perform immediately.",
+    "nursing_concept": "Postpartum fundal assessment — uterine atony and bladder distention"
+  },
+  {
+    "id": "HPM-005",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Aging Process",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "The nurse is assessing an 78-year-old client during a routine wellness visit. Which finding should the nurse recognize as an expected, normal change of aging rather than a sign of a new acute problem?",
+    "options": [
+      "Gradual, symmetric loss of hearing for high-pitched sounds that has developed slowly over several years",
+      "Sudden hearing loss in one ear that began yesterday",
+      "New-onset resting tremor with rigidity and a shuffling gait",
+      "Acute confusion and disorientation that began this morning"
+    ],
+    "answer": [0],
+    "rationale": "Gradual, bilateral high-frequency hearing loss (presbycusis) is a common, expected age-related sensory change. Sudden unilateral hearing loss (B) is an otologic emergency requiring prompt evaluation, not a normal aging change. New resting tremor with rigidity and shuffling gait (C) suggests parkinsonism, a new pathological finding, not normal aging. Acute-onset confusion (D) indicates delirium, a medical emergency that must be distinguished from the slow, gradual cognitive changes sometimes seen with normal aging.",
+    "nursing_concept": "Normal changes of aging vs. pathological findings"
+  },
+  {
+    "id": "HPM-006",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Health Screening",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A 46-year-old client with no personal or family history of colorectal cancer and no gastrointestinal symptoms asks the nurse when routine colorectal cancer screening should begin. Which response is most accurate based on current general screening guidance for an average-risk adult?",
+    "options": [
+      "\"Screening is not recommended until age 65.\"",
+      "\"Because you are over 45 and at average risk, you should begin routine colorectal cancer screening now.\"",
+      "\"Screening is only necessary once you develop symptoms such as blood in the stool.\"",
+      "\"You would need a first-degree relative with colon cancer before screening is recommended.\""
+    ],
+    "answer": [1],
+    "rationale": "Current general guidance recommends that average-risk adults begin routine colorectal cancer screening around age 45, since the purpose of screening is to detect disease before symptoms appear. Waiting until age 65 (A) delays screening well past the recommended start. Waiting for symptoms (C) defeats the purpose of screening, which targets asymptomatic disease. A first-degree relative with colorectal cancer (D) would actually indicate a need for earlier, more frequent screening based on increased risk, not a prerequisite for screening at all.",
+    "nursing_concept": "Age-appropriate cancer screening guidance"
+  },
+  {
+    "id": "HPM-007",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Health Screening",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is providing health education to a group of adults about routine health screening. Which statements should the nurse include as accurate general guidance? Select all that apply.",
+    "options": [
+      "\"Blood pressure should be checked at every routine healthcare visit, since hypertension often causes no symptoms.\"",
+      "\"Adults at average risk should have their blood cholesterol (lipid) levels checked periodically starting in early adulthood.\"",
+      "\"Cervical cancer screening is generally recommended for average-risk individuals with a cervix starting in their 20s, at intervals set by their provider.\"",
+      "\"Performing skin self-checks and having any new or changing mole evaluated by a provider supports early detection of skin cancer.\"",
+      "\"Once a person turns 40, no further cancer screening is needed for the rest of their life.\"",
+      "\"Screening tests are only performed after a person already has symptoms of disease.\""
+    ],
+    "answer": [0, 1, 2, 3],
+    "rationale": "Routine blood pressure checks (A), periodic lipid screening beginning in early adulthood (B), cervical cancer screening starting in the 20s (C), and skin self-examination with prompt evaluation of concerning moles (D) are all accurate elements of general, evidence-based screening guidance for average-risk adults. Claiming that screening stops entirely at age 40 (E) is false; screening recommendations and intervals continue to be individualized throughout adulthood based on age, risk factors, and overall health status. Screening tests are, by definition, performed on asymptomatic people to detect disease early (secondary prevention), not only after symptoms appear (F).",
+    "nursing_concept": "Routine health screening intervals across adulthood"
+  },
+  {
+    "id": "HPM-008",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "High-Risk Behaviors",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "During a well-visit, a 15-year-old tells the nurse, \"A lot of my friends vape, and I've tried it a few times because it's supposed to be safer than cigarettes.\" Which response by the nurse is most appropriate?",
+    "options": [
+      "\"You're right, vaping is a much safer alternative to cigarettes, so it's not something to worry about.\"",
+      "\"E-cigarettes still deliver nicotine and other harmful chemicals, can lead to nicotine addiction, and increase the likelihood of trying other tobacco products.\"",
+      "\"I need to tell your parents about this right away.\"",
+      "\"As long as you don't vape every day, occasional use isn't a health concern.\""
+    ],
+    "answer": [1],
+    "rationale": "The nurse should provide accurate, nonjudgmental education: e-cigarettes are not a safe alternative — they expose users, especially adolescents with still-developing brains, to nicotine and other harmful chemicals, promote nicotine addiction, and are associated with increased likelihood of using other tobacco products. Calling vaping \"much safer\" (A) or dismissing occasional use as risk-free (D) reinforces a dangerous misconception. Immediately involving the parents without further discussion (C) is not the priority first response and can shut down an open conversation that supports honest disclosure and counseling.",
+    "nursing_concept": "High-risk behavior counseling — adolescent vaping/tobacco use"
+  },
+  {
+    "id": "HPM-009",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Lifestyle Choices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A 40-year-old client with no cardiovascular disease and a sedentary desk job asks the nurse how much physical activity is recommended to promote health. Which response reflects current general health promotion guidance for a healthy adult?",
+    "options": [
+      "\"Aim for at least 150 minutes per week of moderate-intensity aerobic activity, along with muscle-strengthening activity on 2 or more days a week.\"",
+      "\"You need to run at least 5 miles every day to see any health benefit.\"",
+      "\"Physical activity is unnecessary as long as your diet is healthy.\"",
+      "\"You should avoid exercise entirely until you lose weight first.\""
+    ],
+    "answer": [0],
+    "rationale": "General evidence-based guidance for healthy adults recommends at least 150 minutes per week of moderate-intensity aerobic activity plus muscle-strengthening activity on 2 or more days per week, with benefits achievable through activities as simple as brisk walking. Requiring daily 5-mile runs (B) is an unrealistic and unnecessarily extreme threshold. Diet alone does not replace the cardiovascular, musculoskeletal, and mental health benefits of physical activity (C). Advising a client to avoid exercise until weight loss occurs (D) is inaccurate and counterproductive, since regular activity itself supports healthy weight management.",
+    "nursing_concept": "Lifestyle counseling — physical activity recommendations"
+  },
+  {
+    "id": "HPM-010",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Principles of Teaching/Learning",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "easy",
+    "stem": "A nurse has just finished teaching a client how to self-administer subcutaneous insulin injections. Which action best allows the nurse to evaluate whether the teaching was effective?",
+    "options": [
+      "Ask the client, \"Do you understand how to give the injection?\"",
+      "Ask the client to explain and demonstrate the steps of drawing up and injecting the insulin in their own words",
+      "Give the client a pamphlet about insulin administration to read at home",
+      "Document that teaching was completed and move on to the next task"
+    ],
+    "answer": [1],
+    "rationale": "The teach-back method — having the client explain and demonstrate the information in their own words and actions — is the most reliable way to confirm actual understanding and identify gaps, and it accounts for health literacy differences. A closed yes/no question like \"Do you understand?\" (A) is unreliable because clients often answer \"yes\" regardless of true comprehension. Providing written material alone (C) does not confirm understanding, particularly for clients with limited health literacy. Documenting teaching as complete without verifying comprehension (D) skips evaluation entirely.",
+    "nursing_concept": "Teach-back method / evaluating learning"
+  },
+  {
+    "id": "HPM-011",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Self-Care",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "The nurse is planning a discharge teaching session for a client newly diagnosed with type 2 diabetes who will be self-monitoring blood glucose at home. Place the following steps of the teaching session in the order the nurse should perform them.",
+    "options": [
+      "Assess the client's current knowledge, health literacy, and readiness to learn",
+      "Demonstrate the steps of blood glucose self-monitoring using the client's own equipment",
+      "Provide the information in short segments using clear, non-medical language and appropriate materials",
+      "Have the client perform a return demonstration using the teach-back method",
+      "Document the teaching provided and the client's demonstrated level of understanding"
+    ],
+    "answer": [0, 2, 1, 3, 4],
+    "rationale": "Effective client teaching begins by assessing the client's baseline knowledge, health literacy, and readiness to learn, since this determines how the content should be paced and presented. Next, the nurse delivers the information in manageable segments using plain language appropriate to the client's literacy level, followed by a hands-on demonstration of the actual skill using the client's own supplies. The client then performs a return demonstration/teach-back so the nurse can verify understanding, and finally the nurse documents the teaching provided and the client's demonstrated competence. Performing the steps out of this order — for example, demonstrating or testing understanding before assessing readiness and providing information — undermines learning and produces an inaccurate evaluation.",
+    "nursing_concept": "Principles of teaching/learning — structuring a teaching session"
+  },
+  {
+    "id": "HPM-012",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Health Promotion/Disease Prevention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "hard",
+    "stem": "A community health nurse organizes a smoking cessation support group for clients who have already been diagnosed with chronic obstructive pulmonary disease (COPD), with the goal of slowing disease progression and preventing complications. This activity is an example of which level of prevention?",
+    "options": [
+      "Primary prevention",
+      "Secondary prevention",
+      "Tertiary prevention",
+      "Quaternary prevention"
+    ],
+    "answer": [2],
+    "rationale": "Tertiary prevention focuses on minimizing the effects and complications of an already-diagnosed disease and restoring or maintaining function, which describes this COPD support group. Primary prevention (A) aims to prevent disease before it occurs, such as encouraging people who have never smoked to remain tobacco-free. Secondary prevention (B) involves early detection of disease that is present but not yet symptomatic, such as screening tests. Quaternary prevention (D) refers to avoiding unnecessary or excessive medical intervention, which is not what is described here.",
+    "nursing_concept": "Levels of prevention — primary, secondary, tertiary"
+  }
+]

@@ -1,0 +1,226 @@
+[
+  {
+    "id": "PSI-001",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Communication",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client newly diagnosed with breast cancer says to the nurse, \"I don't know how I'm going to tell my children. What if they think I'm going to die?\" Which response by the nurse is most therapeutic?",
+    "options": [
+      "\"Try not to worry about that right now. Many people survive breast cancer.\"",
+      "\"Why do you think they'll think that?\"",
+      "\"Tell me more about what concerns you about talking with your children.\"",
+      "\"I'm sure your children will understand once you explain it to them.\""
+    ],
+    "answer": [2],
+    "rationale": "Using an open-ended statement that invites the client to explore the specific fear further (\"Tell me more about...\") is therapeutic because it keeps the focus on the client's own feelings and encourages elaboration. The first option offers false reassurance about survival odds rather than addressing the client's emotional concern. The second option is a \"why\" question, which tends to sound confrontational and puts the client on the defensive, forcing justification rather than exploration of feelings. The fourth option offers false reassurance/an unfounded prediction about how the children will react, which shuts down further discussion of the client's fear.",
+    "nursing_concept": "Therapeutic communication — open-ended questions vs. false reassurance and \"why\" questions"
+  },
+  {
+    "id": "PSI-002",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Abuse/Neglect",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A home health nurse visits an 82-year-old client with dementia and notices unexplained bruising in various stages of healing on the client's upper arms. The client appears frightened when the adult child caregiver enters the room and whispers, \"Please don't tell him I said anything.\" What is the nurse's priority obligation?",
+    "options": [
+      "Respect the client's request for confidentiality and document the findings only",
+      "Confront the caregiver directly about the bruising before leaving the home",
+      "Report the suspected abuse to adult protective services as required by law",
+      "Wait until the next scheduled visit to see if the bruising pattern continues"
+    ],
+    "answer": [2],
+    "rationale": "Nurses are mandated reporters; suspected abuse or neglect of a vulnerable adult (or child) must be reported to the appropriate protective services agency regardless of the client's wish for confidentiality, because the client's safety takes priority. Simply documenting without reporting (option 1) fails this legal and ethical duty. Confronting the caregiver directly (option 2) is not the nurse's role, could endanger the client further after the nurse leaves, and may compromise a subsequent investigation. Waiting to see if the pattern continues (option 4) delays a legally required report and leaves the client at continued risk of harm.",
+    "nursing_concept": "Mandatory reporting of suspected abuse/neglect"
+  },
+  {
+    "id": "PSI-003",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Crisis Intervention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client says to the nurse, \"I just feel like everyone would be better off without me.\" Which response should the nurse make first?",
+    "options": [
+      "\"Everyone feels that way sometimes; it will get better.\"",
+      "\"Are you having thoughts of killing yourself?\"",
+      "\"Let's talk about something more positive.\"",
+      "\"I'll let your family know you're feeling this way.\""
+    ],
+    "answer": [1],
+    "rationale": "Any statement suggesting hopelessness or that others would be \"better off\" without the client requires the nurse to directly and specifically assess for suicidal ideation. Asking directly about suicidal thoughts does not increase risk and is essential to determine the client's immediate safety, including whether a plan and means exist. The first option minimizes the statement with false reassurance instead of assessing risk. The third option changes the subject and avoids the cue entirely. The fourth option moves to notifying others before the nurse has even assessed the level of risk, which is not the priority first action.",
+    "nursing_concept": "Direct assessment of suicidal ideation"
+  },
+  {
+    "id": "PSI-004",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Chemical/Other Dependency",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client admitted 36 hours ago for an unrelated surgical procedure has a history of heavy daily alcohol use and reports last drinking two days before admission. The nurse notes coarse hand tremors, diaphoresis, blood pressure 168/98 mm Hg, heart rate 118/min, and the client reports seeing insects crawling on the wall that are not there. Which action should the nurse take first?",
+    "options": [
+      "Apply soft wrist restraints to prevent injury from the hallucinations",
+      "Notify the provider and initiate the facility's alcohol withdrawal protocol, such as CIWA-Ar scoring",
+      "Document the findings as expected postoperative anxiety and reassess in 8 hours",
+      "Encourage the client to rest and dim the lights to reduce stimulation"
+    ],
+    "answer": [1],
+    "rationale": "Tremors, autonomic hyperactivity (tachycardia, hypertension, diaphoresis), and visual hallucinations emerging roughly 24-72 hours after the last drink in a client with a heavy alcohol use history are hallmark signs of alcohol withdrawal syndrome, which can progress to life-threatening delirium tremens. The priority is to notify the provider and initiate a standardized withdrawal assessment/protocol (e.g., CIWA-Ar) so benzodiazepine therapy and close monitoring can begin promptly. Restraints are a last resort after less restrictive measures fail and do not treat the underlying withdrawal process. Documenting the findings as ordinary postoperative anxiety fails to recognize a dangerous, progressive syndrome. Dimming lights may add comfort but does not address the need for urgent medical intervention.",
+    "nursing_concept": "Alcohol withdrawal syndrome recognition and timeline"
+  },
+  {
+    "id": "PSI-005",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Coping Mechanisms",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "easy",
+    "stem": "A client who was recently passed over for a work promotion comes home and yells at their spouse over a minor issue with the dishes, later stating, \"I don't know why I got so angry about that.\" Which defense mechanism is this client demonstrating?",
+    "options": [
+      "Projection",
+      "Displacement",
+      "Rationalization",
+      "Reaction formation"
+    ],
+    "answer": [1],
+    "rationale": "Displacement occurs when an emotion (here, anger about the promotion) is redirected from its true source onto a safer or less threatening target, such as a spouse over an unrelated minor issue. Projection involves attributing one's own unacceptable feelings or impulses to another person rather than redirecting the emotion outward onto a substitute target. Rationalization is justifying behavior or feelings with logical-sounding but false explanations. Reaction formation is expressing feelings or behaviors that are the opposite of one's true, often unacceptable, feelings.",
+    "nursing_concept": "Defense mechanisms — displacement vs. projection, rationalization, reaction formation"
+  },
+  {
+    "id": "PSI-006",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Grief and Loss",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse follows a client's emotional responses over several months after the client receives a terminal cancer diagnosis. Place the client's statements below in the order that corresponds to the classic progression of Kubler-Ross's stages of grief, from earliest to latest.",
+    "options": [
+      "\"I promise I'll go to church every week if I can just see my daughter graduate.\"",
+      "\"This can't be right — the lab must have mixed up my results.\"",
+      "\"I've made peace with this. I want to spend the time I have left with my family.\"",
+      "\"It's not fair. Why does everyone else get to grow old and I don't?\"",
+      "\"What's the point in fighting anymore? I just feel numb and exhausted all the time.\""
+    ],
+    "answer": [1, 3, 0, 4, 2],
+    "rationale": "Kubler-Ross's stages of grief classically progress: denial (\"the lab must have mixed up my results\"), anger (\"it's not fair\"), bargaining (\"I promise I'll go to church... if I can just see my daughter graduate\"), depression (\"what's the point... I just feel numb\"), and finally acceptance (\"I've made peace with this\"). Clients do not always move through the stages linearly or experience every stage, but the classic sequence taught for NCLEX purposes is denial, anger, bargaining, depression, then acceptance.",
+    "nursing_concept": "Kubler-Ross stages of grief"
+  },
+  {
+    "id": "PSI-007",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Cultural Awareness/Influence",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A nurse is caring for a client from a culture in which major health care decisions are traditionally made collectively by the family rather than by the individual client alone. The client's adult son asks to be present for all discussions about the treatment plan and to help make decisions. Which response by the nurse best demonstrates cultural humility?",
+    "options": [
+      "Explain that in this facility, only the client is permitted to make decisions about their own care",
+      "Ask the client whether they would like their son involved in care discussions and decisions",
+      "Include the son in all discussions without first confirming this is the client's preference",
+      "Limit the son's involvement to visiting hours only in order to protect the client's autonomy"
+    ],
+    "answer": [1],
+    "rationale": "Cultural humility requires individualized assessment of the client's own preferences rather than assuming either extreme; asking the client directly whether they want their son involved respects both the client's autonomy and the possibility that shared family decision-making is meaningful to them. Insisting that only the client may decide (option 1) imposes the nurse's own individualistic cultural framework rather than honoring the client's values. Automatically including the son without confirming the client's wishes (option 3) risks overriding the client's autonomy in the opposite direction. Arbitrarily restricting the son's involvement (option 4) has no basis in the client's actual stated preference.",
+    "nursing_concept": "Cultural humility in family decision-making"
+  },
+  {
+    "id": "PSI-008",
+    "category": "Psychosocial Integrity",
+    "subcategory": "End-of-Life Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client with end-stage heart failure is enrolled in home hospice care. The client's spouse asks the nurse, \"Does this mean we can't call 911 or go to the hospital anymore if something happens?\" Which response by the nurse is most accurate?",
+    "options": [
+      "\"Hospice care means all life-sustaining treatments must be stopped, including hospital transfers.\"",
+      "\"You can still call 911, but hospice focuses on comfort rather than aggressive treatment aimed at curing the illness or prolonging life.\"",
+      "\"Once enrolled in hospice, your spouse cannot receive any medications, only supportive touch and prayer.\"",
+      "\"Hospice is only appropriate once your spouse has less than 24 hours left to live.\""
+    ],
+    "answer": [1],
+    "rationale": "Hospice is a philosophy of comfort-focused, palliative care for clients with a terminal prognosis (typically about six months or less if the disease follows its expected course); it does not legally prevent a family from calling emergency services, though the goals of care shift toward symptom management and quality of life rather than curative or life-prolonging interventions, and any hospitalization is generally coordinated to remain consistent with the client's comfort goals. Option 1 incorrectly states that all treatment, including emergency transfer, must stop. Option 3 incorrectly states no medications are given — hospice actively provides medications for symptom control such as pain and dyspnea. Option 4 dramatically understates hospice eligibility, which is based on a prognosis of about six months or less, not only the final day of life.",
+    "nursing_concept": "Hospice philosophy and eligibility"
+  },
+  {
+    "id": "PSI-009",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Communication",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is communicating with a client who has just been told of a new diagnosis of multiple sclerosis. Which of the following nurse statements or actions are examples of therapeutic communication techniques? Select all that apply.",
+    "options": [
+      "\"It sounds like you're feeling overwhelmed by this news.\"",
+      "\"Why didn't you come in sooner when you first noticed the symptoms?\"",
+      "\"Tell me what concerns you most about this diagnosis.\"",
+      "\"Don't worry, lots of people live full lives with MS.\"",
+      "Remaining silent for a moment to give the client time to process before responding",
+      "\"If I were you, I'd start the medication right away.\"",
+      "\"So you're saying you're worried about how this will affect your family?\""
+    ],
+    "answer": [0, 2, 4, 6],
+    "rationale": "Reflection (\"It sounds like you're feeling overwhelmed\"), open-ended questions (\"Tell me what concerns you most\"), purposeful silence to allow processing time, and restating/clarifying (\"So you're saying you're worried...\") are all recognized therapeutic communication techniques that keep the focus on the client and invite further expression of feelings. Asking \"why\" (option 2) tends to sound accusatory and puts the client on the defensive rather than inviting exploration. \"Don't worry, lots of people live full lives\" (option 4) offers false reassurance that minimizes the client's feelings. \"If I were you, I'd start the medication right away\" (option 6) gives unsolicited advice, which discourages the client from working through their own decision-making process.",
+    "nursing_concept": "Therapeutic vs. nontherapeutic communication techniques"
+  },
+  {
+    "id": "PSI-010",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Chemical/Other Dependency",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A nurse is assessing a client who has been NPO and hospitalized for 48 hours following a motor vehicle collision. The client has a history of drinking approximately 8-10 beers daily. Which findings should alert the nurse to possible alcohol withdrawal syndrome? Select all that apply.",
+    "options": [
+      "Coarse hand tremors",
+      "Blood pressure 88/54 mm Hg with a heart rate of 52/min",
+      "Diaphoresis and anxiety",
+      "Auditory or visual hallucinations",
+      "Heart rate 120/min with a blood pressure of 168/100 mm Hg",
+      "Generalized tonic-clonic seizure activity",
+      "Somnolence with a decreased respiratory rate"
+    ],
+    "answer": [0, 2, 3, 4, 5],
+    "rationale": "Alcohol withdrawal produces sympathetic (autonomic) hyperactivity and central nervous system excitability, presenting as coarse tremors, diaphoresis and anxiety, hallucinations (typically visual or tactile), tachycardia with hypertension, and, in more severe cases, generalized tonic-clonic seizures — seizures can occur roughly 12-48 hours after the last drink, and untreated withdrawal can progress to delirium tremens around 48-96 hours. Hypotension with bradycardia and somnolence with a decreased respiratory rate reflect central nervous system and cardiovascular depression, which is more consistent with intoxication or oversedation than withdrawal, so these two findings should not be attributed to withdrawal syndrome.",
+    "nursing_concept": "Signs and timeline of alcohol withdrawal syndrome"
+  },
+  {
+    "id": "PSI-011",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Behavioral Interventions",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client on an inpatient psychiatric unit is pacing, clenching fists, and speaking loudly in an escalating tone toward staff. Place the nurse's actions in the priority order they should be taken, from first to last, using a least-restrictive-to-most-restrictive approach.",
+    "options": [
+      "Administer as-needed (PRN) medication as ordered if verbal de-escalation is unsuccessful",
+      "Approach the client calmly, using a nonthreatening posture and a normal tone of voice, while maintaining a safe distance and a clear exit path",
+      "Remove other clients and nonessential stimuli from the immediate area",
+      "Call for additional staff assistance and prepare for physical restraint only if de-escalation fails and the client becomes an imminent danger",
+      "Offer the client clear, simple choices and ask directly what would help, using concise directions"
+    ],
+    "answer": [2, 1, 4, 0, 3],
+    "rationale": "De-escalation follows a least-restrictive-to-most-restrictive sequence: first reduce environmental stimulation and protect other clients (remove nonessential stimuli), then approach the client calmly and nonthreateningly to establish safety and rapport, then engage the client verbally by offering choices and asking directly what would help to restore a sense of control, then offer PRN medication if verbal de-escalation alone is not effective, and only as a last resort — when the client becomes an imminent danger to self or others and less restrictive measures have failed — call for additional staff and prepare for physical restraint under provider order. Escalating directly to medication or restraint without first attempting environmental and verbal de-escalation violates the principle of using the least restrictive intervention necessary.",
+    "nursing_concept": "Least restrictive intervention / de-escalation hierarchy"
+  },
+  {
+    "id": "PSI-012",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Situational Role Changes",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A 45-year-old client recently diagnosed with early-onset Parkinson disease states, \"I used to be the one my kids depended on. Now I feel like I'm just a burden, and my wife has to do everything.\" Which response by the nurse best addresses this client's psychosocial needs?",
+    "options": [
+      "\"You'll adjust to your new role over time; try not to focus on it.\"",
+      "\"It sounds like this diagnosis has changed how you see your role in the family. Can you tell me more about that?\"",
+      "\"Many people with Parkinson disease continue to work and stay independent for years.\"",
+      "\"Have you considered how your wife feels about taking on more responsibilities?\""
+    ],
+    "answer": [1],
+    "rationale": "The client is describing a situational role change and a loss of identity related to a new chronic illness; reflecting the client's statement and inviting further exploration validates the feeling and helps the nurse assess the client's coping and psychosocial needs. Telling the client to \"try not to focus on it\" minimizes the feeling with vague reassurance rather than exploring it. Citing statistics about independence, while factually reasonable, offers information/reassurance that bypasses the client's expressed emotional distress. Redirecting the conversation to the spouse's feelings shifts focus away from the client's own stated distress, which is the priority to address at this time.",
+    "nursing_concept": "Situational role change and loss of identity with chronic illness"
+  }
+]

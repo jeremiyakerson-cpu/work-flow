@@ -1,0 +1,225 @@
+[
+  {
+    "id": "ROR-001",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "The nurse reviews the morning laboratory results for a client who has been receiving IV furosemide for heart failure. Which result should the nurse report to the provider immediately as a critical value?",
+    "options": [
+      "Serum sodium 138 mEq/L",
+      "Serum potassium 2.9 mEq/L",
+      "Serum creatinine 1.0 mg/dL",
+      "Blood glucose 98 mg/dL"
+    ],
+    "answer": [1],
+    "rationale": "Normal serum potassium is 3.5-5.0 mEq/L; a level of 2.9 mEq/L is significantly below normal and is a critical (panic) value, especially in a client on a potassium-wasting loop diuretic such as furosemide, because severe hypokalemia can precipitate life-threatening cardiac dysrhythmias and requires immediate provider notification. Sodium 138 mEq/L (normal 135-145), creatinine 1.0 mg/dL (normal 0.6-1.2), and glucose 98 mg/dL (normal fasting 70-100) are all within normal limits and do not require urgent notification.",
+    "nursing_concept": "Critical lab values / hypokalemia recognition"
+  },
+  {
+    "id": "ROR-002",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Diagnostic Tests",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Two hours after a left heart catheterization performed via the right femoral artery, the nurse assesses the client and finds the right foot is cool and pale with a barely palpable dorsalis pedis pulse compared to a strong pulse on the left. What should the nurse do first?",
+    "options": [
+      "Reposition the right leg and reassess the pulse in 30 minutes",
+      "Apply a warm blanket to the right foot to promote vasodilation",
+      "Notify the provider immediately and continue frequent neurovascular checks",
+      "Document the finding as an expected result of the arterial puncture"
+    ],
+    "answer": [2],
+    "rationale": "A cool, pale extremity with a diminished or absent distal pulse after a femoral arterial catheterization suggests arterial occlusion or thrombus, a limb-threatening complication that requires immediate provider notification so circulation can be evaluated and treated promptly. Waiting 30 minutes (A) delays recognition of a time-sensitive vascular emergency, warming the foot (B) does not address occlusion and could mask worsening ischemia, and this finding is never an expected post-catheterization result (D) — the expected finding is a warm, pink extremity with palpable, equal pulses bilaterally.",
+    "nursing_concept": "Post-cardiac catheterization neurovascular assessment"
+  },
+  {
+    "id": "ROR-003",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "Four hours after an exploratory laparotomy, the nurse assesses a client. Which findings should the nurse recognize as possible signs of postoperative hemorrhage? Select all that apply.",
+    "options": [
+      "Heart rate of 118 beats/min",
+      "Blood pressure of 88/54 mmHg",
+      "Increasing restlessness and anxiety",
+      "Progressively increasing abdominal girth",
+      "Dressing saturated with bright red drainage",
+      "Urine output of 45 mL/hr for the last 2 hours",
+      "Oral temperature of 37.1°C (98.8°F)"
+    ],
+    "answer": [0, 1, 2, 3, 4],
+    "rationale": "Tachycardia (A), hypotension (B), restlessness/anxiety from cerebral hypoperfusion (C), a distending abdomen from concealed bleeding (D), and a dressing saturated with bright red drainage (E) are all classic early signs of hemorrhage/hypovolemic shock and should prompt immediate further assessment and provider notification. A urine output of 45 mL/hr (F) is within the expected minimum of 30 mL/hr or more, and a temperature of 37.1°C (G) is normal, so neither suggests hemorrhage.",
+    "nursing_concept": "Postoperative hemorrhage recognition"
+  },
+  {
+    "id": "ROR-004",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Therapeutic Procedures",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client returns to the unit after a percutaneous liver biopsy. Which action should the nurse take to reduce the client's risk for bleeding?",
+    "options": [
+      "Position the client on the right side with a small pillow or rolled towel against the puncture site",
+      "Position the client on the left side to relieve pressure on the liver",
+      "Assist the client into a high-Fowler's position to ease breathing",
+      "Encourage the client to ambulate in the hallway within 30 minutes"
+    ],
+    "answer": [0],
+    "rationale": "After a percutaneous liver biopsy, the client should be positioned right side-lying with a pillow or rolled towel against the puncture site for at least 2 hours; this applies direct pressure between the liver capsule and the chest wall, tamponading the puncture site and reducing the risk of bleeding. Left side-lying (B) would remove pressure from the site rather than apply it, high-Fowler's (C) does not compress the site, and the client must remain on bed rest, typically for several hours, rather than ambulate within 30 minutes (D), to minimize the risk of hemorrhage.",
+    "nursing_concept": "Post-liver biopsy positioning to reduce bleeding risk"
+  },
+  {
+    "id": "ROR-005",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who has taken warfarin for atrial fibrillation for the past year has a routine INR result of 6.2. The client reports no bleeding symptoms. What should the nurse do first?",
+    "options": [
+      "Administer the scheduled dose of warfarin as ordered",
+      "Hold the next dose of warfarin and notify the provider",
+      "Reassure the client that this INR is within the expected therapeutic range",
+      "Instruct the client to increase dietary vitamin K intake immediately without contacting the provider"
+    ],
+    "answer": [1],
+    "rationale": "The therapeutic INR range for a client on warfarin for atrial fibrillation is typically 2.0-3.0; an INR of 6.2 is far above therapeutic and places the client at high risk for spontaneous bleeding even without current symptoms. The nurse should hold the next dose and notify the provider so the dose can be adjusted and, if needed, reversal measures ordered. Giving the scheduled dose (A) would further increase bleeding risk, an INR of 6.2 is not therapeutic (C), and dietary or treatment changes should only be made under provider guidance, not independently by the client (D).",
+    "nursing_concept": "Warfarin therapeutic INR range / critical value"
+  },
+  {
+    "id": "ROR-006",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "System Specific Assessments",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "On the first postoperative day following a total thyroidectomy, a client reports tingling around the mouth and in the fingertips. When the nurse inflates the blood pressure cuff, the client's hand and fingers spasm into a claw-like position. Which laboratory value should the nurse anticipate the provider will order to evaluate this finding?",
+    "options": [
+      "Serum calcium",
+      "Serum potassium",
+      "Hemoglobin and hematocrit",
+      "White blood cell count"
+    ],
+    "answer": [0],
+    "rationale": "Perioral and peripheral tingling with a positive Trousseau's sign (carpal spasm when a blood pressure cuff is inflated) after a thyroidectomy indicates hypocalcemia caused by inadvertent trauma to or removal of the parathyroid glands during surgery, since the parathyroid glands regulate calcium. A serum calcium level should be obtained immediately (normal approximately 9.0-10.5 mg/dL); severe hypocalcemia can progress to laryngospasm and airway compromise. Potassium (B) relates to a different pattern of neuromuscular/cardiac symptoms, and hemoglobin/hematocrit (C) or WBC (D) would evaluate for hemorrhage or infection, not the tetany described here.",
+    "nursing_concept": "Post-thyroidectomy hypocalcemia / Trousseau's sign"
+  },
+  {
+    "id": "ROR-007",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Vital Signs",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse is trending a client's vital signs during the first 2 hours after abdominal surgery: 1400 — T 37.0°C, HR 88, BP 128/78, RR 18; 1430 — T 37.0°C, HR 106, BP 112/70, RR 22; 1500 — T 37.1°C, HR 124, BP 94/58, RR 26. How should the nurse interpret this trend?",
+    "options": [
+      "Expected fluctuation as anesthesia wears off; continue routine monitoring",
+      "Early signs of hypovolemic shock; notify the provider immediately",
+      "Signs of postoperative infection; obtain a blood culture",
+      "Signs of adequate pain control; no action needed"
+    ],
+    "answer": [1],
+    "rationale": "A progressive rise in heart rate and respiratory rate together with a falling blood pressure over a short period is a classic early compensatory trend for hypovolemic shock, often from occult postoperative bleeding, and the nurse should notify the provider immediately rather than waiting for overt hypotension or further deterioration. This is not an expected anesthesia-related fluctuation (A); the temperature trend is not suggestive of infection at this early postoperative point (C), since postoperative infection typically develops later and would not explain this hemodynamic trend; and a rising heart rate with a falling blood pressure is not a sign of adequate pain control (D).",
+    "nursing_concept": "Vital sign trend recognition — early hypovolemic shock"
+  },
+  {
+    "id": "ROR-008",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications of Diagnostic Tests/Treatments/Procedures",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client returns to the nursing unit after a lumbar puncture. Which instruction should the nurse include in the client's plan of care to help reduce the risk of a post-procedure headache?",
+    "options": [
+      "Remain lying flat in bed for the period specified by facility protocol and increase oral fluid intake",
+      "Sit upright in a chair for the first 2 hours after the procedure",
+      "Restrict oral fluids until the provider gives further orders",
+      "Ambulate in the hallway as soon as the client returns to the room"
+    ],
+    "answer": [0],
+    "rationale": "After a lumbar puncture, keeping the client flat/supine for the period specified by protocol (often several hours) and encouraging increased fluid intake helps replace cerebrospinal fluid volume and reduces the risk of a post-lumbar-puncture headache, which results from CSF leakage at the puncture site. Sitting upright (B) or ambulating immediately (D) increases pressure gradients that promote CSF leakage and headache, and restricting fluids (C) works against the goal of replacing lost CSF volume.",
+    "nursing_concept": "Post-lumbar puncture headache prevention"
+  },
+  {
+    "id": "ROR-009",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Alterations in Body Systems",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is teaching a postoperative client about measures to reduce the risk of deep vein thrombosis (DVT) and atelectasis. Which instructions should the nurse include? Select all that apply.",
+    "options": [
+      "Use the incentive spirometer approximately 10 times every hour while awake",
+      "Ambulate as soon as the provider allows, starting the day of or day after surgery",
+      "Wear sequential compression devices whenever not ambulating",
+      "Remain in bed as much as possible for the first week to allow the incision to heal",
+      "Cough and deep breathe every 1-2 hours while awake",
+      "Cross the legs at the knees while sitting up in the chair",
+      "Perform ankle pumps and calf-tightening exercises while in bed"
+    ],
+    "answer": [0, 1, 2, 4, 6],
+    "rationale": "Incentive spirometry (A) and coughing/deep breathing (E) expand the lungs and mobilize secretions to prevent atelectasis. Early ambulation (B), sequential compression devices when not ambulating (C), and ankle pumps/calf exercises (G) promote venous return and reduce venous stasis, lowering DVT risk. Prolonged bed rest (D) increases, rather than decreases, the risk of both DVT and atelectasis, and crossing the legs (F) compresses the popliteal vessels and impairs venous return, increasing DVT risk.",
+    "nursing_concept": "Postoperative DVT and atelectasis prevention"
+  },
+  {
+    "id": "ROR-010",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "A nurse is admitting a client to the post-anesthesia care unit (PACU) after general anesthesia. Place the nurse's initial assessment actions in the correct priority order.",
+    "options": [
+      "Assess pain level and administer analgesia as needed",
+      "Assess airway patency and the quality/rate of respirations",
+      "Assess vital signs, including heart rate, blood pressure, and oxygen saturation",
+      "Assess level of consciousness and orientation",
+      "Inspect the surgical dressing and any drains for bleeding or drainage"
+    ],
+    "answer": [1, 2, 3, 4, 0],
+    "rationale": "Using an airway-breathing-circulation-based priority framework, the nurse first assesses airway patency and respiratory status (B), since airway compromise is immediately life-threatening. Next, vital signs including circulation indicators such as heart rate, blood pressure, and oxygen saturation are assessed (C). Level of consciousness (D) is assessed next to evaluate neurologic recovery from anesthesia, followed by inspection of the surgical site and drains for bleeding (E). Pain assessment and management (A) is important but is addressed after the client's airway, circulation, neurologic status, and surgical site have been confirmed stable.",
+    "nursing_concept": "PACU admission priority assessment sequence (ABC framework)"
+  },
+  {
+    "id": "ROR-011",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "Which laboratory result is within the normal range for a healthy adult client?",
+    "options": [
+      "Fasting blood glucose 350 mg/dL",
+      "White blood cell count 7,500/mm3",
+      "Platelet count 90,000/mm3",
+      "Hematocrit 25%"
+    ],
+    "answer": [1],
+    "rationale": "A white blood cell count of 7,500/mm3 falls within the normal adult range of approximately 5,000-10,000/mm3. A fasting glucose of 350 mg/dL is markedly elevated above the normal 70-100 mg/dL range, a platelet count of 90,000/mm3 is below the normal 150,000-400,000/mm3 range (thrombocytopenia), and a hematocrit of 25% is well below the normal adult range (approximately 37-52%, varying by sex), indicating significant anemia.",
+    "nursing_concept": "Standard adult normal laboratory reference ranges"
+  },
+  {
+    "id": "ROR-012",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "On postoperative day 3, a client reports a sudden 'popping' or 'giving way' sensation in the abdominal incision while coughing. The nurse removes the dressing and finds the wound edges separated with a loop of bowel visible at the surface. What should the nurse do first?",
+    "options": [
+      "Attempt to gently reinsert the protruding bowel into the abdominal cavity",
+      "Cover the area with sterile gauze moistened with normal saline and notify the provider immediately",
+      "Apply an abdominal binder tightly over the area and continue routine dressing changes",
+      "Administer the client's scheduled oral pain medication and reassess in 30 minutes"
+    ],
+    "answer": [1],
+    "rationale": "This client is experiencing wound dehiscence with evisceration, a surgical emergency. The nurse's priority is to cover the exposed bowel with sterile gauze moistened with sterile normal saline to keep the tissue moist and reduce the risk of drying and infection, and to notify the provider immediately for emergency surgical repair; the client should also be kept NPO and positioned in low-Fowler's with knees bent to reduce abdominal tension while awaiting the provider. The nurse must never attempt to push protruding organs back into the abdomen (A), as this risks perforation and peritonitis. A tight binder (C) could further injure the exposed bowel, and administering oral medication and delaying reassessment (D) wastes critical time in an emergency.",
+    "nursing_concept": "Wound dehiscence and evisceration emergency management"
+  }
+]
