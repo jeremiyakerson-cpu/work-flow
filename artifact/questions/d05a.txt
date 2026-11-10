@@ -10,7 +10,7 @@
 
 ? Which initial treatment should the nurse anticipate for a moderate to severe asthma exacerbation?
 + Inhaled albuterol with ipratropium and a systemic corticosteroid
-- An oral antihistamine and a cough suppressant | Neither treats bronchospasm or airway inflammation.
+- An oral antihistamine and a cough suppressant taken every four hours | Neither treats bronchospasm or airway inflammation.
 - IV antibiotics and a diuretic | Asthma is not treated as infection or fluid overload.
 - A long-acting inhaled beta agonist alone | Long-acting agents are not rescue therapy.
 = Repeated short-acting bronchodilators with an anticholinergic, plus early systemic steroids, are first-line treatment.
@@ -38,7 +38,7 @@
 
 ? Why are systemic corticosteroids given early in an asthma exacerbation, even though the patient does not improve right away?
 + Their anti-inflammatory effect takes several hours to begin
-- They work immediately to open the airways | They are not rapid bronchodilators.
+- They work immediately to open the airways and stop the wheeze | They are not rapid bronchodilators.
 - They are needed to prevent infection | Steroids do not prevent infection.
 - They replace the need for bronchodilators | Both are required.
 = Steroids reduce airway inflammation and relapse, but benefit is delayed for hours, so they are started promptly.
@@ -52,7 +52,7 @@
 
 ? Minutes after intubation for status asthmaticus, the patient's BP falls to 62/38 and the ventilator shows that exhalation is not finishing before the next breath. What should be done first?
 + Disconnect the ventilator briefly to allow a full exhalation
-- Increase the respiratory rate | A faster rate traps more air.
+- Increase the respiratory rate to clear carbon dioxide more quickly | A faster rate traps more air.
 - Increase the tidal volume | Larger breaths worsen hyperinflation.
 - Give a beta blocker | Beta blockade would worsen bronchospasm and hypotension.
 = Breath stacking raises intrathoracic pressure and blocks venous return; disconnecting lets trapped air escape.
@@ -60,7 +60,7 @@
 ? Which statement shows that a patient understands discharge teaching about asthma inhalers?
 + "I use the albuterol for quick relief and take the steroid inhaler every day."
 - "I only need the steroid inhaler when I'm wheezing." | Controllers work only when used daily.
-- "I'll use my albuterol every four hours even if I feel fine." | Scheduled rescue use masks poor control.
+- "I'll use my albuterol every four hours around the clock, even when I feel fine." | Scheduled rescue use masks poor control.
 - "I can stop the steroid inhaler once I feel better." | Stopping the controller leads to relapse.
 = Rescue and controller inhalers have different roles; daily controller use prevents exacerbations.
 
@@ -74,7 +74,7 @@
 ? A 6-year-old with asthma is sitting forward with nasal flaring, intercostal retractions and can speak only two or three words at a time. What should the nurse do?
 + Leave her in the position she has chosen and start treatment
 - Lay her flat to examine the chest | Lying flat increases the work of breathing.
-- Send her to the waiting room until a bed opens | She is in significant distress.
+- Send her to the waiting room with her parent until a bed opens | She is in significant distress.
 - Ask her to walk to the scale for a weight | Exertion worsens distress.
 = The tripod position is a compensatory posture; the child is kept comfortable while bronchodilators and oxygen begin.
 
@@ -82,7 +82,7 @@
 + Question the order and focus on relieving the bronchospasm
 - Give the sedative before the nebulizer | Sedation can suppress respiratory drive in a tiring patient.
 - Give the sedative with the nebulizer | The risk of respiratory depression remains.
-- Double the dose because she is very anxious | A larger dose increases the danger.
+- Double the dose of the sedative because she is so very anxious | A larger dose increases the danger.
 = Anxiety in acute asthma is usually a symptom of hypoxia; sedatives are avoided unless the patient is intubated.
 
 @ 5.1
@@ -102,7 +102,7 @@
 
 ? Which medication regimen is standard for a COPD exacerbation?
 + Short-acting bronchodilators with a short course of systemic corticosteroids
-- A long-acting bronchodilator alone | Long-acting agents are not the treatment for an acute flare.
+- A long-acting bronchodilator alone, with the dose repeated after twelve hours | Long-acting agents are not the treatment for an acute flare.
 - A sedative and a cough suppressant | These suppress the cough and drive needed to clear secretions.
 - A loop diuretic and a nitrate | These treat heart failure.
 = Exacerbations are treated with short-acting beta agonists and anticholinergics plus about five days of systemic steroids.
@@ -118,7 +118,7 @@
 + Reduce the oxygen to the target range and prepare for ventilatory support
 - Remove the oxygen completely | Abrupt removal causes dangerous hypoxemia.
 - Increase the oxygen flow | More oxygen will deepen the hypercapnia.
-- Let him sleep, as he must be exhausted | Reduced consciousness signals carbon dioxide narcosis.
+- Let him sleep, as he must be exhausted after such a hard night of breathing | Reduced consciousness signals carbon dioxide narcosis.
 = Excess oxygen worsens ventilation-perfusion mismatch and hypercapnia; oxygen is titrated down, not stopped, and ventilation is supported.
 
 ? A patient with emphysema exhales slowly through puckered lips. What is the purpose of this technique?
@@ -137,14 +137,14 @@
 
 ? A patient with long-standing COPD has distended neck veins, ankle edema and an enlarged tender liver. What do these findings indicate?
 + Right heart failure from pulmonary hypertension
-- Left ventricular failure | Left-sided failure causes pulmonary rather than systemic congestion.
+- Left ventricular failure with pulmonary congestion | Left-sided failure causes pulmonary rather than systemic congestion.
 - Nephrotic syndrome | Nephrotic edema does not cause jugular distension.
 - Deep vein thrombosis | Thrombosis causes unilateral swelling.
 = Chronic hypoxia raises pulmonary vascular resistance and strains the right ventricle, producing cor pulmonale.
 
 ? A patient with COPD has been on BiPAP for an hour. Which finding indicates that noninvasive ventilation is failing?
 + Increasing drowsiness with a rising carbon dioxide level
-- A respiratory rate falling from 32 to 22 | A slower rate with good effort shows improvement.
+- A respiratory rate falling from 32 to 22 with easier breathing | A slower rate with good effort shows improvement.
 - A request for a drink of water | Thirst does not indicate failure.
 - A pH rising from 7.26 to 7.33 | A rising pH shows improvement.
 = Worsening mental status, acidosis or gas exchange on NIPPV signals the need for intubation.
@@ -166,7 +166,7 @@
 ? During a COPD exacerbation, which finding supports adding an antibiotic?
 + Sputum that has become thicker, greater in volume and green
 - A dry cough with clear lungs | There is no sign of bacterial infection.
-- Wheezing that responds to albuterol | Bronchospasm alone is not an indication.
+- Wheezing that responds promptly to albuterol and ipratropium | Bronchospasm alone is not an indication.
 - Ankle swelling | Edema suggests right heart failure.
 = Increased sputum purulence with greater volume or dyspnea suggests bacterial infection and benefits from antibiotics.
 
@@ -181,14 +181,14 @@
 ? A patient with severe pneumonia and hypotension needs blood cultures and antibiotics. How should the nurse sequence these?
 + Draw cultures promptly, then give antibiotics without delay
 - Give antibiotics and skip the cultures | Cultures guide later therapy when they can be obtained quickly.
-- Wait for the culture results before antibiotics | Results take days and delay increases mortality.
+- Wait for the culture results before choosing any antibiotics | Results take days and delay increases mortality.
 - Draw cultures only if the fever exceeds 39 C | Fever height does not decide the need.
 = Cultures are obtained before antibiotics when this causes no significant delay; antibiotics must not be held up.
 
 ? A 72-year-old with pneumonia is newly confused. RR is 32, BP 86/54 and BUN 28 mg/dL. What does his CURB-65 score indicate?
 + High severity requiring hospital admission, likely intensive care
 - Low severity suitable for outpatient treatment | He meets all five criteria.
-- Moderate severity needing only a short observation | A score of 5 is the highest category.
+- Moderate severity needing only a short period of observation at home | A score of 5 is the highest category.
 - The score cannot be used in older adults | Age is one of its criteria.
 = Confusion, urea, respiratory rate of 30 or more, low blood pressure and age 65 or over each score a point; a score of 3-5 indicates severe pneumonia.
 
@@ -196,19 +196,19 @@
 + A patient with a recent stroke and a weak, wet-sounding voice
 - A patient with a fractured wrist | There is no impairment of swallowing.
 - A patient with seasonal allergies | Allergies do not impair airway protection.
-- A patient with a urinary tract infection | Swallowing is unaffected.
+- A patient with a urinary tract infection who is walking unaided | Swallowing is unaffected.
 = Dysphagia and reduced consciousness impair airway protection; a wet voice after swallowing suggests aspiration.
 
 ? A patient admitted with an acute stroke asks for water. What should the nurse do first?
 + Keep the patient NPO until a swallow screen is completed
-- Give small sips and watch for coughing | Silent aspiration occurs without coughing.
+- Give small sips of water and watch closely for any coughing | Silent aspiration occurs without coughing.
 - Offer thickened liquids straight away | Even thickened fluids require a screen first.
 - Give water through a straw | Straws deliver fluid faster and raise the risk.
 = A bedside swallow screen before any oral intake reduces aspiration pneumonia after stroke.
 
 ? An intoxicated, drowsy patient lying supine begins to vomit. What should the nurse do first?
 + Turn the patient onto the side and suction the mouth
-- Sit the patient bolt upright | A drowsy patient cannot hold the position or clear the airway.
+- Sit the patient bolt upright against the raised backrest | A drowsy patient cannot hold the position or clear the airway.
 - Insert a nasogastric tube | Tube insertion provokes more vomiting in an unprotected airway.
 - Give an antiemetic and wait | Medication does not protect the airway now.
 = Positioning and suction clear the airway immediately in a patient who cannot protect it.
@@ -223,7 +223,7 @@
 ? How should the nurse position a cooperative patient for a thoracentesis?
 + Sitting upright, leaning forward over a bedside table
 - Supine with the arms at the sides | The posterior chest is not accessible.
-- Prone with a pillow under the abdomen | Prone positioning impairs breathing and access.
+- Prone with a pillow under the abdomen and the arms raised | Prone positioning impairs breathing and access.
 - Trendelenburg | Fluid shifts away from the insertion site.
 = Leaning forward widens the rib spaces and lets fluid pool at the base for safe drainage.
 
@@ -231,12 +231,12 @@
 + Nasal suctioning, hydration and oxygen if saturations fall
 - Routine antibiotics | The illness is viral.
 - Systemic corticosteroids | Steroids do not benefit bronchiolitis.
-- Repeated scheduled albuterol | Bronchodilators are not routinely effective.
+- Repeated scheduled albuterol nebulizers every twenty minutes | Bronchodilators are not routinely effective.
 = Bronchiolitis is managed supportively; clearing the nose improves feeding and breathing in obligate nose breathers.
 
 ? An unvaccinated 6-week-old has episodes of rapid coughing followed by apnea and cyanosis. What should the nurse suspect and do?
 + Pertussis; apply droplet precautions and prepare for admission
-- Croup; give cool mist and discharge | Croup causes a barking cough and stridor, not apnea.
+- Croup; give cool mist and discharge with advice on fluids at home | Croup causes a barking cough and stridor, not apnea.
 - Reflux; advise smaller feeds | Reflux does not cause paroxysmal cough with cyanosis.
 - A common cold; reassure the parents | Apnea in a young infant is never benign.
 = Young infants with pertussis may have apnea rather than a whoop; they need droplet isolation, a macrolide and monitoring.

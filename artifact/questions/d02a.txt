@@ -25,13 +25,13 @@
 ? A parent calls the triage line: a 2-year-old swallowed some of a grandparent's pills 10 minutes ago and is acting normally. The parent asks whether to make the child vomit. What is the best advice?
 + Do not induce vomiting; call poison control and bring the pill bottles
 - Give syrup of ipecac and observe at home | Ipecac is obsolete and delays effective care.
-- Give milk and put the child down for a nap | Sleep hides deterioration and milk is not an antidote.
+- Give a glass of milk and put the child down for a nap to see what happens | Sleep hides deterioration and milk is not an antidote.
 - Stimulate the gag reflex with a finger | Forced vomiting risks aspiration and removes little drug.
 = Induced emesis is not recommended; poison control (1-800-222-1222) guides management based on the substance and amount.
 
 ? A man suspected of swallowing packets of cocaine is asymptomatic. Which decontamination method is most appropriate?
 + Whole bowel irrigation with polyethylene glycol solution
-- Gastric lavage with a large-bore tube | Lavage may rupture packets and does not clear the intestine.
+- Gastric lavage with a large-bore tube placed through the mouth | Lavage may rupture packets and does not clear the intestine.
 - Repeated doses of syrup of ipecac | Vomiting risks packet rupture and aspiration.
 - A sodium phosphate enema | An enema does not clear the small bowel and risks electrolyte shifts.
 = Whole bowel irrigation flushes intact drug packets, sustained-release tablets, iron and lithium through the gut.
@@ -83,14 +83,14 @@
 + Small titrated IV doses until respirations are adequate
 - A 2 mg IV bolus repeated until fully awake | Full reversal precipitates severe withdrawal and uncontrolled pain.
 - A 10 mg IV bolus given once | That dose far exceeds what is needed and provokes withdrawal.
-- No naloxone, because he is opioid dependent | Dependence does not preclude treating respiratory depression.
+- No naloxone at all, because he is opioid dependent and in pain | Dependence does not preclude treating respiratory depression.
 = In opioid-dependent patients naloxone is titrated in small increments to restore ventilation without precipitating withdrawal.
 
 ? A patient who overdosed on methadone wakes fully after naloxone and wants to leave 30 minutes later. What should the nurse explain?
 + Naloxone wears off before methadone, so breathing may slow again
 - Naloxone has cured the overdose | The opioid outlasts the antagonist.
 - He can leave once he has eaten | Eating does not change opioid duration.
-- A second dose makes it safe to go | Repeat dosing still needs monitoring.
+- A second dose given just before leaving makes it safe for him to go | Repeat dosing still needs monitoring.
 = Naloxone lasts 30-90 minutes while methadone lasts many hours, so prolonged observation or an infusion is needed.
 
 ? A 45-year-old who takes clonazepam daily for a seizure disorder overdoses on it along with amitriptyline. A provider orders flumazenil. What is the nurse's best action?
@@ -138,7 +138,7 @@
 ? A patient poisoned with an organophosphate is receiving atropine. Which finding tells the nurse that enough atropine has been given?
 + Bronchial secretions have dried and breath sounds are clear
 - The pupils have dilated to 6 mm | Pupil size is an unreliable endpoint.
-- The heart rate has reached 120/min | Tachycardia is not the titration target.
+- The heart rate has reached 120 per minute and stayed at that level | Tachycardia is not the titration target.
 - The patient has become sleepy | Sedation is not a goal of therapy.
 = Atropine is titrated to drying of pulmonary secretions and easier ventilation; pralidoxime is given to regenerate cholinesterase.
 
@@ -181,7 +181,7 @@
 ? Twelve hours after a large acetaminophen overdose a patient feels well and asks to go home. What should the nurse tell her?
 + Early symptoms are mild or absent even when serious liver injury is developing
 - Feeling well means the dose was not toxic | The first 24 hours are often asymptomatic.
-- She can leave if she drinks plenty of water | Hydration does not prevent hepatic necrosis.
+- She can leave now as long as she drinks plenty of water and rests at home tomorrow | Hydration does not prevent hepatic necrosis.
 - The danger passes after eight hours | Liver injury peaks at three to four days.
 = Stage I acetaminophen toxicity is clinically quiet; liver enzymes rise at 24-72 hours and injury peaks at 72-96 hours.
 
@@ -189,7 +189,7 @@
 + Pause the infusion, give an antihistamine and restart at a slower rate
 - Discontinue the antidote permanently | The reaction is rate related and treatment remains essential.
 - Continue at the same rate and observe | The reaction is likely to worsen without intervention.
-- Give IM epinephrine and stop all treatment | Epinephrine is for airway or circulatory compromise.
+- Give IM epinephrine and stop all antidote treatment for the rest of the stay | Epinephrine is for airway or circulatory compromise.
 = Anaphylactoid reactions to IV N-acetylcysteine are rate related and are managed by slowing the infusion and treating symptoms.
 
 ? Which laboratory results best track developing hepatotoxicity after acetaminophen overdose?
@@ -203,7 +203,7 @@
 + The nomogram cannot be used; treatment is guided by the level and liver enzymes
 - The four-hour nomogram applies from the last dose | The nomogram is valid only for a single acute ingestion.
 - No testing is needed because the doses were spread out | Repeated supratherapeutic dosing causes hepatotoxicity.
-- A urine drug screen will show whether the dose was toxic | Urine screens do not measure acetaminophen toxicity.
+- A urine drug screen will show whether the total dose she has taken was a toxic one | Urine screens do not measure acetaminophen toxicity.
 = Repeated supratherapeutic ingestion falls outside the nomogram; any detectable level with raised transaminases prompts treatment.
 
 ? A 22-year-old has ringing in the ears, vomiting, RR 32 and temperature 38.6 C after an intentional overdose. Arterial pH is 7.48 with a low bicarbonate. Which substance is most likely?
@@ -230,6 +230,6 @@
 ? A severely salicylate-poisoned patient is breathing 36 times a minute. The team is considering sedation and intubation. What is the major risk?
 + Loss of compensatory hyperventilation causing fatal acidosis
 - Vocal cord injury from salicylate | Salicylates do not injure the vocal cords.
-- Malignant hyperthermia from the sedative | That is unrelated to salicylates.
+- Malignant hyperthermia triggered by the sedative used for induction | That is unrelated to salicylates.
 - Rebound hypertension | Hypertension is not the concern.
 = Hyperventilation keeps the pH up; if ventilation falls after intubation, acidemia drives more salicylate into the brain.

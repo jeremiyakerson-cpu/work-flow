@@ -24,7 +24,7 @@
 
 ? A patient with pyelonephritis has BP 84/48, HR 124 and a lactate of 4.6 mmol/L. What should the nurse anticipate?
 + Blood cultures, broad-spectrum IV antibiotics and a fluid bolus
-- Oral antibiotics and discharge | She is in septic shock.
+- Oral antibiotics, an antipyretic and discharge with follow-up in a week | She is in septic shock.
 - An antipyretic and observation | Fever control does not treat shock.
 - A diuretic | Volume removal worsens hypotension.
 = Urosepsis with hypotension and a raised lactate requires immediate sepsis treatment.
@@ -40,7 +40,7 @@
 + Clean front to back, begin urinating, then collect the middle of the stream
 - Collect the very first few drops | The first urine carries urethral contaminants.
 - Collect urine from the toilet bowl | That is contaminated.
-- Clean back to front and collect the end of the stream | That direction introduces bowel organisms.
+- Clean from back to front and then collect only the very end of the urine stream | That direction introduces bowel organisms.
 = Cleansing and collecting midstream reduce contamination from skin and vaginal organisms.
 
 ? A patient with a long-term urinary catheter has a fever and cloudy urine. How should the culture specimen be obtained?
@@ -66,7 +66,7 @@
 
 ? A patient is discharged with an antibiotic and phenazopyridine for cystitis. Which teaching is correct?
 + The urine will turn orange, and the antibiotic must be finished
-- Stop the antibiotic once the burning eases | Stopping early risks relapse.
+- Stop the antibiotic once the burning eases to avoid resistance later | Stopping early risks relapse.
 - Orange urine means the infection is worse | The colour is a harmless drug effect.
 - Limit fluids to rest the bladder | Fluids help clear bacteria.
 = Phenazopyridine is a urinary analgesic that colours urine orange; it relieves symptoms but does not treat the infection.
@@ -88,7 +88,7 @@
 
 ? Which imaging study is the standard for confirming a ureteral stone in a non-pregnant adult?
 + Non-contrast CT of the abdomen and pelvis
-- A plain chest radiograph | It does not image the urinary tract.
+- A plain chest radiograph taken while standing | It does not image the urinary tract.
 - A barium enema | It images the colon.
 - MRI of the brain | It is irrelevant.
 = Non-contrast CT detects nearly all stones and shows their size, position and any obstruction.
@@ -116,7 +116,7 @@
 
 ? A patient has a 4 mm stone in the distal ureter with controlled pain and no infection. What is the expected plan?
 + Discharge with analgesia and a urine strainer, since it will probably pass on its own
-- Immediate surgical removal | Small stones usually pass.
+- Immediate surgical removal of the stone under general anaesthesia before he leaves the ED | Small stones usually pass.
 - Admission for dialysis | Kidney function is not failing.
 - Bed rest for two weeks | Activity is encouraged.
 = Most stones under 5 mm pass spontaneously; an alpha blocker may help larger distal stones.
@@ -137,7 +137,7 @@
 
 ? A patient has passed a calcium oxalate stone. Which prevention advice is most appropriate?
 + Drink enough to produce at least two litres of urine a day
-- Avoid all dietary calcium | Low calcium intake increases oxalate absorption and stone risk.
+- Avoid all dietary calcium, including milk, cheese and yoghurt | Low calcium intake increases oxalate absorption and stone risk.
 - Eat more salt | Sodium increases urinary calcium.
 - Increase animal protein | Animal protein raises stone risk.
 = High fluid intake is the most effective prevention, along with lower sodium and normal dietary calcium.
@@ -167,7 +167,7 @@
 ? A patient has an arteriovenous fistula in the left forearm. Which action is correct?
 + Take blood pressures and draw blood from the right arm only
 - Start the IV in the fistula for good flow | Cannulating the fistula outside dialysis risks clotting and infection.
-- Apply the blood pressure cuff over the fistula | Compression can thrombose it.
+- Apply the blood pressure cuff over the fistula for better accuracy | Compression can thrombose it.
 - Place a tourniquet above the fistula | Constriction can thrombose it.
 = The fistula arm is protected from pressure, venipuncture and IV lines to preserve the access.
 
@@ -201,7 +201,7 @@
 
 ? Which finding is an indication for emergent dialysis in acute kidney injury?
 + Pulmonary edema that does not respond to diuretics
-- A creatinine of 1.6 mg/dL | A modest rise alone is not an indication.
+- A creatinine of 1.6 mg/dL with a normal urine output | A modest rise alone is not an indication.
 - A potassium of 4.9 mEq/L | That is within the normal range.
 - Mild ankle swelling | That is not life threatening.
 = Refractory fluid overload, severe hyperkalemia or acidosis, uremic complications and certain poisonings call for emergent dialysis.

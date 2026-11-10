@@ -19,7 +19,7 @@
 + Remove belongings and cords and assign continuous one-to-one observation
 - Close the door to give privacy | An unobserved patient can self-harm.
 - Check on the patient every 30 minutes | Intermittent checks leave long unobserved periods.
-- Ask a relative to watch while staff are busy | Family cannot replace trained observation.
+- Ask a relative to sit with the patient and watch while the staff are busy | Family cannot replace trained observation.
 = High-risk patients need a ligature-safe environment and constant observation by trained staff.
 
 ? Which factor is the strongest single predictor of a future suicide attempt?
@@ -32,7 +32,7 @@
 ? A patient hospitalized for severe depression was withdrawn for weeks. He is now suddenly calm and cheerful and has given his watch to a friend. How should the nurse interpret this?
 + He may have decided to end his life, and the risk is increased
 - The depression has resolved | Abrupt calm after deep depression is a warning sign.
-- The medication has reached full effect overnight | Antidepressants do not act that suddenly.
+- The antidepressant medication has reached its full effect overnight | Antidepressants do not act that suddenly.
 - No further assessment is needed | Reassessment is urgent.
 = Sudden peace and giving away possessions can follow a decision to die; rising energy may also enable a plan.
 
@@ -46,20 +46,20 @@
 ? A patient tells the nurse, "When I get out of here I'm going to shoot my ex-wife. I know where she works." What must the nurse do?
 + Notify the provider at once so that the threatened person and authorities can be warned
 - Keep the statement confidential | A credible threat to an identifiable person overrides confidentiality.
-- Tell the patient that such thoughts are normal | That minimizes a serious threat.
+- Tell the patient that such thoughts are normal after a divorce and will fade as time passes | That minimizes a serious threat.
 - Document it and take no other action | Documentation alone does not protect the intended victim.
 = A specific threat against an identifiable person triggers a duty to protect that person.
 
 ? A patient who came in voluntarily with a detailed suicide plan now says he feels fine and wants to go home. What should the nurse do?
 + Keep him under observation and notify the provider to evaluate for an involuntary hold
-- Let him sign out against medical advice | He is at imminent risk of harm.
+- Let him sign out against medical advice once he has promised to see his own doctor next week | He is at imminent risk of harm.
 - Call a taxi for him | Discharge is unsafe.
 - Tell him he is under arrest | A hold is a clinical process, not an arrest.
 = A patient at imminent risk may not simply leave; evaluation for emergency detention protects him.
 
 ? A patient is being discharged after a suicidal crisis. Which intervention is most effective in reducing future risk?
 + A written safety plan with removal of firearms and stockpiled medication from the home
-- A signed promise not to attempt suicide | No-suicide contracts have not been shown to work.
+- A signed promise not to attempt suicide, witnessed by a nurse and kept in his medical record | No-suicide contracts have not been shown to work.
 - A leaflet about healthy eating | It does not address suicide risk.
 - Advice to keep busy | General advice does not reduce risk.
 = Safety planning with lethal-means restriction and crisis contacts, including the 988 line, reduces subsequent attempts.
@@ -75,7 +75,7 @@
 + "I can't keep this secret because I need to keep you safe."
 - "I promise I won't tell anyone." | The nurse cannot keep confidential a risk of serious harm.
 - "You're just looking for attention." | That is dismissive and damages trust.
-- "Let's wait and see how you feel next week." | Delay leaves her at risk.
+- "Let's wait and see how you are feeling about it next week." | Delay leaves her at risk.
 = Confidentiality does not extend to imminent risk of harm; honesty about that limit preserves trust.
 
 @ 9.1
@@ -88,7 +88,7 @@
 
 ? Which approach is most effective during verbal de-escalation?
 + One staff member speaks calmly in short sentences from a respectful distance
-- Several staff give instructions at the same time | Multiple voices confuse and escalate.
+- Several staff members give firm instructions at the same time from all around him | Multiple voices confuse and escalate.
 - The nurse stands very close to show concern | Crowding feels threatening.
 - The nurse uses detailed medical explanations | Long explanations overwhelm an agitated person.
 = A single calm voice, simple language, personal space and listening help an agitated patient regain control.
@@ -96,7 +96,7 @@
 ? A 62-year-old with no psychiatric history is suddenly agitated and combative. Before assuming a psychiatric cause, which assessments are essential?
 + Blood glucose, oxygen saturation and a set of vital signs
 - A personality questionnaire | It does not identify a medical cause.
-- A family history of mental illness only | History does not exclude acute medical problems.
+- A detailed family history of mental illness and nothing else | History does not exclude acute medical problems.
 - A handwriting sample | It is irrelevant.
 = Hypoglycemia, hypoxia, infection, head injury and intoxication commonly present as agitation and must be excluded first.
 
@@ -109,7 +109,7 @@
 
 ? A severely agitated patient remains a danger to staff despite de-escalation and refuses oral medication. Which medications are commonly used?
 + An intramuscular antipsychotic, with or without a benzodiazepine
-- An oral antidepressant | Antidepressants do not act acutely.
+- An oral antidepressant started today and continued for several weeks | Antidepressants do not act acutely.
 - A stimulant | Stimulants worsen agitation.
 - An oral lithium tablet | Lithium has no acute calming effect.
 = Intramuscular agents such as haloperidol, olanzapine or droperidol, sometimes with a benzodiazepine, are used for severe agitation.
@@ -125,7 +125,7 @@
 + A quiet room, familiar objects, reorientation and attention to pain or toileting needs
 - A large dose of lorazepam | Benzodiazepines often cause paradoxical agitation and falls in older adults.
 - Wrist restraints | Restraints increase agitation and injury.
-- Leaving her alone in a bright, busy hallway | Stimulation worsens agitation.
+- Leaving her alone on a stretcher in a bright, busy hallway where staff can glance at her | Stimulation worsens agitation.
 = Non-drug measures and treatment of unmet needs are first-line for agitation in dementia.
 
 ? An agitated patient is moved from a noisy hallway bed to a quiet room with dimmed lights. What is the purpose?
@@ -153,7 +153,7 @@
 + Airway, respiratory rate, oxygen saturation and level of sedation
 - A weight measurement | It does not detect over-sedation.
 - Bowel sounds every hour | They are not the priority.
-- None, once the patient is asleep | Over-sedation can cause respiratory depression.
+- None, once the patient is asleep and no longer a danger to the staff | Over-sedation can cause respiratory depression.
 = Sedated patients need close observation for airway compromise and respiratory depression.
 
 @ 9.2
@@ -168,7 +168,7 @@
 + "That must be frightening. I don't see a chip, and you are safe here."
 - "That's impossible, and you know it." | Arguing strengthens the belief and damages trust.
 - "Yes, the chip was placed yesterday." | Agreeing reinforces the delusion.
-- "Let's X-ray your arm to prove you're wrong." | Trying to disprove a delusion is ineffective.
+- "Let's X-ray your arm right now so I can prove to you that you're wrong." | Trying to disprove a delusion is ineffective.
 = The nurse acknowledges the feeling, states reality briefly and does not argue or agree.
 
 ? A 21-year-old with no psychiatric history is brought in hearing voices and behaving bizarrely. What is needed before a psychiatric diagnosis is made?
@@ -181,7 +181,7 @@
 ? A patient started haloperidol four days ago. He now has a temperature of 40.1 C, rigid muscles, confusion and a labile blood pressure. What should the nurse suspect?
 + Neuroleptic malignant syndrome
 - Acute dystonia | Dystonia causes muscle spasm without fever or autonomic instability.
-- Serotonin syndrome | That follows serotonergic drugs and features clonus rather than lead-pipe rigidity.
+- Serotonin syndrome with marked clonus | That follows serotonergic drugs and features clonus rather than lead-pipe rigidity.
 - A viral illness | The combination after an antipsychotic is characteristic.
 = Fever, severe rigidity, altered mental status and autonomic instability after an antipsychotic is a life-threatening emergency; the drug is stopped.
 
@@ -194,7 +194,7 @@
 
 ? A patient taking clozapine reports a sore throat and a temperature of 38.6 C. Which test is most important?
 + A complete blood count with differential
-- A serum lithium level | He is not taking lithium.
+- A serum lithium level drawn before the next dose | He is not taking lithium.
 - A urine drug screen | It does not address the concern.
 - A thyroid panel | It is not the priority.
 = Clozapine can cause severe neutropenia; fever or sore throat requires an urgent neutrophil count.
@@ -208,7 +208,7 @@
 
 ? A patient is brushing at his skin, saying insects are crawling under it, and sees animals on the walls. How should the nurse interpret these hallucinations?
 + Tactile and visual hallucinations suggest a medical or substance-related cause
-- They are typical of schizophrenia | Schizophrenia most often causes auditory hallucinations.
+- They are typical of schizophrenia and need only an increase in his usual medication | Schizophrenia most often causes auditory hallucinations.
 - They indicate malingering | The symptoms have a physical basis.
 - They need no workup | Withdrawal and intoxication must be excluded.
 = Visual and tactile hallucinations point to delirium, withdrawal or stimulant toxicity rather than a primary psychotic disorder.
@@ -222,7 +222,7 @@
 
 ? Which approach is best when caring for a suspicious, paranoid patient?
 + Explain each action before doing it and keep a comfortable distance
-- Whisper with colleagues just outside the room | Whispering feeds suspicion.
+- Whisper with colleagues just outside the room so he is not disturbed | Whispering feeds suspicion.
 - Touch the patient's arm to reassure him | Unexpected touch may be perceived as an attack.
 - Tell small untruths to keep him calm | Dishonesty destroys trust.
 = Honesty, consistency, clear explanation and respect for personal space reduce fear.
@@ -230,6 +230,6 @@
 ? Ten days after giving birth, a woman is confused, has not slept and believes her baby is possessed. What should the nurse recognize?
 + This is a psychiatric emergency with risk to mother and infant
 - This is the common "baby blues" | Baby blues are mild and resolve within two weeks without psychosis.
-- This will pass with a good night's sleep | Postpartum psychosis needs urgent treatment.
+- This will pass with a good night's sleep and help with the baby | Postpartum psychosis needs urgent treatment.
 - This is normal adjustment to parenthood | Delusions about the infant are never normal.
 = Postpartum psychosis carries a risk of suicide and infanticide; the mother is not left alone with the baby and is admitted.

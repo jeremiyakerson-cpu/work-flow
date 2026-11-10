@@ -12,7 +12,7 @@
 + Insert two large-bore IV lines and send a type and crossmatch
 - Insert a urinary catheter | Urine output monitoring follows vascular access.
 - Give an oral antacid | Oral medication is inappropriate in active bleeding.
-- Prepare bowel cleansing for colonoscopy | Resuscitation precedes any procedure.
+- Prepare bowel cleansing solution for an urgent colonoscopy today | Resuscitation precedes any procedure.
 = Hemorrhagic shock is treated first with vascular access and preparation for blood replacement.
 
 ? Which medication should the nurse anticipate for a patient with a suspected bleeding peptic ulcer?
@@ -25,7 +25,7 @@
 ? A hemodynamically stable patient with an upper GI bleed has a hemoglobin of 8.4 g/dL and no cardiac disease. What does a restrictive transfusion strategy recommend?
 + Withhold transfusion unless hemoglobin falls below 7 g/dL
 - Transfuse to a hemoglobin above 12 g/dL | Liberal transfusion increases rebleeding and mortality.
-- Transfuse two units immediately in every case | Transfusion is guided by threshold and stability.
+- Transfuse two units immediately in every case of GI bleeding | Transfusion is guided by threshold and stability.
 - Never transfuse in gastrointestinal bleeding | Transfusion is indicated below the threshold or with instability.
 = In stable patients a threshold of 7 g/dL improves outcomes compared with liberal transfusion.
 
@@ -33,7 +33,7 @@
 + The value has not yet fallen and does not reflect the blood lost
 - The bleed was minor | Whole blood is lost, so concentration is unchanged at first.
 - The laboratory made an error | The result is expected early.
-- The patient is dehydrated and needs no monitoring | Close monitoring is essential.
+- The patient is simply dehydrated and needs no further monitoring today | Close monitoring is essential.
 = Hemoglobin falls only after fluid shifts or IV fluids dilute the remaining blood, so early values underestimate loss.
 
 ? Which laboratory pattern supports an upper rather than a lower source of gastrointestinal bleeding?
@@ -67,7 +67,7 @@
 ? After a night of heavy drinking and repeated retching, a patient vomits a small amount of bright red blood. Vital signs are normal. What is the most likely cause?
 + A mucosal tear at the gastroesophageal junction
 - Rupture of the esophagus | Rupture causes severe chest pain and shock.
-- Bleeding esophageal varices | Variceal bleeding is typically massive.
+- Bleeding esophageal varices from portal hypertension | Variceal bleeding is typically massive.
 - A perforated ulcer | Perforation causes peritonitis, not hematemesis alone.
 = A Mallory-Weiss tear follows forceful vomiting and usually stops bleeding on its own.
 
@@ -89,7 +89,7 @@
 ? A 58-year-old with a previous bowel resection has cramping abdominal pain, repeated vomiting, a swollen abdomen and high-pitched tinkling bowel sounds. What is the most likely cause?
 + Small bowel obstruction from adhesions
 - Gastroenteritis | Gastroenteritis causes diarrhea rather than distension with tinkling sounds.
-- Acute pancreatitis | Pancreatitis causes steady epigastric pain radiating to the back.
+- Acute pancreatitis from alcohol or gallstones | Pancreatitis causes steady epigastric pain radiating to the back.
 - Constipation | Simple constipation does not cause repeated vomiting.
 = Adhesions from earlier surgery are the leading cause of small bowel obstruction.
 
@@ -165,7 +165,7 @@
 
 ? Which patient statement most strongly suggests a complete bowel obstruction?
 + "I haven't passed any gas or stool for two days."
-- "I've had three loose stools today." | Passage of stool argues against complete obstruction.
+- "I've had three loose, watery stools so far today." | Passage of stool argues against complete obstruction.
 - "I feel better after I eat." | Eating worsens obstruction.
 - "My pain is only in my lower back." | That is not typical.
 = Failure to pass flatus or stool, called obstipation, indicates complete obstruction.
@@ -194,7 +194,7 @@
 
 ? Which patient presentation indicates peritonitis?
 + Lying very still with a rigid, board-like abdomen and rebound tenderness
-- Writhing and unable to find a comfortable position | That is typical of colic.
+- Writhing on the stretcher and unable to find any position that is comfortable | That is typical of colic.
 - Soft abdomen with active bowel sounds | Those are reassuring findings.
 - Pain relieved by eating | That suggests a duodenal ulcer.
 = Inflamed peritoneum makes any movement painful, so patients lie still with involuntary guarding.
@@ -222,7 +222,7 @@
 
 ? Why is appendicitis more dangerous in an 85-year-old than in a young adult?
 + Symptoms are often mild and atypical, so perforation is more common by the time of diagnosis
-- The appendix is larger in older adults | Size is not the reason.
+- The appendix is larger in older adults, so it holds more infected material when it finally bursts | Size is not the reason.
 - Older adults cannot have surgery | Surgery is performed when indicated.
 - It does not occur in older adults | It does, with higher mortality.
 = Older patients may have little pain, fever or leukocytosis, which delays diagnosis.

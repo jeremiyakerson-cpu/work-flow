@@ -4,7 +4,7 @@
 ? A restrained driver has BP 78/44 and HR 132 after two units of blood. The bedside ultrasound shows free fluid in the right upper quadrant. What is the next step?
 + Immediate transfer to the operating room for laparotomy
 - CT of the abdomen and pelvis with contrast | An unstable patient should not go to the scanner.
-- Admission for serial abdominal examinations | Observation is for stable patients.
+- Admission to a surgical ward for serial abdominal examinations | Observation is for stable patients.
 - Diagnostic peritoneal lavage to confirm | The positive ultrasound already answers the question.
 = A hypotensive patient with a positive FAST has intra-abdominal hemorrhage and needs operative control.
 
@@ -17,7 +17,7 @@
 
 ? A passenger has a band of bruising across the lower abdomen from a lap belt. The first CT is normal and he is stable. Why is he admitted for observation?
 + Bowel and mesenteric injuries may not appear on early imaging
-- Bruising always indicates a splenic rupture | The spleen is not the organ typically injured by a lap belt.
+- Bruising in this pattern always indicates a rupture of the spleen | The spleen is not the organ typically injured by a lap belt.
 - The bruise will need surgical drainage | Abdominal wall bruising is not drained.
 - He requires prophylactic antibiotics | Antibiotics are not given for a bruise.
 = A seat belt sign is associated with hollow viscus injury and lumbar fractures that can declare themselves hours later.
@@ -31,7 +31,7 @@
 
 ? A colleague prepares to "rock" the pelvis again to recheck stability in a patient already found to have an unstable pelvic fracture. What should the nurse say?
 + "Repeated manipulation can dislodge clot and increase bleeding."
-- "Go ahead; rechecking every hour is standard." | Repeated testing is harmful once instability is known.
+- "Go ahead; rechecking stability every hour is standard practice." | Repeated testing is harmful once instability is known.
 - "Push harder so we can feel the crepitus." | Greater force increases hemorrhage.
 - "Only rock it after the binder comes off." | The binder stays on and the pelvis is not re-tested.
 = The pelvis is assessed gently once; further movement disrupts clot and can restart life-threatening bleeding.
@@ -39,7 +39,7 @@
 ? A patient has loops of bowel protruding through a knife wound. How should the nurse manage the wound?
 + Cover the bowel with sterile saline-moistened dressings
 - Gently push the bowel back inside | Replacing bowel risks contamination and strangulation.
-- Cover it with dry gauze and tape tightly | Dry dressings adhere to and desiccate bowel.
+- Cover it with dry gauze and tape the dressing down tightly | Dry dressings adhere to and desiccate bowel.
 - Pour povidone-iodine over the bowel | Antiseptics damage the serosa.
 = Eviscerated organs are kept moist and covered and are not reduced outside the operating room.
 
@@ -88,7 +88,7 @@
 
 ? A nurse says compartment syndrome is unlikely because the pedal pulse is still present. Why is this incorrect?
 + Loss of the pulse is a late finding that appears after tissue damage
-- A pulse is never present distal to a fracture | Pulses are usually present in an uncomplicated fracture.
+- A pulse is never present distal to a fracture, so the finding means nothing | Pulses are usually present in an uncomplicated fracture.
 - The pulse is an early and reliable sign | Arterial flow persists until compartment pressure is very high.
 - Pulses cannot be felt through swelling | Swelling does not make this assessment meaningless.
 = Compartment pressures compromise capillary perfusion long before they occlude arteries.
@@ -97,7 +97,7 @@
 + Cover the wound with a sterile saline dressing and prepare IV antibiotics
 - Push the bone end back under the skin | Reduction outside surgery drags contamination into the wound.
 - Scrub the bone with antiseptic solution | Antiseptics damage tissue and do not replace surgical debridement.
-- Leave the wound uncovered for inspection | An open wound needs protection from further contamination.
+- Leave the wound uncovered so that the surgeon can inspect it without delay | An open wound needs protection from further contamination.
 = Open fractures are covered, splinted and given early IV antibiotics and tetanus prophylaxis before operative debridement.
 
 ? A patient has an isolated closed mid-shaft femur fracture with a shortened, painful thigh. Which device is appropriate?
@@ -117,13 +117,13 @@
 ? A patient arrives with an amputated thumb carried in a cup. How should the nurse care for the amputated part?
 + Wrap it in saline-moistened gauze, seal it in a bag and place the bag on ice water
 - Place it directly on ice | Direct contact freezes and destroys the tissue.
-- Soak it in a container of sterile water | Soaking macerates the tissue.
+- Soak it in a container of sterile water and keep it at room temperature until surgery | Soaking macerates the tissue.
 - Keep it warm under a blanket | Warmth shortens the time the part stays viable.
 = The part is kept cool but not frozen and not soaked, to preserve it for possible replantation.
 
 ? A front-seat passenger whose knees struck the dashboard has a shortened, internally rotated, adducted right leg. Why is prompt reduction essential?
 + To reduce the risk of avascular necrosis of the femoral head
-- To prevent leg-length growth disturbance | Growth plates are not the adult concern.
+- To prevent a later disturbance of growth in the length of the leg | Growth plates are not the adult concern.
 - To prevent a fat embolism | Dislocation does not cause fat embolism.
 - To allow immediate weight bearing | Early weight bearing is not the goal.
 = A posterior hip dislocation threatens the blood supply to the femoral head, and delay beyond about six hours raises the risk of necrosis.
@@ -138,7 +138,7 @@
 ? A man is freed after his legs were trapped under a collapsed wall for six hours. Which complication should the nurse anticipate?
 + Hyperkalemia and myoglobin-induced kidney injury
 - Hypokalemia and polyuria | Muscle breakdown releases potassium, and urine output falls.
-- Hypercalcemia and constipation | Calcium usually falls early as it deposits in injured muscle.
+- Hypercalcemia with constipation and abdominal pain | Calcium usually falls early as it deposits in injured muscle.
 - Metabolic alkalosis | Crush injury produces acidosis.
 = Reperfusion of crushed muscle releases potassium and myoglobin, causing dysrhythmias and renal failure; aggressive fluids are started early.
 
@@ -154,7 +154,7 @@
 + Tetanus immune globulin and the first dose of vaccine at separate sites
 - Vaccine alone | Vaccine takes weeks to protect an unimmunized person.
 - Immune globulin alone | Passive protection is short lived and active immunity is still needed.
-- Oral antibiotics alone | Antibiotics do not neutralize tetanus toxin.
+- Oral antibiotics alone for ten days, with a wound check at the end of the course | Antibiotics do not neutralize tetanus toxin.
 = Unimmunized patients with tetanus-prone wounds receive passive protection with immune globulin plus active immunization.
 
 ? Which intervention does the most to prevent infection in a contaminated laceration?
@@ -166,7 +166,7 @@
 
 ? During infiltration of lidocaine for a large laceration repair, the patient reports numbness around the mouth, ringing in the ears and a metallic taste. What should the nurse do?
 + Ask the provider to stop the injection and prepare for possible seizures
-- Reassure the patient that this is normal | These are early signs of systemic toxicity.
+- Reassure the patient that this is a normal effect of the anaesthetic wearing in | These are early signs of systemic toxicity.
 - Encourage slow deep breathing only | Breathing techniques do not treat toxicity.
 - Offer a sip of water for the taste | That ignores an evolving emergency.
 = Perioral numbness, tinnitus and a metallic taste precede seizures and cardiac collapse in local anaesthetic toxicity; lipid emulsion is the antidote.
@@ -188,20 +188,20 @@
 ? A man has a small laceration over the knuckle of his dominant hand after punching someone in the mouth. How should this wound be managed?
 + Irrigate thoroughly, leave it open and give antibiotics
 - Close it with tissue adhesive | Sealing a human bite traps virulent bacteria.
-- Suture it tightly to protect the joint | Closure markedly raises infection risk.
+- Suture it tightly in layers to protect the joint beneath | Closure markedly raises infection risk.
 - Apply a bandage and no other treatment | These wounds frequently involve the joint and become infected.
 = A clenched-fist injury is a human bite that often enters the joint; it is explored, irrigated, left open and treated with antibiotics.
 
 ? A machine has stripped the skin from the back of a worker's hand, leaving a flap attached at one edge. How should the nurse handle the flap?
 + Rinse gently, lay it back in position and cover with a moist saline dressing
 - Trim the flap off to tidy the wound | Viable skin may be needed for coverage.
-- Leave the flap hanging and apply dry gauze | Tension and drying kill the flap.
+- Leave the flap hanging free and apply dry gauze loosely until the surgeon arrives | Tension and drying kill the flap.
 - Apply a tight elastic bandage | Pressure compromises the flap's blood supply.
 = Avulsed or degloved tissue is preserved, kept moist and protected until a surgeon decides on its viability.
 
 ? A patient with diabetes has a leg wound with rapidly spreading redness, pain far out of proportion, grey blisters and a crackling feel under the skin. Temperature is 39.4 C and HR 126. What is needed?
 + Urgent surgical debridement and broad-spectrum IV antibiotics
-- Oral antibiotics and a recheck in 48 hours | The infection will progress within hours.
+- Oral antibiotics, limb elevation and a recheck in clinic in 48 hours | The infection will progress within hours.
 - Warm compresses and limb elevation | Local measures do not halt necrosis.
 - A topical antifungal cream | The infection is deep and bacterial.
 = Pain out of proportion, crepitus, bullae and systemic toxicity indicate necrotizing soft tissue infection, a surgical emergency.

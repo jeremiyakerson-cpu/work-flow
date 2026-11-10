@@ -5,7 +5,7 @@
 + Sit upright, lean forward and pinch the soft part of the nose firmly for at least 10 minutes
 - Tilt the head back and pinch the bridge | Blood runs down the throat, and the bony bridge cannot be compressed.
 - Lie flat with a cold pack on the forehead | Lying flat increases swallowing of blood and aspiration risk.
-- Blow the nose hard every minute to clear clots | Repeated blowing dislodges the clot.
+- Blow the nose as hard as possible every minute to clear the clots, then check whether it has stopped | Repeated blowing dislodges the clot.
 = Continuous pressure on the soft nasal alae compresses the anterior septal vessels where most nosebleeds arise.
 
 ? Where do most nosebleeds originate?
@@ -24,7 +24,7 @@
 
 ? A patient has posterior nasal packing placed. What is the appropriate disposition and monitoring?
 + Admission with continuous oxygen saturation and cardiac monitoring
-- Discharge with advice to return in a week | Posterior packs can cause hypoxia and bradycardia.
+- Discharge with written advice to return in a week for removal of the pack | Posterior packs can cause hypoxia and bradycardia.
 - Observation in the waiting room | Close monitoring is required.
 - Discharge with oral antihistamines | They do not address the risks.
 = Posterior packing can compromise the airway and trigger a vagal response, so patients are admitted and monitored.
@@ -33,12 +33,12 @@
 + A vasoconstrictor spray such as oxymetazoline
 - A steroid nasal spray | It has no immediate hemostatic effect.
 - A saline rinse | Rinsing dislodges clot.
-- An antihistamine spray | It does not constrict vessels.
+- An antihistamine spray used twice in both nostrils | It does not constrict vessels.
 = A topical vasoconstrictor followed by further pressure stops most anterior bleeds; cautery or packing follows if needed.
 
 ? A patient is discharged with anterior nasal packing in place. Which instruction is correct?
 + Do not blow the nose, and sneeze with the mouth open
-- Remove the packing at home tonight | The pack is removed by a clinician after a few days.
+- Remove the packing at home tonight before going to bed | The pack is removed by a clinician after a few days.
 - Take ibuprofen for discomfort | NSAIDs impair clotting.
 - Lift weights as usual | Straining can restart bleeding.
 = Avoiding pressure changes and antiplatelet drugs protects the clot until the pack is removed.
@@ -59,7 +59,7 @@
 
 ? A patient with a nosebleed has soaked several towels and now has HR 128 and BP 88/50. What is the priority?
 + Establish IV access and send blood for type and screen while bleeding control continues
-- Wait until the bleeding stops before starting an IV | Shock needs immediate treatment.
+- Wait until the bleeding has stopped completely before starting an IV or sending any bloods | Shock needs immediate treatment.
 - Give an oral iron tablet | Iron does not treat acute blood loss.
 - Discharge once the bleeding slows | The patient is in hemorrhagic shock.
 = Significant blood loss from epistaxis is resuscitated like any other hemorrhage.
@@ -74,7 +74,7 @@
 @ 11.1
 ? A 12-year-old's permanent front tooth was knocked out 15 minutes ago. The tooth is in the parent's hand. What is the best immediate action?
 + Rinse it gently, hold it by the crown and replace it in the socket
-- Scrub the root clean with a brush | Scrubbing destroys the ligament cells needed for reattachment.
+- Scrub the root clean with a brush and antiseptic before replacing it | Scrubbing destroys the ligament cells needed for reattachment.
 - Wrap it in dry gauze | Drying kills the root surface cells within minutes.
 - Soak it in tap water | Water damages the root cells.
 = Reimplantation within about 30-60 minutes gives the best outcome; if not possible, the tooth is stored in milk or a tooth-preservation solution.
@@ -95,7 +95,7 @@
 
 ? A patient with a dental abscess has swelling under the jaw, cannot open the mouth more than a finger's width and has difficulty swallowing. What does this indicate?
 + Spread of infection into the deep spaces of the neck
-- An expected course for a toothache | Trismus and dysphagia are warning signs.
+- An expected course for a toothache lasting several days | Trismus and dysphagia are warning signs.
 - A reaction to analgesics | The findings indicate spreading infection.
 - Temporomandibular joint strain | It does not cause fever and swelling under the jaw.
 = Trismus, dysphagia and submandibular swelling signal deep neck infection that threatens the airway.
@@ -109,14 +109,14 @@
 
 ? A patient is bleeding steadily from a tooth socket two hours after an extraction. What should the nurse do first?
 + Have the patient bite firmly on folded gauze for 20 to 30 minutes
-- Ask the patient to rinse and spit repeatedly | Rinsing and spitting dislodge the clot.
+- Ask the patient to rinse and spit repeatedly until the water is clear | Rinsing and spitting dislodge the clot.
 - Give a drink through a straw | Suction pulls the clot out.
 - Apply heat to the cheek | Heat increases bleeding.
 = Sustained direct pressure over the socket controls most post-extraction bleeding.
 
 ? A 22-year-old under heavy stress has painful, bleeding gums with a grey film, punched-out ulcers between the teeth and very bad breath. What is the most likely condition?
 + Acute necrotizing ulcerative gingivitis
-- Simple plaque gingivitis | That is painless and lacks ulceration.
+- Simple plaque gingivitis from poor brushing | That is painless and lacks ulceration.
 - Oral thrush | Thrush forms white plaques that wipe off.
 - Herpes labialis | That affects the lips with vesicles.
 = "Trench mouth" is a bacterial infection of the gums treated with debridement, antiseptic rinses and antibiotics.
@@ -153,7 +153,7 @@
 ? How does the nurse know when irrigation of a chemical eye injury can stop?
 + The tear pH is between 7.0 and 7.4 several minutes after irrigation is paused
 - One litre of fluid has been used | Volume alone is not an endpoint.
-- The patient says the pain has gone | Pain relief does not show that the chemical is cleared.
+- The patient says the pain has gone and that the eye feels comfortable when blinking | Pain relief does not show that the chemical is cleared.
 - Ten minutes have passed | Alkali burns may need far longer.
 = Irrigation continues until the pH is neutral and stays neutral on rechecking.
 
@@ -168,19 +168,19 @@
 + Place a rigid shield over the eye without pressure and keep him NPO
 - Apply a pressure patch | Pressure can push out the contents of the eye.
 - Instil antibiotic drops | Nothing is put into an open globe.
-- Measure the eye pressure | Tonometry is contraindicated.
+- Measure the eye pressure with a tonometer and record it in both eyes | Tonometry is contraindicated.
 = A teardrop pupil and exposed uveal tissue indicate an open globe; the eye is shielded and vomiting prevented.
 
 ? A patient hit by a racquetball has a layer of blood settling in the lower part of the anterior chamber. How should the nurse position the patient?
 + Head of the bed raised 30 to 45 degrees
-- Flat on the back | Lying flat spreads blood across the visual axis.
+- Flat on the back with the head turned aside | Lying flat spreads blood across the visual axis.
 - Prone | It increases pressure in the eye.
 - Trendelenburg | It raises pressure in the eye.
 = With a hyphema, elevation lets blood settle inferiorly; the eye is shielded and aspirin and NSAIDs avoided.
 
 ? A patient has eye pain, tearing and a gritty sensation after being poked by a child's fingernail. Which test confirms a corneal abrasion?
 + Fluorescein staining under blue light
-- A pupil dilation test | It does not show an abrasion.
+- A pupil dilation test using dilating drops | It does not show an abrasion.
 - A colour vision test | It does not show an abrasion.
 - A visual field test | It does not show an abrasion.
 = Fluorescein pools in areas where the corneal epithelium is missing and glows green under cobalt-blue light.
@@ -195,7 +195,7 @@
 ? A contact lens wearer has a painful red eye with a white spot on the cornea. What should the nurse anticipate?
 + Same-day ophthalmology review and antibiotic drops that cover Pseudomonas
 - Reinserting the lens as a bandage | Lens wear must stop.
-- An eye patch and next-week follow-up | Patching promotes bacterial growth, and delay risks perforation.
+- An eye patch over the closed eye and a follow-up appointment the next week | Patching promotes bacterial growth, and delay risks perforation.
 - Lubricating drops only | A corneal ulcer needs antibiotics.
 = Contact lens-related keratitis is often caused by Pseudomonas and can destroy the cornea within a day.
 

@@ -32,13 +32,13 @@
 ? An unresponsive patient has an organized narrow-complex rhythm at 60/min on the monitor but no palpable pulse. What is the correct management?
 + Start CPR, give epinephrine and search for reversible causes
 - Defibrillate at 200 J | Pulseless electrical activity is not a shockable rhythm.
-- Begin transcutaneous pacing | Pacing does not help when electrical activity already exists without output.
+- Begin transcutaneous pacing at a rate of 80 with maximum output | Pacing does not help when electrical activity already exists without output.
 - Give atropine 1 mg IV | Atropine is no longer recommended for PEA.
 = PEA is managed with high-quality CPR, epinephrine and correction of the Hs and Ts such as hypovolemia, hypoxia and tamponade.
 
 ? During resuscitation of an intubated patient the waveform capnography reads 7 mmHg. What should the team leader do?
 + Improve compression quality and consider switching the compressor
-- Stop resuscitation because survival is impossible | A single low value is not used alone to terminate efforts.
+- Stop the resuscitation, because survival is impossible at this reading | A single low value is not used alone to terminate efforts.
 - Increase the ventilation rate to 30 per minute | Hyperventilation lowers ETCO2 further and impairs venous return.
 - Give sodium bicarbonate | Bicarbonate does not address inadequate compressions.
 = ETCO2 below 10 mmHg during CPR signals inadequate cardiac output; compression depth, rate and recoil should be corrected.
@@ -54,7 +54,7 @@
 + Titrate the FiO2 down while keeping saturation in the mid-90s
 - Continue 100% oxygen for the first 24 hours | Prolonged hyperoxia worsens reperfusion injury.
 - Remove supplemental oxygen completely | Abrupt removal risks hypoxemia in an unstable patient.
-- Hyperventilate to lower the carbon dioxide level | Hypocapnia causes cerebral vasoconstriction after arrest.
+- Hyperventilate the patient to lower the carbon dioxide level quickly | Hypocapnia causes cerebral vasoconstriction after arrest.
 = After ROSC, oxygen is titrated to avoid both hypoxemia and hyperoxia, and ventilation targets a normal carbon dioxide level.
 ! Exact post-ROSC SpO2 target range (commonly 92-98%; check the 2025 AHA update) not confirmed against the current guideline text.
 
@@ -98,7 +98,7 @@
 ? A patient with a confirmed aortic dissection has HR 112 and BP 176/98. Which medication should the nurse expect to give first?
 + An IV beta blocker such as esmolol
 - An IV fluid bolus | Volume raises pressure and shear stress on the aortic wall.
-- A hydralazine IV push | A pure vasodilator causes reflex tachycardia that extends the tear.
+- A hydralazine IV push as the only agent | A pure vasodilator causes reflex tachycardia that extends the tear.
 - A dopamine infusion | An inotrope increases the force of ejection against the torn aorta.
 = Initial therapy lowers heart rate and the force of contraction with a beta blocker, aiming for a rate near 60 and systolic pressure 100-120 mmHg.
 
@@ -106,7 +106,7 @@
 + Clarify the need for a beta blocker to be started first
 - Start the infusion at the maximum rate | Rapid unopposed vasodilation provokes reflex tachycardia.
 - Give the infusion with a saline bolus | Volume loading raises aortic wall stress.
-- Refuse all antihypertensives until surgery | Pressure and rate control are urgent while awaiting definitive care.
+- Refuse to give any antihypertensive until after surgery is done | Pressure and rate control are urgent while awaiting definitive care.
 = Vasodilators given before heart-rate control cause reflex tachycardia and greater shear force, which can propagate the dissection.
 
 ? A 59-year-old with severe chest and back pain has a widened mediastinum on chest radiograph. The ECG shows nonspecific changes. Which order should the nurse question?
@@ -118,7 +118,7 @@
 
 ? A 71-year-old male smoker has sudden severe flank and back pain, a pulsatile abdominal mass and BP 82/50. What is the priority?
 + Prepare for immediate surgical intervention and activate massive transfusion
-- Send the patient for an oral-contrast CT of the abdomen | An unstable patient should not leave for prolonged imaging.
+- Send the patient to radiology for an oral-contrast CT of the abdomen and pelvis | An unstable patient should not leave for prolonged imaging.
 - Give ketorolac for presumed renal colic | Anchoring on renal colic misses a rupture, and NSAIDs impair hemostasis.
 - Insert a urinary catheter and collect urine for culture | This delays definitive care.
 = Hypotension, back or flank pain and a pulsatile mass indicate ruptured abdominal aortic aneurysm, which needs emergent operative repair.
@@ -148,7 +148,7 @@
 + CT angiography of the chest, abdomen and pelvis
 - A treadmill stress test | Exertion is dangerous with a suspected dissection.
 - A ventilation-perfusion scan | A V/Q scan evaluates pulmonary embolism.
-- A plain chest radiograph alone | A normal film does not exclude dissection.
+- A plain chest radiograph alone, repeated in an hour | A normal film does not exclude dissection.
 = CT angiography is fast, widely available and highly sensitive for dissection in stable patients.
 
 ? A tall, thin 27-year-old with long fingers and a history of lens dislocation has sudden severe chest pain radiating to the back. Which condition places him at particular risk for the suspected diagnosis?
@@ -161,14 +161,14 @@
 ? A patient with an aortic dissection reports pain of 10/10. The provider orders IV fentanyl. What is the main reason analgesia is a priority?
 + Pain increases catecholamine release, which raises heart rate and blood pressure
 - Opioids directly seal the intimal tear | Opioids have no effect on the tear itself.
-- Analgesia is required before consent can be signed | Consent does not depend on analgesia.
+- Analgesia is required before the patient can legally sign the consent for surgery | Consent does not depend on analgesia.
 - Opioids prevent clot formation in the false lumen | Opioids have no antithrombotic effect.
 = Uncontrolled pain drives sympathetic output, increasing the shear forces that extend a dissection.
 
 ? A patient with a known thoracic aortic dissection suddenly reports that his left leg is numb and cold, and no pedal pulse is palpable. What does this indicate?
 + Extension of the dissection compromising a branch artery
 - An unrelated deep vein thrombosis | Venous thrombosis causes swelling and warmth, not a pulseless cold limb.
-- An expected effect of beta blockers | Beta blockers do not cause acute limb ischemia.
+- An expected circulatory effect of the beta blocker infusion | Beta blockers do not cause acute limb ischemia.
 - Anxiety-related hyperventilation | Hyperventilation does not abolish a pulse.
 = New pulse deficits or neurologic changes signal malperfusion from propagation of the dissection and need immediate surgical notification.
 
@@ -190,13 +190,13 @@
 ? A 55-year-old has BP 204/114 found at a pharmacy kiosk. He is asymptomatic with a normal examination, ECG and creatinine. Which plan should the nurse expect?
 + Restart or adjust oral antihypertensives and arrange follow-up within days
 - An IV labetalol push until the pressure is 140/90 | Rapid IV lowering in asymptomatic patients causes harm without benefit.
-- Admission to intensive care for a nitroprusside infusion | Intensive care is for acute end-organ damage.
+- Admission to intensive care for a nitroprusside infusion and an arterial line | Intensive care is for acute end-organ damage.
 - Sublingual nifedipine and discharge | Immediate-release nifedipine causes unpredictable precipitous drops.
 = Severe asymptomatic hypertension without organ damage is managed with oral therapy and prompt outpatient follow-up.
 
 ? A patient with an acute ischemic stroke is outside the treatment window for thrombolysis and thrombectomy. BP is 198/106. What is the appropriate approach?
 + Allow the pressure to remain elevated unless it exceeds 220/120
-- Lower the pressure to below 140/90 within the hour | Aggressive lowering reduces flow to the ischemic penumbra.
+- Lower the pressure to below 140/90 within the hour using IV agents | Aggressive lowering reduces flow to the ischemic penumbra.
 - Give sublingual nitroglycerin | Nitroglycerin is not recommended for stroke blood pressure management.
 - Start a norepinephrine infusion | Raising the pressure further is not indicated.
 = Permissive hypertension supports collateral flow; without reperfusion therapy, treatment is generally withheld unless pressure exceeds 220/120 mmHg.
@@ -217,7 +217,7 @@
 
 ? A patient has been on a high-dose nitroprusside infusion for 36 hours. Which finding suggests toxicity?
 + New confusion with a rising lactate and metabolic acidosis
-- A blood pressure at the ordered goal | That is the intended therapeutic effect.
+- A blood pressure that is holding steady at the ordered goal | That is the intended therapeutic effect.
 - Mild facial flushing | Flushing is a benign vasodilatory effect.
 - A dry cough | Cough is associated with ACE inhibitors.
 = Nitroprusside releases cyanide; prolonged or high-dose infusions can cause altered mentation and lactic acidosis.
@@ -225,7 +225,7 @@
 ? A provider orders IV labetalol for a hypertensive emergency. Which finding should make the nurse question the order?
 + Heart rate of 48 with a second-degree AV block
 - A history of gout | Gout is not a contraindication.
-- Blood glucose of 162 mg/dL | Mild hyperglycemia does not preclude labetalol.
+- Blood glucose of 162 mg/dL on a fingerstick check | Mild hyperglycemia does not preclude labetalol.
 - Age over 65 | Age alone is not a contraindication.
 = Labetalol blocks beta receptors and is avoided in bradycardia, heart block, decompensated heart failure and reactive airway disease.
 
@@ -245,7 +245,7 @@
 
 ? A provider orders immediate-release nifedipine 10 mg to be punctured and given sublingually for a blood pressure of 208/116. What should the nurse do?
 + Question the order because of the risk of abrupt uncontrolled hypotension
-- Give it as ordered and recheck the pressure in an hour | The practice is associated with stroke and myocardial infarction.
+- Give it as ordered and recheck the blood pressure in an hour, then repeat if needed | The practice is associated with stroke and myocardial infarction.
 - Give double the dose for a faster effect | A larger dose increases the danger.
 - Crush it into applesauce instead | The route change does not remove the risk.
 = Short-acting nifedipine produces unpredictable precipitous drops in pressure and is not recommended for acute lowering.

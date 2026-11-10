@@ -39,7 +39,7 @@
 ? A patient with pulmonary embolism has BP 124/78, an elevated troponin and a dilated right ventricle on echocardiogram. How is this classified, and what does it require?
 + Intermediate risk; anticoagulation with close monitoring for deterioration
 - Low risk; outpatient treatment today | Right ventricular strain excludes low risk.
-- High risk; immediate thrombolysis for all | Thrombolysis is not routine while pressure is maintained.
+- High risk; immediate systemic thrombolysis for every patient in this category | Thrombolysis is not routine while pressure is maintained.
 - No risk; the findings are incidental | Right ventricular strain predicts decompensation.
 = Normal blood pressure with right ventricular dysfunction or myocardial injury is intermediate-risk (submassive) embolism.
 
@@ -74,7 +74,7 @@
 ? A hypotensive patient with a massive pulmonary embolism is ordered fluids. Why should the nurse expect only a small bolus?
 + Large volumes overdistend the failing right ventricle and reduce cardiac output
 - Fluids dilute the anticoagulant | Dilution is not the concern.
-- Fluids cause the clot to enlarge | Fluid does not enlarge the clot.
+- Fluids cause the clot in the pulmonary artery to enlarge and break into smaller pieces | Fluid does not enlarge the clot.
 - Any fluid is contraindicated | A cautious small bolus may be tried.
 = The obstructed right ventricle is already distended; excess volume bows the septum and impairs left ventricular filling.
 
@@ -88,7 +88,7 @@
 @ 5.4
 ? A tall, thin 22-year-old smoker has sudden sharp right chest pain and mild dyspnea at rest. Breath sounds are reduced on the right with hyperresonance. Vital signs are stable. What is the likely diagnosis?
 + Primary spontaneous pneumothorax
-- Pulmonary embolism | Embolism does not cause hyperresonance or unilateral loss of breath sounds.
+- Pulmonary embolism from a leg vein | Embolism does not cause hyperresonance or unilateral loss of breath sounds.
 - Pneumonia | Pneumonia causes dullness and fever.
 - Pleural effusion | An effusion is dull to percussion.
 = Rupture of an apical bleb in a tall thin young smoker causes sudden pleuritic pain with hyperresonance.
@@ -109,7 +109,7 @@
 
 ? Where is a chest tube for pneumothorax usually inserted?
 + Fourth or fifth intercostal space, just anterior to the mid-axillary line
-- Second intercostal space at the sternal border | That is not a chest tube site and risks the internal mammary vessels.
+- Second intercostal space at the sternal border, directed toward the opposite side | That is not a chest tube site and risks the internal mammary vessels.
 - Eighth intercostal space posteriorly | That risks the diaphragm, liver and spleen.
 - Just below the clavicle medially | That risks the subclavian vessels.
 = The "safe triangle" in the lateral chest avoids major vessels and abdominal organs.
@@ -117,7 +117,7 @@
 ? A patient with a chest tube is being moved to radiology. How should the drainage system be handled?
 + Keep it upright and below the level of the chest, without clamping
 - Clamp the tube for the journey | Clamping can cause tension pneumothorax.
-- Lay the unit on the bed beside the patient | Raising it to chest level lets fluid flow back.
+- Lay the unit on the bed beside the patient so that it cannot be knocked | Raising it to chest level lets fluid flow back.
 - Disconnect it and cap the tube | Disconnection allows air into the pleural space.
 = The unit stays below the insertion site and unclamped so that air and fluid continue to drain.
 
@@ -131,21 +131,21 @@
 ? A confused patient pulls out his chest tube. What should the nurse do immediately?
 + Cover the site with a sterile occlusive dressing and assess his breathing
 - Push the same tube back in | Reinsertion introduces contamination and injury.
-- Leave the wound open to the air | Air will enter the pleural space with each breath.
+- Leave the wound open to the air so that any trapped air can escape by itself | Air will enter the pleural space with each breath.
 - Clamp the removed tube | Clamping a tube that is out of the patient does nothing.
 = The site is sealed to stop air entry, the patient is monitored for tension pneumothorax and the provider is notified.
 
 ? The skin around a chest tube site crackles under the nurse's fingers. The patient is comfortable with stable vital signs. What should the nurse do?
 + Mark the edges of the area and monitor for spread
 - Remove the chest tube | The tube is still needed.
-- Massage the area to disperse the air | Massage does not help and may be painful.
+- Massage the area firmly to disperse the trapped air | Massage does not help and may be painful.
 - Apply an ice pack | Cold does not treat trapped air.
 = A small amount of subcutaneous emphysema is common; expansion suggests an air leak or tube problem and is reported.
 
 ? A patient is being discharged after a resolved spontaneous pneumothorax. Which instruction is most important?
 + Avoid air travel and diving until cleared, and stop smoking
 - Begin vigorous exercise tomorrow | Strenuous exertion is delayed.
-- Expect chest pain daily for six months | Persistent pain should be reported.
+- Expect sharp chest pain every day for the next six months or so | Persistent pain should be reported.
 - No follow-up is needed | Follow-up imaging is required.
 = Pressure changes can cause recurrence, and smoking greatly increases the risk of another pneumothorax.
 
@@ -165,7 +165,7 @@
 
 ? A new nurse is about to strip a chest tube vigorously to clear a small clot. What should the preceptor say?
 + "Routine stripping creates high negative pressure and can injure lung tissue."
-- "Strip it every hour to keep it clear." | Routine stripping is not recommended.
+- "Strip it firmly along its whole length every hour to keep it clear of any clots." | Routine stripping is not recommended.
 - "Clamp it for an hour instead." | Clamping risks tension pneumothorax.
 - "Irrigate it with saline." | Nurses do not irrigate chest tubes.
 = Aggressive stripping generates dangerously high negative intrathoracic pressure; gentle repositioning of tubing is preferred.
@@ -173,14 +173,14 @@
 @ 5.5
 ? Which set of findings defines acute respiratory distress syndrome?
 + Acute hypoxemia with bilateral infiltrates not explained by heart failure
-- Chronic hypercapnia with hyperinflated lungs | That describes COPD.
+- Chronic hypercapnia with hyperinflated lungs and a long history of smoking | That describes COPD.
 - Unilateral consolidation with fever | That describes lobar pneumonia.
 - Wheezing that reverses with bronchodilators | That describes asthma.
 = ARDS is acute-onset hypoxemia with bilateral opacities of non-cardiac origin, graded by the PaO2/FiO2 ratio.
 
 ? A patient with sepsis has SpO2 84% on a non-rebreather mask and remains hypoxic after intubation on 100% oxygen. What does this refractory hypoxemia suggest?
 + Alveolar collapse and shunting from ARDS
-- A faulty pulse oximeter | Persistent hypoxemia across devices has a physiologic cause.
+- A faulty pulse oximeter or a poorly placed probe | Persistent hypoxemia across devices has a physiologic cause.
 - Carbon dioxide narcosis | That causes drowsiness, not oxygen-resistant hypoxemia.
 - Hyperventilation | Hyperventilation does not cause refractory hypoxemia.
 = In ARDS, flooded and collapsed alveoli are perfused but not ventilated, so oxygen alone cannot correct the hypoxemia.
@@ -189,7 +189,7 @@
 + Low tidal volumes of about 6 mL/kg of predicted body weight
 - High tidal volumes of 12 mL/kg | Large breaths overstretch and injure the lung.
 - No PEEP | PEEP is needed to keep alveoli open.
-- A respiratory rate of 6 per minute | Low volumes need a higher rate.
+- A respiratory rate of 6 per minute to rest the injured lungs | Low volumes need a higher rate.
 = Lung-protective ventilation with low tidal volumes and limited plateau pressure reduces mortality.
 
 ? A man with ARDS has a predicted body weight of 70 kg and an actual weight of 110 kg. Which tidal volume fits a 6 mL/kg strategy?
@@ -238,7 +238,7 @@
 + A normal heart size with no jugular venous distension
 - Bilateral crackles | Crackles occur in both.
 - Hypoxemia | Low oxygen occurs in both.
-- Bilateral infiltrates on radiograph | Both show bilateral opacities.
+- Bilateral infiltrates on the portable chest radiograph | Both show bilateral opacities.
 = ARDS is a permeability problem with normal filling pressures; cardiogenic edema shows signs of volume overload.
 
 ? A hiker who ascended rapidly to 3,800 metres two days ago has a cough with frothy sputum, breathlessness at rest and crackles. What is the definitive treatment?

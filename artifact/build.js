@@ -209,11 +209,12 @@ function build() {
   console.log(`built cen-study-hub.html with ${bank.length} questions (${short} topics under target)`);
 }
 
-const cmd = process.argv[2];
-if (cmd === "check") { const r = check(); process.exit(r.errors.length ? 1 : 0); }
+const cmd = require.main === module ? process.argv[2] : null;
+if (cmd === null) { /* loaded as a module */ }
+else if (cmd === "check") { const r = check(); process.exit(r.errors.length ? 1 : 0); }
 else if (cmd === "blind") blind(process.argv[3], process.argv[4]);
 else if (cmd === "compare") compare(process.argv[3]);
 else if (cmd === "build") build();
 else { console.log("usage: node build.js check|blind <dir>|compare <dir>|build"); process.exit(1); }
 
-module.exports = { parseAll, shuffled };
+module.exports = { parseAll, shuffled, TARGET, TOPIC_COUNTS };

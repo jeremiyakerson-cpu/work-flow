@@ -31,7 +31,7 @@
 
 ? A patient with prostate cancer has two weeks of worsening back pain and now reports leg weakness and difficulty passing urine. What should the nurse anticipate?
 + High-dose dexamethasone and an urgent MRI of the spine
-- A muscle relaxant and physiotherapy | These are signs of neurologic compromise.
+- A muscle relaxant and a referral for outpatient physiotherapy | These are signs of neurologic compromise.
 - A plain radiograph and discharge | Plain films cannot exclude cord compression.
 - Bed rest at home for a week | Delay risks permanent paralysis.
 = Malignant spinal cord compression is an oncologic emergency; steroids reduce swelling while definitive treatment is arranged.
@@ -46,7 +46,7 @@
 ? A 12-year-old with severe hemophilia A fell and struck his head. He is alert. What is the first priority?
 + Give factor replacement immediately, before imaging
 - Obtain the CT scan first | Delay allows intracranial bleeding to progress.
-- Observe for 24 hours without treatment | Bleeding may be silent until it is severe.
+- Observe him for 24 hours without giving any treatment | Bleeding may be silent until it is severe.
 - Give aspirin for the headache | Aspirin worsens bleeding.
 = In hemophilia, head trauma is treated as intracranial bleeding until proven otherwise, and factor is given without delay.
 
@@ -61,7 +61,7 @@
 + Stop the transfusion and keep the vein open with saline through new tubing
 - Slow the transfusion and observe | Any more incompatible blood worsens the reaction.
 - Give acetaminophen and continue | This is not a simple febrile reaction.
-- Flush the existing tubing with saline | That pushes the remaining blood into the patient.
+- Flush the existing tubing briskly with saline to clear the remaining blood out | That pushes the remaining blood into the patient.
 = These signs indicate an acute hemolytic reaction; the transfusion is stopped, the line maintained with fresh tubing and the blood bank notified.
 
 ? A patient has a platelet count of 8,000/mm3. Which precaution is appropriate?
@@ -81,7 +81,7 @@
 @ 10.7
 ? A patient has had a cough for a month with night sweats, weight loss and blood-streaked sputum. Which precautions should the triage nurse start?
 + Airborne precautions with a mask on the patient and a negative-pressure room
-- Droplet precautions in an open bay | Tuberculosis spreads by airborne particles.
+- Droplet precautions in an open bay, with a surgical mask for staff within one metre | Tuberculosis spreads by airborne particles.
 - Contact precautions only | The organism is not spread by contact.
 - Standard precautions only | These do not prevent airborne transmission.
 = Suspected tuberculosis requires airborne isolation; staff wear fitted N95 respirators.
@@ -90,7 +90,7 @@
 + Place a mask on the child and move him directly to an airborne isolation room
 - Seat him in the waiting room | Measles is extremely contagious through the air.
 - Use droplet precautions only | Measles requires airborne precautions.
-- Send him home without assessment | He needs evaluation, and the case must be reported.
+- Send him home without assessment and ask the parents to telephone their own doctor | He needs evaluation, and the case must be reported.
 = Measles spreads by the airborne route and remains infectious in room air; the patient is isolated immediately.
 
 ? Which patient needs both airborne and contact precautions?
@@ -111,12 +111,12 @@
 + Contact precautions with gown and gloves and dedicated equipment
 - Airborne precautions | The organism is not airborne.
 - Droplet precautions | It is not spread by droplets.
-- No precautions, since she is only colonized | Colonized patients can still transmit the organism.
+- No precautions, since she is only colonized and has no active infection | Colonized patients can still transmit the organism.
 = Resistant organisms spread on hands and equipment; gown, gloves and dedicated or disinfected equipment limit transmission.
 
 ? A man with fever, vomiting and unexplained bruising returned five days ago from an area with an Ebola outbreak. What should the triage nurse do first?
 + Isolate him in a private room and notify infection control
-- Draw routine bloods in the open triage area | Body fluids are highly infectious.
+- Draw routine bloods in the open triage area before he is seen | Body fluids are highly infectious.
 - Send him to the waiting room | That exposes others.
 - Tell him to return if symptoms worsen | He needs immediate isolation and evaluation.
 = For suspected viral hemorrhagic fever the sequence is identify, isolate and inform, with full protective equipment before any contact.
@@ -124,7 +124,7 @@
 ? A woman has had a fever and chills since returning from West Africa ten days ago. She took no preventive medication. Which test is most important?
 + A blood smear or rapid test for malaria
 - A throat swab for strep | It does not address the most dangerous possibility.
-- A urine pregnancy test only | It does not explain the fever.
+- A urine pregnancy test and nothing further | It does not explain the fever.
 - A stool test for parasites | It is not the priority.
 = Fever in a traveller returning from a malaria-endemic area is malaria until proven otherwise.
 
@@ -132,19 +132,19 @@
 + A fitted N95 respirator, eye protection, gown and gloves
 - A surgical mask only | Aerosol-generating procedures need a higher level of respiratory protection.
 - Gloves only | That does not protect the airway or eyes.
-- No protection if the visit is brief | Brief exposure during aerosol generation still carries risk.
+- No protection at all, provided the visit to the room is brief | Brief exposure during aerosol generation still carries risk.
 = Aerosol-generating procedures create fine particles; a respirator and eye protection are used.
 
 ? A nurse is stuck with a needle used on a patient with HIV. After washing the wound, what is the most important next step?
 + Report immediately so post-exposure prophylaxis can start within hours
-- Squeeze the wound and apply bleach | Bleach damages tissue and gives no benefit.
+- Squeeze the wound hard and soak the finger in undiluted bleach for a minute | Bleach damages tissue and gives no benefit.
 - Wait for the next shift to report | Prophylaxis is most effective when started promptly.
 - Do nothing unless symptoms appear | Prevention must begin before infection is established.
 = The wound is washed with soap and water and the exposure reported at once; prophylaxis is started as early as possible, within 72 hours at most.
 
 ? A patient is treated for gonorrhea and chlamydia. Which teaching is essential?
 + Sexual partners must be treated, and intercourse avoided for seven days
-- Partners need treatment only if they have symptoms | Many infections are silent.
+- Partners need treatment only if they have symptoms such as discharge or pain | Many infections are silent.
 - Treatment gives lifelong immunity | Reinfection is common.
 - The medication can be shared with a partner | Each person needs their own evaluation and treatment.
 = Treating partners and abstaining until treatment is complete prevent reinfection and spread.
@@ -160,13 +160,13 @@
 ? A patient who had chemotherapy nine days ago has a temperature of 38.5 C. How should the triage nurse prioritize him?
 + As a high-risk patient who goes straight to a private room
 - As a routine fever for the waiting room | Fever during neutropenia can progress to septic shock within hours.
-- As a patient who can book a clinic visit | He needs emergency evaluation.
+- As a patient who can book a clinic visit for later this week | He needs emergency evaluation.
 - As low acuity because he looks well | Appearance is unreliable in neutropenia.
 = Fever after recent chemotherapy is presumed to be neutropenic sepsis and is treated as an emergency.
 
 ? Which finding defines neutropenic fever?
 + A single temperature of 38.3 C or higher with a neutrophil count below 500/mm3
-- A temperature of 37.4 C with a normal white cell count | Neither criterion is met.
+- A temperature of 37.4 C with a normal white cell count and a normal neutrophil count | Neither criterion is met.
 - Any fever in a patient with anemia | Anemia is not the defining feature.
 - A temperature of 39 C with a high neutrophil count | The neutrophil count is not low.
 = Neutropenic fever is a temperature of 38.3 C once, or 38.0 C sustained for an hour, with an absolute neutrophil count under 500.
@@ -181,7 +181,7 @@
 ? A neutropenic patient has a fever but no cough, no redness at his central line site and a clear chest radiograph. How should the nurse interpret the lack of findings?
 + Signs of infection are blunted without neutrophils, so serious infection is still likely
 - Infection is excluded | Fever may be the only sign.
-- The fever is from the chemotherapy and needs no treatment | That assumption is dangerous.
+- The fever is an expected effect of the chemotherapy itself and needs no treatment or tests | That assumption is dangerous.
 - He can be discharged with an antipyretic | He needs antibiotics and admission.
 = Without neutrophils, pus, redness and infiltrates may not develop, so fever alone prompts full treatment.
 
@@ -201,7 +201,7 @@
 
 ? Which empiric antibiotic is appropriate for neutropenic fever?
 + An antipseudomonal beta-lactam such as cefepime
-- Oral amoxicillin alone | It does not cover Pseudomonas.
+- Oral amoxicillin alone, taken three times every day | It does not cover Pseudomonas.
 - Topical mupirocin | It is not systemic therapy.
 - An antiviral alone | Bacterial coverage is essential.
 = Empiric treatment must cover gram-negative organisms including Pseudomonas.
@@ -224,12 +224,12 @@
 + A lumbar puncture with measurement of opening pressure
 - A throat culture | It does not evaluate the central nervous system.
 - A sinus radiograph | It is unlikely to explain the picture.
-- An ear examination only | It is insufficient.
+- An ear examination only, with a hearing test if abnormal | It is insufficient.
 = Subacute headache and fever with a very low CD4 count suggest cryptococcal meningitis, which raises intracranial pressure.
 
 ? Which precaution is appropriate for a hospitalized patient with severe neutropenia?
 + A private room, strict hand hygiene and no fresh flowers or sick visitors
-- A shared room with a patient who has pneumonia | That exposes the patient to infection.
+- A shared room with a patient who has pneumonia, so that both can be observed | That exposes the patient to infection.
 - Fresh fruit and salad at each meal | Raw produce may carry organisms and is often restricted.
 - Standing water in a vase at the bedside | Stagnant water grows bacteria.
 = Protective measures limit exposure to organisms from people, plants, water and uncooked food.

@@ -3,7 +3,7 @@
 @ 3.0
 ? A motorcyclist arrives with bright red blood spurting from a mangled lower leg. He is moaning and breathing spontaneously. What is the first action in the primary survey?
 + Control the bleeding with direct pressure or a tourniquet
-- Apply a cervical collar and backboard | Spinal precautions matter, but exsanguination kills first.
+- Apply a cervical collar and secure him to a long backboard | Spinal precautions matter, but exsanguination kills first.
 - Insert two large-bore IV lines | Access cannot replace blood that is still being lost.
 - Obtain a full set of vital signs | Measurement does not treat an immediately lethal problem.
 = Obvious life-threatening external hemorrhage is controlled first, before the airway is addressed.
@@ -12,7 +12,7 @@
 + Jaw thrust with manual stabilization of the cervical spine
 - Head tilt with chin lift | Extending the neck may worsen an unstable cervical injury.
 - Turning the head to one side | Rotation moves a possibly injured spine.
-- Flexing the neck forward on a pillow | Flexion narrows the airway and endangers the cord.
+- Flexing the neck forward on a pillow to bring the chin down | Flexion narrows the airway and endangers the cord.
 = In trauma the airway is opened with a jaw thrust while the head is held in neutral alignment, then suctioned.
 
 ? A trauma patient opens his eyes only to pain, makes incomprehensible sounds and withdraws from pain. What is his Glasgow Coma Scale score, and what does it mean for the airway?
@@ -59,7 +59,7 @@
 
 ? What is the main purpose of log-rolling a trauma patient during the secondary survey?
 + To inspect and palpate the back while keeping the spine aligned
-- To check the patient's ability to cooperate | Cooperation is not the purpose.
+- To check the patient's ability to cooperate and follow instructions | Cooperation is not the purpose.
 - To drain blood from the chest | Positioning is not used to drain a hemothorax.
 - To relieve pressure on the abdomen | That is not the reason for the maneuver.
 = The posterior surfaces hide wounds, deformity and spinal tenderness; the roll is performed with the spine held in line.
@@ -67,7 +67,7 @@
 ? An adult struck by a car is alert with stable vital signs. Which history element is most useful for predicting hidden injuries?
 + Mechanism of injury, such as vehicle speed and point of impact
 - The patient's occupation | Occupation does not predict injury pattern.
-- The time of the last tetanus booster | Tetanus status matters later for wounds.
+- The date of the last tetanus booster and any reactions to vaccines | Tetanus status matters later for wounds.
 - The patient's insurance carrier | It has no clinical relevance.
 = Mechanism and energy transfer guide the search for occult injuries when the initial examination is reassuring.
 
@@ -81,7 +81,7 @@
 
 ? Where and how should a limb tourniquet be applied?
 + Two to three inches above the wound, tightened until bleeding stops
-- Directly over the wound, tightened until uncomfortable | It must be proximal and tight enough to occlude arterial flow.
+- Directly over the wound, tightened until the patient finds it uncomfortable | It must be proximal and tight enough to occlude arterial flow.
 - Over the nearest joint for better grip | Joints prevent effective compression of the artery.
 - Loosely, so venous return is preserved | A loose tourniquet blocks veins only and increases bleeding.
 = A tourniquet goes proximal to the wound, not over a joint, and is tightened until bleeding stops; the time is recorded.
@@ -95,7 +95,7 @@
 
 ? A stab wound high in the groin is bleeding heavily and is too proximal for a tourniquet. Which technique should be used?
 + Pack the wound tightly with hemostatic gauze and hold firm pressure
-- Cover the wound with a loose sterile dressing | A loose dressing exerts no pressure on the vessel.
+- Cover the wound with a loose sterile dressing and elevate the pelvis | A loose dressing exerts no pressure on the vessel.
 - Apply a tourniquet around the waist | A tourniquet cannot compress junctional vessels.
 - Clamp blindly into the wound | Blind clamping injures nerves and vessels.
 = Junctional bleeding in the groin, axilla or neck is controlled by deep wound packing and sustained direct pressure.
@@ -123,7 +123,7 @@
 
 ? A patient with a penetrating abdominal wound is alert with BP 86/54 while the operating room is prepared. What is the appropriate fluid strategy?
 + Limit fluids and accept a low-normal pressure until bleeding is controlled
-- Give crystalloid until the systolic pressure exceeds 120 | Raising pressure dislodges clots and dilutes clotting factors.
+- Give warmed crystalloid rapidly until the systolic pressure is above 120 mmHg | Raising pressure dislodges clots and dilutes clotting factors.
 - Withhold all blood products until surgery | Blood is the appropriate resuscitation fluid.
 - Start a vasopressor to normalize pressure | Pressors do not replace volume and worsen tissue perfusion.
 = Permissive hypotension in penetrating torso trauma limits bleeding until surgical control, provided there is no head injury.
@@ -154,14 +154,14 @@
 ? A patient has a gunshot wound to the chest that makes a sucking sound with each breath. Which dressing is appropriate?
 + A vented chest seal or an occlusive dressing taped on three sides
 - A dry gauze pad taped loosely | Gauze lets air continue to enter the pleural space.
-- A fully sealed dressing taped on all four sides | A complete seal can convert the wound to a tension pneumothorax.
+- A fully sealed airtight dressing taped down securely on all four sides | A complete seal can convert the wound to a tension pneumothorax.
 - A wet-to-dry dressing | It does not prevent air entry.
 = A one-way seal stops air entering during inspiration while letting it escape during expiration.
 
 ? After an occlusive dressing is applied to an open chest wound, the patient becomes more dyspneic and hypotensive with tracheal deviation. What should the nurse do first?
 + Lift one edge of the dressing to release trapped air
 - Tape the dressing down more firmly | A tighter seal traps more air.
-- Place the patient flat with legs raised | Positioning does not relieve intrapleural pressure.
+- Place the patient flat with the legs raised on pillows | Positioning does not relieve intrapleural pressure.
 - Give a sedative for anxiety | The distress has a mechanical cause.
 = Trapped air under a sealed dressing causes tension physiology; briefly opening the seal lets it escape.
 
@@ -175,7 +175,7 @@
 ? A segment of the left chest wall moves inward on inspiration and outward on expiration after a crash. What is the priority for this patient?
 + Oxygen, effective analgesia and monitoring for respiratory failure
 - Sandbags placed on the loose segment | External splinting restricts ventilation.
-- Tight circumferential chest strapping | Binding promotes atelectasis and pneumonia.
+- Tight circumferential chest strapping to hold the loose segment still | Binding promotes atelectasis and pneumonia.
 - Fluid boluses to expand the lungs | Excess fluid worsens the underlying contusion.
 = Flail chest impairs ventilation mainly through pain and the pulmonary contusion beneath it.
 
@@ -183,7 +183,7 @@
 + Expected progression of the contusion that needs escalation of respiratory support
 - A sign that the pulse oximeter is faulty | The change fits the natural course of contusion.
 - Anxiety that needs reassurance only | Falling saturation has a physical cause.
-- Evidence that too little IV fluid was given | Extra fluid aggravates contused lung.
+- Evidence that too little IV fluid was given during the first hours of resuscitation | Extra fluid aggravates contused lung.
 = Pulmonary contusion worsens over 24-48 hours as edema and hemorrhage fill the alveoli.
 
 ? The nurse notes continuous bubbling in the water-seal chamber of a chest drainage system. What does this indicate?
@@ -211,5 +211,5 @@
 + Adequate analgesia with deep breathing and incentive spirometry
 - A rib belt to limit chest movement | Binders reduce ventilation and promote pneumonia.
 - Strict bed rest for a week | Immobility increases pulmonary complications.
-- Withholding opioids to avoid sedation | Uncontrolled pain causes splinting and atelectasis.
+- Withholding all opioids to avoid any risk of sedation or confusion | Uncontrolled pain causes splinting and atelectasis.
 = Older adults with multiple rib fractures are at high risk of pneumonia; pain control allows deep breathing and coughing.

@@ -130,7 +130,7 @@
 
 ? A hospital activates its incident command system after a train derailment. An ED nurse is handed a job action sheet. What is the nurse's responsibility?
 + Carry out the assigned role and report through the designated chain of command
-- Continue the usual assignment and ignore the sheet | Disaster roles replace normal assignments.
+- Continue the usual patient assignment and set the sheet aside until things are calmer | Disaster roles replace normal assignments.
 - Take direction from whichever physician is nearest | Command structure, not proximity, directs staff.
 - Go to the scene to help | Self-deployment disrupts both scene and hospital operations.
 = Incident command gives each person a defined role and a single reporting line to avoid confusion.
@@ -154,12 +154,12 @@
 + Registration may proceed only if it does not delay the screening examination
 - Insurance must be verified before any care | Delaying screening for financial inquiry violates EMTALA.
 - Registration is never allowed in the ED | It is allowed when it causes no delay.
-- Ask the patient to return with an insurance card | Sending the patient away is prohibited.
+- Ask the patient to go home and return to the department with an insurance card | Sending the patient away is prohibited.
 = Financial questions cannot delay the screening examination or stabilizing treatment.
 
 ? A small hospital must transfer an unstable trauma patient to a trauma centre. Which condition makes the transfer appropriate under EMTALA?
 + The receiving hospital has accepted the patient and has the capability to treat
-- The patient's insurer prefers the other hospital | Financial preference is not a valid reason.
+- The patient's insurer prefers the other hospital and will cover the cost of transfer | Financial preference is not a valid reason.
 - The ED is busy and needs the bed | Crowding does not justify transferring an unstable patient.
 - The family lives nearer to the other hospital | Convenience does not meet the requirement.
 = An unstable patient may be transferred when benefits outweigh risks, a physician certifies this, the receiving facility accepts, and records and qualified transport go with the patient.
@@ -168,7 +168,7 @@
 + Screening and stabilization, which may mean delivery, before any transfer
 - Immediate transfer by private car | Transfer in active labor without assessment is unsafe and unlawful.
 - Referral to her own obstetrician's office | She must be screened where she presented.
-- Discharge with instructions to return if labor progresses | Active labor is an emergency medical condition.
+- Discharge with written instructions to return if the labor continues to progress | Active labor is an emergency medical condition.
 = A woman in active labor is unstable under EMTALA until delivery unless a physician certifies that the benefits of transfer outweigh the risks.
 
 ? An unconscious, unidentified man arrives with a tension pneumothorax. No family can be reached. On what basis may treatment proceed?
@@ -194,7 +194,7 @@
 
 ? A 15-year-old is brought in by a neighbour after a crash with signs of internal bleeding. Her parents cannot be reached. What is the correct action?
 + Provide emergency treatment without waiting for parental consent
-- Withhold treatment until a parent is found | Delay endangers life.
+- Withhold all treatment until a parent is found and gives permission | Delay endangers life.
 - Ask the neighbour to sign consent | The neighbour has no legal authority, and none is needed.
 - Obtain a court order first | An emergency exception already applies.
 = Minors may be treated without parental consent when delay would threaten life or limb.
@@ -203,12 +203,12 @@
 + Explain the risks, notify the provider, document and invite him to return
 - Lock the exit until he agrees to stay | Detaining a capable adult is false imprisonment.
 - Refuse to remove his IV until he signs | Coercion is unethical and unsafe.
-- Say that insurance will not pay if he leaves | That statement is inaccurate and coercive.
+- Tell him that his insurance will refuse to pay for the visit if he leaves now | That statement is inaccurate and coercive.
 = A capable adult may refuse care; the nurse ensures the refusal is informed and documented and keeps the door open for return.
 
 ? A caller says she is the sister of a patient in the ED and asks for his test results. The patient has not been asked about sharing information. What should the nurse do?
 + Decline to share details and offer to pass a message to the patient
-- Give the results, since she is family | Family status alone does not authorize disclosure.
+- Give the results, since she is family and is clearly worried about him | Family status alone does not authorize disclosure.
 - Confirm only the diagnosis | Any disclosure needs the patient's agreement.
 - Transfer the call to the laboratory | That simply passes on the privacy breach.
 = Protected health information is shared only with the patient's permission or as the law specifically allows.

@@ -31,7 +31,7 @@
 
 ? A patient yawned widely and now cannot close her mouth. Her jaw juts forward and she is drooling. What has happened, and how is it treated?
 + The jaw has dislocated; it is reduced with downward and backward pressure on the lower molars
-- The jaw is fractured; it is wired shut | There was no trauma, and the pattern is typical of dislocation.
+- The jaw is fractured in two places; it is wired shut for six weeks after imaging confirms the breaks | There was no trauma, and the pattern is typical of dislocation.
 - She has tetanus; she needs antitoxin | Tetanus locks the jaw closed, not open.
 - She has a stroke; she needs a head CT | Stroke does not fix the jaw open.
 = Anterior mandibular dislocation follows wide opening; after reduction the patient avoids opening the mouth widely and eats a soft diet.
@@ -54,7 +54,7 @@
 + Cerebrospinal fluid leak; avoid packing the nose or passing tubes through it
 - Allergic rhinitis; give an antihistamine | The ring sign points to cerebrospinal fluid.
 - A normal nosebleed; pack the nose firmly | Packing increases the risk of meningitis.
-- Sinus drainage; ask the patient to blow the nose | Blowing forces air and bacteria inside the skull.
+- Sinus drainage; ask the patient to blow the nose gently into a tissue to clear it | Blowing forces air and bacteria inside the skull.
 = A halo of clear fluid around blood suggests a leak through a skull base fracture; the nose is left unobstructed.
 
 ? A deep laceration crosses the cheek in front of the ear, and the patient cannot raise the eyebrow or close the eye on that side. What should the nurse anticipate?
@@ -139,7 +139,7 @@
 + Rebound congestion from overuse of the spray
 - An allergy to the spray | The pattern is one of rebound.
 - A deviated septum | That does not develop over three weeks.
-- A new bacterial infection | The spray history explains the symptoms.
+- A new bacterial infection of the nasal sinuses | The spray history explains the symptoms.
 = Topical decongestants used for more than about three days cause rebound swelling of the nasal lining.
 
 @ 11.8
@@ -173,7 +173,7 @@
 
 ? A patient reports sudden hearing loss in one ear. What should be checked first?
 + The ear canal and eardrum, with an otoscope
-- A CT scan of the head | A simple examination comes first.
+- A CT scan of the head with intravenous contrast | A simple examination comes first.
 - A full blood count | It does not identify the common causes.
 - Vision | It is unrelated.
 = Impacted wax, fluid or a foreign body cause conductive loss and are quickly identified on examination.
@@ -181,7 +181,7 @@
 ? A 66-year-old has sudden hearing loss in one ear with severe vertigo, slurred speech and an unsteady gait. What should the nurse suspect?
 + A stroke in the posterior circulation
 - Simple earwax | Wax does not cause slurred speech or ataxia.
-- An ear infection | Infection does not cause these neurologic signs.
+- An infection of the middle ear behind the drum | Infection does not cause these neurologic signs.
 - Motion sickness | That does not cause hearing loss or slurred speech.
 = Hearing loss with vertigo and brainstem or cerebellar signs can result from occlusion of an artery supplying the inner ear and brainstem.
 
@@ -203,12 +203,12 @@
 + An antiviral medication with a corticosteroid
 - Antibiotic ear drops only | The cause is viral.
 - An antifungal cream | The cause is not fungal.
-- Reassurance without treatment | Untreated cases recover poorly.
+- Reassurance without any treatment or follow-up | Untreated cases recover poorly.
 = Reactivation of the varicella-zoster virus in the facial nerve causes facial palsy with a painful vesicular rash in the ear.
 
 ? A patient with Bell's palsy cannot close the right eye. Which teaching protects the eye?
 + Use lubricating drops during the day and tape the eye closed at night
 - Leave the eye open to the air | The cornea dries and ulcerates.
-- Rub the eye often to stimulate tears | Rubbing damages the unprotected cornea.
+- Rub the eye often through the closed lid in order to stimulate the tears | Rubbing damages the unprotected cornea.
 - Wear a contact lens for protection | A lens does not prevent drying.
 = Without blinking the cornea dries; lubrication and closure of the eye at night prevent abrasion and ulceration.

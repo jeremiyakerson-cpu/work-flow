@@ -1,0 +1,104 @@
+6.6.11|2|A patient with a displaced femur fracture who is in severe pain but reports no neck pain at all when asked
+9.1.2|1|Several staff members give firm instructions at the same time from all around him
+9.3.11|1|A daily multivitamin that was added to her list a month ago
+9.4.8|1|The depression has been cured by the new medication
+9.4.9|2|The medication has stopped working and should be changed
+9.5.3|1|To measure the blood alcohol level without drawing a sample
+9.5.5|3|Dim the lights and close the door so that he can rest quietly
+9.5.7|1|It has no useful effect at all on people who use fentanyl regularly
+9.5.8|3|Observation overnight without giving any medication
+9.5.10|2|Withholding all follow-up appointments in order to discourage return visits
+9.5.11|2|Avoiding the subject altogether to prevent any embarrassment, and treating the injury only
+9.6.3|1|A patient pulling at her lines and shouting at the staff
+9.6.4|3|A vitamin C deficiency from a poor diet in the care home
+9.6.5|1|Apply soft wrist restraints to prevent wandering and pulling at the IV line
+9.6.9|1|The patient's own account of how good her memory has been lately
+9.6.10|3|It is purely a psychiatric condition that needs a psychiatry referral
+9.6.11|1|Haloperidol does not work in older adults, so a benzodiazepine should always be used instead
+9.7.1|1|Tachycardia, hypertension and fever with warm, flushed skin and a bounding pulse
+9.7.2|1|A wish to eat only vegetarian food at each of her meals
+9.7.7|3|"If you really cared about your family, you would sit down and eat a meal."
+9.7.9|1|As rapidly as possible, in several large fluid boluses
+9.7.10|1|Normal effects of training hard for long-distance competition
+9.8.1|3|When a patient refuses a prescribed medication and will not explain the reason
+9.8.2|2|A standing order written once that covers any need for restraint for the rest of the stay
+9.8.4|2|Monitoring only if the patient calls out, to avoid disturbing him unnecessarily
+9.8.9|2|A patient who is homeless but is feeding, clothing and caring for himself well
+9.8.10|2|The nurse's opinion of the patient's character and of how deserving he is of further treatment
+9.8.11|3|It is acceptable as long as soft restraints are used rather than leather ones
+10.0.2|1|Chest radiograph, urine culture, oral antibiotics and reassessment in the morning
+10.0.9|3|Stopping all fluids and antibiotics to rest the circulation
+10.0.10|1|Slow the infusion a little and continue at the same site while it is watched
+10.1.1|3|Respiratory alkalosis alone from hyperventilation
+10.1.4|2|Switching to oral diabetes tablets and stopping all intravenous therapy
+10.1.8|2|An intramuscular glucagon injection from the emergency kit
+10.1.9|2|She needs teaching about how to give herself insulin injections first
+10.1.10|2|The symptoms must be from gastroenteritis, as the glucose is not raised
+10.2.7|1|Propylthiouracil with an iodine solution
+10.2.9|2|They are ineffective in hypothyroidism, so very large doses would have to be given
+10.2.11|1|A throat culture only, with results in two days
+10.3.4|3|Give the steroid tomorrow, once the diagnosis has been fully confirmed by the laboratory
+10.3.5|3|Halve the dose until she recovers, to avoid side effects of steroids
+10.3.6|1|A round face with purple abdominal striae and a pad of fat between the shoulders
+10.3.8|1|Dextrose 5% in water alone, infused at a very rapid rate
+10.3.10|1|A glucose meter only, with test strips and a written record of readings
+10.3.11|3|Viral gastroenteritis caught from an older sibling
+10.4.8|3|Respiratory alkalosis from anxious hyperventilation
+10.4.9|2|52; the laboratory must have made an error with this sample
+10.4.11|1|Give the calcium chloride quickly through the hand vein in order to save time
+10.5.1|2|Methylprednisolone 125 mg IV, followed by an oral antihistamine
+10.5.2|3|Suggest giving it by the subcutaneous route in the upper arm
+10.5.4|3|It needs no treatment unless her breathing or blood pressure is affected
+10.5.6|3|Observation for another hour before further action
+10.5.11|2|Continue the antibiotic and add a steroid cream to settle the itching
+10.6.5|1|A muscle relaxant and a referral for outpatient physiotherapy
+10.6.7|2|Observe him for 24 hours without giving any treatment
+10.6.9|3|Flush the existing tubing briskly with saline to clear the remaining blood out
+10.7.1|1|Droplet precautions in an open bay, with a surgical mask for staff within one metre
+10.7.2|3|Send him home without assessment and ask the parents to telephone their own doctor
+10.7.5|3|No precautions, since she is only colonized and has no active infection
+10.7.6|1|Draw routine bloods in the open triage area before he is seen
+10.7.7|2|A urine pregnancy test and nothing further
+10.7.8|3|No protection at all, provided the visit to the room is brief
+10.7.9|1|Squeeze the wound hard and soak the finger in undiluted bleach for a minute
+10.7.10|1|Partners need treatment only if they have symptoms such as discharge or pain
+10.8.1|2|As a patient who can book a clinic visit for later this week
+10.8.2|1|A temperature of 37.4 C with a normal white cell count and a normal neutrophil count
+10.8.4|2|The fever is an expected effect of the chemotherapy itself and needs no treatment or tests
+10.8.7|1|Oral amoxicillin alone, taken three times every day
+10.8.10|3|An ear examination only, with a hearing test if abnormal
+10.8.11|1|A shared room with a patient who has pneumonia, so that both can be observed
+11.0.1|3|Blow the nose as hard as possible every minute to clear the clots, then check whether it has stopped
+11.0.4|1|Discharge with written advice to return in a week for removal of the pack
+11.0.5|3|An antihistamine spray used twice in both nostrils
+11.0.6|1|Remove the packing at home tonight before going to bed
+11.0.9|1|Wait until the bleeding has stopped completely before starting an IV or sending any bloods
+11.1.1|1|Scrub the root clean with a brush and antiseptic before replacing it
+11.1.4|1|An expected course for a toothache lasting several days
+11.1.6|1|Ask the patient to rinse and spit repeatedly until the water is clear
+11.1.7|1|Simple plaque gingivitis from poor brushing
+11.2.2|2|The patient says the pain has gone and that the eye feels comfortable when blinking
+11.2.4|3|Measure the eye pressure with a tonometer and record it in both eyes
+11.2.5|1|Flat on the back with the head turned aside
+11.2.6|1|A pupil dilation test using dilating drops
+11.2.8|2|An eye patch over the closed eye and a follow-up appointment the next week
+11.3.3|2|An eye patch and discharge with advice to rest the eye
+11.3.6|1|Nothing further; simply record the patient as "blind" in that eye on the triage note
+11.3.7|2|This needs only an appointment with an optician for new glasses
+11.3.8|1|Supplemental oxygen by nasal cannula at 2 L per minute
+11.3.9|1|Normal postoperative healing that will settle within a week
+11.4.2|3|An emergency tracheostomy in every case before any drainage is tried
+11.4.4|3|Give cool oral fluids to soothe the throat and keep him hydrated
+11.4.10|1|Reassure the parents that a little blood is normal a week after the operation and send them home
+11.5.1|2|Pull it out alive with forceps as quickly as possible to end the noise
+11.5.3|1|Routine, at a clinic visit some time in the next week
+11.5.5|1|Pushing the object backward with a cotton swab until it drops into the throat to be swallowed
+11.5.6|1|The magnets will affect the rhythm of the child's heart within a few hours
+11.5.8|2|Irrigate with hydrogen peroxide warmed to body temperature
+11.6.5|1|The jaw is fractured in two places; it is wired shut for six weeks after imaging confirms the breaks
+11.6.8|3|Sinus drainage; ask the patient to blow the nose gently into a tissue to clear it
+11.7.10|3|A new bacterial infection of the nasal sinuses
+11.8.5|1|A CT scan of the head with intravenous contrast
+11.8.6|2|An infection of the middle ear behind the drum
+11.8.9|3|Reassurance without any treatment or follow-up
+11.8.10|2|Rub the eye often through the closed lid in order to stimulate the tears

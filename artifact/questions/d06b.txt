@@ -32,13 +32,13 @@
 ? A patient with COPD receiving 6 L/min of oxygen has become progressively sleepy and hard to rouse. SpO2 is 99%. Which test will identify the cause?
 + An arterial or venous blood gas
 - A head CT | The clinical picture points to a respiratory cause.
-- A serum sodium | It does not explain the picture.
+- A serum sodium and serum osmolality | It does not explain the picture.
 - A urinalysis | It does not explain the picture.
 = Somnolence with high-flow oxygen in COPD suggests carbon dioxide narcosis, confirmed by an elevated PaCO2.
 
 ? A confused patient has a serum sodium of 112 mEq/L that has developed over several weeks. Why must the sodium be corrected slowly?
 + Rapid correction can cause osmotic demyelination
-- Rapid correction causes hyperkalemia | Potassium is not the concern.
+- Rapid correction causes a dangerous rise in potassium | Potassium is not the concern.
 - Slow correction prevents infection | Infection is unrelated.
 - Sodium cannot be given intravenously | It can, with careful monitoring.
 = Raising chronic hyponatremia by more than about 8-10 mEq/L in 24 hours risks irreversible brainstem injury.
@@ -52,7 +52,7 @@
 
 ? A patient with a head injury becomes unresponsive, and the right pupil is now fixed and dilated. What does this indicate?
 + Compression of the oculomotor nerve from brain herniation
-- An effect of bright lighting | Light constricts the pupils.
+- An effect of the bright lighting in the resuscitation room | Light constricts the pupils.
 - Opioid toxicity | Opioids cause bilateral pinpoint pupils.
 - A normal variant | A new change with coma is not a variant.
 = A unilateral fixed dilated pupil signals uncal herniation compressing the third cranial nerve, a neurosurgical emergency.
@@ -75,14 +75,14 @@
 + These features point to a medical cause that must be worked up first
 - Agree; hallucinations are always psychiatric | Visual hallucinations suggest an organic cause.
 - Agree; fever is common with anxiety | Fever is not explained by anxiety.
-- Suggest discharge with outpatient counselling | Acute delirium is a medical emergency.
+- Suggest discharge with a referral for outpatient counselling next week | Acute delirium is a medical emergency.
 = Late onset, abrupt change, visual hallucinations and abnormal vital signs indicate delirium from a medical cause.
 
 ? The mnemonic AEIOU-TIPS is used for which purpose?
 + Recalling the causes of altered mental status
 - Scoring stroke severity | That is done with the NIH Stroke Scale.
 - Grading pressure injuries | That uses a staging system.
-- Calculating burn fluid needs | That uses a resuscitation formula.
+- Calculating fluid needs after a major burn injury | That uses a resuscitation formula.
 = AEIOU-TIPS covers alcohol, epilepsy, insulin, overdose, uremia, trauma, infection, psychiatric causes and stroke or shock.
 
 @ 6.4
@@ -96,7 +96,7 @@
 ? A head-injured patient has BP 196/72, HR 46 and irregular respirations. What do these findings represent?
 + Cushing's triad, indicating impending herniation
 - Hypovolemic shock | Shock causes hypotension and tachycardia.
-- A vasovagal episode | That is brief and not associated with a widened pulse pressure.
+- A vasovagal episode brought on by pain and anxiety | That is brief and not associated with a widened pulse pressure.
 - Neurogenic shock | That causes hypotension with bradycardia.
 = Hypertension with a wide pulse pressure, bradycardia and irregular breathing is a late sign of critically raised intracranial pressure.
 
@@ -123,7 +123,7 @@
 
 ? Which finding indicates a basilar skull fracture?
 + Bruising behind the ear with clear fluid draining from the ear canal
-- A laceration over the forehead | A scalp wound does not indicate skull base injury.
+- A deep laceration over the forehead that is bleeding through the dressing | A scalp wound does not indicate skull base injury.
 - A swollen lower lip | That is a facial soft tissue injury.
 - Neck pain on rotation | That suggests a cervical injury.
 = Battle's sign, periorbital bruising and cerebrospinal fluid leaking from the ear or nose are signs of skull base fracture.
@@ -131,7 +131,7 @@
 ? A patient with a severe head injury develops a dilated pupil and extensor posturing. Which medication should the nurse anticipate?
 + A hyperosmolar agent such as mannitol or hypertonic saline
 - IV furosemide alone | A loop diuretic alone is not the treatment for herniation.
-- IV dextrose 5% in water | Hypotonic fluid worsens cerebral edema.
+- A rapid infusion of IV dextrose 5% in water to restore volume | Hypotonic fluid worsens cerebral edema.
 - IV nitroprusside | Vasodilators raise intracranial pressure.
 = Hyperosmolar therapy draws water out of brain tissue and is used for signs of herniation.
 
@@ -159,7 +159,7 @@
 ? A 16-year-old is discharged after a concussion. Which instruction is most important for his parents?
 + Return at once for worsening headache, repeated vomiting, confusion or unusual drowsiness
 - Keep him awake for 24 hours | Sleep is allowed; he should be easy to rouse.
-- He may return to football practice tomorrow | Return to play follows a stepwise protocol after symptoms resolve.
+- He may return to full-contact football practice tomorrow as long as he wears his helmet properly | Return to play follows a stepwise protocol after symptoms resolve.
 - Give aspirin for the headache | Aspirin increases bleeding risk.
 = Warning signs of an expanding intracranial bleed can develop after discharge and need immediate re-evaluation.
 
@@ -201,7 +201,7 @@
 
 ? A febrile, lethargic teenager has a rash of purple spots on the trunk and legs that does not blanch when pressed. What does this indicate?
 + Meningococcal septicemia requiring immediate treatment
-- A viral rash that needs no action | Non-blanching purpura with fever is an emergency.
+- A viral rash that needs no action beyond an antihistamine | Non-blanching purpura with fever is an emergency.
 - An allergic reaction to food | Allergic rashes blanch and itch.
 - Heat rash | Heat rash is fine, blanching and benign.
 = A non-blanching petechial or purpuric rash with fever suggests meningococcemia, which can kill within hours.
@@ -216,7 +216,7 @@
 ? Which cerebrospinal fluid result is most consistent with bacterial meningitis?
 + Cloudy fluid with high neutrophils, high protein and low glucose
 - Clear fluid with normal protein and glucose | That is a normal result.
-- Clear fluid with lymphocytes and normal glucose | That pattern suggests viral meningitis.
+- Clear fluid with lymphocytes, mildly raised protein and normal glucose | That pattern suggests viral meningitis.
 - Bloody fluid that clears in successive tubes | That suggests a traumatic tap.
 = Bacteria consume glucose and provoke a neutrophil response, making the fluid turbid with high protein.
 
@@ -231,7 +231,7 @@
 + Poor feeding, irritability and a bulging fontanelle
 - Complaints of a stiff neck | Infants cannot report this and often lack nuchal rigidity.
 - A classic positive Kernig sign | Meningeal signs are unreliable in infants.
-- Photophobia described by the child | An infant cannot describe it.
+- Photophobia and headache described clearly by the child | An infant cannot describe it.
 = Infants show non-specific signs: fever or hypothermia, irritability, lethargy, poor feeding, a high-pitched cry and a tense fontanelle.
 
 ? A patient has fever, bizarre behaviour, new seizures and temporal lobe changes on imaging. Which medication should the nurse anticipate?

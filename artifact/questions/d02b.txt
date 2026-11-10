@@ -10,7 +10,7 @@
 
 ? A patient with a copperhead bite to the ankle has swelling that has advanced to the knee over an hour, and the platelet count has fallen. What should the nurse anticipate?
 + Crotalid antivenom infusion with monitoring for hypersensitivity
-- Prophylactic fasciotomy of the lower leg | Fasciotomy is reserved for measured compartment syndrome after antivenom.
+- Prophylactic fasciotomy of the lower leg before any antivenom is given | Fasciotomy is reserved for measured compartment syndrome after antivenom.
 - Discharge with antibiotics and crutches | Progressive swelling and coagulopathy need antivenom.
 - Compression bandaging and ice packs | Compression and cold worsen local tissue injury.
 = Progressive local injury, coagulopathy or systemic effects after pit viper envenomation are indications for antivenom.
@@ -19,7 +19,7 @@
 + Mark the leading edge of swelling and measure limb circumference every 15 to 30 minutes
 - Photograph the wound once on arrival | A single image cannot show progression.
 - Check capillary refill once per shift | That frequency misses rapid progression.
-- Ask the patient to report increased pain | Self-report alone is unreliable for tracking spread.
+- Ask the patient to press the call bell and report whenever the pain seems to be getting worse | Self-report alone is unreliable for tracking spread.
 = Serial marking and measurement show whether envenomation is progressing and whether antivenom is controlling it.
 
 ? Which laboratory tests are most important after a rattlesnake envenomation?
@@ -31,7 +31,7 @@
 
 ? A child was bitten by a coral snake an hour ago. The bite site shows only small scratches and he feels fine. What is the appropriate plan?
 + Admit for at least 24 hours of observation for delayed paralysis
-- Discharge because there is no swelling | Coral snake venom causes little local reaction.
+- Discharge home now because there is no swelling or pain at the bite site | Coral snake venom causes little local reaction.
 - Apply ice and recheck in two hours | Ice is not helpful and the observation period is too short.
 - Give oral antihistamines and discharge | Antihistamines do not counter neurotoxin.
 = Coral snake venom is neurotoxic; ptosis, bulbar weakness and respiratory failure can be delayed for many hours.
@@ -61,14 +61,14 @@
 ? A fisherman has severe pain in his foot after stepping on a stingray. Which intervention gives the most rapid relief?
 + Immersing the foot in hot water, as hot as can be tolerated without burning
 - Applying an ice pack to the wound | Cold does not inactivate the venom.
-- Wrapping the foot in a compression bandage | Compression does not relieve the pain.
+- Wrapping the whole foot and ankle firmly in a compression bandage for an hour | Compression does not relieve the pain.
 - Elevating the foot on two pillows | Elevation alone does not neutralize venom.
 = Stingray and other marine spine venoms are heat labile; hot water immersion for 30-90 minutes denatures them.
 
 ? A 6-year-old has a deep dog bite to the hand sustained an hour ago. After irrigation, what should the nurse anticipate?
 + Leaving the wound open and starting amoxicillin-clavulanate
 - Tight primary closure with nylon sutures | Closing a hand bite traps bacteria and raises infection risk.
-- Applying tissue adhesive over the puncture | Adhesive seals in contamination.
+- Applying tissue adhesive over the puncture to keep it clean and dry | Adhesive seals in contamination.
 - No antibiotics because the wound is fresh | Hand bites are high risk and warrant prophylaxis.
 = Bites to the hand have a high infection rate; they are irrigated, usually left open and treated with prophylactic antibiotics.
 
@@ -76,7 +76,7 @@
 + Rabies immune globulin and the first vaccine dose today
 - Reassurance, since no bite mark is seen | Bat bites can be too small to notice, especially in a sleeping child.
 - A tetanus booster only | Tetanus prophylaxis does not prevent rabies.
-- Observation for ten days before deciding | Prophylaxis must precede symptoms; observing the patient is not an option.
+- Observation of the child for ten days before deciding on treatment | Prophylaxis must precede symptoms; observing the patient is not an option.
 = A bat in the room with a sleeping or non-verbal person is treated as a possible exposure requiring full post-exposure prophylaxis.
 
 @ 2.4
@@ -91,13 +91,13 @@
 + Cold-water immersion or another rapid cooling method
 - Acetaminophen 1 g by mouth | Antipyretics do not work when thermoregulation has failed.
 - A CT scan of the head | Imaging must not delay cooling.
-- Oral rehydration with a sports drink | A confused patient cannot drink safely and fluids alone do not cool.
+- Oral rehydration with a chilled sports drink by straw | A confused patient cannot drink safely and fluids alone do not cool.
 = Outcome depends on how fast the core temperature is lowered; cooling begins immediately and precedes other workup.
 
 ? During active cooling of a heat stroke patient, at what point should cooling be stopped?
 + When the core temperature reaches about 38.5 to 39 C
 - When the temperature reaches 35 C | Cooling that far causes overshoot hypothermia.
-- When the skin feels cool to the touch | Skin temperature does not reflect core temperature.
+- When the skin of the trunk feels cool to the nurse's touch | Skin temperature does not reflect core temperature.
 - After exactly ten minutes | Duration is guided by temperature, not the clock.
 = Active cooling is discontinued around 38.5-39 C because temperature keeps falling after cooling stops.
 
@@ -105,7 +105,7 @@
 + The fever is not driven by the brain's set point, so antipyretics do not work
 - Acetaminophen cools too quickly | It has no cooling effect in heat stroke.
 - It is being held until he can swallow | The drug would be ineffective by any route.
-- Ibuprofen is preferred in heat illness | NSAIDs are also ineffective and stress the kidneys.
+- Ibuprofen is the preferred drug in heat illness and will be given once he is awake | NSAIDs are also ineffective and stress the kidneys.
 = Heat stroke is failed heat dissipation, not a raised hypothalamic set point; antipyretics are ineffective and may harm the liver.
 
 ? A heat stroke patient begins shivering violently during cooling. What should the nurse anticipate?
@@ -124,7 +124,7 @@
 
 ? A landscaper has headache, nausea, heavy sweating and weakness after working in the heat. She is alert and oriented with a temperature of 38.4 C. What treatment is appropriate?
 + Rest in a cool area with oral or IV fluid replacement
-- Ice-water immersion and intubation | Aggressive cooling and airway control are for heat stroke.
+- Ice-water immersion and preparation for immediate intubation | Aggressive cooling and airway control are for heat stroke.
 - Salt tablets and a return to work | Continued exertion risks progression to heat stroke.
 - Antipyretics and discharge | Antipyretics do not treat heat illness.
 = Heat exhaustion features normal mentation, sweating and a temperature below 40 C, and is treated with rest, cooling and rehydration.
@@ -133,12 +133,12 @@
 + Sodium depletion from sweating
 - Hypercalcemia | Calcium excess does not follow sweating.
 - Hypoglycemia | Low glucose causes tremor and confusion, not isolated cramps.
-- Early heat stroke | Normal temperature and mentation exclude it.
+- Early heat stroke with muscle injury | Normal temperature and mentation exclude it.
 = Heat cramps follow salt loss in sweat replaced with plain water and respond to rest and electrolyte replacement.
 
 ? During a heat wave, which patient is at greatest risk of classic (non-exertional) heat stroke?
 + An 84-year-old taking a diuretic and an anticholinergic, living without air conditioning
-- A 25-year-old lifeguard who drinks water regularly | A hydrated, acclimatized young adult is at low risk.
+- A 25-year-old lifeguard who drinks water regularly and takes breaks in the shade each hour | A hydrated, acclimatized young adult is at low risk.
 - A 40-year-old office worker in a cooled building | There is no heat exposure.
 - A 16-year-old swimmer training indoors | Water and indoor conditions limit heat load.
 = Older adults with impaired sweating and thirst, on diuretics or anticholinergics, in hot housing are most vulnerable.
@@ -169,7 +169,7 @@
 + Rough handling can trigger ventricular fibrillation
 - Movement speeds heat loss | Heat loss is managed by insulation, not by avoiding movement.
 - Cold bones fracture easily | Fracture is not the main concern.
-- Movement causes sudden hypertension | Hypertension is not the risk.
+- Movement causes a sudden, dangerous rise in blood pressure | Hypertension is not the risk.
 = The cold myocardium is irritable, and jostling or abrupt position changes can precipitate ventricular fibrillation.
 
 ? A patient pulled from a snowbank is pulseless with a core temperature of 26 C. After 20 minutes of CPR a team member suggests stopping. What is the best response?
@@ -181,7 +181,7 @@
 
 ? A homeless man is shivering, alert and oriented with a core temperature of 34 C. Which rewarming approach is appropriate?
 + Removing wet clothing and applying dry blankets in a warm room
-- Warmed peritoneal lavage | Invasive rewarming is for severe hypothermia.
+- Warmed peritoneal lavage through a catheter placed in the abdomen | Invasive rewarming is for severe hypothermia.
 - Extracorporeal rewarming | That is reserved for arrest or instability.
 - Immersion in hot water | Hot immersion risks vasodilation and collapse.
 = Mild hypothermia with intact shivering is treated with passive external rewarming.
@@ -189,13 +189,13 @@
 ? A patient has a core temperature of 27 C with BP 70/40 and a slow irregular rhythm. Which rewarming method is indicated?
 + Active internal rewarming such as warmed fluids, lavage or extracorporeal support
 - Blankets and a warm room only | Passive measures cannot rewarm a patient who no longer generates heat.
-- A heating pad to each hand and foot | Peripheral warming risks afterdrop and burns.
+- A heating pad applied to each hand and foot with blankets over the arms and legs only | Peripheral warming risks afterdrop and burns.
 - Warm oral fluids | An obtunded patient cannot swallow safely.
 = Severe hypothermia with instability needs active core rewarming.
 
 ? A hypothermic patient's arms and legs are warmed first with heat packs. Thirty minutes later the core temperature has fallen further and BP has dropped. What explains this?
 + Cold peripheral blood returned to the core as the vessels dilated
-- The thermometer malfunctioned | A consistent fall with hypotension has a physiologic cause.
+- The thermometer malfunctioned and both readings should be disregarded | A consistent fall with hypotension has a physiologic cause.
 - The patient developed sepsis | Sepsis does not explain this timing.
 - Shivering stopped too early | Loss of shivering does not cause an abrupt drop after warming.
 = Afterdrop follows peripheral vasodilation; rewarming should focus on the trunk first.
@@ -204,13 +204,13 @@
 + Immerse it in circulating warm water at about 37 to 39 C
 - Rub it briskly with a towel | Friction damages frozen tissue.
 - Hold it close to a radiant heater | Dry heat burns insensate skin.
-- Let it thaw slowly at room temperature | Slow thawing increases tissue loss.
+- Let it thaw slowly at room temperature over several hours | Slow thawing increases tissue loss.
 = Frostbite is rewarmed rapidly in a warm water bath for 15-30 minutes until the tissue is soft and red.
 ! Recommended bath temperature differs by source (37-39 C in newer guidance, 40-42 C in older texts).
 
 ? A hunter with frostbitten fingers is three hours from help and may be exposed to freezing temperatures again before evacuation. What is the best field advice?
 + Do not thaw the fingers until refreezing can be prevented
-- Thaw the fingers now over a campfire | Open flame burns numb tissue and refreezing will follow.
+- Thaw the fingers now over a campfire and then keep walking out | Open flame burns numb tissue and refreezing will follow.
 - Rub the fingers with snow | Snow worsens freezing and causes abrasion.
 - Thaw and refreeze as often as needed | Each freeze-thaw cycle increases tissue destruction.
 = Tissue that thaws and refreezes suffers far greater injury than tissue that stays frozen until definitive rewarming.
@@ -233,5 +233,5 @@
 + The hypothermia is worsening and heat production is failing
 - The patient is recovering | Shivering stops when compensation is exhausted.
 - The reading must be an error | The pattern is physiologically consistent.
-- The patient is becoming comfortable | Loss of shivering signals deterioration.
+- The patient is becoming comfortable as the blankets take effect | Loss of shivering signals deterioration.
 = Shivering ceases at around 30-32 C; its loss marks progression to moderate hypothermia and the need for active rewarming.

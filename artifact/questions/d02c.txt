@@ -11,13 +11,13 @@
 ? Bystanders report that an adult slipped quietly under the water while swimming laps; there was no dive or fall. Is spinal motion restriction needed?
 + No, not routinely, without a mechanism or signs of injury
 - Yes, for every submersion victim | Routine immobilization delays airway care and is rarely needed.
-- Yes, until a full-spine MRI is done | Imaging is guided by mechanism and examination.
+- Yes, until an MRI of the whole spine has been done and reported | Imaging is guided by mechanism and examination.
 - Only if the water was salt water | Water type has no bearing on spinal injury.
 = Cervical spine injury is uncommon in drowning; precautions are reserved for diving, falls, trauma or neurologic signs.
 
 ? A 10-year-old was briefly submerged, coughed at the scene and is now asymptomatic with clear lungs and SpO2 99% on room air. What is the appropriate disposition?
 + Observe for several hours and discharge if he remains normal
-- Discharge immediately with no observation | Respiratory symptoms can develop over the first hours.
+- Discharge immediately with no observation, as he looks well now | Respiratory symptoms can develop over the first hours.
 - Admit to intensive care for 48 hours | Prolonged intensive care is unnecessary for an asymptomatic child.
 - Intubate prophylactically | Airway intervention is not indicated without respiratory compromise.
 = Asymptomatic patients are observed for about 4-8 hours, since deterioration, when it occurs, appears in that window.
@@ -26,7 +26,7 @@
 + Non-cardiogenic pulmonary edema from surfactant loss and alveolar injury
 - Anxiety about the event | Anxiety does not cause crackles and hypoxemia.
 - Fluid overload from swallowed water | Swallowed water does not cause pulmonary edema.
-- Bronchospasm from pool chlorine alone | Chlorine irritation would not produce progressive crackles and hypoxemia.
+- Bronchospasm from pool chlorine alone, which will settle with a single nebulizer | Chlorine irritation would not produce progressive crackles and hypoxemia.
 = Aspirated water washes out surfactant and damages the alveolar membrane, causing delayed lung injury that may need positive pressure.
 
 ? A teenager rescued from a cold lake is shivering in wet clothes with a temperature of 33 C and SpO2 94%. Besides oxygen, which action is most important?
@@ -54,20 +54,20 @@
 + "I'll stay within arm's reach whenever she is in or near water."
 - "Floaties mean I can watch from the kitchen." | Inflatable aids are not safety devices and do not replace supervision.
 - "The pool cover works as well as a fence." | Soft covers can trap a child; four-sided fencing is recommended.
-- "Her older brother, who is seven, can watch her." | A young child cannot provide reliable supervision.
+- "Her older brother, who is seven, can watch her while I cook dinner." | A young child cannot provide reliable supervision.
 = Constant touch supervision plus four-sided pool fencing are the most effective measures for young children.
 
 ? A 16-year-old competitive swimmer was found submerged mid-lap and was resuscitated. There was no trauma or intoxication. Which test is particularly important?
 + A 12-lead ECG to look for a prolonged QT interval
 - A serum lipase | Pancreatic disease would not cause this event.
-- A urine pregnancy test only | It does not explain sudden incapacitation.
+- A urine pregnancy test only, with no other studies | It does not explain sudden incapacitation.
 - A sinus CT | Sinus disease is not a cause of submersion.
 = Unexplained drowning in a strong swimmer raises concern for a primary dysrhythmia such as long QT syndrome, or a seizure.
 
 ? During bag-mask ventilation of a drowning victim, he vomits a large amount of water and food. What should the nurse do?
 + Turn him to the side, suction the airway and resume ventilation
 - Continue ventilating through the vomitus | That forces gastric contents into the lungs.
-- Apply abdominal pressure to empty the stomach | Pressure causes more regurgitation.
+- Apply firm pressure to the upper abdomen to empty the stomach fully | Pressure causes more regurgitation.
 - Stop resuscitation | Vomiting is common and expected, not a sign of futility.
 = Swallowed water and gastric distension make vomiting common; the airway is cleared at once and ventilation continues.
 
@@ -75,7 +75,7 @@
 + Inserting a gastric tube to decompress the stomach
 - Placing the patient prone | Prone positioning is not the first step and does not relieve distension.
 - Giving a bowel stimulant | A laxative does not decompress the stomach.
-- Applying an abdominal binder | A binder restricts the diaphragm further.
+- Applying an abdominal binder to support the diaphragm | A binder restricts the diaphragm further.
 = Gastric distension from swallowed water and bag-mask ventilation splints the diaphragm; decompression improves ventilation.
 
 @ 2.7
@@ -95,7 +95,7 @@
 
 ? What is the initial treatment for a patient with suspected carbon monoxide poisoning?
 + 100% oxygen by a tight-fitting non-rebreather mask
-- Oxygen at 2 L/min by nasal cannula | Low-flow oxygen clears carbon monoxide far too slowly.
+- Oxygen at 2 L/min by nasal cannula until symptoms ease | Low-flow oxygen clears carbon monoxide far too slowly.
 - Room air and observation | The half-life on room air is four to five hours.
 - Nebulized albuterol | Bronchodilators do not displace carbon monoxide.
 = High-concentration oxygen shortens the carboxyhemoglobin half-life from about 4-5 hours to roughly 60-90 minutes.
@@ -109,14 +109,14 @@
 
 ? A woman who is 28 weeks pregnant has a carboxyhemoglobin level of 16% and a mild headache. Why is she treated more aggressively than a non-pregnant patient?
 + Fetal hemoglobin binds carbon monoxide more tightly and clears it more slowly
-- Pregnancy raises the mother's baseline level | Pregnancy does not explain the concern.
+- Pregnancy raises the mother's own baseline carboxyhemoglobin level well above normal | Pregnancy does not explain the concern.
 - Oxygen is dangerous to the fetus | Oxygen is the treatment and is safe.
 - Her level is falsely low because of anemia | Anemia does not falsely lower the percentage.
 = Fetal carboxyhemoglobin rises higher and lasts longer than the mother's, so oxygen is continued longer and hyperbaric therapy is considered sooner.
 
 ? A patient is discharged after treatment for carbon monoxide poisoning. Which instruction is most important?
 + Return for memory problems, personality change or trouble concentrating in the coming weeks
-- Expect a cherry-red skin colour for a month | Cherry-red skin is a rare, late finding, not an expected course.
+- Expect a cherry-red skin colour for about a month, which fades slowly without any treatment at all | Cherry-red skin is a rare, late finding, not an expected course.
 - Avoid all exercise for six months | No such restriction is needed.
 - Use home oxygen for two weeks | Home oxygen is not standard after treatment.
 = Delayed neuropsychiatric effects can appear days to weeks after apparent recovery.
@@ -137,7 +137,7 @@
 
 ? What should the nurse do before and expect after giving hydroxocobalamin?
 + Draw blood samples first; expect red skin and urine afterwards
-- Check a potassium level first; expect bradycardia | Neither is characteristic of the drug.
+- Check a potassium level first; expect bradycardia and drowsiness | Neither is characteristic of the drug.
 - Give an antiemetic first; expect blue urine | Blue discoloration follows methylene blue.
 - Hold oxygen first; expect yellow sclera | Oxygen continues and jaundice is not an effect.
 = Hydroxocobalamin turns skin and urine red and interferes with colorimetric laboratory tests, so samples are drawn beforehand.
@@ -153,13 +153,13 @@
 + Nitrites create methemoglobin, which further reduces oxygen delivery when carbon monoxide is present
 - Nitrites must be given orally | Nitrites are inhaled or given IV.
 - Nitrites cause severe hypertension | They cause hypotension.
-- Hydroxocobalamin also removes carbon monoxide | It does not treat carbon monoxide.
+- Hydroxocobalamin also removes carbon monoxide from hemoglobin, so it treats both poisons at the same time | It does not treat carbon monoxide.
 = Nitrite-induced methemoglobinemia is dangerous when carboxyhemoglobin already limits oxygen carriage.
 
 @ 2.8
 ? A private car pulls up to the ambulance entrance with a worker soaked in an industrial pesticide. What should the nurse do first?
 + Keep him outside and begin decontamination with staff in protective equipment
-- Bring him to a resuscitation room immediately | Entry contaminates the department and staff.
+- Bring him straight through the department to a resuscitation room for assessment | Entry contaminates the department and staff.
 - Send him to the waiting room to register | Others would be exposed.
 - Ask him to drive to the fire station | Sending him away delays care.
 = Contaminated patients are decontaminated before entering the department to protect staff, other patients and the facility.
@@ -180,7 +180,7 @@
 
 ? A glass etcher spilled hydrofluoric acid on his fingers. The skin looks nearly normal but the pain is severe. After irrigation, which treatment is specific?
 + Calcium gluconate gel applied to the area
-- Silver sulfadiazine cream | It does not bind fluoride.
+- Silver sulfadiazine cream under a dry dressing | It does not bind fluoride.
 - Sodium bicarbonate paste | Bicarbonate does not neutralize fluoride ions.
 - Topical lidocaine only | Anaesthetic masks pain without stopping tissue destruction.
 = Fluoride penetrates deeply and binds calcium; calcium gluconate neutralizes it and relieves pain.
@@ -196,7 +196,7 @@
 + Alkalis liquefy tissue and keep penetrating deeper
 - Alkalis evaporate slowly from skin | Evaporation is not the mechanism.
 - Acids are neutralized by sweat | Sweat does not neutralize acid.
-- Alkalis are always stronger than acids | Strength varies; the mechanism of injury is the issue.
+- Alkalis are always stronger chemicals than any acid | Strength varies; the mechanism of injury is the issue.
 = Alkalis cause liquefaction necrosis with ongoing penetration, while acids form a coagulated barrier that limits depth.
 
 ? A 3-year-old swallowed crystal drain cleaner 20 minutes ago and is drooling and refusing to swallow. Which action is correct?

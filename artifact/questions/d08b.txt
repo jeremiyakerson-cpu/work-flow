@@ -12,7 +12,7 @@
 + Salvage rates fall sharply after about six hours of ischemia
 - The pain becomes untreatable | Pain control is not the reason for urgency.
 - Infection spreads to the kidney | Torsion is ischemic, not infectious.
-- The other testicle will twist within the hour | That is not the immediate concern.
+- The other testicle will also twist within the hour if untreated | That is not the immediate concern.
 = Twisting of the spermatic cord cuts off blood flow; surgical detorsion within about six hours saves most testes.
 
 ? A teenager has a classic history and examination for testicular torsion. Ultrasound is not available for 90 minutes. What is the correct action?
@@ -31,14 +31,14 @@
 
 ? A 24-year-old has three days of gradually worsening scrotal pain and swelling with dysuria and urethral discharge. The cremasteric reflex is present. Which treatment should the nurse anticipate?
 + Antibiotics covering gonorrhea and chlamydia
-- Emergency surgical exploration | The gradual onset and intact reflex point to infection.
+- Emergency surgical exploration of the scrotum | The gradual onset and intact reflex point to infection.
 - Aspiration of the scrotum | Aspiration is not a treatment.
 - A blood pressure medication | It has no role.
 = In sexually active men under 35, epididymitis is usually from sexually transmitted organisms and is treated with ceftriaxone and doxycycline.
 
 ? Surgery for a confirmed testicular torsion is 90 minutes away. Which temporizing measure may the provider attempt?
 + Manual detorsion, rotating the testis outward toward the thigh
-- Tight scrotal strapping | Compression does not untwist the cord.
+- Tight scrotal strapping with an elastic bandage until theatre is ready | Compression does not untwist the cord.
 - Ice and elevation only | These do not restore flow.
 - Needle aspiration | It does not relieve torsion.
 = Most testes twist inward, so manual rotation outward, like opening a book, can restore flow until surgery.
@@ -88,7 +88,7 @@
 
 ? A woman with a positive pregnancy test has sudden severe abdominal pain, pain at the tip of the shoulder, BP 78/40 and HR 136. What is the priority?
 + Two large-bore IV lines, blood products and preparation for surgery
-- A quantitative hCG and discharge with follow-up | She is in hemorrhagic shock.
+- A quantitative hCG and discharge with follow-up in the clinic in two days | She is in hemorrhagic shock.
 - An intramuscular dose of methotrexate | Medical treatment is contraindicated in rupture.
 - Observation with repeat vital signs in an hour | Delay is fatal.
 = Shock with shoulder pain from blood under the diaphragm indicates a ruptured ectopic pregnancy needing immediate surgery.
@@ -104,7 +104,7 @@
 + Avoid folic acid supplements, alcohol and NSAIDs, and keep the follow-up blood tests
 - Take extra folic acid to protect the pregnancy | Folate counteracts the medication.
 - Expect no pain at any time | Some cramping is common a few days after the dose.
-- No follow-up is needed once the injection is given | Falling hCG must be confirmed.
+- No follow-up of any kind is needed once the injection has been given and she feels well | Falling hCG must be confirmed.
 = Methotrexate is a folate antagonist; serial hCG levels confirm it has worked, and severe pain or fainting needs immediate return.
 
 ? Which history most increases the risk of ectopic pregnancy?
@@ -160,7 +160,7 @@
 ? Three days after a miscarriage a woman has a temperature of 39.3 C, foul-smelling discharge and a tender uterus. What should the nurse anticipate?
 + IV antibiotics and evacuation of the uterus
 - Oral iron and reassurance | She has a serious infection.
-- A repeat pregnancy test only | It does not treat the infection.
+- A repeat pregnancy test only, in two weeks' time | It does not treat the infection.
 - Bed rest at home | Septic miscarriage can progress to shock.
 = Infected retained tissue causes septic miscarriage, treated with broad-spectrum antibiotics and uterine evacuation.
 
@@ -196,7 +196,7 @@
 + "I'm so sorry for your loss. I'm here if you want to talk."
 - "At least it was early." | Minimizing the loss dismisses her grief.
 - "You can always try again." | That overlooks this pregnancy and her feelings.
-- "It was probably for the best." | That statement is hurtful and presumptuous.
+- "It was probably for the best; something must have been wrong." | That statement is hurtful and presumptuous.
 = Acknowledging the loss and offering presence supports grieving without judgment or false comfort.
 
 ? A 44-year-old who is not pregnant has had very heavy menstrual bleeding for six days. She is pale and dizzy with HR 124. What is the first priority?

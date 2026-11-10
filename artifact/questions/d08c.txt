@@ -24,7 +24,7 @@
 
 ? Which assessments should be made at least hourly during a magnesium sulfate infusion?
 + Deep tendon reflexes, respiratory rate and urine output
-- Pupil size, bowel sounds and skin turgor | These do not detect toxicity.
+- Pupil size, bowel sounds and skin turgor over the forearm | These do not detect toxicity.
 - Blood glucose, temperature and weight | These do not detect toxicity.
 - Visual acuity, hearing and gait | These are not the monitoring parameters.
 = Reflexes disappear before respiratory depression, and falling urine output allows magnesium to accumulate.
@@ -61,13 +61,13 @@
 + A corticosteroid such as betamethasone
 - An antihistamine | It has no fetal benefit.
 - A loop diuretic | It has no fetal benefit.
-- An oral iron supplement | It does not affect preterm outcomes.
+- An oral iron supplement taken twice daily | It does not affect preterm outcomes.
 = Antenatal corticosteroids speed fetal lung maturity and reduce respiratory distress and death in preterm infants.
 
 ? During an eclamptic seizure, which nursing action is most appropriate?
 + Turn her onto her left side, protect her from injury and give oxygen
 - Hold her limbs still | Restraint causes injury.
-- Insert a padded tongue blade | Objects in the mouth cause injury and obstruction.
+- Insert a padded tongue blade between the teeth to protect her tongue from biting | Objects in the mouth cause injury and obstruction.
 - Lay her flat on her back | Supine positioning compresses the vena cava and risks aspiration.
 = Left lateral positioning protects the airway and uterine blood flow while magnesium is prepared.
 
@@ -88,14 +88,14 @@
 
 ? The head delivers and then pulls back tightly against the perineum, and the shoulders do not follow. Which maneuver should be used first?
 + Flex the mother's thighs sharply onto her abdomen and apply suprapubic pressure
-- Apply firm pressure on the top of the uterus | Fundal pressure worsens the impaction and can rupture the uterus.
+- Apply firm pressure on the top of the uterus while the mother pushes with each pain | Fundal pressure worsens the impaction and can rupture the uterus.
 - Pull hard on the baby's head | Traction causes nerve injury.
 - Rotate the head forcefully | Twisting the head causes injury.
 = Shoulder dystocia is managed first with the McRoberts position and suprapubic pressure.
 
 ? A woman's membranes rupture and a loop of umbilical cord is seen at the vagina. What should the nurse do immediately?
 + Lift the presenting part off the cord with a gloved hand and position her knees to chest
-- Push the cord back into the uterus | Handling the cord causes vessel spasm.
+- Push the cord gently back into the uterus with two fingers and ask her to keep her legs flat | Handling the cord causes vessel spasm.
 - Have her walk to speed delivery | Gravity increases compression of the cord.
 - Clamp and cut the cord | That cuts off the fetal blood supply.
 = A prolapsed cord is compressed by the presenting part; pressure is relieved by hand and position until emergency delivery.
@@ -109,7 +109,7 @@
 
 ? After 30 seconds of effective ventilation, a newborn's heart rate is 48 per minute. What should be done?
 + Start chest compressions coordinated with ventilation at 3 to 1
-- Continue ventilation alone for five minutes | A rate under 60 despite ventilation needs compressions.
+- Continue ventilation alone for a further five minutes before deciding | A rate under 60 despite ventilation needs compressions.
 - Stop resuscitation | Resuscitation is continuing appropriately.
 - Give a fluid bolus first | Volume is not the next step.
 = A heart rate below 60 after effective ventilation calls for compressions at three compressions to one breath.
@@ -118,7 +118,7 @@
 + Drying and keeping the baby warm, ideally skin to skin
 - A full bath | Bathing causes heat loss.
 - Deep suctioning of the stomach | Routine deep suction is unnecessary and can cause bradycardia.
-- Weighing the baby before anything else | Measurement can wait.
+- Weighing and measuring the baby before anything else is done | Measurement can wait.
 = Newborns lose heat rapidly; drying and skin-to-skin contact maintain temperature and support transition.
 
 ? Ten minutes after delivery of the placenta a woman is bleeding heavily, and her uterus feels soft and boggy. What should the nurse do first?
@@ -154,7 +154,7 @@
 + Explain that waiting preserves evidence, and that the choice is hers
 - Tell her she is not permitted to wash | She retains control over what happens.
 - Tell her it makes no difference | Washing removes evidence.
-- Insist that she shower first for comfort | That destroys evidence she may want collected.
+- Insist that she showers first so that she is comfortable for the examination | That destroys evidence she may want collected.
 = Washing, changing, urinating, eating or drinking can remove evidence; the nurse informs without coercing.
 
 ? During a forensic examination the patient says she does not want photographs taken. What should the nurse do?
@@ -175,7 +175,7 @@
 + Have her stand on a clean paper sheet and place each item in a separate paper bag
 - Put all items into one plastic bag | Plastic degrades evidence and items cross-contaminate.
 - Shake each item out before bagging | Shaking loses trace evidence.
-- Send the clothing home with a friend | That breaks the chain of custody.
+- Send the clothing home with a friend to be washed and returned to her the following day | That breaks the chain of custody.
 = The sheet catches hair and fibres; paper bags allow drying and separate packaging prevents transfer.
 
 ? A patient was sexually assaulted 30 hours ago and does not want to become pregnant. What should the nurse offer?
@@ -195,7 +195,7 @@
 ? A 32-year-old sexual assault patient says she does not want the police involved. What should the nurse do?
 + Respect her decision and explain that evidence can still be collected and stored
 - Call the police anyway | In most places a capable adult decides whether to report.
-- Refuse to provide care unless she reports | Care does not depend on reporting.
+- Refuse to provide any further care or evidence collection unless she agrees to report | Care does not depend on reporting.
 - Tell her the evidence will be thrown away | Kits can usually be held while she decides.
 = Adults generally choose whether to report; anonymous or non-reporting kits preserve evidence. Assault of a child must be reported.
 

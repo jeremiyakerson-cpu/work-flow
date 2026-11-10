@@ -10,7 +10,7 @@
 
 ? A patient is brought in as a possible stroke with facial droop and confusion. Which test should be done first at the bedside?
 + A capillary blood glucose
-- A lipid panel | Lipids do not affect acute decisions.
+- A fasting lipid panel sent urgently | Lipids do not affect acute decisions.
 - A urinalysis | It does not identify a stroke mimic quickly.
 - A troponin | It can follow but is not the first priority.
 = Hypoglycemia mimics stroke and is corrected in minutes; glucose is the only laboratory value required before thrombolysis in most patients.
@@ -38,7 +38,7 @@
 
 ? An 80 kg patient is to receive alteplase 0.9 mg/kg for ischemic stroke. What are the total dose and the bolus?
 + 72 mg total, with 7.2 mg as a bolus over one minute
-- 90 mg total, with 9 mg as a bolus | 90 mg is the maximum, reached only at 100 kg or more.
+- 90 mg in total, with 9 mg given as a bolus over one minute | 90 mg is the maximum, reached only at 100 kg or more.
 - 72 mg total, all given as a bolus | Only 10% is given as a bolus.
 - 7.2 mg total as an infusion | That is only the bolus portion.
 = Alteplase for stroke is 0.9 mg/kg to a maximum of 90 mg: 10% as a bolus and the remainder over 60 minutes.
@@ -74,7 +74,7 @@
 ? A man had 15 minutes of right arm weakness and trouble speaking that has completely resolved. He wants to go home. What should the nurse explain?
 + The risk of a stroke is highest in the next few days, so urgent evaluation is needed
 - He is fine because the symptoms resolved | A transient ischemic attack is a warning of impending stroke.
-- He needs a neurology clinic visit in three months | Evaluation should occur within hours to days.
+- He needs a routine neurology clinic appointment in about three months if it happens again | Evaluation should occur within hours to days.
 - The episode was most likely anxiety | Focal deficits are not explained by anxiety.
 = After a TIA the risk of stroke is greatest in the first 48 hours; rapid workup and antiplatelet therapy reduce it.
 
@@ -111,13 +111,13 @@
 + A quiet, dimly lit room with stool softeners and pain control
 - Encouraging vigorous coughing | Coughing raises intracranial pressure.
 - Frequent ambulation in the corridor | Exertion raises blood pressure.
-- Keeping the patient flat with the neck flexed | Neck flexion impairs venous drainage.
+- Keeping the patient flat in bed with the neck flexed on pillows | Neck flexion impairs venous drainage.
 = Reducing stimulation and straining limits surges in blood pressure that can rupture the aneurysm again.
 
 ? A patient taking warfarin has an acute intracerebral hemorrhage and an INR of 3.6. Which treatment should the nurse prepare?
 + Four-factor prothrombin complex concentrate with IV vitamin K
 - Protamine sulfate | Protamine reverses heparin.
-- Platelet transfusion alone | Platelets do not correct warfarin effect.
+- A platelet transfusion alone, repeated until the bleeding stops | Platelets do not correct warfarin effect.
 - Oral vitamin K alone | Oral vitamin K takes many hours.
 = Prothrombin complex concentrate reverses warfarin within minutes; vitamin K sustains the reversal.
 
@@ -131,14 +131,14 @@
 ? A hypertensive patient has sudden headache, vomiting, right hemiplegia and a falling level of consciousness. A colleague says it is "obviously a bleed" and wants to lower the pressure aggressively before imaging. What is the best response?
 + Ischemic and hemorrhagic stroke cannot be reliably told apart without imaging
 - Agree, because vomiting proves hemorrhage | Vomiting occurs in both types.
-- Agree, because hypertension proves hemorrhage | Blood pressure is elevated in both types.
+- Agree, because a blood pressure this high proves that the stroke is a hemorrhage | Blood pressure is elevated in both types.
 - Suggest thrombolysis instead | Thrombolysis is never given before imaging.
 = Clinical features overlap; a non-contrast CT distinguishes the two before blood pressure targets and treatment are chosen.
 
 ? A patient with a cerebellar hemorrhage has vertigo, vomiting and ataxia and is becoming drowsy. Why is urgent neurosurgical consultation needed?
 + Swelling in the posterior fossa can compress the brainstem quickly
 - Cerebellar bleeds always stop on their own | Deterioration can be rapid and fatal.
-- Surgery is the only way to treat the vomiting | Vomiting is a symptom, not the indication.
+- Surgery is the only way to control the vomiting caused by the vertigo | Vomiting is a symptom, not the indication.
 - The cerebellum controls blood pressure | That is not its role.
 = The posterior fossa has little room; cerebellar hematomas cause brainstem compression and hydrocephalus and often need surgical evacuation.
 
@@ -166,14 +166,14 @@
 ? A 35-year-old man has excruciating stabbing pain behind one eye with tearing and nasal congestion on the same side, occurring nightly for a week. Which treatment gives the fastest relief?
 + High-flow oxygen by non-rebreather mask
 - Oral acetaminophen | It acts too slowly and is ineffective for this pain.
-- A dark room and sleep | Patients are restless and rest does not abort the attack.
+- A dark, quiet room and a period of sleep | Patients are restless and rest does not abort the attack.
 - An oral opioid | Opioids are not effective for this headache.
 = Cluster headache responds to 100% oxygen at high flow or a parenteral triptan.
 
 @ 6.2
 ? A patient in the waiting room has a generalized tonic-clonic seizure. What should the nurse do first?
 + Protect the head and turn the patient onto the side
-- Place a bite block between the teeth | Objects in the mouth cause injury and obstruction.
+- Place a bite block between the teeth to protect the tongue | Objects in the mouth cause injury and obstruction.
 - Restrain the arms and legs | Restraint causes fractures and dislocations.
 - Give oral glucose gel | Nothing is given by mouth during a seizure.
 = The priority is protection from injury and airway positioning; the seizure is timed and nothing is placed in the mouth.
@@ -203,7 +203,7 @@
 + Dilute in normal saline and infuse no faster than 50 mg per minute with cardiac monitoring
 - Mix with dextrose 5% and give by rapid push | It precipitates in dextrose and rapid infusion causes hypotension and dysrhythmia.
 - Give intramuscularly in the deltoid | Intramuscular phenytoin causes tissue necrosis.
-- Infuse through a small hand vein without a filter | Extravasation causes severe tissue injury.
+- Infuse it undiluted through a small vein in the back of the hand, without an in-line filter | Extravasation causes severe tissue injury.
 = Phenytoin is compatible only with saline and is given slowly through a large vein because of cardiovascular toxicity and tissue injury.
 
 ? A patient with diabetes is found convulsing. Which reversible cause should be checked immediately?
@@ -224,7 +224,7 @@
 + Simple febrile seizures are common and do not cause brain damage
 - He will need anticonvulsants for life | Long-term treatment is not indicated.
 - He has epilepsy | A simple febrile seizure is not epilepsy.
-- Regular antipyretics will prevent another seizure | Antipyretics do not prevent recurrence.
+- Regular antipyretics at the first sign of fever will prevent another | Antipyretics do not prevent recurrence.
 = A simple febrile seizure is generalized, lasts under 15 minutes and does not recur within 24 hours; the prognosis is excellent.
 
 ? After a seizure a patient is drowsy and cannot move his left arm. The weakness resolves over two hours. What is this called?
@@ -236,7 +236,7 @@
 
 ? A patient's convulsions stopped after benzodiazepines and a second-line drug, but 40 minutes later he is still unresponsive with subtle eyelid twitching. What should the nurse suspect?
 + Ongoing non-convulsive seizure activity
-- Normal postictal sleep | The postictal state should be improving by now.
+- Normal postictal sleep after a long seizure | The postictal state should be improving by now.
 - Oversedation only | Twitching suggests electrical seizure activity.
 - A psychiatric disorder | That is unlikely in this setting.
 = Failure to regain consciousness after convulsive status raises concern for non-convulsive status, which requires an EEG.

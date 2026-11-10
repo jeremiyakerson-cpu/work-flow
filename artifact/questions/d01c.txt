@@ -26,7 +26,7 @@
 + Three sets of blood cultures from separate sites
 - A urine drug screen | The result does not change immediate management.
 - A chest CT with contrast | Imaging does not identify the organism.
-- An erythrocyte sedimentation rate | It is nonspecific and does not guide therapy.
+- An erythrocyte sedimentation rate and C-reactive protein | It is nonspecific and does not guide therapy.
 = Blood cultures drawn before antibiotics identify the organism in infective endocarditis and guide weeks of therapy.
 
 ? Which skin finding is associated with infective endocarditis?
@@ -59,7 +59,7 @@
 
 ? Which instruction is most important for a young adult being discharged after myocarditis?
 + Avoid competitive sports and strenuous exercise until cleared by cardiology
-- Return to full training once the chest pain stops | Exercise during myocardial inflammation risks fatal dysrhythmia.
+- Return to full training as soon as the chest pain stops and the fever has settled | Exercise during myocardial inflammation risks fatal dysrhythmia.
 - Take ibuprofen before each workout | NSAIDs may worsen myocardial injury in myocarditis.
 - Increase fluid intake to 4 L a day | Excess fluid can worsen ventricular dysfunction.
 = Strenuous activity is restricted for several months after myocarditis because of the risk of sudden cardiac death.
@@ -68,7 +68,7 @@
 + Post-MI pericarditis (Dressler syndrome)
 - Reinfarction | Reinfarction would raise troponin and cause ischemic rather than pleuritic pain.
 - Pneumonia | Pneumonia does not produce a pericardial rub.
-- Pulmonary embolism | Embolism does not cause a rub and fever weeks after MI in this pattern.
+- Pulmonary embolism from prolonged bed rest | Embolism does not cause a rub and fever weeks after MI in this pattern.
 = Dressler syndrome is an immune-mediated pericarditis occurring weeks after myocardial injury.
 
 ? A patient who has missed a week of hemodialysis has chest pain, a friction rub and a BUN of 142 mg/dL. Which treatment addresses the cause?
@@ -102,7 +102,7 @@
 
 ? Which ECG finding is most specific for a large pericardial effusion with tamponade?
 + QRS complexes that alternate in height from beat to beat
-- ST elevation in the inferior leads | That indicates inferior infarction.
+- ST elevation in the inferior leads with reciprocal changes | That indicates inferior infarction.
 - A delta wave | A delta wave indicates pre-excitation.
 - A prolonged QT interval | QT prolongation is unrelated to effusion.
 = Electrical alternans results from the heart swinging within a large effusion; low voltage is also common.
@@ -116,7 +116,7 @@
 
 ? Why is intubation with positive pressure ventilation approached with great caution in a patient with cardiac tamponade?
 + Positive intrathoracic pressure further reduces venous return and can cause arrest
-- It increases the risk of aspiration more than in other patients | Aspiration risk is not specific to tamponade.
+- It increases the risk of aspirating stomach contents far more than in other patients | Aspiration risk is not specific to tamponade.
 - It causes bronchospasm | Bronchospasm is not the concern.
 - It raises the blood pressure dangerously | The danger is cardiovascular collapse, not hypertension.
 = Sedation and positive pressure lower preload in a heart that already cannot fill, which can precipitate pulseless electrical activity.
@@ -125,21 +125,21 @@
 + Surgical repair through a thoracotomy or pericardial window
 - Repeated fluid boluses | Fluids only temporize.
 - A vasopressor infusion | Pressors do not relieve the obstruction to filling.
-- Observation with serial echocardiograms | Traumatic tamponade progresses rapidly without intervention.
+- Observation in intensive care with serial echocardiograms every hour | Traumatic tamponade progresses rapidly without intervention.
 = Traumatic tamponade needs surgical control of the bleeding; pericardiocentesis is only a bridge.
 
 ? Which bedside study confirms pericardial fluid most quickly in an unstable trauma patient?
 + Focused ultrasound with a subxiphoid cardiac view
 - Chest CT with contrast | CT requires leaving the resuscitation area.
 - A 12-lead ECG | The ECG may suggest but cannot confirm fluid.
-- A portable chest radiograph | An acute effusion may not enlarge the cardiac silhouette.
+- A portable chest radiograph taken in the trauma bay | An acute effusion may not enlarge the cardiac silhouette.
 = The pericardial view of the FAST examination rapidly identifies fluid around the heart at the bedside.
 
 ? During pericardiocentesis the monitor shows new ST elevation and premature ventricular contractions. What does this indicate?
 + The needle is touching the myocardium and should be withdrawn slightly
 - The procedure is complete | Injury current signals contact, not completion.
 - The effusion is infected | ECG changes do not indicate infection.
-- The patient needs defibrillation | Ectopy from needle contact resolves when the needle is withdrawn.
+- The patient is developing ventricular fibrillation and needs defibrillation | Ectopy from needle contact resolves when the needle is withdrawn.
 = Contact between the needle and the epicardium produces an injury current and ectopy, a signal to pull back.
 
 ? Bloody fluid is aspirated during pericardiocentesis. Which observation suggests the blood came from the pericardial sac rather than a heart chamber?
@@ -158,7 +158,7 @@
 
 ? Which patient is at highest risk of developing cardiac tamponade?
 + A patient with metastatic lung cancer and progressive dyspnea
-- A patient with well-controlled hypertension | Controlled hypertension does not cause effusion.
+- A patient with well-controlled hypertension on a single medication | Controlled hypertension does not cause effusion.
 - A patient with seasonal allergies | Allergies are unrelated.
 - A patient with a sprained ankle | No mechanism for effusion exists.
 = Malignancy is a leading cause of medical tamponade, along with uremia, pericarditis, anticoagulation and recent cardiac procedures.
@@ -166,14 +166,14 @@
 ? After a successful pericardiocentesis, which change best indicates that tamponade has been relieved?
 + Rising systolic pressure with a falling heart rate
 - A narrowing pulse pressure | A narrow pulse pressure suggests ongoing tamponade.
-- Increasing jugular venous distension | Rising venous pressure means fluid is reaccumulating.
+- Increasing jugular venous distension with a rising rate | Rising venous pressure means fluid is reaccumulating.
 - More distant heart sounds | Muffled sounds indicate persistent fluid.
 = Removing even a small volume improves filling, so blood pressure rises and compensatory tachycardia settles.
 
 @ 1.8
 ? A 76-year-old with atrial fibrillation, not on an anticoagulant, has sudden severe pain in the right leg. The foot is pale and cool with no palpable pulses and reduced sensation. What is the most likely cause?
 + Acute arterial occlusion from an embolus
-- Deep vein thrombosis | Venous thrombosis causes a warm, swollen limb with pulses present.
+- Deep vein thrombosis of the right femoral vein | Venous thrombosis causes a warm, swollen limb with pulses present.
 - Cellulitis | Cellulitis causes warmth and redness.
 - Sciatica | Nerve root pain does not abolish pulses or cool the limb.
 = Pain, pallor, pulselessness, paresthesia, paralysis and coolness in a patient with AF indicate embolic arterial occlusion.
@@ -181,7 +181,7 @@
 ? Which order should the nurse anticipate first for a patient with acute limb ischemia?
 + An IV heparin bolus and infusion with emergent vascular consultation
 - Warm compresses to the affected foot | Heat raises metabolic demand in ischemic tissue and can burn insensate skin.
-- Oral aspirin and outpatient follow-up | Limb salvage depends on revascularization within hours.
+- Oral aspirin and outpatient follow-up with a vascular surgeon in one week | Limb salvage depends on revascularization within hours.
 - Compression stockings | Compression further reduces arterial inflow.
 = Immediate anticoagulation limits clot propagation while revascularization is arranged.
 
@@ -230,7 +230,7 @@
 ? A patient with a known iliofemoral DVT develops a massively swollen, blue, severely painful leg with weak pulses. What does this represent?
 + A limb-threatening emergency requiring immediate vascular consultation
 - An expected stage of healing | Cyanosis and severe pain indicate threatened limb viability.
-- An allergic reaction to the anticoagulant | Allergy does not cause a tense cyanotic limb.
+- An allergic reaction to the anticoagulant that needs an antihistamine dose | Allergy does not cause a tense cyanotic limb.
 - Superficial thrombophlebitis | Superficial clots cause a tender cord, not whole-limb cyanosis.
 = Phlegmasia cerulea dolens is near-total venous outflow obstruction that can progress to gangrene.
 

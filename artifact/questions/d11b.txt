@@ -18,7 +18,7 @@
 ? Which treatment should the nurse anticipate for acute angle-closure glaucoma?
 + Pressure-lowering eye drops and IV acetazolamide
 - Dilating drops | Dilation worsens the angle closure.
-- An eye patch and discharge | Untreated high pressure destroys the optic nerve.
+- An eye patch and discharge with advice to rest the eye | Untreated high pressure destroys the optic nerve.
 - Antibiotic ointment | The condition is not infectious.
 = Topical and systemic agents lower the pressure urgently until laser iridotomy can be performed.
 
@@ -38,7 +38,7 @@
 
 ? A patient cannot read any line on the eye chart, even the largest letter. What should the nurse test next?
 + Ability to count fingers, then to see hand movement, then to perceive light
-- Nothing further; record "blind" | Lesser degrees of vision must be documented.
+- Nothing further; simply record the patient as "blind" in that eye on the triage note | Lesser degrees of vision must be documented.
 - Colour vision only | Acuity is graded before colour.
 - Pupil size only | That does not grade vision.
 = Visual acuity is documented in descending steps: counting fingers, hand motion, light perception and no light perception.
@@ -46,20 +46,20 @@
 ? A patient describes a shade coming down over one eye for about five minutes, after which vision returned to normal. What should the nurse recognize?
 + This is a warning sign of stroke that needs urgent evaluation
 - This is eye strain | Transient monocular blindness is vascular.
-- This needs only an optician's appointment | A stroke may follow within days.
+- This needs only an appointment with an optician for new glasses | A stroke may follow within days.
 - This is a normal effect of ageing | It is not.
 = Amaurosis fugax is a transient ischemic attack of the retina, often from carotid disease.
 
 ? A patient known to have narrow drainage angles is wheezing. Which order should the nurse clarify before giving?
 + Nebulized ipratropium by a loosely fitting mask
-- Supplemental oxygen | Oxygen does not affect eye pressure.
+- Supplemental oxygen by nasal cannula at 2 L per minute | Oxygen does not affect eye pressure.
 - Oral prednisone | A short course is not the immediate concern.
 - A chest radiograph | It does not affect the eyes.
 = Anticholinergic mist reaching the eyes dilates the pupils and can precipitate angle closure; a mouthpiece or well-fitted mask reduces exposure.
 
 ? Four days after cataract surgery, a patient has increasing eye pain, falling vision and a layer of white material in the front of the eye. What does this indicate?
 + Infection inside the eye requiring emergency ophthalmology
-- Normal postoperative healing | Pain and vision loss are not expected.
+- Normal postoperative healing that will settle within a week | Pain and vision loss are not expected.
 - A reaction to the eye shield | A shield does not cause these findings.
 - Dry eye | Dry eye does not cause vision loss with a white fluid level.
 = Postoperative endophthalmitis threatens the eye and needs immediate intraocular antibiotics.
@@ -83,7 +83,7 @@
 + Needle aspiration or incision and drainage with antibiotics
 - Antihistamines and rest | They do not treat an abscess.
 - A throat lozenge and discharge | Pus must be drained.
-- Emergency tracheostomy in every case | Most are drained without a surgical airway.
+- An emergency tracheostomy in every case before any drainage is tried | Most are drained without a surgical airway.
 = Drainage relieves symptoms and prevents spread; antibiotics and hydration follow.
 
 ? A 45-year-old has a sore throat far worse than the appearance of his throat would suggest, with painful swallowing, a muffled voice and drooling. He prefers to sit leaning forward. What should the nurse suspect?
@@ -97,7 +97,7 @@
 + Keep him sitting upright with airway equipment at the bedside
 - Lay him flat for a throat swab | Lying flat and manipulation can close the airway.
 - Send him to radiology unaccompanied | He must not leave monitored care.
-- Give oral fluids to soothe the throat | He cannot swallow safely.
+- Give cool oral fluids to soothe the throat and keep him hydrated | He cannot swallow safely.
 = The patient stays in the position of comfort, is disturbed as little as possible and is never left without airway support.
 
 ? A patient with poor dentition has firm swelling under both sides of the jaw, a tongue pushed upward and a hard, tender floor of the mouth. What is this condition?
@@ -137,7 +137,7 @@
 
 ? A child who had a tonsillectomy seven days ago is swallowing frequently and spits bright red blood. What should the nurse do?
 + Treat it as an emergency: keep the child upright, obtain IV access and notify ENT
-- Reassure the parents that a little blood is normal | Bleeding a week after surgery can become massive.
+- Reassure the parents that a little blood is normal a week after the operation and send them home | Bleeding a week after surgery can become massive.
 - Give ice chips and discharge | The child needs urgent assessment.
 - Ask the child to gargle with salt water | Gargling can dislodge clot.
 = Secondary hemorrhage occurs 5-10 days after tonsillectomy when the scab separates; frequent swallowing is an early sign.
@@ -146,7 +146,7 @@
 ? A patient is distressed by a buzzing, moving sensation in the ear. A live cockroach is seen in the canal. What should be done before removal?
 + Kill the insect by filling the canal with mineral oil or lidocaine
 - Shine a light to draw it out | Insects often move deeper.
-- Pull it out alive with forceps | A struggling insect damages the canal and eardrum.
+- Pull it out alive with forceps as quickly as possible to end the noise | A struggling insect damages the canal and eardrum.
 - Irrigate with cold water | Cold water causes vertigo and does not kill the insect quickly.
 = Immobilizing the insect first prevents further injury and pain during removal.
 
@@ -159,7 +159,7 @@
 
 ? A toddler has a button battery lodged in one nostril. How urgent is removal?
 + Emergent, because tissue damage begins within hours
-- Routine, at a clinic visit next week | The battery causes burns and septal perforation.
+- Routine, at a clinic visit some time in the next week | The battery causes burns and septal perforation.
 - Not needed; it will fall out | It will not, and damage is progressive.
 - Only if the child develops a fever | Waiting causes permanent injury.
 = Button batteries cause liquefaction necrosis from electrical current and leakage and are removed immediately without irrigation.
@@ -173,14 +173,14 @@
 
 ? Which technique can remove a smooth nasal foreign body from a cooperative young child?
 + The parent blows into the child's mouth while the clear nostril is held closed
-- Pushing the object backward with a swab | That risks aspiration.
+- Pushing the object backward with a cotton swab until it drops into the throat to be swallowed | That risks aspiration.
 - Asking the child to sniff hard | Sniffing draws the object deeper.
 - Irrigating the nostril with a syringe | Fluid can be aspirated.
 = Positive pressure from the "parent's kiss" often expels the object without instruments.
 
 ? A child has placed a small magnet in each nostril, and they have attached across the septum. Why is this urgent?
 + The magnets compress the septum and cause necrosis and perforation
-- The magnets will affect the child's heart | They do not.
+- The magnets will affect the rhythm of the child's heart within a few hours | They do not.
 - The magnets are poisonous | The danger is mechanical.
 - The magnets will dissolve | They will not.
 = Paired magnets across the septum cut off the blood supply to the tissue between them.
@@ -195,7 +195,7 @@
 ? A patient with ear tubes asks to have earwax flushed out. What should the nurse do?
 + Decline irrigation, because the eardrum is not intact
 - Irrigate with cold water | Irrigation is contraindicated, and cold water causes vertigo.
-- Irrigate with hydrogen peroxide | Fluid would enter the middle ear.
+- Irrigate with hydrogen peroxide warmed to body temperature | Fluid would enter the middle ear.
 - Irrigate with extra pressure | Pressure adds further harm.
 = Irrigation is contraindicated with a perforation or tubes; when it is used, the water is at body temperature to avoid vertigo.
 

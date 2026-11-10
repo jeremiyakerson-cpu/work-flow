@@ -90,7 +90,7 @@
 ? Which finding helps distinguish cardiogenic shock from hypovolemic shock?
 + Jugular venous distension with crackles
 - Tachycardia | A fast heart rate occurs in both.
-- Cool, clammy skin | Vasoconstriction occurs in both.
+- Cool, clammy skin with delayed capillary refill | Vasoconstriction occurs in both.
 - Low urine output | Renal hypoperfusion occurs in both.
 = Pump failure backs blood up into the lungs and veins, whereas hypovolemia empties the venous system.
 
@@ -110,7 +110,7 @@
 
 ? An 82-year-old fell and has a tender, distended abdomen. BP is 92/58 and HR 74. He takes metoprolol. How should the nurse interpret the heart rate?
 + The beta blocker may be masking a compensatory tachycardia
-- A normal rate rules out significant bleeding | Medication and age blunt the usual response.
+- A normal heart rate rules out significant bleeding in this patient | Medication and age blunt the usual response.
 - The rate indicates neurogenic shock | There is no spinal mechanism.
 - The rate shows the patient is well hydrated | Hydration cannot be inferred from the rate.
 = Older adults on beta blockers may not mount tachycardia, so a "normal" rate does not exclude hemorrhagic shock.
@@ -146,21 +146,21 @@
 @ 3.8
 ? A woman at 32 weeks' gestation is supine on a backboard after a crash. BP is 86/50. What should the nurse do first?
 + Tilt the board to the left or manually displace the uterus
-- Raise the head of the board 45 degrees | Head elevation does not relieve vena caval compression.
+- Raise the head of the board 45 degrees and recheck the pressure | Head elevation does not relieve vena caval compression.
 - Give a vasopressor | The cause is mechanical and reversible.
 - Place her in Trendelenburg | Head-down positioning worsens compression and breathing.
 = After about 20 weeks the uterus compresses the vena cava when the patient lies supine, reducing venous return.
 
 ? Why can a pregnant trauma patient appear stable despite serious blood loss?
 + Her expanded blood volume lets her lose a large amount before vital signs change
-- Pregnancy raises blood pressure throughout | Pressure normally falls in mid-pregnancy.
+- Pregnancy raises the blood pressure throughout, which hides the early signs of bleeding | Pressure normally falls in mid-pregnancy.
 - The fetus donates blood to the mother | Uterine flow is diverted away from the fetus, not toward the mother.
 - Pregnancy hormones prevent tachycardia | The resting heart rate rises in pregnancy.
 = Pregnancy increases blood volume by up to half; maternal signs lag while uterine perfusion falls and the fetus becomes distressed first.
 
 ? A woman at 30 weeks was in a low-speed crash. She feels well and has a normal examination. What monitoring is required?
 + Continuous fetal and uterine monitoring for at least four hours
-- A single fetal heart check before discharge | A single check misses evolving abruption.
+- A single check of the fetal heart rate just before she is discharged | A single check misses evolving abruption.
 - No monitoring, since the trauma was minor | Abruption can follow minor trauma.
 - Repeat ultrasound in one week only | Ultrasound misses many abruptions.
 = Placental abruption may follow even minor trauma; cardiotocographic monitoring for at least four hours detects contractions and fetal distress.
@@ -195,14 +195,14 @@
 
 ? An unconscious 2-year-old is supine on a backboard and the neck is flexed forward. How should the nurse achieve neutral alignment?
 + Place padding under the shoulders and torso
-- Place a pillow under the head | That increases flexion.
+- Place a small pillow under the back of the head | That increases flexion.
 - Extend the neck fully | Hyperextension can obstruct a child's airway and harm the cord.
 - Turn the head to the side | Rotation moves a possibly injured spine.
 = A young child's large occiput flexes the neck when lying flat; raising the torso restores neutral position and opens the airway.
 
 ? A 6-year-old has respiratory distress after being struck in the chest by a car. The chest radiograph shows a large pulmonary contusion with no rib fractures. Why?
 + A child's ribs are flexible and transmit force to the lung without breaking
-- Children's lungs are more fragile than adults' | The difference lies in the chest wall, not the lung tissue.
+- Children's lung tissue is far more fragile than an adult's and bruises more easily | The difference lies in the chest wall, not the lung tissue.
 - The radiograph must be faulty | The finding is typical.
 - Rib fractures in children never show on film | Fractures can be seen when present.
 = The compliant pediatric chest wall allows serious internal injury without external signs or fractures.

@@ -26,19 +26,19 @@
 + Draw the blood and give hydrocortisone immediately, without waiting for the result
 - Wait for the cortisol result before treating | Delay can be fatal.
 - Skip the fluids until the result returns | Fluids are essential.
-- Give the steroid tomorrow once the diagnosis is confirmed | Treatment is given on suspicion.
+- Give the steroid tomorrow, once the diagnosis has been fully confirmed by the laboratory | Treatment is given on suspicion.
 = Treatment is never delayed for confirmation; a sample can be taken as the steroid is prepared.
 
 ? A patient with Addison's disease has a temperature of 38.8 C from influenza. What should she do with her usual hydrocortisone?
 + Increase the dose during the illness, as her sick-day plan directs
 - Stop it until she recovers | Stopping precipitates crisis.
 - Keep the dose unchanged | Illness increases the body's cortisol requirement.
-- Halve the dose to avoid side effects | A lower dose risks crisis.
+- Halve the dose until she recovers, to avoid side effects of steroids | A lower dose risks crisis.
 = Physiologic stress requires more cortisol; patients double or triple the dose during illness and use an injection if they cannot keep tablets down.
 
 ? Which physical findings suggest chronic primary adrenal insufficiency?
 + Darkening of the skin creases and gums with weight loss and salt craving
-- A round face with purple abdominal striae | Those suggest cortisol excess.
+- A round face with purple abdominal striae and a pad of fat between the shoulders | Those suggest cortisol excess.
 - Bulging eyes with a goitre | Those suggest Graves' disease.
 - Coarse hair with a puffy face | Those suggest hypothyroidism.
 = High ACTH stimulates pigment cells, and aldosterone deficiency causes salt wasting.
@@ -52,7 +52,7 @@
 
 ? Which IV fluid is most appropriate for the initial resuscitation of adrenal crisis?
 + Normal saline, with dextrose added for hypoglycemia
-- Dextrose 5% in water alone | A hypotonic fluid worsens hyponatremia.
+- Dextrose 5% in water alone, infused at a very rapid rate | A hypotonic fluid worsens hyponatremia.
 - Half-normal saline | It is hypotonic and does not correct the sodium deficit.
 - Fluid with added potassium | Potassium is already elevated.
 = Isotonic saline replaces sodium and volume, and dextrose corrects the accompanying hypoglycemia.
@@ -66,7 +66,7 @@
 
 ? Which item should a patient with adrenal insufficiency carry at all times?
 + Medical alert identification and an emergency steroid injection kit
-- A glucose meter only | It does not treat a crisis.
+- A glucose meter only, with test strips and a written record of readings | It does not treat a crisis.
 - A salt shaker only | Salt alone does not prevent a crisis.
 - An inhaler | It is unrelated.
 = Identification alerts responders, and an injectable steroid can be given when vomiting prevents oral dosing.
@@ -75,7 +75,7 @@
 + Congenital adrenal hyperplasia with salt wasting
 - Pyloric stenosis | That causes low potassium and alkalosis.
 - Milk allergy | That does not cause this electrolyte pattern.
-- Viral gastroenteritis | That does not cause high potassium with low sodium of this degree.
+- Viral gastroenteritis caught from an older sibling | That does not cause high potassium with low sodium of this degree.
 = Salt-wasting adrenal hyperplasia presents in the first weeks of life with adrenal crisis, treated with fluids and hydrocortisone.
 
 @ 10.4
@@ -132,13 +132,13 @@
 + Metabolic acidosis with respiratory compensation
 - Respiratory acidosis | The carbon dioxide is low, not high.
 - Metabolic alkalosis | The pH and bicarbonate are low.
-- Respiratory alkalosis | The pH is acidic.
+- Respiratory alkalosis from anxious hyperventilation | The pH is acidic.
 = A low pH with low bicarbonate is metabolic acidosis; the low carbon dioxide reflects compensatory hyperventilation.
 
 ? A patient has sodium 140, chloride 100 and bicarbonate 12 mEq/L. What is the anion gap, and what does it suggest?
 + 28; an acid such as lactate or ketones is accumulating
 - 12; the gap is normal | The calculation gives 28.
-- 52; the laboratory has made an error | That adds instead of subtracting.
+- 52; the laboratory must have made an error with this sample | That adds instead of subtracting.
 - 4; the patient has alkalosis | That is not the result of the calculation.
 = The anion gap is sodium minus chloride and bicarbonate; a high gap points to lactate, ketones, toxic alcohols, salicylates or uremia.
 
@@ -151,7 +151,7 @@
 
 ? Calcium chloride is ordered for a patient with severe hyperkalemia who has only a small hand IV. What should the nurse do?
 + Ask whether calcium gluconate can be used, or obtain central access
-- Give the calcium chloride quickly through the hand vein | Extravasation causes severe tissue necrosis.
+- Give the calcium chloride quickly through the hand vein in order to save time | Extravasation causes severe tissue necrosis.
 - Give it intramuscularly | Calcium is never given into muscle.
 - Dilute it in a potassium-containing fluid | That is unsafe in hyperkalemia.
 = Calcium chloride is very irritating and is preferably given centrally; calcium gluconate is safer through a peripheral vein.
@@ -160,7 +160,7 @@
 ? Minutes after a bee sting a patient has generalized hives, wheezing and BP 82/50. Which treatment is the priority?
 + Epinephrine 0.3 to 0.5 mg intramuscularly in the outer thigh
 - Diphenhydramine 50 mg IV | Antihistamines do not reverse airway obstruction or shock.
-- Methylprednisolone 125 mg IV | Steroids act over hours.
+- Methylprednisolone 125 mg IV, followed by an oral antihistamine | Steroids act over hours.
 - Nebulized albuterol | It treats wheeze but not the systemic reaction.
 = Intramuscular epinephrine in the anterolateral thigh is the first-line treatment and is never delayed for other medications.
 
@@ -168,7 +168,7 @@
 + Stop the nurse; this concentration is given intramuscularly
 - Allow it, since IV works faster | An IV bolus of concentrated epinephrine can cause lethal dysrhythmia and hypertension.
 - Suggest giving double the dose IV | A larger dose increases the danger.
-- Suggest the subcutaneous route in the arm | Subcutaneous absorption is slow and unreliable.
+- Suggest giving it by the subcutaneous route in the upper arm | Subcutaneous absorption is slow and unreliable.
 = Concentrated epinephrine is for IM use; IV epinephrine in a patient with a pulse is given only as a dilute, titrated infusion.
 
 ? Which statement about antihistamines and corticosteroids in anaphylaxis is correct?
@@ -182,7 +182,7 @@
 + It meets criteria for anaphylaxis because two body systems are involved
 - It is a simple skin reaction | Gastrointestinal involvement makes it a systemic reaction.
 - It is food poisoning | Hives indicate an allergic mechanism.
-- It needs no treatment unless breathing is affected | Waiting for respiratory symptoms delays treatment.
+- It needs no treatment unless her breathing or blood pressure is affected | Waiting for respiratory symptoms delays treatment.
 = Anaphylaxis is diagnosed when skin involvement is accompanied by respiratory, cardiovascular or persistent gastrointestinal symptoms after a likely allergen.
 
 ? A patient with anaphylaxis and BP 78/44 is being treated. How should the patient be positioned?
@@ -196,7 +196,7 @@
 + Rapid IV crystalloid and an epinephrine infusion
 - A third antihistamine | It does not treat shock.
 - Oral prednisone | It acts too slowly.
-- Observation for another hour | Refractory shock needs escalation.
+- Observation for another hour before further action | Refractory shock needs escalation.
 = Capillary leak requires large fluid volumes, and refractory anaphylaxis is treated with a titrated IV epinephrine infusion.
 
 ? A patient who takes metoprolol has anaphylaxis that does not respond to epinephrine. Which medication may be given?
@@ -230,6 +230,6 @@
 ? A patient has itchy hives on the arms after starting a new antibiotic. There is no swelling of the lips or tongue, no wheeze and vital signs are normal. What treatment is appropriate?
 + Stop the antibiotic and give an antihistamine, with observation
 - Intramuscular epinephrine immediately | Isolated hives without other system involvement do not need epinephrine.
-- Continue the antibiotic and add a cream | Continuing the drug risks a severe reaction.
+- Continue the antibiotic and add a steroid cream to settle the itching | Continuing the drug risks a severe reaction.
 - Intubation | The airway is not involved.
 = An isolated cutaneous reaction is treated by removing the trigger and giving an antihistamine, while watching for progression.

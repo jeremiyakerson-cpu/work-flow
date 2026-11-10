@@ -4,7 +4,7 @@
 ? A patient with a C4 spinal cord injury is breathing shallowly and says he "can't get a deep breath." Why is this patient at high risk of respiratory failure?
 + The phrenic nerve, which drives the diaphragm, arises from C3 to C5
 - The injury has collapsed both lungs | Cord injury does not directly collapse the lungs.
-- The cervical collar restricts the chest | A correctly fitted collar does not impair ventilation.
+- The cervical collar is restricting the movement of the upper chest wall | A correctly fitted collar does not impair ventilation.
 - Anxiety is causing hyperventilation | Shallow breathing here has a neurologic cause.
 = Injuries at or above C5 weaken or paralyze the diaphragm, so ventilation must be monitored closely with early airway support.
 
@@ -32,14 +32,14 @@
 ? After sitting the patient upright, which cause of autonomic dysreflexia should the nurse check for next?
 + A blocked urinary catheter or distended bladder
 - A recent change in diet | Diet is not a typical trigger.
-- A missed dose of a multivitamin | That is not a trigger.
+- A missed dose of the patient's daily multivitamin | That is not a trigger.
 - Too much sleep | That is not a trigger.
 = Bladder distension is the most common trigger, followed by bowel impaction and skin problems.
 
 ? A patient with a high cervical cord injury has a temperature of 35.1 C in a cool resuscitation room. Why?
 + Loss of sympathetic control prevents vasoconstriction and shivering below the injury
 - An undiagnosed infection | Infection usually raises temperature.
-- The thermometer is faulty | The finding has a physiologic explanation.
+- The thermometer is faulty and the reading should be repeated with an oral probe instead | The finding has a physiologic explanation.
 - Hypothyroidism | There is no reason to suspect it.
 = Patients with high cord injuries take on the temperature of their surroundings and must be actively warmed.
 
@@ -74,7 +74,7 @@
 ? Which patient can have the cervical spine cleared clinically without imaging?
 + An alert, sober patient with no midline tenderness, no neurologic deficit and no distracting injury
 - An intoxicated patient with no neck pain | Intoxication makes the examination unreliable.
-- A patient with a femur fracture and no neck pain | A distracting injury makes the examination unreliable.
+- A patient with a displaced femur fracture who is in severe pain but reports no neck pain at all when asked | A distracting injury makes the examination unreliable.
 - A patient with tingling in both hands | A neurologic symptom requires imaging.
 = Validated criteria allow clinical clearance only when the patient is alert, not intoxicated, and has no tenderness, deficit or distracting injury.
 
@@ -96,13 +96,13 @@
 ? Which assessment is the priority in a patient with Guillain-Barre syndrome?
 + Serial measurement of vital capacity and inspiratory force
 - Daily weight | Weight does not track respiratory muscle strength.
-- Hourly pupil checks | Pupils do not reflect the main risk.
+- Hourly checks of pupil size and reaction with a bright light | Pupils do not reflect the main risk.
 - Capillary refill | Perfusion is not the primary concern.
 = Weakness can reach the respiratory muscles within hours; falling vital capacity or inspiratory force predicts the need for intubation.
 
 ? A patient with Guillain-Barre syndrome has SpO2 96% but a weak cough, a soft voice and shallow breathing. How should the nurse interpret the saturation?
 + It is falsely reassuring; oxygen levels fall late in neuromuscular respiratory failure
-- It proves that ventilation is adequate | Saturation can remain normal until just before arrest.
+- It proves that ventilation is adequate, so respiratory checks can be spaced further apart | Saturation can remain normal until just before arrest.
 - It means the patient is anxious | The signs indicate muscle weakness.
 - It means monitoring can be reduced | Monitoring should be intensified.
 = In neuromuscular weakness, hypoxemia and hypercapnia appear late; bedside mechanics guide the decision to intubate.
@@ -111,7 +111,7 @@
 + Blood pressure swings and cardiac dysrhythmias
 - Hypoglycemia | Glucose is not typically affected.
 - Seizures | Seizures are not a feature.
-- Bowel obstruction | That is not a typical early complication.
+- Bowel obstruction with vomiting and marked distension | That is not a typical early complication.
 = Autonomic nerve involvement causes labile blood pressure and dysrhythmias that can be fatal.
 
 ? Which treatment should the nurse anticipate for a patient with progressing Guillain-Barre syndrome?
@@ -159,14 +159,14 @@
 ? A patient in myasthenic crisis has a weak, nasal voice and coughs when sipping water. What should the nurse do?
 + Keep the patient NPO and position upright with suction available
 - Offer thickened liquids | Any oral intake is unsafe until swallowing is assessed.
-- Encourage more fluids to thin secretions | Fluids will be aspirated.
+- Encourage more oral fluids to thin the secretions she is coughing on | Fluids will be aspirated.
 - Give oral medications with applesauce | Oral intake is unsafe.
 = Bulbar weakness causes aspiration; nothing is given by mouth and the airway is protected.
 
 ? Two adults who shared home-canned vegetables develop blurred vision, drooping eyelids, slurred speech and then arm weakness. Pupils are dilated and they are afebrile. What should the nurse anticipate?
 + Antitoxin and close monitoring of respiratory function
 - Antibiotics and discharge | The illness is toxin mediated and can progress to respiratory failure.
-- Reassurance that it is viral | The pattern in both patients points to a common toxin.
+- Reassurance that it is viral and will pass within a week | The pattern in both patients points to a common toxin.
 - Thrombolysis for stroke | Stroke does not affect two people after one meal.
 = Botulism causes descending paralysis beginning with the cranial nerves; antitoxin halts progression and ventilation may be needed.
 
@@ -174,7 +174,7 @@
 ? A patient has brief spinning episodes lasting under a minute whenever she rolls over in bed or looks up. Hearing is normal. Which condition is most likely?
 + Benign paroxysmal positional vertigo
 - Meniere's disease | That causes episodes lasting hours with hearing loss and tinnitus.
-- Vestibular neuritis | That causes continuous vertigo for days.
+- Vestibular neuritis after a viral illness | That causes continuous vertigo for days.
 - Cerebellar stroke | That causes persistent symptoms with other neurologic signs.
 = Short episodes provoked by head position change are caused by displaced otoliths in the semicircular canals.
 
@@ -229,7 +229,7 @@
 
 ? Which result defines orthostatic hypotension?
 + A fall in systolic pressure of at least 20 mmHg within three minutes of standing
-- A rise in heart rate of 5 beats per minute | A small rise is normal.
+- A rise in heart rate of 5 beats per minute within three minutes of standing upright | A small rise is normal.
 - A fall in systolic pressure of 5 mmHg | A small fall is normal.
 - A rise in diastolic pressure of 10 mmHg | A rise does not indicate orthostasis.
 = Orthostatic hypotension is a drop of 20 mmHg systolic or 10 mmHg diastolic within three minutes of standing.
@@ -243,7 +243,7 @@
 
 ? An 80-year-old is prescribed meclizine for vertigo. Which effect should the nurse warn about?
 + Drowsiness and confusion that increase the risk of falls
-- Insomnia and agitation in every patient | Sedation is the usual effect.
+- Insomnia and agitation, which occur in every older patient | Sedation is the usual effect.
 - Diarrhea | Anticholinergic drugs tend to constipate.
 - Excess salivation | It causes dry mouth.
 = Meclizine is a sedating anticholinergic; older adults are prone to confusion, urinary retention and falls.

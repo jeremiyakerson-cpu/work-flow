@@ -10,7 +10,7 @@
 
 ? A child with mild to moderate dehydration from gastroenteritis is tolerating small sips after ondansetron. Which rehydration method is preferred?
 + Oral rehydration solution in small, frequent amounts
-- IV fluids for every dehydrated child | Oral rehydration is as effective and less invasive when tolerated.
+- IV fluids through a cannula for every dehydrated child | Oral rehydration is as effective and less invasive when tolerated.
 - Undiluted apple juice and soda | High-sugar drinks worsen osmotic diarrhea.
 - Plain water only | Water lacks the sodium and glucose needed for absorption.
 = Oral rehydration solution given by spoon or syringe every few minutes is first-line for mild to moderate dehydration.
@@ -19,7 +19,7 @@
 + 240 mL of isotonic crystalloid as a rapid bolus
 - 60 mL of dextrose 5% in water | The volume is too small and the fluid is hypotonic.
 - 1,000 mL of normal saline | That adult volume would overload the child.
-- Oral rehydration solution by cup | A child in shock cannot be rehydrated orally.
+- Oral rehydration solution by cup over the next hour | A child in shock cannot be rehydrated orally.
 = Hypovolemic shock in a child is treated with 20 mL/kg of isotonic crystalloid, here 240 mL, then reassessment.
 
 ? An 78-year-old finished a course of clindamycin a week ago and now has profuse watery, foul-smelling diarrhea with cramps and fever. Which precautions should the nurse start?
@@ -31,7 +31,7 @@
 
 ? A patient with fever and bloody diarrhea asks for loperamide. What should the nurse explain?
 + Antimotility drugs can worsen invasive infections and are avoided
-- Loperamide is recommended for all diarrhea | It is unsafe with fever and blood.
+- Loperamide is recommended for all types of diarrhea, whatever the cause | It is unsafe with fever and blood.
 - A double dose will work faster | A larger dose increases the danger.
 - It should be taken with antibiotics | The combination does not make it safe here.
 = Slowing the bowel prolongs contact with toxins and invasive organisms and can precipitate toxic megacolon.
@@ -45,7 +45,7 @@
 
 ? Twelve residents of a care home develop vomiting and watery diarrhea within 24 hours. Which measure best limits the spread?
 + Contact precautions with hand washing and bleach-based cleaning
-- Airborne isolation for all residents | The virus spreads by contact and contaminated surfaces.
+- Airborne isolation in negative-pressure rooms for all the residents | The virus spreads by contact and contaminated surfaces.
 - Antibiotics for every resident | The illness is viral.
 - Alcohol hand rub alone | Alcohol is less effective against norovirus.
 = Norovirus spreads easily through contact and surfaces; soap-and-water washing and chlorine disinfectants are needed.
@@ -54,7 +54,7 @@
 + Dizziness on standing with a rise in heart rate and new confusion
 - Loose skin on the back of the hand | Skin turgor is unreliable in older adults.
 - A complaint of feeling tired | Fatigue is non-specific.
-- A dry mouth while breathing through the mouth | Mouth breathing dries the mucosa regardless of hydration.
+- A dry mouth and cracked lips in a patient who breathes through the mouth | Mouth breathing dries the mucosa regardless of hydration.
 = Orthostatic changes and altered mentation are more reliable than skin turgor in older adults.
 
 ? A 24-year-old who uses cannabis daily has repeated bouts of severe vomiting that ease only while he stands in a hot shower. Antiemetics have not helped. What is the most effective long-term treatment?
@@ -68,14 +68,14 @@
 + Give it diluted by infusion pump at a controlled rate with cardiac monitoring
 - Give it undiluted by IV push | A potassium bolus can cause fatal dysrhythmia.
 - Give it intramuscularly | Potassium is never given by injection into muscle.
-- Add it to a bag that is already running without mixing | Poor mixing delivers a concentrated bolus.
+- Add it to a bag that is already running, without mixing, and open the clamp fully | Poor mixing delivers a concentrated bolus.
 = IV potassium is always diluted and infused slowly, usually no faster than 10 mEq per hour through a peripheral line.
 
 ? Which assessment finding in a 3-month-old with diarrhea is most concerning for dehydration?
 + A sunken fontanelle with no wet diaper for eight hours
 - Crying with tears | Tears indicate reasonable hydration.
 - A moist mouth | Moist mucosa is reassuring.
-- A soft, flat fontanelle | That is normal.
+- A soft, flat fontanelle with a strong cry and good tone | That is normal.
 = A depressed fontanelle and absent urine output indicate significant fluid loss in an infant.
 
 ? Six people develop sudden vomiting and cramps three hours after a picnic where potato salad sat in the sun. They have no fever. What is the most likely cause?
@@ -116,14 +116,14 @@
 
 ? A 72-year-old woman has a small, painful lump just below the inguinal ligament. Why is this hernia treated with particular urgency?
 + Femoral hernias have a narrow neck and strangulate readily
-- Femoral hernias always contain the bladder | That is not the reason.
+- Femoral hernias always contain the bladder and block urine flow | That is not the reason.
 - Femoral hernias occur only in children | They occur mainly in older women.
 - Femoral hernias cannot be repaired | They are repaired surgically.
 = The rigid, narrow femoral canal makes incarceration and strangulation common.
 
 ? The parents of a 6-month-old ask about the soft bulge at his navel that enlarges when he cries and is easily pushed in. What should the nurse tell them?
 + Most close on their own by about age four or five
-- Tape a coin over it to speed closure | Taping does not help and irritates the skin.
+- Tape a coin firmly over it to speed up the closure | Taping does not help and irritates the skin.
 - He needs emergency surgery today | A reducible umbilical hernia is not an emergency.
 - It will get larger for life | Most resolve spontaneously.
 = Umbilical hernias in infants usually close without treatment; a hard, tender or irreducible bulge needs prompt review.
@@ -138,7 +138,7 @@
 ? A patient with a known hiatal hernia has heartburn that is worse at night. Which teaching is most helpful?
 + Raise the head of the bed and avoid eating within three hours of lying down
 - Lie flat straight after meals | Lying flat promotes reflux.
-- Eat one large meal late in the evening | Large late meals worsen symptoms.
+- Eat one large meal late in the evening and lie down straight afterwards to rest | Large late meals worsen symptoms.
 - Wear a tight belt for support | Tight clothing raises abdominal pressure.
 = Elevation and smaller, earlier meals reduce reflux through the lax gastroesophageal junction.
 
@@ -160,12 +160,12 @@
 + A lump that becomes painful and cannot be pushed back
 - A lump that is smaller in the morning | That is expected.
 - Mild aching after a long day standing | That is expected.
-- A lump that disappears when lying down | That is the definition of reducible.
+- A lump that disappears when lying down and returns on standing | That is the definition of reducible.
 = Irreducibility with pain, vomiting or skin colour change suggests incarceration or strangulation.
 
 ? An incarcerated hernia was reduced in the ED an hour ago. Why is the patient kept for observation?
 + Bowel that was already compromised may have been returned to the abdomen
-- The hernia always comes back within the hour | Recurrence is possible but is not the main concern.
+- The hernia always comes back within the hour and must be reduced a second time | Recurrence is possible but is not the main concern.
 - Sedation takes a full day to wear off | That is not accurate.
 - Reduction causes urinary retention | That is not the usual concern.
 = Increasing pain, fever or peritoneal signs after reduction suggest ischemic bowel and need surgical review.

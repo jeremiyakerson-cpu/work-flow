@@ -10,7 +10,7 @@
 
 ? Which set of interventions makes up the initial sepsis bundle for a patient with septic shock?
 + Lactate, blood cultures, broad-spectrum antibiotics and a crystalloid bolus
-- Chest radiograph, urine culture and oral antibiotics | These omit lactate, IV antibiotics and fluid resuscitation.
+- Chest radiograph, urine culture, oral antibiotics and reassessment in the morning | These omit lactate, IV antibiotics and fluid resuscitation.
 - Antipyretics, bed rest and observation | These do not treat shock.
 - Steroids, diuretics and fluid restriction | These are not initial sepsis therapy.
 = The bundle is: measure lactate, draw cultures before antibiotics, give broad-spectrum antibiotics, give fluids for hypotension or high lactate, and add vasopressors if needed.
@@ -62,12 +62,12 @@
 + Vasopressin, and IV hydrocortisone for refractory shock
 - A beta blocker | It would lower blood pressure further.
 - A loop diuretic | Volume removal worsens shock.
-- Stopping all fluids and antibiotics | Treatment must continue.
+- Stopping all fluids and antibiotics to rest the circulation | Treatment must continue.
 = Vasopressin is added to norepinephrine when the dose is escalating, and low-dose hydrocortisone is used for shock that persists.
 
 ? Norepinephrine is running through a forearm IV. The site becomes pale, cool and swollen. What should the nurse do?
 + Stop the infusion at that site and prepare phentolamine for infiltration
-- Slow the infusion and continue at the same site | Continued infusion causes tissue necrosis.
+- Slow the infusion a little and continue at the same site while it is watched | Continued infusion causes tissue necrosis.
 - Apply a warm pack and continue | Heat does not reverse vasoconstriction from the drug.
 - Flush the line forcefully with saline | Flushing pushes more drug into the tissue.
 = Extravasated vasopressor causes ischemic necrosis; the infusion is moved and the area treated with phentolamine.
@@ -84,7 +84,7 @@
 + Metabolic acidosis with an elevated anion gap
 - Respiratory acidosis | The breathing is compensatory hyperventilation.
 - Metabolic alkalosis | Ketoacids lower the pH.
-- Respiratory alkalosis alone | The primary problem is metabolic.
+- Respiratory alkalosis alone from hyperventilation | The primary problem is metabolic.
 = Ketoacids cause an anion-gap metabolic acidosis; Kussmaul breathing is the respiratory compensation.
 
 ? Which treatment comes first in diabetic ketoacidosis?
@@ -104,7 +104,7 @@
 ? A patient in diabetic ketoacidosis has a glucose that has fallen to 210 mg/dL, but the anion gap is still elevated. What should the nurse anticipate?
 + Adding dextrose to the IV fluids and continuing the insulin infusion
 - Stopping the insulin infusion | Ketosis will recur if insulin stops.
-- Switching to oral diabetes tablets | They do not treat ketoacidosis.
+- Switching to oral diabetes tablets and stopping all intravenous therapy | They do not treat ketoacidosis.
 - Giving a large bolus of insulin | That causes hypoglycemia.
 = Insulin is continued until the acidosis resolves; dextrose prevents hypoglycemia while ketones clear.
 
@@ -132,21 +132,21 @@
 ? A patient with diabetes is shaky and sweaty but awake and able to swallow. Glucose is 52 mg/dL. What should the nurse give?
 + About 15 g of fast-acting carbohydrate by mouth
 - IV dextrose 50% | IV treatment is for patients who cannot take oral glucose.
-- Intramuscular glucagon | That is for patients who cannot swallow and have no IV access.
+- An intramuscular glucagon injection from the emergency kit | That is for patients who cannot swallow and have no IV access.
 - A high-fat snack only | Fat slows glucose absorption.
 = A conscious patient is treated with 15 g of rapid carbohydrate, with a recheck in 15 minutes.
 
 ? An 82-year-old with kidney disease became hypoglycemic on glyburide and responded to IV dextrose. Why should she be observed rather than discharged?
 + The drug's effect is prolonged and hypoglycemia is likely to recur
 - Dextrose causes delayed allergic reactions | That is not the concern.
-- She needs teaching about insulin injections | She is not on insulin.
+- She needs teaching about how to give herself insulin injections first | She is not on insulin.
 - Hypoglycemia never recurs after treatment | It commonly does with long-acting agents.
 = Sulfonylureas, especially with impaired renal clearance, cause recurrent hypoglycemia for many hours.
 
 ? A patient taking an SGLT2 inhibitor has vomiting, rapid deep breathing and an anion gap of 26, but the glucose is only 178 mg/dL. What should the nurse recognize?
 + Ketoacidosis can occur with a near-normal glucose on this medication
 - A normal glucose excludes ketoacidosis | That is not true with SGLT2 inhibitors.
-- The symptoms must be from gastroenteritis | The anion gap indicates acidosis.
+- The symptoms must be from gastroenteritis, as the glucose is not raised | The anion gap indicates acidosis.
 - The patient needs only an antiemetic | She has a metabolic emergency.
 = SGLT2 inhibitors can cause euglycemic diabetic ketoacidosis, so ketones are checked despite the glucose.
 
@@ -202,7 +202,7 @@
 
 ? Which medications should the nurse anticipate for myxedema coma?
 + IV levothyroxine with IV hydrocortisone
-- Propylthiouracil and iodine | Those treat an overactive thyroid.
+- Propylthiouracil with an iodine solution | Those treat an overactive thyroid.
 - Propranolol | It would worsen bradycardia.
 - Oral levothyroxine alone | Gut absorption is unreliable in this state.
 = IV thyroid hormone is given with a corticosteroid, because adrenal insufficiency may coexist and be unmasked.
@@ -217,7 +217,7 @@
 ? A patient with myxedema coma is restless during assessment. Why should sedatives and opioids be avoided or greatly reduced?
 + Drug metabolism is slowed, and they can cause profound respiratory depression
 - They cause hyperthyroidism | They do not affect thyroid hormone production.
-- They are ineffective in hypothyroidism | They are overly effective.
+- They are ineffective in hypothyroidism, so very large doses would have to be given | They are overly effective.
 - They raise body temperature | That is not the concern.
 = Hypothyroid patients are very sensitive to central nervous system depressants and are already hypoventilating.
 
@@ -230,7 +230,7 @@
 
 ? A patient taking methimazole for hyperthyroidism has a sore throat and a temperature of 38.9 C. Which test is urgent?
 + A complete blood count with differential
-- A throat culture only | Infection may be present, but the drug's toxicity must be excluded.
+- A throat culture only, with results in two days | Infection may be present, but the drug's toxicity must be excluded.
 - A thyroid ultrasound | It does not address the concern.
 - A serum calcium | It is not the priority.
 = Antithyroid drugs can cause agranulocytosis; fever or sore throat requires an immediate neutrophil count.

@@ -1,0 +1,112 @@
+2.7.6|1|Expect a cherry-red skin colour for about a month, which fades slowly without any treatment at all
+3.8.1|1|Raise the head of the board 45 degrees and recheck the pressure
+3.8.2|1|Pregnancy raises the blood pressure throughout, which hides the early signs of bleeding
+3.8.3|1|A single check of the fetal heart rate just before she is discharged
+3.8.8|1|Place a small pillow under the back of the head
+3.8.9|1|Children's lung tissue is far more fragile than an adult's and bruises more easily
+4.1.9|1|Continue the usual patient assignment and set the sheet aside until things are calmer
+4.2.2|3|Ask the patient to go home and return to the department with an insurance card
+4.2.3|1|The patient's insurer prefers the other hospital and will cover the cost of transfer
+4.2.4|3|Discharge with written instructions to return if the labor continues to progress
+4.2.8|1|Withhold all treatment until a parent is found and gives permission
+4.2.9|3|Tell him that his insurance will refuse to pay for the visit if he leaves now
+4.2.10|1|Give the results, since she is family and is clearly worried about him
+4.3.5|2|Call the pharmacy to ask how the error should be handled and coded
+4.3.6|2|On the medication administration record, beside the dose, so that the next nurse will see it
+4.3.7|1|Say nothing, since no harm occurred and no one was affected
+4.3.9|1|Sending the patient with a face sheet only and asking the receiving nurse to call with questions
+4.3.10|3|Repeat the instructions a second time, more slowly and more loudly
+4.4.3|2|Allow her in alone to stand wherever she can find a space
+4.4.4|1|Prepare for intubation, since he is in distress and cannot speak for himself
+4.4.6|1|The son, because he is the closest relative present at the bedside today
+4.4.7|3|A larger dose than needed will be given so that the dying process is shortened
+4.4.8|2|Release the body directly to the funeral home that the family chooses
+4.5.3|3|To allow evidence to be stored at the nurses' station until an officer collects it
+4.5.4|1|Record clearly which wound is the entrance and which is the exit, with the reasons
+4.5.5|1|Wash and dry the hands carefully before the family comes in to visit
+4.5.6|1|With metal hemostats, then rinsed clean under the tap and dried before it is bagged
+4.5.8|1|A simple sore throat from shouting for help
+4.6.1|3|Stand close beside him and place a hand firmly on his shoulder to show concern
+4.6.4|3|Ask other visitors in the room to help restrain him
+4.6.6|2|An elderly woman who has waited an hour for her transport home with her daughter
+4.6.7|1|Walk toward the sound to assess the situation and report what is seen
+4.6.9|1|Tell him that security has been called and he will be arrested immediately if he says another word
+4.7.2|3|Evaluating how a patient has responded to a nebulizer treatment
+4.7.3|3|No one, because the task was delegated correctly to a trained person
+4.7.7|1|Offer to cover the colleague's patients quietly so that no one finds out
+4.7.8|1|Always asking a second nurse to witness and co-sign the waste of controlled drugs
+4.7.9|2|No, because it was posted from home while off duty on a personal account
+4.8.1|1|Too many patients with low-acuity complaints arriving during the evening
+4.8.2|3|A patient with abdominal pain, repeated vomiting and low blood pressure
+4.8.4|1|Finish a full triage assessment and registration in the triage booth before moving
+4.8.5|2|The number of ambulances arriving in each 24-hour period
+4.8.6|1|Provide only emergency care until an inpatient bed becomes ready
+4.8.7|2|Posting a sign that staff are too busy to answer questions about waiting times
+4.8.8|1|The ambulance crew, until a bed is assigned and a report has been given
+4.8.9|1|Discharging patients before their results return, with a telephone call later
+4.8.10|2|Buying more waiting room chairs and opening a second waiting area in the corridor
+5.0.2|1|An oral antihistamine and a cough suppressant taken every four hours
+5.0.6|1|They work immediately to open the airways and stop the wheeze
+5.0.8|1|Increase the respiratory rate to clear carbon dioxide more quickly
+5.0.9|2|"I'll use my albuterol every four hours around the clock even if I feel fine."
+5.0.11|2|Send her to the waiting room with her parent until a bed opens
+5.0.12|3|Double the dose of the sedative because she is so very anxious
+5.1.3|1|A long-acting bronchodilator alone, with the dose repeated after twelve hours
+5.1.5|3|Let him sleep, as he must be exhausted after such a hard night of breathing
+5.1.8|1|Left ventricular failure with pulmonary congestion
+5.1.9|1|A respiratory rate falling from 32 to 22 with easier breathing
+5.1.12|2|Wheezing that responds promptly to albuterol and ipratropium
+5.2.2|2|Wait for the culture results before choosing any antibiotics
+5.2.3|2|Moderate severity needing only a short period of observation at home
+5.2.4|3|A patient with a urinary tract infection who is walking unaided
+5.2.5|1|Give small sips of water and watch closely for any coughing
+5.2.6|1|Sit the patient bolt upright against the raised backrest
+5.2.8|2|Prone with a pillow under the abdomen and the arms raised
+5.2.9|3|Repeated scheduled albuterol nebulizers every twenty minutes
+5.2.10|1|Croup; give cool mist and discharge with advice on fluids at home
+5.3.6|2|High risk; immediate systemic thrombolysis for every patient in this category
+5.3.11|2|Fluids cause the clot in the pulmonary artery to enlarge and break into smaller pieces
+5.4.1|1|Pulmonary embolism from a leg vein
+5.4.4|1|Second intercostal space at the sternal border, directed toward the opposite side
+5.4.5|2|Lay the unit on the bed beside the patient so that it cannot be knocked
+5.4.7|2|Leave the wound open to the air so that any trapped air can escape by itself
+5.4.8|2|Massage the area firmly to disperse the trapped air
+5.4.9|2|Expect sharp chest pain every day for the next six months or so
+5.4.12|1|"Strip it firmly along its whole length every hour to keep it clear of clots."
+5.5.1|1|Chronic hypercapnia with hyperinflated lungs and a long history of smoking
+5.5.2|1|A faulty pulse oximeter or a poorly placed probe
+5.5.3|3|A respiratory rate of 6 per minute to rest the injured lungs
+5.5.10|3|Bilateral infiltrates on the portable chest radiograph
+5.6.7|2|Drugs, oxygen supply, positioning of the patient and electrolytes
+5.6.9|3|Sedate the patient so that the airway is tolerated
+5.6.11|2|Apply continuous suction while inserting the catheter and again while withdrawing it slowly
+5.6.12|1|Flat supine with no support under the head or shoulders
+5.7.1|3|A patient who is comatose after an overdose of sedatives
+5.7.2|1|Increasing the expiratory pressure alone while leaving the inspiratory unchanged
+5.7.6|1|Silence the alarm and call the respiratory therapist to come and review it
+5.7.7|2|Changing the whole ventilator circuit every eight hours
+5.7.11|3|It delivers a lower and more comfortable oxygen concentration than a standard nasal cannula, so monitoring can be reduced
+5.8.1|2|Lay him down on the floor and wait for him to lose consciousness before acting
+5.8.3|1|Continue abdominal thrusts from behind while he is lying on the floor
+5.8.4|2|Hold the infant upside down by the feet and shake gently
+5.8.11|2|Pulmonary edema is causing the noise; raise the head of the bed and give an IV diuretic
+6.0.2|1|A fasting lipid panel sent urgently
+6.0.6|1|90 mg in total, with 9 mg given as a bolus over one minute
+6.0.11|2|He needs a routine neurology clinic appointment in about three months if it happens again
+6.1.4|3|Keeping the patient flat in bed with the neck flexed on pillows
+6.1.5|2|A platelet transfusion alone, repeated until the bleeding stops
+6.1.7|2|Agree, because a blood pressure this high proves that the stroke is a hemorrhage
+6.1.8|2|Surgery is the only way to control the vomiting caused by the vertigo
+6.1.12|2|A dark, quiet room and a period of sleep
+6.2.1|1|Place a bite block between the teeth to protect the tongue
+6.2.5|3|Infuse it undiluted through a small vein in the back of the hand without an in-line filter
+6.2.8|3|Regular antipyretics at the first sign of fever will prevent another
+6.2.10|1|Normal postictal sleep after a long seizure
+6.3.5|2|A serum sodium and serum osmolality
+6.3.6|1|Rapid correction causes a dangerous rise in potassium
+6.3.8|1|An effect of the bright lighting in the resuscitation room
+6.3.11|3|Suggest discharge with a referral for outpatient counselling next week
+6.3.12|3|Calculating fluid needs after a major burn injury
+6.4.2|2|A vasovagal episode brought on by pain and anxiety
+6.4.6|1|A deep laceration over the forehead that is bleeding through the dressing
+6.4.7|2|A rapid infusion of IV dextrose 5% in water to restore volume

@@ -46,7 +46,7 @@
 ? A patient with an NSTEMI is pain free with SpO2 97% on room air and no dyspnea. A new nurse reaches for a nasal cannula. What is the best guidance?
 + Withhold oxygen unless saturation falls below 90% or distress develops
 - Apply 2 L/min by nasal cannula for every ACS patient | Routine oxygen in normoxic ACS shows no benefit and may cause harm.
-- Apply a non-rebreather at 15 L/min to maximise delivery | Hyperoxia causes coronary vasoconstriction and is not indicated.
+- Apply a non-rebreather at 15 L/min to maximise oxygen delivery to the injured myocardium | Hyperoxia causes coronary vasoconstriction and is not indicated.
 - Titrate oxygen to keep SpO2 at 100% | Targeting 100% drives unnecessary hyperoxia.
 = Supplemental oxygen is indicated for hypoxaemia (SpO2 below 90%), heart failure or respiratory distress, not routinely.
 
@@ -59,7 +59,7 @@
 
 ? A 12-lead ECG shows ST elevation in V1 through V4. Which coronary artery is most likely occluded, and what complication should the nurse watch for?
 + Left anterior descending; pump failure and ventricular dysrhythmias
-- Right coronary; sinus bradycardia and AV nodal block | That pattern belongs to inferior MI with elevation in II, III and aVF.
+- Right coronary; sinus bradycardia and AV nodal block with inferior wall changes | That pattern belongs to inferior MI with elevation in II, III and aVF.
 - Left circumflex; isolated lateral wall ischemia | Circumflex occlusion shows changes in I, aVL, V5 and V6.
 - Posterior descending; right ventricular failure | Posterior and RV involvement do not produce V1-V4 elevation.
 = V1-V4 elevation marks an anterior-septal STEMI from LAD occlusion, which threatens a large amount of left ventricle.
@@ -74,7 +74,7 @@
 ? A 34-year-old has chest pain, agitation, HR 128 and BP 186/110 after using cocaine. The ECG shows sinus tachycardia. Which medication should the nurse anticipate first?
 + An IV benzodiazepine such as lorazepam
 - IV metoprolol | Beta blockade may leave alpha stimulation unopposed and worsen coronary vasospasm and hypertension.
-- IV haloperidol | Antipsychotics do not treat the sympathetic surge and can lower the seizure threshold.
+- An IV antipsychotic such as haloperidol | Antipsychotics do not treat the sympathetic surge and can lower the seizure threshold.
 - Oral clonidine | An oral agent is too slow and is not first-line for this presentation.
 = Benzodiazepines blunt the central sympathetic outflow behind cocaine-associated chest pain, tachycardia and hypertension.
 ! Beta-blocker avoidance in acute cocaine toxicity is the traditional teaching; some newer guidance is less absolute. Confirm against your current reference.
@@ -96,7 +96,7 @@
 
 ? A 29-year-old with palpitations is alert, BP 118/76, with a regular narrow-complex tachycardia at 184/min. A modified Valsalva maneuver fails. Which medication and technique should the nurse prepare?
 + Adenosine 6 mg rapid push in a proximal vein, followed immediately by a 20 mL saline flush
-- Adenosine 6 mg infused over 10 minutes through a hand vein | Adenosine's half-life is seconds; a slow distal infusion never reaches the heart.
+- Adenosine 6 mg diluted in 100 mL and infused over 10 minutes through a vein in the back of the hand | Adenosine's half-life is seconds; a slow distal infusion never reaches the heart.
 - Amiodarone 300 mg rapid IV push | That is the pulseless arrest dose, not the treatment for stable SVT.
 - Atropine 1 mg IV push | Atropine speeds the heart and is used for bradycardia.
 = Adenosine must reach the AV node as a bolus: rapid push at the port closest to the patient with an immediate flush.
@@ -105,7 +105,7 @@
 + Stay with him and reassure him that this brief effect is expected
 - Begin chest compressions | The pause is transient and the patient is conscious with a perfusing rhythm returning.
 - Push atropine 1 mg | The pause resolves within seconds without treatment.
-- Call a rapid response and prepare to pace | Pacing is unnecessary for the expected short pause after adenosine.
+- Call a rapid response and prepare to begin transcutaneous pacing at once | Pacing is unnecessary for the expected short pause after adenosine.
 = Adenosine briefly blocks the AV node, causing a short pause, flushing and chest tightness that pass within seconds.
 
 ? A 70-year-old has HR 38, BP 78/46, dizziness and cool clammy skin. The monitor shows sinus bradycardia. Which is the first-line medication?
@@ -131,7 +131,7 @@
 
 ? A 66-year-old is alert with BP 122/78 and a regular wide-complex tachycardia at 170/min. Which treatment should the nurse anticipate?
 + An antiarrhythmic infusion such as amiodarone 150 mg over 10 minutes
-- Immediate unsynchronized defibrillation at 200 J | Defibrillation is for pulseless rhythms, not a stable patient with a pulse.
+- Immediate unsynchronized defibrillation at 200 J without sedation or further assessment | Defibrillation is for pulseless rhythms, not a stable patient with a pulse.
 - Verapamil 5 mg IV push | Calcium channel blockers can cause collapse in ventricular tachycardia.
 - Atropine 1 mg IV push | Atropine has no role in tachycardia.
 = Stable monomorphic VT with a pulse is treated with an antiarrhythmic infusion and expert consultation.
@@ -159,7 +159,7 @@
 
 ? The monitor shows P waves marching at a constant PR interval with intermittent non-conducted P waves and dropped QRS complexes. The patient reports dizziness. What does the nurse anticipate?
 + Applying pacing pads and preparing for transcutaneous pacing
-- Reassurance, because this rhythm is benign | Mobitz type II can progress suddenly to complete heart block.
+- Reassurance and routine monitoring, because this rhythm is benign | Mobitz type II can progress suddenly to complete heart block.
 - Vagal maneuvers | Vagal stimulation would slow conduction further.
 - Diltiazem to control the ventricular rate | An AV nodal blocker worsens the block.
 = A constant PR interval with dropped beats is second-degree type II block, an infranodal block that is unstable and often needs pacing.
@@ -188,14 +188,14 @@
 
 ? After IV furosemide 80 mg, a patient with heart failure produces 1.4 L of urine in two hours. Which finding needs follow-up first?
 + New frequent premature ventricular contractions
-- A weight 1 kg lower than on arrival | Weight loss is the expected result of diuresis.
+- A weight 1 kg lower than on arrival to the department | Weight loss is the expected result of diuresis.
 - Thirst and a dry mouth | These are expected and not immediately dangerous.
 - Fewer crackles on auscultation | Clearing lungs show the therapy is working.
 = Loop diuretics waste potassium and magnesium; new ventricular ectopy suggests an electrolyte deficit that needs checking and replacement.
 
 ? A 74-year-old with COPD and hypertension presents with dyspnea. The BNP is 62 pg/mL. How should the nurse interpret this result?
 + Heart failure is unlikely to be the cause of the dyspnea
-- Severe systolic heart failure is confirmed | A BNP under 100 pg/mL argues against heart failure.
+- Severe systolic heart failure is confirmed as the cause of dyspnea | A BNP under 100 pg/mL argues against heart failure.
 - The value suggests acute renal failure | A low BNP does not indicate renal failure, which tends to raise it.
 - The test is uninterpretable in COPD | BNP helps separate cardiac from pulmonary dyspnea.
 = A BNP below 100 pg/mL has a high negative predictive value for heart failure as the cause of acute dyspnea.
@@ -224,7 +224,7 @@
 ? Which statement by a patient being discharged after a heart failure exacerbation shows that teaching was effective?
 + "I'll weigh myself every morning and call if I gain 3 pounds in a day."
 - "I'll skip my water pill on days I have errands." | Skipping diuretics is a leading cause of readmission.
-- "I'll use salt substitute freely in place of salt." | Potassium-based substitutes can cause hyperkalemia with ACE inhibitors or spironolactone.
+- "I'll use salt substitute as freely as I like in place of table salt at meals." | Potassium-based substitutes can cause hyperkalemia with ACE inhibitors or spironolactone.
 - "I'll take ibuprofen for my knee pain." | NSAIDs cause sodium and water retention and blunt diuretics.
 = Daily weights detect fluid retention early; a gain of 2-3 lb in a day or 5 lb in a week should be reported.
 
@@ -238,7 +238,7 @@
 ? A patient with acute heart failure has BP 84/52 and HR 112. Nitroglycerin infusion is ordered. What is the nurse's best action?
 + Hold the infusion and clarify the order with the provider
 - Start the infusion at the lowest dose | Even low-dose nitrates can deepen hypotension at this pressure.
-- Start the infusion and lay the patient supine | Positioning does not make a vasodilator safe in hypotension.
+- Start the infusion as ordered and lay the patient supine to support the pressure | Positioning does not make a vasodilator safe in hypotension.
 - Give the infusion with a fluid bolus | A fluid bolus worsens pulmonary congestion.
 = Vasodilators are avoided when systolic pressure is below about 90 mmHg because they further reduce perfusion.
 

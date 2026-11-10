@@ -46,7 +46,7 @@
 ? An intubated patient suddenly desaturates. Using the DOPE mnemonic, which set of causes should the nurse check?
 + Displacement, obstruction, pneumothorax and equipment failure
 - Dehydration, overdose, pain and embolism | Those are not the mnemonic's components.
-- Drugs, oxygen, positioning and electrolytes | Those are not the mnemonic's components.
+- Drugs, oxygen supply, positioning of the patient and electrolytes | Those are not the mnemonic's components.
 - Delirium, oversedation, pressure and edema | Those are not the mnemonic's components.
 = DOPE directs a rapid search for tube displacement, tube obstruction, pneumothorax and equipment problems.
 
@@ -61,7 +61,7 @@
 + Remove it and consider a nasopharyngeal airway
 - Push it in further | Forcing it causes vomiting and aspiration.
 - Tape it in place | A patient with a gag reflex will vomit or bite.
-- Sedate the patient to tolerate it | Sedation for this purpose compromises the airway further.
+- Sedate the patient so that the airway is tolerated | Sedation for this purpose compromises the airway further.
 = Oral airways are for patients without a gag reflex; a nasal airway is better tolerated unless facial or skull base fracture is suspected.
 
 ? Shortly after succinylcholine, a patient develops jaw rigidity, a rapidly rising end-tidal carbon dioxide and a temperature of 40.3 C. Which medication is needed?
@@ -74,13 +74,13 @@
 ? What is the correct technique for suctioning an endotracheal tube?
 + Preoxygenate, then apply suction for no more than 10 to 15 seconds while withdrawing
 - Suction continuously for a full minute | Prolonged suction causes hypoxia and bradycardia.
-- Apply suction while inserting the catheter | Suction on insertion removes oxygen and damages mucosa.
+- Apply continuous suction while inserting the catheter and again while withdrawing it slowly | Suction on insertion removes oxygen and damages mucosa.
 - Instil saline routinely before each pass | Routine instillation is not recommended.
 = Brief, intermittent suction on withdrawal after preoxygenation limits hypoxemia and mucosal trauma.
 
 ? A patient weighing 160 kg needs intubation. How should he be positioned?
 + Ramped, with the ear level with the sternal notch
-- Flat supine with no head support | Lying flat worsens the view and shortens safe apnea time.
+- Flat supine with no support under the head or shoulders | Lying flat worsens the view and shortens safe apnea time.
 - Trendelenburg | Head-down positioning pushes abdominal contents against the diaphragm.
 - Prone | Intubation is not performed prone.
 = Ramping aligns the airway axes and improves functional residual capacity in obese patients.
@@ -90,12 +90,12 @@
 + An alert patient with acute cardiogenic pulmonary edema
 - A patient in cardiac arrest | Arrest requires a definitive airway.
 - A patient with facial fractures | A mask cannot be fitted safely.
-- A patient who is comatose after an overdose | The airway cannot be protected.
+- A patient who is comatose after an overdose of sedatives | The airway cannot be protected.
 = NIPPV is well supported for cardiogenic pulmonary edema and hypercapnic COPD in patients who can protect their airway.
 
 ? On BiPAP, which adjustment mainly improves carbon dioxide removal?
 + Increasing the difference between inspiratory and expiratory pressure
-- Increasing the expiratory pressure alone | That mainly improves oxygenation.
+- Increasing the expiratory pressure alone while leaving the inspiratory unchanged | That mainly improves oxygenation.
 - Lowering the inspiratory pressure | That reduces tidal volume.
 - Lowering the inspired oxygen | That does not affect ventilation.
 = The gap between IPAP and EPAP is the pressure support that increases tidal volume and clears carbon dioxide.
@@ -123,7 +123,7 @@
 
 ? A ventilator alarm is sounding, the patient is cyanotic and the cause is not immediately obvious. What should the nurse do first?
 + Disconnect the patient and ventilate manually with a bag and 100% oxygen
-- Silence the alarm and call the respiratory therapist | The patient is not being ventilated while waiting.
+- Silence the alarm and call the respiratory therapist to come and review it | The patient is not being ventilated while waiting.
 - Increase the tidal volume | The cause has not been identified.
 - Give a sedative | Sedation does not fix a ventilation problem.
 = When a ventilator problem cannot be solved at once, manual ventilation maintains oxygenation while the fault is traced.
@@ -131,7 +131,7 @@
 ? Which intervention helps prevent ventilator-associated pneumonia?
 + Keeping the head of the bed raised 30 to 45 degrees
 - Keeping the patient flat | The supine position promotes aspiration.
-- Changing the circuit every eight hours | Frequent changes do not reduce infection.
+- Changing the whole ventilator circuit every eight hours | Frequent changes do not reduce infection.
 - Deep sedation at all times | Deep sedation prolongs ventilation.
 = Head elevation, oral care, daily sedation interruption and readiness assessment reduce ventilator-associated pneumonia.
 
@@ -160,7 +160,7 @@
 + It delivers high oxygen flow with a small amount of positive pressure while the patient can talk and eat
 - It can replace intubation in every case | It has limits and failure must be recognized.
 - It needs no monitoring | Patients on it need close observation.
-- It delivers a lower oxygen concentration than a standard cannula | It delivers a higher, more reliable concentration.
+- It delivers a lower and more comfortable oxygen concentration than a standard nasal cannula, so monitoring can be reduced | It delivers a higher, more reliable concentration.
 = High-flow nasal oxygen meets inspiratory demand, washes out dead space and is well tolerated in hypoxemic respiratory failure.
 
 ? A patient with a long-standing tracheostomy is in distress, and the suction catheter will not pass. What should the nurse do first?
@@ -174,7 +174,7 @@
 ? In a restaurant an adult clutches his throat. He cannot speak, cough or breathe. What should the nurse do?
 + Deliver back blows and abdominal thrusts until the object is expelled
 - Give him water to wash the food down | Liquid cannot pass a complete obstruction.
-- Lay him down and wait for him to lose consciousness | Delay wastes the time when relief is most likely.
+- Lay him down on the floor and wait for him to lose consciousness before acting | Delay wastes the time when relief is most likely.
 - Perform a blind finger sweep | A blind sweep can push the object deeper.
 = Severe airway obstruction in a responsive adult is treated with repeated back blows and abdominal thrusts.
 ! Sequence of back blows versus abdominal thrusts for adults changed in the 2025 AHA guidelines; confirm the current wording.
@@ -188,7 +188,7 @@
 
 ? A choking adult becomes unresponsive and is lowered to the floor. What is the next action?
 + Begin CPR, looking in the mouth for the object before giving breaths
-- Continue abdominal thrusts on the floor | Thrusts are replaced by chest compressions once unresponsive.
+- Continue abdominal thrusts from behind while he is lying on the floor | Thrusts are replaced by chest compressions once unresponsive.
 - Perform blind finger sweeps | Sweeps are done only when an object is seen.
 - Check the pulse for a full minute | Delay worsens hypoxia.
 = Chest compressions generate pressure that may expel the object; the mouth is checked each time the airway is opened.
@@ -196,7 +196,7 @@
 ? A 7-month-old is choking and cannot cry or cough. What should the nurse do?
 + Give five back slaps followed by five chest thrusts
 - Give abdominal thrusts | Abdominal thrusts can injure an infant's liver.
-- Hold the infant upside down by the feet | That is ineffective and dangerous.
+- Hold the infant upside down by the feet and shake gently | That is ineffective and dangerous.
 - Perform a blind finger sweep | A sweep can push the object deeper.
 = Infants with severe obstruction receive cycles of five back slaps and five chest thrusts with the head lower than the trunk.
 
@@ -245,7 +245,7 @@
 ? An unconscious patient lying supine has loud snoring respirations. What is the most likely cause, and what should the nurse do?
 + The tongue is obstructing the airway; perform a jaw thrust or insert an airway adjunct
 - Bronchospasm; give a nebulizer | Snoring is an upper airway sound.
-- Pulmonary edema; give a diuretic | Edema causes crackles, not snoring.
+- Pulmonary edema is causing the noise; raise the head of the bed and give an IV diuretic | Edema causes crackles, not snoring.
 - Normal sleep; leave undisturbed | Snoring in an unconscious patient indicates obstruction.
 = Loss of muscle tone lets the tongue fall back; repositioning or an airway adjunct relieves the obstruction.
 
