@@ -51,39 +51,84 @@
     setTimeout(() => tone(520, 0.12, 0.045), 170);
   };
 
-  // Simple R-peak detection on a synthesized strip (drives the QRS beep).
-  function detectBeats(samples) {
+  // R-wave detection on the drawn trace (drives the QRS beep, the pleth and
+  // the measured rate). Returns beat times in seconds from the start of
+  // `samples`. A peak counts when it clears a threshold scaled to the
+  // tallest complex; anything arriving within 0.45 s of a beat must be at
+  // least half its height, which is what keeps T waves from counting.
+  function detectBeats(samples, perSec = samples.length / EkgRhythms.STRIP_SECONDS) {
     const n = samples.length;
-    const minDist = Math.floor(n / 30); // 0.2 s refractory
+    let tallest = 0;
+    for (let i = 0; i < n; i++) if (samples[i] > tallest) tallest = samples[i];
+    const threshold = Math.max(0.3, 0.22 * tallest);
+    const refractory = 0.2 * perSec;
+    const tWindow = 0.45 * perSec;
     const beats = [];
-    let last = -minDist;
+    let last = -Infinity;
+    let lastAmp = 0;
     for (let i = 1; i < n - 1; i++) {
       const v = samples[i];
-      if (v > 0.45 && v >= samples[i - 1] && v >= samples[i + 1] && i - last >= minDist) {
-        beats.push(i / n);
-        last = i;
-      }
+      if (v < threshold || v <= samples[i - 1] || v < samples[i + 1]) continue;
+      if (i - last < refractory) continue;
+      if (i - last < tWindow && v < 0.5 * lastAmp) continue;
+      beats.push(i / perSec);
+      last = i;
+      lastAmp = v;
     }
     return beats;
   }
 
-  // SpO2 plethysmograph: fast systolic upstroke, exponential decay with a
-  // dicrotic notch. Flat when not perfusing.
-  function makePleth(hr, n) {
+  // SpO2 plethysmograph, driven by the beats actually on the trace: each
+  // QRS produces a pulse a moment later (fast upstroke, decay with a
+  // dicrotic notch). Early beats fill less and pulse weaker, so irregular
+  // rhythms show an irregular, uneven pleth. `times` are beat times in
+  // seconds relative to the start of the strip (negative = previous strip).
+  // Flat when there are no beats.
+  function makePleth(times, n) {
     const arr = new Float32Array(n);
-    if (!hr || hr <= 0) return arr;
+    if (!times.length) return arr;
     const dur = EkgRhythms.STRIP_SECONDS;
-    const beat = 60 / hr;
-    for (let i = 0; i < n; i++) {
-      const t = (i / n) * dur;
-      const ph = (t % beat) / beat;
-      let v;
-      if (ph < 0.12) v = ph / 0.12;
-      else {
-        const d = (ph - 0.12) / 0.88;
-        v = Math.exp(-3.2 * d) * (1 + 0.18 * Math.sin(10 * d * Math.PI) * Math.exp(-4 * d));
+    const meanRR = times.length > 1 ? (times[times.length - 1] - times[0]) / (times.length - 1) : 1;
+    // the trace opens mid-rhythm: assume the same rhythm was running before it
+    const t = [times[0] - meanRR, ...times];
+    const DELAY = 0.18;
+    const UP = 0.11;
+    // faster rhythms have a shorter run-off, so the pulse keeps its shape
+    const fall = 0.75 * Math.max(0.45, Math.min(1, meanRR / 0.8));
+    const pulses = t.map((at, k) => ({
+      on: at + DELAY,
+      amp: k === 0 ? 1 : Math.max(0.3, Math.min(1, (at - t[k - 1] - 0.22) / 0.4)),
+      start: 0,
+    }));
+    const peak = pulses.reduce((m, p) => Math.max(m, p.amp), 0);
+    const value = (p, at) => {
+      const d = at - p.on;
+      if (d < UP) {
+        const u = d / UP;
+        return p.start + (p.amp - p.start) * u * u * (3 - 2 * u);
       }
-      arr[i] = v;
+      const x = (d - UP) / fall;
+      return p.amp * Math.exp(-3.2 * x) * (1 + 0.18 * Math.sin(10 * x * Math.PI) * Math.exp(-4 * x));
+    };
+    for (let k = 1; k < pulses.length; k++) pulses[k].start = value(pulses[k - 1], pulses[k].on);
+    let k = 0;
+    for (let i = 0; i < n; i++) {
+      const at = (i / n) * dur;
+      while (k + 1 < pulses.length && pulses[k + 1].on <= at) k++;
+      arr[i] = at < pulses[k].on ? 0 : value(pulses[k], at) / peak;
+    }
+    // Auto-gain, as on a real monitor: at fast rates the pulses overlap and
+    // the swing shrinks, so stretch it back to a readable (still reduced) size.
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (let i = 0; i < n; i++) {
+      if (arr[i] < lo) lo = arr[i];
+      if (arr[i] > hi) hi = arr[i];
+    }
+    const MIN_SWING = 0.55;
+    if (hi - lo > 0.02 && hi - lo < MIN_SWING) {
+      const gain = MIN_SWING / (hi - lo);
+      for (let i = 0; i < n; i++) arr[i] = (arr[i] - lo) * gain;
     }
     return arr;
   }
@@ -111,14 +156,20 @@
     return arr;
   }
 
-  // The monitor MEASURES its rate like a real Zoll: median R-R interval of
-  // the detected QRS complexes on the current strip. Null when unmeasurable.
-  function measuredRate(beats) {
-    if (beats.length < 2) return null;
-    const iv = [];
-    for (let i = 1; i < beats.length; i++) iv.push((beats[i] - beats[i - 1]) * EkgRhythms.STRIP_SECONDS);
-    iv.sort((a, b) => a - b);
-    return Math.round(60 / iv[Math.floor(iv.length / 2)]);
+  // The monitor MEASURES its rate like a real bedside monitor: the average
+  // of the most recent R-R intervals — 12 when the trace holds that many,
+  // otherwise 6. Averaging (rather than taking a typical interval) is what
+  // makes grouped rhythms read their true ventricular rate, and 6 and 12
+  // are whole numbers of cycles for 2- and 3-beat groupings (bigeminy,
+  // 3:2 and 4:3 block), so the number doesn't wobble with where the
+  // window happens to start. `times` are beat times in seconds.
+  // Null when unmeasurable.
+  function measuredRate(times) {
+    const have = times.length - 1;
+    const m = have >= 12 ? 12 : have >= 6 ? 6 : have;
+    if (m < 1) return null;
+    const span = times[times.length - 1] - times[times.length - 1 - m];
+    return Math.round((60 * m) / span);
   }
 
   // Rhythms a real monitor flags as unanalyzable rather than rating.
@@ -158,29 +209,22 @@
     ctx.shadowColor = glow;
     ctx.shadowBlur = 4;
 
-    ctx.beginPath();
-    let started = false;
-    for (let x = 0; x <= headX; x += 1.5) {
-      const i = Math.min(n - 1, Math.floor((x / w) * n));
-      const y = baseY - curr[i] * scale;
-      if (!started) {
-        ctx.moveTo(x0 + x, y);
-        started = true;
-      } else ctx.lineTo(x0 + x, y);
-    }
-    ctx.stroke();
-
-    ctx.beginPath();
-    started = false;
-    for (let x = headX + gapX; x <= w; x += 1.5) {
-      const i = Math.min(n - 1, Math.floor((x / w) * n));
-      const y = baseY - prev[i] * scale;
-      if (!started) {
-        ctx.moveTo(x0 + x, y);
-        started = true;
-      } else ctx.lineTo(x0 + x, y);
-    }
-    ctx.stroke();
+    // Every sample is plotted: stepping by pixels skips over the narrow R
+    // peak and makes identical beats draw at different heights.
+    const plot = (src, from, to) => {
+      ctx.beginPath();
+      for (let i = from; i <= to; i++) {
+        const x = x0 + (i / n) * w;
+        const y = baseY - src[i] * scale;
+        if (i === from) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    };
+    const headI = Math.min(n - 1, Math.floor(head * n));
+    plot(curr, 0, headI);
+    const resumeI = Math.ceil(((headX + gapX) / w) * n);
+    if (resumeI < n) plot(prev, resumeI, n - 1);
     ctx.shadowBlur = 0;
 
     // bright drawing head
@@ -211,6 +255,7 @@
       rr: 0,
       etco2: null,
       hrEl: null, // element the measured rate is written to
+      synth: {}, // generator state: keeps successive strips continuous
       flashUntil: 0, // beat-heart flash deadline (ms timestamp)
       head: 0,
       lastTs: null,
@@ -229,17 +274,33 @@
     }
 
     function resynth() {
-      // Rate-flexible rhythms synthesize at the charted rate, so the strip,
-      // the stem, and the measured number all agree.
-      st.curr = EkgRhythms.synthesizeRhythm(st.rhythm, st.hr || undefined);
-      st.beats = detectBeats(st.curr);
-      st.plethCurr = makePleth(st.perfusing ? st.hr : 0, st.curr.length);
+      // Rhythms synthesize at the charted rate, so the strip, the stem, and
+      // the measured number all agree.
+      const before = st.curr;
+      st.curr = EkgRhythms.synthesizeRhythm(st.rhythm, st.hr || undefined, st.synth);
+      const n = st.curr.length;
+      const dur = EkgRhythms.STRIP_SECONDS;
+      // Beats are read off the previous strip and this one as a single
+      // trace, so nothing is missed or double-counted at the wrap.
+      let times = [];
+      if (!NO_RATE(st.rhythm)) {
+        if (before) {
+          const joined = new Float32Array(2 * n);
+          joined.set(before);
+          joined.set(st.curr, n);
+          times = detectBeats(joined, n / dur).map((t) => t - dur);
+        } else {
+          times = detectBeats(st.curr);
+        }
+      }
+      st.beats = times.filter((t) => t >= 0).map((t) => t / dur);
+      st.plethCurr = makePleth(st.perfusing ? times : [], n);
       if (st.capno) {
         const { rate, level } = capnoParams();
-        st.capnoCurr = makeCapno(rate, level, st.curr.length);
+        st.capnoCurr = makeCapno(rate, level, n);
       }
       if (st.hrEl) {
-        const r = NO_RATE(st.rhythm) ? null : measuredRate(st.beats);
+        const r = measuredRate(times);
         st.hrEl.textContent = r === null ? "--" : r;
       }
     }
@@ -259,6 +320,8 @@
       st.rr = opts.rr || 0;
       st.etco2 = opts.etco2 != null ? opts.etco2 : null;
       st.hrEl = opts.hrEl || null;
+      st.synth = {};
+      st.curr = null;
       resynth();
       st.prev = st.curr;
       st.plethPrev = st.plethCurr;
@@ -430,5 +493,5 @@
     refreshToggles();
   }
 
-  window.EkgMonitor = { attach };
+  window.EkgMonitor = { attach, detectBeats, measuredRate, makePleth };
 })();

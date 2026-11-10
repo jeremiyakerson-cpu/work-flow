@@ -1,327 +1,353 @@
 /*
  * Waveform synthesis for the Zoll-style EKG trainer.
- * Produces a Float32Array (range roughly -1.3..1.3) representing one
- * lead-II strip, sampled evenly across a fixed time window.
+ * Produces a Float32Array (range roughly -1.3..1.3, 1.0 ≈ 1 mV) representing
+ * one lead-II strip, sampled evenly across a fixed time window.
+ *
+ * Intervals follow the textbook definitions so a learner can measure them
+ * off the strip: `pr` is P-wave ONSET to QRS onset, a narrow QRS is ~0.08 s,
+ * a ventricular (wide) QRS ~0.15 s with a discordant T wave, and the QT
+ * shortens with rate so P waves stay visible in sinus tachycardia.
+ *
+ * Successive strips of the same rhythm are continuous in time: pass the
+ * same `state` object back in and the beat timing carries across the wrap,
+ * so the live monitor never shows a pause at the edge of the screen.
  */
 
 const STRIP_SECONDS = 6;
 const SAMPLE_COUNT = 1200; // internal resolution; canvas rescales on draw
+const DT = STRIP_SECONDS / SAMPLE_COUNT;
+
+const QRS_ONSET = 0.04; // narrow QRS begins this long before its R peak
+const WIDE_ONSET = 0.05; // same, for a ventricular complex
+const P_HALF = 0.045; // P onset to P peak (P wave ≈ 0.09 s)
+const LEAD_IN = 1.4; // beats this far before the strip can still reach into it
+const TAIL = 0.8;
+
+function clamp(v, lo, hi) {
+  return Math.max(lo, Math.min(hi, v));
+}
 
 function gauss(t, width) {
   return Math.exp(-(t * t) / (2 * width * width));
 }
 
-function pWave(t, amp) {
-  return amp * gauss(t, 0.045);
+// Bump with different widths either side of its peak.
+function skew(t, left, right) {
+  return gauss(t, t < 0 ? left : right);
 }
 
-function tWave(t, amp) {
-  return amp * gauss(t, 0.09);
+function pWave(t, amp) {
+  return amp * gauss(t, 0.021);
 }
 
 function qrsNarrow(t, amp) {
-  const q = -0.15 * amp * gauss(t + 0.02, 0.008);
-  const r = amp * gauss(t, 0.014);
-  const s = -0.3 * amp * gauss(t - 0.025, 0.012);
+  const q = -0.12 * amp * gauss(t + 0.022, 0.007);
+  const r = amp * gauss(t, 0.012);
+  const s = -0.25 * amp * gauss(t - 0.024, 0.009);
   return q + r + s;
 }
 
 function qrsWide(t, amp) {
-  const r = amp * gauss(t + 0.01, 0.045);
-  const s = -0.55 * amp * gauss(t - 0.07, 0.045);
+  const r = amp * skew(t, 0.024, 0.03);
+  const s = -0.1 * amp * gauss(t - 0.075, 0.015);
   return r + s;
 }
 
-// One PQRST complex centered so the R (or wide-QRS peak) sits at t=0.
-function beatValue(t, opts) {
-  const {
-    amp = 1,
-    pr = 0.16,
-    includeP = true,
-    tAmp = 0.28,
-    wide = false,
-    includeT = true,
-    pAmp = 0.15,
-  } = opts;
+// QT for a given R-R interval (Bazett, QTc 0.40 s; ventricular beats run longer).
+function qtFor(rr, wide) {
+  return wide ? clamp(0.46 * Math.sqrt(rr), 0.25, 0.52) : clamp(0.4 * Math.sqrt(rr), 0.2, 0.46);
+}
+
+// One complex with its R (or wide-QRS) peak at t=0.
+//   pr:   P onset → QRS onset in seconds; null/undefined draws no P wave
+//   qt:   QRS onset → end of T
+//   wide: ventricular morphology — wide QRS, T wave opposite the QRS
+function beatValue(t, b) {
+  const amp = b.amp === undefined ? 1 : b.amp;
   let v = 0;
-  if (includeP) v += pWave(t + pr, pAmp);
-  v += wide ? qrsWide(t, amp) : qrsNarrow(t, amp);
-  if (includeT) v += tWave(t - (wide ? 0.32 : 0.28), wide ? tAmp * 1.3 : tAmp);
+  if (b.wide) {
+    v += qrsWide(t, amp);
+    const s = clamp(b.qt / 0.44, 0.55, 1.25);
+    const right = 0.045 * s;
+    const peak = -WIDE_ONSET + b.qt - 2.1 * right;
+    // the ST segment slopes straight off the QRS into the inverted T
+    const left = Math.max(0.03, (peak - 0.04) / 2.2);
+    v -= (b.tAmp === undefined ? 0.45 : b.tAmp) * amp * skew(t - peak, left, right);
+    return v;
+  }
+  v += qrsNarrow(t, amp);
+  const s = clamp(b.qt / 0.38, 0.5, 1.25);
+  const right = 0.036 * s;
+  const tEnd = -QRS_ONSET + b.qt;
+  v += (b.tAmp === undefined ? 0.25 : b.tAmp) * skew(t - (tEnd - 2.1 * right), 0.062 * s, right);
+  if (b.pr != null) v += pWave(t + QRS_ONSET + b.pr - P_HALF, b.pAmp === undefined ? 0.15 : b.pAmp);
   return v;
 }
 
-function regularTimes(rate, duration, startOffset = 0.45) {
-  const rr = 60 / rate;
-  const out = [];
-  let t = startOffset;
-  while (t < duration - 0.35) {
-    out.push(t);
-    t += rr;
-  }
-  return out;
-}
-
 function makeArray() {
-  return new Float32Array(SAMPLE_COUNT);
+  const arr = new Float32Array(SAMPLE_COUNT);
+  arr.qrs = []; // true QRS times (s) on this strip — what a learner would count
+  return arr;
 }
 
-function addBeats(arr, beats, duration, beatOpts) {
-  const dt = duration / SAMPLE_COUNT;
-  for (const b of beats) {
-    const opts = typeof b === "number" ? beatOpts : { ...beatOpts, ...(b.opts || {}) };
-    const center = typeof b === "number" ? b : b.t;
-    const lo = Math.max(0, Math.floor((center - 0.5) / dt));
-    const hi = Math.min(SAMPLE_COUNT - 1, Math.ceil((center + 0.5) / dt));
-    for (let i = lo; i <= hi; i++) {
-      const t = i * dt - center;
-      arr[i] += beatValue(t, opts);
+// Draw beats ({t, ...beatValue options}, t in strip seconds; may fall outside
+// the strip so complexes are cut naturally at the edges). `rr` sets the QT.
+function addBeats(arr, beats, rr, shared) {
+  for (const raw of beats) {
+    const b = { ...shared, ...raw };
+    if (b.qt === undefined) b.qt = qtFor(rr, b.wide);
+    if (b.t >= 0 && b.t < STRIP_SECONDS) arr.qrs.push(b.t);
+    const lo = Math.max(0, Math.floor((b.t - 0.6) / DT));
+    const hi = Math.min(SAMPLE_COUNT - 1, Math.ceil((b.t + 0.8) / DT));
+    for (let i = lo; i <= hi; i++) arr[i] += beatValue(i * DT - b.t, b);
+  }
+  arr.qrs.sort((a, b) => a - b);
+}
+
+function addPWaves(arr, onsets, amp) {
+  for (const on of onsets) {
+    const c = on + P_HALF;
+    const lo = Math.max(0, Math.floor((c - 0.15) / DT));
+    const hi = Math.min(SAMPLE_COUNT - 1, Math.ceil((c + 0.15) / DT));
+    for (let i = lo; i <= hi; i++) arr[i] += pWave(i * DT - c, amp);
+  }
+}
+
+function addFn(arr, fn) {
+  for (let i = 0; i < SAMPLE_COUNT; i++) arr[i] += fn(i * DT);
+}
+
+// A running series of events (beats, P waves) in absolute time that persists
+// in `st` across strips. Returns the events relevant to the current strip,
+// with `t` converted to strip seconds.
+function series(st, name, first, next) {
+  const end = st.t0 + STRIP_SECONDS + TAIL;
+  let ev = st[name];
+  if (!ev) ev = st[name] = [first()];
+  while (ev[ev.length - 1].t < end) ev.push(next(ev[ev.length - 1]));
+  while (ev.length > 1 && ev[1].t < st.t0 - LEAD_IN) ev.shift();
+  return ev.map((e) => ({ ...e, t: e.t - st.t0 }));
+}
+
+// Evenly spaced events at `period`, starting before the strip at a random phase.
+function steady(st, name, period) {
+  return series(
+    st,
+    name,
+    () => ({ t: Math.random() * period - period * Math.ceil((period + LEAD_IN) / period), i: 0 }),
+    (p) => ({ t: p.t + period, i: p.i + 1 })
+  );
+}
+
+function regularRhythm(st, rate, beat) {
+  const arr = makeArray();
+  const rr = 60 / clamp(rate, 20, 260);
+  addBeats(arr, steady(st, "qrs", rr), rr, beat);
+  return arr;
+}
+
+// Ventricular fibrillation: several drifting frequency components with a
+// slowly wandering envelope — no repeating complex anywhere.
+function fibrillation(total, speed, ceiling) {
+  const arr = makeArray();
+  const parts = [2.6, 3.4, 4.3, 5.2, 6.4].map((f, i) => ({
+    f: (f + Math.random() * 0.8) * speed,
+    ph: Math.random() * Math.PI * 2,
+    wf: 0.25 + 0.12 * i + Math.random() * 0.1,
+    wph: Math.random() * Math.PI * 2,
+  }));
+  const e1 = Math.random() * Math.PI * 2;
+  const e2 = Math.random() * Math.PI * 2;
+  addFn(arr, (t) => {
+    let v = 0;
+    for (const p of parts) {
+      v += (total / parts.length) * Math.sin(2 * Math.PI * p.f * t + p.ph + 0.9 * Math.sin(2 * Math.PI * p.wf * t + p.wph));
     }
-  }
+    v *= 0.8 + 0.2 * Math.sin(2 * Math.PI * 0.45 * t + e1) * Math.sin(2 * Math.PI * 0.19 * t + e2);
+    // fine VF never reaches the height of a real complex
+    return ceiling ? ceiling * Math.tanh(v / ceiling) : v;
+  });
+  return arr;
 }
 
-function addFn(arr, duration, fn) {
-  const dt = duration / SAMPLE_COUNT;
-  for (let i = 0; i < SAMPLE_COUNT; i++) {
-    arr[i] += fn(i * dt);
-  }
-}
-
+// Each generator takes (state, rate). `rate` is the VENTRICULAR rate the
+// caller wants on the monitor; every rhythm has a clinically typical default.
 const RHYTHMS = {
-  nsr: (rate = 76) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.15 });
-    return arr;
-  },
+  nsr: (st, rate = 76) => regularRhythm(st, rate, { pr: 0.16 }),
 
-  sinus_brady: (rate = 44) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.18 });
-    return arr;
-  },
+  sinus_brady: (st, rate = 44) => regularRhythm(st, rate, { pr: 0.16 }),
 
-  sinus_tach: (rate = 122) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.95, pr: 0.13, tAmp: 0.22 });
-    return arr;
-  },
+  sinus_tach: (st, rate = 122) => regularRhythm(st, rate, { amp: 0.95, pr: 0.14, tAmp: 0.2 }),
 
-  svt: (rate = 186) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, {
-      amp: 0.9,
-      includeP: false,
-      tAmp: 0.18,
-    });
-    return arr;
-  },
+  svt: (st, rate = 186) => regularRhythm(st, rate, { amp: 0.9, tAmp: 0.16 }),
 
-  afib: () => {
+  afib: (st, rate = 128) => {
     const arr = makeArray();
-    // Fibrillatory baseline: several irregular low-amplitude sine components.
-    const freqs = [5.3, 6.7, 8.1, 4.4].map((f) => f + (Math.random() - 0.5));
-    const phases = freqs.map(() => Math.random() * Math.PI * 2);
-    addFn(arr, STRIP_SECONDS, (t) => {
+    // Fine fibrillatory baseline: fast, low, never repeating — no P waves.
+    const parts = [5.4, 6.6, 7.9, 9.1].map((f) => ({
+      f: f + (Math.random() - 0.5),
+      ph: Math.random() * Math.PI * 2,
+      mph: Math.random() * Math.PI * 2,
+    }));
+    addFn(arr, (t) => {
       let v = 0;
-      freqs.forEach((f, i) => (v += 0.045 * Math.sin(2 * Math.PI * f * t + phases[i])));
+      for (const p of parts) {
+        v += 0.03 * (0.6 + 0.4 * Math.sin(2 * Math.PI * 0.5 * t + p.mph)) * Math.sin(2 * Math.PI * p.f * t + p.ph);
+      }
       return v;
     });
-    // Irregularly irregular QRS timing, no P waves.
-    const beats = [];
-    let t = 0.4;
-    while (t < STRIP_SECONDS - 0.35) {
-      beats.push(t);
-      t += 60 / (95 + Math.random() * 70);
-    }
-    addBeats(arr, beats, STRIP_SECONDS, { amp: 0.85, includeP: false, tAmp: 0.15 });
+    // Irregularly irregular R-R, averaging the requested ventricular rate.
+    const base = 60 / clamp(rate, 50, 180);
+    const gap = () => base / (0.72 + 0.56 * Math.random()) / 1.0275;
+    const beats = series(
+      st,
+      "qrs",
+      () => ({ t: -LEAD_IN - Math.random() * base }),
+      (p) => ({ t: p.t + gap() })
+    );
+    addBeats(arr, beats, base, { amp: 0.85, tAmp: 0.14 });
     return arr;
   },
 
-  aflutter: () => {
+  aflutter: (st, rate = 75) => {
     const arr = makeArray();
-    const period = 0.2; // ~300/min flutter waves
-    addFn(arr, STRIP_SECONDS, (t) => {
-      const phase = (t % period) / period;
-      // Sawtooth "picket fence" shape
-      return 0.22 * (1 - 2 * Math.abs(phase - 0.5)) * 2 - 0.12;
+    const period = 0.2; // 300/min flutter waves
+    const ratio = clamp(Math.round(300 / rate), 2, 6); // 4:1 → 75/min
+    // Lead II sawtooth: slow descent, sharp upstroke, no flat baseline.
+    const saw = (ta) => {
+      const p = (((ta / period) % 1) + 1) % 1;
+      return p < 0.68 ? 0.5 - p / 0.68 : -0.5 + (p - 0.68) / 0.32;
+    };
+    addFn(arr, (t) => {
+      const ta = st.t0 + t;
+      // short average rounds the corners the way a real monitor filter does
+      return 0.3 * ((saw(ta - 0.01) + saw(ta - 0.005) + saw(ta) + saw(ta + 0.005) + saw(ta + 0.01)) / 5);
     });
-    // Narrow QRS every 4th flutter wave (~75/min ventricular rate, 4:1 conduction)
-    const beats = [];
-    let t = 0.5;
-    while (t < STRIP_SECONDS - 0.35) {
-      beats.push(t);
-      t += period * 4;
-    }
-    addBeats(arr, beats, STRIP_SECONDS, { amp: 0.8, includeP: false, tAmp: 0.15 });
+    const step = ratio * period;
+    const beats = series(
+      st,
+      "qrs",
+      () => ({ t: 0.07 - step * Math.ceil((0.07 + LEAD_IN) / step) }),
+      (p) => ({ t: p.t + step })
+    );
+    addBeats(arr, beats, step, { amp: 0.8, tAmp: 0.06 });
     return arr;
   },
 
-  avb1: (rate = 70) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 1, pr: 0.32 });
-    return arr;
-  },
+  avb1: (st, rate = 70) => regularRhythm(st, rate, { pr: 0.28 }),
 
-  mobitz1: () => {
+  // Wenckebach 4:3 — PR lengthens by shrinking increments (so the R-R
+  // shortens before the pause), then one P wave is not conducted.
+  mobitz1: (st, rate = 58.5) => {
     const arr = makeArray();
-    const rrP = 60 / 78;
-    const dt = STRIP_SECONDS / SAMPLE_COUNT;
-    const pTimes = regularTimes(78, STRIP_SECONDS);
-    const prSteps = [0.15, 0.22, 0.3];
+    const pp = 60 / ((clamp(rate, 40, 62) * 4) / 3);
+    const prSteps = [0.16, 0.24, 0.3];
+    const ps = steady(st, "p", pp);
     const beats = [];
-    pTimes.forEach((pt, i) => {
-      const pos = i % 4;
-      if (pos < 3) {
-        beats.push(pt + prSteps[pos]);
-      }
+    for (const p of ps) {
+      const pos = p.i % 4;
+      if (pos < 3) beats.push({ t: p.t + prSteps[pos] + QRS_ONSET });
       // pos === 3: P wave present, QRS dropped
-    });
-    // Draw all P waves independently (some won't have a following QRS)
-    for (let i = 0; i < SAMPLE_COUNT; i++) {
-      const t = i * dt;
-      let v = 0;
-      for (const pt of pTimes) {
-        if (Math.abs(t - pt) < 0.25) v += pWave(t - pt, 0.15);
-      }
-      arr[i] += v;
     }
-    addBeats(arr, beats, STRIP_SECONDS, { amp: 0.95, includeP: false, tAmp: 0.22 });
+    addPWaves(arr, ps.map((p) => p.t), 0.15);
+    addBeats(arr, beats, pp + 0.07, { amp: 0.95, tAmp: 0.22 });
     return arr;
   },
 
-  mobitz2: () => {
+  // 3:2 block — constant, normal PR on conducted beats; every third P
+  // wave is suddenly not followed by a QRS.
+  mobitz2: (st, rate = 52) => {
     const arr = makeArray();
-    const dt = STRIP_SECONDS / SAMPLE_COUNT;
-    const pTimes = regularTimes(78, STRIP_SECONDS);
+    const pp = 60 / (clamp(rate, 35, 60) * 1.5);
+    const ps = steady(st, "p", pp);
     const beats = [];
-    pTimes.forEach((pt, i) => {
-      if (i % 3 !== 2) beats.push(pt + 0.16);
-    });
+    for (const p of ps) {
+      if (p.i % 3 !== 2) beats.push({ t: p.t + 0.16 + QRS_ONSET });
+    }
+    addPWaves(arr, ps.map((p) => p.t), 0.15);
+    addBeats(arr, beats, pp, { amp: 0.95, tAmp: 0.22 });
+    return arr;
+  },
+
+  // Complete block — P waves march at their own rate straight through a
+  // slow, wide ventricular escape rhythm that ignores them.
+  avb3: (st, rate = 36) => {
+    const arr = makeArray();
+    const rr = 60 / clamp(rate, 20, 50);
+    addPWaves(arr, steady(st, "p", 60 / 92).map((p) => p.t), 0.14);
+    addBeats(arr, steady(st, "qrs", rr), rr, { amp: 0.9, wide: true, tAmp: 0.4 });
+    return arr;
+  },
+
+  junctional: (st, rate = 48) => regularRhythm(st, rate, { amp: 0.9, tAmp: 0.22 }),
+
+  // Every sinus beat is followed by an early PVC and a full compensatory
+  // pause, so each pair spans exactly two sinus cycles.
+  pvc_bigeminy: (st, rate = 76) => {
+    const arr = makeArray();
+    const rrN = 60 / clamp(rate, 50, 100);
+    const coupling = clamp(0.6 * rrN, 0.4, 0.52);
+    const beats = series(
+      st,
+      "qrs",
+      () => ({ t: Math.random() * rrN - 2 * rrN * Math.ceil((rrN + LEAD_IN) / (2 * rrN)), i: 0 }),
+      (p) => ({ t: p.t + (p.i % 2 === 0 ? coupling : 2 * rrN - coupling), i: p.i + 1 })
+    ).map((b) => (b.i % 2 === 0 ? { t: b.t, pr: 0.16 } : { t: b.t, wide: true, amp: 1.1, tAmp: 0.45 }));
+    addBeats(arr, beats, rrN, {});
+    return arr;
+  },
+
+  vt: (st, rate = 178) => regularRhythm(st, rate, { amp: 1.1, wide: true, tAmp: 0.5 }),
+
+  // Polymorphic VT: the QRS axis rotates, so in one lead the complexes
+  // shrink to a node and re-emerge pointing the other way — spindles.
+  torsades: (st, rate = 220) => {
+    const arr = makeArray();
+    const spin = 2.0; // seconds per half-turn of the axis (one spindle)
+    const node = 0.35; // amplitude left at the narrowest point
+    // the rotating axis adds half a cycle per spindle; take it off the carrier
+    const f = clamp(rate, 170, 260) / 60 - 1 / (2 * spin);
+    if (st.spin0 === undefined) st.spin0 = Math.random() * Math.PI;
+    const wave = (t) => {
+      const ta = st.t0 + t;
+      const psi = (Math.PI * ta) / spin + st.spin0;
+      const c = Math.cos(psi);
+      const s = node * Math.sin(psi);
+      const r = Math.hypot(c, s);
+      const phi = 2 * Math.PI * f * ta + Math.atan2(s, c);
+      // the second harmonic sharpens whichever side the complexes point to
+      return 1.05 * r * (Math.sin(phi) - 0.18 * (c / r) * Math.cos(2 * phi));
+    };
+    addFn(arr, wave);
     for (let i = 0; i < SAMPLE_COUNT; i++) {
-      const t = i * dt;
-      let v = 0;
-      for (const pt of pTimes) {
-        if (Math.abs(t - pt) < 0.25) v += pWave(t - pt, 0.15);
-      }
-      arr[i] += v;
-    }
-    addBeats(arr, beats, STRIP_SECONDS, { amp: 0.95, includeP: false, tAmp: 0.22 });
-    return arr;
-  },
-
-  avb3: () => {
-    const arr = makeArray();
-    const dt = STRIP_SECONDS / SAMPLE_COUNT;
-    const pTimes = regularTimes(95, STRIP_SECONDS, 0.2);
-    for (let i = 0; i < SAMPLE_COUNT; i++) {
-      const t = i * dt;
-      let v = 0;
-      for (const pt of pTimes) {
-        if (Math.abs(t - pt) < 0.25) v += pWave(t - pt, 0.13);
-      }
-      arr[i] += v;
-    }
-    // Independent, slower ventricular escape rhythm — wide, unrelated to P timing.
-    addBeats(arr, regularTimes(36, STRIP_SECONDS, 0.55), STRIP_SECONDS, {
-      amp: 0.9,
-      includeP: false,
-      wide: true,
-      tAmp: 0.2,
-    });
-    return arr;
-  },
-
-  junctional: (rate = 48) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, { amp: 0.9, includeP: false, tAmp: 0.22 });
-    return arr;
-  },
-
-  pvc_bigeminy: () => {
-    const arr = makeArray();
-    const rrN = 60 / 76;
-    const beats = [];
-    let t = 0.5;
-    let isPvc = false;
-    while (t < STRIP_SECONDS - 0.35) {
-      beats.push({ t, opts: isPvc ? { amp: 1.1, includeP: false, wide: true, tAmp: 0.3 } : { amp: 1, pr: 0.15 } });
-      t += isPvc ? rrN * 1.3 : rrN * 0.6;
-      isPvc = !isPvc;
-    }
-    addBeats(arr, beats, STRIP_SECONDS, { amp: 1, pr: 0.15 });
-    return arr;
-  },
-
-  vt: (rate = 178) => {
-    const arr = makeArray();
-    addBeats(arr, regularTimes(rate, STRIP_SECONDS), STRIP_SECONDS, {
-      amp: 1.1,
-      includeP: false,
-      wide: true,
-      tAmp: 0.25,
-    });
-    return arr;
-  },
-
-  torsades: () => {
-    const arr = makeArray();
-    const dt = STRIP_SECONDS / SAMPLE_COUNT;
-    const beats = regularTimes(220, STRIP_SECONDS);
-    for (const bt of beats) {
-      const envelope = Math.sin((2 * Math.PI * bt) / 1.4);
-      const lo = Math.max(0, Math.floor((bt - 0.3) / dt));
-      const hi = Math.min(SAMPLE_COUNT - 1, Math.ceil((bt + 0.3) / dt));
-      for (let i = lo; i <= hi; i++) {
-        const t = i * dt - bt;
-        arr[i] += beatValue(t, { amp: 0.95 * envelope, includeP: false, wide: true, includeT: false });
-      }
+      const v = wave(i * DT);
+      if (v > 0 && v > wave((i - 1) * DT) && v >= wave((i + 1) * DT)) arr.qrs.push(i * DT);
     }
     return arr;
   },
 
-  vf_coarse: () => {
-    const arr = makeArray();
-    const freqs = [3.1, 4.7, 6.3, 7.9, 2.4].map((f) => f + Math.random());
-    const phases = freqs.map(() => Math.random() * Math.PI * 2);
-    addFn(arr, STRIP_SECONDS, (t) => {
-      let v = 0;
-      freqs.forEach((f, i) => (v += (0.9 / freqs.length) * Math.sin(2 * Math.PI * f * t + phases[i])));
-      v *= 0.7 + 0.3 * Math.sin(2 * Math.PI * 0.6 * t);
-      return v;
-    });
-    return arr;
-  },
+  vf_coarse: () => fibrillation(1.4, 1.1),
 
-  vf_fine: () => {
-    const arr = makeArray();
-    const freqs = [3.1, 4.7, 6.3, 7.9, 2.4].map((f) => f + Math.random());
-    const phases = freqs.map(() => Math.random() * Math.PI * 2);
-    addFn(arr, STRIP_SECONDS, (t) => {
-      let v = 0;
-      freqs.forEach((f, i) => (v += (0.32 / freqs.length) * Math.sin(2 * Math.PI * f * t + phases[i])));
-      return v;
-    });
-    return arr;
-  },
+  vf_fine: () => fibrillation(0.42, 1.35, 0.27),
 
   asystole: () => {
     const arr = makeArray();
-    addFn(arr, STRIP_SECONDS, () => (Math.random() - 0.5) * 0.03);
+    const ph = Math.random() * Math.PI * 2;
+    addFn(arr, (t) => (Math.random() - 0.5) * 0.03 + 0.012 * Math.sin(2 * Math.PI * 0.21 * t + ph));
     return arr;
   },
 };
 
-// Rhythms whose rate the caller may set (regular rhythms where "the rate"
-// is a single number). Others keep their clinically-fixed defaults.
-const RATE_FLEXIBLE = new Set(["nsr", "sinus_brady", "sinus_tach", "svt", "avb1", "junctional", "vt"]);
-
-function synthesizeRhythm(key, rateHint) {
-  const fn = RHYTHMS[key];
-  if (!fn) return RHYTHMS.nsr();
-  if (rateHint && RATE_FLEXIBLE.has(key)) {
-    // keep within the sane band for a 6-second strip
-    return fn(Math.max(20, Math.min(260, rateHint)));
-  }
-  return fn();
+// key:      rhythm to draw (unknown keys fall back to NSR)
+// rateHint: ventricular rate to draw it at; omit for the rhythm's default
+// state:    pass the same object for successive strips to keep them continuous
+function synthesizeRhythm(key, rateHint, state) {
+  const st = state && typeof state === "object" ? state : {};
+  if (st.t0 === undefined) st.t0 = 0;
+  const fn = RHYTHMS[key] || RHYTHMS.nsr;
+  const arr = Number.isFinite(rateHint) && rateHint > 0 ? fn(st, rateHint) : fn(st);
+  st.t0 += STRIP_SECONDS;
+  return arr;
 }
 
 window.EkgRhythms = { synthesizeRhythm, STRIP_SECONDS, SAMPLE_COUNT };
