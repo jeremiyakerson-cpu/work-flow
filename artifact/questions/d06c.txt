@@ -1,0 +1,256 @@
+# Domain 6 — Neurological Emergencies (topics 6-8)
+
+@ 6.6
+? A patient with a C4 spinal cord injury is breathing shallowly and says he "can't get a deep breath." Why is this patient at high risk of respiratory failure?
++ The phrenic nerve, which drives the diaphragm, arises from C3 to C5
+- The injury has collapsed both lungs | Cord injury does not directly collapse the lungs.
+- The cervical collar restricts the chest | A correctly fitted collar does not impair ventilation.
+- Anxiety is causing hyperventilation | Shallow breathing here has a neurologic cause.
+= Injuries at or above C5 weaken or paralyze the diaphragm, so ventilation must be monitored closely with early airway support.
+
+? Hours after a thoracic cord injury, a patient has flaccid paralysis and no reflexes below the injury. What does the loss of reflexes represent?
++ Spinal shock, a temporary loss of reflex activity
+- Permanent complete transection in every case | Completeness cannot be judged until reflexes return.
+- Neurogenic shock | That term describes the hemodynamic changes, not the reflexes.
+- Malingering | The findings are physiologic.
+= Spinal shock is transient flaccidity and areflexia below the lesion that resolves over days to weeks.
+
+? A man with a T4 injury from two years ago arrives with a pounding headache, BP 214/118, HR 48 and flushing of the face and neck. What is happening?
++ Autonomic dysreflexia
+- Neurogenic shock | That causes hypotension.
+- A migraine | Migraine does not cause this blood pressure with bradycardia.
+- Malignant hyperthermia | There is no trigger or fever.
+= In injuries at T6 or above, a noxious stimulus below the lesion triggers uncontrolled sympathetic discharge with severe hypertension.
+
+? For a patient with autonomic dysreflexia, what should the nurse do first?
++ Sit the patient upright and loosen tight clothing
+- Lay the patient flat with legs raised | That raises the blood pressure further.
+- Give an oral analgesic for the headache | The headache is from hypertension, not a primary pain problem.
+- Draw blood cultures | Infection workup is not the first step.
+= Sitting upright lowers blood pressure through orthostasis while the nurse searches for and removes the trigger.
+
+? After sitting the patient upright, which cause of autonomic dysreflexia should the nurse check for next?
++ A blocked urinary catheter or distended bladder
+- A recent change in diet | Diet is not a typical trigger.
+- A missed dose of a multivitamin | That is not a trigger.
+- Too much sleep | That is not a trigger.
+= Bladder distension is the most common trigger, followed by bowel impaction and skin problems.
+
+? A patient with a high cervical cord injury has a temperature of 35.1 C in a cool resuscitation room. Why?
++ Loss of sympathetic control prevents vasoconstriction and shivering below the injury
+- An undiagnosed infection | Infection usually raises temperature.
+- The thermometer is faulty | The finding has a physiologic explanation.
+- Hypothyroidism | There is no reason to suspect it.
+= Patients with high cord injuries take on the temperature of their surroundings and must be actively warmed.
+
+? A 76-year-old falls forward and strikes his chin, hyperextending the neck. He has marked weakness of both arms with nearly normal leg strength. Which syndrome is this?
++ Central cord syndrome
+- Anterior cord syndrome | That affects the legs at least as much as the arms.
+- Brown-Sequard syndrome | That produces one-sided motor loss.
+- Cauda equina syndrome | That affects the legs, bladder and perineum.
+= Hyperextension in an older adult with a narrow canal injures the centre of the cord, weakening the arms more than the legs.
+
+? A patient stabbed in the back has paralysis and loss of position sense in the right leg, with loss of pain and temperature sensation in the left leg. Which syndrome is this?
++ Brown-Sequard syndrome
+- Central cord syndrome | That mainly weakens the arms.
+- Anterior cord syndrome | That causes bilateral motor loss.
+- Complete cord transection | That removes all function on both sides.
+= Hemisection of the cord causes motor and proprioceptive loss on the same side and pain and temperature loss on the opposite side.
+
+? After a flexion injury a patient cannot move his legs or feel pain or temperature below the waist, but can still sense vibration and joint position. Which syndrome is this?
++ Anterior cord syndrome
+- Posterior cord syndrome | That would abolish vibration and position sense.
+- Central cord syndrome | That mainly affects the arms.
+- Conus medullaris syndrome | That mainly affects bladder, bowel and perineal sensation.
+= The anterior spinal artery supplies motor and pain-temperature tracts; the posterior columns are spared.
+
+? A patient with severe low back pain reports numbness in the groin and inner thighs, difficulty passing urine and weakness in both legs. What should the nurse anticipate?
++ Emergent MRI and surgical consultation
+- A muscle relaxant and discharge | These are red flags that need urgent imaging.
+- Physiotherapy referral next week | Delay risks permanent bladder and bowel dysfunction.
+- A plain lumbar radiograph only | Plain films cannot show nerve root compression.
+= Saddle anaesthesia, urinary retention and bilateral leg weakness indicate cauda equina syndrome, which needs decompression within hours.
+
+? Which patient can have the cervical spine cleared clinically without imaging?
++ An alert, sober patient with no midline tenderness, no neurologic deficit and no distracting injury
+- An intoxicated patient with no neck pain | Intoxication makes the examination unreliable.
+- A patient with a femur fracture and no neck pain | A distracting injury makes the examination unreliable.
+- A patient with tingling in both hands | A neurologic symptom requires imaging.
+= Validated criteria allow clinical clearance only when the patient is alert, not intoxicated, and has no tenderness, deficit or distracting injury.
+
+? A trauma patient has been on a rigid backboard for 90 minutes while awaiting imaging. What should the nurse do?
++ Arrange removal of the board while keeping the spine aligned
+- Leave the board in place until the spine is cleared | Prolonged time on a board causes pressure injury and pain.
+- Place pillows under the board | That does not relieve pressure on the patient.
+- Loosen the straps but leave the board | The hard surface remains the problem.
+= Backboards are extrication devices; patients are log-rolled off promptly, with spinal precautions maintained on the stretcher.
+
+@ 6.7
+? Two weeks after a diarrheal illness, a patient has tingling in the feet and weakness that has risen from the legs to the arms over three days. Reflexes are absent. What should the nurse suspect?
++ Guillain-Barre syndrome
+- Myasthenia gravis | That causes fatigable weakness with preserved reflexes.
+- Multiple sclerosis | That causes scattered deficits and brisk reflexes.
+- Stroke | Stroke causes sudden one-sided deficits.
+= Ascending symmetric weakness with absent reflexes after an infection is the classic picture of Guillain-Barre syndrome.
+
+? Which assessment is the priority in a patient with Guillain-Barre syndrome?
++ Serial measurement of vital capacity and inspiratory force
+- Daily weight | Weight does not track respiratory muscle strength.
+- Hourly pupil checks | Pupils do not reflect the main risk.
+- Capillary refill | Perfusion is not the primary concern.
+= Weakness can reach the respiratory muscles within hours; falling vital capacity or inspiratory force predicts the need for intubation.
+
+? A patient with Guillain-Barre syndrome has SpO2 96% but a weak cough, a soft voice and shallow breathing. How should the nurse interpret the saturation?
++ It is falsely reassuring; oxygen levels fall late in neuromuscular respiratory failure
+- It proves that ventilation is adequate | Saturation can remain normal until just before arrest.
+- It means the patient is anxious | The signs indicate muscle weakness.
+- It means monitoring can be reduced | Monitoring should be intensified.
+= In neuromuscular weakness, hypoxemia and hypercapnia appear late; bedside mechanics guide the decision to intubate.
+
+? Besides respiratory failure, which complication of Guillain-Barre syndrome requires continuous monitoring?
++ Blood pressure swings and cardiac dysrhythmias
+- Hypoglycemia | Glucose is not typically affected.
+- Seizures | Seizures are not a feature.
+- Bowel obstruction | That is not a typical early complication.
+= Autonomic nerve involvement causes labile blood pressure and dysrhythmias that can be fatal.
+
+? Which treatment should the nurse anticipate for a patient with progressing Guillain-Barre syndrome?
++ IV immunoglobulin or plasma exchange
+- High-dose corticosteroids alone | Steroids have not been shown to help.
+- IV antibiotics | The illness is immune mediated, not an active infection.
+- Thrombolytic therapy | There is no clot to treat.
+= Immunoglobulin and plasma exchange both shorten the course when started early.
+
+? A lumbar puncture in a patient with suspected Guillain-Barre syndrome shows a high protein level with a normal white cell count. What does this mean?
++ The result supports the diagnosis
+- The result indicates bacterial meningitis | That would show many white cells and low glucose.
+- The sample is contaminated | The pattern is a recognized finding.
+- The result excludes the diagnosis | It is the expected pattern after the first week.
+= Elevated protein without cells, called albuminocytologic dissociation, is characteristic of Guillain-Barre syndrome.
+
+? A woman reports drooping eyelids and double vision that are worst in the evening and improve after rest. Chewing tires her jaw. Which condition is likely?
++ Myasthenia gravis
+- Bell's palsy | That is a fixed one-sided facial weakness.
+- Guillain-Barre syndrome | That ascends from the legs with lost reflexes.
+- Botulism | That is acute and progressive, not fluctuating over the day.
+= Fatigable weakness of the eye and bulbar muscles that improves with rest is the hallmark of myasthenia gravis.
+
+? A patient with myasthenia gravis is admitted with pneumonia and worsening weakness. Which order should the nurse question?
++ IV gentamicin
+- Supplemental oxygen | Oxygen is appropriate.
+- Measurement of vital capacity | Monitoring respiratory strength is essential.
+- Keeping the patient NPO until swallowing is assessed | That reduces aspiration risk.
+= Aminoglycosides, fluoroquinolones, magnesium and some other drugs impair neuromuscular transmission and can precipitate crisis.
+
+? A patient with myasthenia gravis who recently increased her pyridostigmine has worsening weakness with heavy salivation, tearing, abdominal cramps, diarrhea and small pupils. What is the likely cause?
++ Cholinergic crisis from too much medication
+- Myasthenic crisis from too little medication | Myasthenic crisis does not cause excessive secretions and small pupils.
+- An allergic reaction | Allergy would show rash, wheeze or swelling.
+- Food poisoning | That does not explain the weakness and pupils.
+= Excess anticholinesterase causes muscarinic signs along with weakness; both types of crisis threaten the airway.
+
+? A patient with a known history of myasthenia gravis needs treatment for preterm contractions, and IV magnesium sulfate is ordered. What should the nurse do?
++ Question the order
+- Give the dose as ordered | Magnesium blocks neuromuscular transmission and may cause respiratory arrest.
+- Give half the dose | A smaller dose is still dangerous.
+- Give it with calcium | Co-administration does not make it safe.
+= Magnesium is contraindicated in myasthenia gravis because it can precipitate crisis.
+
+? A patient in myasthenic crisis has a weak, nasal voice and coughs when sipping water. What should the nurse do?
++ Keep the patient NPO and position upright with suction available
+- Offer thickened liquids | Any oral intake is unsafe until swallowing is assessed.
+- Encourage more fluids to thin secretions | Fluids will be aspirated.
+- Give oral medications with applesauce | Oral intake is unsafe.
+= Bulbar weakness causes aspiration; nothing is given by mouth and the airway is protected.
+
+? Two adults who shared home-canned vegetables develop blurred vision, drooping eyelids, slurred speech and then arm weakness. Pupils are dilated and they are afebrile. What should the nurse anticipate?
++ Antitoxin and close monitoring of respiratory function
+- Antibiotics and discharge | The illness is toxin mediated and can progress to respiratory failure.
+- Reassurance that it is viral | The pattern in both patients points to a common toxin.
+- Thrombolysis for stroke | Stroke does not affect two people after one meal.
+= Botulism causes descending paralysis beginning with the cranial nerves; antitoxin halts progression and ventilation may be needed.
+
+@ 6.8
+? A patient has brief spinning episodes lasting under a minute whenever she rolls over in bed or looks up. Hearing is normal. Which condition is most likely?
++ Benign paroxysmal positional vertigo
+- Meniere's disease | That causes episodes lasting hours with hearing loss and tinnitus.
+- Vestibular neuritis | That causes continuous vertigo for days.
+- Cerebellar stroke | That causes persistent symptoms with other neurologic signs.
+= Short episodes provoked by head position change are caused by displaced otoliths in the semicircular canals.
+
+? Which treatment is most effective for posterior canal benign paroxysmal positional vertigo?
++ A canalith repositioning maneuver
+- Long-term meclizine | Suppressants do not correct the cause and delay compensation.
+- Antibiotics | There is no infection.
+- Strict bed rest for a week | Immobility does not move the otoliths.
+= The Epley maneuver moves the displaced particles out of the canal and often resolves symptoms immediately.
+
+? Which finding in a dizzy patient suggests a central cause rather than an inner ear problem?
++ Vertical nystagmus with inability to walk unaided
+- Horizontal nystagmus that lessens when fixing on an object | That is a peripheral pattern.
+- Nausea and vomiting | These occur with both.
+- Symptoms worse with head movement | That occurs with both.
+= Vertical or direction-changing nystagmus, severe gait ataxia and other brainstem signs point to a central lesion.
+
+? A patient with continuous vertigo has a normal head impulse test, nystagmus that changes direction with gaze, and a vertical misalignment of the eyes. What does this combination suggest?
++ A posterior circulation stroke
+- Benign positional vertigo | That is episodic and positional.
+- Vestibular neuritis | That gives an abnormal head impulse test and one-directional nystagmus.
+- Dehydration | Dehydration does not produce these eye signs.
+= In continuous vertigo, a normal head impulse test, direction-changing nystagmus or skew deviation indicates a central cause.
+
+? After a cold, a patient has two days of severe constant vertigo with nausea. Hearing is normal and there are no other neurologic signs. Which diagnosis fits best?
++ Vestibular neuritis
+- Labyrinthitis | Labyrinthitis also causes hearing loss.
+- Meniere's disease | That is episodic with hearing symptoms.
+- Benign positional vertigo | That is brief and positional.
+= Inflammation of the vestibular nerve causes prolonged vertigo without hearing loss.
+
+? A patient has recurrent attacks of vertigo lasting several hours with ringing, a feeling of fullness and fluctuating hearing loss in one ear. Which teaching is appropriate?
++ Limit salt intake
+- Increase caffeine intake | Caffeine may worsen symptoms.
+- Avoid all fluids | Dehydration is not a treatment.
+- Sleep flat without a pillow | Position does not prevent attacks.
+= Meniere's disease is related to excess inner ear fluid; salt restriction and diuretics reduce attacks.
+
+? A 71-year-old with hypertension and diabetes has sudden vertigo, vomiting and cannot stand without falling. The head CT is normal. What should the nurse understand?
++ A normal CT does not exclude a cerebellar stroke
+- A normal CT confirms an inner ear problem | CT is insensitive for posterior fossa infarction.
+- The patient can be discharged with meclizine | Inability to walk is a red flag.
+- The symptoms must be from his medications | Sudden onset with ataxia suggests stroke.
+= CT misses many early posterior circulation strokes; MRI is needed when clinical suspicion is high.
+
+? A patient says, "I get dizzy when I stand up, like I'm going to pass out, but nothing spins." Which assessment is most useful?
++ Orthostatic vital signs
+- A Dix-Hallpike test | That evaluates positional vertigo, not presyncope.
+- An audiogram | Hearing is not the concern.
+- A head impulse test | That evaluates vestibular function.
+= Lightheadedness on standing suggests reduced cerebral perfusion; lying and standing pressures identify orthostatic hypotension.
+
+? Which result defines orthostatic hypotension?
++ A fall in systolic pressure of at least 20 mmHg within three minutes of standing
+- A rise in heart rate of 5 beats per minute | A small rise is normal.
+- A fall in systolic pressure of 5 mmHg | A small fall is normal.
+- A rise in diastolic pressure of 10 mmHg | A rise does not indicate orthostasis.
+= Orthostatic hypotension is a drop of 20 mmHg systolic or 10 mmHg diastolic within three minutes of standing.
+
+? What is the most important safety measure for a patient admitted to the ED with severe vertigo?
++ Fall precautions with assistance for all movement
+- Encouraging independent walking | The patient is at high risk of falling.
+- Bright lights and frequent stimulation | Stimulation worsens nausea.
+- Rapid head turning exercises | These provoke symptoms acutely.
+= Vertigo impairs balance; the call bell is kept in reach and the patient is assisted whenever moving.
+
+? An 80-year-old is prescribed meclizine for vertigo. Which effect should the nurse warn about?
++ Drowsiness and confusion that increase the risk of falls
+- Insomnia and agitation in every patient | Sedation is the usual effect.
+- Diarrhea | Anticholinergic drugs tend to constipate.
+- Excess salivation | It causes dry mouth.
+= Meclizine is a sedating anticholinergic; older adults are prone to confusion, urinary retention and falls.
+
+? A 17-year-old collapses during basketball practice and recovers within a minute. What should the nurse anticipate?
++ A 12-lead ECG and cardiac evaluation
+- Reassurance that it was dehydration | Exertional syncope must be evaluated for a cardiac cause.
+- A vestibular referral | The event was syncope, not vertigo.
+- Discharge with advice to eat breakfast | A dangerous cause has not been excluded.
+= Syncope during exertion is a red flag for structural heart disease or a dysrhythmia such as hypertrophic cardiomyopathy or long QT.

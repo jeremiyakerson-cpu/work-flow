@@ -1,0 +1,256 @@
+# Domain 6 — Neurological Emergencies (topics 0-2)
+
+@ 6.0
+? A 68-year-old arrives with right-sided weakness and slurred speech. Which piece of history is most important for treatment decisions?
++ The time he was last known to be well
+- The time his wife first noticed the symptoms | Discovery time may be hours after onset.
+- His usual blood pressure medication | Useful, but it does not set treatment eligibility.
+- Whether a parent had a stroke | Family history does not guide acute treatment.
+= Eligibility for thrombolysis and thrombectomy is timed from when the patient was last known to be normal.
+
+? A patient is brought in as a possible stroke with facial droop and confusion. Which test should be done first at the bedside?
++ A capillary blood glucose
+- A lipid panel | Lipids do not affect acute decisions.
+- A urinalysis | It does not identify a stroke mimic quickly.
+- A troponin | It can follow but is not the first priority.
+= Hypoglycemia mimics stroke and is corrected in minutes; glucose is the only laboratory value required before thrombolysis in most patients.
+
+? What is the main purpose of the emergent non-contrast head CT in a suspected stroke?
++ To exclude intracranial hemorrhage
+- To confirm an ischemic infarct | Early ischemia is often not visible on CT.
+- To measure intracranial pressure | CT does not measure pressure.
+- To identify the embolic source | CT of the head does not show the source.
+= Hemorrhage must be excluded before thrombolysis; a normal early CT is consistent with ischemic stroke.
+
+? Within what time from last known well is IV thrombolysis generally given for acute ischemic stroke?
++ 4.5 hours
+- 1 hour | The window is considerably longer than one hour.
+- 12 hours | That is beyond the standard thrombolysis window.
+- 24 hours | That figure applies to selected thrombectomy candidates.
+= IV thrombolysis is given within 4.5 hours of last known well in eligible patients; earlier treatment gives better outcomes.
+
+? A woman went to bed normal at 22:00 and woke at 06:00 with left arm weakness. What is her last-known-well time?
++ 22:00
+- 06:00 | Waking time is when symptoms were discovered, not when they began.
+- 02:00, the midpoint | The midpoint is not used.
+- It cannot be determined, so no workup is needed | The workup proceeds, and advanced imaging may identify candidates.
+= For wake-up strokes the last-known-well time is when the patient was last seen normal; imaging can identify some who still benefit from treatment.
+
+? An 80 kg patient is to receive alteplase 0.9 mg/kg for ischemic stroke. What are the total dose and the bolus?
++ 72 mg total, with 7.2 mg as a bolus over one minute
+- 90 mg total, with 9 mg as a bolus | 90 mg is the maximum, reached only at 100 kg or more.
+- 72 mg total, all given as a bolus | Only 10% is given as a bolus.
+- 7.2 mg total as an infusion | That is only the bolus portion.
+= Alteplase for stroke is 0.9 mg/kg to a maximum of 90 mg: 10% as a bolus and the remainder over 60 minutes.
+
+? A patient has just finished an alteplase infusion for ischemic stroke. Which order should the nurse question?
++ Aspirin 325 mg now
+- Neurologic checks every 15 minutes | Frequent checks are required.
+- Blood pressure checks every 15 minutes | Frequent checks are required.
+- Bed rest with the patient kept NPO until a swallow screen | That is appropriate.
+= Antiplatelets and anticoagulants are withheld for 24 hours after thrombolysis, until follow-up imaging excludes hemorrhage.
+
+? Forty minutes into an alteplase infusion a patient develops a sudden severe headache, vomits and becomes drowsy. What should the nurse do first?
++ Stop the infusion
+- Give an antiemetic and continue | These signs suggest intracranial bleeding.
+- Slow the infusion by half | Any further drug can worsen bleeding.
+- Wait for the infusion to finish and then call | Delay allows the hemorrhage to expand.
+= New headache, vomiting or neurologic decline during thrombolysis suggests intracranial hemorrhage; the infusion is stopped and an emergent CT obtained.
+
+? During alteplase a patient who takes lisinopril develops swelling of the tongue and one side of the lips. What is the priority?
++ Stop the infusion and prepare to manage the airway
+- Continue, since swelling is expected | Orolingual angioedema can progress to obstruction.
+- Apply a cold compress and recheck in an hour | Local measures do not protect the airway.
+- Give oral diphenhydramine and continue | Oral medication is inadequate and the drug should stop.
+= Orolingual angioedema is a recognized reaction to alteplase, more common in patients on ACE inhibitors.
+
+? A patient arrives 9 hours after onset with dense left hemiplegia, right gaze deviation and neglect. CT angiography shows a middle cerebral artery occlusion. What should the nurse anticipate?
++ Evaluation for mechanical thrombectomy
+- Comfort care, since the thrombolysis window has passed | Thrombectomy has a longer window in selected patients.
+- IV alteplase now | The standard thrombolysis window has passed.
+- Discharge with antiplatelet therapy | A large vessel occlusion needs emergent intervention.
+= Selected patients with large vessel occlusion benefit from thrombectomy up to 24 hours from last known well.
+
+? A man had 15 minutes of right arm weakness and trouble speaking that has completely resolved. He wants to go home. What should the nurse explain?
++ The risk of a stroke is highest in the next few days, so urgent evaluation is needed
+- He is fine because the symptoms resolved | A transient ischemic attack is a warning of impending stroke.
+- He needs a neurology clinic visit in three months | Evaluation should occur within hours to days.
+- The episode was most likely anxiety | Focal deficits are not explained by anxiety.
+= After a TIA the risk of stroke is greatest in the first 48 hours; rapid workup and antiplatelet therapy reduce it.
+
+? A patient with ischemic stroke is otherwise eligible for alteplase. Which laboratory result excludes treatment?
++ An INR of 2.4 in a patient taking warfarin
+- A glucose of 148 mg/dL | That value does not exclude treatment.
+- A platelet count of 210,000/mm3 | That count is normal.
+- A creatinine of 1.3 mg/dL | Mild renal impairment does not exclude treatment.
+= An INR above 1.7 is a contraindication to IV thrombolysis because of the risk of intracranial hemorrhage.
+
+@ 6.1
+? A 44-year-old describes the sudden onset of "the worst headache of my life" while lifting weights, followed by vomiting and neck stiffness. What should the nurse suspect?
++ Subarachnoid hemorrhage
+- Tension headache | Tension headaches are gradual and band-like.
+- Migraine without aura | Migraine builds over minutes to hours and is usually recurrent.
+- Sinusitis | Sinus pain is facial and positional.
+= A thunderclap headache that peaks within seconds to a minute, with meningism, is subarachnoid hemorrhage until proven otherwise.
+
+? A patient with a thunderclap headache 12 hours ago has a normal non-contrast head CT. Suspicion remains high. Which test should the nurse anticipate?
++ Lumbar puncture
+- An electroencephalogram | EEG evaluates seizures.
+- Skull radiographs | They do not detect hemorrhage.
+- A repeat CT in one week | Delay risks a fatal rebleed.
+= CT sensitivity falls with time; cerebrospinal fluid showing xanthochromia or persistent red cells identifies a missed hemorrhage.
+
+? Why is nimodipine given to patients with aneurysmal subarachnoid hemorrhage?
++ To reduce delayed cerebral ischemia from vasospasm
+- To dissolve the clot around the aneurysm | It has no thrombolytic action.
+- To lower intracranial pressure directly | It does not reduce intracranial pressure.
+- To prevent seizures | It is not an anticonvulsant.
+= Nimodipine improves outcome by reducing delayed ischemia, which peaks about 4 to 14 days after the bleed.
+
+? A patient with an unsecured ruptured aneurysm is waiting for neurosurgery. Which nursing measure helps prevent rebleeding?
++ A quiet, dimly lit room with stool softeners and pain control
+- Encouraging vigorous coughing | Coughing raises intracranial pressure.
+- Frequent ambulation in the corridor | Exertion raises blood pressure.
+- Keeping the patient flat with the neck flexed | Neck flexion impairs venous drainage.
+= Reducing stimulation and straining limits surges in blood pressure that can rupture the aneurysm again.
+
+? A patient taking warfarin has an acute intracerebral hemorrhage and an INR of 3.6. Which treatment should the nurse prepare?
++ Four-factor prothrombin complex concentrate with IV vitamin K
+- Protamine sulfate | Protamine reverses heparin.
+- Platelet transfusion alone | Platelets do not correct warfarin effect.
+- Oral vitamin K alone | Oral vitamin K takes many hours.
+= Prothrombin complex concentrate reverses warfarin within minutes; vitamin K sustains the reversal.
+
+? A patient taking dabigatran has a subdural hematoma. Which reversal agent is specific for this drug?
++ Idarucizumab
+- Vitamin K | Vitamin K does not reverse direct thrombin inhibitors.
+- Protamine sulfate | Protamine reverses heparin.
+- Tranexamic acid alone | It is not a specific reversal agent.
+= Idarucizumab is a monoclonal antibody fragment that binds dabigatran and reverses its effect immediately.
+
+? A hypertensive patient has sudden headache, vomiting, right hemiplegia and a falling level of consciousness. A colleague says it is "obviously a bleed" and wants to lower the pressure aggressively before imaging. What is the best response?
++ Ischemic and hemorrhagic stroke cannot be reliably told apart without imaging
+- Agree, because vomiting proves hemorrhage | Vomiting occurs in both types.
+- Agree, because hypertension proves hemorrhage | Blood pressure is elevated in both types.
+- Suggest thrombolysis instead | Thrombolysis is never given before imaging.
+= Clinical features overlap; a non-contrast CT distinguishes the two before blood pressure targets and treatment are chosen.
+
+? A patient with a cerebellar hemorrhage has vertigo, vomiting and ataxia and is becoming drowsy. Why is urgent neurosurgical consultation needed?
++ Swelling in the posterior fossa can compress the brainstem quickly
+- Cerebellar bleeds always stop on their own | Deterioration can be rapid and fatal.
+- Surgery is the only way to treat the vomiting | Vomiting is a symptom, not the indication.
+- The cerebellum controls blood pressure | That is not its role.
+= The posterior fossa has little room; cerebellar hematomas cause brainstem compression and hydrocephalus and often need surgical evacuation.
+
+? A patient with subarachnoid hemorrhage has an external ventricular drain. At what anatomic level should the transducer be zeroed?
++ The tragus of the ear
+- The sternal angle | That is not the reference for the ventricles.
+- The mid-axillary line at the fourth intercostal space | That is the reference for cardiac pressures.
+- The bridge of the nose | That is not the standard reference.
+= The tragus approximates the foramen of Monro; leveling elsewhere causes over- or under-drainage.
+
+? Which finding in a patient with an intracerebral hemorrhage indicates deterioration that needs immediate reporting?
++ A fall in Glasgow Coma Scale score from 14 to 11
+- A stable headache rated 4/10 | A stable mild headache is expected.
+- A request for the room lights to be dimmed | Photophobia is common and not a sign of decline.
+- A blood pressure within the ordered range | That is the goal.
+= A drop of two or more points in the Glasgow Coma Scale suggests hematoma expansion or rising intracranial pressure.
+
+? A 74-year-old has a new temporal headache, scalp tenderness when combing her hair, jaw pain when chewing and blurred vision in one eye. What should the nurse anticipate?
++ High-dose corticosteroids started without delay
+- A triptan for migraine | Triptans do not treat arteritis and risk vascular events.
+- Antibiotics for sinusitis | The features are not infectious.
+- Discharge with an analgesic and a clinic visit next month | Delay risks permanent blindness.
+= Giant cell arteritis threatens vision; steroids are started on suspicion, before biopsy confirmation.
+
+? A 35-year-old man has excruciating stabbing pain behind one eye with tearing and nasal congestion on the same side, occurring nightly for a week. Which treatment gives the fastest relief?
++ High-flow oxygen by non-rebreather mask
+- Oral acetaminophen | It acts too slowly and is ineffective for this pain.
+- A dark room and sleep | Patients are restless and rest does not abort the attack.
+- An oral opioid | Opioids are not effective for this headache.
+= Cluster headache responds to 100% oxygen at high flow or a parenteral triptan.
+
+@ 6.2
+? A patient in the waiting room has a generalized tonic-clonic seizure. What should the nurse do first?
++ Protect the head and turn the patient onto the side
+- Place a bite block between the teeth | Objects in the mouth cause injury and obstruction.
+- Restrain the arms and legs | Restraint causes fractures and dislocations.
+- Give oral glucose gel | Nothing is given by mouth during a seizure.
+= The priority is protection from injury and airway positioning; the seizure is timed and nothing is placed in the mouth.
+
+? Which situation meets the definition of status epilepticus?
++ A convulsion lasting more than five minutes
+- A 90-second seizure followed by drowsiness | That is a typical self-limited seizure.
+- Two seizures a week apart | Separate events with recovery are not status.
+- A brief staring spell | A single absence episode is not status.
+= Status epilepticus is continuous seizure activity for five minutes or more, or repeated seizures without recovery between them.
+
+? A patient has been convulsing for six minutes and has no IV access. Which medication should the nurse anticipate?
++ Intramuscular midazolam
+- Oral levetiracetam | Oral drugs cannot be given during a seizure.
+- Intramuscular phenytoin | Phenytoin is erratically absorbed and damages muscle.
+- Rectal acetaminophen | It has no anticonvulsant effect.
+= Benzodiazepines are first-line; when IV access is not available, IM midazolam is as effective as IV lorazepam.
+
+? A seizure continues after two adequate doses of IV lorazepam. Which medication is the appropriate next step?
++ An IV loading dose of levetiracetam or fosphenytoin
+- A third and fourth dose of lorazepam only | Further benzodiazepines add sedation with little benefit.
+- Oral carbamazepine | Oral agents are not used in status.
+- IV haloperidol | Antipsychotics lower the seizure threshold.
+= Benzodiazepine-refractory status is treated with an IV second-line agent such as levetiracetam, fosphenytoin or valproate.
+
+? IV phenytoin is ordered. Which administration practice is correct?
++ Dilute in normal saline and infuse no faster than 50 mg per minute with cardiac monitoring
+- Mix with dextrose 5% and give by rapid push | It precipitates in dextrose and rapid infusion causes hypotension and dysrhythmia.
+- Give intramuscularly in the deltoid | Intramuscular phenytoin causes tissue necrosis.
+- Infuse through a small hand vein without a filter | Extravasation causes severe tissue injury.
+= Phenytoin is compatible only with saline and is given slowly through a large vein because of cardiovascular toxicity and tissue injury.
+
+? A patient with diabetes is found convulsing. Which reversible cause should be checked immediately?
++ Hypoglycemia
+- Hyperlipidemia | Lipids do not cause acute seizures.
+- Hypothyroidism | It is not an immediate reversible cause of seizure.
+- Iron deficiency | It does not cause seizures.
+= Low blood glucose is a common, rapidly reversible cause of seizures and is checked in every seizing patient.
+
+? A man who drinks heavily stopped two days ago and has now had two generalized seizures. Which medication is most appropriate?
++ A benzodiazepine
+- Phenytoin | Phenytoin is not effective for alcohol withdrawal seizures.
+- Haloperidol | It lowers the seizure threshold.
+- A beta blocker alone | It masks signs without preventing seizures.
+= Alcohol withdrawal seizures arise from loss of GABA activity and are treated with benzodiazepines.
+
+? A 2-year-old had a generalized seizure lasting three minutes with a temperature of 39.6 C. He is now alert and playful, with an ear infection found on examination. What should the nurse tell the parents?
++ Simple febrile seizures are common and do not cause brain damage
+- He will need anticonvulsants for life | Long-term treatment is not indicated.
+- He has epilepsy | A simple febrile seizure is not epilepsy.
+- Regular antipyretics will prevent another seizure | Antipyretics do not prevent recurrence.
+= A simple febrile seizure is generalized, lasts under 15 minutes and does not recur within 24 hours; the prognosis is excellent.
+
+? After a seizure a patient is drowsy and cannot move his left arm. The weakness resolves over two hours. What is this called?
++ Todd's paralysis
+- Bell's palsy | That is facial nerve weakness.
+- A completed stroke | A stroke deficit would not resolve this quickly in this context.
+- Malingering | The finding is physiologic.
+= Transient focal weakness after a seizure reflects neuronal exhaustion and resolves within hours, though stroke must be considered.
+
+? A patient's convulsions stopped after benzodiazepines and a second-line drug, but 40 minutes later he is still unresponsive with subtle eyelid twitching. What should the nurse suspect?
++ Ongoing non-convulsive seizure activity
+- Normal postictal sleep | The postictal state should be improving by now.
+- Oversedation only | Twitching suggests electrical seizure activity.
+- A psychiatric disorder | That is unlikely in this setting.
+= Failure to regain consciousness after convulsive status raises concern for non-convulsive status, which requires an EEG.
+
+? A patient with known epilepsy has a breakthrough seizure. Which cause is most common?
++ Missed doses of the anticonvulsant
+- A new brain tumour | That is far less common than non-adherence.
+- Eating a high-protein meal | Diet of this kind does not trigger seizures.
+- Mild exercise | Mild exertion is not a common trigger.
+= Sub-therapeutic drug levels from missed doses are the leading cause of breakthrough seizures, so a level is checked.
+
+? Which items should be at the bedside of a patient placed on seizure precautions?
++ Suction, oxygen and padded side rails
+- A tongue blade and soft wrist restraints | Neither is used during a seizure.
+- A meal tray and a water jug | Oral intake is not a safety measure.
+- A bedside commode only | That does not address airway or injury.
+= Seizure precautions prepare for airway management and injury prevention.

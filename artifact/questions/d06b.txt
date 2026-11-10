@@ -1,0 +1,256 @@
+# Domain 6 — Neurological Emergencies (topics 3-5)
+
+@ 6.3
+? An unidentified man is found unresponsive in a park and brought in by ambulance. After the airway and breathing are secured, which assessment comes next?
++ A bedside blood glucose
+- A CT scan of the head | Imaging follows rapid reversible checks.
+- A toxicology screen | Results are slow and seldom change immediate care.
+- A lumbar puncture | It is not an early step in an undifferentiated coma.
+= Hypoglycemia is common, quickly identified and immediately treatable, so it is checked first in altered mental status.
+
+? A malnourished man with alcohol use disorder is confused, has an unsteady wide-based gait and cannot move his eyes fully to the side. Which treatment is the priority?
++ IV thiamine
+- IV haloperidol | Sedation does not treat the cause.
+- A high-carbohydrate meal alone | Glucose without thiamine can worsen the condition.
+- IV naloxone | There are no signs of opioid toxicity.
+= Confusion, ataxia and ophthalmoplegia are the triad of Wernicke encephalopathy, treated with parenteral thiamine.
+
+? A patient with cirrhosis is drowsy and disoriented, and his hands flap when the wrists are extended. Which laboratory test is most relevant?
++ Serum ammonia
+- Serum lipase | It evaluates the pancreas.
+- Troponin | It evaluates myocardial injury.
+- Thyroid-stimulating hormone | Thyroid disease is not suggested.
+= Asterixis with confusion in liver disease suggests hepatic encephalopathy, supported by a raised ammonia level.
+
+? An 86-year-old woman who was independent yesterday is now agitated and disoriented. Her family reports that she started an over-the-counter sleep aid three nights ago. What is the most likely cause?
++ Anticholinergic effects of the sleep aid
+- Rapid progression of Alzheimer's disease | Dementia does not appear over days.
+- Normal ageing | Acute confusion is never normal.
+- Vitamin C deficiency | It does not cause acute delirium.
+= Many non-prescription sleep aids contain diphenhydramine, a common cause of delirium in older adults.
+
+? A patient with COPD receiving 6 L/min of oxygen has become progressively sleepy and hard to rouse. SpO2 is 99%. Which test will identify the cause?
++ An arterial or venous blood gas
+- A head CT | The clinical picture points to a respiratory cause.
+- A serum sodium | It does not explain the picture.
+- A urinalysis | It does not explain the picture.
+= Somnolence with high-flow oxygen in COPD suggests carbon dioxide narcosis, confirmed by an elevated PaCO2.
+
+? A confused patient has a serum sodium of 112 mEq/L that has developed over several weeks. Why must the sodium be corrected slowly?
++ Rapid correction can cause osmotic demyelination
+- Rapid correction causes hyperkalemia | Potassium is not the concern.
+- Slow correction prevents infection | Infection is unrelated.
+- Sodium cannot be given intravenously | It can, with careful monitoring.
+= Raising chronic hyponatremia by more than about 8-10 mEq/L in 24 hours risks irreversible brainstem injury.
+
+? When assessing the motor response of an unresponsive patient, which stimulus is most appropriate?
++ A firm squeeze of the trapezius muscle
+- A sternal rub with the knuckles for a minute | Prolonged sternal rubbing causes bruising and is discouraged.
+- A pinch of the nipple | That is inappropriate and unacceptable.
+- A needle prick to the foot | It can provoke a spinal reflex rather than a cerebral response.
+= A central stimulus such as trapezius squeeze tests the brain's response rather than a spinal reflex.
+
+? A patient with a head injury becomes unresponsive, and the right pupil is now fixed and dilated. What does this indicate?
++ Compression of the oculomotor nerve from brain herniation
+- An effect of bright lighting | Light constricts the pupils.
+- Opioid toxicity | Opioids cause bilateral pinpoint pupils.
+- A normal variant | A new change with coma is not a variant.
+= A unilateral fixed dilated pupil signals uncal herniation compressing the third cranial nerve, a neurosurgical emergency.
+
+? An unresponsive patient has bilateral pinpoint pupils and slow respirations. Besides opioid overdose, which condition should be considered if naloxone has no effect?
++ Pontine hemorrhage
+- Cocaine toxicity | Stimulants dilate the pupils.
+- Anticholinergic poisoning | It dilates the pupils.
+- Hypothermia alone | It does not typically cause pinpoint pupils.
+= A bleed in the pons interrupts sympathetic pathways, producing pinpoint pupils and coma.
+
+? A patient with diabetes is unresponsive with a glucose of 32 mg/dL. No IV access can be obtained. Which treatment should the nurse give?
++ Intramuscular glucagon
+- Oral glucose gel | An unresponsive patient cannot swallow safely.
+- Subcutaneous insulin | Insulin would lower the glucose further.
+- Oral juice through a straw | Aspiration risk is high.
+= Glucagon mobilizes liver glycogen and is used when the patient cannot take oral glucose and has no IV access.
+
+? A 58-year-old with no psychiatric history has sudden confusion, visual hallucinations, HR 128 and temperature 38.9 C. A colleague suggests a psychiatric referral. What is the best response?
++ These features point to a medical cause that must be worked up first
+- Agree; hallucinations are always psychiatric | Visual hallucinations suggest an organic cause.
+- Agree; fever is common with anxiety | Fever is not explained by anxiety.
+- Suggest discharge with outpatient counselling | Acute delirium is a medical emergency.
+= Late onset, abrupt change, visual hallucinations and abnormal vital signs indicate delirium from a medical cause.
+
+? The mnemonic AEIOU-TIPS is used for which purpose?
++ Recalling the causes of altered mental status
+- Scoring stroke severity | That is done with the NIH Stroke Scale.
+- Grading pressure injuries | That uses a staging system.
+- Calculating burn fluid needs | That uses a resuscitation formula.
+= AEIOU-TIPS covers alcohol, epilepsy, insulin, overdose, uremia, trauma, infection, psychiatric causes and stroke or shock.
+
+@ 6.4
+? Which change is usually the earliest sign of rising intracranial pressure?
++ A decline in level of consciousness
+- A fixed dilated pupil | Pupil changes come later.
+- Bradycardia with hypertension | Those are late, pre-terminal signs.
+- Decerebrate posturing | Posturing is a late sign.
+= The cerebral cortex is most sensitive to falling perfusion, so restlessness, confusion or drowsiness appear first.
+
+? A head-injured patient has BP 196/72, HR 46 and irregular respirations. What do these findings represent?
++ Cushing's triad, indicating impending herniation
+- Hypovolemic shock | Shock causes hypotension and tachycardia.
+- A vasovagal episode | That is brief and not associated with a widened pulse pressure.
+- Neurogenic shock | That causes hypotension with bradycardia.
+= Hypertension with a wide pulse pressure, bradycardia and irregular breathing is a late sign of critically raised intracranial pressure.
+
+? How should a patient with raised intracranial pressure be positioned?
++ Head of the bed at 30 degrees with the head in the midline
+- Flat with the head turned to one side | Rotation compresses the jugular veins.
+- Trendelenburg | Head-down positioning raises intracranial pressure.
+- Sitting at 90 degrees with the hips sharply flexed | Hip flexion raises intra-abdominal and intracranial pressure.
+= Elevation with neutral alignment promotes venous drainage from the head without compromising perfusion.
+
+? A teenager was struck on the temple by a baseball, lost consciousness briefly, then seemed normal for an hour. He is now drowsy and vomiting. Which injury fits this pattern?
++ Epidural hematoma
+- Simple concussion | Concussion does not deteriorate after a lucid interval.
+- Chronic subdural hematoma | That develops over weeks.
+- Scalp hematoma | A scalp bruise does not cause drowsiness and vomiting.
+= Arterial bleeding from the middle meningeal artery classically causes a lucid interval followed by rapid decline.
+
+? An 82-year-old on apixaban fell three weeks ago. She now has a mild headache, increasing forgetfulness and a slight limp. What should the nurse suspect?
++ Chronic subdural hematoma
+- Epidural hematoma | Epidural bleeds present within hours.
+- Normal ageing | New neurologic change is not normal ageing.
+- A viral illness | That does not explain focal weakness.
+= Slow venous bleeding from torn bridging veins in older or anticoagulated patients produces subtle symptoms over days to weeks.
+
+? Which finding indicates a basilar skull fracture?
++ Bruising behind the ear with clear fluid draining from the ear canal
+- A laceration over the forehead | A scalp wound does not indicate skull base injury.
+- A swollen lower lip | That is a facial soft tissue injury.
+- Neck pain on rotation | That suggests a cervical injury.
+= Battle's sign, periorbital bruising and cerebrospinal fluid leaking from the ear or nose are signs of skull base fracture.
+
+? A patient with a severe head injury develops a dilated pupil and extensor posturing. Which medication should the nurse anticipate?
++ A hyperosmolar agent such as mannitol or hypertonic saline
+- IV furosemide alone | A loop diuretic alone is not the treatment for herniation.
+- IV dextrose 5% in water | Hypotonic fluid worsens cerebral edema.
+- IV nitroprusside | Vasodilators raise intracranial pressure.
+= Hyperosmolar therapy draws water out of brain tissue and is used for signs of herniation.
+
+? A ventilated patient with a head injury has no signs of herniation. Which carbon dioxide target is appropriate?
++ Normal, about 35 to 40 mmHg
+- 20 to 25 mmHg | Aggressive hyperventilation causes cerebral ischemia.
+- 50 to 55 mmHg | Hypercapnia dilates cerebral vessels and raises pressure.
+- No target is needed | Carbon dioxide strongly affects cerebral blood flow.
+= Normocapnia is maintained; brief mild hyperventilation is reserved for active herniation as a bridge to definitive care.
+
+? A patient with a traumatic brain injury has a mean arterial pressure of 90 mmHg and an intracranial pressure of 25 mmHg. What is the cerebral perfusion pressure?
++ 65 mmHg
+- 115 mmHg | That adds the two values.
+- 25 mmHg | That is the intracranial pressure itself.
+- 3.6 mmHg | That divides rather than subtracts.
+= Cerebral perfusion pressure equals mean arterial pressure minus intracranial pressure; a target of about 60-70 mmHg is usual.
+
+? During resuscitation of a patient with a severe head injury, which finding does the most to worsen outcome?
++ A systolic pressure of 82 mmHg
+- A temperature of 37.2 C | That is normal.
+- A heart rate of 88 | That is normal.
+- A glucose of 128 mg/dL | That is acceptable.
+= Even one episode of hypotension or hypoxia markedly increases mortality after traumatic brain injury.
+
+? A 16-year-old is discharged after a concussion. Which instruction is most important for his parents?
++ Return at once for worsening headache, repeated vomiting, confusion or unusual drowsiness
+- Keep him awake for 24 hours | Sleep is allowed; he should be easy to rouse.
+- He may return to football practice tomorrow | Return to play follows a stepwise protocol after symptoms resolve.
+- Give aspirin for the headache | Aspirin increases bleeding risk.
+= Warning signs of an expanding intracranial bleed can develop after discharge and need immediate re-evaluation.
+
+? A patient responds to painful stimulation by extending and internally rotating both arms with the legs rigidly extended. How should the nurse interpret this?
++ Decerebrate posturing, indicating brainstem dysfunction
+- Decorticate posturing, a less severe finding | Decorticate posturing involves flexion of the arms.
+- A purposeful withdrawal response | Withdrawal is a normal flexion away from the stimulus.
+- A seizure | The response is stimulus driven, not rhythmic.
+= Extensor posturing reflects injury at the level of the brainstem and carries a worse prognosis than flexor posturing.
+
+@ 6.5
+? A 20-year-old college student has fever, severe headache, a stiff neck and discomfort in bright light. What should the nurse suspect?
++ Bacterial meningitis
+- Migraine | Migraine does not cause fever with neck rigidity.
+- Influenza | Influenza does not cause marked nuchal rigidity.
+- Tension headache | That does not cause fever or photophobia with a stiff neck.
+= Fever, headache, neck stiffness and photophobia in a young adult in shared housing suggest bacterial meningitis.
+
+? A patient with suspected bacterial meningitis needs a head CT before lumbar puncture, and the scanner is occupied for 40 minutes. What should happen in the meantime?
++ Draw blood cultures and give antibiotics now
+- Hold antibiotics until the spinal fluid is collected | Delay in antibiotics increases mortality.
+- Hold antibiotics until the CT is reported | Imaging must not delay treatment.
+- Give only an antipyretic | Fever control does not treat the infection.
+= Antibiotics are given as soon as bacterial meningitis is suspected, after blood cultures if these cause no delay.
+
+? Which medication is given just before or with the first antibiotic dose in adults with suspected bacterial meningitis?
++ Dexamethasone
+- Furosemide | It has no role in meningitis.
+- Phenytoin | It is not given routinely.
+- Heparin | Anticoagulation is not indicated.
+= Dexamethasone reduces inflammation and lowers the risk of hearing loss and death in pneumococcal meningitis.
+
+? Which isolation precaution is needed for a patient with suspected meningococcal meningitis?
++ Droplet precautions until 24 hours of effective antibiotics
+- Airborne precautions in a negative-pressure room for the entire stay | The organism spreads by droplets, not by the airborne route.
+- Contact precautions only | Contact precautions do not address respiratory droplets.
+- Standard precautions only | Close contact carries real transmission risk.
+= Neisseria meningitidis spreads by respiratory droplets; a surgical mask and droplet precautions are used until 24 hours of treatment.
+
+? A febrile, lethargic teenager has a rash of purple spots on the trunk and legs that does not blanch when pressed. What does this indicate?
++ Meningococcal septicemia requiring immediate treatment
+- A viral rash that needs no action | Non-blanching purpura with fever is an emergency.
+- An allergic reaction to food | Allergic rashes blanch and itch.
+- Heat rash | Heat rash is fine, blanching and benign.
+= A non-blanching petechial or purpuric rash with fever suggests meningococcemia, which can kill within hours.
+
+? A nurse intubated a patient later confirmed to have meningococcal meningitis and was not wearing a mask. What does she need?
++ Antibiotic prophylaxis
+- No action, since she feels well | Exposure to respiratory secretions carries a real risk.
+- A meningococcal vaccine only | Vaccine does not protect soon enough.
+- A two-week quarantine without medication | Prophylaxis, not quarantine, is indicated.
+= Close contacts and staff with unprotected exposure to respiratory secretions receive prophylaxis such as ciprofloxacin, rifampin or ceftriaxone.
+
+? Which cerebrospinal fluid result is most consistent with bacterial meningitis?
++ Cloudy fluid with high neutrophils, high protein and low glucose
+- Clear fluid with normal protein and glucose | That is a normal result.
+- Clear fluid with lymphocytes and normal glucose | That pattern suggests viral meningitis.
+- Bloody fluid that clears in successive tubes | That suggests a traumatic tap.
+= Bacteria consume glucose and provoke a neutrophil response, making the fluid turbid with high protein.
+
+? Which patient needs a head CT before lumbar puncture?
++ A patient with papilledema and a new facial droop
+- A patient who is alert with headache and fever only | No signs of raised pressure or a mass are present.
+- A patient with a stiff neck and photophobia only | These are meningeal signs, not signs of a mass.
+- A healthy patient with a normal neurologic examination | No indication for imaging first.
+= Signs of raised intracranial pressure or a focal lesion, reduced consciousness, seizures and immunocompromise call for CT first.
+
+? Which presentation of meningitis is typical in a 4-month-old?
++ Poor feeding, irritability and a bulging fontanelle
+- Complaints of a stiff neck | Infants cannot report this and often lack nuchal rigidity.
+- A classic positive Kernig sign | Meningeal signs are unreliable in infants.
+- Photophobia described by the child | An infant cannot describe it.
+= Infants show non-specific signs: fever or hypothermia, irritability, lethargy, poor feeding, a high-pitched cry and a tense fontanelle.
+
+? A patient has fever, bizarre behaviour, new seizures and temporal lobe changes on imaging. Which medication should the nurse anticipate?
++ IV acyclovir
+- IV vancomycin alone | Antibacterial therapy does not treat a viral encephalitis.
+- Oral oseltamivir | That treats influenza.
+- IV fluconazole | That treats fungal infection.
+= Herpes simplex encephalitis targets the temporal lobes; acyclovir is started on suspicion, with hydration to protect the kidneys.
+
+? With the patient supine, the nurse flexes the neck and the hips and knees flex involuntarily. What is this finding?
++ A positive Brudzinski sign
+- A positive Babinski sign | That is upgoing toes on plantar stimulation.
+- A positive Kernig sign | That is pain on extending the knee with the hip flexed.
+- A positive Homans sign | That is calf pain on dorsiflexion.
+= Brudzinski's sign indicates meningeal irritation: neck flexion provokes reflex flexion of the hips and knees.
+
+? A patient develops a headache the day after a lumbar puncture that is severe when she sits up and eases when she lies flat. What should the nurse recommend first?
++ Lying flat with oral fluids and caffeine
+- Sitting upright as much as possible | Upright posture worsens the headache.
+- Fluid restriction | Restriction worsens low cerebrospinal fluid pressure.
+- Vigorous exercise | Exertion aggravates the leak.
+= A post-dural puncture headache is positional; conservative measures come first, with an epidural blood patch if it persists.
