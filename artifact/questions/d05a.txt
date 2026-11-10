@@ -1,0 +1,256 @@
+# Domain 5 — Respiratory Emergencies (topics 0-2)
+
+@ 5.0
+? A 19-year-old with asthma was wheezing loudly on arrival. Twenty minutes later she is drowsy, the chest is nearly silent and SpO2 is 86%. How should the nurse interpret this?
++ Airflow is so reduced that respiratory arrest is imminent
+- The bronchospasm has resolved | A quiet chest with drowsiness means too little air is moving to wheeze.
+- She has fallen asleep now that she is comfortable | Drowsiness with hypoxia signals fatigue and carbon dioxide retention.
+- The wheeze was caused by anxiety | Falling saturation has a physical cause.
+= A silent chest with a falling level of consciousness in asthma is a pre-arrest finding that calls for immediate escalation.
+
+? Which initial treatment should the nurse anticipate for a moderate to severe asthma exacerbation?
++ Inhaled albuterol with ipratropium and a systemic corticosteroid
+- An oral antihistamine and a cough suppressant | Neither treats bronchospasm or airway inflammation.
+- IV antibiotics and a diuretic | Asthma is not treated as infection or fluid overload.
+- A long-acting inhaled beta agonist alone | Long-acting agents are not rescue therapy.
+= Repeated short-acting bronchodilators with an anticholinergic, plus early systemic steroids, are first-line treatment.
+
+? A patient's personal best peak expiratory flow is 500 L/min. Today it is 180 L/min. How is this exacerbation classified?
++ Severe
+- Mild | Mild exacerbations are 70% of best or more.
+- Moderate | Moderate exacerbations are roughly 40-69% of best.
+- Normal variation | A fall to 36% of best is far outside normal variation.
+= A peak flow below about 40% of predicted or personal best indicates a severe exacerbation.
+
+? A tiring asthmatic has a respiratory rate of 34. The arterial blood gas shows pH 7.38 and PaCO2 42 mmHg. What does this indicate?
++ Impending respiratory failure
+- Normal gas exchange and improvement | A normal carbon dioxide level is abnormal in someone breathing this fast.
+- Hyperventilation from anxiety | Anxiety would lower the carbon dioxide level.
+- Metabolic alkalosis | The pH and bicarbonate do not suggest alkalosis.
+= Asthmatics hyperventilate and should have a low PaCO2; a normal or rising value means they are tiring.
+
+? A patient with severe asthma has not improved after three back-to-back nebulizers and steroids. Which medication should the nurse anticipate next?
++ IV magnesium sulfate
+- IV furosemide | Diuretics have no role in bronchospasm.
+- IV metoprolol | Beta blockers provoke bronchospasm.
+- Oral montelukast | It is a controller with no rapid effect.
+= IV magnesium relaxes bronchial smooth muscle and reduces admissions in severe exacerbations unresponsive to initial therapy.
+
+? Why are systemic corticosteroids given early in an asthma exacerbation, even though the patient does not improve right away?
++ Their anti-inflammatory effect takes several hours to begin
+- They work immediately to open the airways | They are not rapid bronchodilators.
+- They are needed to prevent infection | Steroids do not prevent infection.
+- They replace the need for bronchodilators | Both are required.
+= Steroids reduce airway inflammation and relapse, but benefit is delayed for hours, so they are started promptly.
+
+? A patient with life-threatening asthma is too breathless to cooperate with a nebulizer and is moving almost no air. Which medication may be ordered?
++ Intramuscular epinephrine
+- Oral prednisone | Oral steroids act too slowly for this emergency.
+- An inhaled corticosteroid | Inhaled steroids are controllers, not rescue drugs.
+- An oral antihistamine | Antihistamines do not relieve bronchospasm.
+= When inhaled therapy cannot be delivered, parenteral epinephrine or terbutaline provides systemic bronchodilation.
+
+? Minutes after intubation for status asthmaticus, the patient's BP falls to 62/38 and the ventilator shows that exhalation is not finishing before the next breath. What should be done first?
++ Disconnect the ventilator briefly to allow a full exhalation
+- Increase the respiratory rate | A faster rate traps more air.
+- Increase the tidal volume | Larger breaths worsen hyperinflation.
+- Give a beta blocker | Beta blockade would worsen bronchospasm and hypotension.
+= Breath stacking raises intrathoracic pressure and blocks venous return; disconnecting lets trapped air escape.
+
+? Which statement shows that a patient understands discharge teaching about asthma inhalers?
++ "I use the albuterol for quick relief and take the steroid inhaler every day."
+- "I only need the steroid inhaler when I'm wheezing." | Controllers work only when used daily.
+- "I'll use my albuterol every four hours even if I feel fine." | Scheduled rescue use masks poor control.
+- "I can stop the steroid inhaler once I feel better." | Stopping the controller leads to relapse.
+= Rescue and controller inhalers have different roles; daily controller use prevents exacerbations.
+
+? After a nebulizer treatment a patient who had very quiet breath sounds now has loud wheezing throughout. SpO2 has risen from 89% to 94%. What does this mean?
++ Air movement is improving
+- The bronchospasm is getting worse | Rising saturation with more audible airflow indicates improvement.
+- The patient is developing pneumonia | Pneumonia does not appear within minutes.
+- The treatment caused an allergic reaction | There are no signs of allergy.
+= Wheezing requires airflow; as tight airways open, wheezes become audible before they clear.
+
+? A 6-year-old with asthma is sitting forward with nasal flaring, intercostal retractions and can speak only two or three words at a time. What should the nurse do?
++ Leave her in the position she has chosen and start treatment
+- Lay her flat to examine the chest | Lying flat increases the work of breathing.
+- Send her to the waiting room until a bed opens | She is in significant distress.
+- Ask her to walk to the scale for a weight | Exertion worsens distress.
+= The tripod position is a compensatory posture; the child is kept comfortable while bronchodilators and oxygen begin.
+
+? An anxious, breathless patient with asthma asks for "something to calm me down." A sedative is ordered. What should the nurse do?
++ Question the order and focus on relieving the bronchospasm
+- Give the sedative before the nebulizer | Sedation can suppress respiratory drive in a tiring patient.
+- Give the sedative with the nebulizer | The risk of respiratory depression remains.
+- Double the dose because she is very anxious | A larger dose increases the danger.
+= Anxiety in acute asthma is usually a symptom of hypoxia; sedatives are avoided unless the patient is intubated.
+
+@ 5.1
+? A patient with a COPD exacerbation arrives on a non-rebreather mask with SpO2 100%. What oxygen saturation should the nurse target?
++ 88% to 92%
+- 100% | Excess oxygen can worsen carbon dioxide retention.
+- 80% to 84% | That range is dangerously hypoxic.
+- 96% to 100% | That target is unnecessarily high in chronic hypercapnia.
+= Controlled oxygen titrated to 88-92% corrects hypoxemia while limiting worsening hypercapnia.
+
+? A patient with COPD is drowsy with pH 7.27 and PaCO2 72 mmHg despite bronchodilators. Which intervention should the nurse anticipate?
++ Bilevel positive airway pressure
+- A non-rebreather mask at 15 L/min | High-flow oxygen without ventilatory support worsens hypercapnia.
+- A sedative to ease the work of breathing | Sedation depresses an already failing drive.
+- Oral hydration and observation | He is in acute respiratory failure.
+= Noninvasive ventilation for acute hypercapnic acidosis in COPD lowers the need for intubation and mortality.
+
+? Which medication regimen is standard for a COPD exacerbation?
++ Short-acting bronchodilators with a short course of systemic corticosteroids
+- A long-acting bronchodilator alone | Long-acting agents are not the treatment for an acute flare.
+- A sedative and a cough suppressant | These suppress the cough and drive needed to clear secretions.
+- A loop diuretic and a nitrate | These treat heart failure.
+= Exacerbations are treated with short-acting beta agonists and anticholinergics plus about five days of systemic steroids.
+
+? An ABG in a patient with COPD shows pH 7.29, PaCO2 68 mmHg and HCO3 32 mEq/L. How should this be interpreted?
++ Acute-on-chronic respiratory acidosis
+- Fully compensated respiratory acidosis | The pH would be within normal limits.
+- Metabolic acidosis | The bicarbonate would be low.
+- Respiratory alkalosis | The carbon dioxide would be low.
+= A high bicarbonate reflects chronic retention; the low pH shows that an acute rise in carbon dioxide has overwhelmed compensation.
+
+? A patient with COPD was placed on high-flow oxygen in the ambulance. He is now difficult to rouse. What should the nurse do first?
++ Reduce the oxygen to the target range and prepare for ventilatory support
+- Remove the oxygen completely | Abrupt removal causes dangerous hypoxemia.
+- Increase the oxygen flow | More oxygen will deepen the hypercapnia.
+- Let him sleep, as he must be exhausted | Reduced consciousness signals carbon dioxide narcosis.
+= Excess oxygen worsens ventilation-perfusion mismatch and hypercapnia; oxygen is titrated down, not stopped, and ventilation is supported.
+
+? A patient with emphysema exhales slowly through puckered lips. What is the purpose of this technique?
++ It keeps small airways open and reduces air trapping
+- It increases the amount of oxygen inhaled | The effect is on exhalation.
+- It strengthens the diaphragm | It does not train the diaphragm.
+- It prevents coughing | It is not a cough suppressant.
+= Pursed-lip breathing creates back pressure that prevents early airway collapse during exhalation.
+
+? A patient with bullous emphysema develops sudden sharp chest pain and worse dyspnea. Breath sounds are absent on the left. What is the most likely cause?
++ Spontaneous pneumothorax
+- Mucus plugging | A plug does not usually cause sudden sharp pain.
+- An anxiety attack | Absent unilateral breath sounds have a structural cause.
+- Bronchitis | Bronchitis does not abolish breath sounds on one side.
+= Rupture of a bulla causes secondary spontaneous pneumothorax, which is poorly tolerated in patients with little reserve.
+
+? A patient with long-standing COPD has distended neck veins, ankle edema and an enlarged tender liver. What do these findings indicate?
++ Right heart failure from pulmonary hypertension
+- Left ventricular failure | Left-sided failure causes pulmonary rather than systemic congestion.
+- Nephrotic syndrome | Nephrotic edema does not cause jugular distension.
+- Deep vein thrombosis | Thrombosis causes unilateral swelling.
+= Chronic hypoxia raises pulmonary vascular resistance and strains the right ventricle, producing cor pulmonale.
+
+? A patient with COPD has been on BiPAP for an hour. Which finding indicates that noninvasive ventilation is failing?
++ Increasing drowsiness with a rising carbon dioxide level
+- A respiratory rate falling from 32 to 22 | A slower rate with good effort shows improvement.
+- A request for a drink of water | Thirst does not indicate failure.
+- A pH rising from 7.26 to 7.33 | A rising pH shows improvement.
+= Worsening mental status, acidosis or gas exchange on NIPPV signals the need for intubation.
+
+? Which discharge teaching has the greatest effect on slowing COPD progression?
++ Stopping smoking
+- Taking a daily multivitamin | Vitamins do not alter disease progression.
+- Avoiding all exercise | Activity is beneficial.
+- Drinking two litres of water a day | Hydration thins secretions but does not slow the disease.
+= Smoking cessation is the single most effective intervention for slowing the decline in lung function.
+
+? Which oxygen delivery device gives the most precise and predictable inspired oxygen concentration for a patient with COPD?
++ A Venturi mask
+- A simple face mask | Its concentration varies with breathing pattern.
+- A nasal cannula | Delivered concentration varies with rate and depth of breathing.
+- A non-rebreather mask | It delivers a high and imprecise concentration.
+= A Venturi mask delivers a fixed oxygen concentration regardless of the patient's breathing pattern.
+
+? During a COPD exacerbation, which finding supports adding an antibiotic?
++ Sputum that has become thicker, greater in volume and green
+- A dry cough with clear lungs | There is no sign of bacterial infection.
+- Wheezing that responds to albuterol | Bronchospasm alone is not an indication.
+- Ankle swelling | Edema suggests right heart failure.
+= Increased sputum purulence with greater volume or dyspnea suggests bacterial infection and benefits from antibiotics.
+
+@ 5.2
+? An 84-year-old is brought in for new confusion. Temperature is 36.9 C, RR 28 and SpO2 89%; crackles are heard at the right base. What should the nurse suspect?
++ Pneumonia
+- Urinary retention | Retention does not explain tachypnea and hypoxia.
+- Dementia progression | Dementia does not change suddenly with hypoxia.
+- Medication non-adherence | That does not explain focal crackles.
+= Older adults with pneumonia often present with confusion and tachypnea and may have no fever or cough.
+
+? A patient with severe pneumonia and hypotension needs blood cultures and antibiotics. How should the nurse sequence these?
++ Draw cultures promptly, then give antibiotics without delay
+- Give antibiotics and skip the cultures | Cultures guide later therapy when they can be obtained quickly.
+- Wait for the culture results before antibiotics | Results take days and delay increases mortality.
+- Draw cultures only if the fever exceeds 39 C | Fever height does not decide the need.
+= Cultures are obtained before antibiotics when this causes no significant delay; antibiotics must not be held up.
+
+? A 72-year-old with pneumonia is newly confused. RR is 32, BP 86/54 and BUN 28 mg/dL. What does his CURB-65 score indicate?
++ High severity requiring hospital admission, likely intensive care
+- Low severity suitable for outpatient treatment | He meets all five criteria.
+- Moderate severity needing only a short observation | A score of 5 is the highest category.
+- The score cannot be used in older adults | Age is one of its criteria.
+= Confusion, urea, respiratory rate of 30 or more, low blood pressure and age 65 or over each score a point; a score of 3-5 indicates severe pneumonia.
+
+? Which patient is at greatest risk of aspiration pneumonia?
++ A patient with a recent stroke and a weak, wet-sounding voice
+- A patient with a fractured wrist | There is no impairment of swallowing.
+- A patient with seasonal allergies | Allergies do not impair airway protection.
+- A patient with a urinary tract infection | Swallowing is unaffected.
+= Dysphagia and reduced consciousness impair airway protection; a wet voice after swallowing suggests aspiration.
+
+? A patient admitted with an acute stroke asks for water. What should the nurse do first?
++ Keep the patient NPO until a swallow screen is completed
+- Give small sips and watch for coughing | Silent aspiration occurs without coughing.
+- Offer thickened liquids straight away | Even thickened fluids require a screen first.
+- Give water through a straw | Straws deliver fluid faster and raise the risk.
+= A bedside swallow screen before any oral intake reduces aspiration pneumonia after stroke.
+
+? An intoxicated, drowsy patient lying supine begins to vomit. What should the nurse do first?
++ Turn the patient onto the side and suction the mouth
+- Sit the patient bolt upright | A drowsy patient cannot hold the position or clear the airway.
+- Insert a nasogastric tube | Tube insertion provokes more vomiting in an unprotected airway.
+- Give an antiemetic and wait | Medication does not protect the airway now.
+= Positioning and suction clear the airway immediately in a patient who cannot protect it.
+
+? A patient with dyspnea has dullness to percussion and absent breath sounds over the lower right chest. Which condition do these findings suggest?
++ Pleural effusion
+- Pneumothorax | A pneumothorax is hyperresonant.
+- Asthma | Asthma causes diffuse wheezing with normal percussion.
+- Emphysema | Emphysema causes hyperresonance.
+= Fluid in the pleural space dampens sound, producing dullness and reduced breath sounds.
+
+? How should the nurse position a cooperative patient for a thoracentesis?
++ Sitting upright, leaning forward over a bedside table
+- Supine with the arms at the sides | The posterior chest is not accessible.
+- Prone with a pillow under the abdomen | Prone positioning impairs breathing and access.
+- Trendelenburg | Fluid shifts away from the insertion site.
+= Leaning forward widens the rib spaces and lets fluid pool at the base for safe drainage.
+
+? A 3-month-old has a runny nose, wheeze, mild retractions and SpO2 93% in winter. A rapid test confirms RSV. What care should the nurse anticipate?
++ Nasal suctioning, hydration and oxygen if saturations fall
+- Routine antibiotics | The illness is viral.
+- Systemic corticosteroids | Steroids do not benefit bronchiolitis.
+- Repeated scheduled albuterol | Bronchodilators are not routinely effective.
+= Bronchiolitis is managed supportively; clearing the nose improves feeding and breathing in obligate nose breathers.
+
+? An unvaccinated 6-week-old has episodes of rapid coughing followed by apnea and cyanosis. What should the nurse suspect and do?
++ Pertussis; apply droplet precautions and prepare for admission
+- Croup; give cool mist and discharge | Croup causes a barking cough and stridor, not apnea.
+- Reflux; advise smaller feeds | Reflux does not cause paroxysmal cough with cyanosis.
+- A common cold; reassure the parents | Apnea in a young infant is never benign.
+= Young infants with pertussis may have apnea rather than a whoop; they need droplet isolation, a macrolide and monitoring.
+
+? A man with untreated HIV has two weeks of dry cough and breathlessness. SpO2 is 94% at rest and falls to 82% when he walks. The radiograph shows diffuse bilateral haziness. Which infection is most likely?
++ Pneumocystis pneumonia
+- Lobar pneumococcal pneumonia | That causes abrupt illness with focal consolidation.
+- Aspiration pneumonia | That is usually focal and follows an aspiration event.
+- Viral bronchitis | Bronchitis does not cause marked exertional desaturation.
+= Subacute dyspnea, dry cough and exertional desaturation in advanced HIV suggest Pneumocystis, treated with trimethoprim-sulfamethoxazole.
+
+? A patient with pneumonia has SpO2 84% on room air, RR 34 and is using accessory muscles. Several orders are written. Which should the nurse carry out first?
++ Apply supplemental oxygen
+- Send a sputum culture | Specimens can wait until oxygenation is addressed.
+- Give an oral antipyretic | Fever control is not the priority.
+- Obtain a chest radiograph | Imaging follows stabilization.
+= Hypoxemia is treated immediately; airway and breathing take priority over diagnostics.

@@ -1,0 +1,257 @@
+# Domain 5 — Respiratory Emergencies (topics 6-8)
+
+@ 5.6
+? In rapid sequence intubation, which step comes first after equipment is prepared?
++ Preoxygenation with 100% oxygen
+- Giving the paralytic | Paralysis before oxygenation leaves no reserve during apnea.
+- Inserting the laryngoscope | Laryngoscopy follows induction and paralysis.
+- Inflating the cuff | The cuff is inflated after the tube is placed.
+= Preoxygenation for about three minutes washes nitrogen out of the lungs and extends safe apnea time.
+
+? A septic patient with BP 78/44 needs intubation. Which induction agent should the nurse question?
++ Propofol
+- Etomidate | Etomidate has little effect on blood pressure.
+- Ketamine | Ketamine generally supports blood pressure.
+- A reduced dose of either hemodynamically neutral agent | Dose reduction of a neutral agent is reasonable in shock.
+= Propofol causes vasodilation and myocardial depression and can precipitate collapse in a hypotensive patient.
+
+? Which patient should NOT receive succinylcholine for intubation?
++ A patient who sustained major burns five days ago
+- A patient with an isolated ankle fracture one hour ago | A fresh minor injury is not a contraindication.
+- A patient with asthma | Asthma is not a contraindication.
+- A patient with an acute opioid overdose | Opioid overdose is not a contraindication.
+= After burns, crush injury, denervation or prolonged immobility, succinylcholine can cause lethal hyperkalemia.
+
+? A patient was intubated with rocuronium 20 minutes ago. He is motionless, but HR has risen to 132, BP to 186/104, and tears are running from his eyes. What does the nurse suspect?
++ He is paralyzed but inadequately sedated
+- He is seizing | Paralysis hides movement, but tearing with a sympathetic surge points to awareness.
+- He is bleeding | Hemorrhage lowers, not raises, blood pressure.
+- He is having an allergic reaction | Allergy would show rash, wheeze or hypotension.
+= Rocuronium lasts far longer than the induction agent; sedation and analgesia must be started promptly to prevent awareness.
+
+? Which method is the most reliable for confirming endotracheal tube placement?
++ A sustained waveform on capnography
+- Mist in the tube | Condensation also appears with esophageal placement.
+- Chest rise seen by the operator | Gastric insufflation can mimic chest movement.
+- A pulse oximeter reading of 98% | Saturation falls late after a misplaced tube.
+= Continuous waveform capnography is the standard for confirming and monitoring tracheal placement.
+
+? After intubation, breath sounds are present on the right and absent on the left. The tube is at 27 cm at the teeth. What should be done?
++ Withdraw the tube slightly and reassess
+- Advance the tube 2 cm | The tube is already too deep.
+- Insert a left chest tube | The cause is tube position, not a pneumothorax.
+- Deflate the cuff and leave it | A deflated cuff does not correct the depth.
+= A tube advanced too far enters the right mainstem bronchus; pulling back restores bilateral ventilation.
+
+? An intubated patient suddenly desaturates. Using the DOPE mnemonic, which set of causes should the nurse check?
++ Displacement, obstruction, pneumothorax and equipment failure
+- Dehydration, overdose, pain and embolism | Those are not the mnemonic's components.
+- Drugs, oxygen, positioning and electrolytes | Those are not the mnemonic's components.
+- Delirium, oversedation, pressure and edema | Those are not the mnemonic's components.
+= DOPE directs a rapid search for tube displacement, tube obstruction, pneumothorax and equipment problems.
+
+? Two intubation attempts have failed in a patient with massive facial swelling, and bag-mask ventilation cannot maintain saturation above 70%. What procedure should the nurse prepare for?
++ Emergency cricothyrotomy
+- A third laryngoscopy attempt | Repeated attempts in a hypoxic patient cause arrest.
+- A nasogastric tube | A gastric tube does not oxygenate.
+- A formal tracheostomy in the operating room | There is no time for transfer.
+= "Cannot intubate, cannot oxygenate" calls for an immediate surgical airway through the cricothyroid membrane.
+
+? A semi-conscious patient gags when an oropharyngeal airway is inserted. What should the nurse do?
++ Remove it and consider a nasopharyngeal airway
+- Push it in further | Forcing it causes vomiting and aspiration.
+- Tape it in place | A patient with a gag reflex will vomit or bite.
+- Sedate the patient to tolerate it | Sedation for this purpose compromises the airway further.
+= Oral airways are for patients without a gag reflex; a nasal airway is better tolerated unless facial or skull base fracture is suspected.
+
+? Shortly after succinylcholine, a patient develops jaw rigidity, a rapidly rising end-tidal carbon dioxide and a temperature of 40.3 C. Which medication is needed?
++ Dantrolene
+- Acetaminophen | Antipyretics do not treat this hypermetabolic state.
+- More succinylcholine | The drug is the trigger.
+- Naloxone | Opioid reversal is irrelevant.
+= Malignant hyperthermia is a hypermetabolic crisis triggered by succinylcholine or volatile anaesthetics and is treated with dantrolene and cooling.
+
+? What is the correct technique for suctioning an endotracheal tube?
++ Preoxygenate, then apply suction for no more than 10 to 15 seconds while withdrawing
+- Suction continuously for a full minute | Prolonged suction causes hypoxia and bradycardia.
+- Apply suction while inserting the catheter | Suction on insertion removes oxygen and damages mucosa.
+- Instil saline routinely before each pass | Routine instillation is not recommended.
+= Brief, intermittent suction on withdrawal after preoxygenation limits hypoxemia and mucosal trauma.
+
+? A patient weighing 160 kg needs intubation. How should he be positioned?
++ Ramped, with the ear level with the sternal notch
+- Flat supine with no head support | Lying flat worsens the view and shortens safe apnea time.
+- Trendelenburg | Head-down positioning pushes abdominal contents against the diaphragm.
+- Prone | Intubation is not performed prone.
+= Ramping aligns the airway axes and improves functional residual capacity in obese patients.
+
+@ 5.7
+? Which patient is most likely to benefit from noninvasive positive pressure ventilation?
++ An alert patient with acute cardiogenic pulmonary edema
+- A patient in cardiac arrest | Arrest requires a definitive airway.
+- A patient with facial fractures | A mask cannot be fitted safely.
+- A patient who is comatose after an overdose | The airway cannot be protected.
+= NIPPV is well supported for cardiogenic pulmonary edema and hypercapnic COPD in patients who can protect their airway.
+
+? On BiPAP, which adjustment mainly improves carbon dioxide removal?
++ Increasing the difference between inspiratory and expiratory pressure
+- Increasing the expiratory pressure alone | That mainly improves oxygenation.
+- Lowering the inspiratory pressure | That reduces tidal volume.
+- Lowering the inspired oxygen | That does not affect ventilation.
+= The gap between IPAP and EPAP is the pressure support that increases tidal volume and clears carbon dioxide.
+
+? A patient has worn a BiPAP mask for eight hours. Which complication should the nurse check for?
++ Skin breakdown over the bridge of the nose
+- Pressure injury at the sacrum only | The mask poses a specific facial risk.
+- Hearing loss | Hearing loss is not a mask complication.
+- Urinary retention | Retention is unrelated to the mask.
+= Tight-fitting masks cause pressure injury on the nasal bridge; padding and periodic relief are needed.
+
+? A ventilator's high-pressure alarm sounds. Which cause should the nurse consider?
++ Secretions in the tube or the patient biting it
+- The circuit has disconnected | Disconnection causes a low-pressure alarm.
+- The cuff has deflated | A cuff leak causes a low-pressure or low-volume alarm.
+- The patient has stopped triggering breaths | Apnea causes a different alarm.
+= High-pressure alarms mean increased resistance or reduced compliance: secretions, biting, kinking, coughing, bronchospasm or pneumothorax.
+
+? A ventilator's low-pressure alarm sounds and the patient's chest is not rising. What is the most likely cause?
++ A disconnection in the circuit
+- A mucus plug | A plug raises airway pressure.
+- Bronchospasm | Bronchospasm raises airway pressure.
+- The patient coughing | Coughing raises airway pressure.
+= Low-pressure alarms indicate a leak or disconnection between the ventilator and the patient.
+
+? A ventilator alarm is sounding, the patient is cyanotic and the cause is not immediately obvious. What should the nurse do first?
++ Disconnect the patient and ventilate manually with a bag and 100% oxygen
+- Silence the alarm and call the respiratory therapist | The patient is not being ventilated while waiting.
+- Increase the tidal volume | The cause has not been identified.
+- Give a sedative | Sedation does not fix a ventilation problem.
+= When a ventilator problem cannot be solved at once, manual ventilation maintains oxygenation while the fault is traced.
+
+? Which intervention helps prevent ventilator-associated pneumonia?
++ Keeping the head of the bed raised 30 to 45 degrees
+- Keeping the patient flat | The supine position promotes aspiration.
+- Changing the circuit every eight hours | Frequent changes do not reduce infection.
+- Deep sedation at all times | Deep sedation prolongs ventilation.
+= Head elevation, oral care, daily sedation interruption and readiness assessment reduce ventilator-associated pneumonia.
+
+? A ventilated patient has pH 7.29, PaCO2 58 mmHg and PaO2 92 mmHg. Which ventilator change is expected?
++ Increase the respiratory rate
+- Increase the inspired oxygen | Oxygenation is adequate.
+- Decrease the tidal volume | That would raise the carbon dioxide further.
+- Decrease the respiratory rate | That would raise the carbon dioxide further.
+= Carbon dioxide is cleared by minute ventilation, so rate or tidal volume is increased to correct respiratory acidosis.
+
+? A ventilated patient has pH 7.40, PaCO2 40 mmHg and PaO2 54 mmHg on 60% oxygen. Which change is most appropriate?
++ Increase the PEEP
+- Increase the respiratory rate | Ventilation is already adequate.
+- Decrease the tidal volume | That does not address oxygenation.
+- Decrease the inspired oxygen | That would worsen hypoxemia.
+= Oxygenation is improved by raising inspired oxygen or PEEP; PEEP recruits alveoli and allows a lower oxygen concentration.
+
+? What is the usual sedation goal for a mechanically ventilated ED patient who is not paralyzed?
++ Calm and easily roused, with pain treated first
+- Unresponsive to all stimuli | Deep sedation prolongs ventilation and delirium.
+- No sedation or analgesia | Untreated pain and anxiety cause harm.
+- Sedation only when agitated enough to self-extubate | Reactive sedation leaves pain untreated.
+= An analgesia-first approach with light sedation shortens ventilation and reduces delirium.
+
+? What is an advantage of heated, humidified high-flow nasal cannula over a standard mask?
++ It delivers high oxygen flow with a small amount of positive pressure while the patient can talk and eat
+- It can replace intubation in every case | It has limits and failure must be recognized.
+- It needs no monitoring | Patients on it need close observation.
+- It delivers a lower oxygen concentration than a standard cannula | It delivers a higher, more reliable concentration.
+= High-flow nasal oxygen meets inspiratory demand, washes out dead space and is well tolerated in hypoxemic respiratory failure.
+
+? A patient with a long-standing tracheostomy is in distress, and the suction catheter will not pass. What should the nurse do first?
++ Remove the inner cannula and check it for a mucus plug
+- Remove the entire tracheostomy tube immediately | The inner cannula is checked first.
+- Give oxygen by nasal cannula only | Oxygen at the nose does not relieve a blocked tube.
+- Wait for the specialist team | Obstruction needs immediate action.
+= A blocked inner cannula is the commonest cause of tracheostomy obstruction, and removing it often restores the airway.
+
+@ 5.8
+? In a restaurant an adult clutches his throat. He cannot speak, cough or breathe. What should the nurse do?
++ Deliver back blows and abdominal thrusts until the object is expelled
+- Give him water to wash the food down | Liquid cannot pass a complete obstruction.
+- Lay him down and wait for him to lose consciousness | Delay wastes the time when relief is most likely.
+- Perform a blind finger sweep | A blind sweep can push the object deeper.
+= Severe airway obstruction in a responsive adult is treated with repeated back blows and abdominal thrusts.
+! Sequence of back blows versus abdominal thrusts for adults changed in the 2025 AHA guidelines; confirm the current wording.
+
+? A woman is coughing forcefully after a piece of steak "went down the wrong way." She can speak in short phrases. What should the nurse do?
++ Encourage her to keep coughing and stay with her
+- Perform abdominal thrusts | Thrusts are for severe obstruction with an ineffective cough.
+- Slap her back while she is upright and coughing well | Interfering with an effective cough can worsen the obstruction.
+- Give her bread to push it down | Food can complete the obstruction.
+= A forceful cough is more effective than any maneuver; the rescuer watches for progression to severe obstruction.
+
+? A choking adult becomes unresponsive and is lowered to the floor. What is the next action?
++ Begin CPR, looking in the mouth for the object before giving breaths
+- Continue abdominal thrusts on the floor | Thrusts are replaced by chest compressions once unresponsive.
+- Perform blind finger sweeps | Sweeps are done only when an object is seen.
+- Check the pulse for a full minute | Delay worsens hypoxia.
+= Chest compressions generate pressure that may expel the object; the mouth is checked each time the airway is opened.
+
+? A 7-month-old is choking and cannot cry or cough. What should the nurse do?
++ Give five back slaps followed by five chest thrusts
+- Give abdominal thrusts | Abdominal thrusts can injure an infant's liver.
+- Hold the infant upside down by the feet | That is ineffective and dangerous.
+- Perform a blind finger sweep | A sweep can push the object deeper.
+= Infants with severe obstruction receive cycles of five back slaps and five chest thrusts with the head lower than the trunk.
+
+? A 2-year-old has had a cold for two days and wakes with a barking cough and noisy breathing on inspiration that persists at rest. What should the nurse anticipate?
++ Nebulized epinephrine and a dose of dexamethasone
+- An antibiotic and a throat swab | Croup is viral, and swabbing upsets the child.
+- Albuterol by nebulizer | Albuterol does not relieve upper airway edema.
+- A lateral neck radiograph before any treatment | Treatment is not delayed for imaging.
+= Croup with stridor at rest is treated with nebulized epinephrine for rapid relief and a corticosteroid for sustained effect.
+
+? A child with croup improved after nebulized epinephrine. Why must the child be observed for several hours before discharge?
++ Stridor can return as the epinephrine wears off
+- Epinephrine causes delayed seizures | That is not an expected effect.
+- The child must be checked for fever every hour | Fever is not the reason for observation.
+- Steroids take a week to work | Steroids begin working within hours.
+= The effect of nebulized epinephrine lasts about two hours, so children are watched for recurrence of stridor at rest.
+
+? A 5-year-old with a high fever sits leaning forward, drooling, with a muffled voice and no cough. What should the nurse avoid?
++ Examining the throat with a tongue depressor
+- Keeping the child on the parent's lap | Keeping the child calm is appropriate.
+- Giving blow-by oxygen if tolerated | Oxygen is appropriate if it does not upset the child.
+- Calling for airway specialists | Expert airway help is needed.
+= In suspected epiglottitis, throat examination or agitation can cause complete obstruction; the airway is secured in a controlled setting.
+
+? A 62-year-old who takes lisinopril has swelling of the lips and tongue with no rash or itching. Her voice is becoming muffled. What is the priority?
++ Prepare for early airway intervention
+- Give an oral antihistamine and discharge | This swelling is not histamine mediated and may progress.
+- Apply ice to the lips | Local measures do not protect the airway.
+- Reassure her that it will pass in an hour | The swelling can progress to obstruction.
+= ACE inhibitor angioedema is bradykinin mediated and responds poorly to antihistamines and steroids; voice change signals a threatened airway.
+
+? A toddler had a sudden coughing fit while eating peanuts an hour ago. He now has a persistent cough and wheezing heard only on the right. What should the nurse anticipate?
++ Bronchoscopy to remove a foreign body
+- A course of oral steroids for asthma | New unilateral wheeze after choking is not asthma.
+- Antibiotics for pneumonia | Infection does not develop within an hour.
+- Discharge with reassurance | A retained foreign body causes obstruction and infection.
+= Sudden cough followed by unilateral wheeze suggests an aspirated foreign body in a bronchus, removed by bronchoscopy.
+
+? What does a high-pitched sound heard mainly on inspiration indicate?
++ Narrowing of the upper airway
+- Fluid in the alveoli | Alveolar fluid causes crackles.
+- Narrowing of the small lower airways | That produces an expiratory wheeze.
+- Inflammation of the pleura | That produces a friction rub.
+= Inspiratory stridor signals obstruction at or above the larynx and requires urgent attention.
+
+? An unconscious patient lying supine has loud snoring respirations. What is the most likely cause, and what should the nurse do?
++ The tongue is obstructing the airway; perform a jaw thrust or insert an airway adjunct
+- Bronchospasm; give a nebulizer | Snoring is an upper airway sound.
+- Pulmonary edema; give a diuretic | Edema causes crackles, not snoring.
+- Normal sleep; leave undisturbed | Snoring in an unconscious patient indicates obstruction.
+= Loss of muscle tone lets the tongue fall back; repositioning or an airway adjunct relieves the obstruction.
+
+? A patient who had a total laryngectomy is in respiratory distress. Where should oxygen and ventilation be delivered?
++ At the stoma in the neck
+- Through a mask over the mouth and nose | The upper airway no longer connects to the lungs.
+- Through a nasal cannula | Nasal oxygen cannot reach the trachea.
+- Through an oral airway | The mouth does not lead to the trachea.
+= After total laryngectomy the trachea ends at the stoma, so the patient is a neck breather and all airway care occurs there.

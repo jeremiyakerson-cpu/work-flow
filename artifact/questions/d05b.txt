@@ -1,0 +1,256 @@
+# Domain 5 — Respiratory Emergencies (topics 3-5)
+
+@ 5.3
+? A 34-year-old woman who takes an oral contraceptive has sudden shortness of breath and sharp chest pain on inspiration two days after a long-haul flight. HR is 118 and SpO2 91%. Lungs are clear. What should the nurse suspect?
++ Pulmonary embolism
+- Pneumonia | Pneumonia develops more gradually with fever and focal findings.
+- Asthma | Asthma causes wheezing rather than clear lungs with pleuritic pain.
+- Pericarditis | Pericarditis is positional and does not usually cause hypoxia.
+= Sudden dyspnea, pleuritic pain, tachycardia and hypoxia with clear lungs and risk factors point to pulmonary embolism.
+
+? A 28-year-old man has pleuritic chest pain. He is low risk clinically, HR 82, SpO2 99%, with no leg swelling, hemoptysis, recent surgery, prior clots or hormone use. What testing is needed for pulmonary embolism?
++ None; he meets rule-out criteria
+- A D-dimer | Testing a very low-risk patient generates false positives and needless imaging.
+- CT pulmonary angiography | Radiation and contrast are not justified.
+- A ventilation-perfusion scan | Imaging is unnecessary when rule-out criteria are met.
+= In a low-probability patient who satisfies every item of the PERC rule, embolism is excluded without testing.
+
+? A patient has a high clinical probability of pulmonary embolism and normal kidney function. Which test should the nurse prepare for?
++ CT pulmonary angiography
+- A D-dimer first | A negative D-dimer cannot exclude embolism when probability is high.
+- A chest radiograph only | A plain film cannot diagnose embolism.
+- A repeat ECG in an hour | ECG findings are nonspecific.
+= With high pre-test probability the patient goes directly to definitive imaging; D-dimer is for low and intermediate probability.
+
+? A patient with suspected pulmonary embolism has severe contrast allergy and a creatinine of 3.1 mg/dL. Which imaging study is an alternative?
++ Ventilation-perfusion scan
+- CT pulmonary angiography with extra contrast | Contrast is contraindicated here.
+- Abdominal ultrasound | It does not image the pulmonary arteries.
+- Plain chest radiograph | It cannot confirm or exclude embolism.
+= A V/Q scan avoids iodinated contrast and is used when CT angiography is contraindicated.
+
+? A patient with confirmed pulmonary embolism has BP 74/42 despite fluids and a norepinephrine infusion. What treatment should the nurse anticipate?
++ Systemic thrombolytic therapy
+- Subcutaneous enoxaparin alone | Anticoagulation alone does not dissolve an obstructing clot quickly.
+- An oral anticoagulant and discharge | He is in shock.
+- An IV beta blocker | Slowing the heart worsens output.
+= Sustained hypotension defines high-risk (massive) pulmonary embolism, for which reperfusion with thrombolysis or embolectomy is indicated.
+
+? A patient with pulmonary embolism has BP 124/78, an elevated troponin and a dilated right ventricle on echocardiogram. How is this classified, and what does it require?
++ Intermediate risk; anticoagulation with close monitoring for deterioration
+- Low risk; outpatient treatment today | Right ventricular strain excludes low risk.
+- High risk; immediate thrombolysis for all | Thrombolysis is not routine while pressure is maintained.
+- No risk; the findings are incidental | Right ventricular strain predicts decompensation.
+= Normal blood pressure with right ventricular dysfunction or myocardial injury is intermediate-risk (submassive) embolism.
+
+? A patient with a high probability of pulmonary embolism and no bleeding risk faces a 90-minute wait for CT. What should the nurse anticipate?
++ Starting anticoagulation before the scan
+- Withholding all treatment until the diagnosis is confirmed | Delay allows clot propagation.
+- Giving aspirin as the only therapy | Aspirin does not treat venous thromboembolism.
+- Starting thrombolysis empirically | Thrombolysis is for hemodynamic instability.
+= When suspicion is high and bleeding risk is low, anticoagulation begins while imaging is awaited.
+
+? Which ECG finding is most common in pulmonary embolism?
++ Sinus tachycardia
+- Complete heart block | Heart block is not a typical finding.
+- Diffuse ST elevation | That pattern suggests pericarditis.
+- A delta wave | That indicates pre-excitation.
+= Sinus tachycardia is the most frequent ECG finding; the S1Q3T3 pattern is classic but uncommon.
+
+? Which arterial blood gas result is typical early in pulmonary embolism?
++ Low PaO2 with low PaCO2 and a raised pH
+- Low PaO2 with high PaCO2 and a low pH | Carbon dioxide retention occurs only late.
+- Normal PaO2 with high bicarbonate | That is not characteristic.
+- High PaO2 with low bicarbonate | Hypoxemia, not hyperoxia, is expected.
+= Hypoxemia drives hyperventilation, producing respiratory alkalosis.
+
+? A patient with a known large pulmonary embolism becomes pulseless with an organized rhythm on the monitor. In addition to CPR, what should the team consider?
++ Giving a thrombolytic during resuscitation
+- Stopping CPR to obtain a CT scan | Compressions must not stop for imaging.
+- Synchronized cardioversion | There is no shockable tachydysrhythmia.
+- A beta blocker | It would not address the obstruction.
+= Pulmonary embolism is a reversible cause of PEA arrest; thrombolysis during CPR may restore circulation.
+
+? A hypotensive patient with a massive pulmonary embolism is ordered fluids. Why should the nurse expect only a small bolus?
++ Large volumes overdistend the failing right ventricle and reduce cardiac output
+- Fluids dilute the anticoagulant | Dilution is not the concern.
+- Fluids cause the clot to enlarge | Fluid does not enlarge the clot.
+- Any fluid is contraindicated | A cautious small bolus may be tried.
+= The obstructed right ventricle is already distended; excess volume bows the septum and impairs left ventricular filling.
+
+? A patient with pulmonary arterial hypertension arrives because her continuous IV epoprostenol pump stopped an hour ago. She is increasingly breathless. What is the priority?
++ Restart the infusion immediately through any available IV access
+- Wait for the specialty pharmacy to deliver a new pump | Interruption can cause fatal rebound pulmonary hypertension within minutes to hours.
+- Flush the central line forcefully | Flushing delivers a bolus of the drug and causes hypotension.
+- Give a fluid bolus and observe | Fluids do not replace the vasodilator.
+= Epoprostenol has a half-life of minutes; interruption risks rebound pulmonary hypertensive crisis, so the infusion is restored at once.
+
+@ 5.4
+? A tall, thin 22-year-old smoker has sudden sharp right chest pain and mild dyspnea at rest. Breath sounds are reduced on the right with hyperresonance. Vital signs are stable. What is the likely diagnosis?
++ Primary spontaneous pneumothorax
+- Pulmonary embolism | Embolism does not cause hyperresonance or unilateral loss of breath sounds.
+- Pneumonia | Pneumonia causes dullness and fever.
+- Pleural effusion | An effusion is dull to percussion.
+= Rupture of an apical bleb in a tall thin young smoker causes sudden pleuritic pain with hyperresonance.
+
+? A stable young adult has a small first-time spontaneous pneumothorax with minimal symptoms. What management should the nurse anticipate?
++ Supplemental oxygen and observation with a repeat radiograph
+- Immediate thoracotomy | Surgery is not indicated for a small first event.
+- Needle decompression in the second intercostal space | Emergency decompression is for tension physiology.
+- Intubation and positive pressure ventilation | Positive pressure may enlarge the pneumothorax.
+= Small, stable primary pneumothoraces can be observed, with aspiration or a small catheter if they enlarge.
+
+? A ventilated patient suddenly has high peak airway pressures, BP 70/40, SpO2 78% and absent breath sounds on the left. What should the nurse prepare for?
++ Immediate chest decompression
+- A change of ventilator circuit | Equipment failure does not explain unilateral findings with shock.
+- Increasing the PEEP | More pressure worsens tension.
+- A portable radiograph before any intervention | Waiting can be fatal.
+= Positive pressure ventilation can turn a small air leak into a tension pneumothorax, which is decompressed on clinical grounds.
+
+? Where is a chest tube for pneumothorax usually inserted?
++ Fourth or fifth intercostal space, just anterior to the mid-axillary line
+- Second intercostal space at the sternal border | That is not a chest tube site and risks the internal mammary vessels.
+- Eighth intercostal space posteriorly | That risks the diaphragm, liver and spleen.
+- Just below the clavicle medially | That risks the subclavian vessels.
+= The "safe triangle" in the lateral chest avoids major vessels and abdominal organs.
+
+? A patient with a chest tube is being moved to radiology. How should the drainage system be handled?
++ Keep it upright and below the level of the chest, without clamping
+- Clamp the tube for the journey | Clamping can cause tension pneumothorax.
+- Lay the unit on the bed beside the patient | Raising it to chest level lets fluid flow back.
+- Disconnect it and cap the tube | Disconnection allows air into the pleural space.
+= The unit stays below the insertion site and unclamped so that air and fluid continue to drain.
+
+? The water level in the water-seal chamber has stopped rising and falling with the patient's breathing two days after chest tube placement. What should the nurse check first?
++ The tubing for kinks or dependent loops
+- Whether the suction is set high enough | Suction does not create tidaling.
+- Whether the collection chamber is full of air | The chamber collects fluid, not air.
+- Whether the patient has a fever | Fever does not explain the change.
+= Loss of tidaling means either the lung has re-expanded or the tube is obstructed, so patency is checked first.
+
+? A confused patient pulls out his chest tube. What should the nurse do immediately?
++ Cover the site with a sterile occlusive dressing and assess his breathing
+- Push the same tube back in | Reinsertion introduces contamination and injury.
+- Leave the wound open to the air | Air will enter the pleural space with each breath.
+- Clamp the removed tube | Clamping a tube that is out of the patient does nothing.
+= The site is sealed to stop air entry, the patient is monitored for tension pneumothorax and the provider is notified.
+
+? The skin around a chest tube site crackles under the nurse's fingers. The patient is comfortable with stable vital signs. What should the nurse do?
++ Mark the edges of the area and monitor for spread
+- Remove the chest tube | The tube is still needed.
+- Massage the area to disperse the air | Massage does not help and may be painful.
+- Apply an ice pack | Cold does not treat trapped air.
+= A small amount of subcutaneous emphysema is common; expansion suggests an air leak or tube problem and is reported.
+
+? A patient is being discharged after a resolved spontaneous pneumothorax. Which instruction is most important?
++ Avoid air travel and diving until cleared, and stop smoking
+- Begin vigorous exercise tomorrow | Strenuous exertion is delayed.
+- Expect chest pain daily for six months | Persistent pain should be reported.
+- No follow-up is needed | Follow-up imaging is required.
+= Pressure changes can cause recurrence, and smoking greatly increases the risk of another pneumothorax.
+
+? Thirty minutes after a subclavian central line is placed, the patient reports dyspnea and chest pain on that side. What should the nurse anticipate?
++ A chest radiograph to look for pneumothorax
+- An anxiolytic | Symptoms after this procedure have a likely physical cause.
+- Removing the line immediately | The cause should be identified first.
+- A fluid bolus through the new line | Line position and complications must be confirmed before use.
+= The lung apex lies close to the subclavian vein, and pneumothorax is a recognized complication of insertion.
+
+? Both pneumothorax and hemothorax reduce breath sounds. Which finding distinguishes a hemothorax?
++ Dullness to percussion
+- Hyperresonance to percussion | Hyperresonance indicates air.
+- Tracheal deviation toward the affected side | Neither condition typically pulls the trachea toward it.
+- Wheezing | Wheezing indicates airway narrowing.
+= Blood is dull to percussion, whereas air is hyperresonant.
+
+? A new nurse is about to strip a chest tube vigorously to clear a small clot. What should the preceptor say?
++ "Routine stripping creates high negative pressure and can injure lung tissue."
+- "Strip it every hour to keep it clear." | Routine stripping is not recommended.
+- "Clamp it for an hour instead." | Clamping risks tension pneumothorax.
+- "Irrigate it with saline." | Nurses do not irrigate chest tubes.
+= Aggressive stripping generates dangerously high negative intrathoracic pressure; gentle repositioning of tubing is preferred.
+
+@ 5.5
+? Which set of findings defines acute respiratory distress syndrome?
++ Acute hypoxemia with bilateral infiltrates not explained by heart failure
+- Chronic hypercapnia with hyperinflated lungs | That describes COPD.
+- Unilateral consolidation with fever | That describes lobar pneumonia.
+- Wheezing that reverses with bronchodilators | That describes asthma.
+= ARDS is acute-onset hypoxemia with bilateral opacities of non-cardiac origin, graded by the PaO2/FiO2 ratio.
+
+? A patient with sepsis has SpO2 84% on a non-rebreather mask and remains hypoxic after intubation on 100% oxygen. What does this refractory hypoxemia suggest?
++ Alveolar collapse and shunting from ARDS
+- A faulty pulse oximeter | Persistent hypoxemia across devices has a physiologic cause.
+- Carbon dioxide narcosis | That causes drowsiness, not oxygen-resistant hypoxemia.
+- Hyperventilation | Hyperventilation does not cause refractory hypoxemia.
+= In ARDS, flooded and collapsed alveoli are perfused but not ventilated, so oxygen alone cannot correct the hypoxemia.
+
+? Which ventilator strategy is recommended for a patient with ARDS?
++ Low tidal volumes of about 6 mL/kg of predicted body weight
+- High tidal volumes of 12 mL/kg | Large breaths overstretch and injure the lung.
+- No PEEP | PEEP is needed to keep alveoli open.
+- A respiratory rate of 6 per minute | Low volumes need a higher rate.
+= Lung-protective ventilation with low tidal volumes and limited plateau pressure reduces mortality.
+
+? A man with ARDS has a predicted body weight of 70 kg and an actual weight of 110 kg. Which tidal volume fits a 6 mL/kg strategy?
++ 420 mL
+- 660 mL | That uses actual rather than predicted weight.
+- 840 mL | That is 12 mL/kg, an injurious volume.
+- 210 mL | That is 3 mL/kg, too low to start.
+= Lung size follows height, not actual weight, so tidal volume is calculated from predicted body weight.
+
+? PEEP is increased from 8 to 16 cmH2O in a patient with ARDS. Which adverse effect should the nurse watch for?
++ Hypotension from reduced venous return
+- Hypertension from fluid overload | PEEP does not cause fluid overload.
+- Bradycardia from vagal stimulation | That is not the typical effect.
+- Hypoglycemia | PEEP has no effect on glucose.
+= Higher intrathoracic pressure reduces preload and cardiac output and also raises the risk of barotrauma.
+
+? A patient with severe ARDS remains hypoxemic on high PEEP and 80% oxygen. Which intervention should the nurse anticipate?
++ Prone positioning for prolonged periods
+- Trendelenburg positioning | Head-down positioning worsens oxygenation.
+- Removing PEEP | That causes alveolar collapse.
+- Increasing the tidal volume to 10 mL/kg | Larger volumes injure the lung.
+= Prone positioning improves ventilation-perfusion matching and lowers mortality in severe ARDS.
+
+? Which condition is the most common cause of ARDS?
++ Sepsis
+- Asthma | Asthma is an airway disease.
+- Hypertension | Hypertension does not cause ARDS.
+- Anemia | Anemia does not cause ARDS.
+= Sepsis is the leading trigger, followed by pneumonia, aspiration, trauma, pancreatitis and transfusion.
+
+? Two hours into a plasma transfusion, a patient develops acute dyspnea, SpO2 82% and bilateral infiltrates. Neck veins are flat and BP is low. What should the nurse do first?
++ Stop the transfusion
+- Give IV furosemide | The picture is not fluid overload.
+- Slow the transfusion | Any further product can worsen the reaction.
+- Give acetaminophen and continue | This is not a simple febrile reaction.
+= Transfusion-related acute lung injury causes non-cardiogenic pulmonary edema within six hours; the transfusion is stopped and oxygenation supported.
+
+? Once shock has resolved in a patient with ARDS, which fluid approach is preferred?
++ A conservative strategy that avoids a positive fluid balance
+- Liberal maintenance fluids at 200 mL/h | Extra fluid worsens alveolar edema.
+- Repeated boluses to raise central venous pressure | That increases lung water.
+- Complete fluid restriction with no intake | Some intake is needed for perfusion.
+= Leaky pulmonary capillaries mean extra fluid accumulates in the lungs; conservative management shortens ventilator time.
+
+? Which finding helps distinguish ARDS from cardiogenic pulmonary edema?
++ A normal heart size with no jugular venous distension
+- Bilateral crackles | Crackles occur in both.
+- Hypoxemia | Low oxygen occurs in both.
+- Bilateral infiltrates on radiograph | Both show bilateral opacities.
+= ARDS is a permeability problem with normal filling pressures; cardiogenic edema shows signs of volume overload.
+
+? A hiker who ascended rapidly to 3,800 metres two days ago has a cough with frothy sputum, breathlessness at rest and crackles. What is the definitive treatment?
++ Descent to lower altitude with supplemental oxygen
+- Antibiotics and continued ascent | This is not infection, and ascent can be fatal.
+- IV fluids | Fluids worsen pulmonary edema.
+- Bed rest at the same altitude without oxygen | The condition progresses without descent or oxygen.
+= High-altitude pulmonary edema is non-cardiogenic edema from hypoxic pulmonary vasoconstriction; descent and oxygen are life saving.
+
+? A ventilated patient with ARDS has a sudden rise in peak pressure, a fall in SpO2 and absent breath sounds on the right. What complication is most likely?
++ Pneumothorax from barotrauma
+- Mucus plugging on the left | The absent sounds are on the right.
+- Ventilator disconnection | Disconnection causes low, not high, pressure alarms.
+- Pulmonary embolism | Embolism does not raise peak pressure.
+= Stiff ARDS lungs under positive pressure are prone to alveolar rupture and pneumothorax.
