@@ -1,0 +1,235 @@
+# Domain 2 — Environmental & Toxicological Emergencies (topics 0-2)
+
+@ 2.0
+? A 24-year-old arrives 40 minutes after swallowing about thirty amitriptyline tablets. She is awake, talking and protecting her airway. Which decontamination measure should the nurse anticipate?
++ A single dose of activated charcoal by mouth
+- Syrup of ipecac to induce vomiting | Ipecac is no longer recommended and risks aspiration if she deteriorates.
+- Whole bowel irrigation by nasogastric tube | Irrigation is reserved for sustained-release drugs, metals and packets.
+- Observation only until symptoms appear | Early charcoal can limit absorption of a potentially lethal dose.
+= Activated charcoal (about 1 g/kg) is most useful within roughly an hour of a serious ingestion in an alert patient with an intact airway.
+
+? Which patient should NOT receive activated charcoal?
++ A drowsy patient who swallowed drain cleaner
+- An alert patient who took carbamazepine 30 minutes ago | An alert patient with a recent adsorbable ingestion is a candidate.
+- An alert patient who took aspirin an hour ago | Salicylates are adsorbed and the airway is intact.
+- An intubated patient who took a tricyclic antidepressant | A protected airway makes charcoal acceptable.
+= Charcoal is contraindicated with caustics, where it obscures endoscopy and adds no benefit, and with an unprotected airway.
+
+? A toddler swallowed a handful of prenatal vitamins containing iron. Why will activated charcoal not be ordered?
++ Iron does not bind to charcoal
+- Charcoal is never given to children | Charcoal can be used in children when indicated.
+- Charcoal turns iron into a toxic compound | No such reaction occurs.
+- Iron is absorbed too slowly to matter | Iron is absorbed readily and is highly toxic.
+= Metals such as iron and lithium, alcohols and caustics are poorly adsorbed by activated charcoal.
+
+? A parent calls the triage line: a 2-year-old swallowed some of a grandparent's pills 10 minutes ago and is acting normally. The parent asks whether to make the child vomit. What is the best advice?
++ Do not induce vomiting; call poison control and bring the pill bottles
+- Give syrup of ipecac and observe at home | Ipecac is obsolete and delays effective care.
+- Give milk and put the child down for a nap | Sleep hides deterioration and milk is not an antidote.
+- Stimulate the gag reflex with a finger | Forced vomiting risks aspiration and removes little drug.
+= Induced emesis is not recommended; poison control (1-800-222-1222) guides management based on the substance and amount.
+
+? A man suspected of swallowing packets of cocaine is asymptomatic. Which decontamination method is most appropriate?
++ Whole bowel irrigation with polyethylene glycol solution
+- Gastric lavage with a large-bore tube | Lavage may rupture packets and does not clear the intestine.
+- Repeated doses of syrup of ipecac | Vomiting risks packet rupture and aspiration.
+- A sodium phosphate enema | An enema does not clear the small bowel and risks electrolyte shifts.
+= Whole bowel irrigation flushes intact drug packets, sustained-release tablets, iron and lithium through the gut.
+
+? A 19-year-old is agitated and picking at the air. Skin is hot, dry and flushed, pupils are 7 mm, HR 132, and the bladder is distended. Which ingestion is most likely?
++ Diphenhydramine
+- Oxycodone | Opioids cause miosis, sedation and respiratory depression.
+- An organophosphate insecticide | Cholinergic poisoning causes secretions, miosis and bradycardia.
+- Clonidine | Clonidine causes miosis, bradycardia and hypotension.
+= Hot, dry, flushed skin with mydriasis, tachycardia, delirium and urinary retention is the anticholinergic toxidrome.
+
+? A farm worker has profuse salivation, tearing, vomiting, diarrhea, wheezing, pinpoint pupils and HR 44 after spraying crops. What is the first nursing action?
++ Don protective equipment and remove his clothing
+- Start an IV line and draw baseline labs | Access matters, but staff protection and decontamination come first.
+- Give activated charcoal by mouth | The exposure is dermal and inhalational, and he is vomiting.
+- Place him in a negative-pressure room | Airborne isolation does not address chemical contamination.
+= Organophosphates are absorbed through skin; staff protection and decontamination precede treatment to stop ongoing exposure.
+
+? An unresponsive 30-year-old has a respiratory rate of 6, pinpoint pupils and SpO2 84%. Which toxidrome does this represent?
++ Opioid
+- Sympathomimetic | Stimulants cause agitation, mydriasis and tachycardia.
+- Anticholinergic | That syndrome causes mydriasis, delirium and dry skin.
+- Serotonin syndrome | That causes clonus, hyperthermia and agitation.
+= Coma, respiratory depression and miosis form the classic opioid triad.
+
+? Two agitated, tachycardic, hyperthermic patients have dilated pupils. Which finding best separates sympathomimetic poisoning from anticholinergic poisoning?
++ Profuse sweating
+- An elevated heart rate | Tachycardia occurs in both syndromes.
+- Dilated pupils | Mydriasis occurs in both syndromes.
+- Agitation | Altered behaviour occurs in both syndromes.
+= Sympathomimetics cause diaphoresis, whereas anticholinergics block sweating and leave the skin dry.
+
+? A 3-year-old drank a mouthful of lamp oil and is coughing. SpO2 is 95%. Which intervention is appropriate?
++ Observe respiratory status and avoid inducing vomiting
+- Insert a nasogastric tube and lavage | Lavage raises the risk of aspirating the hydrocarbon.
+- Give activated charcoal | Hydrocarbons are poorly adsorbed and charcoal invites vomiting.
+- Discharge at once since the amount was small | Even small aspirations cause delayed pneumonitis.
+= Hydrocarbons have low viscosity and are easily aspirated, causing chemical pneumonitis; emesis and lavage are avoided.
+
+? An overdose patient's identity and ingestion are unknown. Which bedside test should be performed first in any patient with altered mental status?
++ A capillary blood glucose
+- A urine drug screen | The screen is slow, incomplete and rarely changes immediate care.
+- A serum ethanol level | Alcohol level does not exclude other reversible causes.
+- An ammonia level | Ammonia is not a first-line test in an unknown ingestion.
+= Hypoglycemia is rapidly reversible and mimics intoxication, so glucose is checked immediately in altered mental status.
+
+@ 2.1
+? A 52-year-old on long-term oxycodone for cancer pain is found with a respiratory rate of 7 after an accidental double dose. Which naloxone approach is best?
++ Small titrated IV doses until respirations are adequate
+- A 2 mg IV bolus repeated until fully awake | Full reversal precipitates severe withdrawal and uncontrolled pain.
+- A 10 mg IV bolus given once | That dose far exceeds what is needed and provokes withdrawal.
+- No naloxone, because he is opioid dependent | Dependence does not preclude treating respiratory depression.
+= In opioid-dependent patients naloxone is titrated in small increments to restore ventilation without precipitating withdrawal.
+
+? A patient who overdosed on methadone wakes fully after naloxone and wants to leave 30 minutes later. What should the nurse explain?
++ Naloxone wears off before methadone, so breathing may slow again
+- Naloxone has cured the overdose | The opioid outlasts the antagonist.
+- He can leave once he has eaten | Eating does not change opioid duration.
+- A second dose makes it safe to go | Repeat dosing still needs monitoring.
+= Naloxone lasts 30-90 minutes while methadone lasts many hours, so prolonged observation or an infusion is needed.
+
+? A 45-year-old who takes clonazepam daily for a seizure disorder overdoses on it along with amitriptyline. A provider orders flumazenil. What is the nurse's best action?
++ Question the order because of the risk of seizures
+- Give it rapidly to prevent respiratory arrest | Rapid reversal may trigger refractory seizures here.
+- Give it with a dose of naloxone | Adding naloxone does not reduce the seizure risk.
+- Give half the dose intramuscularly | The route change does not remove the danger.
+= Flumazenil can precipitate withdrawal seizures in benzodiazepine-dependent patients and unmask seizures from proconvulsant co-ingestants.
+
+? A patient who overdosed on a tricyclic antidepressant has HR 128, BP 84/50 and a QRS duration of 140 ms. Which medication should the nurse prepare?
++ Sodium bicarbonate IV
+- Physostigmine IV | Physostigmine can cause asystole in tricyclic poisoning.
+- Procainamide IV | Sodium channel blockers worsen the conduction delay.
+- Flumazenil IV | Flumazenil does not treat sodium channel blockade.
+= Sodium bicarbonate overcomes sodium channel blockade and narrows the QRS in tricyclic toxicity.
+
+? A patient who took an overdose of metoprolol has HR 38 and BP 76/40 that does not respond to atropine and fluids. Which antidote should the nurse anticipate?
++ Glucagon IV
+- Naloxone IV | Naloxone reverses opioids only.
+- Flumazenil IV | Flumazenil reverses benzodiazepines only.
+- Vitamin K IV | Vitamin K reverses warfarin only.
+= Glucagon raises cyclic AMP independently of beta receptors, improving rate and contractility; high-dose insulin is also used.
+
+? A patient with a verapamil overdose remains hypotensive and bradycardic after IV calcium. Which therapy is recommended next?
++ High-dose insulin with dextrose
+- Oral potassium chloride | Potassium does not treat calcium channel blockade.
+- IV digoxin | Digoxin would worsen conduction block.
+- IV magnesium sulfate | Magnesium further blocks calcium effects.
+= High-dose insulin euglycemic therapy improves myocardial energy use and contractility in calcium channel blocker poisoning.
+
+? An 80-year-old on digoxin presents with vomiting, confusion, potassium 6.4 mEq/L and runs of ventricular tachycardia. Which treatment is definitive?
++ Digoxin immune Fab
+- Hemodialysis | Digoxin's large volume of distribution makes dialysis ineffective.
+- Synchronized cardioversion | Electrical therapy may trigger refractory ventricular fibrillation.
+- IV furosemide | Diuresis does not clear digoxin and may lower potassium unpredictably.
+= Life-threatening dysrhythmias or hyperkalemia from digoxin toxicity are treated with digoxin-specific antibody fragments.
+
+? A man who drank windshield washer fluid has blurred "snowfield" vision, an anion gap of 28 and an elevated osmolar gap. Which antidote should the nurse prepare?
++ Fomepizole
+- N-acetylcysteine | That is the antidote for acetaminophen.
+- Pyridoxine alone | Pyridoxine treats isoniazid toxicity.
+- Deferoxamine | Deferoxamine chelates iron.
+= Fomepizole blocks alcohol dehydrogenase, preventing conversion of methanol or ethylene glycol to toxic acids.
+
+? A patient poisoned with an organophosphate is receiving atropine. Which finding tells the nurse that enough atropine has been given?
++ Bronchial secretions have dried and breath sounds are clear
+- The pupils have dilated to 6 mm | Pupil size is an unreliable endpoint.
+- The heart rate has reached 120/min | Tachycardia is not the titration target.
+- The patient has become sleepy | Sedation is not a goal of therapy.
+= Atropine is titrated to drying of pulmonary secretions and easier ventilation; pralidoxime is given to regenerate cholinesterase.
+
+? A 2-year-old swallowed two of a grandparent's glipizide tablets. Glucose falls to 38 mg/dL again an hour after a dextrose bolus. Which medication should the nurse anticipate?
++ Octreotide
+- Glucagon as the sole ongoing therapy | Glucagon is short acting and depends on glycogen stores.
+- Regular insulin | Insulin would worsen hypoglycemia.
+- Activated charcoal only | Charcoal does not correct established hypoglycemia.
+= Octreotide suppresses the insulin release driven by sulfonylureas and prevents rebound hypoglycemia after dextrose.
+
+? After a topical benzocaine spray, a patient is cyanotic with SpO2 85% that does not improve on 100% oxygen, and the arterial blood looks chocolate brown. Which treatment is indicated?
++ Methylene blue
+- Hydroxocobalamin | That treats cyanide poisoning.
+- Naloxone | Naloxone does not reduce methemoglobin.
+- Sodium bicarbonate | Bicarbonate does not restore functional hemoglobin.
+= Methemoglobinemia causes cyanosis unresponsive to oxygen with chocolate-coloured blood; methylene blue reduces methemoglobin.
+
+@ 2.2
+? A 17-year-old took about 20 g of acetaminophen 90 minutes ago. When should the serum level be drawn to guide treatment?
++ Four hours after the ingestion
+- Immediately on arrival | A level before four hours cannot be plotted on the nomogram.
+- Twelve hours after the ingestion | Waiting that long delays antidote beyond its best window.
+- Only if liver enzymes rise | Enzymes rise after injury that treatment is meant to prevent.
+= The Rumack-Matthew nomogram starts at four hours after a single acute ingestion, when absorption is complete.
+
+? A patient's acetaminophen level drawn 4 hours after an acute ingestion is 190 mcg/mL. What does the nurse anticipate?
++ Starting N-acetylcysteine
+- Discharge with reassurance | The level is above the treatment line at four hours.
+- Repeating the level in 24 hours first | Delaying treatment allows hepatic injury.
+- Hemodialysis | Dialysis is not routine treatment for acetaminophen.
+= A four-hour level above 150 mcg/mL falls above the treatment line and warrants N-acetylcysteine.
+
+? Why is the timing of N-acetylcysteine critical after acetaminophen overdose?
++ It is nearly fully protective when started within 8 hours
+- It works only after liver enzymes have risen | It is most effective before injury occurs.
+- It must be delayed until the drug is fully metabolized | Delay permits toxic metabolite build-up.
+- It is effective only in the first 60 minutes | Its window is far longer than one hour.
+= N-acetylcysteine replenishes glutathione; hepatotoxicity is rare when it begins within eight hours of ingestion.
+
+? Twelve hours after a large acetaminophen overdose a patient feels well and asks to go home. What should the nurse tell her?
++ Early symptoms are mild or absent even when serious liver injury is developing
+- Feeling well means the dose was not toxic | The first 24 hours are often asymptomatic.
+- She can leave if she drinks plenty of water | Hydration does not prevent hepatic necrosis.
+- The danger passes after eight hours | Liver injury peaks at three to four days.
+= Stage I acetaminophen toxicity is clinically quiet; liver enzymes rise at 24-72 hours and injury peaks at 72-96 hours.
+
+? During the loading dose of IV N-acetylcysteine a patient develops flushing, hives and itching. BP and breathing are normal. What is the appropriate action?
++ Pause the infusion, give an antihistamine and restart at a slower rate
+- Discontinue the antidote permanently | The reaction is rate related and treatment remains essential.
+- Continue at the same rate and observe | The reaction is likely to worsen without intervention.
+- Give IM epinephrine and stop all treatment | Epinephrine is for airway or circulatory compromise.
+= Anaphylactoid reactions to IV N-acetylcysteine are rate related and are managed by slowing the infusion and treating symptoms.
+
+? Which laboratory results best track developing hepatotoxicity after acetaminophen overdose?
++ AST, ALT and INR
+- Amylase and lipase | These reflect pancreatic injury.
+- Troponin and BNP | These reflect cardiac injury and strain.
+- Hemoglobin and platelet count | These do not reflect hepatocellular injury.
+= Rising transaminases and a prolonged INR signal hepatocellular necrosis and failing synthetic function.
+
+? A patient reports taking extra-strength acetaminophen "every couple of hours" for three days for a toothache. How does this change the assessment?
++ The nomogram cannot be used; treatment is guided by the level and liver enzymes
+- The four-hour nomogram applies from the last dose | The nomogram is valid only for a single acute ingestion.
+- No testing is needed because the doses were spread out | Repeated supratherapeutic dosing causes hepatotoxicity.
+- A urine drug screen will show whether the dose was toxic | Urine screens do not measure acetaminophen toxicity.
+= Repeated supratherapeutic ingestion falls outside the nomogram; any detectable level with raised transaminases prompts treatment.
+
+? A 22-year-old has ringing in the ears, vomiting, RR 32 and temperature 38.6 C after an intentional overdose. Arterial pH is 7.48 with a low bicarbonate. Which substance is most likely?
++ Aspirin
+- Acetaminophen | Early acetaminophen toxicity is quiet without tinnitus or hyperpnea.
+- Diphenhydramine | Anticholinergic poisoning does not cause tinnitus or this acid-base picture.
+- Lorazepam | Benzodiazepines slow respiration.
+= Salicylates stimulate the respiratory centre and uncouple oxidative phosphorylation, giving tinnitus, hyperpnea, fever and a mixed acid-base disorder.
+
+? A patient with a salicylate level of 62 mg/dL is started on a sodium bicarbonate infusion. Which electrolyte must be kept normal for the therapy to work?
++ Potassium
+- Chloride | Chloride does not determine urinary alkalinization.
+- Phosphate | Phosphate does not determine urinary alkalinization.
+- Sodium | Sodium is supplied by the infusion itself.
+= Hypokalemia makes the kidney retain potassium in exchange for hydrogen ions, preventing the urine from becoming alkaline.
+
+? Which finding in a salicylate-poisoned patient is an indication for emergent hemodialysis?
++ New confusion with pulmonary edema
+- Mild tinnitus | Tinnitus alone is an early toxic effect.
+- Nausea controlled with an antiemetic | Controlled nausea does not indicate severe poisoning.
+- A respiratory rate of 24 | Mild hyperpnea is expected.
+= Altered mental status, pulmonary or cerebral edema, renal failure, severe acidosis or very high levels call for dialysis.
+
+? A severely salicylate-poisoned patient is breathing 36 times a minute. The team is considering sedation and intubation. What is the major risk?
++ Loss of compensatory hyperventilation causing fatal acidosis
+- Vocal cord injury from salicylate | Salicylates do not injure the vocal cords.
+- Malignant hyperthermia from the sedative | That is unrelated to salicylates.
+- Rebound hypertension | Hypertension is not the concern.
+= Hyperventilation keeps the pH up; if ventilation falls after intubation, acidemia drives more salicylate into the brain.

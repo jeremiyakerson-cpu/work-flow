@@ -1,0 +1,235 @@
+# Domain 2 — Environmental & Toxicological Emergencies (topics 6-8)
+
+@ 2.6
+? A 4-year-old is pulled from a pool, apneic with a weak pulse. What is the first priority?
++ Open the airway and give rescue breaths with oxygen
+- Perform abdominal thrusts to expel water | Thrusts cause vomiting and aspiration and delay ventilation.
+- Tilt the child head-down to drain the lungs | Drainage maneuvers remove little water and waste time.
+- Start an IV line for a fluid bolus | Access does not correct the hypoxia driving the event.
+= Drowning injures through hypoxia, so immediate ventilation and oxygenation come before everything else.
+
+? Bystanders report that an adult slipped quietly under the water while swimming laps; there was no dive or fall. Is spinal motion restriction needed?
++ No, not routinely, without a mechanism or signs of injury
+- Yes, for every submersion victim | Routine immobilization delays airway care and is rarely needed.
+- Yes, until a full-spine MRI is done | Imaging is guided by mechanism and examination.
+- Only if the water was salt water | Water type has no bearing on spinal injury.
+= Cervical spine injury is uncommon in drowning; precautions are reserved for diving, falls, trauma or neurologic signs.
+
+? A 10-year-old was briefly submerged, coughed at the scene and is now asymptomatic with clear lungs and SpO2 99% on room air. What is the appropriate disposition?
++ Observe for several hours and discharge if he remains normal
+- Discharge immediately with no observation | Respiratory symptoms can develop over the first hours.
+- Admit to intensive care for 48 hours | Prolonged intensive care is unnecessary for an asymptomatic child.
+- Intubate prophylactically | Airway intervention is not indicated without respiratory compromise.
+= Asymptomatic patients are observed for about 4-8 hours, since deterioration, when it occurs, appears in that window.
+
+? Four hours after a near-drowning, a patient develops a worsening cough, crackles and SpO2 of 88% on a nasal cannula. What is happening?
++ Non-cardiogenic pulmonary edema from surfactant loss and alveolar injury
+- Anxiety about the event | Anxiety does not cause crackles and hypoxemia.
+- Fluid overload from swallowed water | Swallowed water does not cause pulmonary edema.
+- Bronchospasm from pool chlorine alone | Chlorine irritation would not produce progressive crackles and hypoxemia.
+= Aspirated water washes out surfactant and damages the alveolar membrane, causing delayed lung injury that may need positive pressure.
+
+? A teenager rescued from a cold lake is shivering in wet clothes with a temperature of 33 C and SpO2 94%. Besides oxygen, which action is most important?
++ Remove wet clothing and begin rewarming
+- Give a cold oral electrolyte drink | Cold fluids do nothing for hypothermia.
+- Leave the wet clothing on for insulation | Wet clothing accelerates heat loss.
+- Encourage vigorous exercise | Exertion strains an irritable hypothermic heart.
+= Hypothermia commonly accompanies submersion; drying and rewarming prevent further heat loss.
+
+? A student asks whether treatment differs between fresh-water and salt-water drowning. What is the best answer?
++ Initial management is the same; both cause hypoxemia
+- Salt-water victims always need diuretics | Diuretics are not routine in either.
+- Fresh-water victims need hypertonic saline | Clinically significant electrolyte shifts are uncommon.
+- Only fresh-water victims need oxygen | Both need oxygenation and ventilation.
+= The volumes aspirated rarely cause meaningful electrolyte changes; treatment targets hypoxemia regardless of water type.
+
+? Which factor is the strongest predictor of neurologic outcome after drowning?
++ Duration of submersion
+- Water temperature in a backyard pool | Ordinary pool temperatures are not protective.
+- The victim's swimming ability | Skill does not determine outcome once submerged.
+- Whether the water was chlorinated | Chlorination does not affect hypoxic injury.
+= The length of hypoxia, reflected by submersion time and time to effective resuscitation, drives outcome.
+
+? Which statement by the parent of a toddler shows that drowning prevention teaching was understood?
++ "I'll stay within arm's reach whenever she is in or near water."
+- "Floaties mean I can watch from the kitchen." | Inflatable aids are not safety devices and do not replace supervision.
+- "The pool cover works as well as a fence." | Soft covers can trap a child; four-sided fencing is recommended.
+- "Her older brother, who is seven, can watch her." | A young child cannot provide reliable supervision.
+= Constant touch supervision plus four-sided pool fencing are the most effective measures for young children.
+
+? A 16-year-old competitive swimmer was found submerged mid-lap and was resuscitated. There was no trauma or intoxication. Which test is particularly important?
++ A 12-lead ECG to look for a prolonged QT interval
+- A serum lipase | Pancreatic disease would not cause this event.
+- A urine pregnancy test only | It does not explain sudden incapacitation.
+- A sinus CT | Sinus disease is not a cause of submersion.
+= Unexplained drowning in a strong swimmer raises concern for a primary dysrhythmia such as long QT syndrome, or a seizure.
+
+? During bag-mask ventilation of a drowning victim, he vomits a large amount of water and food. What should the nurse do?
++ Turn him to the side, suction the airway and resume ventilation
+- Continue ventilating through the vomitus | That forces gastric contents into the lungs.
+- Apply abdominal pressure to empty the stomach | Pressure causes more regurgitation.
+- Stop resuscitation | Vomiting is common and expected, not a sign of futility.
+= Swallowed water and gastric distension make vomiting common; the airway is cleared at once and ventilation continues.
+
+? A drowning victim has been intubated and has a visibly distended abdomen. Which intervention helps ventilation?
++ Inserting a gastric tube to decompress the stomach
+- Placing the patient prone | Prone positioning is not the first step and does not relieve distension.
+- Giving a bowel stimulant | A laxative does not decompress the stomach.
+- Applying an abdominal binder | A binder restricts the diaphragm further.
+= Gastric distension from swallowed water and bag-mask ventilation splints the diaphragm; decompression improves ventilation.
+
+@ 2.7
+? On a January night a couple and their two children arrive with headache, nausea and dizziness that improve when they leave home. They use a gas furnace. What should the nurse suspect?
++ Carbon monoxide poisoning
+- Viral gastroenteritis | A shared illness would not improve on leaving the house and lacks diarrhea.
+- Food poisoning | Headache and dizziness that clear outdoors point to an environmental cause.
+- Migraine | Migraine does not strike a whole household at once.
+= Flu-like symptoms in several household members during heating season, improving away from home, suggest carbon monoxide.
+
+? A patient rescued from a garage with a running car has SpO2 99% by pulse oximetry but is confused. Which test confirms the suspected diagnosis?
++ Carboxyhemoglobin level by co-oximetry
+- Standard pulse oximetry on another finger | Standard oximeters read carboxyhemoglobin as oxyhemoglobin.
+- A peak expiratory flow | Flow measurement does not detect carbon monoxide.
+- A chest radiograph | The film is usually normal.
+= Pulse oximetry is falsely reassuring in carbon monoxide poisoning; co-oximetry measures carboxyhemoglobin directly.
+
+? What is the initial treatment for a patient with suspected carbon monoxide poisoning?
++ 100% oxygen by a tight-fitting non-rebreather mask
+- Oxygen at 2 L/min by nasal cannula | Low-flow oxygen clears carbon monoxide far too slowly.
+- Room air and observation | The half-life on room air is four to five hours.
+- Nebulized albuterol | Bronchodilators do not displace carbon monoxide.
+= High-concentration oxygen shortens the carboxyhemoglobin half-life from about 4-5 hours to roughly 60-90 minutes.
+
+? Which carbon monoxide-poisoned patient is the strongest candidate for hyperbaric oxygen therapy?
++ A patient who lost consciousness at the scene
+- A patient with a mild headache and a level of 8% | Mild symptoms with a low level respond to normobaric oxygen.
+- A smoker with a level of 6% and no symptoms | Smokers often have baseline levels in this range.
+- A patient whose nausea has resolved on oxygen | Resolving mild symptoms do not need hyperbaric therapy.
+= Syncope, neurologic deficit, cardiac ischemia, pregnancy and markedly elevated levels are indications to consider hyperbaric oxygen.
+
+? A woman who is 28 weeks pregnant has a carboxyhemoglobin level of 16% and a mild headache. Why is she treated more aggressively than a non-pregnant patient?
++ Fetal hemoglobin binds carbon monoxide more tightly and clears it more slowly
+- Pregnancy raises the mother's baseline level | Pregnancy does not explain the concern.
+- Oxygen is dangerous to the fetus | Oxygen is the treatment and is safe.
+- Her level is falsely low because of anemia | Anemia does not falsely lower the percentage.
+= Fetal carboxyhemoglobin rises higher and lasts longer than the mother's, so oxygen is continued longer and hyperbaric therapy is considered sooner.
+
+? A patient is discharged after treatment for carbon monoxide poisoning. Which instruction is most important?
++ Return for memory problems, personality change or trouble concentrating in the coming weeks
+- Expect a cherry-red skin colour for a month | Cherry-red skin is a rare, late finding, not an expected course.
+- Avoid all exercise for six months | No such restriction is needed.
+- Use home oxygen for two weeks | Home oxygen is not standard after treatment.
+= Delayed neuropsychiatric effects can appear days to weeks after apparent recovery.
+
+? At triage a patient with suspected carbon monoxide exposure says her elderly mother stayed home "to sleep it off." What should the nurse do?
++ Arrange for emergency services to check the home at once
+- Advise the patient to call her mother later | Delay leaves a vulnerable person in a toxic environment.
+- Document it and continue triage | The source is still poisoning someone.
+- Tell the patient to open the windows tomorrow | Ventilation tomorrow is too late.
+= Others in the same environment remain at risk; the source must be identified and remaining occupants removed.
+
+? A firefighter pulls a man from a burning apartment. He has soot in the mouth, BP 74/40, a lactate of 11 mmol/L and is comatose despite 100% oxygen. Which antidote should be given empirically?
++ Hydroxocobalamin
+- Methylene blue | That treats methemoglobinemia and would not help.
+- Naloxone | Opioid reversal does not address the cause.
+- Flumazenil | Benzodiazepine reversal does not address the cause.
+= Smoke from burning synthetics releases cyanide; shock, coma and severe lactic acidosis in a fire victim warrant empiric hydroxocobalamin.
+
+? What should the nurse do before and expect after giving hydroxocobalamin?
++ Draw blood samples first; expect red skin and urine afterwards
+- Check a potassium level first; expect bradycardia | Neither is characteristic of the drug.
+- Give an antiemetic first; expect blue urine | Blue discoloration follows methylene blue.
+- Hold oxygen first; expect yellow sclera | Oxygen continues and jaundice is not an effect.
+= Hydroxocobalamin turns skin and urine red and interferes with colorimetric laboratory tests, so samples are drawn beforehand.
+
+? A jeweller collapses at work after an accident with a plating solution. He has seizures, hypotension and bright red venous blood. Which poisoning is most likely?
++ Cyanide
+- Lead | Lead toxicity is gradual with anemia and neuropathy.
+- Arsenic | Arsenic causes severe gastroenteritis and a garlic odour.
+- Mercury | Mercury causes tremor, gingivitis and neuropsychiatric change.
+= Cyanide blocks cellular oxygen use, causing sudden collapse with well-oxygenated venous blood and lactic acidosis.
+
+? Why is hydroxocobalamin preferred over a nitrite-based cyanide kit in smoke inhalation victims?
++ Nitrites create methemoglobin, which further reduces oxygen delivery when carbon monoxide is present
+- Nitrites must be given orally | Nitrites are inhaled or given IV.
+- Nitrites cause severe hypertension | They cause hypotension.
+- Hydroxocobalamin also removes carbon monoxide | It does not treat carbon monoxide.
+= Nitrite-induced methemoglobinemia is dangerous when carboxyhemoglobin already limits oxygen carriage.
+
+@ 2.8
+? A private car pulls up to the ambulance entrance with a worker soaked in an industrial pesticide. What should the nurse do first?
++ Keep him outside and begin decontamination with staff in protective equipment
+- Bring him to a resuscitation room immediately | Entry contaminates the department and staff.
+- Send him to the waiting room to register | Others would be exposed.
+- Ask him to drive to the fire station | Sending him away delays care.
+= Contaminated patients are decontaminated before entering the department to protect staff, other patients and the facility.
+
+? Which single step removes the most contamination from a chemically exposed patient?
++ Removing all clothing
+- Wiping the face with a towel | Wiping one area removes little.
+- Rinsing the hands | Hand rinsing leaves most contaminant in place.
+- Applying a neutralizing lotion | Neutralizers are not used on skin.
+= Disrobing eliminates the large majority of external contamination; clothing is double-bagged.
+
+? A worker has a dry powder, lime, covering both forearms. How should decontamination begin?
++ Brush off the dry powder, then irrigate with copious water
+- Apply water immediately while the powder is in place | Wetting lime first activates it and produces heat.
+- Apply vinegar to neutralize it | Neutralization generates heat and more injury.
+- Wrap the arms in dry dressings | Covering leaves the chemical on the skin.
+= Dry chemicals are brushed away before prolonged irrigation because adding water activates some powders.
+
+? A glass etcher spilled hydrofluoric acid on his fingers. The skin looks nearly normal but the pain is severe. After irrigation, which treatment is specific?
++ Calcium gluconate gel applied to the area
+- Silver sulfadiazine cream | It does not bind fluoride.
+- Sodium bicarbonate paste | Bicarbonate does not neutralize fluoride ions.
+- Topical lidocaine only | Anaesthetic masks pain without stopping tissue destruction.
+= Fluoride penetrates deeply and binds calcium; calcium gluconate neutralizes it and relieves pain.
+
+? Which systemic complication should the nurse monitor for after a large hydrofluoric acid exposure?
++ Hypocalcemia with a prolonged QT interval
+- Hypernatremia with seizures | Sodium is not affected.
+- Hyperglycemia with ketosis | Glucose metabolism is not affected.
+- Hypercalcemia with a shortened QT interval | Fluoride lowers, not raises, calcium.
+= Fluoride binds calcium and magnesium, causing life-threatening hypocalcemia and ventricular dysrhythmias.
+
+? Why do alkali burns generally need longer irrigation than acid burns?
++ Alkalis liquefy tissue and keep penetrating deeper
+- Alkalis evaporate slowly from skin | Evaporation is not the mechanism.
+- Acids are neutralized by sweat | Sweat does not neutralize acid.
+- Alkalis are always stronger than acids | Strength varies; the mechanism of injury is the issue.
+= Alkalis cause liquefaction necrosis with ongoing penetration, while acids form a coagulated barrier that limits depth.
+
+? A 3-year-old swallowed crystal drain cleaner 20 minutes ago and is drooling and refusing to swallow. Which action is correct?
++ Keep the child NPO and prepare for airway assessment
+- Give lemon juice to neutralize the alkali | Neutralization produces heat and worsens the burn.
+- Give activated charcoal | Charcoal does not bind caustics and obscures endoscopy.
+- Induce vomiting | Vomiting re-exposes the esophagus to the caustic.
+= Drooling and dysphagia suggest significant caustic injury; nothing is given by mouth and the airway is the priority.
+
+? In a hazardous materials incident, where does patient decontamination take place?
++ The warm zone
+- The hot zone | The hot zone is the contaminated area where rescue occurs.
+- The cold zone | The cold zone is kept clean for treatment and transport.
+- The triage desk | Contaminated patients must not reach indoor triage.
+= Decontamination takes place in the warm zone, between the contaminated hot zone and the clean cold zone.
+
+? A laboratory worker has fragments of sodium metal embedded in his hand. Which first step is correct?
++ Cover the fragments with mineral oil and remove them
+- Flush the hand with large amounts of water | Elemental sodium reacts violently with water.
+- Soak the hand in saline | Saline contains water and triggers the same reaction.
+- Apply wet gauze | Moisture ignites the metal.
+= Elemental sodium, potassium and lithium ignite on contact with water; they are covered with oil and removed mechanically.
+
+? A man mixed bleach with an ammonia cleaner in a small bathroom and now has cough, burning eyes and wheezing. After removal to fresh air, what treatment should the nurse anticipate?
++ Humidified oxygen and an inhaled bronchodilator
+- Activated charcoal | The exposure was inhaled, not ingested.
+- Atropine IV | There is no cholinergic poisoning.
+- Whole-body decontamination with soap | The injury is from gas, not skin contamination.
+= Chloramine and chlorine gases irritate the airways; care is supportive with oxygen and bronchodilators and observation for delayed edema.
+
+? A patient with external radioactive contamination also has an open femur fracture and BP 78/40. What takes priority?
++ Treating the life-threatening injuries
+- Completing full decontamination before any care | Contamination rarely poses an immediate risk to staff using standard precautions.
+- Waiting for a radiation safety officer | Resuscitation must not be delayed.
+- Isolating the patient untreated | Withholding care from an unstable patient is unsafe.
+= Radiologic contamination is not immediately dangerous to caregivers; life-saving treatment comes first, with decontamination afterward.
