@@ -1,0 +1,236 @@
+# Domain 10 — Medical Emergencies (topics 0-2)
+
+@ 10.0
+? A 70-year-old with a cough and fever has RR 26, new confusion and BP 96/58. What should the triage nurse recognize?
++ Probable sepsis requiring immediate evaluation
+- A routine respiratory infection suitable for the waiting room | Altered mentation, tachypnea and low pressure indicate organ dysfunction.
+- Anxiety from being unwell | These signs have a physiologic cause.
+- Dehydration that needs only oral fluids | The picture is more serious than simple dehydration.
+= Infection with altered mental status, a fast respiratory rate and low blood pressure suggests sepsis and a high risk of deterioration.
+
+? Which set of interventions makes up the initial sepsis bundle for a patient with septic shock?
++ Lactate, blood cultures, broad-spectrum antibiotics and a crystalloid bolus
+- Chest radiograph, urine culture and oral antibiotics | These omit lactate, IV antibiotics and fluid resuscitation.
+- Antipyretics, bed rest and observation | These do not treat shock.
+- Steroids, diuretics and fluid restriction | These are not initial sepsis therapy.
+= The bundle is: measure lactate, draw cultures before antibiotics, give broad-spectrum antibiotics, give fluids for hypotension or high lactate, and add vasopressors if needed.
+
+? An 80 kg patient with sepsis has BP 82/46 and a lactate of 4.8 mmol/L. Using 30 mL/kg, what crystalloid volume should the nurse prepare?
++ 2,400 mL
+- 800 mL | That is 10 mL/kg.
+- 1,600 mL | That is 20 mL/kg.
+- 4,800 mL | That is 60 mL/kg.
+= Sepsis-induced hypotension or a lactate of 4 mmol/L or more is treated with 30 mL/kg of crystalloid, here 2,400 mL.
+! Surviving Sepsis Campaign guidance was being updated (2021 edition used here); confirm the current fluid recommendation and timing.
+
+? A patient with septic shock remains hypotensive after the fluid bolus. Which vasopressor is first-line?
++ Norepinephrine
+- Dopamine | It causes more dysrhythmias and is no longer first-line.
+- Phenylephrine | It is not the first choice in septic shock.
+- Dobutamine | It is an inotrope, used for cardiac dysfunction rather than as the first vasopressor.
+= Norepinephrine is the recommended first vasopressor for septic shock.
+
+? What is the initial mean arterial pressure target for a patient with septic shock on vasopressors?
++ 65 mmHg
+- 45 mmHg | That is too low to perfuse organs.
+- 90 mmHg | A higher routine target has not improved outcomes.
+- 110 mmHg | That exposes the patient to excess vasopressor.
+= A mean arterial pressure of at least 65 mmHg is the standard initial target.
+
+? A septic patient's first lactate was 5.2 mmol/L. After fluids, what should the nurse anticipate?
++ A repeat lactate within a few hours
+- No further lactate testing | A raised value must be rechecked.
+- A lactate once daily | That is too infrequent to guide resuscitation.
+- Replacing lactate with a troponin | Troponin does not track perfusion.
+= An elevated lactate is remeasured to confirm that perfusion is improving with treatment.
+
+? In a patient with septic shock, how soon should broad-spectrum antibiotics be given?
++ Within one hour of recognition
+- Within 24 hours | Each hour of delay increases mortality.
+- After culture results are back | Results take days.
+- After the patient is transferred to intensive care | Antibiotics are started in the ED.
+= In septic shock, antibiotics are given immediately, ideally within one hour, after cultures if these cause no delay.
+
+? After 30 mL/kg of fluid, a patient needs norepinephrine to keep the mean arterial pressure at 65 mmHg, and the lactate is 3.4 mmol/L. How is this classified?
++ Septic shock
+- Sepsis without shock | A vasopressor requirement with raised lactate after fluids defines shock.
+- Simple infection | There is clear organ dysfunction.
+- Hypovolemia only | Adequate fluid has been given.
+= Septic shock is sepsis with persistent hypotension needing vasopressors and a lactate above 2 mmol/L despite adequate fluid.
+
+? A patient with septic shock needs rising doses of norepinephrine. Which additional therapy may be ordered?
++ Vasopressin, and IV hydrocortisone for refractory shock
+- A beta blocker | It would lower blood pressure further.
+- A loop diuretic | Volume removal worsens shock.
+- Stopping all fluids and antibiotics | Treatment must continue.
+= Vasopressin is added to norepinephrine when the dose is escalating, and low-dose hydrocortisone is used for shock that persists.
+
+? Norepinephrine is running through a forearm IV. The site becomes pale, cool and swollen. What should the nurse do?
++ Stop the infusion at that site and prepare phentolamine for infiltration
+- Slow the infusion and continue at the same site | Continued infusion causes tissue necrosis.
+- Apply a warm pack and continue | Heat does not reverse vasoconstriction from the drug.
+- Flush the line forcefully with saline | Flushing pushes more drug into the tissue.
+= Extravasated vasopressor causes ischemic necrosis; the infusion is moved and the area treated with phentolamine.
+
+? A patient with septic shock has a large perirectal abscess. Besides antibiotics and fluids, what is essential?
++ Prompt drainage of the abscess
+- Waiting to see whether antibiotics shrink it | Antibiotics penetrate abscesses poorly.
+- Applying a dressing only | A dressing does not remove the source.
+- Delaying any procedure until shock resolves | The shock will not resolve while the source remains.
+= Source control, such as draining pus or removing infected devices, is a core part of sepsis treatment.
+
+@ 10.1
+? An 18-year-old with type 1 diabetes has deep, rapid breathing, a fruity odour on the breath, abdominal pain and a glucose of 486 mg/dL. Which acid-base disorder is present?
++ Metabolic acidosis with an elevated anion gap
+- Respiratory acidosis | The breathing is compensatory hyperventilation.
+- Metabolic alkalosis | Ketoacids lower the pH.
+- Respiratory alkalosis alone | The primary problem is metabolic.
+= Ketoacids cause an anion-gap metabolic acidosis; Kussmaul breathing is the respiratory compensation.
+
+? Which treatment comes first in diabetic ketoacidosis?
++ IV isotonic fluid
+- An insulin bolus | Insulin before fluids can cause vascular collapse and hypokalemia.
+- Sodium bicarbonate | It is reserved for extreme acidosis.
+- Oral glucose | The patient is already hyperglycemic.
+= Patients are profoundly volume depleted; fluid restores perfusion and lowers glucose even before insulin starts.
+
+? A patient in diabetic ketoacidosis has a potassium of 3.0 mEq/L. What must happen before insulin is started?
++ Potassium replacement
+- Nothing; insulin starts at once | Insulin drives potassium into cells and can cause fatal hypokalemia.
+- A dose of sodium polystyrene | That would lower potassium further.
+- A loop diuretic | That would lower potassium further.
+= Insulin is withheld until potassium is at least about 3.3 mEq/L, because total body potassium is depleted.
+
+? A patient in diabetic ketoacidosis has a glucose that has fallen to 210 mg/dL, but the anion gap is still elevated. What should the nurse anticipate?
++ Adding dextrose to the IV fluids and continuing the insulin infusion
+- Stopping the insulin infusion | Ketosis will recur if insulin stops.
+- Switching to oral diabetes tablets | They do not treat ketoacidosis.
+- Giving a large bolus of insulin | That causes hypoglycemia.
+= Insulin is continued until the acidosis resolves; dextrose prevents hypoglycemia while ketones clear.
+
+? Which finding shows that diabetic ketoacidosis has resolved?
++ A closed anion gap with a venous pH above 7.3
+- A glucose below 250 mg/dL alone | Glucose normalizes before the acidosis clears.
+- The patient asking for food | Appetite is not a resolution criterion.
+- Urine negative for glucose | That does not reflect ketosis.
+= Resolution is defined by correction of the acidosis and closure of the anion gap, not by glucose alone.
+
+? A 9-year-old being treated for diabetic ketoacidosis develops a headache, becomes drowsy and has a heart rate that has slowed to 58. What should the nurse suspect?
++ Cerebral edema
+- Normal sleepiness | These signs are ominous during treatment.
+- Hypoglycemia only | Glucose is checked, but bradycardia with headache points to raised intracranial pressure.
+- Migraine | That is unlikely in this setting.
+= Cerebral edema is the leading cause of death in children with ketoacidosis and is treated with mannitol or hypertonic saline.
+
+? A 78-year-old with type 2 diabetes is lethargic with a glucose of 1,040 mg/dL, very dry mucous membranes and only trace ketones. Which condition is most likely?
++ Hyperosmolar hyperglycemic state
+- Diabetic ketoacidosis | Significant ketosis and acidosis would be present.
+- Hypoglycemia | The glucose is extremely high.
+- Lactic acidosis from metformin | The picture is dominated by hyperglycemia and dehydration.
+= Hyperosmolar hyperglycemic state features extreme hyperglycemia and dehydration with little ketosis; fluids are the mainstay.
+
+? A patient with diabetes is shaky and sweaty but awake and able to swallow. Glucose is 52 mg/dL. What should the nurse give?
++ About 15 g of fast-acting carbohydrate by mouth
+- IV dextrose 50% | IV treatment is for patients who cannot take oral glucose.
+- Intramuscular glucagon | That is for patients who cannot swallow and have no IV access.
+- A high-fat snack only | Fat slows glucose absorption.
+= A conscious patient is treated with 15 g of rapid carbohydrate, with a recheck in 15 minutes.
+
+? An 82-year-old with kidney disease became hypoglycemic on glyburide and responded to IV dextrose. Why should she be observed rather than discharged?
++ The drug's effect is prolonged and hypoglycemia is likely to recur
+- Dextrose causes delayed allergic reactions | That is not the concern.
+- She needs teaching about insulin injections | She is not on insulin.
+- Hypoglycemia never recurs after treatment | It commonly does with long-acting agents.
+= Sulfonylureas, especially with impaired renal clearance, cause recurrent hypoglycemia for many hours.
+
+? A patient taking an SGLT2 inhibitor has vomiting, rapid deep breathing and an anion gap of 26, but the glucose is only 178 mg/dL. What should the nurse recognize?
++ Ketoacidosis can occur with a near-normal glucose on this medication
+- A normal glucose excludes ketoacidosis | That is not true with SGLT2 inhibitors.
+- The symptoms must be from gastroenteritis | The anion gap indicates acidosis.
+- The patient needs only an antiemetic | She has a metabolic emergency.
+= SGLT2 inhibitors can cause euglycemic diabetic ketoacidosis, so ketones are checked despite the glucose.
+
+? In diabetic ketoacidosis, when is IV sodium bicarbonate considered?
++ Only for very severe acidosis, with a pH below about 6.9
+- For every patient on arrival | Routine use offers no benefit and can cause harm.
+- Whenever the glucose is above 400 mg/dL | Glucose level is not the indication.
+- Never under any circumstance | It is considered in extreme acidosis.
+= Fluids and insulin correct the acidosis; bicarbonate is reserved for extreme cases because it can worsen hypokalemia and cerebral edema.
+
+@ 10.2
+? A woman with untreated Graves' disease develops a temperature of 40.3 C, a heart rate of 164 in atrial fibrillation, agitation and vomiting after a chest infection. What is this condition?
++ Thyroid storm
+- Myxedema coma | That presents with hypothermia and bradycardia.
+- Neuroleptic malignant syndrome | There is no antipsychotic exposure.
+- Heat stroke | There is no heat exposure, and thyroid disease is present.
+= Thyroid storm is life-threatening thyrotoxicosis with high fever, marked tachycardia, agitation and gastrointestinal upset.
+
+? Which medication is given to control heart rate and adrenergic symptoms in thyroid storm?
++ Propranolol
+- Levothyroxine | It would worsen thyrotoxicosis.
+- Epinephrine | It would worsen tachycardia.
+- Atropine | It increases heart rate.
+= Beta blockade controls the cardiovascular effects, and propranolol also reduces conversion of T4 to T3.
+
+? In thyroid storm, why is iodine given at least an hour after the antithyroid drug?
++ Given first, iodine would be used to make more thyroid hormone
+- Iodine inactivates the antithyroid drug | That is not the reason.
+- Iodine causes immediate allergic reactions | That is not the reason for the sequence.
+- The two drugs cannot be given through the same vein | Compatibility is not the issue.
+= The thionamide blocks hormone synthesis first; iodine then blocks hormone release without fuelling production.
+
+? A patient in thyroid storm has a temperature of 40.1 C. Which antipyretic should be avoided?
++ Aspirin
+- Acetaminophen | It is the preferred antipyretic.
+- A cooling blanket | External cooling is appropriate.
+- Cool IV fluids | These are appropriate.
+= Aspirin displaces thyroid hormone from binding proteins and raises free hormone levels.
+
+? Which antithyroid drug is often preferred in thyroid storm because it also blocks conversion of T4 to T3?
++ Propylthiouracil
+- Levothyroxine | That is thyroid hormone replacement.
+- Liothyronine | That is active thyroid hormone.
+- Radioactive iodine | It is not used acutely.
+= Propylthiouracil blocks both hormone synthesis and peripheral conversion, although it carries a risk of liver toxicity.
+
+? An elderly woman is found unresponsive in an unheated house. Temperature is 32.4 C, HR 42, RR 8, with a puffy face and a thyroidectomy scar. What should the nurse suspect?
++ Myxedema coma
+- Thyroid storm | That causes fever and tachycardia.
+- Opioid overdose | The scar, puffiness and hypothermia point to hypothyroidism.
+- Stroke | That does not explain the hypothermia and bradycardia.
+= Severe untreated hypothyroidism causes hypothermia, bradycardia, hypoventilation and coma, often precipitated by cold or infection.
+
+? Which medications should the nurse anticipate for myxedema coma?
++ IV levothyroxine with IV hydrocortisone
+- Propylthiouracil and iodine | Those treat an overactive thyroid.
+- Propranolol | It would worsen bradycardia.
+- Oral levothyroxine alone | Gut absorption is unreliable in this state.
+= IV thyroid hormone is given with a corticosteroid, because adrenal insufficiency may coexist and be unmasked.
+
+? How should a hypothermic patient in myxedema coma be rewarmed?
++ Passively, with blankets and a warm room
+- With a forced-air warming blanket on high | Rapid external warming causes vasodilation and collapse.
+- With immersion in a hot bath | That risks cardiovascular collapse.
+- With heating pads on the limbs | Peripheral heating causes vasodilation and burns.
+= Passive rewarming avoids the sudden vasodilation and hypotension that active external warming can cause.
+
+? A patient with myxedema coma is restless during assessment. Why should sedatives and opioids be avoided or greatly reduced?
++ Drug metabolism is slowed, and they can cause profound respiratory depression
+- They cause hyperthyroidism | They do not affect thyroid hormone production.
+- They are ineffective in hypothyroidism | They are overly effective.
+- They raise body temperature | That is not the concern.
+= Hypothyroid patients are very sensitive to central nervous system depressants and are already hypoventilating.
+
+? Which laboratory pattern is expected in primary hypothyroidism with myxedema coma?
++ High TSH with low free T4
+- Low TSH with high free T4 | That is the pattern of thyrotoxicosis.
+- Normal TSH with normal free T4 | That is a normal result.
+- Low TSH with low cortisol only | That does not define primary hypothyroidism.
+= A failing thyroid produces little hormone, so the pituitary raises TSH.
+
+? A patient taking methimazole for hyperthyroidism has a sore throat and a temperature of 38.9 C. Which test is urgent?
++ A complete blood count with differential
+- A throat culture only | Infection may be present, but the drug's toxicity must be excluded.
+- A thyroid ultrasound | It does not address the concern.
+- A serum calcium | It is not the priority.
+= Antithyroid drugs can cause agranulocytosis; fever or sore throat requires an immediate neutrophil count.

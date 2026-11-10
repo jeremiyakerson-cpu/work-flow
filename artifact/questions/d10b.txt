@@ -1,0 +1,235 @@
+# Domain 10 — Medical Emergencies (topics 3-5)
+
+@ 10.3
+? A woman who has taken prednisone daily for two years ran out a week ago. She has vomiting, abdominal pain, profound weakness and BP 74/40 that does not improve after two litres of saline. What should the nurse suspect?
++ Adrenal crisis
+- Gastroenteritis alone | Simple gastroenteritis responds to fluids.
+- Thyroid storm | That causes fever and tachycardia with hypertension early.
+- Anaphylaxis | There is no allergen, rash or airway involvement.
+= Abrupt withdrawal of long-term steroids leaves the suppressed adrenal glands unable to respond, causing shock that is refractory to fluids.
+
+? Which laboratory pattern is typical of primary adrenal insufficiency?
++ Low sodium, high potassium and low glucose
+- High sodium, low potassium and high glucose | That pattern suggests cortisol or aldosterone excess.
+- Normal sodium, normal potassium and high calcium | That is not the characteristic pattern.
+- High sodium, high potassium and high glucose | That is not the characteristic pattern.
+= Lack of aldosterone causes sodium loss and potassium retention, and lack of cortisol causes hypoglycemia.
+
+? Which medication is the priority in suspected adrenal crisis?
++ Hydrocortisone 100 mg IV
+- Oral prednisone at the usual dose | Oral dosing is too slow and unreliable in a vomiting patient.
+- Fludrocortisone alone | It does not replace glucocorticoid in a crisis.
+- Insulin | It would worsen hypoglycemia.
+= Immediate IV hydrocortisone with aggressive fluid replacement is life saving.
+
+? A provider wants a cortisol level in a patient with suspected adrenal crisis and BP 70/38. How should the nurse sequence care?
++ Draw the blood and give hydrocortisone immediately, without waiting for the result
+- Wait for the cortisol result before treating | Delay can be fatal.
+- Skip the fluids until the result returns | Fluids are essential.
+- Give the steroid tomorrow once the diagnosis is confirmed | Treatment is given on suspicion.
+= Treatment is never delayed for confirmation; a sample can be taken as the steroid is prepared.
+
+? A patient with Addison's disease has a temperature of 38.8 C from influenza. What should she do with her usual hydrocortisone?
++ Increase the dose during the illness, as her sick-day plan directs
+- Stop it until she recovers | Stopping precipitates crisis.
+- Keep the dose unchanged | Illness increases the body's cortisol requirement.
+- Halve the dose to avoid side effects | A lower dose risks crisis.
+= Physiologic stress requires more cortisol; patients double or triple the dose during illness and use an injection if they cannot keep tablets down.
+
+? Which physical findings suggest chronic primary adrenal insufficiency?
++ Darkening of the skin creases and gums with weight loss and salt craving
+- A round face with purple abdominal striae | Those suggest cortisol excess.
+- Bulging eyes with a goitre | Those suggest Graves' disease.
+- Coarse hair with a puffy face | Those suggest hypothyroidism.
+= High ACTH stimulates pigment cells, and aldosterone deficiency causes salt wasting.
+
+? A patient who takes long-term steroids for rheumatoid arthritis is going for emergency surgery after a crash. What should the nurse anticipate?
++ Stress-dose IV steroids
+- Withholding all steroids until after surgery | That risks adrenal crisis under anaesthesia.
+- The usual oral dose only | Major stress requires a higher dose.
+- A diuretic | It has no role.
+= Suppressed adrenal glands cannot increase cortisol output during major stress, so supplemental steroids are given.
+
+? Which IV fluid is most appropriate for the initial resuscitation of adrenal crisis?
++ Normal saline, with dextrose added for hypoglycemia
+- Dextrose 5% in water alone | A hypotonic fluid worsens hyponatremia.
+- Half-normal saline | It is hypotonic and does not correct the sodium deficit.
+- Fluid with added potassium | Potassium is already elevated.
+= Isotonic saline replaces sodium and volume, and dextrose corrects the accompanying hypoglycemia.
+
+? A patient in adrenal crisis has a potassium of 6.8 mEq/L. Which monitoring is essential?
++ Continuous cardiac monitoring
+- Hourly weights | They do not detect dysrhythmia.
+- Daily ECG only | That is too infrequent.
+- Pulse oximetry alone | It does not show the rhythm.
+= Hyperkalemia from aldosterone deficiency can cause fatal dysrhythmias until steroids and fluids correct it.
+
+? Which item should a patient with adrenal insufficiency carry at all times?
++ Medical alert identification and an emergency steroid injection kit
+- A glucose meter only | It does not treat a crisis.
+- A salt shaker only | Salt alone does not prevent a crisis.
+- An inhaler | It is unrelated.
+= Identification alerts responders, and an injectable steroid can be given when vomiting prevents oral dosing.
+
+? A 10-day-old boy has vomiting, poor feeding and dehydration. Sodium is 122 mEq/L and potassium 7.1 mEq/L. Which condition should the nurse suspect?
++ Congenital adrenal hyperplasia with salt wasting
+- Pyloric stenosis | That causes low potassium and alkalosis.
+- Milk allergy | That does not cause this electrolyte pattern.
+- Viral gastroenteritis | That does not cause high potassium with low sodium of this degree.
+= Salt-wasting adrenal hyperplasia presents in the first weeks of life with adrenal crisis, treated with fluids and hydrocortisone.
+
+@ 10.4
+? Which ECG change is the earliest sign of hyperkalemia?
++ Tall, peaked T waves
+- Prominent U waves | Those indicate hypokalemia.
+- A shortened QT interval | That suggests hypercalcemia.
+- A delta wave | That indicates pre-excitation.
+= As potassium rises, T waves peak, then the PR lengthens and P waves flatten, the QRS widens and a sine wave appears.
+
+? A patient with alcohol use disorder has a potassium of 2.8 mEq/L that does not rise despite repeated replacement. Which electrolyte should be checked?
++ Magnesium
+- Chloride | It is not the cause of refractory hypokalemia.
+- Sodium | It is not the cause of refractory hypokalemia.
+- Phosphate | It is not the usual cause.
+= Low magnesium causes renal potassium wasting; potassium cannot be corrected until magnesium is replaced.
+
+? A patient with small cell lung cancer has a sodium of 118 mEq/L, low serum osmolality, concentrated urine and no edema or dehydration. What treatment is expected if he has no severe symptoms?
++ Fluid restriction
+- Large volumes of normal saline | Saline can lower the sodium further in this condition.
+- A thiazide diuretic | Thiazides worsen hyponatremia.
+- Free water by mouth | Water worsens dilution.
+= Inappropriate ADH secretion causes euvolemic hyponatremia with concentrated urine; restriction of water is first-line.
+
+? A patient with a head injury passes 6 litres of very dilute urine in 12 hours, and the sodium rises to 158 mEq/L. Which medication should the nurse anticipate?
++ Desmopressin
+- Furosemide | It would increase water loss.
+- Hypertonic saline | It would raise the sodium further.
+- Spironolactone | It does not treat this condition.
+= Central diabetes insipidus is a lack of ADH causing dilute polyuria and hypernatremia, treated with desmopressin and water replacement.
+
+? A patient with metastatic breast cancer is confused and constipated with a calcium of 15.2 mg/dL. What is the first treatment?
++ IV normal saline
+- A thiazide diuretic | Thiazides raise calcium.
+- Calcium gluconate | That would worsen the problem.
+- Vitamin D | It raises calcium.
+= Hypercalcemia causes dehydration; vigorous saline restores volume and promotes calcium excretion, followed by calcitonin and a bisphosphonate.
+
+? The day after a thyroidectomy a patient has tingling around the mouth, and the hand spasms when the blood pressure cuff is inflated. What should the nurse anticipate?
++ IV calcium gluconate
+- IV potassium chloride | Potassium is not the deficient electrolyte.
+- IV magnesium sulfate as the only treatment | The sign indicates low calcium.
+- A sedative | Sedation does not treat tetany.
+= Injury to the parathyroid glands causes hypocalcemia; Trousseau's sign and perioral tingling are early signs of tetany.
+
+? A patient receiving a magnesium infusion becomes drowsy with absent knee reflexes and a respiratory rate of 10. Which electrolyte disturbance is present?
++ Hypermagnesemia
+- Hypomagnesemia | Low magnesium causes hyperreflexia and tremor.
+- Hypokalemia | That causes weakness with U waves, not loss of reflexes with sedation.
+- Hypocalcemia | That causes tetany and hyperexcitability.
+= Excess magnesium depresses neuromuscular transmission: reflexes are lost first, then respiration fails.
+
+? An arterial blood gas shows pH 7.24, PaCO2 27 mmHg and HCO3 11 mEq/L. How should this be interpreted?
++ Metabolic acidosis with respiratory compensation
+- Respiratory acidosis | The carbon dioxide is low, not high.
+- Metabolic alkalosis | The pH and bicarbonate are low.
+- Respiratory alkalosis | The pH is acidic.
+= A low pH with low bicarbonate is metabolic acidosis; the low carbon dioxide reflects compensatory hyperventilation.
+
+? A patient has sodium 140, chloride 100 and bicarbonate 12 mEq/L. What is the anion gap, and what does it suggest?
++ 28; an acid such as lactate or ketones is accumulating
+- 12; the gap is normal | The calculation gives 28.
+- 52; the laboratory has made an error | That adds instead of subtracting.
+- 4; the patient has alkalosis | That is not the result of the calculation.
+= The anion gap is sodium minus chloride and bicarbonate; a high gap points to lactate, ketones, toxic alcohols, salicylates or uremia.
+
+? A patient found with a fentanyl patch on each arm has a respiratory rate of 6. The blood gas shows pH 7.21, PaCO2 68 mmHg and HCO3 26 mEq/L. How should this be interpreted?
++ Acute respiratory acidosis
+- Metabolic acidosis | The bicarbonate is normal.
+- Compensated respiratory acidosis | The bicarbonate has not risen.
+- Respiratory alkalosis | The carbon dioxide is high.
+= Hypoventilation retains carbon dioxide; a normal bicarbonate shows that the kidneys have not had time to compensate.
+
+? Calcium chloride is ordered for a patient with severe hyperkalemia who has only a small hand IV. What should the nurse do?
++ Ask whether calcium gluconate can be used, or obtain central access
+- Give the calcium chloride quickly through the hand vein | Extravasation causes severe tissue necrosis.
+- Give it intramuscularly | Calcium is never given into muscle.
+- Dilute it in a potassium-containing fluid | That is unsafe in hyperkalemia.
+= Calcium chloride is very irritating and is preferably given centrally; calcium gluconate is safer through a peripheral vein.
+
+@ 10.5
+? Minutes after a bee sting a patient has generalized hives, wheezing and BP 82/50. Which treatment is the priority?
++ Epinephrine 0.3 to 0.5 mg intramuscularly in the outer thigh
+- Diphenhydramine 50 mg IV | Antihistamines do not reverse airway obstruction or shock.
+- Methylprednisolone 125 mg IV | Steroids act over hours.
+- Nebulized albuterol | It treats wheeze but not the systemic reaction.
+= Intramuscular epinephrine in the anterolateral thigh is the first-line treatment and is never delayed for other medications.
+
+? A new nurse draws up 0.5 mg of epinephrine 1 mg/mL and prepares to push it IV for anaphylaxis in a patient who has a pulse. What should the preceptor do?
++ Stop the nurse; this concentration is given intramuscularly
+- Allow it, since IV works faster | An IV bolus of concentrated epinephrine can cause lethal dysrhythmia and hypertension.
+- Suggest giving double the dose IV | A larger dose increases the danger.
+- Suggest the subcutaneous route in the arm | Subcutaneous absorption is slow and unreliable.
+= Concentrated epinephrine is for IM use; IV epinephrine in a patient with a pulse is given only as a dilute, titrated infusion.
+
+? Which statement about antihistamines and corticosteroids in anaphylaxis is correct?
++ They are adjuncts given after epinephrine
+- They replace epinephrine in mild cases with wheeze | Any respiratory involvement requires epinephrine.
+- They act faster than epinephrine | They act far more slowly.
+- They are contraindicated | They are permitted as secondary therapy.
+= Antihistamines relieve itching and hives and steroids act late; neither treats airway compromise or shock.
+
+? After eating shrimp, a patient has widespread hives with repeated vomiting and crampy abdominal pain. Breathing and blood pressure are normal. How should the nurse interpret this?
++ It meets criteria for anaphylaxis because two body systems are involved
+- It is a simple skin reaction | Gastrointestinal involvement makes it a systemic reaction.
+- It is food poisoning | Hives indicate an allergic mechanism.
+- It needs no treatment unless breathing is affected | Waiting for respiratory symptoms delays treatment.
+= Anaphylaxis is diagnosed when skin involvement is accompanied by respiratory, cardiovascular or persistent gastrointestinal symptoms after a likely allergen.
+
+? A patient with anaphylaxis and BP 78/44 is being treated. How should the patient be positioned?
++ Lying flat with the legs raised
+- Sitting upright on the edge of the bed | Upright posture reduces venous return.
+- Standing to walk to the stretcher | Sudden standing has caused cardiac arrest in anaphylaxis.
+- Prone | It does not help and limits access.
+= Vasodilation pools blood in the legs; lying flat with legs elevated maintains venous return unless breathing requires sitting up.
+
+? A patient remains hypotensive after two doses of intramuscular epinephrine. What should the nurse anticipate next?
++ Rapid IV crystalloid and an epinephrine infusion
+- A third antihistamine | It does not treat shock.
+- Oral prednisone | It acts too slowly.
+- Observation for another hour | Refractory shock needs escalation.
+= Capillary leak requires large fluid volumes, and refractory anaphylaxis is treated with a titrated IV epinephrine infusion.
+
+? A patient who takes metoprolol has anaphylaxis that does not respond to epinephrine. Which medication may be given?
++ Glucagon
+- A second beta blocker | It would worsen the block.
+- Naloxone | Opioids are not involved.
+- Flumazenil | Benzodiazepines are not involved.
+= Beta blockers blunt the response to epinephrine; glucagon acts through a separate pathway.
+
+? A patient's anaphylaxis resolved completely after one dose of epinephrine. Why is the patient observed for several hours before discharge?
++ Symptoms can return without further exposure
+- Epinephrine causes delayed seizures | That is not expected.
+- The allergen takes hours to leave the stomach | That is not the reason.
+- Hospital policy requires a minimum stay for billing | Observation is for clinical safety.
+= A biphasic reaction can occur hours after the first has resolved, so patients are observed and given return precautions.
+
+? Which discharge teaching is essential after an episode of anaphylaxis?
++ Carry two epinephrine auto-injectors and know how to use them
+- Take an antihistamine at the first sign and wait | Waiting delays the only effective treatment.
+- Avoid the emergency department after using the injector | Emergency care is still needed after use.
+- Keep the auto-injector in a hot car for easy access | Heat degrades the drug.
+= Patients inject into the outer thigh at the first sign of a reaction, call emergency services and are referred to an allergist.
+
+? A 20 kg child has anaphylaxis. What is the correct intramuscular dose of epinephrine?
++ 0.2 mg
+- 0.02 mg | That is one tenth of the correct dose.
+- 0.5 mg | That exceeds the weight-based dose for this child.
+- 2 mg | That is ten times the correct dose.
+= The pediatric dose is 0.01 mg/kg of the 1 mg/mL concentration, here 0.2 mg; a 0.15 mg auto-injector is an accepted alternative at this weight.
+
+? A patient has itchy hives on the arms after starting a new antibiotic. There is no swelling of the lips or tongue, no wheeze and vital signs are normal. What treatment is appropriate?
++ Stop the antibiotic and give an antihistamine, with observation
+- Intramuscular epinephrine immediately | Isolated hives without other system involvement do not need epinephrine.
+- Continue the antibiotic and add a cream | Continuing the drug risks a severe reaction.
+- Intubation | The airway is not involved.
+= An isolated cutaneous reaction is treated by removing the trigger and giving an antihistamine, while watching for progression.

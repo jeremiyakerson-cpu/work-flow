@@ -1,0 +1,235 @@
+# Domain 10 — Medical Emergencies (topics 6-8)
+
+@ 10.6
+? A 24-year-old with sickle cell disease has severe pain in the back and legs rated 10/10. Vital signs are stable and SpO2 is 97%. What is the nursing priority?
++ Give the ordered parenteral opioid promptly
+- Wait to see whether oral acetaminophen is enough | Under-treatment of sickle cell pain is a recognized harm.
+- Apply high-flow oxygen | Oxygen is given only for hypoxia.
+- Ask for proof of the diagnosis before treating | The patient's report of pain is accepted.
+= Vaso-occlusive pain is treated rapidly with opioids, ideally within 30-60 minutes of arrival, along with hydration.
+
+? A patient with sickle cell disease develops fever, chest pain, cough and SpO2 of 88%. The chest radiograph shows a new infiltrate. What is this complication?
++ Acute chest syndrome
+- A panic attack | The findings are physical.
+- Musculoskeletal chest pain | It does not cause hypoxia and infiltrates.
+- Gastric reflux | It does not cause hypoxia and infiltrates.
+= Acute chest syndrome is a leading cause of death in sickle cell disease, treated with oxygen, antibiotics, analgesia and transfusion.
+
+? A 3-year-old with sickle cell disease is suddenly pale and lethargic with a rapidly enlarging spleen and HR 168. What should the nurse suspect?
++ Splenic sequestration crisis
+- Viral gastroenteritis | It does not enlarge the spleen or cause sudden pallor.
+- Aplastic crisis only | That causes anemia without an enlarging spleen.
+- Constipation | It does not cause shock.
+= Blood pools in the spleen, causing sudden severe anemia and hypovolemic shock that needs urgent transfusion.
+
+? Two days after chemotherapy for lymphoma, a patient has potassium 6.6 mEq/L, high phosphate, low calcium, high uric acid and a rising creatinine. What is this condition?
++ Tumour lysis syndrome
+- Sepsis | Sepsis does not produce this electrolyte pattern.
+- Dehydration alone | Dehydration does not explain all these abnormalities.
+- Adrenal crisis | That does not raise phosphate and uric acid.
+= Rapid destruction of tumour cells releases potassium, phosphate and uric acid, causing kidney injury and dysrhythmias.
+
+? A patient with prostate cancer has two weeks of worsening back pain and now reports leg weakness and difficulty passing urine. What should the nurse anticipate?
++ High-dose dexamethasone and an urgent MRI of the spine
+- A muscle relaxant and physiotherapy | These are signs of neurologic compromise.
+- A plain radiograph and discharge | Plain films cannot exclude cord compression.
+- Bed rest at home for a week | Delay risks permanent paralysis.
+= Malignant spinal cord compression is an oncologic emergency; steroids reduce swelling while definitive treatment is arranged.
+
+? A patient with lung cancer has swelling of the face and arms, distended neck veins and breathlessness that is worse lying down. How should the nurse position the patient, and where should IV access be avoided?
++ Head of the bed raised; avoid the arms
+- Flat with legs raised; avoid the legs | Lying flat worsens the congestion.
+- Trendelenburg; no restrictions | Head-down positioning is harmful.
+- Prone; avoid the feet | Prone positioning does not help.
+= Obstruction of the superior vena cava congests the upper body; the head is elevated and the arms are avoided for IV lines and blood pressures.
+
+? A 12-year-old with severe hemophilia A fell and struck his head. He is alert. What is the first priority?
++ Give factor replacement immediately, before imaging
+- Obtain the CT scan first | Delay allows intracranial bleeding to progress.
+- Observe for 24 hours without treatment | Bleeding may be silent until it is severe.
+- Give aspirin for the headache | Aspirin worsens bleeding.
+= In hemophilia, head trauma is treated as intracranial bleeding until proven otherwise, and factor is given without delay.
+
+? A septic patient is oozing from IV sites and gums and has purple patches on the skin. Platelets and fibrinogen are low, and the D-dimer is very high. What is this condition?
++ Disseminated intravascular coagulation
+- Hemophilia | That is inherited and does not cause low platelets and fibrinogen.
+- Vitamin C deficiency | That does not produce these laboratory findings.
+- Idiopathic thrombocytopenia | Fibrinogen and D-dimer would be normal.
+= Widespread clotting consumes platelets and clotting factors, producing both thrombosis and bleeding; the underlying cause is treated.
+
+? Ten minutes into a red cell transfusion a patient has fever, chills, flank pain and BP 84/50. What should the nurse do first?
++ Stop the transfusion and keep the vein open with saline through new tubing
+- Slow the transfusion and observe | Any more incompatible blood worsens the reaction.
+- Give acetaminophen and continue | This is not a simple febrile reaction.
+- Flush the existing tubing with saline | That pushes the remaining blood into the patient.
+= These signs indicate an acute hemolytic reaction; the transfusion is stopped, the line maintained with fresh tubing and the blood bank notified.
+
+? A patient has a platelet count of 8,000/mm3. Which precaution is appropriate?
++ Avoid intramuscular injections and rectal temperatures
+- Encourage vigorous tooth flossing | Flossing causes gum bleeding.
+- Give aspirin for headaches | Aspirin impairs platelets further.
+- Use a firm blood pressure cuff inflated repeatedly | Repeated high inflation causes bruising.
+= Severe thrombocytopenia carries a risk of spontaneous bleeding, so invasive and traumatic procedures are minimized.
+
+? An 84-year-old with heart failure becomes breathless with BP 186/104, crackles and distended neck veins during her second unit of blood. What is the most likely cause?
++ Transfusion-associated circulatory overload
+- Transfusion-related acute lung injury | That causes hypotension without signs of fluid overload.
+- An acute hemolytic reaction | That causes fever, flank pain and hypotension.
+- An allergic reaction | That causes hives or wheeze.
+= Volume overload from transfusion causes hypertension and pulmonary edema; the transfusion is stopped, the patient sat upright and a diuretic given.
+
+@ 10.7
+? A patient has had a cough for a month with night sweats, weight loss and blood-streaked sputum. Which precautions should the triage nurse start?
++ Airborne precautions with a mask on the patient and a negative-pressure room
+- Droplet precautions in an open bay | Tuberculosis spreads by airborne particles.
+- Contact precautions only | The organism is not spread by contact.
+- Standard precautions only | These do not prevent airborne transmission.
+= Suspected tuberculosis requires airborne isolation; staff wear fitted N95 respirators.
+
+? An unvaccinated child has a fever, cough, red eyes and a blotchy rash that began on the face. Tiny white spots are seen inside the cheeks. What should the triage nurse do?
++ Place a mask on the child and move him directly to an airborne isolation room
+- Seat him in the waiting room | Measles is extremely contagious through the air.
+- Use droplet precautions only | Measles requires airborne precautions.
+- Send him home without assessment | He needs evaluation, and the case must be reported.
+= Measles spreads by the airborne route and remains infectious in room air; the patient is isolated immediately.
+
+? Which patient needs both airborne and contact precautions?
++ A patient with widespread chickenpox lesions
+- A patient with influenza | Influenza requires droplet precautions.
+- A patient with a urinary tract infection | Standard precautions are enough.
+- A patient with strep throat | Droplet precautions are used.
+= Varicella and disseminated zoster spread through the air and by contact with lesions; non-immune staff should not provide care.
+
+? Which infection is managed with droplet precautions?
++ Influenza
+- Tuberculosis | That requires airborne precautions.
+- Clostridioides difficile | That requires contact precautions.
+- Scabies | That requires contact precautions.
+= Influenza, pertussis, mumps and meningococcal disease spread by large respiratory droplets and require a surgical mask.
+
+? A nursing home resident is known to carry a multidrug-resistant organism in a wound. Which precautions apply?
++ Contact precautions with gown and gloves and dedicated equipment
+- Airborne precautions | The organism is not airborne.
+- Droplet precautions | It is not spread by droplets.
+- No precautions, since she is only colonized | Colonized patients can still transmit the organism.
+= Resistant organisms spread on hands and equipment; gown, gloves and dedicated or disinfected equipment limit transmission.
+
+? A man with fever, vomiting and unexplained bruising returned five days ago from an area with an Ebola outbreak. What should the triage nurse do first?
++ Isolate him in a private room and notify infection control
+- Draw routine bloods in the open triage area | Body fluids are highly infectious.
+- Send him to the waiting room | That exposes others.
+- Tell him to return if symptoms worsen | He needs immediate isolation and evaluation.
+= For suspected viral hemorrhagic fever the sequence is identify, isolate and inform, with full protective equipment before any contact.
+
+? A woman has had a fever and chills since returning from West Africa ten days ago. She took no preventive medication. Which test is most important?
++ A blood smear or rapid test for malaria
+- A throat swab for strep | It does not address the most dangerous possibility.
+- A urine pregnancy test only | It does not explain the fever.
+- A stool test for parasites | It is not the priority.
+= Fever in a traveller returning from a malaria-endemic area is malaria until proven otherwise.
+
+? A patient with a suspected respiratory viral infection needs a nebulizer treatment. Which protective equipment should the nurse wear?
++ A fitted N95 respirator, eye protection, gown and gloves
+- A surgical mask only | Aerosol-generating procedures need a higher level of respiratory protection.
+- Gloves only | That does not protect the airway or eyes.
+- No protection if the visit is brief | Brief exposure during aerosol generation still carries risk.
+= Aerosol-generating procedures create fine particles; a respirator and eye protection are used.
+
+? A nurse is stuck with a needle used on a patient with HIV. After washing the wound, what is the most important next step?
++ Report immediately so post-exposure prophylaxis can start within hours
+- Squeeze the wound and apply bleach | Bleach damages tissue and gives no benefit.
+- Wait for the next shift to report | Prophylaxis is most effective when started promptly.
+- Do nothing unless symptoms appear | Prevention must begin before infection is established.
+= The wound is washed with soap and water and the exposure reported at once; prophylaxis is started as early as possible, within 72 hours at most.
+
+? A patient is treated for gonorrhea and chlamydia. Which teaching is essential?
++ Sexual partners must be treated, and intercourse avoided for seven days
+- Partners need treatment only if they have symptoms | Many infections are silent.
+- Treatment gives lifelong immunity | Reinfection is common.
+- The medication can be shared with a partner | Each person needs their own evaluation and treatment.
+= Treating partners and abstaining until treatment is complete prevent reinfection and spread.
+
+? When removing protective equipment after caring for a patient in airborne isolation, which item is taken off last, and where?
++ The respirator, after leaving the room
+- The gloves, inside the room | Gloves are the most contaminated and are removed first.
+- The gown, in the corridor | The gown is removed inside the room.
+- The eye protection, at the nurses' station | It is removed before leaving the room.
+= The respirator protects the nurse while inside the room, so it is removed last, after the door is closed.
+
+@ 10.8
+? A patient who had chemotherapy nine days ago has a temperature of 38.5 C. How should the triage nurse prioritize him?
++ As a high-risk patient who goes straight to a private room
+- As a routine fever for the waiting room | Fever during neutropenia can progress to septic shock within hours.
+- As a patient who can book a clinic visit | He needs emergency evaluation.
+- As low acuity because he looks well | Appearance is unreliable in neutropenia.
+= Fever after recent chemotherapy is presumed to be neutropenic sepsis and is treated as an emergency.
+
+? Which finding defines neutropenic fever?
++ A single temperature of 38.3 C or higher with a neutrophil count below 500/mm3
+- A temperature of 37.4 C with a normal white cell count | Neither criterion is met.
+- Any fever in a patient with anemia | Anemia is not the defining feature.
+- A temperature of 39 C with a high neutrophil count | The neutrophil count is not low.
+= Neutropenic fever is a temperature of 38.3 C once, or 38.0 C sustained for an hour, with an absolute neutrophil count under 500.
+
+? How soon should antibiotics be given to a patient with neutropenic fever?
++ Within 60 minutes of arrival
+- After the chest radiograph is reported | Antibiotics are not delayed for imaging.
+- After culture results are known | Results take days.
+- Within 24 hours | That delay greatly increases mortality.
+= Broad-spectrum antibiotics are given within an hour, immediately after cultures are drawn.
+
+? A neutropenic patient has a fever but no cough, no redness at his central line site and a clear chest radiograph. How should the nurse interpret the lack of findings?
++ Signs of infection are blunted without neutrophils, so serious infection is still likely
+- Infection is excluded | Fever may be the only sign.
+- The fever is from the chemotherapy and needs no treatment | That assumption is dangerous.
+- He can be discharged with an antipyretic | He needs antibiotics and admission.
+= Without neutrophils, pus, redness and infiltrates may not develop, so fever alone prompts full treatment.
+
+? Which intervention should be avoided in a neutropenic patient?
++ Taking a rectal temperature
+- Performing hand hygiene before contact | It is essential.
+- Placing the patient in a private room | It is appropriate.
+- Drawing blood cultures | They are required.
+= Rectal temperatures, suppositories and enemas can damage the mucosa and introduce bacteria into the blood.
+
+? A neutropenic patient with fever has an implanted central venous port. How should blood cultures be obtained?
++ One set from the port and one from a peripheral vein
+- One set from the port only | A peripheral set is needed to tell line infection from bloodstream infection.
+- No cultures, to avoid delaying antibiotics | Cultures are drawn quickly before antibiotics.
+- From the port after the antibiotic has been given | Antibiotics reduce the yield.
+= Paired cultures from the device and a peripheral site help identify a catheter-related infection.
+
+? Which empiric antibiotic is appropriate for neutropenic fever?
++ An antipseudomonal beta-lactam such as cefepime
+- Oral amoxicillin alone | It does not cover Pseudomonas.
+- Topical mupirocin | It is not systemic therapy.
+- An antiviral alone | Bacterial coverage is essential.
+= Empiric treatment must cover gram-negative organisms including Pseudomonas.
+
+? A kidney transplant recipient on tacrolimus and prednisone has a temperature of 38.1 C and feels generally unwell. How should the nurse regard this?
++ As potentially serious, requiring a thorough evaluation
+- As a minor viral illness | Immunosuppression masks severe infection.
+- As a normal effect of the medication | Fever is not an expected drug effect.
+- As a reason to stop the immunosuppressants at home | Stopping them risks rejection.
+= Transplant recipients develop opportunistic infections with few signs; fever may also signal rejection.
+
+? A man who had his spleen removed after a crash five years ago has had a fever and chills for three hours. What should the nurse anticipate?
++ Immediate blood cultures and IV antibiotics
+- Observation until a source is found | Overwhelming infection can kill within hours.
+- An antipyretic and discharge | He needs urgent treatment.
+- A referral to his family doctor next week | Delay is dangerous.
+= People without a spleen are vulnerable to overwhelming sepsis from encapsulated bacteria; fever is treated as an emergency.
+
+? A patient with advanced HIV and a CD4 count of 60 has had a headache and fever for two weeks, with mild confusion. Which test should the nurse anticipate after imaging?
++ A lumbar puncture with measurement of opening pressure
+- A throat culture | It does not evaluate the central nervous system.
+- A sinus radiograph | It is unlikely to explain the picture.
+- An ear examination only | It is insufficient.
+= Subacute headache and fever with a very low CD4 count suggest cryptococcal meningitis, which raises intracranial pressure.
+
+? Which precaution is appropriate for a hospitalized patient with severe neutropenia?
++ A private room, strict hand hygiene and no fresh flowers or sick visitors
+- A shared room with a patient who has pneumonia | That exposes the patient to infection.
+- Fresh fruit and salad at each meal | Raw produce may carry organisms and is often restricted.
+- Standing water in a vase at the bedside | Stagnant water grows bacteria.
+= Protective measures limit exposure to organisms from people, plants, water and uncooked food.
