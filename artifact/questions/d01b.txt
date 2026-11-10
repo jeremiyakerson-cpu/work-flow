@@ -1,0 +1,258 @@
+# Domain 1 — Cardiovascular Emergencies (topics 3-5)
+
+@ 1.3
+? A patient on the monitor suddenly becomes unresponsive and pulseless. The rhythm is ventricular fibrillation and the defibrillator is at the bedside. What is the first action?
++ Defibrillate as soon as the pads are on, then resume compressions
+- Give epinephrine 1 mg IV before any shock | Epinephrine follows the early shocks; it does not precede defibrillation in witnessed VF.
+- Intubate before delivering a shock | Advanced airway placement must not delay defibrillation.
+- Perform two minutes of CPR before analyzing the rhythm | With a defibrillator immediately available, the shock is not delayed.
+= Early defibrillation is the most effective treatment for VF; each minute of delay reduces survival.
+
+? A shock has just been delivered for pulseless ventricular tachycardia. What should the team do next?
++ Resume chest compressions immediately for two minutes
+- Check the carotid pulse for up to 10 seconds | Pulse checks right after a shock interrupt perfusion; the heart is usually stunned.
+- Deliver a second stacked shock | Stacked shocks are not part of the standard sequence.
+- Pause to review the rhythm on the monitor | Rhythm analysis waits until the two-minute cycle ends.
+= Compressions resume immediately after a shock because even an organized rhythm rarely generates perfusion in the first minutes.
+
+? During a cardiac arrest the provider orders epinephrine. Which dose and interval are correct for an adult?
++ 1 mg IV or IO every 3 to 5 minutes
+- 0.3 mg IM every 5 minutes | That is the anaphylaxis dose and route.
+- 1 mg IV once only | Epinephrine is repeated throughout the arrest.
+- 10 mg IV every 10 minutes | This is ten times the recommended dose.
+= Adult cardiac arrest dosing is epinephrine 1 mg (10 mL of 0.1 mg/mL) IV/IO every 3-5 minutes.
+
+? Ventricular fibrillation persists after three shocks, high-quality CPR and epinephrine. Which medication is given next?
++ Amiodarone 300 mg IV push
+- Amiodarone 150 mg IV over 10 minutes | That is the dose for a tachycardia with a pulse.
+- Adenosine 12 mg IV push | Adenosine has no role in ventricular fibrillation.
+- Atropine 1 mg IV push | Atropine is not used in shockable arrest rhythms.
+= Shock-refractory VF or pulseless VT is treated with amiodarone 300 mg (or lidocaine 1-1.5 mg/kg), with a second amiodarone dose of 150 mg.
+
+? An unresponsive patient has an organized narrow-complex rhythm at 60/min on the monitor but no palpable pulse. What is the correct management?
++ Start CPR, give epinephrine and search for reversible causes
+- Defibrillate at 200 J | Pulseless electrical activity is not a shockable rhythm.
+- Begin transcutaneous pacing | Pacing does not help when electrical activity already exists without output.
+- Give atropine 1 mg IV | Atropine is no longer recommended for PEA.
+= PEA is managed with high-quality CPR, epinephrine and correction of the Hs and Ts such as hypovolemia, hypoxia and tamponade.
+
+? During resuscitation of an intubated patient the waveform capnography reads 7 mmHg. What should the team leader do?
++ Improve compression quality and consider switching the compressor
+- Stop resuscitation because survival is impossible | A single low value is not used alone to terminate efforts.
+- Increase the ventilation rate to 30 per minute | Hyperventilation lowers ETCO2 further and impairs venous return.
+- Give sodium bicarbonate | Bicarbonate does not address inadequate compressions.
+= ETCO2 below 10 mmHg during CPR signals inadequate cardiac output; compression depth, rate and recoil should be corrected.
+
+? Ten minutes into a resuscitation the ETCO2 abruptly rises from 14 to 42 mmHg. What does this most likely indicate?
++ Return of spontaneous circulation
+- Esophageal migration of the endotracheal tube | A displaced tube causes loss of the waveform, not a rise.
+- Excessive ventilation | Hyperventilation lowers ETCO2.
+- Rescuer fatigue | Poor compressions lower ETCO2.
+= A sudden sustained increase in ETCO2 reflects restored pulmonary blood flow and is often the first sign of ROSC.
+
+? A patient achieves ROSC and is receiving 100% oxygen through the endotracheal tube with SpO2 100%. What is the appropriate next step with oxygen?
++ Titrate the FiO2 down while keeping saturation in the mid-90s
+- Continue 100% oxygen for the first 24 hours | Prolonged hyperoxia worsens reperfusion injury.
+- Remove supplemental oxygen completely | Abrupt removal risks hypoxemia in an unstable patient.
+- Hyperventilate to lower the carbon dioxide level | Hypocapnia causes cerebral vasoconstriction after arrest.
+= After ROSC, oxygen is titrated to avoid both hypoxemia and hyperoxia, and ventilation targets a normal carbon dioxide level.
+! Exact post-ROSC SpO2 target range (commonly 92-98%; check the 2025 AHA update) not confirmed against the current guideline text.
+
+? A patient with ROSC after a 12-minute VF arrest does not follow commands. Which intervention should the nurse anticipate?
++ Temperature control with active prevention of fever
+- Allowing fever, because it is protective | Fever after arrest is associated with worse neurologic outcome.
+- Rapid rewarming to 39 degrees C | Hyperthermia increases cerebral metabolic demand.
+- Immediate extubation to assess neurologic status | A comatose patient cannot protect the airway.
+= Comatose survivors of cardiac arrest receive deliberate temperature control with strict avoidance of fever.
+! Guideline temperature targets have changed in recent years (32-37.5 C range with fever prevention); confirm your current protocol.
+
+? After ROSC, which diagnostic test should be obtained as soon as possible?
++ A 12-lead ECG
+- A head CT in every patient before anything else | Head CT is selective; the ECG identifies a treatable coronary cause first.
+- A lipid panel | Lipids do not guide immediate post-arrest care.
+- An abdominal ultrasound | It does not address the most common treatable cause.
+= A 12-lead ECG soon after ROSC identifies STEMI, for which emergent coronary angiography is indicated.
+
+? The monitor shows a flat line on a patient who is unresponsive and pulseless. After confirming lead connections and checking a second lead, what is the correct treatment?
++ CPR and epinephrine every 3 to 5 minutes
+- Defibrillation at maximum energy | Asystole is not a shockable rhythm.
+- Transcutaneous pacing | Pacing is not effective or recommended in asystole.
+- Atropine 1 mg every 3 minutes | Atropine was removed from the asystole algorithm.
+= Asystole is treated with high-quality CPR, epinephrine and a search for reversible causes; shocks and pacing do not help.
+
+? A woman at 34 weeks' gestation is in cardiac arrest. In addition to standard CPR, which action is most important?
++ Manually displace the uterus to the left
+- Deliver compressions lower on the sternum | Hand position is the same as for other adults.
+- Withhold defibrillation to protect the fetus | Defibrillation is given at standard energies in pregnancy.
+- Give half-dose resuscitation medications | Standard ACLS doses are used.
+= Continuous manual left uterine displacement relieves aortocaval compression and improves venous return during CPR.
+
+@ 1.4
+? A 62-year-old man with hypertension reports sudden tearing chest pain radiating between his shoulder blades. BP is 188/104 in the right arm and 142/86 in the left. What should the nurse suspect?
++ Aortic dissection
+- Acute pericarditis | Pericarditis causes pleuritic positional pain without a pressure differential.
+- Pulmonary embolism | Embolism causes dyspnea and pleuritic pain without unequal arm pressures.
+- Esophageal spasm | Spasm does not produce a pulse or pressure deficit.
+= Abrupt tearing pain radiating to the back with a blood pressure difference of more than 20 mmHg between arms is classic for dissection.
+
+? A patient with a confirmed aortic dissection has HR 112 and BP 176/98. Which medication should the nurse expect to give first?
++ An IV beta blocker such as esmolol
+- An IV fluid bolus | Volume raises pressure and shear stress on the aortic wall.
+- A hydralazine IV push | A pure vasodilator causes reflex tachycardia that extends the tear.
+- A dopamine infusion | An inotrope increases the force of ejection against the torn aorta.
+= Initial therapy lowers heart rate and the force of contraction with a beta blocker, aiming for a rate near 60 and systolic pressure 100-120 mmHg.
+
+? A provider orders a nitroprusside infusion for a patient with aortic dissection who has not yet received any other antihypertensive. What is the nurse's best action?
++ Clarify the need for a beta blocker to be started first
+- Start the infusion at the maximum rate | Rapid unopposed vasodilation provokes reflex tachycardia.
+- Give the infusion with a saline bolus | Volume loading raises aortic wall stress.
+- Refuse all antihypertensives until surgery | Pressure and rate control are urgent while awaiting definitive care.
+= Vasodilators given before heart-rate control cause reflex tachycardia and greater shear force, which can propagate the dissection.
+
+? A 59-year-old with severe chest and back pain has a widened mediastinum on chest radiograph. The ECG shows nonspecific changes. Which order should the nurse question?
++ A heparin bolus and infusion
+- IV morphine for pain | Analgesia reduces sympathetic drive and is appropriate.
+- CT angiography of the chest | CTA is the usual confirmatory study.
+- Two large-bore IV lines | Vascular access is essential.
+= Anticoagulants and fibrinolytics are withheld until dissection is excluded because they can cause catastrophic hemorrhage.
+
+? A 71-year-old male smoker has sudden severe flank and back pain, a pulsatile abdominal mass and BP 82/50. What is the priority?
++ Prepare for immediate surgical intervention and activate massive transfusion
+- Send the patient for an oral-contrast CT of the abdomen | An unstable patient should not leave for prolonged imaging.
+- Give ketorolac for presumed renal colic | Anchoring on renal colic misses a rupture, and NSAIDs impair hemostasis.
+- Insert a urinary catheter and collect urine for culture | This delays definitive care.
+= Hypotension, back or flank pain and a pulsatile mass indicate ruptured abdominal aortic aneurysm, which needs emergent operative repair.
+
+? While awaiting the operating room, a patient with a ruptured abdominal aortic aneurysm is awake with BP 84/52. What is the appropriate resuscitation goal?
++ Limited resuscitation accepting a systolic pressure of about 80 to 90 mmHg
+- Rapid crystalloid infusion to a systolic pressure above 140 mmHg | Raising pressure can dislodge clot and accelerate bleeding.
+- Withholding all fluids and blood | Some perfusion support is still required.
+- A vasopressor infusion to a MAP of 90 mmHg | High pressure before surgical control worsens hemorrhage.
+= Permissive hypotension maintains mentation and organ perfusion while avoiding pressure that disrupts the contained rupture.
+
+? CT angiography shows a dissection that begins in the ascending aorta. What does the nurse anticipate?
++ Emergent cardiothoracic surgery
+- Admission for oral antihypertensives only | Medical management alone is for uncomplicated descending dissections.
+- Discharge with outpatient vascular follow-up | An ascending dissection is immediately life threatening.
+- Thrombolytic therapy | Thrombolytics are contraindicated.
+= Stanford type A dissections involve the ascending aorta and require emergency surgery because of the risk of tamponade, aortic regurgitation and coronary occlusion.
+
+? A patient with a type A aortic dissection develops hypotension, jugular venous distension and muffled heart sounds. Which complication has occurred?
++ Cardiac tamponade
+- Tension pneumothorax | That would cause absent unilateral breath sounds and hyperresonance.
+- Acute mitral stenosis | Mitral stenosis is not an acute complication of dissection.
+- Septic shock | Sepsis does not cause sudden JVD with muffled heart sounds.
+= Blood tracking back into the pericardium from an ascending dissection causes tamponade, shown by Beck's triad.
+
+? A hemodynamically stable patient is suspected of having an aortic dissection. Which study does the nurse prepare the patient for?
++ CT angiography of the chest, abdomen and pelvis
+- A treadmill stress test | Exertion is dangerous with a suspected dissection.
+- A ventilation-perfusion scan | A V/Q scan evaluates pulmonary embolism.
+- A plain chest radiograph alone | A normal film does not exclude dissection.
+= CT angiography is fast, widely available and highly sensitive for dissection in stable patients.
+
+? A tall, thin 27-year-old with long fingers and a history of lens dislocation has sudden severe chest pain radiating to the back. Which condition places him at particular risk for the suspected diagnosis?
++ Marfan syndrome
+- Type 1 diabetes | Diabetes is not a specific risk factor for dissection at this age.
+- Asthma | Asthma has no association with dissection.
+- Iron-deficiency anemia | Anemia does not weaken the aortic wall.
+= Connective tissue disorders such as Marfan syndrome weaken the aortic media and predispose young patients to dissection.
+
+? A patient with an aortic dissection reports pain of 10/10. The provider orders IV fentanyl. What is the main reason analgesia is a priority?
++ Pain increases catecholamine release, which raises heart rate and blood pressure
+- Opioids directly seal the intimal tear | Opioids have no effect on the tear itself.
+- Analgesia is required before consent can be signed | Consent does not depend on analgesia.
+- Opioids prevent clot formation in the false lumen | Opioids have no antithrombotic effect.
+= Uncontrolled pain drives sympathetic output, increasing the shear forces that extend a dissection.
+
+? A patient with a known thoracic aortic dissection suddenly reports that his left leg is numb and cold, and no pedal pulse is palpable. What does this indicate?
++ Extension of the dissection compromising a branch artery
+- An unrelated deep vein thrombosis | Venous thrombosis causes swelling and warmth, not a pulseless cold limb.
+- An expected effect of beta blockers | Beta blockers do not cause acute limb ischemia.
+- Anxiety-related hyperventilation | Hyperventilation does not abolish a pulse.
+= New pulse deficits or neurologic changes signal malperfusion from propagation of the dissection and need immediate surgical notification.
+
+@ 1.5
+? Which finding distinguishes a hypertensive emergency from hypertensive urgency in a patient with BP 224/128?
++ New confusion and papilledema
+- A blood pressure reading above 220 systolic | The number alone does not define an emergency.
+- A mild headache present for two weeks | Chronic mild headache is not acute end-organ damage.
+- Missed doses of an antihypertensive | Non-adherence is a cause, not evidence of organ injury.
+= Hypertensive emergency is severe hypertension with acute end-organ damage such as encephalopathy, MI, pulmonary edema or kidney injury.
+
+? A patient with hypertensive encephalopathy has a MAP of 160 mmHg and is started on a nicardipine infusion. What is the appropriate goal for the first hour?
++ Reduce the MAP by no more than about 25%
+- Normalize the blood pressure to 120/80 | Rapid normalization causes cerebral, coronary and renal hypoperfusion.
+- Reduce the MAP by 50% | A drop of this size exceeds the autoregulatory limit.
+- Leave the pressure untreated for 24 hours | Encephalopathy needs controlled reduction now.
+= In most hypertensive emergencies pressure is lowered gradually, by at most 25% in the first hour, to preserve organ perfusion.
+
+? A 55-year-old has BP 204/114 found at a pharmacy kiosk. He is asymptomatic with a normal examination, ECG and creatinine. Which plan should the nurse expect?
++ Restart or adjust oral antihypertensives and arrange follow-up within days
+- An IV labetalol push until the pressure is 140/90 | Rapid IV lowering in asymptomatic patients causes harm without benefit.
+- Admission to intensive care for a nitroprusside infusion | Intensive care is for acute end-organ damage.
+- Sublingual nifedipine and discharge | Immediate-release nifedipine causes unpredictable precipitous drops.
+= Severe asymptomatic hypertension without organ damage is managed with oral therapy and prompt outpatient follow-up.
+
+? A patient with an acute ischemic stroke is outside the treatment window for thrombolysis and thrombectomy. BP is 198/106. What is the appropriate approach?
++ Allow the pressure to remain elevated unless it exceeds 220/120
+- Lower the pressure to below 140/90 within the hour | Aggressive lowering reduces flow to the ischemic penumbra.
+- Give sublingual nitroglycerin | Nitroglycerin is not recommended for stroke blood pressure management.
+- Start a norepinephrine infusion | Raising the pressure further is not indicated.
+= Permissive hypertension supports collateral flow; without reperfusion therapy, treatment is generally withheld unless pressure exceeds 220/120 mmHg.
+
+? A stroke patient who is otherwise eligible for IV thrombolysis has BP 198/112. What must happen before the thrombolytic is given?
++ The pressure must be lowered to below 185/110
+- The pressure must be lowered to below 120/80 | That target is unnecessarily low and risks hypoperfusion.
+- Nothing; the drug can be given at any pressure | Pressure above 185/110 raises the risk of intracranial hemorrhage.
+- The patient must wait 24 hours | Delay forfeits the benefit of thrombolysis.
+= Blood pressure must be below 185/110 mmHg before thrombolysis and kept below 180/105 for 24 hours afterwards.
+
+? CT shows an acute intracerebral hemorrhage in a patient with BP 212/118. Which target should the nurse anticipate?
++ Careful lowering of systolic pressure toward 140 mmHg
+- Permissive hypertension up to 220 systolic | That approach is for ischemic stroke, not hemorrhage.
+- Lowering systolic pressure below 100 mmHg | Excessive reduction risks renal and cerebral hypoperfusion.
+- No treatment until neurosurgery evaluates | Early pressure control limits hematoma expansion.
+= In spontaneous intracerebral hemorrhage, smooth early lowering of systolic pressure to about 140 mmHg (range 130-150) is recommended.
+
+? A patient has been on a high-dose nitroprusside infusion for 36 hours. Which finding suggests toxicity?
++ New confusion with a rising lactate and metabolic acidosis
+- A blood pressure at the ordered goal | That is the intended therapeutic effect.
+- Mild facial flushing | Flushing is a benign vasodilatory effect.
+- A dry cough | Cough is associated with ACE inhibitors.
+= Nitroprusside releases cyanide; prolonged or high-dose infusions can cause altered mentation and lactic acidosis.
+
+? A provider orders IV labetalol for a hypertensive emergency. Which finding should make the nurse question the order?
++ Heart rate of 48 with a second-degree AV block
+- A history of gout | Gout is not a contraindication.
+- Blood glucose of 162 mg/dL | Mild hyperglycemia does not preclude labetalol.
+- Age over 65 | Age alone is not a contraindication.
+= Labetalol blocks beta receptors and is avoided in bradycardia, heart block, decompensated heart failure and reactive airway disease.
+
+? A 48-year-old presents with headache, tremor, anxiety and BP 210/122. He ran out of a transdermal blood pressure patch three days ago. Which medication was most likely stopped?
++ Clonidine
+- Lisinopril | Stopping an ACE inhibitor does not cause a rebound sympathetic surge.
+- Hydrochlorothiazide | Diuretic withdrawal causes gradual, not rebound, pressure rise.
+- Amlodipine | Its long half-life makes abrupt rebound unlikely.
+= Abrupt clonidine withdrawal causes rebound hypertension with sympathetic overactivity within one to three days.
+
+? A patient's pressure falls from 236/130 to 128/70 within 20 minutes of starting a nicardipine infusion, and she becomes newly confused. What is the nurse's priority?
++ Reduce or pause the infusion and notify the provider
+- Continue the infusion because the goal was reached | The drop is too fast and is causing cerebral hypoperfusion.
+- Give a second antihypertensive | More lowering will worsen perfusion.
+- Document the improvement and reassess in an hour | New confusion needs immediate action.
+= Overly rapid reduction outstrips cerebral autoregulation; new neurologic change means the pressure fell too far, too fast.
+
+? A provider orders immediate-release nifedipine 10 mg to be punctured and given sublingually for a blood pressure of 208/116. What should the nurse do?
++ Question the order because of the risk of abrupt uncontrolled hypotension
+- Give it as ordered and recheck the pressure in an hour | The practice is associated with stroke and myocardial infarction.
+- Give double the dose for a faster effect | A larger dose increases the danger.
+- Crush it into applesauce instead | The route change does not remove the risk.
+= Short-acting nifedipine produces unpredictable precipitous drops in pressure and is not recommended for acute lowering.
+
+? Which patient with severe hypertension most needs an IV titratable agent and continuous monitoring?
++ A patient with crushing chest pain and ST depression
+- A patient with a nosebleed controlled by pressure | Controlled epistaxis is not end-organ damage.
+- A patient who is anxious after an argument | Anxiety-related elevation settles with rest.
+- A patient who missed two days of medication and feels well | This is managed by restarting oral therapy.
+= Acute myocardial ischemia with severe hypertension is a hypertensive emergency requiring controlled IV reduction.

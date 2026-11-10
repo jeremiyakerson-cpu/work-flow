@@ -1,0 +1,257 @@
+# Domain 1 — Cardiovascular Emergencies (topics 0-2)
+
+@ 1.0
+? A 58-year-old man walks in with 30 minutes of crushing substernal chest pressure radiating to his left arm. He is diaphoretic; BP 148/90, HR 96, SpO2 96%. Which action is the priority?
++ Obtain a 12-lead ECG within 10 minutes of arrival
+- Draw a troponin and wait for the result before further testing | Biomarkers lag behind injury; the ECG must not wait for labs.
+- Send him for a portable chest radiograph | A chest film does not identify STEMI and delays the time-critical ECG.
+- Complete the full registration and medication history | Paperwork never precedes the ECG in suspected ACS.
+= A 12-lead ECG acquired and interpreted within 10 minutes of first contact is the step that identifies STEMI and starts the reperfusion clock.
+
+? A 12-lead ECG shows ST elevation in leads II, III and aVF. BP is 102/64. Before nitroglycerin is given, which additional assessment is most important?
++ A right-sided ECG looking for elevation in V4R
+- A repeat standard ECG in 30 minutes | Waiting delays recognition of right ventricular involvement.
+- A posterior ECG with leads V7 to V9 | Posterior leads look for posterior MI, not the preload-dependent RV infarct.
+- A bedside blood glucose | Glucose does not change the decision about nitrates here.
+= Inferior STEMI is commonly from right coronary occlusion; up to half involve the right ventricle, which is preload dependent and can crash with nitrates.
+
+? A patient with an inferior STEMI and ST elevation in V4R receives sublingual nitroglycerin and becomes pale, with BP 72/40 and clear lung sounds. What should the nurse anticipate?
++ An isotonic IV fluid bolus
+- A furosemide IV push | Diuresis removes the preload a failing right ventricle depends on.
+- A second nitroglycerin tablet | More venodilation will deepen the hypotension.
+- An immediate morphine dose | Morphine also lowers preload and blood pressure.
+= Right ventricular infarction makes cardiac output preload dependent; nitrate-induced hypotension with clear lungs is treated with volume.
+
+? A 64-year-old with suspected ACS has no allergies and no active bleeding. Which aspirin order should the nurse expect?
++ 162 to 325 mg of non-enteric-coated aspirin, chewed
+- 81 mg of enteric-coated aspirin, swallowed whole | The dose is too low and the coating delays absorption.
+- 650 mg of aspirin given rectally | Rectal dosing is reserved for patients who cannot take it orally, at 300 mg.
+- 325 mg of aspirin held until troponin results | Aspirin is given on suspicion and is not delayed for biomarkers.
+= Chewed non-enteric aspirin 162-325 mg gives the fastest platelet inhibition and reduces mortality in ACS.
+
+? A rural ED without a cath lab diagnoses an anterior STEMI. The nearest PCI centre would achieve first-device time about 3 hours from first medical contact. Symptoms began 1 hour ago and there are no contraindications. What is the expected plan?
++ Give a fibrinolytic within 30 minutes of arrival, then transfer
+- Transfer immediately for primary PCI without fibrinolysis | Primary PCI is preferred only when it can be delivered within 120 minutes of first contact.
+- Admit for heparin and serial troponins | Anticoagulation alone does not reperfuse an occluded artery.
+- Wait for the second troponin to confirm infarction | STEMI is an ECG diagnosis; reperfusion is not delayed for biomarkers.
+= When PCI cannot be achieved within 120 minutes of first medical contact, fibrinolysis within 30 minutes of arrival is recommended, followed by transfer.
+
+? A 61-year-old man with chest pain rates it 7/10. He mentions taking tadalafil last night for erectile dysfunction. BP is 138/84. Which order should the nurse question?
++ Nitroglycerin 0.4 mg sublingual
+- Aspirin 324 mg chewed | Aspirin has no interaction with PDE-5 inhibitors and is indicated.
+- A 12-lead ECG repeated in 15 minutes | Serial ECGs are appropriate with ongoing pain.
+- Continuous cardiac monitoring | Monitoring is standard in suspected ACS.
+= Nitrates within 48 hours of tadalafil (24 hours for sildenafil or vardenafil) can cause profound, refractory hypotension.
+
+? A patient with an NSTEMI is pain free with SpO2 97% on room air and no dyspnea. A new nurse reaches for a nasal cannula. What is the best guidance?
++ Withhold oxygen unless saturation falls below 90% or distress develops
+- Apply 2 L/min by nasal cannula for every ACS patient | Routine oxygen in normoxic ACS shows no benefit and may cause harm.
+- Apply a non-rebreather at 15 L/min to maximise delivery | Hyperoxia causes coronary vasoconstriction and is not indicated.
+- Titrate oxygen to keep SpO2 at 100% | Targeting 100% drives unnecessary hyperoxia.
+= Supplemental oxygen is indicated for hypoxaemia (SpO2 below 90%), heart failure or respiratory distress, not routinely.
+
+? A 72-year-old woman with diabetes reports two hours of profound fatigue, nausea and mild shortness of breath. She denies chest pain. HR 104, BP 104/66. Which action is most appropriate at triage?
++ Obtain an immediate 12-lead ECG
+- Assign a low acuity level and send her to the waiting room | Atypical ACS presentations are common in older, female and diabetic patients and are easily missed.
+- Give an oral antiemetic and reassess in an hour | Treating the nausea alone ignores a possible anginal equivalent.
+- Check orthostatic vital signs first | Orthostatics delay the test that identifies a time-critical diagnosis.
+= Women, older adults and patients with diabetes often present with anginal equivalents such as dyspnea, fatigue and nausea rather than chest pain.
+
+? A 12-lead ECG shows ST elevation in V1 through V4. Which coronary artery is most likely occluded, and what complication should the nurse watch for?
++ Left anterior descending; pump failure and ventricular dysrhythmias
+- Right coronary; sinus bradycardia and AV nodal block | That pattern belongs to inferior MI with elevation in II, III and aVF.
+- Left circumflex; isolated lateral wall ischemia | Circumflex occlusion shows changes in I, aVL, V5 and V6.
+- Posterior descending; right ventricular failure | Posterior and RV involvement do not produce V1-V4 elevation.
+= V1-V4 elevation marks an anterior-septal STEMI from LAD occlusion, which threatens a large amount of left ventricle.
+
+? A patient with ongoing chest pain has ST depression with tall, broad R waves in V1 to V3 and no ST elevation on the standard 12-lead. What should the nurse do next?
++ Record posterior leads V7 to V9
+- Reassure the patient that the ECG excludes STEMI | Anterior ST depression can be the mirror image of a posterior STEMI.
+- Repeat the same 12-lead with the limb leads reversed | Lead reversal adds no diagnostic information.
+- Record the ECG again at double speed | Paper speed does not reveal posterior injury.
+= ST depression with tall R waves in V1-V3 suggests posterior MI; elevation of 0.5 mm or more in V7-V9 confirms it.
+
+? A 34-year-old has chest pain, agitation, HR 128 and BP 186/110 after using cocaine. The ECG shows sinus tachycardia. Which medication should the nurse anticipate first?
++ An IV benzodiazepine such as lorazepam
+- IV metoprolol | Beta blockade may leave alpha stimulation unopposed and worsen coronary vasospasm and hypertension.
+- IV haloperidol | Antipsychotics do not treat the sympathetic surge and can lower the seizure threshold.
+- Oral clonidine | An oral agent is too slow and is not first-line for this presentation.
+= Benzodiazepines blunt the central sympathetic outflow behind cocaine-associated chest pain, tachycardia and hypertension.
+! Beta-blocker avoidance in acute cocaine toxicity is the traditional teaching; some newer guidance is less absolute. Confirm against your current reference.
+
+? A STEMI patient is being screened for fibrinolytic therapy. Which finding is an absolute contraindication?
++ A hemorrhagic stroke four years ago
+- Blood pressure of 162/94 | Only severe uncontrolled hypertension (above 180/110) is a relative contraindication.
+- Age of 78 years | Advanced age raises bleeding risk but is not an absolute contraindication.
+- Menstruation that began yesterday | Active menses is not a contraindication to fibrinolysis.
+= Any prior intracranial hemorrhage is an absolute contraindication to fibrinolytics because of the risk of fatal rebleeding.
+
+@ 1.1
+? A 45-year-old has a narrow-complex regular tachycardia at 196/min. She is confused, pale and diaphoretic with BP 74/40. What is the priority intervention?
++ Synchronized cardioversion
+- Adenosine 6 mg rapid IV push | Drug therapy is for stable patients; this patient is unstable.
+- Carotid sinus massage | Vagal maneuvers delay definitive treatment in an unstable patient.
+- Diltiazem 20 mg IV over 2 minutes | A calcium channel blocker will worsen hypotension.
+= A tachydysrhythmia causing hypotension, altered mentation or shock is treated with immediate synchronized cardioversion.
+
+? A 29-year-old with palpitations is alert, BP 118/76, with a regular narrow-complex tachycardia at 184/min. A modified Valsalva maneuver fails. Which medication and technique should the nurse prepare?
++ Adenosine 6 mg rapid push in a proximal vein, followed immediately by a 20 mL saline flush
+- Adenosine 6 mg infused over 10 minutes through a hand vein | Adenosine's half-life is seconds; a slow distal infusion never reaches the heart.
+- Amiodarone 300 mg rapid IV push | That is the pulseless arrest dose, not the treatment for stable SVT.
+- Atropine 1 mg IV push | Atropine speeds the heart and is used for bradycardia.
+= Adenosine must reach the AV node as a bolus: rapid push at the port closest to the patient with an immediate flush.
+
+? Immediately after adenosine is pushed, the monitor shows several seconds of asystole and the patient says he feels like he is dying. What is the best response?
++ Stay with him and reassure him that this brief effect is expected
+- Begin chest compressions | The pause is transient and the patient is conscious with a perfusing rhythm returning.
+- Push atropine 1 mg | The pause resolves within seconds without treatment.
+- Call a rapid response and prepare to pace | Pacing is unnecessary for the expected short pause after adenosine.
+= Adenosine briefly blocks the AV node, causing a short pause, flushing and chest tightness that pass within seconds.
+
+? A 70-year-old has HR 38, BP 78/46, dizziness and cool clammy skin. The monitor shows sinus bradycardia. Which is the first-line medication?
++ Atropine 1 mg IV push
+- Adenosine 6 mg IV push | Adenosine slows AV conduction and would worsen bradycardia.
+- Amiodarone 150 mg IV over 10 minutes | Amiodarone is an antiarrhythmic that can further slow the rate.
+- Metoprolol 5 mg IV push | A beta blocker would worsen bradycardia and hypotension.
+= Symptomatic bradycardia is treated first with atropine 1 mg IV, repeated every 3 to 5 minutes to a maximum of 3 mg.
+
+? A patient in third-degree AV block remains hypotensive and lethargic after atropine. Which intervention should the nurse prepare next?
++ Transcutaneous pacing
+- A third and fourth dose of atropine before anything else | Atropine is often ineffective in infranodal block and should not delay pacing.
+- Synchronized cardioversion at 100 J | Cardioversion treats tachydysrhythmias, not heart block.
+- Adenosine 12 mg IV push | Adenosine worsens AV block.
+= When atropine fails in unstable bradycardia, start transcutaneous pacing or a dopamine or epinephrine infusion.
+
+? During transcutaneous pacing the monitor shows a pacer spike followed by a wide QRS at 70/min. How should the nurse confirm that pacing is effective?
++ Palpate a femoral pulse that matches the paced rate
+- Confirm the pacer spikes are visible on the monitor | Spikes show output only, not capture.
+- Check the carotid pulse on the side nearest the pads | Muscle twitching from the pacer can mimic a carotid pulse.
+- Increase the rate until the patient reports discomfort | Discomfort does not indicate mechanical capture.
+= Electrical capture must be matched by mechanical capture, verified by a femoral pulse and improving blood pressure.
+
+? A 66-year-old is alert with BP 122/78 and a regular wide-complex tachycardia at 170/min. Which treatment should the nurse anticipate?
++ An antiarrhythmic infusion such as amiodarone 150 mg over 10 minutes
+- Immediate unsynchronized defibrillation at 200 J | Defibrillation is for pulseless rhythms, not a stable patient with a pulse.
+- Verapamil 5 mg IV push | Calcium channel blockers can cause collapse in ventricular tachycardia.
+- Atropine 1 mg IV push | Atropine has no role in tachycardia.
+= Stable monomorphic VT with a pulse is treated with an antiarrhythmic infusion and expert consultation.
+
+? A patient taking methadone and ondansetron develops a polymorphic wide-complex tachycardia that twists around the baseline. She has a pulse. Which medication is the priority?
++ Magnesium sulfate 1 to 2 g IV
+- Amiodarone 150 mg IV | Amiodarone prolongs the QT interval further.
+- Procainamide infusion | Procainamide also prolongs the QT interval.
+- Adenosine 6 mg IV | Adenosine does not treat torsades de pointes.
+= Torsades de pointes arises from a prolonged QT; IV magnesium is first-line while offending drugs are stopped.
+
+? A 59-year-old has new atrial fibrillation at 148/min. She is alert, BP 126/80, no chest pain, onset unknown. Which order should the nurse anticipate?
++ Rate control with IV diltiazem
+- Immediate synchronized cardioversion | A stable patient with unknown onset risks embolism without prior anticoagulation.
+- Adenosine 6 mg rapid push | Adenosine does not convert or control atrial fibrillation.
+- Lidocaine 100 mg IV push | Lidocaine treats ventricular, not atrial, dysrhythmias.
+= Stable AF with rapid ventricular response is managed with rate control using a calcium channel blocker or beta blocker.
+
+? A 24-year-old with known Wolff-Parkinson-White syndrome has an irregular wide-complex tachycardia at 210/min, BP 110/70. Which medication order should the nurse question?
++ Diltiazem IV
+- Procainamide IV | Procainamide slows conduction through the accessory pathway and is appropriate.
+- Preparation for synchronized cardioversion | Cardioversion is appropriate, especially if the patient deteriorates.
+- Continuous monitoring with pads in place | Monitoring and pads are essential safety measures.
+= In pre-excited atrial fibrillation, AV nodal blockers can speed conduction down the accessory pathway and trigger ventricular fibrillation.
+
+? The monitor shows P waves marching at a constant PR interval with intermittent non-conducted P waves and dropped QRS complexes. The patient reports dizziness. What does the nurse anticipate?
++ Applying pacing pads and preparing for transcutaneous pacing
+- Reassurance, because this rhythm is benign | Mobitz type II can progress suddenly to complete heart block.
+- Vagal maneuvers | Vagal stimulation would slow conduction further.
+- Diltiazem to control the ventricular rate | An AV nodal blocker worsens the block.
+= A constant PR interval with dropped beats is second-degree type II block, an infranodal block that is unstable and often needs pacing.
+
+? A patient in unstable polymorphic ventricular tachycardia has a pulse. The defibrillator cannot synchronize on the chaotic rhythm. What is the correct action?
++ Deliver an unsynchronized high-energy shock
+- Keep pressing the sync button until markers appear | Waiting for synchronization delays a life-saving shock.
+- Give adenosine while troubleshooting | Adenosine does not treat polymorphic ventricular tachycardia.
+- Switch to transcutaneous pacing | Pacing does not terminate this rhythm.
+= When the device cannot synchronize on an irregular polymorphic rhythm in an unstable patient, defibrillate with unsynchronized energy.
+
+@ 1.2
+? A 68-year-old arrives gasping with pink frothy sputum, diffuse crackles, BP 218/124 and SpO2 82%. Which pair of interventions should the nurse anticipate first?
++ Noninvasive positive pressure ventilation and IV nitroglycerin
+- A 1 L normal saline bolus and oxygen by nasal cannula | Fluid worsens pulmonary edema and a cannula is inadequate.
+- IV metoprolol and supine positioning | A negative inotrope and lying flat worsen acute decompensation.
+- Oral furosemide and reassessment in an hour | Oral diuretics are too slow for a patient in extremis.
+= Hypertensive acute pulmonary edema is treated by cutting preload and afterload with nitrates and supporting oxygenation with NIPPV.
+
+? A patient with acute decompensated heart failure is anxious and tachypneic. Which position should the nurse choose?
++ High Fowler's with the legs dependent
+- Supine with the legs elevated | Raising the legs increases venous return and worsens congestion.
+- Left lateral recumbent | Side-lying does not reduce preload or ease the work of breathing.
+- Trendelenburg | Head-down positioning floods the lungs further.
+= Sitting upright with legs down pools blood in the periphery, lowering preload, and improves diaphragmatic excursion.
+
+? After IV furosemide 80 mg, a patient with heart failure produces 1.4 L of urine in two hours. Which finding needs follow-up first?
++ New frequent premature ventricular contractions
+- A weight 1 kg lower than on arrival | Weight loss is the expected result of diuresis.
+- Thirst and a dry mouth | These are expected and not immediately dangerous.
+- Fewer crackles on auscultation | Clearing lungs show the therapy is working.
+= Loop diuretics waste potassium and magnesium; new ventricular ectopy suggests an electrolyte deficit that needs checking and replacement.
+
+? A 74-year-old with COPD and hypertension presents with dyspnea. The BNP is 62 pg/mL. How should the nurse interpret this result?
++ Heart failure is unlikely to be the cause of the dyspnea
+- Severe systolic heart failure is confirmed | A BNP under 100 pg/mL argues against heart failure.
+- The value suggests acute renal failure | A low BNP does not indicate renal failure, which tends to raise it.
+- The test is uninterpretable in COPD | BNP helps separate cardiac from pulmonary dyspnea.
+= A BNP below 100 pg/mL has a high negative predictive value for heart failure as the cause of acute dyspnea.
+
+? Which patient with acute pulmonary edema is NOT a candidate for BiPAP?
++ A patient who is obtunded and vomiting
+- A patient with a respiratory rate of 34 and accessory muscle use | Increased work of breathing is an indication.
+- A patient with BP 190/110 | Hypertension is not a contraindication.
+- A patient who is anxious but following commands | An alert cooperative patient can be coached through mask ventilation.
+= NIPPV needs a patient who can protect the airway; depressed consciousness and vomiting create a high aspiration risk.
+
+? A patient two days after an anterior MI has BP 78/50, HR 118, cool mottled skin, crackles to the mid-lung and urine output of 10 mL/h. Which order should the nurse question?
++ A 2 L normal saline bolus
+- A norepinephrine infusion | A vasopressor supports perfusion pressure in cardiogenic shock.
+- A dobutamine infusion | An inotrope improves contractility.
+- Preparation for emergent cardiac catheterization | Revascularization treats the cause.
+= Cardiogenic shock is pump failure with congestion; large-volume fluid overloads an already failing left ventricle.
+
+? Which set of findings most strongly indicates right-sided heart failure?
++ Jugular venous distension, hepatomegaly and dependent edema
+- Crackles, orthopnea and pink frothy sputum | These reflect pulmonary congestion from left-sided failure.
+- Wheezing, a prolonged expiratory phase and a barrel chest | These suggest obstructive lung disease.
+- Flat neck veins, tachycardia and dry mucous membranes | These suggest hypovolemia.
+= Right ventricular failure backs blood into the systemic veins, producing JVD, liver congestion and peripheral edema.
+
+? Which statement by a patient being discharged after a heart failure exacerbation shows that teaching was effective?
++ "I'll weigh myself every morning and call if I gain 3 pounds in a day."
+- "I'll skip my water pill on days I have errands." | Skipping diuretics is a leading cause of readmission.
+- "I'll use salt substitute freely in place of salt." | Potassium-based substitutes can cause hyperkalemia with ACE inhibitors or spironolactone.
+- "I'll take ibuprofen for my knee pain." | NSAIDs cause sodium and water retention and blunt diuretics.
+= Daily weights detect fluid retention early; a gain of 2-3 lb in a day or 5 lb in a week should be reported.
+
+? A patient with well-controlled heart failure presents with worsening edema and dyspnea over a week. Which recent change most likely precipitated this?
++ Starting naproxen twice daily for back pain
+- Switching from whole milk to skim milk | That change does not affect fluid balance.
+- Receiving an influenza vaccine two weeks ago | Vaccination lowers the risk of decompensation.
+- Walking 10 minutes more each day | Gradual exercise is beneficial in stable heart failure.
+= NSAIDs promote sodium and water retention and renal vasoconstriction, a common trigger of decompensation.
+
+? A patient with acute heart failure has BP 84/52 and HR 112. Nitroglycerin infusion is ordered. What is the nurse's best action?
++ Hold the infusion and clarify the order with the provider
+- Start the infusion at the lowest dose | Even low-dose nitrates can deepen hypotension at this pressure.
+- Start the infusion and lay the patient supine | Positioning does not make a vasodilator safe in hypotension.
+- Give the infusion with a fluid bolus | A fluid bolus worsens pulmonary congestion.
+= Vasodilators are avoided when systolic pressure is below about 90 mmHg because they further reduce perfusion.
+
+? An 82-year-old taking digoxin and furosemide reports nausea, anorexia and yellow-green halos around lights. HR is 46. Which laboratory value most likely contributed?
++ Potassium 2.9 mEq/L
+- Sodium 138 mEq/L | A normal sodium has no effect on digoxin toxicity.
+- Glucose 148 mg/dL | Mild hyperglycemia does not potentiate digoxin.
+- Hemoglobin 11.8 g/dL | Mild anemia is unrelated to digoxin toxicity.
+= Hypokalemia from loop diuretics increases digoxin binding to the sodium-potassium pump and precipitates toxicity.
+
+? During assessment of a dyspneic patient the nurse hears an extra heart sound just after S2, best heard at the apex with the bell. What does this suggest?
++ Ventricular volume overload consistent with heart failure
+- A normal variant in adults over 40 | An S3 after age 40 is abnormal.
+- Stiff ventricle from long-standing hypertension only | That description fits an S4, heard just before S1.
+- Pericardial inflammation | Pericarditis produces a scratchy friction rub.
+= An S3 gallop reflects rapid filling of a dilated, volume-overloaded ventricle and is a classic finding in heart failure.

@@ -1,0 +1,256 @@
+# Domain 1 — Cardiovascular Emergencies (topics 6-8)
+
+@ 1.6
+? A 31-year-old has sharp central chest pain that worsens when he lies flat or breathes deeply and eases when he leans forward. He had a cold last week. What should the nurse listen for?
++ A scratchy pericardial friction rub
+- A fixed split second heart sound | A fixed split S2 suggests an atrial septal defect.
+- A carotid bruit | A bruit reflects carotid stenosis, not pericardial inflammation.
+- Absent breath sounds on one side | That finding points to pneumothorax or effusion.
+= Positional pleuritic pain relieved by leaning forward after a viral illness suggests acute pericarditis, typically with a friction rub.
+
+? Which ECG pattern supports acute pericarditis rather than STEMI?
++ Diffuse concave ST elevation with PR depression
+- ST elevation confined to II, III and aVF with reciprocal depression | A territorial pattern with reciprocal changes indicates infarction.
+- New left bundle branch block | That may be a STEMI equivalent, not pericarditis.
+- Peaked T waves with a widened QRS | That pattern suggests hyperkalemia.
+= Pericarditis inflames the whole epicardial surface, giving widespread ST elevation and PR depression without reciprocal changes.
+
+? A patient is diagnosed with uncomplicated viral pericarditis. Which discharge regimen should the nurse expect?
++ A high-dose NSAID with colchicine
+- Warfarin for three months | Anticoagulation risks hemorrhagic effusion and is not a treatment.
+- A nitroglycerin patch | Nitrates do not treat pericardial inflammation.
+- A prednisone taper as first-line therapy | Early steroids increase recurrence and are reserved for selected cases.
+= NSAIDs or aspirin plus colchicine relieve symptoms and reduce recurrence in acute pericarditis.
+
+? A 36-year-old who injects heroin has three days of fever, chills and a new murmur. Temperature is 39.2 C. Which order is the priority before antibiotics begin?
++ Three sets of blood cultures from separate sites
+- A urine drug screen | The result does not change immediate management.
+- A chest CT with contrast | Imaging does not identify the organism.
+- An erythrocyte sedimentation rate | It is nonspecific and does not guide therapy.
+= Blood cultures drawn before antibiotics identify the organism in infective endocarditis and guide weeks of therapy.
+
+? Which skin finding is associated with infective endocarditis?
++ Painless red macules on the palms and soles
+- A butterfly rash across the cheeks | A malar rash suggests lupus.
+- Silvery plaques on the elbows | Those plaques are psoriasis.
+- A bull's-eye lesion on the thigh | Erythema migrans indicates Lyme disease.
+= Janeway lesions, Osler nodes and splinter hemorrhages are embolic and immune signs of endocarditis.
+
+? A patient being treated for mitral valve endocarditis suddenly develops right-sided weakness and slurred speech. What is the most likely cause?
++ A septic embolus to the brain
+- An adverse reaction to the antibiotic | Antibiotics do not cause sudden focal deficits.
+- Hypoglycemia from poor intake | Possible, but focal deficits in endocarditis point first to embolism.
+- A vasovagal episode | Vasovagal events do not cause focal weakness.
+= Left-sided vegetations can fragment and embolize to the brain, causing stroke.
+
+? A 28-year-old who injects drugs has fever, cough and pleuritic chest pain. The chest radiograph shows multiple round peripheral nodules. Which valve is most likely infected?
++ Tricuspid
+- Mitral | Mitral vegetations embolize to the systemic circulation.
+- Aortic | Aortic vegetations embolize systemically.
+- None; this is typical viral pneumonia | Multiple nodular infiltrates in this setting suggest septic emboli.
+= Right-sided endocarditis in people who inject drugs usually affects the tricuspid valve and showers septic emboli to the lungs.
+
+? A 22-year-old athlete had a flu-like illness two weeks ago and now has chest pain, dyspnea on exertion, HR 124, an S3 and an elevated troponin. Coronary risk is low. Which condition should the nurse suspect?
++ Myocarditis
+- Costochondritis | Chest-wall pain does not raise troponin or cause an S3.
+- Panic disorder | Anxiety does not explain troponin elevation.
+- Stable angina | Atherosclerotic angina is unlikely at this age.
+= Viral myocarditis presents after a viral prodrome with chest pain, heart failure signs, dysrhythmias and troponin elevation.
+
+? Which instruction is most important for a young adult being discharged after myocarditis?
++ Avoid competitive sports and strenuous exercise until cleared by cardiology
+- Return to full training once the chest pain stops | Exercise during myocardial inflammation risks fatal dysrhythmia.
+- Take ibuprofen before each workout | NSAIDs may worsen myocardial injury in myocarditis.
+- Increase fluid intake to 4 L a day | Excess fluid can worsen ventricular dysfunction.
+= Strenuous activity is restricted for several months after myocarditis because of the risk of sudden cardiac death.
+
+? Three weeks after a myocardial infarction a patient returns with fever, pleuritic chest pain and a friction rub. Troponin is unchanged. What is the most likely diagnosis?
++ Post-MI pericarditis (Dressler syndrome)
+- Reinfarction | Reinfarction would raise troponin and cause ischemic rather than pleuritic pain.
+- Pneumonia | Pneumonia does not produce a pericardial rub.
+- Pulmonary embolism | Embolism does not cause a rub and fever weeks after MI in this pattern.
+= Dressler syndrome is an immune-mediated pericarditis occurring weeks after myocardial injury.
+
+? A patient who has missed a week of hemodialysis has chest pain, a friction rub and a BUN of 142 mg/dL. Which treatment addresses the cause?
++ Urgent hemodialysis
+- High-dose ibuprofen | NSAIDs are avoided in renal failure and do not remove uremic toxins.
+- Thrombolytic therapy | There is no coronary occlusion to treat.
+- Oral antibiotics | The inflammation is not infectious.
+= Uremic pericarditis results from retained toxins and is treated with dialysis.
+
+? A patient with acute pericarditis becomes hypotensive with distended neck veins and distant heart sounds. What should the nurse prepare for?
++ Emergent pericardiocentesis
+- A chest tube on the left side | A chest tube treats pleural, not pericardial, collections.
+- Synchronized cardioversion | No tachydysrhythmia is described.
+- A nitroglycerin infusion | Nitrates lower preload and worsen tamponade.
+= Pericarditis can produce an effusion large enough to cause tamponade, which requires drainage.
+
+@ 1.7
+? A 26-year-old with a stab wound to the left chest has BP 80/60, distended neck veins and muffled heart sounds. Breath sounds are equal and the trachea is midline. Which condition is most likely?
++ Cardiac tamponade
+- Tension pneumothorax | Tension pneumothorax causes absent breath sounds on one side.
+- Massive hemothorax | Hemothorax causes flat neck veins and dullness with diminished breath sounds.
+- Flail chest | Flail chest shows paradoxical wall movement, not this triad.
+= Hypotension, JVD and muffled heart sounds (Beck's triad) with equal breath sounds indicate tamponade.
+
+? While measuring blood pressure in a patient with a large pericardial effusion, the nurse notes the systolic pressure falls 18 mmHg during inspiration. What is this finding called?
++ Pulsus paradoxus
+- Pulsus alternans | Pulsus alternans is beat-to-beat variation in pulse strength.
+- Orthostatic hypotension | Orthostasis is a pressure drop on standing.
+- Widened pulse pressure | That is a large gap between systolic and diastolic pressures.
+= An inspiratory fall in systolic pressure of more than 10 mmHg is pulsus paradoxus, a sign of tamponade.
+
+? Which ECG finding is most specific for a large pericardial effusion with tamponade?
++ QRS complexes that alternate in height from beat to beat
+- ST elevation in the inferior leads | That indicates inferior infarction.
+- A delta wave | A delta wave indicates pre-excitation.
+- A prolonged QT interval | QT prolongation is unrelated to effusion.
+= Electrical alternans results from the heart swinging within a large effusion; low voltage is also common.
+
+? A patient with tamponade is hypotensive while the team prepares for drainage. Which temporizing measure should the nurse anticipate?
++ An IV crystalloid bolus
+- IV furosemide | Diuresis lowers the filling pressure needed to keep the heart filling.
+- A nitroglycerin infusion | Venodilation reduces preload and worsens output.
+- IV metoprolol | Slowing the compensatory tachycardia reduces cardiac output.
+= In tamponade, volume expansion raises venous pressure and temporarily improves ventricular filling until drainage.
+
+? Why is intubation with positive pressure ventilation approached with great caution in a patient with cardiac tamponade?
++ Positive intrathoracic pressure further reduces venous return and can cause arrest
+- It increases the risk of aspiration more than in other patients | Aspiration risk is not specific to tamponade.
+- It causes bronchospasm | Bronchospasm is not the concern.
+- It raises the blood pressure dangerously | The danger is cardiovascular collapse, not hypertension.
+= Sedation and positive pressure lower preload in a heart that already cannot fill, which can precipitate pulseless electrical activity.
+
+? What is the definitive treatment for tamponade caused by a penetrating cardiac injury?
++ Surgical repair through a thoracotomy or pericardial window
+- Repeated fluid boluses | Fluids only temporize.
+- A vasopressor infusion | Pressors do not relieve the obstruction to filling.
+- Observation with serial echocardiograms | Traumatic tamponade progresses rapidly without intervention.
+= Traumatic tamponade needs surgical control of the bleeding; pericardiocentesis is only a bridge.
+
+? Which bedside study confirms pericardial fluid most quickly in an unstable trauma patient?
++ Focused ultrasound with a subxiphoid cardiac view
+- Chest CT with contrast | CT requires leaving the resuscitation area.
+- A 12-lead ECG | The ECG may suggest but cannot confirm fluid.
+- A portable chest radiograph | An acute effusion may not enlarge the cardiac silhouette.
+= The pericardial view of the FAST examination rapidly identifies fluid around the heart at the bedside.
+
+? During pericardiocentesis the monitor shows new ST elevation and premature ventricular contractions. What does this indicate?
++ The needle is touching the myocardium and should be withdrawn slightly
+- The procedure is complete | Injury current signals contact, not completion.
+- The effusion is infected | ECG changes do not indicate infection.
+- The patient needs defibrillation | Ectopy from needle contact resolves when the needle is withdrawn.
+= Contact between the needle and the epicardium produces an injury current and ectopy, a signal to pull back.
+
+? Bloody fluid is aspirated during pericardiocentesis. Which observation suggests the blood came from the pericardial sac rather than a heart chamber?
++ The blood does not clot in the syringe
+- The blood is bright red | Color does not distinguish the source.
+- The blood clots within minutes | Clotting suggests fresh intracardiac blood.
+- The blood pulses into the syringe | Pulsatile return suggests ventricular puncture.
+= Pericardial blood is defibrinated by cardiac motion and typically does not clot.
+
+? How should the nurse position a conscious patient for a pericardiocentesis?
++ Semi-Fowler's at 30 to 45 degrees
+- Prone | The anterior chest must be accessible.
+- Trendelenburg | Head-down positioning moves fluid away from the needle path and impairs breathing.
+- Right lateral with the knees flexed | That position does not bring the fluid anteriorly.
+= Elevating the head of the bed lets the effusion pool anteriorly and inferiorly, closer to the subxiphoid approach.
+
+? Which patient is at highest risk of developing cardiac tamponade?
++ A patient with metastatic lung cancer and progressive dyspnea
+- A patient with well-controlled hypertension | Controlled hypertension does not cause effusion.
+- A patient with seasonal allergies | Allergies are unrelated.
+- A patient with a sprained ankle | No mechanism for effusion exists.
+= Malignancy is a leading cause of medical tamponade, along with uremia, pericarditis, anticoagulation and recent cardiac procedures.
+
+? After a successful pericardiocentesis, which change best indicates that tamponade has been relieved?
++ Rising systolic pressure with a falling heart rate
+- A narrowing pulse pressure | A narrow pulse pressure suggests ongoing tamponade.
+- Increasing jugular venous distension | Rising venous pressure means fluid is reaccumulating.
+- More distant heart sounds | Muffled sounds indicate persistent fluid.
+= Removing even a small volume improves filling, so blood pressure rises and compensatory tachycardia settles.
+
+@ 1.8
+? A 76-year-old with atrial fibrillation, not on an anticoagulant, has sudden severe pain in the right leg. The foot is pale and cool with no palpable pulses and reduced sensation. What is the most likely cause?
++ Acute arterial occlusion from an embolus
+- Deep vein thrombosis | Venous thrombosis causes a warm, swollen limb with pulses present.
+- Cellulitis | Cellulitis causes warmth and redness.
+- Sciatica | Nerve root pain does not abolish pulses or cool the limb.
+= Pain, pallor, pulselessness, paresthesia, paralysis and coolness in a patient with AF indicate embolic arterial occlusion.
+
+? Which order should the nurse anticipate first for a patient with acute limb ischemia?
++ An IV heparin bolus and infusion with emergent vascular consultation
+- Warm compresses to the affected foot | Heat raises metabolic demand in ischemic tissue and can burn insensate skin.
+- Oral aspirin and outpatient follow-up | Limb salvage depends on revascularization within hours.
+- Compression stockings | Compression further reduces arterial inflow.
+= Immediate anticoagulation limits clot propagation while revascularization is arranged.
+
+? How should the nurse position a limb with acute arterial occlusion?
++ Flat or slightly dependent
+- Elevated above the level of the heart | Elevation reduces already compromised arterial flow.
+- Wrapped tightly in an elastic bandage | Compression obstructs inflow.
+- With the knee sharply flexed | Flexion can kink vessels and reduce flow.
+= Gravity assists arterial inflow, so an ischemic limb is kept level or slightly dependent and protected from pressure.
+
+? A 44-year-old returned from a 14-hour flight two days ago and has a swollen, warm, tender left calf that measures 3 cm larger than the right. Pedal pulses are present. What should the nurse suspect?
++ Deep vein thrombosis
+- Acute arterial occlusion | Arterial occlusion causes a cool, pale, pulseless limb.
+- Ruptured Achilles tendon | Tendon rupture causes weakness of plantar flexion, not diffuse warm swelling.
+- Peripheral neuropathy | Neuropathy does not cause unilateral swelling.
+= Unilateral swelling, warmth and tenderness after prolonged immobility suggest DVT.
+
+? A patient has a low clinical probability of DVT on a validated score and a negative D-dimer. What is the appropriate next step?
++ No further imaging is needed for DVT
+- CT venography of both legs | Imaging is unnecessary when low probability is paired with a negative D-dimer.
+- Empiric anticoagulation for three months | Treatment is not started when DVT has been excluded.
+- Repeat the D-dimer every hour | Serial testing adds nothing.
+= In low-probability patients a negative D-dimer reliably excludes DVT; moderate or high probability calls for compression ultrasound.
+
+? Which statement by a patient starting apixaban for DVT shows a need for more teaching?
++ "I'll take naproxen if my leg aches."
+- "I'll call if I see black or bloody stools." | Recognizing bleeding is correct.
+- "I'll use an electric razor." | That reduces bleeding risk.
+- "I won't stop the medication without asking my provider." | Adherence is correct.
+= NSAIDs add to bleeding risk with anticoagulants; acetaminophen is preferred for pain.
+
+? A patient on a heparin infusion for six days has a platelet count that has fallen from 240,000 to 96,000/mm3 and a new thrombosis in the opposite leg. What is the priority?
++ Stop all heparin and notify the provider
+- Increase the heparin rate to treat the new clot | More heparin worsens the immune reaction.
+- Transfuse platelets | Platelets can fuel further thrombosis in this condition.
+- Flush the IV line with heparinized saline | Any heparin exposure must be eliminated.
+= A fall in platelets of more than 50% after 5-10 days of heparin with new thrombosis suggests heparin-induced thrombocytopenia.
+
+? A patient receiving IV unfractionated heparin has a large retroperitoneal bleed. Which reversal agent should the nurse prepare?
++ Protamine sulfate
+- Vitamin K | Vitamin K reverses warfarin.
+- Idarucizumab | Idarucizumab reverses dabigatran.
+- Naloxone | Naloxone reverses opioids.
+= Protamine binds and neutralizes unfractionated heparin.
+
+? A patient with a known iliofemoral DVT develops a massively swollen, blue, severely painful leg with weak pulses. What does this represent?
++ A limb-threatening emergency requiring immediate vascular consultation
+- An expected stage of healing | Cyanosis and severe pain indicate threatened limb viability.
+- An allergic reaction to the anticoagulant | Allergy does not cause a tense cyanotic limb.
+- Superficial thrombophlebitis | Superficial clots cause a tender cord, not whole-limb cyanosis.
+= Phlegmasia cerulea dolens is near-total venous outflow obstruction that can progress to gangrene.
+
+? A patient reports cramping calf pain after walking one block that resolves with rest. The feet are cool and hairless with diminished pulses. Which test result would the nurse expect?
++ An ankle-brachial index below 0.9
+- A positive D-dimer | D-dimer evaluates venous thromboembolism.
+- An elevated creatine kinase | CK is not used to diagnose arterial disease.
+- A normal ankle-brachial index of 1.1 | Normal would not explain claudication.
+= Intermittent claudication reflects peripheral arterial disease, confirmed by an ankle-brachial index under 0.9.
+
+? Four hours after an embolectomy for an ischemic leg, the patient reports escalating calf pain that worsens with passive toe movement. The calf is tense. What should the nurse suspect?
++ Compartment syndrome from reperfusion
+- Normal postoperative discomfort | Pain out of proportion with passive stretch is a warning sign.
+- A new arterial embolus | Re-occlusion causes a cool pulseless limb rather than a tense compartment.
+- Deep vein thrombosis | DVT does not cause pain on passive stretch this soon.
+= Reperfusion of ischemic muscle causes swelling within fascial compartments and requires urgent fasciotomy.
+
+? A patient admitted from the ED with a femoral DVT suddenly reports sharp chest pain on inspiration and shortness of breath. HR is 122 and SpO2 88%. What is the nurse's first action?
++ Apply oxygen and notify the provider immediately
+- Massage the affected calf | Manipulating the limb can dislodge more clot.
+- Ambulate the patient to improve circulation | Activity is unsafe in a hypoxic patient.
+- Give an oral anxiolytic | The symptoms have a physical cause.
+= Sudden pleuritic pain, tachycardia and hypoxia in a patient with DVT indicate pulmonary embolism.
