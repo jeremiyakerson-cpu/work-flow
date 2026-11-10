@@ -1,0 +1,214 @@
+# Domain 8 — Genitourinary, Gynecological & Obstetrical Emergencies (topics 0-2)
+
+@ 8.0
+? A 26-year-old woman has two days of burning on urination, frequency and suprapubic discomfort. She has no fever or flank pain and is not pregnant. What is the most likely diagnosis?
++ Uncomplicated cystitis
+- Pyelonephritis | Kidney infection causes fever and flank pain.
+- Renal colic | Stones cause severe colicky flank pain.
+- Pelvic inflammatory disease | That causes pelvic pain, discharge and cervical tenderness.
+= Dysuria, frequency and suprapubic pain without systemic signs indicate a lower urinary tract infection.
+
+? A patient has a temperature of 39.4 C, chills, nausea and pain when the nurse taps over the right costovertebral angle. What should the nurse suspect?
++ Acute pyelonephritis
+- Simple cystitis | Cystitis does not cause high fever or flank tenderness.
+- Appendicitis | That pain is anterior and in the right lower quadrant.
+- Muscle strain | Strain does not cause fever and chills.
+= Fever, flank pain and costovertebral angle tenderness indicate infection of the kidney.
+
+? An 88-year-old is brought in after two falls and new confusion. She has no fever or urinary complaints. Which test should be included in the workup?
++ Urinalysis and urine culture
+- A pregnancy test | It is not relevant.
+- A sweat chloride test | It is not relevant.
+- A throat swab | It is unlikely to explain the picture.
+= Older adults with urinary infection often present with confusion, falls or functional decline rather than urinary symptoms.
+
+? A patient with pyelonephritis has BP 84/48, HR 124 and a lactate of 4.6 mmol/L. What should the nurse anticipate?
++ Blood cultures, broad-spectrum IV antibiotics and a fluid bolus
+- Oral antibiotics and discharge | She is in septic shock.
+- An antipyretic and observation | Fever control does not treat shock.
+- A diuretic | Volume removal worsens hypotension.
+= Urosepsis with hypotension and a raised lactate requires immediate sepsis treatment.
+
+? A woman at 26 weeks' gestation has fever, flank pain and bacteria in her urine. Why is she admitted rather than treated as an outpatient?
++ Pyelonephritis in pregnancy carries a risk of sepsis and preterm labour
+- Oral antibiotics are never safe in pregnancy | Several are safe; the concern is complications.
+- She needs an immediate caesarean section | Delivery is not the treatment.
+- Urinary infection does not respond to antibiotics in pregnancy | It does respond.
+= Pregnant patients with pyelonephritis receive IV antibiotics and monitoring because of maternal and fetal complications.
+
+? Which instruction gives the best clean-catch urine specimen from a woman?
++ Clean front to back, begin urinating, then collect the middle of the stream
+- Collect the very first few drops | The first urine carries urethral contaminants.
+- Collect urine from the toilet bowl | That is contaminated.
+- Clean back to front and collect the end of the stream | That direction introduces bowel organisms.
+= Cleansing and collecting midstream reduce contamination from skin and vaginal organisms.
+
+? A patient with a long-term urinary catheter has a fever and cloudy urine. How should the culture specimen be obtained?
++ Replace the catheter and collect urine from the new one
+- Take urine from the drainage bag | Bag urine is stagnant and contaminated.
+- Disconnect the tubing and pour a sample | Breaking the system introduces organisms.
+- Collect from the old catheter's balloon port | That port leads to the balloon, not the urine.
+= An old catheter is coated with biofilm; a fresh catheter gives a specimen that reflects bladder urine.
+
+? A 74-year-old man started an over-the-counter cold remedy two days ago. He now has severe lower abdominal pain and has not urinated for 12 hours. A bladder scan shows 950 mL. What should the nurse anticipate?
++ Insertion of a urinary catheter
+- A fluid bolus to encourage urination | More fluid worsens the distension.
+- A diuretic | A diuretic increases volume behind the obstruction.
+- Discharge with advice to drink less | Acute retention needs drainage.
+= Decongestants and antihistamines can precipitate retention in men with prostatic enlargement; the bladder is decompressed.
+
+? A 5-month-old has a temperature of 39.2 C with no obvious source. How should urine be obtained for culture?
++ By urethral catheterization
+- By an adhesive collection bag | Bag specimens are frequently contaminated.
+- By squeezing a wet diaper | That specimen is contaminated.
+- By waiting until the child is toilet trained | Infection must be diagnosed now.
+= A catheter or suprapubic specimen is required for culture in infants; bag urine is suitable only for screening.
+
+? A patient is discharged with an antibiotic and phenazopyridine for cystitis. Which teaching is correct?
++ The urine will turn orange, and the antibiotic must be finished
+- Stop the antibiotic once the burning eases | Stopping early risks relapse.
+- Orange urine means the infection is worse | The colour is a harmless drug effect.
+- Limit fluids to rest the bladder | Fluids help clear bacteria.
+= Phenazopyridine is a urinary analgesic that colours urine orange; it relieves symptoms but does not treat the infection.
+
+@ 8.1
+? A 38-year-old man has sudden severe left flank pain that radiates to the groin. He cannot lie still and is pacing. The urine dipstick shows blood. What is the most likely cause?
++ A ureteral stone
+- Appendicitis | That is right sided and patients lie still.
+- Pyelonephritis | That causes fever with steady pain.
+- Lumbar muscle strain | Strain is positional and does not cause hematuria.
+= Colicky flank pain radiating to the groin with restlessness and hematuria is characteristic of renal colic.
+
+? Which analgesic is first-line for renal colic in a patient with normal kidney function and no bleeding risk?
++ An NSAID such as IV ketorolac
+- Acetaminophen alone by mouth | It is usually inadequate for this pain.
+- A muscle relaxant | It does not address ureteral spasm effectively.
+- A topical anaesthetic patch | It has no effect on visceral pain.
+= NSAIDs reduce ureteral spasm and inflammation and are at least as effective as opioids, which may be added.
+
+? Which imaging study is the standard for confirming a ureteral stone in a non-pregnant adult?
++ Non-contrast CT of the abdomen and pelvis
+- A plain chest radiograph | It does not image the urinary tract.
+- A barium enema | It images the colon.
+- MRI of the brain | It is irrelevant.
+= Non-contrast CT detects nearly all stones and shows their size, position and any obstruction.
+
+? A woman at 20 weeks' gestation has suspected renal colic. Which imaging study is preferred first?
++ Renal ultrasound
+- CT with contrast | Radiation and contrast are avoided when possible in pregnancy.
+- An intravenous pyelogram | It involves radiation and contrast.
+- A nuclear medicine scan | Radioisotopes are avoided.
+= Ultrasound avoids ionizing radiation and is first-line in pregnancy and in children.
+
+? Why is a patient with a kidney stone asked to strain all urine?
++ To capture the stone for analysis
+- To measure urine output exactly | Straining does not measure volume.
+- To check for infection | Infection is assessed by urinalysis and culture.
+- To prevent the stone from forming again | Straining does not prevent recurrence.
+= Knowing the stone's composition guides dietary and medical prevention.
+
+? A patient with a known obstructing ureteral stone develops a temperature of 39.5 C and rigors. What should the nurse anticipate?
++ Emergency urologic decompression and IV antibiotics
+- Increased oral fluids and observation at home | Infection behind an obstruction is life threatening.
+- A higher dose of ketorolac | Analgesia does not treat an infected, blocked kidney.
+- Waiting for the stone to pass | Delay risks septic shock.
+= An infected obstructed kidney is a urologic emergency requiring a stent or nephrostomy tube.
+
+? A patient has a 4 mm stone in the distal ureter with controlled pain and no infection. What is the expected plan?
++ Discharge with analgesia and a urine strainer, since it will probably pass on its own
+- Immediate surgical removal | Small stones usually pass.
+- Admission for dialysis | Kidney function is not failing.
+- Bed rest for two weeks | Activity is encouraged.
+= Most stones under 5 mm pass spontaneously; an alpha blocker may help larger distal stones.
+
+? A patient with renal colic is vomiting repeatedly and cannot keep down oral medication. He has only one functioning kidney. What is the appropriate disposition?
++ Admission
+- Discharge with oral analgesics | He cannot tolerate oral medication.
+- Discharge with a clinic visit in a month | A solitary kidney with obstruction is high risk.
+- Referral to a dietitian only | Diet does not address the acute problem.
+= Intractable pain or vomiting, infection, kidney injury or a single kidney are indications for admission.
+
+? IV ketorolac is ordered for a patient with renal colic. Which finding should make the nurse question the order?
++ A creatinine of 2.6 mg/dL
+- A blood pressure of 148/86 | That does not contraindicate the drug.
+- A pain score of 9/10 | Severe pain is the indication.
+- An age of 35 | Age is not a concern.
+= NSAIDs reduce renal blood flow and are avoided in kidney impairment, active bleeding or anticoagulation.
+
+? A patient has passed a calcium oxalate stone. Which prevention advice is most appropriate?
++ Drink enough to produce at least two litres of urine a day
+- Avoid all dietary calcium | Low calcium intake increases oxalate absorption and stone risk.
+- Eat more salt | Sodium increases urinary calcium.
+- Increase animal protein | Animal protein raises stone risk.
+= High fluid intake is the most effective prevention, along with lower sodium and normal dietary calcium.
+
+@ 8.2
+? A dialysis patient who missed two sessions has a potassium of 7.4 mEq/L with tall peaked T waves and a wide QRS. Which medication should be given first?
++ IV calcium
+- Oral sodium polystyrene | It acts over hours and does not protect the heart.
+- IV furosemide | It is ineffective in a patient who makes no urine.
+- Subcutaneous insulin | Insulin is given IV with dextrose, after calcium.
+= Calcium stabilizes the cardiac membrane within minutes; it does not lower potassium, so shifting and removal therapies follow.
+
+? After calcium, which treatment shifts potassium into the cells?
++ IV regular insulin with dextrose
+- IV normal saline alone | Saline does not shift potassium.
+- Oral potassium binders | Binders remove potassium slowly.
+- IV magnesium | Magnesium does not shift potassium.
+= Insulin drives potassium into cells within 15-30 minutes; dextrose prevents hypoglycemia, and inhaled albuterol adds to the effect.
+
+? A hemodialysis patient who missed a week of treatment is gasping, with crackles to the apices, SpO2 84% and BP 208/112. What is the definitive treatment?
++ Emergent hemodialysis
+- High-dose oral diuretics | Diuretics do little in a patient without kidney function.
+- A fluid bolus | Fluid worsens overload.
+- Bronchodilators only | Bronchodilators do not remove fluid.
+= Volume overload in an anuric patient is corrected by dialysis; oxygen, NIPPV and nitrates bridge until it starts.
+
+? A patient has an arteriovenous fistula in the left forearm. Which action is correct?
++ Take blood pressures and draw blood from the right arm only
+- Start the IV in the fistula for good flow | Cannulating the fistula outside dialysis risks clotting and infection.
+- Apply the blood pressure cuff over the fistula | Compression can thrombose it.
+- Place a tourniquet above the fistula | Constriction can thrombose it.
+= The fistula arm is protected from pressure, venipuncture and IV lines to preserve the access.
+
+? While assessing a dialysis fistula the nurse feels no vibration and hears no bruit. What does this indicate?
++ The fistula may have clotted
+- The fistula is working normally | A working fistula has a thrill and a bruit.
+- The patient is dehydrated | Hydration does not abolish the thrill.
+- The fistula has matured | Maturity does not remove the thrill.
+= Loss of the thrill and bruit suggests thrombosis and requires prompt notification of the vascular access team.
+
+? Near the end of his second-ever dialysis session a patient develops headache, nausea, restlessness and confusion. What is the most likely cause?
++ Dialysis disequilibrium syndrome
+- An allergic reaction to the dialyzer | That occurs within minutes of starting with wheeze or rash.
+- Hypoglycemia only | That should be checked but does not fit the timing as well.
+- Air embolism | That causes sudden chest pain and collapse.
+= Rapid urea removal creates an osmotic gradient that draws water into the brain, usually during early treatments.
+
+? A patient on peritoneal dialysis has abdominal pain, fever and drainage fluid that looks cloudy. What should the nurse suspect?
++ Peritonitis
+- Normal dialysate appearance | Drained fluid should be clear.
+- Constipation | That does not make the effluent cloudy.
+- A blocked catheter | Blockage causes poor drainage, not cloudy fluid.
+= Cloudy effluent is the hallmark of peritoneal dialysis peritonitis; fluid is sent for cell count and culture.
+
+? A patient with three days of vomiting has a BUN of 62 mg/dL, a creatinine of 1.9 mg/dL and concentrated urine. Which type of acute kidney injury is most likely?
++ Prerenal, from reduced kidney perfusion
+- Postrenal, from obstruction | There is no evidence of obstruction.
+- Intrinsic, from glomerulonephritis | The history points to volume loss.
+- Chronic kidney disease | The change is acute and explained by dehydration.
+= A BUN-to-creatinine ratio above 20 with volume depletion indicates prerenal injury, which improves with fluids.
+
+? Which finding is an indication for emergent dialysis in acute kidney injury?
++ Pulmonary edema that does not respond to diuretics
+- A creatinine of 1.6 mg/dL | A modest rise alone is not an indication.
+- A potassium of 4.9 mEq/L | That is within the normal range.
+- Mild ankle swelling | That is not life threatening.
+= Refractory fluid overload, severe hyperkalemia or acidosis, uremic complications and certain poisonings call for emergent dialysis.
+
+? A patient with end-stage kidney disease asks for something for constipation. Which product should be avoided?
++ Magnesium hydroxide
+- Docusate | It is a stool softener without significant electrolyte load.
+- Polyethylene glycol | It is generally acceptable.
+- Senna | It is a stimulant without magnesium.
+= Failing kidneys cannot excrete magnesium, so magnesium-containing laxatives and antacids can cause toxicity.

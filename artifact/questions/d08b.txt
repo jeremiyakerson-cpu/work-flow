@@ -1,0 +1,214 @@
+# Domain 8 — Genitourinary, Gynecological & Obstetrical Emergencies (topics 3-5)
+
+@ 8.3
+? A 15-year-old is woken by sudden severe pain in the left testicle with nausea and vomiting. The testicle sits high in the scrotum and lies horizontally, and stroking the inner thigh does not make it rise. What should the nurse suspect?
++ Testicular torsion
+- Epididymitis | That develops gradually with fever and urinary symptoms and a preserved cremasteric reflex.
+- Inguinal strain | Strain does not cause a high-riding testis.
+- Hydrocele | A hydrocele is painless swelling.
+= Sudden pain, a high transverse testis and an absent cremasteric reflex are characteristic of torsion.
+
+? Why is testicular torsion treated as a time-critical emergency?
++ Salvage rates fall sharply after about six hours of ischemia
+- The pain becomes untreatable | Pain control is not the reason for urgency.
+- Infection spreads to the kidney | Torsion is ischemic, not infectious.
+- The other testicle will twist within the hour | That is not the immediate concern.
+= Twisting of the spermatic cord cuts off blood flow; surgical detorsion within about six hours saves most testes.
+
+? A teenager has a classic history and examination for testicular torsion. Ultrasound is not available for 90 minutes. What is the correct action?
++ Notify urology immediately rather than wait for imaging
+- Wait for the ultrasound before calling anyone | Imaging must not delay surgery when suspicion is high.
+- Give antibiotics and reassess tomorrow | Antibiotics do not treat ischemia.
+- Apply heat and discharge | Heat does not restore blood flow.
+= Torsion is a clinical diagnosis; surgical exploration is not delayed for confirmatory imaging.
+
+? Gently lifting the scrotum eases the pain in one patient and makes no difference in another. What does relief with elevation suggest?
++ Epididymitis rather than torsion
+- Torsion rather than epididymitis | Torsion pain is not relieved by elevation.
+- A hernia | Elevation does not distinguish a hernia.
+- A kidney stone | Elevation is unrelated.
+= Prehn's sign, relief with elevation, favours epididymitis; it is not reliable enough to exclude torsion on its own.
+
+? A 24-year-old has three days of gradually worsening scrotal pain and swelling with dysuria and urethral discharge. The cremasteric reflex is present. Which treatment should the nurse anticipate?
++ Antibiotics covering gonorrhea and chlamydia
+- Emergency surgical exploration | The gradual onset and intact reflex point to infection.
+- Aspiration of the scrotum | Aspiration is not a treatment.
+- A blood pressure medication | It has no role.
+= In sexually active men under 35, epididymitis is usually from sexually transmitted organisms and is treated with ceftriaxone and doxycycline.
+
+? Surgery for a confirmed testicular torsion is 90 minutes away. Which temporizing measure may the provider attempt?
++ Manual detorsion, rotating the testis outward toward the thigh
+- Tight scrotal strapping | Compression does not untwist the cord.
+- Ice and elevation only | These do not restore flow.
+- Needle aspiration | It does not relieve torsion.
+= Most testes twist inward, so manual rotation outward, like opening a book, can restore flow until surgery.
+
+? A man has had a painful, rigid erection for five hours that is not related to sexual stimulation. How should the nurse triage him?
++ As an emergency
+- As a routine problem suitable for the waiting room | Delay risks permanent erectile dysfunction.
+- As an outpatient urology referral | He needs treatment now.
+- As a psychiatric complaint | The condition is vascular.
+= An erection lasting more than four hours is ischemic priapism until proven otherwise, a compartment syndrome of the penis.
+
+? Which patient is at particular risk of priapism?
++ A 19-year-old with sickle cell disease
+- A 60-year-old with gout | Gout is not a risk factor.
+- A 30-year-old with asthma | Asthma is not a risk factor.
+- A 45-year-old with migraine | Migraine is not a risk factor.
+= Sickling in the corpora causes venous stasis; other causes include erectile dysfunction drugs, trazodone and cocaine.
+
+? A provider is about to treat ischemic priapism with aspiration and intracavernosal phenylephrine. What must the nurse monitor?
++ Blood pressure and heart rate
+- Blood glucose | Glucose is not affected.
+- Urine specific gravity | It is not relevant.
+- Pupil size | It is not relevant.
+= Phenylephrine can be absorbed systemically, causing hypertension, reflex bradycardia and dysrhythmia.
+
+? An elderly man's foreskin was pulled back for catheter insertion and not replaced. The glans is now swollen and painful, and the foreskin cannot be brought forward. What is this condition?
++ Paraphimosis, which needs urgent reduction
+- Phimosis, which is managed electively | Phimosis is a foreskin that cannot be retracted.
+- Balanitis, which needs only cream | Simple inflammation does not trap the foreskin.
+- A normal finding after catheterization | It is a preventable complication.
+= A retracted foreskin acts as a constricting band; compression, ice and manual reduction prevent necrosis of the glans.
+
+@ 8.4
+? A 27-year-old has lower abdominal pain and says her period is "a couple of weeks late." Which test must be obtained first?
++ A pregnancy test
+- An abdominal radiograph | Radiation is avoided until pregnancy is excluded.
+- A stool culture | It does not address the likely diagnosis.
+- A lipid panel | It is irrelevant.
+= Any woman of childbearing age with abdominal pain or abnormal bleeding has a pregnancy test to identify possible ectopic pregnancy.
+
+? Which set of symptoms is the classic presentation of ectopic pregnancy?
++ A missed period, abdominal pain and vaginal bleeding
+- Fever, cough and chest pain | Those suggest a respiratory illness.
+- Flank pain, hematuria and vomiting | Those suggest a kidney stone.
+- Painless heavy bleeding in the third trimester | That suggests placenta previa.
+= Amenorrhea, abdominal or pelvic pain and vaginal bleeding form the classic triad.
+
+? A woman with a positive pregnancy test has sudden severe abdominal pain, pain at the tip of the shoulder, BP 78/40 and HR 136. What is the priority?
++ Two large-bore IV lines, blood products and preparation for surgery
+- A quantitative hCG and discharge with follow-up | She is in hemorrhagic shock.
+- An intramuscular dose of methotrexate | Medical treatment is contraindicated in rupture.
+- Observation with repeat vital signs in an hour | Delay is fatal.
+= Shock with shoulder pain from blood under the diaphragm indicates a ruptured ectopic pregnancy needing immediate surgery.
+
+? A stable patient with a positive pregnancy test and pelvic pain needs evaluation for ectopic pregnancy. Which tests should the nurse anticipate?
++ A transvaginal ultrasound and a quantitative hCG
+- An abdominal radiograph and a urinalysis | These cannot locate the pregnancy.
+- A CT scan with contrast | Ultrasound is the appropriate study.
+- A Pap smear | It does not evaluate pregnancy location.
+= Ultrasound locates the pregnancy; the hCG level indicates whether an intrauterine pregnancy should be visible.
+
+? A patient is treated with methotrexate for an unruptured ectopic pregnancy. Which instruction is correct?
++ Avoid folic acid supplements, alcohol and NSAIDs, and keep the follow-up blood tests
+- Take extra folic acid to protect the pregnancy | Folate counteracts the medication.
+- Expect no pain at any time | Some cramping is common a few days after the dose.
+- No follow-up is needed once the injection is given | Falling hCG must be confirmed.
+= Methotrexate is a folate antagonist; serial hCG levels confirm it has worked, and severe pain or fainting needs immediate return.
+
+? Which history most increases the risk of ectopic pregnancy?
++ Previous pelvic inflammatory disease
+- A previous full-term vaginal delivery | That does not raise the risk.
+- Regular exercise | It is not a risk factor.
+- Use of a daily multivitamin | It is not a risk factor.
+= Tubal damage from infection, surgery or a previous ectopic pregnancy is the main risk factor.
+
+? A patient with a ruptured ectopic pregnancy is blood type O negative. What should the nurse anticipate after stabilization?
++ Rh immune globulin
+- A hepatitis B vaccine | It is unrelated to Rh status.
+- Vitamin K | It is not indicated.
+- No specific treatment | Sensitization can affect future pregnancies.
+= Rh-negative patients with any pregnancy loss or bleeding receive Rh immune globulin to prevent sensitization.
+
+? A stable pregnant patient has mild cramping and an hCG well below the level at which a pregnancy can be seen. The ultrasound shows no pregnancy in the uterus or elsewhere. What is the usual plan?
++ Repeat the hCG in 48 hours and give strict return precautions
+- Assume a miscarriage and discharge with no follow-up | An ectopic pregnancy has not been excluded.
+- Give methotrexate immediately | The location and viability are not yet known.
+- Take her straight to surgery | She is stable without evidence of rupture.
+= A pregnancy of unknown location is followed with serial hCG and repeat ultrasound; severe pain, dizziness or heavy bleeding prompts return.
+
+? A 22-year-old has sudden severe right pelvic pain with vomiting. The pregnancy test is negative and ultrasound shows an enlarged ovary with reduced blood flow. What should the nurse anticipate?
++ Urgent surgery for ovarian torsion
+- Antibiotics for pelvic infection | Infection does not cause absent ovarian blood flow.
+- Discharge with ibuprofen | Delay risks loss of the ovary.
+- A course of hormonal contraception | It does not treat torsion.
+= Sudden unilateral pain with reduced Doppler flow indicates torsion, which requires prompt surgical detorsion.
+
+? A sexually active 20-year-old has lower abdominal pain, fever, vaginal discharge and marked pain when the cervix is moved. The pregnancy test is negative. What is the most likely diagnosis?
++ Pelvic inflammatory disease
+- Ectopic pregnancy | The pregnancy test is negative.
+- Appendicitis | Cervical motion tenderness and discharge point to a pelvic source.
+- Kidney stone | A stone does not cause discharge or cervical tenderness.
+= Pelvic inflammatory disease is treated promptly with antibiotics to reduce the risk of infertility and future ectopic pregnancy.
+
+@ 8.5
+? A woman at 9 weeks has light vaginal bleeding and mild cramping. The cervix is closed and ultrasound shows a fetal heartbeat. How is this classified?
++ Threatened miscarriage
+- Inevitable miscarriage | The cervix would be open.
+- Incomplete miscarriage | Tissue would have partly passed.
+- Complete miscarriage | The uterus would be empty.
+= Bleeding with a closed cervix and a viable pregnancy is a threatened miscarriage, and many continue normally.
+
+? A woman at 10 weeks has heavy bleeding with clots and strong cramps. The cervix is open and tissue is visible at the os. What is the nurse's priority?
++ Establish IV access and monitor for hemorrhage
+- Reassure her that the pregnancy will continue | An open cervix with tissue means the loss is under way.
+- Send her home to rest | Retained tissue can cause heavy bleeding.
+- Start labour-suppressing medication | It has no role in the first trimester.
+= An incomplete miscarriage can bleed heavily until retained tissue is removed, so the patient is monitored and resuscitated.
+
+? Three days after a miscarriage a woman has a temperature of 39.3 C, foul-smelling discharge and a tender uterus. What should the nurse anticipate?
++ IV antibiotics and evacuation of the uterus
+- Oral iron and reassurance | She has a serious infection.
+- A repeat pregnancy test only | It does not treat the infection.
+- Bed rest at home | Septic miscarriage can progress to shock.
+= Infected retained tissue causes septic miscarriage, treated with broad-spectrum antibiotics and uterine evacuation.
+
+? Which question best helps the nurse estimate the amount of vaginal bleeding?
++ "How many pads are you soaking through in an hour?"
+- "Would you say the bleeding is heavy?" | Subjective terms are unreliable.
+- "Is it more than your sister's periods?" | Comparison to another person is meaningless.
+- "What colour is your underwear?" | It does not quantify loss.
+= Pad counts and saturation give an objective measure; soaking more than one pad an hour is significant.
+
+? A woman who is Rh negative has bleeding at 11 weeks of pregnancy. What should the nurse anticipate?
++ Rh immune globulin
+- A blood transfusion in every case | Transfusion depends on blood loss, not Rh status.
+- No treatment before 20 weeks | Sensitization can occur in the first trimester.
+- An antibiotic | It does not prevent sensitization.
+= Rh immune globulin prevents the mother from forming antibodies that could harm a future Rh-positive fetus.
+
+? A woman at 34 weeks has sudden painless bright red vaginal bleeding. Which action is contraindicated?
++ A digital vaginal examination
+- Applying a fetal monitor | Monitoring is appropriate.
+- Establishing IV access | Access is appropriate.
+- Placing her on her left side | Positioning is appropriate.
+= Painless third-trimester bleeding suggests placenta previa; a digital examination can cause catastrophic hemorrhage.
+
+? A woman at 35 weeks with hypertension has sudden constant abdominal pain, dark vaginal bleeding and a uterus that is hard and tender. What should the nurse suspect?
++ Placental abruption
+- Placenta previa | Previa causes painless bright red bleeding with a soft uterus.
+- Normal labour | Labour contractions come and go; the uterus relaxes between them.
+- Urinary tract infection | That does not cause a rigid uterus with bleeding.
+= Painful bleeding with a rigid, tender uterus indicates abruption, which threatens both mother and fetus.
+
+? A woman has just been told that she has miscarried. Which response is most therapeutic?
++ "I'm so sorry for your loss. I'm here if you want to talk."
+- "At least it was early." | Minimizing the loss dismisses her grief.
+- "You can always try again." | That overlooks this pregnancy and her feelings.
+- "It was probably for the best." | That statement is hurtful and presumptuous.
+= Acknowledging the loss and offering presence supports grieving without judgment or false comfort.
+
+? A 44-year-old who is not pregnant has had very heavy menstrual bleeding for six days. She is pale and dizzy with HR 124. What is the first priority?
++ Assess hemodynamic status and establish IV access
+- Schedule an outpatient gynecology visit | She is symptomatic and tachycardic.
+- Give an oral iron tablet and discharge | Iron does not treat acute blood loss.
+- Advise a heating pad for cramps | That ignores significant bleeding.
+= Symptomatic blood loss is resuscitated first; hormonal treatment or tranexamic acid follows.
+
+? A woman at 9 weeks has vomited for a week, lost 4 kg and has ketones in her urine. What should the nurse anticipate?
++ IV fluids with thiamine and an antiemetic
+- Advice to eat crackers and return in a month | She is dehydrated and ketotic.
+- An oral iron supplement | Iron worsens nausea.
+- Induction of labour | That is not a treatment in the first trimester.
+= Hyperemesis gravidarum causes dehydration, weight loss and ketosis; thiamine is given before dextrose to prevent Wernicke encephalopathy.

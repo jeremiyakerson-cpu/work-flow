@@ -1,0 +1,214 @@
+# Domain 8 — Genitourinary, Gynecological & Obstetrical Emergencies (topics 6-8)
+
+@ 8.6
+? A woman at 33 weeks has BP 168/112, a severe headache, blurred vision and pain under the right ribs. What do these findings indicate?
++ Preeclampsia with severe features
+- Normal third-trimester discomforts | These symptoms signal end-organ involvement.
+- Migraine | Migraine does not explain severe hypertension and right upper quadrant pain.
+- Gallstones only | Gallstones do not cause hypertension and visual change.
+= Blood pressure of 160/110 or more with headache, visual disturbance or right upper quadrant pain after 20 weeks defines severe preeclampsia.
+
+? A pregnant woman at 36 weeks has a generalized tonic-clonic seizure in triage. Which medication is first-line?
++ IV magnesium sulfate
+- IV phenytoin | It is less effective than magnesium for eclampsia.
+- IV lorazepam as the only treatment | Benzodiazepines are second-line if seizures persist.
+- Oral levetiracetam | Oral therapy cannot be given during a seizure.
+= Magnesium sulfate, a loading dose followed by an infusion, is the treatment of choice for eclamptic seizures.
+
+? A patient on a magnesium sulfate infusion has absent knee reflexes and a respiratory rate of 9. What should the nurse do first?
++ Stop the infusion
+- Increase the infusion rate | More magnesium deepens the toxicity.
+- Recheck in an hour | Respiratory arrest may follow.
+- Give a diuretic | Diuresis is not the immediate treatment.
+= Loss of deep tendon reflexes and respiratory depression are signs of magnesium toxicity; the infusion is stopped and calcium gluconate prepared.
+
+? Which assessments should be made at least hourly during a magnesium sulfate infusion?
++ Deep tendon reflexes, respiratory rate and urine output
+- Pupil size, bowel sounds and skin turgor | These do not detect toxicity.
+- Blood glucose, temperature and weight | These do not detect toxicity.
+- Visual acuity, hearing and gait | These are not the monitoring parameters.
+= Reflexes disappear before respiratory depression, and falling urine output allows magnesium to accumulate.
+
+? A woman with severe preeclampsia has a sustained BP of 174/116. Which medication should the nurse anticipate?
++ IV labetalol or hydralazine
+- An ACE inhibitor | ACE inhibitors are contraindicated in pregnancy.
+- A loop diuretic | Diuretics reduce placental perfusion and are not first-line.
+- IV nitroprusside as the first choice | It is reserved for refractory cases because of fetal cyanide risk.
+= Severe hypertension in pregnancy is treated promptly with IV labetalol or hydralazine or oral nifedipine to prevent stroke.
+
+? A woman at 34 weeks has epigastric pain, nausea and malaise. BP is 146/94, platelets are 68,000/mm3 and liver enzymes are elevated. What should the nurse suspect?
++ HELLP syndrome
+- Viral gastroenteritis | That does not cause low platelets and raised liver enzymes.
+- Gastric reflux | Reflux does not cause these laboratory changes.
+- Appendicitis | That does not cause thrombocytopenia.
+= Hemolysis, elevated liver enzymes and low platelets make up HELLP syndrome, which can present with vague abdominal symptoms.
+
+? A woman who delivered a healthy baby five days ago returns with a severe headache and BP 172/108. What should the nurse recognize?
++ Preeclampsia can occur after delivery
+- The risk ended with delivery | It persists for up to six weeks postpartum.
+- The headache is from lack of sleep | Severe hypertension requires treatment.
+- It is a normal postpartum finding | It is a medical emergency.
+= Postpartum preeclampsia and eclampsia occur up to six weeks after birth and are treated with magnesium and antihypertensives.
+
+? What is the definitive treatment for preeclampsia?
++ Delivery of the fetus and placenta
+- Strict bed rest | Rest does not cure the condition.
+- A low-salt diet | Diet does not cure the condition.
+- Long-term oral antihypertensives | They control pressure but do not remove the cause.
+= The placenta drives the disease; timing of delivery balances maternal risk against fetal maturity.
+
+? A woman at 30 weeks has regular painful contractions and cervical change. Besides stopping contractions, which medication benefits the baby?
++ A corticosteroid such as betamethasone
+- An antihistamine | It has no fetal benefit.
+- A loop diuretic | It has no fetal benefit.
+- An oral iron supplement | It does not affect preterm outcomes.
+= Antenatal corticosteroids speed fetal lung maturity and reduce respiratory distress and death in preterm infants.
+
+? During an eclamptic seizure, which nursing action is most appropriate?
++ Turn her onto her left side, protect her from injury and give oxygen
+- Hold her limbs still | Restraint causes injury.
+- Insert a padded tongue blade | Objects in the mouth cause injury and obstruction.
+- Lay her flat on her back | Supine positioning compresses the vena cava and risks aspiration.
+= Left lateral positioning protects the airway and uterine blood flow while magnesium is prepared.
+
+@ 8.7
+? A woman in labour arrives by car. She says the baby is coming, and the head is visible at the vaginal opening. What should the nurse do?
++ Prepare to deliver the baby where she is
+- Hold her legs together until the obstetrician arrives | Delaying delivery can injure the baby.
+- Send her to the labour unit in a wheelchair | Birth is imminent and transport is unsafe.
+- Ask her to stop pushing and breathe normally for an hour | Crowning means delivery is about to occur.
+= Crowning signals imminent birth; the nurse calls for help and supports a controlled delivery.
+
+? The baby's head has delivered and the nurse feels a loop of umbilical cord around the neck. It is loose. What should the nurse do?
++ Slip the cord over the baby's head
+- Pull firmly on the cord | Traction can tear the cord or placenta.
+- Push the head back in | That is dangerous and ineffective.
+- Ask the mother to push hard immediately | The cord should be freed first.
+= A loose nuchal cord is eased over the head; a tight one is clamped in two places and cut.
+
+? The head delivers and then pulls back tightly against the perineum, and the shoulders do not follow. Which maneuver should be used first?
++ Flex the mother's thighs sharply onto her abdomen and apply suprapubic pressure
+- Apply firm pressure on the top of the uterus | Fundal pressure worsens the impaction and can rupture the uterus.
+- Pull hard on the baby's head | Traction causes nerve injury.
+- Rotate the head forcefully | Twisting the head causes injury.
+= Shoulder dystocia is managed first with the McRoberts position and suprapubic pressure.
+
+? A woman's membranes rupture and a loop of umbilical cord is seen at the vagina. What should the nurse do immediately?
++ Lift the presenting part off the cord with a gloved hand and position her knees to chest
+- Push the cord back into the uterus | Handling the cord causes vessel spasm.
+- Have her walk to speed delivery | Gravity increases compression of the cord.
+- Clamp and cut the cord | That cuts off the fetal blood supply.
+= A prolapsed cord is compressed by the presenting part; pressure is relieved by hand and position until emergency delivery.
+
+? A newborn delivered in the ED is limp and not breathing after drying and stimulation. What is the next step?
++ Begin positive pressure ventilation
+- Start chest compressions | Compressions come only if the heart rate stays below 60 after effective ventilation.
+- Give epinephrine | Medication follows ventilation and compressions.
+- Wait and observe for five minutes | Ventilation should start within the first minute.
+= Ventilation is the most important step in neonatal resuscitation and should begin within 60 seconds of birth.
+
+? After 30 seconds of effective ventilation, a newborn's heart rate is 48 per minute. What should be done?
++ Start chest compressions coordinated with ventilation at 3 to 1
+- Continue ventilation alone for five minutes | A rate under 60 despite ventilation needs compressions.
+- Stop resuscitation | Resuscitation is continuing appropriately.
+- Give a fluid bolus first | Volume is not the next step.
+= A heart rate below 60 after effective ventilation calls for compressions at three compressions to one breath.
+
+? Immediately after delivering a vigorous, crying term baby, what is the priority for the newborn?
++ Drying and keeping the baby warm, ideally skin to skin
+- A full bath | Bathing causes heat loss.
+- Deep suctioning of the stomach | Routine deep suction is unnecessary and can cause bradycardia.
+- Weighing the baby before anything else | Measurement can wait.
+= Newborns lose heat rapidly; drying and skin-to-skin contact maintain temperature and support transition.
+
+? Ten minutes after delivery of the placenta a woman is bleeding heavily, and her uterus feels soft and boggy. What should the nurse do first?
++ Massage the fundus firmly
+- Insert a urinary catheter and wait | Bladder emptying helps but massage comes first.
+- Pack the vagina with gauze | Packing hides ongoing bleeding from an atonic uterus.
+- Raise the head of the bed | That does not address the cause.
+= Uterine atony is the most common cause of postpartum hemorrhage; fundal massage and oxytocin make the uterus contract.
+
+? A woman with postpartum hemorrhage has a history of chronic hypertension and BP 162/98. Which uterotonic should be avoided?
++ Methylergonovine
+- Oxytocin | Oxytocin is first-line and safe in hypertension.
+- Fundal massage | It is not a drug and is appropriate.
+- Tranexamic acid | It is not contraindicated by hypertension.
+= Methylergonovine causes vasoconstriction and can provoke severe hypertension or stroke.
+
+? Four days after giving birth, a woman has a temperature of 38.9 C, lower abdominal pain and foul-smelling vaginal discharge. What should the nurse suspect?
++ Postpartum endometritis
+- Normal postpartum bleeding | Normal lochia is not foul smelling and does not cause fever.
+- Breast engorgement | That causes breast pain, not uterine tenderness.
+- A urinary tract infection only | That does not cause foul lochia.
+= Fever, uterine tenderness and foul lochia indicate infection of the uterine lining, treated with IV antibiotics.
+
+@ 8.8
+? A woman arrives after a sexual assault with a deep scalp laceration and dizziness. What is the nurse's first priority?
++ Assess and treat her injuries
+- Collect forensic evidence | Medical stabilization comes before evidence collection.
+- Call the police before anything else | Reporting is her decision and follows care.
+- Take a detailed account of the assault | A detailed history can wait until she is stable.
+= Life and limb take priority; forensic examination follows once the patient is medically stable.
+
+? A patient who was sexually assaulted two hours ago asks whether she can shower and change before the examination. What is the best response?
++ Explain that waiting preserves evidence, and that the choice is hers
+- Tell her she is not permitted to wash | She retains control over what happens.
+- Tell her it makes no difference | Washing removes evidence.
+- Insist that she shower first for comfort | That destroys evidence she may want collected.
+= Washing, changing, urinating, eating or drinking can remove evidence; the nurse informs without coercing.
+
+? During a forensic examination the patient says she does not want photographs taken. What should the nurse do?
++ Omit the photographs and continue with the parts she agrees to
+- Explain that the whole examination must be completed or none of it | Each part requires her consent.
+- Take the photographs while she is distracted | That violates her consent.
+- Stop the examination and discharge her | She may still want other care.
+= Consent is obtained for each step, and the patient may decline any part without losing access to care.
+
+? Who is best qualified to perform a sexual assault forensic examination?
++ A sexual assault nurse examiner
+- The first available medical student | Specific training is required.
+- A police officer | Officers do not perform medical examinations.
+- A hospital volunteer | Volunteers are not qualified.
+= Specially trained examiners provide trauma-informed care, collect evidence correctly and can testify in court.
+
+? A sexual assault patient is undressing for the examination. How should the nurse collect her clothing?
++ Have her stand on a clean paper sheet and place each item in a separate paper bag
+- Put all items into one plastic bag | Plastic degrades evidence and items cross-contaminate.
+- Shake each item out before bagging | Shaking loses trace evidence.
+- Send the clothing home with a friend | That breaks the chain of custody.
+= The sheet catches hair and fibres; paper bags allow drying and separate packaging prevents transfer.
+
+? A patient was sexually assaulted 30 hours ago and does not want to become pregnant. What should the nurse offer?
++ Emergency contraception
+- A pregnancy test in six weeks only | Prevention is time sensitive.
+- Advice to wait for her next period | Waiting forfeits the chance to prevent pregnancy.
+- Nothing, as it is too late | Emergency contraception works for up to five days.
+= Emergency contraception is offered to all patients at risk of pregnancy, with effectiveness highest when taken early.
+
+? Which preventive treatment is time limited to within 72 hours of a sexual assault?
++ HIV post-exposure prophylaxis
+- A tetanus booster | Its timing is not limited to 72 hours.
+- An influenza vaccine | It is unrelated to the assault.
+- A vitamin supplement | It is not prophylaxis.
+= HIV post-exposure prophylaxis must begin within 72 hours; antibiotics for gonorrhea, chlamydia and trichomonas are also offered.
+
+? A 32-year-old sexual assault patient says she does not want the police involved. What should the nurse do?
++ Respect her decision and explain that evidence can still be collected and stored
+- Call the police anyway | In most places a capable adult decides whether to report.
+- Refuse to provide care unless she reports | Care does not depend on reporting.
+- Tell her the evidence will be thrown away | Kits can usually be held while she decides.
+= Adults generally choose whether to report; anonymous or non-reporting kits preserve evidence. Assault of a child must be reported.
+
+? A patient believes she was drugged at a bar before being assaulted last night. Which specimen is most important to collect promptly?
++ Urine
+- Hair from the scalp | Hair testing is useful only weeks later.
+- A throat culture | It does not detect sedative drugs.
+- A stool sample | It is not used for this purpose.
+= Many sedatives are cleared quickly; the first available urine gives the best chance of detection.
+
+? A sexual assault patient says, "I should never have gone to that party." Which response is most therapeutic?
++ "What happened was not your fault."
+- "Why did you go alone?" | "Why" questions imply blame.
+- "You'll know better next time." | That places responsibility on her.
+- "Try not to think about it." | That dismisses her feelings.
+= Survivors often blame themselves; a clear, non-judgmental statement that she is not at fault supports recovery.
