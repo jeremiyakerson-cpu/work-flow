@@ -1,0 +1,214 @@
+# Domain 4 — Professional Issues (topics 6-8)
+
+@ 4.6
+? A man waiting for results begins pacing, clenching his fists and muttering loudly about the delay. What should the nurse do?
++ Approach calmly at a safe distance, acknowledge his frustration and update him
+- Ignore him so the behaviour is not rewarded | Early warning signs that are ignored tend to escalate.
+- Tell him firmly to sit down or leave | Commands and threats provoke agitated people.
+- Stand close and place a hand on his shoulder | Touch and crowding feel threatening.
+= Pacing, clenched fists and a raised voice are early signs of escalation; early verbal de-escalation is most effective.
+
+? Which technique is most effective when de-escalating an agitated patient?
++ Speak in a calm, low voice and offer simple choices
+- Match the patient's volume to show authority | Raising the voice escalates the encounter.
+- Explain in detail why the patient is wrong | Arguing increases agitation.
+- Stand squarely in front with arms crossed | A confrontational stance signals threat.
+= A calm tone, respect for personal space, active listening and realistic choices give the patient a sense of control.
+
+? Where should the nurse stand when entering the room of a potentially violent patient?
++ Near the door, with an unobstructed path to the exit
+- At the far side of the bed, away from the door | The nurse could be trapped.
+- Directly in the doorway, blocking it completely | A cornered patient is more likely to attack.
+- Seated at the bedside within arm's reach | Being seated and close limits the ability to retreat.
+= Staff keep their own exit clear without making the patient feel trapped.
+
+? A visitor in the waiting room lifts his jacket to show a handgun and threatens staff. What is the nurse's best action?
++ Move away from him and activate security and police
+- Try to take the weapon from him | Disarming attempts by untrained staff cause injuries.
+- Stay and argue him out of it | Remaining nearby increases the danger.
+- Ask other visitors to restrain him | Bystanders must not be put at risk.
+= With a weapon present, staff remove themselves and others from danger and summon trained responders.
+
+? A nurse is punched in the arm by an intoxicated patient. A colleague says, "That's just part of working in the ED." What is the correct response?
++ Assault is not part of the job and must be reported
+- Reporting is needed only if a bone is broken | Every assault is reportable.
+- Reporting would get the patient in trouble, so it is unkind | Reporting protects staff and guides prevention.
+- It only counts if the patient intended it | Intent does not change the duty to report.
+= Under-reporting hides the scale of workplace violence; each incident is reported and the injured nurse is evaluated.
+
+? Which situation carries the highest risk of patient violence in the ED?
++ An intoxicated patient with a history of assault who has waited four hours
+- A sleeping child with a fever | The child poses no risk of violence.
+- An elderly woman awaiting transport home | She has no risk factors for violence.
+- A patient having a wrist radiograph | There are no risk factors described.
+= Substance intoxication, previous violence and long waits are leading predictors of violence.
+
+? An alert announces an active shooter in the building. Evacuation routes are blocked. What should staff do?
++ Hide in a locked or barricaded room, silence phones and stay quiet
+- Walk toward the sound to assess the situation | Moving toward the threat endangers staff.
+- Gather in the open nurses' station | An open area offers no protection.
+- Pull the fire alarm | A fire alarm draws people into corridors.
+= The sequence is run if a safe route exists, hide if it does not, and fight only as a last resort.
+
+? Which item should a nurse avoid wearing when caring for a combative patient?
++ A stethoscope draped around the neck
+- Closed-toe shoes | Sturdy shoes are protective.
+- A breakaway identification lanyard | A breakaway lanyard releases if grabbed.
+- A watch with a second hand | A watch poses little risk.
+= Items around the neck can be used to choke; they are removed or replaced with breakaway versions.
+
+? A family member shouts, "If someone doesn't see my mother now, somebody is going to get hurt!" What is the best first response?
++ State calmly that threats are not acceptable and explain what will happen next for his mother
+- Tell him he will be arrested immediately | Counter-threats escalate the situation.
+- Move his mother ahead of sicker patients | Rewarding threats undermines triage and safety.
+- Walk away without responding | Leaving him without information increases anger.
+= Clear limits combined with empathy and information address both the behaviour and the concern behind it.
+
+? After a violent incident in which a patient was restrained, what should the charge nurse arrange for staff?
++ A debriefing with access to support resources
+- Nothing, as the event is over | Unaddressed events lead to distress and burnout.
+- A written reprimand for those involved | Punishment discourages reporting.
+- An instruction not to discuss the event with anyone | Silence prevents learning and support.
+= Post-incident debriefing supports staff, identifies what worked and feeds improvements to prevention.
+
+@ 4.7
+? A provider orders a medication dose that is ten times the usual amount. The provider insists it is correct when questioned. What should the nurse do next?
++ Withhold the dose and follow the chain of command
+- Give the dose, since the provider confirmed it | The nurse remains accountable for giving an unsafe dose.
+- Give half the dose as a compromise | Altering an order without authority is outside the nurse's scope.
+- Ask another nurse to give it | That passes the hazard on.
+= Nurses have an independent duty to protect the patient and escalate unresolved safety concerns through the chain of command.
+
+? Which task may an emergency nurse delegate to an unlicensed technician?
++ Measuring vital signs on a stable patient awaiting discharge
+- Assessing a new patient's chest pain | Assessment requires a nurse's judgment.
+- Teaching insulin injection technique | Patient teaching is a nursing responsibility.
+- Evaluating the response to a nebulizer | Evaluation requires nursing judgment.
+= Routine tasks with predictable outcomes on stable patients may be delegated; assessment, teaching and evaluation may not.
+
+? A nurse delegates a blood glucose check to a technician, who records a value of 42 mg/dL but does not report it. Who is accountable for the patient's outcome?
++ The nurse, who remains responsible for supervision and follow-up
+- Only the technician | Delegation transfers the task, not accountability.
+- The charge nurse alone | The delegating nurse holds primary accountability.
+- No one, as the task was delegated correctly | Supervision and follow-up are part of delegation.
+= The delegating nurse retains accountability for the outcome and must communicate expectations and follow up.
+
+? A capable adult Jehovah's Witness with a bleeding ulcer refuses blood transfusion after a full discussion of the risks. Which ethical principle requires the nurse to respect this?
++ Autonomy
+- Paternalism | Paternalism would override the patient's choice.
+- Justice | Justice concerns fairness in distributing care.
+- Fidelity | Fidelity concerns keeping promises.
+= Autonomy is the right of a capable person to make decisions about their own body, even when others disagree.
+
+? A nurse double-checks an infusion pump setting to avoid giving an overdose. Which ethical principle does this best illustrate?
++ Nonmaleficence
+- Autonomy | Autonomy concerns the patient's own choices.
+- Justice | Justice concerns fair distribution of care.
+- Veracity | Veracity concerns truthfulness.
+= Nonmaleficence is the obligation to avoid causing harm.
+
+? A local celebrity with a minor laceration demands to be seen ahead of others. The department is busy with sicker patients. Which principle guides the nurse's response?
++ Justice
+- Beneficence | Beneficence is doing good for the individual, not allocating fairly.
+- Fidelity | Fidelity concerns faithfulness to commitments.
+- Autonomy | Autonomy does not entitle anyone to priority.
+= Justice requires that patients be treated fairly according to clinical need, not status.
+
+? At the start of a shift a nurse notices that a colleague has slurred speech and smells of alcohol. What should the nurse do?
++ Report the observations to the charge nurse or supervisor immediately
+- Offer to cover the colleague's patients quietly | Covering up leaves patients and the colleague at risk.
+- Confront the colleague in front of patients | Public confrontation is unprofessional and unsafe.
+- Wait to see whether an error occurs | Waiting knowingly exposes patients to harm.
+= A nurse who suspects impairment has a duty to report it so the colleague is removed from care and can get help.
+
+? Which pattern most strongly suggests that a nurse may be diverting controlled substances?
++ Frequent opioid wastage without a witness and patients reporting unrelieved pain
+- Always asking a second nurse to witness waste | That is correct practice.
+- Declining overtime shifts | That is not a sign of diversion.
+- Documenting pain scores after each dose | That is correct practice.
+= Wastage discrepancies, unwitnessed waste and patients whose pain is not relieved despite documented doses are warning signs.
+
+? A nurse posts on social media about "the wildest trauma case tonight," giving the injury, the time and the town but not the patient's name. Is this a problem?
++ Yes; the details could identify the patient and breach confidentiality
+- No, because no name was used | Identification is possible from details alone.
+- No, because it was posted off duty | Confidentiality applies at all times.
+- Only if the patient complains | A breach does not depend on a complaint.
+= Any information that could reasonably identify a patient is protected, and sharing it violates privacy law and professional standards.
+
+? A patient speaks only Vietnamese. Her 12-year-old daughter offers to interpret for the discharge teaching. What should the nurse do?
++ Use a qualified medical interpreter
+- Accept the daughter's help to save time | Children may mistranslate and should not carry this burden.
+- Speak English slowly and loudly | Volume does not overcome a language barrier.
+- Give written English instructions only | The patient cannot use them.
+= Professional interpreters ensure accuracy and confidentiality and are required for meaningful access to care.
+
+@ 4.8
+? What is the most common underlying cause of emergency department crowding?
++ Admitted patients boarding in the ED while waiting for inpatient beds
+- Too many low-acuity patients arriving | Low-acuity visits use few resources and contribute little to crowding.
+- Slow triage nurses | Triage speed is not the main driver.
+- Too few chairs in the waiting room | Seating does not determine flow.
+= Crowding is chiefly an output problem: when admitted patients cannot leave the ED, treatment spaces are blocked.
+
+? Which patient is most suitable for a fast-track area?
++ A patient with a simple finger laceration and normal vital signs
+- A patient with chest pain and diaphoresis | That patient is high risk and needs a monitored bed.
+- A patient with new confusion | That patient needs a full workup.
+- A patient with abdominal pain and hypotension | That patient is unstable.
+= Fast track is designed for low-acuity patients needing few resources, freeing main ED beds for sicker patients.
+
+? A triage nurse follows an approved protocol to order an ankle radiograph for a patient who meets its criteria before a provider sees him. What is the purpose?
++ To shorten the patient's total length of stay
+- To replace the provider's examination | Protocols begin the workup; they do not replace evaluation.
+- To allow discharge directly from triage | Disposition still requires a provider.
+- To raise the patient's acuity level | Protocols do not change acuity.
+= Triage-initiated protocols start diagnostics early so results are ready when the provider evaluates the patient.
+
+? Several treatment rooms are open when a stable patient arrives. Which process is most efficient?
++ Take the patient straight to a room and complete triage and registration there
+- Finish a full triage assessment in the triage booth first | That adds a step that creates no value when beds are open.
+- Send the patient to the waiting room until called | Waiting is unnecessary with open beds.
+- Ask the patient to return when it is less busy | Sending patients away is unsafe.
+= Direct bedding removes a bottleneck by moving patients to an open room and completing intake at the bedside.
+
+? Which measure best reflects how well an ED's front-end processes are working?
++ The percentage of patients who leave without being seen
+- The number of staff on duty | Staffing is an input, not a flow outcome.
+- The number of ambulances arriving | Arrivals describe demand, not performance.
+- The size of the department | Size does not measure flow.
+= A rising left-without-being-seen rate signals long waits and is a recognized quality and safety indicator.
+
+? An admitted patient with pneumonia has been boarding in the ED for 14 hours. What is the ED nurse's responsibility?
++ Provide ongoing reassessment and carry out the inpatient orders
+- Provide only emergency care until a bed is ready | Boarded patients are owed the same standard of care as inpatients.
+- Stop monitoring, since the patient is admitted | Admission status does not reduce monitoring needs.
+- Hold all scheduled medications until transfer | Missed doses cause harm.
+= Boarded patients remain the ED's responsibility and need inpatient-level care, including scheduled medications and reassessment.
+
+? The waiting room is full and the expected wait is three hours. Which nursing practice most improves safety?
++ Reassessing waiting patients at regular intervals and keeping them informed
+- Telling patients to wait quietly until called | Passive waiting misses deterioration.
+- Posting a sign that staff cannot answer questions | Lack of communication increases risk and frustration.
+- Closing triage until rooms open | New arrivals must still be assessed.
+= Scheduled reassessment detects deterioration, and communication about delays reduces walkouts and aggression.
+
+? An ambulance crew has waited 40 minutes in the ED hallway with a patient on their stretcher because no bed is free. Who is responsible for the patient?
++ The hospital, from the time the patient arrived on its property
+- The ambulance crew, until a bed is assigned | Hospital obligations do not depend on bed assignment.
+- No one, until registration is complete | Registration does not create or delay responsibility.
+- The patient's primary care provider | That provider has no role in the ED encounter.
+= Under EMTALA the hospital's duty begins on arrival; delaying acceptance does not postpone that responsibility.
+
+? Which strategy helps free a monitored bed safely during a surge?
++ Moving a stable, ambulatory patient who is awaiting results to a chair area
+- Discharging patients before their results return | That risks missed diagnoses.
+- Putting two monitored patients in one bay | That compromises privacy and safety.
+- Cancelling tests to speed disposition | That reduces quality of care.
+= Vertical or results-pending areas keep stable patients upright and out of beds that sicker patients need.
+
+? An ED is at capacity with eight admitted patients boarding. Which action by hospital leadership would have the greatest effect on ED flow?
++ Moving boarded patients to inpatient units and expediting inpatient discharges
+- Adding a second triage nurse | Triage is not the constraint when rooms are blocked.
+- Buying more waiting room chairs | Seating does not create treatment capacity.
+- Asking ED staff to work faster | Effort cannot overcome a blocked exit.
+= Because crowding is driven by output, hospital-wide measures that open inpatient beds relieve the ED most.

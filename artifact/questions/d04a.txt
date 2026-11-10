@@ -1,0 +1,214 @@
+# Domain 4 — Professional Issues (topics 0-2)
+
+@ 4.0
+? A man is carried into triage by friends. He is unresponsive, cyanotic and making occasional gasping breaths. Using the Emergency Severity Index, which level applies?
++ ESI level 1
+- ESI level 2 | Level 2 is for high-risk patients who do not need an immediate life-saving intervention.
+- ESI level 3 | Level 3 is for stable patients who need several resources.
+- ESI level 5 | Level 5 is for patients who need no resources.
+= A patient who needs an immediate life-saving intervention, such as airway support, is ESI level 1.
+
+? A 56-year-old has had central chest pressure with nausea for an hour. He is alert with BP 142/88, HR 92 and SpO2 97%. Which ESI level is most appropriate?
++ ESI level 2
+- ESI level 1 | He does not need an immediate life-saving intervention.
+- ESI level 3 | Resource counting is not applied to a high-risk presentation.
+- ESI level 4 | His presentation is far too risky for a low-acuity level.
+= Chest pain suspicious for acute coronary syndrome is a high-risk situation that should not wait, which defines ESI level 2.
+
+? A healthy 19-year-old twisted an ankle playing soccer. Vital signs are normal and the only expected intervention is an ankle radiograph. Which ESI level applies?
++ ESI level 4
+- ESI level 2 | There is no high-risk feature, confusion or severe distress.
+- ESI level 3 | Level 3 requires two or more resources.
+- ESI level 5 | A radiograph counts as one resource.
+= A stable patient expected to need one resource is ESI level 4.
+
+? A patient requests removal of sutures placed ten days ago. The wound is healed and vital signs are normal. Which ESI level applies?
++ ESI level 5
+- ESI level 4 | Suture removal is not counted as a resource.
+- ESI level 3 | No resources are anticipated.
+- ESI level 2 | There is nothing high risk about this visit.
+= A stable patient who needs no resources beyond an examination is ESI level 5.
+
+? A 30-year-old has right lower quadrant pain rated 5/10 with normal vital signs. The nurse expects blood work, IV fluids and a CT scan. Which ESI level applies?
++ ESI level 3
+- ESI level 2 | She is stable without high-risk features or severe distress.
+- ESI level 4 | More than one resource is expected.
+- ESI level 5 | Several resources are expected.
+= A stable patient expected to need two or more resources is ESI level 3, provided vital signs do not suggest a higher level.
+
+? When predicting resources for an ESI level, which item counts as a resource?
++ IV fluid hydration
+- An oral dose of ibuprofen | Oral medications are not resources.
+- A tetanus immunization | Immunizations are not resources.
+- Crutches and an elastic wrap | Simple supplies are not resources.
+= Resources include laboratory tests, imaging, IV fluids, parenteral or nebulized medications, consultations and procedures.
+
+? A 42-year-old with a productive cough would be ESI level 3 by resource count, but her triage vital signs are HR 128, RR 28 and SpO2 91%. What should the triage nurse do?
++ Consider upgrading her to ESI level 2
+- Keep her at level 3 because resources decide the level | Vital signs can override the resource-based level.
+- Downgrade her to level 4 | Abnormal vital signs never lower acuity.
+- Send her to the waiting room and recheck in two hours | She may deteriorate without earlier assessment.
+= Before assigning level 3, the nurse checks for danger-zone vital signs and considers up-triage to level 2.
+
+? A 28-year-old tells the triage nurse that she plans to overdose tonight on pills she has saved. She is calm and medically stable. Which ESI level applies?
++ ESI level 2
+- ESI level 3 | Active suicidal intent is a high-risk situation, not a resource question.
+- ESI level 4 | She cannot safely wait unobserved.
+- ESI level 5 | Suicidal intent is never a non-urgent complaint.
+= A patient with suicidal intent and a plan is high risk and requires prompt placement and observation.
+
+? A 3-week-old infant is brought in with a rectal temperature of 38.3 C. She is feeding and looks well. Which ESI level is appropriate?
++ ESI level 2
+- ESI level 3 | Fever in a neonate is treated as high risk despite a well appearance.
+- ESI level 4 | A febrile neonate needs an extensive workup.
+- ESI level 5 | This is never a non-urgent presentation.
+= Fever in an infant under 28 days carries a high risk of serious bacterial infection and is triaged at least ESI level 2.
+
+? A patient triaged as ESI level 3 an hour ago for abdominal pain is now pale, sweating and slumped in the waiting room chair. What should the triage nurse do?
++ Reassess the patient immediately and assign a new acuity
+- Tell the patient the wait is about another hour | The condition has changed and needs evaluation now.
+- Offer a blanket and continue with new arrivals | Comfort measures ignore deterioration.
+- Keep the original level, since triage is done once | Triage is a continuing process.
+= Triage is dynamic; waiting patients are reassessed and re-triaged when their condition changes.
+
+@ 4.1
+? At a bus crash using START triage, a woman with a bleeding scalp walks over and asks for help. Which category does she receive?
++ Minor (green)
+- Immediate (red) | Ability to walk places her in the minor group at first sort.
+- Delayed (yellow) | Delayed is for non-ambulatory patients who pass the checks.
+- Expectant (black) | She is alive and ambulatory.
+= The first step of START directs everyone who can walk to the minor group for later reassessment.
+
+? A victim at a mass casualty scene is not breathing. The rescuer opens the airway and there is still no breathing. Which category applies?
++ Expectant (black)
+- Immediate (red) | Red is assigned if breathing resumes after airway positioning.
+- Delayed (yellow) | A non-breathing victim cannot be delayed.
+- Minor (green) | Green is for the walking wounded.
+= In START, an adult who remains apneic after the airway is opened is tagged expectant so resources go to salvageable patients.
+
+? A victim is not breathing until the rescuer repositions the airway, after which he breathes spontaneously. Which category applies?
++ Immediate (red)
+- Expectant (black) | He is breathing after a simple maneuver.
+- Delayed (yellow) | A patient needing airway positioning to breathe cannot wait.
+- Minor (green) | He is not ambulatory or stable.
+= A patient who starts breathing only after airway positioning is tagged immediate.
+
+? A non-ambulatory victim is breathing 36 times per minute. Under START, which category applies?
++ Immediate (red)
+- Delayed (yellow) | A rate above 30 fails the respiratory check.
+- Minor (green) | The victim cannot walk and is breathing too fast.
+- Expectant (black) | The victim is breathing and salvageable.
+= A respiratory rate above 30 per minute places the patient in the immediate category.
+
+? A victim cannot walk, is breathing 22 times per minute and has no radial pulse. Which category applies?
++ Immediate (red)
+- Delayed (yellow) | Absent radial pulse fails the perfusion check.
+- Minor (green) | The victim is not ambulatory.
+- Expectant (black) | The victim is breathing with a treatable problem.
+= An absent radial pulse or capillary refill over two seconds indicates poor perfusion and an immediate tag.
+
+? A victim with an obvious femur fracture cannot walk. Respirations are 20, a radial pulse is present and he follows commands. Which category applies?
++ Delayed (yellow)
+- Immediate (red) | He passes the respiratory, perfusion and mental status checks.
+- Minor (green) | He cannot walk.
+- Expectant (black) | He is stable and salvageable.
+= Non-ambulatory patients with adequate respirations, perfusion and mental status are tagged delayed.
+
+? What is the guiding principle of triage during a mass casualty incident?
++ Do the greatest good for the greatest number
+- Treat the most severely injured patient first | Resources may be wasted on unsalvageable patients.
+- Treat patients in the order they arrive | Arrival order ignores severity and salvageability.
+- Treat children before all adults | Age alone does not set priority.
+= When demand exceeds resources, care shifts from the individual to maximizing survivors overall.
+
+? Using JumpSTART at a school incident, a 5-year-old is not breathing but has a palpable pulse. What should the rescuer do?
++ Give five rescue breaths and reassess
+- Tag the child expectant at once | Children often arrest from respiratory causes and may respond to breaths.
+- Begin a full course of CPR | Prolonged individual resuscitation is not part of triage.
+- Tag the child delayed | An apneic child cannot wait.
+= JumpSTART adds five rescue breaths for an apneic child with a pulse; if breathing resumes, the child is tagged immediate.
+
+? A hospital activates its incident command system after a train derailment. An ED nurse is handed a job action sheet. What is the nurse's responsibility?
++ Carry out the assigned role and report through the designated chain of command
+- Continue the usual assignment and ignore the sheet | Disaster roles replace normal assignments.
+- Take direction from whichever physician is nearest | Command structure, not proximity, directs staff.
+- Go to the scene to help | Self-deployment disrupts both scene and hospital operations.
+= Incident command gives each person a defined role and a single reporting line to avoid confusion.
+
+? After an explosion in an enclosed space, a victim with no visible wounds has ruptured eardrums, dyspnea and blood-tinged sputum. Which injury should the nurse suspect?
++ Primary blast injury to the lungs
+- Smoke inhalation alone | Eardrum rupture points to a pressure-wave injury.
+- A panic attack | Hemoptysis has a physical cause.
+- Fractured ribs from flying debris | That would be a secondary blast injury with external signs.
+= The blast pressure wave damages air-filled organs; ruptured tympanic membranes are a marker for blast lung.
+
+@ 4.2
+? An uninsured man arrives at the ED with abdominal pain. Under EMTALA, what must the hospital provide?
++ A medical screening examination regardless of ability to pay
+- Care only after a deposit is collected | Payment cannot be a condition of screening.
+- Directions to the nearest public hospital | Diverting him without screening violates the law.
+- A screening examination only if a bed is available | Capacity does not remove the obligation.
+= EMTALA requires a medical screening examination and stabilization for anyone who comes to the emergency department.
+
+? Registration staff ask whether they may collect insurance details before a patient with chest pain is evaluated. What is the correct response?
++ Registration may proceed only if it does not delay the screening examination
+- Insurance must be verified before any care | Delaying screening for financial inquiry violates EMTALA.
+- Registration is never allowed in the ED | It is allowed when it causes no delay.
+- Ask the patient to return with an insurance card | Sending the patient away is prohibited.
+= Financial questions cannot delay the screening examination or stabilizing treatment.
+
+? A small hospital must transfer an unstable trauma patient to a trauma centre. Which condition makes the transfer appropriate under EMTALA?
++ The receiving hospital has accepted the patient and has the capability to treat
+- The patient's insurer prefers the other hospital | Financial preference is not a valid reason.
+- The ED is busy and needs the bed | Crowding does not justify transferring an unstable patient.
+- The family lives nearer to the other hospital | Convenience does not meet the requirement.
+= An unstable patient may be transferred when benefits outweigh risks, a physician certifies this, the receiving facility accepts, and records and qualified transport go with the patient.
+
+? A woman having contractions every three minutes arrives at a hospital without obstetric services. What does EMTALA require?
++ Screening and stabilization, which may mean delivery, before any transfer
+- Immediate transfer by private car | Transfer in active labor without assessment is unsafe and unlawful.
+- Referral to her own obstetrician's office | She must be screened where she presented.
+- Discharge with instructions to return if labor progresses | Active labor is an emergency medical condition.
+= A woman in active labor is unstable under EMTALA until delivery unless a physician certifies that the benefits of transfer outweigh the risks.
+
+? An unconscious, unidentified man arrives with a tension pneumothorax. No family can be reached. On what basis may treatment proceed?
++ Implied consent
+- Informed consent | He cannot receive or weigh information.
+- Involuntary commitment | That applies to psychiatric holds, not emergency treatment.
+- Court order | Waiting for a court would cost his life.
+= The law presumes that a reasonable person would consent to life-saving treatment in an emergency.
+
+? While witnessing a consent signature for a procedure, the nurse hears the patient say, "I don't really know what they're going to do." What should the nurse do?
++ Stop and ask the provider to return and explain the procedure
+- Explain the procedure and its risks personally | Explaining risks and alternatives is the provider's duty.
+- Have the patient sign and ask questions afterwards | A signature without understanding is not valid consent.
+- Ask a family member to sign instead | A capable adult consents for himself.
+= The provider performing the procedure obtains informed consent; the nurse witnesses the signature and advocates when understanding is lacking.
+
+? An intoxicated man with a scalp laceration and repeated vomiting after a fall says he is leaving. He cannot state where he is or why he was brought in. What should the nurse recognize?
++ He currently lacks decision-making capacity
+- He has an absolute right to leave | That right depends on capacity.
+- He must be arrested | This is a clinical, not a criminal, matter.
+- He can leave if a friend signs the form | A friend's signature does not create capacity.
+= Capacity requires understanding the situation, appreciating consequences, reasoning and expressing a choice; without it, emergency care continues.
+
+? A 15-year-old is brought in by a neighbour after a crash with signs of internal bleeding. Her parents cannot be reached. What is the correct action?
++ Provide emergency treatment without waiting for parental consent
+- Withhold treatment until a parent is found | Delay endangers life.
+- Ask the neighbour to sign consent | The neighbour has no legal authority, and none is needed.
+- Obtain a court order first | An emergency exception already applies.
+= Minors may be treated without parental consent when delay would threaten life or limb.
+
+? A capable adult with chest pain decides to leave before testing is complete. What is the nurse's best action?
++ Explain the risks, notify the provider, document and invite him to return
+- Lock the exit until he agrees to stay | Detaining a capable adult is false imprisonment.
+- Refuse to remove his IV until he signs | Coercion is unethical and unsafe.
+- Say that insurance will not pay if he leaves | That statement is inaccurate and coercive.
+= A capable adult may refuse care; the nurse ensures the refusal is informed and documented and keeps the door open for return.
+
+? A caller says she is the sister of a patient in the ED and asks for his test results. The patient has not been asked about sharing information. What should the nurse do?
++ Decline to share details and offer to pass a message to the patient
+- Give the results, since she is family | Family status alone does not authorize disclosure.
+- Confirm only the diagnosis | Any disclosure needs the patient's agreement.
+- Transfer the call to the laboratory | That simply passes on the privacy breach.
+= Protected health information is shared only with the patient's permission or as the law specifically allows.

@@ -1,0 +1,214 @@
+# Domain 4 — Professional Issues (topics 3-5)
+
+@ 4.3
+? A nurse is giving an SBAR report by phone. Which statement belongs to the "R" component?
++ "I'd like you to come and see him now and order a repeat lactate."
+- "He was admitted from triage two hours ago with fever and cough." | That is background.
+- "His pressure has dropped to 84/50 and he is more confused." | That is the situation.
+- "I think he is becoming septic." | That is the assessment.
+= The recommendation states clearly what the nurse needs from the other clinician and by when.
+
+? Before giving a medication, which pair of identifiers should the nurse use?
++ The patient's full name and date of birth
+- The room number and the patient's name | A room number is not a patient identifier.
+- The bed number and the diagnosis | Neither is unique to the person.
+- The patient's face and the attending's name | Recognition and provider names are not acceptable identifiers.
+= Two person-specific identifiers are compared with the order and the wristband; location is never used.
+
+? A provider gives a verbal order for a heparin bolus during a busy resuscitation. What should the nurse do before giving it?
++ Repeat the complete order back and receive confirmation
+- Give the dose and document it afterwards | Without read-back, a misheard dose reaches the patient.
+- Ask a colleague what they heard | A third party cannot confirm the prescriber's intent.
+- Wait for the order to be typed, however long it takes | Closed-loop verbal orders are acceptable in emergencies.
+= Read-back and confirmation close the communication loop for verbal orders and critical results.
+
+? Which medication should prompt an independent double check by a second nurse before administration?
++ An IV insulin infusion
+- Oral acetaminophen | It is not a high-alert medication.
+- A normal saline flush | A flush carries little risk.
+- Oral ondansetron | It is not a high-alert medication.
+= High-alert drugs such as insulin, heparin, opioid infusions and concentrated electrolytes warrant an independent double check.
+
+? A nurse realizes she gave a patient double the ordered dose of IV hydromorphone. What should she do first?
++ Assess the patient's respiratory status and level of sedation
+- Complete the incident report | Reporting follows immediate patient care.
+- Call the pharmacy to ask about the error | The patient's condition comes first.
+- Wait to see whether any effect develops | Delay risks unrecognized respiratory depression.
+= After an error the patient is assessed and protected first; the provider is then notified and the event reported.
+
+? After a medication error, where should the nurse record that an incident report was completed?
++ Nowhere in the medical record; the chart contains only the facts of the event and care given
+- In the nursing progress note | Referring to the report in the chart can make it discoverable and adds nothing clinical.
+- On the medication administration record | That record documents doses, not reports.
+- In the discharge instructions | Patients are told what happened by the team, not by a note about a form.
+= The chart records what happened and what was done; the incident report is a separate quality document.
+
+? A nurse draws up the wrong drug but catches the mistake before it reaches the patient. What should she do?
++ Report the near miss through the safety reporting system
+- Say nothing, since no harm occurred | Unreported near misses leave hazards in place.
+- Tell only a trusted colleague | Informal sharing does not fix the system.
+- Report it only if it happens twice | Each event is useful information.
+= Near-miss reporting in a just culture reveals system weaknesses before a patient is harmed.
+
+? Which practice makes a change-of-shift handoff safest?
++ A structured report at the bedside with time for questions
+- A written note left at the desk | Notes do not allow questions or verification.
+- A brief report in the hallway during a break | Interruptions and lack of privacy degrade the handoff.
+- A recorded message the next nurse can hear later | One-way reports cannot be clarified.
+= Standardized, interactive handoffs at the bedside reduce omissions and let both nurses verify the patient's condition.
+
+? A patient is being transferred to a tertiary centre. Which action best supports continuity of care?
++ A nurse-to-nurse verbal report with copies of records and results sent with the patient
+- Sending the patient with a face sheet only | The receiving team needs clinical information.
+- Asking the family to explain what happened | Families cannot give a complete clinical handoff.
+- Faxing the records the next day | Information must arrive with or before the patient.
+= Safe transfer includes a direct clinical handoff and the documentation the receiving team needs.
+
+? A patient is discharged with a new anticoagulant. Which approach best confirms that the instructions were understood?
++ Ask the patient to explain in his own words how he will take it
+- Ask, "Do you understand?" | A yes or no answer does not show understanding.
+- Hand over the printed sheet and have him sign it | A signature does not show understanding.
+- Repeat the instructions a second time more slowly | Repetition does not check comprehension.
+= Teach-back shows what the patient actually understood and where teaching should be repeated.
+
+@ 4.4
+? A patient dies in the ED after a failed resuscitation. What is the nurse required to do regarding organ and tissue donation?
++ Notify the organ procurement organization of the death
+- Decide whether the patient is medically suitable | Suitability is determined by the procurement organization.
+- Notify only if the patient carried a donor card | Every death is referred regardless of registration.
+- Wait for the family to raise the subject | Referral does not depend on family inquiry.
+= Hospitals must refer all deaths and imminent deaths to the designated organ procurement organization in a timely way.
+
+? Who should approach a family about organ donation?
++ A trained representative of the organ procurement organization
+- The triage nurse on duty | The requester needs specific training.
+- The first available physician, during the death notification | Coupling the request with the notification lowers consent and adds distress.
+- The hospital billing office | Finance has no role in donation requests.
+= Requests made by trained requesters, separate from the death notification, are associated with better family experience and higher consent.
+
+? During a resuscitation, the patient's wife asks to be in the room. What is the best response?
++ Allow her in with a staff member assigned to support her
+- Refuse because families always interfere | Evidence shows presence rarely disrupts care.
+- Allow her in alone to stand wherever she can | An unsupported family member is at risk of distress.
+- Ask her to wait until the outcome is known | Many families value being present.
+= Family presence during resuscitation is supported when a dedicated staff member explains events and attends to the family.
+
+? A patient with advanced cancer arrives with a valid POLST form selecting comfort-focused treatment only. He is in respiratory distress. What should the nurse do?
++ Provide oxygen and medication for comfort and do not prepare for intubation
+- Prepare for intubation, since he is in distress | That contradicts his documented wishes.
+- Withhold all treatment, including oxygen | Comfort care is active treatment.
+- Disregard the form unless family confirms it | A valid POLST is an actionable medical order.
+= A POLST is a set of medical orders; comfort-focused treatment means relieving symptoms without life-prolonging interventions.
+
+? How should the nurse assist with notifying a family that their relative has died?
++ Sit with them in a private room and use the word "died"
+- Tell them in the hallway to save time | Notification needs privacy.
+- Say that he "passed on" or "is no longer with us" | Euphemisms cause confusion.
+- Let the chaplain give the news alone | The clinical team delivers the news; chaplains support.
+= Clear, direct language in a private setting, with time for questions and silence, helps families grasp the news.
+
+? An unresponsive patient has a living will declining mechanical ventilation and a named health care agent who confirms that wish. An adult son demands "everything be done." Whose direction is followed?
++ The patient's documented wishes as expressed through the named agent
+- The son, because he is the closest relative present | A designated agent outranks other relatives.
+- The physician's personal preference | Clinicians follow the patient's wishes.
+- Whichever family member is most insistent | Insistence does not confer authority.
+= A valid advance directive and the appointed agent speak for the patient when capacity is lost.
+
+? A dying patient on comfort care is gasping and visibly distressed. A family member worries that morphine will hasten death. What is the best explanation?
++ The dose is given to relieve breathlessness, which is the intent of treatment
+- Morphine is never used at the end of life | Opioids are standard for dyspnea in the dying.
+- The medication will be withheld to be safe | Withholding leaves the patient suffering.
+- A larger dose will be given to speed the process | Hastening death is not the intent and is not permitted.
+= Opioids titrated to relieve dyspnea are ethically appropriate; the intent is comfort, not shortening life.
+
+? A 24-year-old dies in the ED from a suspected overdose. How should the body be prepared?
++ Leave tubes, lines and dressings in place for the medical examiner
+- Remove all tubes and wash the body | Removing devices and washing destroys evidence.
+- Release the body directly to a funeral home | Unexpected deaths are referred to the medical examiner.
+- Cut the endotracheal tube at the lips | Altering devices compromises the examination.
+= Deaths that are sudden, unexplained or possibly unnatural are medical examiner cases, and the body is left undisturbed.
+
+? A family from a faith tradition unfamiliar to the nurse has just lost a relative. What is the most appropriate approach?
++ Ask the family what practices or rituals are important to them
+- Proceed with routine post-mortem care at once | Routine care may violate important practices.
+- Assume their needs match others of the same background | Assumptions lead to errors and offence.
+- Tell them the hospital cannot accommodate rituals | Reasonable accommodation is part of respectful care.
+= Cultural humility means asking rather than assuming, and adapting care to what matters to this family.
+
+? An infant is pronounced dead after an apparent sleep-related death. The parents ask to hold their baby. What should the nurse do?
++ Allow them to hold the infant with a staff member present
+- Refuse, because this is a medical examiner case | Supervised holding is permitted and does not compromise the investigation.
+- Suggest they go home and return later | Separation deprives them of an important farewell.
+- Ask them first how the baby was put to sleep | Questioning at this moment implies blame.
+= Parents are supported in holding their child; a staff member stays so that lines remain in place for the examiner.
+
+@ 4.5
+? A patient's shirt with a bullet hole must be removed. How should the nurse cut it?
++ Along the seams, avoiding the hole
+- Straight through the hole | Cutting through it destroys evidence about range and trajectory.
+- In small pieces for easier packaging | Fragmenting the garment destroys its evidentiary value.
+- Any way that is fastest | Evidence preservation remains a duty when it does not delay care.
+= Defects in clothing carry evidence such as gunpowder residue and are preserved intact.
+
+? How should bloodstained clothing collected as evidence be packaged?
++ Each item in its own paper bag
+- All items together in one plastic bag | Plastic traps moisture and items contaminate one another.
+- In a sealed biohazard bucket | Sealed containers promote mould and degrade evidence.
+- Folded tightly in a patient belongings bag | Folding transfers stains and plastic degrades biological material.
+= Paper allows drying and prevents degradation; separate bags prevent cross-contamination.
+
+? What is the purpose of the chain of custody?
++ To document everyone who has handled the evidence from collection to handover
+- To record the patient's medical history | That is the function of the chart.
+- To give the family a list of belongings | That is a property inventory.
+- To allow evidence to be stored at the nurses' station | Evidence is never left unattended.
+= An unbroken, documented chain shows that evidence was not altered and makes it admissible in court.
+
+? How should the nurse document a gunshot wound?
++ Describe its location, size and appearance without labelling it entrance or exit
+- Record which wound is the entrance and which the exit | That determination belongs to forensic experts and is often wrong clinically.
+- Note only that a gunshot wound is present | Detail is needed for both care and the record.
+- Record the calibre of the weapon | Calibre cannot be determined from the wound.
+= Objective description avoids forensic conclusions that could conflict with expert findings.
+
+? A man dies in the ED from a gunshot wound that may have been self-inflicted. How should his hands be handled?
++ Place a paper bag over each hand and secure it at the wrist
+- Wash the hands before the family visits | Washing removes gunshot residue.
+- Cover the hands with plastic bags | Plastic causes condensation that destroys residue.
+- Leave the hands uncovered | Residue may be lost during handling and transport.
+= Paper bags preserve gunshot residue and trace evidence on the hands.
+
+? A bullet is removed during resuscitation. How should it be handled?
++ With gloved fingers or rubber-tipped forceps, then placed in a labelled container
+- With metal hemostats, then rinsed clean | Metal scratches the markings and rinsing removes trace evidence.
+- Dropped into a metal basin | The impact damages rifling marks.
+- Handed to the family | Evidence goes only to law enforcement through the chain of custody.
+= The markings on a bullet identify the weapon, so it is protected from scratches and handed over with documentation.
+
+? A patient says, "My boyfriend choked me until I blacked out." How should the nurse document this?
++ Write the patient's exact words in quotation marks
+- Write "alleged domestic dispute" | Paraphrasing and legal terms change the meaning.
+- Write "patient was strangled by her boyfriend" as fact | The nurse records what was said, not a conclusion.
+- Omit it, since it is not a medical finding | The statement is clinically and legally important.
+= Verbatim statements in quotation marks are accurate and carry the most weight in the record.
+
+? A woman who was strangled by her partner two hours ago has a hoarse voice, neck tenderness and tiny red spots on her eyelids. She wants to go home. What is the main concern?
++ Delayed airway swelling or vascular injury
+- A simple sore throat | Hoarseness after strangulation signals laryngeal injury.
+- Conjunctivitis | Petechiae reflect venous congestion from neck compression.
+- Anxiety only | The physical findings indicate serious injury.
+= Strangulation can cause delayed airway edema and carotid injury even with few external marks; observation and imaging are often needed.
+
+? An 86-year-old who lives with her son has pressure injuries, dehydration, poor hygiene and unfilled prescriptions. She appears frightened when he speaks. What should the nurse do?
++ Report suspected neglect to adult protective services
+- Discharge her home with a wound care sheet | That returns her to an unsafe situation.
+- Ask the son to explain in front of her | She may not be able to speak freely.
+- Wait for proof before reporting | Reasonable suspicion is the reporting threshold.
+= Health professionals must report suspected abuse or neglect of an older or dependent adult.
+
+? How should the nurse screen for intimate partner violence?
++ Ask the patient privately, without the partner or family present
+- Ask with the partner in the room to gauge the reaction | The partner's presence prevents disclosure and may increase danger.
+- Ask a relative to translate the questions | Family interpreters compromise safety and accuracy.
+- Ask only patients who have visible injuries | Many victims have no visible injuries.
+= Screening is done in private with a professional interpreter if needed, followed by safety planning and resources.
