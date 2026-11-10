@@ -1,0 +1,256 @@
+# Domain 7 — Gastrointestinal Emergencies (topics 0-2)
+
+@ 7.0
+? A 60-year-old who takes daily ibuprofen vomits material that looks like coffee grounds and has passed black, tarry stools. Where is the bleeding most likely located?
++ The upper gastrointestinal tract
+- The sigmoid colon | Colonic bleeding produces red or maroon stool, not coffee-ground emesis.
+- The rectum | Rectal bleeding is bright red.
+- The small bowel beyond the jejunum | That would not cause hematemesis.
+= Coffee-ground emesis and melena indicate blood exposed to gastric acid, typically from a source above the ligament of Treitz.
+
+? A patient with hematemesis has BP 88/52 and HR 128. What is the nurse's priority?
++ Insert two large-bore IV lines and send a type and crossmatch
+- Insert a urinary catheter | Urine output monitoring follows vascular access.
+- Give an oral antacid | Oral medication is inappropriate in active bleeding.
+- Prepare bowel cleansing for colonoscopy | Resuscitation precedes any procedure.
+= Hemorrhagic shock is treated first with vascular access and preparation for blood replacement.
+
+? Which medication should the nurse anticipate for a patient with a suspected bleeding peptic ulcer?
++ An IV proton pump inhibitor
+- An oral NSAID | NSAIDs cause and worsen ulcer bleeding.
+- IV heparin | Anticoagulation worsens bleeding.
+- An oral laxative | It does not treat the bleeding.
+= Acid suppression stabilizes clot at the ulcer base and reduces rebleeding.
+
+? A hemodynamically stable patient with an upper GI bleed has a hemoglobin of 8.4 g/dL and no cardiac disease. What does a restrictive transfusion strategy recommend?
++ Withhold transfusion unless hemoglobin falls below 7 g/dL
+- Transfuse to a hemoglobin above 12 g/dL | Liberal transfusion increases rebleeding and mortality.
+- Transfuse two units immediately in every case | Transfusion is guided by threshold and stability.
+- Never transfuse in gastrointestinal bleeding | Transfusion is indicated below the threshold or with instability.
+= In stable patients a threshold of 7 g/dL improves outcomes compared with liberal transfusion.
+
+? A patient vomited about a litre of bright red blood 20 minutes ago. The first hemoglobin is 13.8 g/dL. How should the nurse interpret it?
++ The value has not yet fallen and does not reflect the blood lost
+- The bleed was minor | Whole blood is lost, so concentration is unchanged at first.
+- The laboratory made an error | The result is expected early.
+- The patient is dehydrated and needs no monitoring | Close monitoring is essential.
+= Hemoglobin falls only after fluid shifts or IV fluids dilute the remaining blood, so early values underestimate loss.
+
+? Which laboratory pattern supports an upper rather than a lower source of gastrointestinal bleeding?
++ A raised BUN with a normal creatinine
+- A raised creatinine with a normal BUN | That pattern is not typical.
+- A low BUN with a low creatinine | That does not indicate bleeding.
+- A raised lipase | That suggests pancreatitis.
+= Digested blood is absorbed as protein, raising urea out of proportion to creatinine.
+
+? A 78-year-old passes a large amount of maroon blood from the rectum without pain. She is otherwise well. What is the most common cause?
++ Diverticular bleeding
+- Hemorrhoids | Hemorrhoids cause small amounts of bright red blood on the paper.
+- Anal fissure | Fissures are painful with minimal bleeding.
+- Infectious colitis | Colitis causes pain, diarrhea and fever.
+= Painless, large-volume lower gastrointestinal bleeding in an older adult is most often diverticular.
+
+? A patient with an upper GI bleed has been resuscitated and is stable. What is the usual next diagnostic and therapeutic step?
++ Upper endoscopy within 24 hours
+- A barium swallow | Barium obscures endoscopy and does not treat bleeding.
+- A plain abdominal radiograph | It does not identify the bleeding source.
+- Exploratory laparotomy | Surgery is reserved for failed endoscopic control.
+= Endoscopy identifies the source and allows treatment by injection, clipping or cautery.
+
+? A patient admitted for melena has HR 84 lying and 118 on standing, with dizziness. What does this indicate?
++ Significant ongoing volume loss
+- A normal response to standing | A rise of more than 20-30 beats with symptoms is abnormal.
+- Anxiety about hospitalization | The change is positional and physiologic.
+- A medication side effect only | Blood loss is the far more likely cause.
+= Orthostatic tachycardia with symptoms shows that blood volume is depleted even when the supine pressure is normal.
+
+? After a night of heavy drinking and repeated retching, a patient vomits a small amount of bright red blood. Vital signs are normal. What is the most likely cause?
++ A mucosal tear at the gastroesophageal junction
+- Rupture of the esophagus | Rupture causes severe chest pain and shock.
+- Bleeding esophageal varices | Variceal bleeding is typically massive.
+- A perforated ulcer | Perforation causes peritonitis, not hematemesis alone.
+= A Mallory-Weiss tear follows forceful vomiting and usually stops bleeding on its own.
+
+? After forceful vomiting, a patient develops severe chest pain radiating to the back, crackling under the skin of the neck and a left pleural effusion. What should the nurse suspect?
++ Esophageal rupture
+- A Mallory-Weiss tear | A partial tear does not cause mediastinal air or effusion.
+- Gastroesophageal reflux | Reflux does not cause subcutaneous emphysema.
+- Musculoskeletal strain | Strain does not cause air in the tissues.
+= Boerhaave syndrome is a full-thickness rupture causing mediastinitis; it needs urgent surgery and antibiotics.
+
+? A patient reports black stools for three days. She recently started iron tablets and has also taken a bismuth antacid. Stools are formed and test negative for blood. What should the nurse conclude?
++ The colour is most likely from the medications
+- She has an upper gastrointestinal bleed | A negative test and formed stool argue against melena.
+- She needs an urgent transfusion | There is no evidence of bleeding.
+- She has liver failure | Liver failure causes pale, not black, stool.
+= Iron and bismuth darken stool; true melena is tarry, sticky, foul smelling and tests positive for blood.
+
+@ 7.1
+? A 58-year-old with a previous bowel resection has cramping abdominal pain, repeated vomiting, a swollen abdomen and high-pitched tinkling bowel sounds. What is the most likely cause?
++ Small bowel obstruction from adhesions
+- Gastroenteritis | Gastroenteritis causes diarrhea rather than distension with tinkling sounds.
+- Acute pancreatitis | Pancreatitis causes steady epigastric pain radiating to the back.
+- Constipation | Simple constipation does not cause repeated vomiting.
+= Adhesions from earlier surgery are the leading cause of small bowel obstruction.
+
+? Which set of orders should the nurse anticipate for a small bowel obstruction?
++ NPO, nasogastric decompression and IV fluids
+- A clear liquid diet and a laxative | Oral intake and laxatives worsen obstruction.
+- A high-fibre diet and ambulation | Feeding is contraindicated.
+- An enema and discharge | An enema does not relieve small bowel obstruction.
+= Bowel rest, decompression and fluid replacement are the initial management.
+
+? A patient with bowel obstruction begins vomiting brown, foul-smelling material. What does this suggest?
++ A prolonged or distal obstruction
+- An upper gastrointestinal bleed | Blood appears red or like coffee grounds.
+- Bile reflux | Bile is green or yellow.
+- Improvement | Feculent vomiting indicates worsening.
+= Feculent vomitus results from bacterial overgrowth in stagnant bowel contents above a long-standing obstruction.
+
+? A patient with a small bowel obstruction develops constant severe pain, temperature 38.8 C, HR 128 and a rigid abdomen. What does this indicate?
++ Strangulation requiring emergency surgery
+- Expected progress with conservative care | These are signs of bowel ischemia.
+- A need for a larger nasogastric tube | Tube size does not address ischemia.
+- Opioid withdrawal | That does not cause a rigid abdomen.
+= A change from colicky to constant pain with fever, tachycardia and peritoneal signs suggests compromised blood supply.
+
+? An 84-year-old nursing home resident has massive abdominal distension and has passed no stool or gas for three days. The radiograph shows a hugely dilated loop shaped like a coffee bean. What is the diagnosis?
++ Sigmoid volvulus
+- Small bowel adhesions | The radiographic sign is characteristic of twisted sigmoid colon.
+- Appendicitis | Appendicitis does not cause this distension.
+- Gastric outlet obstruction | That causes vomiting without this colonic pattern.
+= Twisting of the sigmoid colon produces a coffee-bean loop; endoscopic decompression is usually attempted first.
+
+? A patient has been vomiting for three days from a gastric outlet obstruction. Which acid-base and electrolyte pattern is expected?
++ Metabolic alkalosis with low potassium and chloride
+- Metabolic acidosis with high potassium | Loss of gastric acid produces alkalosis.
+- Respiratory alkalosis with high chloride | The disturbance is metabolic.
+- Respiratory acidosis with high sodium | The disturbance is metabolic.
+= Loss of hydrochloric acid and potassium in vomit causes hypochloremic, hypokalemic metabolic alkalosis.
+
+? A 10-month-old has episodes of screaming and drawing up his knees, separated by periods of lethargy. He has vomited and passed stool mixed with blood and mucus. What should the nurse suspect?
++ Intussusception
+- Pyloric stenosis | That occurs in the first weeks of life with projectile vomiting and no bloody stool.
+- Colic | Colic does not cause bloody stool or lethargy.
+- Constipation | Constipation does not cause this picture.
+= Intermittent colicky pain, vomiting and red jelly-like stool in an infant suggest telescoping bowel, often reduced by enema.
+
+? A 5-week-old boy vomits forcefully after every feed and is hungry again immediately afterwards. The vomit contains no bile. What is the most likely diagnosis?
++ Pyloric stenosis
+- Intussusception | That occurs later with colicky pain and bloody stool.
+- Malrotation with volvulus | That produces bilious vomiting.
+- Overfeeding | Overfeeding does not cause progressive projectile vomiting.
+= Hypertrophy of the pylorus causes projectile non-bilious vomiting in infants two to eight weeks old.
+
+? A 4-day-old infant has green vomiting and a tender abdomen. How should the nurse triage this infant?
++ As a surgical emergency
+- As a feeding problem for routine review | Bilious vomiting in a neonate is never routine.
+- As reflux suitable for outpatient care | Reflux is not bilious.
+- As a viral illness to observe at home | Delay risks loss of the entire midgut.
+= Bilious vomiting in a newborn suggests malrotation with midgut volvulus until proven otherwise.
+
+? Two days after abdominal surgery a patient on opioids has a distended, non-tender abdomen with absent bowel sounds and no cramping. What is the most likely cause?
++ Paralytic ileus
+- Mechanical obstruction with strangulation | That causes colicky or constant severe pain and tenderness.
+- Perforated viscus | Perforation causes a rigid, tender abdomen.
+- Appendicitis | That causes localized pain and tenderness.
+= Surgery and opioids reduce bowel motility, producing a quiet distended abdomen without mechanical blockage.
+
+? A nasogastric tube has been inserted for bowel obstruction. Which method best confirms correct placement before use?
++ A radiograph
+- Listening for air over the stomach | Auscultation cannot distinguish stomach from lung or esophagus.
+- Asking the patient to speak | Speech does not confirm gastric position.
+- Seeing fluid in the tube | Fluid can come from the lung or esophagus.
+= Radiographic confirmation is the standard for verifying a blindly placed nasogastric tube.
+
+? Which patient statement most strongly suggests a complete bowel obstruction?
++ "I haven't passed any gas or stool for two days."
+- "I've had three loose stools today." | Passage of stool argues against complete obstruction.
+- "I feel better after I eat." | Eating worsens obstruction.
+- "My pain is only in my lower back." | That is not typical.
+= Failure to pass flatus or stool, called obstipation, indicates complete obstruction.
+
+@ 7.2
+? A 19-year-old had pain around the navel yesterday that has now settled in the right lower abdomen. He has no appetite and a temperature of 37.9 C. What should the nurse suspect?
++ Appendicitis
+- Gastroenteritis | That causes diffuse cramping with diarrhea.
+- Renal colic | That causes flank pain radiating to the groin.
+- Constipation | That does not cause migrating pain with fever.
+= Periumbilical pain that migrates to the right lower quadrant with anorexia and low-grade fever is classic for appendicitis.
+
+? A patient with suspected appendicitis says the pain suddenly eased and then, an hour later, spread across the whole abdomen. Temperature is now 39.2 C. What has most likely happened?
++ The appendix has perforated
+- The appendicitis has resolved | Sudden relief followed by diffuse pain and fever indicates rupture.
+- The pain medication has worn off | That would not cause spreading pain and high fever.
+- The patient has gastroenteritis | The sequence does not fit.
+= Perforation relieves pressure briefly, then causes generalized peritonitis.
+
+? Pressing on the left lower abdomen causes pain in the right lower abdomen. What is this finding called?
++ Rovsing's sign
+- Murphy's sign | That is an inspiratory catch on right upper quadrant palpation.
+- Kehr's sign | That is left shoulder pain from diaphragmatic irritation.
+- Cullen's sign | That is bruising around the navel.
+= Rovsing's sign, referred right lower quadrant pain on left-sided palpation, supports appendicitis.
+
+? Which patient presentation indicates peritonitis?
++ Lying very still with a rigid, board-like abdomen and rebound tenderness
+- Writhing and unable to find a comfortable position | That is typical of colic.
+- Soft abdomen with active bowel sounds | Those are reassuring findings.
+- Pain relieved by eating | That suggests a duodenal ulcer.
+= Inflamed peritoneum makes any movement painful, so patients lie still with involuntary guarding.
+
+? Which intervention is contraindicated for a patient with suspected appendicitis?
++ Applying a heating pad to the abdomen
+- Giving an IV opioid for pain | Analgesia does not impair diagnosis and is appropriate.
+- Keeping the patient NPO | That is appropriate before possible surgery.
+- Starting IV fluids | Fluids are appropriate.
+= Heat, laxatives and enemas increase the risk of perforation; analgesia is not withheld.
+
+? An 8-year-old has suspected appendicitis. Which imaging study is preferred first?
++ Ultrasound
+- CT with contrast in every case | Ultrasound avoids radiation and is first-line in children.
+- A plain abdominal radiograph | It is rarely diagnostic.
+- A barium enema | It is not used for this purpose.
+= Ultrasound is the first study in children and pregnant patients to limit radiation exposure.
+
+? A woman at 30 weeks' gestation has pain in the right upper abdomen and flank with nausea and a mild fever. Why should appendicitis still be considered?
++ The enlarging uterus displaces the appendix upward
+- Appendicitis does not occur in pregnancy | It is the most common non-obstetric surgical emergency in pregnancy.
+- Pregnancy moves the appendix to the left side | The displacement is upward and lateral.
+- The pain proves gallbladder disease | The location is misleading in late pregnancy.
+= In later pregnancy the appendix sits higher, so pain may be felt in the right upper quadrant or flank.
+
+? Why is appendicitis more dangerous in an 85-year-old than in a young adult?
++ Symptoms are often mild and atypical, so perforation is more common by the time of diagnosis
+- The appendix is larger in older adults | Size is not the reason.
+- Older adults cannot have surgery | Surgery is performed when indicated.
+- It does not occur in older adults | It does, with higher mortality.
+= Older patients may have little pain, fever or leukocytosis, which delays diagnosis.
+
+? A patient with sudden severe epigastric pain has a rigid abdomen. The upright chest radiograph shows air under the diaphragm. What does this mean?
++ A hollow organ has perforated
+- The lungs are hyperinflated | Air beneath the diaphragm lies in the peritoneal cavity.
+- The patient swallowed air | Swallowed air stays within the bowel.
+- The finding is normal | Free intraperitoneal air is abnormal.
+= Free air under the diaphragm indicates perforation, commonly of a peptic ulcer, and requires surgical consultation.
+
+? A 66-year-old has left lower abdominal pain, fever and a raised white cell count. What is the most likely diagnosis?
++ Diverticulitis
+- Appendicitis | Appendicitis is typically right sided.
+- Cholecystitis | That causes right upper quadrant pain.
+- Pancreatitis | That causes epigastric pain radiating to the back.
+= Left lower quadrant pain with fever and leukocytosis in an older adult is typical of sigmoid diverticulitis, confirmed by CT.
+
+? A patient with diverticulitis develops a rigid abdomen, temperature 39.6 C and BP 84/50. Which complication has occurred?
++ Perforation with peritonitis
+- Simple constipation | Constipation does not cause shock and rigidity.
+- An expected stage of healing | These signs indicate a surgical emergency.
+- Lactose intolerance | That causes bloating and diarrhea only.
+= A perforated diverticulum spills bowel contents, causing peritonitis and septic shock.
+
+? An 80-year-old with atrial fibrillation has sudden, severe abdominal pain. Her abdomen is soft with only mild tenderness, and the lactate is 6.2 mmol/L. What should the nurse suspect?
++ Acute mesenteric ischemia
+- Constipation | Constipation does not raise lactate or cause sudden severe pain.
+- Gastroenteritis | That does not cause pain out of proportion with a high lactate.
+- Urinary tract infection | That does not explain the picture.
+= Pain out of proportion to the examination in a patient with an embolic source suggests bowel ischemia, a surgical emergency.

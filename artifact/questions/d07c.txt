@@ -1,0 +1,171 @@
+# Domain 7 — Gastrointestinal Emergencies (topics 6-7)
+
+@ 7.6
+? A 2-year-old with two days of vomiting and diarrhea has sunken eyes, dry lips, HR 150 and has passed urine once in 12 hours. She is alert but irritable, with a capillary refill of 2 to 3 seconds. How should her dehydration be classified?
++ Moderate
+- None | Several signs of dehydration are present.
+- Mild | Mild dehydration shows few or no signs beyond thirst.
+- Severe with shock | Shock would show lethargy, mottling and markedly delayed refill.
+= Tachycardia, sunken eyes, dry mucosa and reduced urine output without shock indicate moderate dehydration.
+
+? A child with mild to moderate dehydration from gastroenteritis is tolerating small sips after ondansetron. Which rehydration method is preferred?
++ Oral rehydration solution in small, frequent amounts
+- IV fluids for every dehydrated child | Oral rehydration is as effective and less invasive when tolerated.
+- Undiluted apple juice and soda | High-sugar drinks worsen osmotic diarrhea.
+- Plain water only | Water lacks the sodium and glucose needed for absorption.
+= Oral rehydration solution given by spoon or syringe every few minutes is first-line for mild to moderate dehydration.
+
+? A lethargic 12 kg toddler has mottled skin, a capillary refill of 5 seconds and no urine output for 14 hours. Which initial fluid order should the nurse anticipate?
++ 240 mL of isotonic crystalloid as a rapid bolus
+- 60 mL of dextrose 5% in water | The volume is too small and the fluid is hypotonic.
+- 1,000 mL of normal saline | That adult volume would overload the child.
+- Oral rehydration solution by cup | A child in shock cannot be rehydrated orally.
+= Hypovolemic shock in a child is treated with 20 mL/kg of isotonic crystalloid, here 240 mL, then reassessment.
+
+? An 78-year-old finished a course of clindamycin a week ago and now has profuse watery, foul-smelling diarrhea with cramps and fever. Which precautions should the nurse start?
++ Contact precautions with soap-and-water hand washing
+- Droplet precautions | The organism is not spread by droplets.
+- Airborne precautions | It is not airborne.
+- Standard precautions with alcohol hand rub only | Alcohol does not kill the spores.
+= Clostridioides difficile forms spores that survive alcohol rub; gown, gloves and hand washing are required.
+
+? A patient with fever and bloody diarrhea asks for loperamide. What should the nurse explain?
++ Antimotility drugs can worsen invasive infections and are avoided
+- Loperamide is recommended for all diarrhea | It is unsafe with fever and blood.
+- A double dose will work faster | A larger dose increases the danger.
+- It should be taken with antibiotics | The combination does not make it safe here.
+= Slowing the bowel prolongs contact with toxins and invasive organisms and can precipitate toxic megacolon.
+
+? A 4-year-old had bloody diarrhea after eating undercooked hamburger. A week later he is pale and puffy with tiny bruises and very little urine. Which complication should the nurse suspect?
++ Hemolytic uremic syndrome
+- Appendicitis | That would cause localized abdominal pain and fever.
+- Lactose intolerance | That causes bloating and loose stools only.
+- Iron-deficiency anemia | That does not cause bruising or oliguria acutely.
+= Shiga toxin-producing E. coli can cause hemolytic anemia, low platelets and acute kidney injury.
+
+? Twelve residents of a care home develop vomiting and watery diarrhea within 24 hours. Which measure best limits the spread?
++ Contact precautions with hand washing and bleach-based cleaning
+- Airborne isolation for all residents | The virus spreads by contact and contaminated surfaces.
+- Antibiotics for every resident | The illness is viral.
+- Alcohol hand rub alone | Alcohol is less effective against norovirus.
+= Norovirus spreads easily through contact and surfaces; soap-and-water washing and chlorine disinfectants are needed.
+
+? An 86-year-old has had diarrhea for four days. Which finding best indicates significant dehydration?
++ Dizziness on standing with a rise in heart rate and new confusion
+- Loose skin on the back of the hand | Skin turgor is unreliable in older adults.
+- A complaint of feeling tired | Fatigue is non-specific.
+- A dry mouth while breathing through the mouth | Mouth breathing dries the mucosa regardless of hydration.
+= Orthostatic changes and altered mentation are more reliable than skin turgor in older adults.
+
+? A 24-year-old who uses cannabis daily has repeated bouts of severe vomiting that ease only while he stands in a hot shower. Antiemetics have not helped. What is the most effective long-term treatment?
++ Stopping cannabis use
+- Increasing cannabis to settle the nausea | Continued use perpetuates the syndrome.
+- Daily ondansetron for life | Standard antiemetics are often ineffective.
+- A gluten-free diet | Diet is not the cause.
+= Cannabinoid hyperemesis syndrome causes cyclic vomiting relieved by hot bathing; it resolves only with cessation.
+
+? A patient with severe diarrhea has a potassium of 2.7 mEq/L, muscle weakness and U waves on the ECG. IV potassium chloride is ordered. Which administration practice is correct?
++ Give it diluted by infusion pump at a controlled rate with cardiac monitoring
+- Give it undiluted by IV push | A potassium bolus can cause fatal dysrhythmia.
+- Give it intramuscularly | Potassium is never given by injection into muscle.
+- Add it to a bag that is already running without mixing | Poor mixing delivers a concentrated bolus.
+= IV potassium is always diluted and infused slowly, usually no faster than 10 mEq per hour through a peripheral line.
+
+? Which assessment finding in a 3-month-old with diarrhea is most concerning for dehydration?
++ A sunken fontanelle with no wet diaper for eight hours
+- Crying with tears | Tears indicate reasonable hydration.
+- A moist mouth | Moist mucosa is reassuring.
+- A soft, flat fontanelle | That is normal.
+= A depressed fontanelle and absent urine output indicate significant fluid loss in an infant.
+
+? Six people develop sudden vomiting and cramps three hours after a picnic where potato salad sat in the sun. They have no fever. What is the most likely cause?
++ A preformed bacterial toxin in the food
+- A viral illness with a two-day incubation | The onset is too rapid.
+- Appendicitis | That would not affect six people together.
+- A parasitic infection | Parasites have a much longer incubation.
+= Staphylococcal toxin causes vomiting within one to six hours of eating contaminated food and resolves within a day.
+
+@ 7.7
+? A patient has a groin bulge that appears on coughing and slides back in when he lies down. How is this hernia described?
++ Reducible
+- Incarcerated | An incarcerated hernia cannot be pushed back.
+- Strangulated | A strangulated hernia has lost its blood supply.
+- Perforated | That term does not describe a hernia type.
+= A reducible hernia returns to the abdominal cavity spontaneously or with gentle pressure.
+
+? A patient has a firm, very tender groin mass with dusky red skin over it. He has a fever and is vomiting. What should the nurse anticipate?
++ Emergency surgery
+- Forceful manual reduction | Pushing dead bowel back into the abdomen causes peritonitis.
+- Discharge with a truss | A support does not treat ischemic bowel.
+- A warm compress and reassessment tomorrow | Delay leads to bowel necrosis.
+= Skin changes, severe tenderness and systemic signs indicate strangulation; reduction is not attempted and surgery is urgent.
+
+? A patient has a tender groin hernia that will not reduce. There is no skin discoloration, fever or vomiting. Which measures help a provider attempt reduction?
++ Analgesia, a head-down position and a cold pack
+- Standing the patient up and asking him to cough | Standing and coughing push the hernia out.
+- A heating pad and a large meal | Heat increases swelling and food is unsafe before possible surgery.
+- Vigorous massage of the lump | Force risks bowel injury.
+= Pain relief, gravity and reduced swelling relax the area and make gentle reduction more likely to succeed.
+
+? Which hernia type is the most common overall?
++ Indirect inguinal
+- Femoral | Femoral hernias are less common.
+- Umbilical in adults | They are less common than inguinal hernias.
+- Obturator | Obturator hernias are rare.
+= Indirect inguinal hernias, passing through the internal ring, are the most frequent in both sexes and especially in men.
+
+? A 72-year-old woman has a small, painful lump just below the inguinal ligament. Why is this hernia treated with particular urgency?
++ Femoral hernias have a narrow neck and strangulate readily
+- Femoral hernias always contain the bladder | That is not the reason.
+- Femoral hernias occur only in children | They occur mainly in older women.
+- Femoral hernias cannot be repaired | They are repaired surgically.
+= The rigid, narrow femoral canal makes incarceration and strangulation common.
+
+? The parents of a 6-month-old ask about the soft bulge at his navel that enlarges when he cries and is easily pushed in. What should the nurse tell them?
++ Most close on their own by about age four or five
+- Tape a coin over it to speed closure | Taping does not help and irritates the skin.
+- He needs emergency surgery today | A reducible umbilical hernia is not an emergency.
+- It will get larger for life | Most resolve spontaneously.
+= Umbilical hernias in infants usually close without treatment; a hard, tender or irreducible bulge needs prompt review.
+
+? A patient who had a laparotomy a year ago has a bulge along the scar that enlarges on straining. What type of hernia is this?
++ Incisional
+- Inguinal | That occurs in the groin.
+- Hiatal | That occurs at the diaphragm.
+- Femoral | That occurs below the inguinal ligament.
+= An incisional hernia develops through a weakened surgical wound, with obesity, infection and heavy strain as risk factors.
+
+? A patient with a known hiatal hernia has heartburn that is worse at night. Which teaching is most helpful?
++ Raise the head of the bed and avoid eating within three hours of lying down
+- Lie flat straight after meals | Lying flat promotes reflux.
+- Eat one large meal late in the evening | Large late meals worsen symptoms.
+- Wear a tight belt for support | Tight clothing raises abdominal pressure.
+= Elevation and smaller, earlier meals reduce reflux through the lax gastroesophageal junction.
+
+? An 80-year-old woman has vomiting, distension and colicky pain with no history of abdominal surgery. Which part of the examination is essential?
++ Inspecting and palpating both groins
+- Testing visual acuity | It is unrelated.
+- Checking ankle reflexes | They do not explain obstruction.
+- Measuring head circumference | It is irrelevant in an adult.
+= A small incarcerated groin hernia, often femoral, is easily missed and is a common cause of obstruction in a patient with no previous surgery.
+
+? A 2-month-old boy is inconsolable and has a firm swelling in the right groin that does not reduce when he is calm. What should the nurse do?
++ Arrange urgent surgical assessment
+- Reassure the parents that it will close by age five | That applies to umbilical, not inguinal, hernias.
+- Tell the parents to return if it is still there next month | Incarceration in infants threatens the bowel and testis.
+- Apply a tight nappy for support | Compression does not treat incarceration.
+= Inguinal hernias in infants incarcerate often and never close spontaneously; an irreducible one is an emergency.
+
+? A patient with a reducible inguinal hernia is discharged to await elective repair. Which symptom should prompt an immediate return?
++ A lump that becomes painful and cannot be pushed back
+- A lump that is smaller in the morning | That is expected.
+- Mild aching after a long day standing | That is expected.
+- A lump that disappears when lying down | That is the definition of reducible.
+= Irreducibility with pain, vomiting or skin colour change suggests incarceration or strangulation.
+
+? An incarcerated hernia was reduced in the ED an hour ago. Why is the patient kept for observation?
++ Bowel that was already compromised may have been returned to the abdomen
+- The hernia always comes back within the hour | Recurrence is possible but is not the main concern.
+- Sedation takes a full day to wear off | That is not accurate.
+- Reduction causes urinary retention | That is not the usual concern.
+= Increasing pain, fever or peritoneal signs after reduction suggest ischemic bowel and need surgical review.

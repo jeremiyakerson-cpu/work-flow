@@ -1,0 +1,256 @@
+# Domain 7 — Gastrointestinal Emergencies (topics 3-5)
+
+@ 7.3
+? A 46-year-old who drinks heavily has severe steady epigastric pain boring through to the back, worse lying flat and eased by sitting forward. He is vomiting. Which diagnosis is most likely?
++ Acute pancreatitis
+- Cholecystitis | That pain is in the right upper quadrant and radiates to the right shoulder blade.
+- Peptic ulcer | Ulcer pain is burning and related to meals.
+- Appendicitis | That pain localizes to the right lower quadrant.
+= Epigastric pain radiating to the back, relieved by leaning forward, in a heavy drinker is typical of pancreatitis.
+
+? Which laboratory result most specifically supports acute pancreatitis?
++ Lipase more than three times the upper limit of normal
+- A mildly raised alkaline phosphatase | That points to biliary or bone disease.
+- A raised troponin | That indicates myocardial injury.
+- A raised BNP | That indicates cardiac strain.
+= Lipase is more specific than amylase and stays elevated longer; a threefold rise with typical pain is diagnostic.
+
+? Which initial treatment should the nurse anticipate for acute pancreatitis?
++ IV isotonic fluids and opioid analgesia
+- A high-fat meal to stimulate the pancreas | Feeding fat stimulates enzyme release and pain.
+- Oral NSAIDs only | Oral intake is limited initially and pain is usually severe.
+- Routine prophylactic antibiotics | Antibiotics are not given without proven infection.
+= Fluid resuscitation and effective analgesia are the core of early management.
+
+? A patient with severe pancreatitis reports tingling around the mouth, and the facial muscles twitch when the cheek is tapped. Which electrolyte is low?
++ Calcium
+- Sodium | Low sodium does not cause this sign.
+- Potassium | Low potassium causes weakness and ectopy, not this twitch.
+- Chloride | Low chloride does not cause tetany.
+= Calcium binds to necrotic fat in pancreatitis; a positive Chvostek sign indicates hypocalcemia.
+
+? A patient with pancreatitis develops bluish discoloration around the navel and along the flanks. What does this indicate?
++ Hemorrhagic pancreatitis with retroperitoneal bleeding
+- A normal skin finding | These signs indicate serious bleeding.
+- An allergic reaction to the opioid | Allergy causes hives, not bruising.
+- Dehydration | Dehydration does not cause discoloration.
+= Cullen's and Grey Turner's signs reflect blood tracking from a necrotizing, hemorrhagic pancreas.
+
+? A patient with pancreatitis rates the pain 9/10. A colleague says opioids must be avoided because they worsen pancreatitis. What is the best response?
++ Opioids are appropriate and effective for this pain
+- Agree and offer only acetaminophen | Mild analgesia is inadequate for severe pain.
+- Agree and withhold analgesia until surgery | Withholding analgesia is not justified.
+- Suggest aspirin instead | Aspirin is inadequate and increases bleeding risk.
+= There is no good evidence that opioids worsen outcomes; severe pain is treated with IV opioids.
+
+? On the second day of severe pancreatitis the patient's SpO2 falls to 88% with increasing breathlessness. Which complication should the nurse suspect?
++ Acute respiratory distress syndrome
+- Asthma | There is no history or wheeze to suggest it.
+- Anxiety | Hypoxemia has a physical cause.
+- Opioid overdose | That would cause slow breathing and sedation rather than breathlessness.
+= Circulating pancreatic enzymes and inflammation injure the lungs; pleural effusion and ARDS are recognized complications.
+
+? Two hours after a meal of fried food, a 44-year-old woman has severe right upper abdominal pain radiating to the right shoulder blade, with fever. She stops breathing in when the nurse presses under the right ribs. What is this sign?
++ Murphy's sign
+- McBurney's sign | That is tenderness in the right lower quadrant.
+- Rovsing's sign | That is referred pain to the right lower quadrant.
+- Psoas sign | That is pain on hip extension.
+= Inspiratory arrest on palpation of the right upper quadrant indicates an inflamed gallbladder.
+
+? Which imaging study is first-line for suspected acute cholecystitis?
++ Right upper quadrant ultrasound
+- An abdominal radiograph | Most gallstones are not visible on plain film.
+- A barium swallow | It does not image the gallbladder.
+- A head CT | It is irrelevant.
+= Ultrasound shows gallstones, wall thickening and pericholecystic fluid quickly and without radiation.
+
+? A patient has right upper quadrant pain after meals that lasts an hour or two and then resolves. She has no fever and a normal white cell count. How does this differ from acute cholecystitis?
++ It is biliary colic, which resolves without persistent inflammation
+- It is the same condition | Cholecystitis causes persistent pain with fever and leukocytosis.
+- It is pancreatitis | The pattern and location do not fit.
+- It is a perforated ulcer | Perforation causes sudden rigid abdomen.
+= Biliary colic is transient obstruction of the cystic duct; pain lasting more than about six hours with fever suggests cholecystitis.
+
+? A patient has fever with rigors, jaundice and right upper quadrant pain. BP is 86/50 and she is confused. What should the nurse anticipate?
++ IV antibiotics and urgent biliary drainage
+- Oral antibiotics and discharge | She is in septic shock.
+- A low-fat diet and outpatient follow-up | This is life threatening.
+- Observation until the jaundice clears | Delay is dangerous.
+= Fever, jaundice and right upper quadrant pain form Charcot's triad of cholangitis; with shock and confusion, urgent decompression is needed.
+
+? A man with alcohol-related pancreatitis has been in the ED for 18 hours. He becomes tremulous, sweaty and anxious with HR 126. What should the nurse suspect?
++ Alcohol withdrawal
+- Worsening pancreatitis alone | Tremor and agitation point to withdrawal.
+- Hypoglycemia only | Glucose should be checked, but the timing suggests withdrawal.
+- An opioid overdose | That causes sedation and slow breathing.
+= Withdrawal begins 6-24 hours after the last drink; patients admitted with alcohol-related illness need monitoring and benzodiazepines.
+
+@ 7.4
+? A patient with cirrhosis is vomiting large amounts of bright red blood and is drowsy. What is the first priority?
++ Protecting the airway
+- Inserting a urinary catheter | Output monitoring comes after airway and access.
+- Obtaining a liver ultrasound | Imaging is not the priority.
+- Giving oral lactulose | Oral medication is unsafe during active hematemesis.
+= Massive hematemesis with reduced consciousness carries a high aspiration risk; early intubation is often needed.
+
+? Which medication is given to reduce portal pressure in suspected variceal bleeding?
++ Octreotide
+- Furosemide | A diuretic does not control variceal bleeding.
+- Metoprolol IV | Acute beta blockade worsens hypotension in active bleeding.
+- Heparin | Anticoagulation worsens bleeding.
+= Octreotide causes splanchnic vasoconstriction, lowering portal pressure and helping control bleeding until endoscopy.
+
+? Why are IV antibiotics given to a patient with cirrhosis and gastrointestinal bleeding?
++ They reduce bacterial infections, rebleeding and death
+- They stop the bleeding directly | Antibiotics have no hemostatic action.
+- They treat hepatitis | Antibiotics do not treat viral hepatitis.
+- They lower ammonia | That is not the purpose here.
+= Bacterial infection is common after variceal bleeding in cirrhosis, and prophylactic antibiotics improve survival.
+
+? A patient with a balloon tamponade tube for bleeding varices suddenly becomes cyanotic and cannot breathe. What should the nurse do?
++ Cut across the tube with the bedside scissors and remove it
+- Inflate the balloon further | More inflation worsens the obstruction.
+- Call for a chest radiograph | There is no time for imaging.
+- Give a sedative | Sedation does not relieve obstruction.
+= If the balloon migrates upward it blocks the airway; scissors are kept at the bedside to deflate and remove the tube immediately.
+
+? A patient with hepatic encephalopathy is started on lactulose. Which outcome shows that the dose is appropriate?
++ Two to three soft stools a day with improving mental status
+- No bowel movements for two days | Constipation worsens encephalopathy.
+- Ten watery stools a day | Excess diarrhea causes dehydration and electrolyte loss.
+- A rise in blood glucose | That is not the goal.
+= Lactulose traps ammonia in the bowel; the dose is titrated to two or three soft stools daily.
+
+? A patient with stable cirrhosis is brought in newly confused. Which recent event is most likely to have triggered hepatic encephalopathy?
++ A gastrointestinal bleed
+- A low-protein meal | Low protein does not precipitate encephalopathy.
+- Taking lactulose as prescribed | That is the treatment.
+- A walk in the park | Mild activity is not a trigger.
+= Blood in the gut is a large protein load; bleeding, infection, constipation, sedatives and electrolyte disturbance are common triggers.
+
+? A patient with liver failure has an INR of 2.8. Which nursing action is appropriate?
++ Avoid intramuscular injections and apply prolonged pressure after venipuncture
+- Give all medications intramuscularly | Injections cause hematomas.
+- Use a firm toothbrush and razor blade | These increase bleeding.
+- Encourage aspirin for pain | Aspirin increases bleeding.
+= The failing liver cannot make clotting factors, so bleeding precautions are required.
+
+? Six litres of ascitic fluid are drained by paracentesis. Which treatment and monitoring should the nurse anticipate?
++ IV albumin and monitoring for hypotension
+- A fluid restriction and no monitoring | Large-volume removal causes circulatory dysfunction.
+- A high-salt diet | Sodium worsens ascites.
+- A loop diuretic bolus immediately | Further volume loss risks kidney injury.
+= Albumin after large-volume paracentesis prevents circulatory dysfunction and renal impairment.
+
+? A patient with cirrhosis and ascites has a low-grade fever, diffuse abdominal tenderness and new confusion. Which test should the nurse anticipate?
++ Diagnostic paracentesis
+- Colonoscopy | It does not evaluate ascitic fluid.
+- A barium enema | It is not indicated.
+- A urine pregnancy test only | It does not address the problem.
+= Spontaneous bacterial peritonitis is diagnosed by an ascitic fluid neutrophil count above 250 cells/mm3 and treated with antibiotics.
+
+? A patient with cirrhosis asks what to take for arthritis pain. Which advice is correct?
++ Acetaminophen in a reduced daily dose, and no NSAIDs
+- Ibuprofen is the safest choice | NSAIDs cause bleeding and kidney injury in cirrhosis.
+- Full-dose acetaminophen with alcohol is fine | Alcohol and full doses increase liver injury.
+- Aspirin every four hours | Aspirin increases bleeding risk.
+= Low-dose acetaminophen, usually no more than 2 g a day, is preferred; NSAIDs are avoided.
+
+? An unvaccinated nurse sustains a needlestick from a patient known to have hepatitis B. Which post-exposure treatment is indicated?
++ Hepatitis B immune globulin and the first vaccine dose
+- A tetanus booster only | That does not protect against hepatitis B.
+- Antibiotics for a week | Antibiotics do not act against the virus.
+- Nothing unless symptoms develop | Prophylaxis is effective only when given early.
+= An unvaccinated person exposed to hepatitis B receives immune globulin and starts the vaccine series as soon as possible.
+
+? A restaurant cook is diagnosed with acute hepatitis A. How is this infection spread?
++ By the fecal-oral route
+- By blood transfusion only | That is typical of hepatitis B and C.
+- By mosquito bites | It is not vector borne.
+- By airborne droplets | It is not a respiratory infection.
+= Hepatitis A spreads through contaminated food and water; hand hygiene, public health notification and vaccination of contacts follow.
+
+@ 7.5
+? A 3-year-old swallowed a button battery an hour ago. The radiograph shows it lodged in the esophagus. What should the nurse anticipate?
++ Emergent endoscopic removal
+- Observation for 24 hours to see whether it passes | Tissue burns begin within two hours.
+- Inducing vomiting | Vomiting does not dislodge it and risks aspiration.
+- A laxative | A laxative does not move an esophageal object.
+= A button battery in the esophagus generates current that causes liquefaction burns and perforation within hours.
+
+? An asymptomatic 4-year-old swallowed a coin two hours ago. The radiograph shows it in the lower esophagus. He is swallowing saliva normally. What is a reasonable plan?
++ Observe and repeat the radiograph, since many pass into the stomach within 24 hours
+- Emergency surgery | Surgery is not required for a coin.
+- Give syrup of ipecac | Induced vomiting is dangerous.
+- Discharge with no follow-up | Passage must be confirmed.
+= An asymptomatic child with an esophageal coin can be observed for up to about 24 hours before removal is needed.
+
+? A man felt steak stick in his chest during dinner. He cannot swallow his own saliva and is spitting into a cup. What does this indicate?
++ Complete esophageal obstruction requiring urgent endoscopy
+- Mild reflux | Reflux does not prevent swallowing saliva.
+- Anxiety | The finding has a mechanical cause.
+- A sore throat | That does not cause complete inability to swallow.
+= Inability to handle secretions signals complete obstruction and a risk of aspiration; endoscopic removal is urgent.
+
+? A provider orders a meat tenderizer solution for a patient with a food bolus stuck in the esophagus. What should the nurse do?
++ Question the order because of the risk of esophageal perforation
+- Give it as ordered | Enzymes digest the esophageal wall as well as the meat.
+- Give a double dose for speed | A larger dose increases harm.
+- Give it with a fizzy drink | Gas adds a risk of rupture.
+= Proteolytic enzymes are contraindicated because they can cause esophageal necrosis and perforation.
+
+? A woman swallowed an open safety pin, which is seen in the esophagus on radiograph. How urgent is removal?
++ Emergent, because sharp objects can perforate
+- Routine, within a week | Sharp objects carry a high risk of perforation.
+- Not needed, since it will dissolve | Metal does not dissolve.
+- Only if she develops a fever | Waiting for complications is unsafe.
+= Sharp or pointed objects in the esophagus are removed emergently.
+
+? A 6-year-old swallowed several small high-powered magnets from a toy. He has no symptoms. Why is this more dangerous than swallowing a single magnet?
++ Magnets in separate bowel loops attract each other and cause necrosis and perforation
+- Multiple magnets are poisonous | The danger is mechanical, not toxic.
+- They are too heavy to pass | Weight is not the problem.
+- They interfere with the heart | They do not affect cardiac conduction.
+= Two or more magnets can trap bowel wall between them, causing pressure necrosis, fistula and perforation.
+
+? A radiograph shows that a swallowed coin has passed into a child's stomach. He is well. What should the nurse teach the parents?
++ Most pass on their own; return for abdominal pain, vomiting, fever or blood in the stool
+- Give laxatives every day until it passes | Laxatives are unnecessary.
+- Keep the child NPO until it passes | A normal diet is appropriate.
+- Expect it to remain in the stomach permanently | Most blunt objects pass within days.
+= Blunt objects that reach the stomach usually pass without help; parents are told the warning signs.
+
+? A patient with a food impaction is drooling and waiting for endoscopy. Which nursing care is appropriate?
++ Keep the patient upright and NPO with suction at hand
+- Lay the patient flat to rest | Lying flat increases aspiration risk.
+- Offer sips of water to push it down | Fluids pool above the obstruction and are aspirated.
+- Encourage the patient to eat bread | Food adds to the obstruction.
+= Positioning and suction reduce the risk of aspirating pooled secretions.
+
+? Six hours after endoscopic removal of a fish bone, a patient reports severe chest pain. Temperature is 38.7 C and the skin of the neck crackles on palpation. What should the nurse suspect?
++ Esophageal perforation
+- Expected soreness after the procedure | Fever and subcutaneous air are not expected.
+- A panic attack | The physical findings indicate a complication.
+- A reaction to sedation | Sedation does not cause air in the tissues.
+= Chest pain, fever and subcutaneous emphysema after instrumentation indicate perforation and mediastinitis.
+
+? A 30-year-old man has had three food impactions in two years. After the bolus is removed, what follow-up is important?
++ Evaluation for an underlying disorder such as eosinophilic esophagitis or a stricture
+- No follow-up, since the bolus is out | Recurrent impaction signals an underlying problem.
+- Advice to drink less water with meals | Fluid intake is not the cause.
+- A referral for dentures | He is young and the cause is esophageal.
+= Recurrent impaction in a young adult suggests eosinophilic esophagitis or a ring or stricture that needs treatment.
+
+? A toddler has noisy breathing and wheeze after swallowing a coin that is lodged in the upper esophagus. Why are there respiratory symptoms?
++ The object presses on the soft trachea in front of the esophagus
+- The coin has entered the lung | The radiograph places it in the esophagus.
+- The child has asthma | Symptoms began with the ingestion.
+- The child is anxious | Stridor has a physical cause.
+= A young child's trachea is soft and easily compressed by an esophageal foreign body.
+
+? A patient is sure a fish bone is stuck in her throat, but the neck radiograph is normal. What should the nurse understand?
++ Many fish bones do not show on radiographs, so a normal film does not exclude one
+- A normal film proves nothing is there | Thin bones are often radiolucent.
+- She should be discharged without further evaluation | Persistent symptoms need direct visualization.
+- The sensation must be psychological | Symptoms often reflect a real foreign body or abrasion.
+= Fish bones, wood, plastic and aluminium are often radiolucent; persistent symptoms warrant laryngoscopy, endoscopy or CT.
