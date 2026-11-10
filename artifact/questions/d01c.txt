@@ -142,12 +142,12 @@
 - The patient is developing ventricular fibrillation and needs defibrillation | Ectopy from needle contact resolves when the needle is withdrawn.
 = Contact between the needle and the epicardium produces an injury current and ectopy, a signal to pull back.
 
-? Bloody fluid is aspirated during pericardiocentesis. Which observation suggests the blood came from the pericardial sac rather than a heart chamber?
-+ The blood does not clot in the syringe
-- The blood is bright red | Color does not distinguish the source.
-- The blood clots within minutes | Clotting suggests fresh intracardiac blood.
-- The blood pulses into the syringe | Pulsatile return suggests ventricular puncture.
-= Pericardial blood is defibrinated by cardiac motion and typically does not clot.
+? A pericardial drain was placed two hours ago for tamponade. Drainage has suddenly stopped, and the patient's BP has fallen from 118/70 to 84/58 with rising neck veins. What should the nurse suspect?
++ The drain is blocked and fluid is building up again
+- The effusion has completely resolved and the drain can come out | A falling pressure with distended neck veins means tamponade is recurring.
+- The patient is dehydrated and needs the drain clamped | Clamping would stop any remaining drainage and worsen tamponade.
+- The transducer needs to be zeroed again before any action | Rechecking equipment must not delay action on clear clinical deterioration.
+= Sudden loss of drainage with returning hypotension and jugular distension signals catheter occlusion and reaccumulation; the provider is notified at once.
 
 ? How should the nurse position a conscious patient for a pericardiocentesis?
 + Semi-Fowler's at 30 to 45 degrees

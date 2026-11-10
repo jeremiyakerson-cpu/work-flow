@@ -21,7 +21,7 @@
 - 1,600 mL | That is 20 mL/kg.
 - 4,800 mL | That is 60 mL/kg.
 = Sepsis-induced hypotension or a lactate of 4 mmol/L or more is treated with 30 mL/kg of crystalloid, here 2,400 mL.
-! Surviving Sepsis Campaign guidance was being updated (2021 edition used here); confirm the current fluid recommendation and timing.
+! The 2026 Surviving Sepsis Campaign guideline keeps at least 30 mL/kg in the first 3 hours as a suggestion with low-certainty evidence (SCCM summary; full text not read).
 
 ? A patient with septic shock remains hypotensive after the fluid bolus. Which vasopressor is first-line?
 + Norepinephrine
@@ -29,6 +29,7 @@
 - Phenylephrine | It is not the first choice in septic shock.
 - Dobutamine | It is an inotrope, used for cardiac dysfunction rather than as the first vasopressor.
 = Norepinephrine is the recommended first vasopressor for septic shock.
+! Norepinephrine as first-line vasopressor was not re-confirmed against the 2026 Surviving Sepsis text.
 
 ? What is the initial mean arterial pressure target for a patient with septic shock on vasopressors?
 + 65 mmHg
@@ -36,6 +37,7 @@
 - 90 mmHg | A higher routine target has not improved outcomes.
 - 110 mmHg | That exposes the patient to excess vasopressor.
 = A mean arterial pressure of at least 65 mmHg is the standard initial target.
+! The 2026 Surviving Sepsis Campaign guideline keeps 65 mmHg and suggests a 60-65 mmHg range for patients aged 65 and over (SCCM summary).
 
 ? A septic patient's first lactate was 5.2 mmol/L. After fluids, what should the nurse anticipate?
 + A repeat lactate within a few hours
@@ -99,7 +101,8 @@
 - Nothing; insulin starts at once | Insulin drives potassium into cells and can cause fatal hypokalemia.
 - A dose of sodium polystyrene | That would lower potassium further.
 - A loop diuretic | That would lower potassium further.
-= Insulin is withheld until potassium is at least about 3.3 mEq/L, because total body potassium is depleted.
+= Insulin drives potassium into cells, and total body potassium is already depleted; insulin is withheld until potassium has been replaced to at least 3.5 mEq/L.
+! The 2024 ADA consensus uses 3.5 mEq/L as the threshold; older references use 3.3. Checked against secondary summaries only.
 
 ? A patient in diabetic ketoacidosis has a glucose that has fallen to 210 mg/dL, but the anion gap is still elevated. What should the nurse anticipate?
 + Adding dextrose to the IV fluids and continuing the insulin infusion
@@ -109,11 +112,12 @@
 = Insulin is continued until the acidosis resolves; dextrose prevents hypoglycemia while ketones clear.
 
 ? Which finding shows that diabetic ketoacidosis has resolved?
-+ A closed anion gap with a venous pH above 7.3
-- A glucose below 250 mg/dL alone | Glucose normalizes before the acidosis clears.
-- The patient asking for food | Appetite is not a resolution criterion.
-- Urine negative for glucose | That does not reflect ketosis.
-= Resolution is defined by correction of the acidosis and closure of the anion gap, not by glucose alone.
++ A venous pH of 7.3 or higher with ketones cleared
+- A glucose below 250 mg/dL as the only measure used | Glucose normalizes well before the acidosis clears.
+- The patient asking for something to eat | Appetite is not a resolution criterion.
+- Urine that tests negative for glucose | That does not reflect ketosis or acidosis.
+= Resolution is defined by clearance of ketones with a venous pH of 7.3 or more (or bicarbonate of 18 mEq/L or more), not by glucose alone.
+! 2024 ADA consensus criteria (ketones below 0.6 mmol/L with pH 7.3 or bicarbonate 18); older criteria used closure of the anion gap. Checked against secondary summaries only.
 
 ? A 9-year-old being treated for diabetic ketoacidosis develops a headache, becomes drowsy and has a heart rate that has slowed to 58. What should the nurse suspect?
 + Cerebral edema
@@ -151,11 +155,12 @@
 = SGLT2 inhibitors can cause euglycemic diabetic ketoacidosis, so ketones are checked despite the glucose.
 
 ? In diabetic ketoacidosis, when is IV sodium bicarbonate considered?
-+ Only for very severe acidosis, with a pH below about 6.9
++ Only for very severe acidosis, with a pH below 7.0
 - For every patient on arrival | Routine use offers no benefit and can cause harm.
-- Whenever the glucose is above 400 mg/dL | Glucose level is not the indication.
+- Whenever the glucose is above 400 mg/dL on two readings in a row | Glucose level is not the indication.
 - Never under any circumstance | It is considered in extreme acidosis.
 = Fluids and insulin correct the acidosis; bicarbonate is reserved for extreme cases because it can worsen hypokalemia and cerebral edema.
+! The 2024 ADA consensus uses pH below 7.0; older references use 6.9. Checked against secondary summaries only.
 
 @ 10.2
 ? A woman with untreated Graves' disease develops a temperature of 40.3 C, a heart rate of 164 in atrial fibrillation, agitation and vomiting after a chest infection. What is this condition?

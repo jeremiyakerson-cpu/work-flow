@@ -2,11 +2,11 @@
 
 @ 2.3
 ? A hiker is brought in 40 minutes after a rattlesnake bite to the forearm. A friend applied a tight tourniquet and ice. What should the nurse do first?
-+ Remove the tourniquet and ice and keep the arm at heart level
-- Leave the tourniquet on until antivenom arrives | Arterial occlusion concentrates venom and causes ischemic injury.
++ Remove the tourniquet and the ice, and immobilize the arm
+- Leave the tourniquet in place until the antivenom has been started | Arterial occlusion concentrates venom and causes ischemic injury.
 - Cut across the fang marks and apply suction | Incision and suction add tissue damage and remove no useful venom.
-- Raise the arm on pillows above the head | High elevation is not recommended before antivenom.
-= Pit viper first aid is immobilization in a neutral position with removal of constricting items; tourniquets, ice and incision cause harm.
+- Replace the ice with a fresh chemical cold pack | Cold worsens local tissue injury and does not slow venom spread.
+= Tourniquets, ice, incision and suction all cause harm after pit viper bites; constricting items are removed and the limb is immobilized while antivenom is arranged.
 
 ? A patient with a copperhead bite to the ankle has swelling that has advanced to the knee over an hour, and the platelet count has fallen. What should the nurse anticipate?
 + Crotalid antivenom infusion with monitoring for hypersensitivity

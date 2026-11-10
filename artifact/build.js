@@ -175,10 +175,15 @@ function compare(dir) {
   const L = "ABCD";
   let seen = 0, agree = 0;
   const fails = [];
+  const latest = {}; // a later review file (e.g. a re-check) replaces an earlier row for the same id
   for (const f of fs.readdirSync(dir).filter((x) => /^review-.*\.json$/.test(x)).sort()) {
     let rows;
     try { rows = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); } catch (e) { console.log(`unreadable ${f}: ${e.message}`); continue; }
-    for (const r of rows) {
+    for (const r of rows) latest[r.id] = Object.assign({ file: f }, r);
+  }
+  {
+    for (const r of Object.values(latest)) {
+      const f = r.file;
       const q = key[r.id];
       if (!q) { console.log(`unknown id ${r.id} in ${f}`); continue; }
       seen++;

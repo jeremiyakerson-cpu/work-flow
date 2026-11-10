@@ -15,12 +15,12 @@
 - Muscle strain | Strain does not cause fever and chills.
 = Fever, flank pain and costovertebral angle tenderness indicate infection of the kidney.
 
-? An 88-year-old is brought in after two falls and new confusion. She has no fever or urinary complaints. Which test should be included in the workup?
+? An 88-year-old has new confusion with a temperature of 38.6 C, burning on urination for two days and suprapubic tenderness. Which test should be included in the workup?
 + Urinalysis and urine culture
-- A pregnancy test | It is not relevant.
-- A sweat chloride test | It is not relevant.
-- A throat swab | It is unlikely to explain the picture.
-= Older adults with urinary infection often present with confusion, falls or functional decline rather than urinary symptoms.
+- A sweat chloride test for cystic fibrosis | It has no relevance to this presentation.
+- A throat swab for streptococcal infection | It would not explain urinary symptoms and suprapubic tenderness.
+- A fecal occult blood test as the only study | It does not evaluate a urinary source of infection.
+= Fever with urinary symptoms in an older adult warrants urine testing; confusion or falls alone, without fever or urinary symptoms, should not be attributed to bacteriuria.
 
 ? A patient with pyelonephritis has BP 84/48, HR 124 and a lactate of 4.6 mmol/L. What should the nurse anticipate?
 + Blood cultures, broad-spectrum IV antibiotics and a fluid bolus

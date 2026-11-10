@@ -70,6 +70,7 @@
 - IV alteplase now | The standard thrombolysis window has passed.
 - Discharge with antiplatelet therapy | A large vessel occlusion needs emergent intervention.
 = Selected patients with large vessel occlusion benefit from thrombectomy up to 24 hours from last known well.
+! Late-window thrombectomy selection criteria were not re-checked against the 2026 AHA/ASA guideline text.
 
 ? A man had 15 minutes of right arm weakness and trouble speaking that has completely resolved. He wants to go home. What should the nurse explain?
 + The risk of a stroke is highest in the next few days, so urgent evaluation is needed
@@ -84,6 +85,7 @@
 - A platelet count of 210,000/mm3 | That count is normal.
 - A creatinine of 1.3 mg/dL | Mild renal impairment does not exclude treatment.
 = An INR above 1.7 is a contraindication to IV thrombolysis because of the risk of intracranial hemorrhage.
+! INR above 1.7 is the long-standing exclusion; not confirmed against the 2026 AHA/ASA guideline text.
 
 @ 6.1
 ? A 44-year-old describes the sudden onset of "the worst headache of my life" while lifting weights, followed by vomiting and neck stiffness. What should the nurse suspect?

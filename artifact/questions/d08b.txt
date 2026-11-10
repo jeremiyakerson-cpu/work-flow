@@ -114,12 +114,12 @@
 - Use of a daily multivitamin | It is not a risk factor.
 = Tubal damage from infection, surgery or a previous ectopic pregnancy is the main risk factor.
 
-? A patient with a ruptured ectopic pregnancy is blood type O negative. What should the nurse anticipate after stabilization?
-+ Rh immune globulin
-- A hepatitis B vaccine | It is unrelated to Rh status.
-- Vitamin K | It is not indicated.
-- No specific treatment | Sensitization can affect future pregnancies.
-= Rh-negative patients with any pregnancy loss or bleeding receive Rh immune globulin to prevent sensitization.
+? Four days after methotrexate for an ectopic pregnancy, a patient returns with severe abdominal pain, dizziness and HR 126. What should the nurse suspect?
++ Rupture of the ectopic pregnancy
+- The mild cramping that is expected after methotrexate | Expected pain is mild and is not accompanied by dizziness and tachycardia.
+- A stomach upset caused by the medication | Gastric side effects do not cause severe pain with signs of blood loss.
+- An allergic reaction to the methotrexate dose | Allergy would cause rash, wheeze or swelling rather than this picture.
+= Ectopic pregnancies can rupture after methotrexate; severe pain with signs of hypovolemia is treated as rupture until proven otherwise.
 
 ? A stable pregnant patient has mild cramping and an hCG well below the level at which a pregnancy can be seen. The ultrasound shows no pregnancy in the uterus or elsewhere. What is the usual plan?
 + Repeat the hCG in 48 hours and give strict return precautions
@@ -171,12 +171,13 @@
 - "What colour is your underwear?" | It does not quantify loss.
 = Pad counts and saturation give an objective measure; soaking more than one pad an hour is significant.
 
-? A woman who is Rh negative has bleeding at 11 weeks of pregnancy. What should the nurse anticipate?
+? A woman who is Rh negative has vaginal bleeding at 16 weeks of pregnancy. What should the nurse anticipate?
 + Rh immune globulin
-- A blood transfusion in every case | Transfusion depends on blood loss, not Rh status.
-- No treatment before 20 weeks | Sensitization can occur in the first trimester.
-- An antibiotic | It does not prevent sensitization.
-= Rh immune globulin prevents the mother from forming antibodies that could harm a future Rh-positive fetus.
+- A blood transfusion in every case of bleeding | Transfusion depends on blood loss, not on Rh status.
+- No treatment at any stage of the pregnancy | After the first trimester, bleeding can sensitize an Rh-negative mother.
+- An antibiotic to prevent sensitization | Antibiotics do not prevent antibody formation.
+= Rh immune globulin prevents an Rh-negative mother from forming antibodies after bleeding in the second or third trimester.
+! ACOG's 2024 update suggests forgoing Rh testing and Rh immune globulin for pregnancy loss before 12 weeks; many facilities still give it. Confirm local practice.
 
 ? A woman at 34 weeks has sudden painless bright red vaginal bleeding. Which action is contraindicated?
 + A digital vaginal examination

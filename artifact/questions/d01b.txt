@@ -56,7 +56,7 @@
 - Remove supplemental oxygen completely | Abrupt removal risks hypoxemia in an unstable patient.
 - Hyperventilate the patient to lower the carbon dioxide level quickly | Hypocapnia causes cerebral vasoconstriction after arrest.
 = After ROSC, oxygen is titrated to avoid both hypoxemia and hyperoxia, and ventilation targets a normal carbon dioxide level.
-! Exact post-ROSC SpO2 target range (commonly 92-98%; check the 2025 AHA update) not confirmed against the current guideline text.
+! 2025 AHA post-arrest guidance is reported as SpO2 90-98% once the patient is stabilized (secondary summaries); confirm against the guideline text.
 
 ? A patient with ROSC after a 12-minute VF arrest does not follow commands. Which intervention should the nurse anticipate?
 + Temperature control with active prevention of fever
@@ -64,7 +64,7 @@
 - Rapid rewarming to 39 degrees C | Hyperthermia increases cerebral metabolic demand.
 - Immediate extubation to assess neurologic status | A comatose patient cannot protect the airway.
 = Comatose survivors of cardiac arrest receive deliberate temperature control with strict avoidance of fever.
-! Guideline temperature targets have changed in recent years (32-37.5 C range with fever prevention); confirm your current protocol.
+! 2025 AHA guidance is reported as temperature control at 32-37.5 C for at least 36 hours with fever prevention (secondary summaries); confirm your protocol.
 
 ? After ROSC, which diagnostic test should be obtained as soon as possible?
 + A 12-lead ECG

@@ -42,6 +42,7 @@
 - A tetanus immunization | Immunizations are not resources.
 - Crutches and an elastic wrap | Simple supplies are not resources.
 = Resources include laboratory tests, imaging, IV fluids, parenteral or nebulized medications, consultations and procedures.
+! Resource list follows long-standing ESI teaching; not re-checked against the ESI v5 (2023) handbook text.
 
 ? A 42-year-old with a productive cough would be ESI level 3 by resource count, but her triage vital signs are HR 128, RR 28 and SpO2 91%. What should the triage nurse do?
 + Consider upgrading her to ESI level 2
@@ -49,6 +50,7 @@
 - Downgrade her to level 4 | Abnormal vital signs never lower acuity.
 - Send her to the waiting room and recheck in two hours | She may deteriorate without earlier assessment.
 = Before assigning level 3, the nurse checks for danger-zone vital signs and considers up-triage to level 2.
+! Danger-zone vital sign thresholds were not confirmed against the ESI v5 handbook.
 
 ? A 28-year-old tells the triage nurse that she plans to overdose tonight on pills she has saved. She is calm and medically stable. Which ESI level applies?
 + ESI level 2
@@ -63,6 +65,7 @@
 - ESI level 4 | A febrile neonate needs an extensive workup.
 - ESI level 5 | This is never a non-urgent presentation.
 = Fever in an infant under 28 days carries a high risk of serious bacterial infection and is triaged at least ESI level 2.
+! Neonatal fever rule (at least ESI 2 under 28 days) is from earlier handbook editions; not confirmed against ESI v5.
 
 ? A patient triaged as ESI level 3 an hour ago for abdominal pain is now pale, sweating and slumped in the waiting room chair. What should the triage nurse do?
 + Reassess the patient immediately and assign a new acuity

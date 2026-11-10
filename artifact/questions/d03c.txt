@@ -8,13 +8,13 @@
 - 45% | That overestimates by adding areas that are not burned.
 = The anterior trunk is 18% and each entire arm is 9%, giving 27%.
 
-? A 70 kg adult sustained 40% TBSA burns two hours ago. Using a 4 mL/kg/% TBSA formula, at what rate should lactated Ringer's run to deliver the first half on schedule?
+? A 70 kg adult sustained 40% TBSA burns two hours ago and has received no fluid yet. The burn protocol in use specifies 4 mL/kg/% TBSA of lactated Ringer's in 24 hours, with half in the first eight hours from the time of injury. At what rate should the infusion start?
 + About 930 mL per hour
 - About 470 mL per hour | That spreads the first half over twelve hours.
 - About 700 mL per hour | That counts eight hours from arrival instead of from the burn.
 - About 1,400 mL per hour | That delivers the first half in four hours.
 = The total is 11,200 mL; half (5,600 mL) is due within eight hours of the burn, leaving six hours, or roughly 930 mL per hour.
-! Starting-rate formulas differ (4 mL/kg/% Parkland vs 2 mL/kg/% in current ABA/ATLS guidance); the arithmetic here uses the formula named in the stem.
+! Starting-rate formulas differ by protocol (4 mL/kg/% Parkland; 2 mL/kg/% in much current ABA/ATLS teaching for adults). The arithmetic follows the protocol named in the stem; the current ABA figure was not confirmed from a primary source.
 
 ? Which finding best indicates that fluid resuscitation is adequate in an adult with major burns?
 + Urine output of 0.5 mL/kg per hour
@@ -186,12 +186,12 @@
 - Neurogenic shock | That would show bradycardia and warm skin.
 = Children compensate with tachycardia and vasoconstriction; hypotension is a late, pre-arrest sign.
 
-? An 18 kg child in hemorrhagic shock is ordered an initial isotonic crystalloid bolus. What volume should the nurse prepare?
+? An 18 kg child in hemorrhagic shock is ordered an isotonic crystalloid bolus of 20 mL/kg. What volume should the nurse prepare?
 + 360 mL
-- 90 mL | That is 5 mL/kg, which is too little.
-- 180 mL | That is 10 mL/kg, the dose used for packed red cells.
-- 1,000 mL | An adult bolus would overload a child.
-= The pediatric bolus is 20 mL/kg, here 360 mL, with early blood products if shock persists.
+- 90 mL | That is 5 mL/kg, a quarter of the ordered dose.
+- 180 mL | That is 10 mL/kg, half of the ordered dose.
+- 1,000 mL | An adult bolus would overload a child of this size.
+= 20 mL/kg for an 18 kg child is 360 mL; blood products are started early if shock persists.
 
 ? An unconscious 2-year-old is supine on a backboard and the neck is flexed forward. How should the nurse achieve neutral alignment?
 + Place padding under the shoulders and torso
