@@ -14,7 +14,7 @@
 - About 700 mL per hour | That counts eight hours from arrival instead of from the burn.
 - About 1,400 mL per hour | That delivers the first half in four hours.
 = The total is 11,200 mL; half (5,600 mL) is due within eight hours of the burn, leaving six hours, or roughly 930 mL per hour.
-! Starting-rate formulas differ by protocol (4 mL/kg/% Parkland; 2 mL/kg/% in much current ABA/ATLS teaching for adults). The arithmetic follows the protocol named in the stem; the current ABA figure was not confirmed from a primary source.
+! The 2024 American Burn Association guideline recommends starting adult resuscitation at 2 mL/kg/% TBSA. This item's arithmetic uses the 4 mL/kg/% (Parkland) protocol named in the stem; decide which formula the item should teach.
 
 ? Which finding best indicates that fluid resuscitation is adequate in an adult with major burns?
 + Urine output of 0.5 mL/kg per hour

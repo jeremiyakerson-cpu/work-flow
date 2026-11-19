@@ -72,32 +72,54 @@ the outline figures for domains 02, 03 and 10 are the nearest match.
   listed above were checked, mostly through secondary summaries.
 - No item has been reviewed by a nurse or pilot-tested with candidates.
 
-## For RN review: not confirmed against a primary source
+## For RN review: the 20 items marked "Verify"
 
-These 20 items carry a "Verify" note in the tool.
+These 20 items carry a "Verify" note in the tool, and the "Review the 20 verify items" button in
+the question bank walks through them in this order. A second source check on 19 November 2026 read
+primary text where it could be reached. The notes stay on until an RN has ruled on each item.
 
-| Id | What to check |
+Confirmed against the primary text (9):
+
+| Id | Fact | Source read |
+| --- | --- | --- |
+| 4.0.6 | IV fluids are a resource; oral medication, tetanus immunization and crutches are not | ESI Handbook, fifth edition (ENA, 2023), Table 5-1 |
+| 4.0.7 | Adult HR above 100, RR above 20 or SpO2 below 92% prompts reassessment for a higher level | Same, Figure 6-1 |
+| 4.0.9 | Age 1-28 days with temperature above 38 C: at least ESI 2 | Same, pediatric fever considerations |
+| 10.0.3 | At least 30 mL/kg crystalloid in the first 3 hours (suggested, low certainty) | Surviving Sepsis Campaign 2026 adult guideline |
+| 10.0.4 | Norepinephrine first-line | Same |
+| 10.0.5 | Initial MAP 65 mmHg; 60-65 suggested from age 65 | Same |
+| 10.1.3 | Potassium below 3.5 mmol/L: replace and delay insulin until above 3.5 | ADA/EASD consensus report 2024, doi:10.1007/s00125-024-06183-8 |
+| 10.1.5 | Resolution: ketones below 0.6 mmol/L with venous pH 7.3 or more, or bicarbonate 18 or more | Same |
+| 10.1.11 | Bicarbonate only for pH below 7.0 | Same |
+
+Source found, and it raises a decision (1):
+
+| Id | Finding |
 | --- | --- |
-| 1.0.11 | Beta-blocker avoidance in cocaine chest pain: traditional teaching, newer guidance less absolute |
-| 1.3.8 | Post-ROSC SpO2 target (2025 AHA reported as 90-98%) |
-| 1.3.9 | Post-arrest temperature control range and duration (reported as 32-37.5 C, at least 36 h) |
-| 2.3.8 | Jellyfish first aid: vinegar is species and region dependent |
-| 2.5.7 | Frostbite rewarming bath temperature (37-39 C vs older 40-42 C) |
-| 3.2.1 | Adult needle decompression site (4th-5th ICS anterior axillary vs 2nd ICS mid-clavicular) |
-| 3.6.2 | Burn starting rate: 4 mL/kg/% vs 2 mL/kg/%; current ABA figure not confirmed |
-| 4.0.6 | ESI resource list against the v5 handbook |
-| 4.0.7 | ESI danger-zone vital sign thresholds against the v5 handbook |
-| 4.0.9 | ESI neonatal fever rule against the v5 handbook |
-| 5.8.1 | Adult choking sequence (2025 AHA: five back blows, then five abdominal thrusts) |
-| 6.0.10 | Late-window thrombectomy criteria in the 2026 stroke guideline |
-| 6.0.12 | INR above 1.7 as a thrombolysis exclusion in the 2026 stroke guideline |
-| 8.5.5 | Rh immune globulin practice under 12 weeks at your facility |
-| 10.0.3 | Sepsis fluid volume and timing (2026 SSC: at least 30 mL/kg in 3 h, low certainty) |
-| 10.0.4 | Norepinephrine as first-line vasopressor in the 2026 SSC text |
-| 10.0.5 | MAP target (2026 SSC: 65 mmHg; 60-65 suggested from age 65) |
-| 10.1.3 | Potassium threshold before insulin (3.5 vs 3.3 mEq/L) |
-| 10.1.5 | DKA resolution criteria (ADA 2024) |
-| 10.1.11 | Bicarbonate threshold in DKA (pH 7.0 vs 6.9) |
+| 3.6.2 | The 2024 American Burn Association guideline (doi:10.1093/jbcr/irad125, abstract) recommends starting adults at 2 mL/kg/% TBSA. The item names a 4 mL/kg/% protocol in its stem, so its arithmetic is right for the stem, but it teaches the older formula. |
+
+Partly supported, primary text not read (3):
+
+| Id | Finding |
+| --- | --- |
+| 5.8.1 | The 2025 AHA pediatric basic life support abstract (doi:10.1161/CIR.0000000000001370) confirms five back blows alternating with five abdominal thrusts for children. The adult chapter could not be read; the adult sequence rests on secondary summaries. |
+| 6.0.10 | A secondary summary of the 2026 AHA/ASA stroke guideline (doi:10.1161/STR.0000000000000513) reports thrombectomy recommended 6-24 hours from onset for selected anterior large vessel occlusions. |
+| 8.5.5 | The ACOG 2024 Clinical Practice Update (doi:10.1097/AOG.0000000000005733) covers abortion or pregnancy loss before 12 weeks 0 days. The item is set at 16 weeks, outside it. The recommendation text was not read. |
+
+Still unconfirmed (7):
+
+| Id | What to check | Why it is open |
+| --- | --- | --- |
+| 1.0.11 | Beta-blocker avoidance in cocaine chest pain | AHA 2025 special circumstances chapter could not be read |
+| 1.3.8 | Post-ROSC SpO2 target (reported as 90-98%) | AHA 2025 post-arrest chapter could not be read |
+| 1.3.9 | Temperature control range and duration (reported as 32-37.5 C, at least 36 h) | Same |
+| 6.0.12 | INR above 1.7 as a thrombolysis exclusion | The 2026 guideline abstract says it changed the approach to contraindications; the new wording was not read |
+| 2.3.8 | Jellyfish first aid: vinegar is species and region dependent | Practice varies; no single source settles it |
+| 2.5.7 | Frostbite bath temperature (37-39 C vs older 40-42 C) | Sources differ |
+| 3.2.1 | Adult needle decompression site | Differs by course edition |
+
+The AHA guideline pages and the ADA journal page refuse automated reading; the AHA chapters above
+are not in PubMed Central.
 
 Also worth an RN's eye, though not flagged in the tool: facility-specific practice (restraint
 order renewal, sepsis bundle timing, massive transfusion ratios) and state law (involuntary holds,

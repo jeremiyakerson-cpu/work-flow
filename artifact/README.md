@@ -37,6 +37,19 @@ deterministically per question at build time, so key position is balanced and st
 
 - `cen-study-hub/v1` — topic ticks, `{domainId: [bool, ...]}`. Unchanged since the first version.
 - `cen-study-hub/q1` — question history, `{questionId: [attempts, timesCorrect, lastCorrect]}`.
+- `cen-study-hub/x1` — timed exams, `{active, past}`. `active` is the exam in progress
+  (`ids`, `ans`, `flag`, `i`, `left` in ms, `started`) or `null`; `past` is the last ten results
+  (`at`, `right`, `total`, `secs`, `blank`, `per` domain).
+
+The backup file (version 3) carries all three; older backups still restore.
+
+## Timed exam
+
+150 questions drawn in the outline's proportions (the `WEIGHT` map in `template.html`), 3 hours on
+the clock, no feedback until submission. The clock runs only while the exam is open, so closing it
+pauses the exam and it can be resumed after a reload. Blank answers count as wrong; answered
+questions are added to the question history when the exam is submitted. The result is compared
+with the passing standard of 99 of 150.
 
 Question ids are `domain.topic.sequence` in source order. Append new questions to the end of a
 topic so existing ids, and people's saved history, stay valid.

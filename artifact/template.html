@@ -874,6 +874,91 @@ footer p {
 }
 .sum-row span:last-child { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
+.bank-exam {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px 24px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+.bank-exam h3 { font-family: var(--serif); font-size: 17px; font-weight: 600; margin: 0 0 4px; }
+.bank-exam p { margin: 0; font-size: 13.5px; color: var(--ink-soft); max-width: 62ch; }
+.bank-exam .bank-note { margin-top: 6px; }
+.bank-exam-text { flex: 1 1 320px; min-width: 0; }
+
+.exam-clock { font-family: var(--mono); font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink); }
+.exam-clock.is-low { color: var(--trace); }
+.opt.is-picked { border-color: var(--ink); background: var(--surface-2); }
+.opt.is-picked .opt-key { color: var(--ink); }
+.exam-foot { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; margin-top: 18px; align-items: center; }
+.exam-foot > :first-child { justify-self: start; }
+.exam-foot > :last-child { justify-self: end; }
+.btn[aria-pressed="true"] { background: var(--trace-wash); border-color: var(--trace); color: var(--trace); }
+.exam-nav { margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.exam-nav summary {
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 6px 0;
+}
+.exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 5px; margin-top: 10px; }
+.exam-cell {
+  position: relative;
+  min-height: 36px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  padding: 0;
+}
+.exam-cell.is-done { background: var(--surface-2); color: var(--ink); border-color: var(--ink-faint); }
+.exam-cell.is-flag::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--trace);
+}
+.exam-cell.is-here { outline: 2px solid var(--ink); outline-offset: 1px; }
+.exam-cell.is-ok { background: var(--done-wash); color: var(--done); border-color: transparent; }
+.exam-cell.is-miss { background: var(--trace-wash); color: var(--trace); border-color: transparent; }
+.exam-submit { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; }
+.exam-submit p { margin: 0; font-size: 13.5px; flex: 1 1 220px; }
+.exam-rules { margin: 10px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.55; }
+.exam-rules li { margin-bottom: 4px; }
+.verdict {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.verdict-pass { background: var(--done-wash); color: var(--done); }
+.verdict-fail { background: var(--trace-wash); color: var(--trace); }
+.sum-row3 { grid-template-columns: minmax(0, 1fr) auto 44px; }
+.sum-row3 span:nth-child(2), .sum-row3 span:nth-child(3) { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.sum-row3 span:nth-child(3) { color: var(--ink-faint); }
+@media (max-width: 520px) {
+  .exam-foot { grid-template-columns: 1fr 1fr; }
+  .exam-foot > :nth-child(2) { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; }
+}
+
 @media (max-width: 760px) {
   .bank { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 26px; padding-block: 28px 20px; }
@@ -957,9 +1042,18 @@ footer p {
           <button class="btn btn-solid" id="bank-set25" type="button">25-question mixed set</button>
           <button class="btn" id="bank-set50" type="button">50-question mixed set</button>
           <button class="btn" id="bank-missed" type="button">Review missed</button>
+          <button class="btn" id="bank-verify" type="button" hidden>Review verify items</button>
         </div>
-        <p class="bank-note">Mixed sets follow the July 2026 outline's weighting (for example cardiovascular 18, respiratory 17 and neurological 17 of 150 scored items) and draw first from questions you have not seen. These are practice items written for this board, not BCEN questions. Items marked “verify” contain a figure or guideline step that still needs checking against a current reference.</p>
+        <p class="bank-note">Mixed sets follow the July 2026 outline's weighting (for example cardiovascular 18, respiratory 17 and neurological 17 of 150 scored items) and draw first from questions you have not seen. These are practice items written for this board, not BCEN questions. Items marked “verify” carry a figure or guideline step that is waiting for a nurse's review; the note says what was checked and where.</p>
       </div>
+    </div>
+    <div class="bank-exam">
+      <div class="bank-exam-text">
+        <h3>Timed exam</h3>
+        <p>150 questions in 3 hours, weighted like the July 2026 outline. No feedback until you submit, then a score against the passing standard of 99 and a breakdown by domain.</p>
+        <p class="bank-note" id="exam-last" hidden></p>
+      </div>
+      <button class="btn" id="bank-exam" type="button">Start timed exam</button>
     </div>
   </section>
 
@@ -1003,6 +1097,7 @@ footer p {
 
   var STORE_KEY = "cen-study-hub/v1";   // topic ticks: unchanged
   var Q_KEY = "cen-study-hub/q1";       // question history, stored separately
+  var X_KEY = "cen-study-hub/x1";       // timed exam in progress + past exam results
   var BANK = /*__BANK__*/;
   // scored items per board domain on the July 2026 outline, used to weight mixed sets
   var WEIGHT = { 1: 18, 2: 13, 3: 11, 4: 12, 5: 17, 6: 17, 7: 14, 8: 10, 9: 13, 10: 15, 11: 10 };
@@ -1571,9 +1666,11 @@ footer p {
 
   document.getElementById("btn-reset").addEventListener("click", function () {
     if (!window.confirm("Clear all ticked topics and start this board from scratch?")) return;
-    if (Object.keys(qstate).length && window.confirm("Also clear your question history?")) {
+    if ((Object.keys(qstate).length || xstate.active || xstate.past.length) && window.confirm("Also clear your question history and exam results?")) {
       qstate = {};
       saveQ();
+      xstate = { active: null, past: [] };
+      saveX();
     }
     state = {};
     DOMAINS.forEach(function (d) { state[d.id] = d.topics.map(function () { return false; }); });
@@ -1597,6 +1694,7 @@ footer p {
         var data = JSON.parse(String(reader.result));
         var progress = data && data.progress ? data.progress : data;
         if (data && data.questions) { qstate = cleanQ(data.questions); saveQ(); }
+        if (data && data.exams) { xstate = cleanX(data.exams); saveX(); }
         DOMAINS.forEach(function (d) {
           var row = progress && progress[d.id];
           if (Array.isArray(row)) {
@@ -1627,6 +1725,61 @@ footer p {
     (byTopic[k] = byTopic[k] || []).push(q);
     byId[q.id] = q;
   });
+  var VERIFY = BANK.filter(function (q) { return !!q.f; });
+
+  var EXAM_N = 150, EXAM_MS = 180 * 60 * 1000, PASS = 99;
+  var xstate = { active: null, past: [] };
+
+  function cleanX(raw) {
+    var out = { active: null, past: [] };
+    if (!raw || typeof raw !== "object") return out;
+    var a = raw.active;
+    if (a && Array.isArray(a.ids) && Array.isArray(a.ans) && Array.isArray(a.flag) && a.ids.length &&
+        a.ans.length === a.ids.length && a.flag.length === a.ids.length &&
+        a.ids.every(function (id) { return !!byId[id]; }) && typeof a.left === "number" && a.left > 0) {
+      out.active = {
+        ids: a.ids.slice(),
+        ans: a.ans.map(function (n) { return n === 0 || n === 1 || n === 2 || n === 3 ? n : -1; }),
+        flag: a.flag.map(function (n) { return n ? 1 : 0; }),
+        i: Math.min(Math.max(0, Math.floor(Number(a.i) || 0)), a.ids.length - 1),
+        left: Math.min(a.left, EXAM_MS),
+        started: typeof a.started === "string" ? a.started : new Date().toISOString()
+      };
+    }
+    if (Array.isArray(raw.past)) {
+      raw.past.slice(0, 10).forEach(function (p) {
+        if (p && typeof p.right === "number" && typeof p.total === "number" && p.total > 0 && typeof p.at === "string") {
+          var per = {};
+          if (p.per && typeof p.per === "object") {
+            Object.keys(p.per).forEach(function (d) {
+              var r = p.per[d];
+              if (Array.isArray(r) && r.length === 2) per[d] = [Number(r[0]) || 0, Number(r[1]) || 0];
+            });
+          }
+          out.past.push({ at: p.at, right: Math.floor(p.right), total: Math.floor(p.total), secs: Math.floor(Number(p.secs) || 0), blank: Math.floor(Number(p.blank) || 0), per: per });
+        }
+      });
+    }
+    return out;
+  }
+
+  function loadX() {
+    try {
+      var raw = localStorage.getItem(X_KEY);
+      if (raw) return cleanX(JSON.parse(raw));
+    } catch (e) { /* storage blocked or corrupt */ }
+    return { active: null, past: [] };
+  }
+
+  function saveX() {
+    try { localStorage.setItem(X_KEY, JSON.stringify(xstate)); } catch (e) { /* non-fatal */ }
+  }
+
+  function fmtClock(ms) {
+    var s = Math.max(0, Math.ceil(ms / 1000));
+    var h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    return h + ":" + (m < 10 ? "0" : "") + m + ":" + (x < 10 ? "0" : "") + x;
+  }
 
   function cleanQ(raw) {
     var out = {};
@@ -1680,6 +1833,28 @@ footer p {
     document.getElementById("bank-right").textContent = String(right);
     document.getElementById("bank-pct").textContent = attempts ? Math.round((correct / attempts) * 100) + "%" : "—";
     document.getElementById("m-questions").textContent = String(seen);
+
+    var vb = document.getElementById("bank-verify");
+    vb.hidden = !VERIFY.length;
+    vb.textContent = "Review the " + VERIFY.length + " verify item" + (VERIFY.length === 1 ? "" : "s");
+
+    var eb = document.getElementById("bank-exam");
+    var last = document.getElementById("exam-last");
+    if (xstate.active) {
+      var done = xstate.active.ans.filter(function (a) { return a >= 0; }).length;
+      eb.textContent = "Resume timed exam";
+      last.hidden = false;
+      last.textContent = "Exam in progress: " + done + " of " + xstate.active.ids.length + " answered, " + fmtClock(xstate.active.left) + " left on the clock.";
+    } else {
+      eb.textContent = "Start timed exam";
+      var p = xstate.past[0];
+      last.hidden = !p;
+      if (p) {
+        last.textContent = "Last exam " + new Date(p.at).toLocaleDateString() + ": " + p.right + " of " + p.total +
+          (p.right >= PASS ? " — at or above the passing standard" : " — below the passing standard") +
+          (xstate.past.length > 1 ? ". " + xstate.past.length + " exams on record." : ".");
+      }
+    }
   }
 
   function shuffle(a) {
@@ -1740,16 +1915,63 @@ footer p {
     return n;
   }
 
+  function optionButtons(q, onPick) {
+    var opts = el("div", "opts");
+    q.o.forEach(function (text, idx) {
+      var b = el("button", "opt");
+      b.type = "button";
+      b.dataset.idx = String(idx);
+      b.appendChild(el("span", "opt-key", "ABCD"[idx]));
+      var body = el("span", "opt-body");
+      body.appendChild(el("span", "opt-text", text));
+      b.appendChild(body);
+      if (onPick) b.addEventListener("click", function () { onPick(idx); });
+      opts.appendChild(b);
+    });
+    return opts;
+  }
+
+  // mark the options of the question on screen: picked is the chosen index, or -1 if left blank
+  function reveal(q, picked, before) {
+    Array.prototype.forEach.call(box.querySelectorAll(".opt"), function (b) {
+      var i = Number(b.dataset.idx);
+      b.disabled = true;
+      b.classList.remove("is-picked");
+      var why = el("span", "opt-why");
+      if (i === q.a) {
+        b.classList.add("is-right");
+        why.appendChild(el("span", "opt-mark", picked === q.a ? "Correct" : "Best answer"));
+        why.appendChild(document.createTextNode(q.r));
+      } else {
+        if (i === picked) {
+          b.classList.add("is-wrong");
+          why.appendChild(el("span", "opt-mark", "Your answer"));
+        }
+        why.appendChild(document.createTextNode(q.w[i] || ""));
+      }
+      b.querySelector(".opt-body").appendChild(why);
+    });
+    if (q.f) {
+      var v = el("p", "quiz-verify");
+      v.appendChild(el("b", null, "Verify"));
+      v.appendChild(document.createTextNode(q.f));
+      box.insertBefore(v, before);
+    }
+  }
+
   function startSession(title, list) {
     if (!list.length) { toast("No questions in that set yet"); return; }
+    if (exam) { pauseExam(); exam = null; }
     session = { title: title, list: list, i: 0, right: 0, log: [], answered: false };
-    lastFocus = document.activeElement;
+    lastFocus = lastFocus && !shade.hidden ? lastFocus : document.activeElement;
     shade.hidden = false;
     document.body.style.overflow = "hidden";
     renderQuestion();
   }
 
   function closeQuiz() {
+    if (exam) pauseExam();
+    exam = null;
     shade.hidden = true;
     document.body.style.overflow = "";
     session = null;
@@ -1778,19 +2000,7 @@ footer p {
     stem.id = "quiz-stem";
     box.appendChild(stem);
 
-    var opts = el("div", "opts");
-    q.o.forEach(function (text, idx) {
-      var b = el("button", "opt");
-      b.type = "button";
-      b.dataset.idx = String(idx);
-      b.appendChild(el("span", "opt-key", "ABCD"[idx]));
-      var body = el("span", "opt-body");
-      body.appendChild(el("span", "opt-text", text));
-      b.appendChild(body);
-      b.addEventListener("click", function () { answer(idx); });
-      opts.appendChild(b);
-    });
-    box.appendChild(opts);
+    box.appendChild(optionButtons(q, answer));
 
     var foot = el("div", "quiz-foot");
     var quit = el("button", "btn", "End session");
@@ -1825,30 +2035,7 @@ footer p {
     qstate[q.id] = r;
     saveQ();
 
-    Array.prototype.forEach.call(box.querySelectorAll(".opt"), function (b) {
-      var i = Number(b.dataset.idx);
-      b.disabled = true;
-      var why = el("span", "opt-why");
-      if (i === q.a) {
-        b.classList.add("is-right");
-        why.appendChild(el("span", "opt-mark", ok ? "Correct" : "Best answer"));
-        why.appendChild(document.createTextNode(q.r));
-      } else {
-        if (i === idx) {
-          b.classList.add("is-wrong");
-          why.appendChild(el("span", "opt-mark", "Your answer"));
-        }
-        why.appendChild(document.createTextNode(q.w[i] || ""));
-      }
-      b.querySelector(".opt-body").appendChild(why);
-    });
-
-    if (q.f) {
-      var v = el("p", "quiz-verify");
-      v.appendChild(el("b", null, "Verify"));
-      v.appendChild(document.createTextNode(q.f));
-      box.insertBefore(v, box.querySelector(".quiz-foot"));
-    }
+    reveal(q, idx, box.querySelector(".quiz-foot"));
 
     var next = document.getElementById("quiz-next");
     next.hidden = false;
@@ -1914,11 +2101,24 @@ footer p {
   }
 
   document.addEventListener("keydown", function (ev) {
-    if (!session || shade.hidden) return;
+    if (shade.hidden || (!session && !exam)) return;
     if (ev.key === "Escape") { ev.preventDefault(); closeQuiz(); return; }
-    if (session.finished) return;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
     var k = ev.key.toLowerCase();
     var pick = "1234".indexOf(k) >= 0 ? "1234".indexOf(k) : "abcd".indexOf(k);
+    if (exam) {
+      if (exam.view === "run") {
+        if (pick >= 0) { ev.preventDefault(); examPick(pick); }
+        else if (ev.key === "ArrowRight" || k === "n") { ev.preventDefault(); examGo(xstate.active.i + 1); }
+        else if (ev.key === "ArrowLeft" || k === "p") { ev.preventDefault(); examGo(xstate.active.i - 1); }
+        else if (k === "f") { ev.preventDefault(); examFlag(); }
+      } else if (exam.view === "review") {
+        if (ev.key === "ArrowRight" || k === "n") { ev.preventDefault(); reviewGo(exam.ri + 1); }
+        else if (ev.key === "ArrowLeft" || k === "p") { ev.preventDefault(); reviewGo(exam.ri - 1); }
+      }
+      return;
+    }
+    if (session.finished) return;
     if (!session.answered && pick >= 0 && !ev.metaKey && !ev.ctrlKey && !ev.altKey) { ev.preventDefault(); answer(pick); return; }
     if (session.answered && (ev.key === "ArrowRight" || k === "n")) { ev.preventDefault(); advance(); }
   });
@@ -1935,11 +2135,414 @@ footer p {
   document.getElementById("nextup-practice").addEventListener("click", function () {
     if (nextTarget) practiseTopic(nextTarget.domain, nextTarget.topic);
   });
+  document.getElementById("bank-verify").addEventListener("click", function () {
+    startSession("Items to verify", VERIFY.slice());
+  });
+  document.getElementById("bank-exam").addEventListener("click", openExam);
+
+  // ---------- timed exam ----------
+  // xstate.active holds everything that must survive a reload; exam holds the view on screen.
+
+  var exam = null;
+  var examTimer = null;
+
+  function openShade() {
+    session = null;
+    lastFocus = document.activeElement;
+    shade.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function examLeft() {
+    if (!xstate.active) return 0;
+    if (!exam || !exam.resumedAt) return xstate.active.left;
+    return exam.leftAtResume - (Date.now() - exam.resumedAt);
+  }
+
+  function stopClock() {
+    if (examTimer) { clearInterval(examTimer); examTimer = null; }
+  }
+
+  // freeze the clock and write the time left, so closing the exam pauses it
+  function pauseExam() {
+    stopClock();
+    if (exam && exam.resumedAt && xstate.active) {
+      xstate.active.left = Math.max(1, examLeft());
+      saveX();
+    }
+    if (exam) exam.resumedAt = 0;
+  }
+
+  function openExam() {
+    openShade();
+    exam = { view: "intro" };
+    renderExamIntro();
+  }
+
+  function renderExamIntro() {
+    var a = xstate.active;
+    exam.view = "intro";
+    box.innerHTML = "";
+    var top = el("div", "quiz-top");
+    top.appendChild(el("span", "quiz-where", "Timed exam"));
+    box.appendChild(top);
+    box.appendChild(el("p", "sum-score", EXAM_N + " questions · 3 hours"));
+
+    if (a) {
+      var done = a.ans.filter(function (n) { return n >= 0; }).length;
+      box.appendChild(el("p", "quiz-stem", "You have an exam in progress: " + done + " of " + a.ids.length + " answered, " + fmtClock(a.left) + " left. The clock has been paused since you closed it."));
+    }
+    var ul = el("ul", "exam-rules");
+    [
+      "Questions are drawn across all eleven domains in the outline's proportions, starting with ones you have not seen.",
+      "Nothing is marked until you submit. You can change answers, flag questions and jump around using the question list.",
+      "The clock runs while the exam is open and pauses if you close it. At zero the exam is submitted as it stands.",
+      "Blank answers count as wrong. The result is compared with the passing standard of " + PASS + " of 150.",
+      "The real exam has 175 questions in the same 3 hours (25 are unscored pretest items), so aim to finish with time to spare."
+    ].forEach(function (t) { ul.appendChild(el("li", null, t)); });
+    box.appendChild(ul);
+
+    var foot = el("div", "quiz-foot");
+    var back = el("button", "btn", "Back to the board");
+    back.type = "button";
+    back.addEventListener("click", closeQuiz);
+    foot.appendChild(back);
+    var right = el("div", "bank-actions");
+    if (a) {
+      var fresh = el("button", "btn", "Discard and start a new exam");
+      fresh.type = "button";
+      fresh.addEventListener("click", function () {
+        if (fresh.dataset.armed !== "1") { fresh.dataset.armed = "1"; fresh.textContent = "Discard the exam in progress?"; return; }
+        beginExam();
+      });
+      right.appendChild(fresh);
+    }
+    var go = el("button", "btn btn-solid", a ? "Resume exam" : "Start the clock");
+    go.type = "button";
+    go.addEventListener("click", function () { a ? runExam() : beginExam(); });
+    right.appendChild(go);
+    foot.appendChild(right);
+    box.appendChild(foot);
+    box.appendChild(el("p", "quiz-fine", "Practice items written for this board, not BCEN questions. A score here is a study signal, not a prediction of your exam result."));
+    box.focus();
+    shade.scrollTop = 0;
+    go.focus();
+  }
+
+  function beginExam() {
+    var list = mixedSet(EXAM_N);
+    xstate.active = {
+      ids: list.map(function (q) { return q.id; }),
+      ans: list.map(function () { return -1; }),
+      flag: list.map(function () { return 0; }),
+      i: 0,
+      left: EXAM_MS,
+      started: new Date().toISOString()
+    };
+    saveX();
+    runExam();
+  }
+
+  function runExam() {
+    exam.view = "run";
+    exam.confirming = false;
+    exam.leftAtResume = xstate.active.left;
+    exam.resumedAt = Date.now();
+    exam.sinceSave = 0;
+    stopClock();
+    examTimer = setInterval(function () {
+      var left = examLeft();
+      if (left <= 0) { finishExam(true); return; }
+      var c = document.getElementById("exam-clock");
+      if (c) { c.textContent = fmtClock(left); c.classList.toggle("is-low", left < 10 * 60 * 1000); }
+      if (++exam.sinceSave >= 5) { exam.sinceSave = 0; xstate.active.left = left; saveX(); }
+    }, 1000);
+    renderExamQ();
+  }
+
+  function examCounts() {
+    var a = xstate.active, done = 0, flags = 0;
+    a.ans.forEach(function (n) { if (n >= 0) done++; });
+    a.flag.forEach(function (n) { if (n) flags++; });
+    return { done: done, flags: flags, blank: a.ids.length - done };
+  }
+
+  function renderExamQ() {
+    var a = xstate.active, q = byId[a.ids[a.i]], c = examCounts(), left = examLeft();
+    var navOpen = !!(box.querySelector(".exam-nav") && box.querySelector(".exam-nav").open);
+    box.innerHTML = "";
+
+    var top = el("div", "quiz-top");
+    top.appendChild(el("span", "quiz-where", "Timed exam · question " + (a.i + 1) + " of " + a.ids.length));
+    var clock = el("span", "exam-clock" + (left < 10 * 60 * 1000 ? " is-low" : ""), fmtClock(left));
+    clock.id = "exam-clock";
+    clock.setAttribute("aria-label", "Time left");
+    top.appendChild(clock);
+    box.appendChild(top);
+
+    var bar = el("div", "quiz-bar");
+    var fill = el("i");
+    fill.style.width = Math.round((c.done / a.ids.length) * 100) + "%";
+    bar.appendChild(fill);
+    box.appendChild(bar);
+
+    var stem = el("p", "quiz-stem", q.s);
+    stem.id = "quiz-stem";
+    box.appendChild(stem);
+
+    var opts = optionButtons(q, examPick);
+    Array.prototype.forEach.call(opts.children, function (b, idx) {
+      var on = a.ans[a.i] === idx;
+      b.classList.toggle("is-picked", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    box.appendChild(opts);
+
+    var foot = el("div", "exam-foot");
+    var prev = el("button", "btn", "Previous");
+    prev.type = "button";
+    prev.disabled = a.i === 0;
+    prev.addEventListener("click", function () { examGo(a.i - 1); });
+    foot.appendChild(prev);
+    var flag = el("button", "btn", a.flag[a.i] ? "Flagged for review" : "Flag for review");
+    flag.type = "button";
+    flag.id = "exam-flag";
+    flag.setAttribute("aria-pressed", a.flag[a.i] ? "true" : "false");
+    flag.addEventListener("click", examFlag);
+    foot.appendChild(flag);
+    var next = el("button", "btn btn-solid", "Next");
+    next.type = "button";
+    next.id = "exam-next";
+    next.disabled = a.i === a.ids.length - 1;
+    next.addEventListener("click", function () { examGo(a.i + 1); });
+    foot.appendChild(next);
+    box.appendChild(foot);
+
+    var nav = el("details", "exam-nav");
+    nav.open = navOpen;
+    nav.appendChild(el("summary", null, "Question list — " + c.done + " answered, " + c.blank + " blank, " + c.flags + " flagged"));
+    var grid = el("div", "exam-grid");
+    a.ids.forEach(function (_, i) {
+      var cell = el("button", "exam-cell" + (a.ans[i] >= 0 ? " is-done" : "") + (a.flag[i] ? " is-flag" : "") + (i === a.i ? " is-here" : ""), String(i + 1));
+      cell.type = "button";
+      cell.setAttribute("aria-label", "Question " + (i + 1) + (a.ans[i] >= 0 ? ", answered" : ", blank") + (a.flag[i] ? ", flagged" : ""));
+      cell.addEventListener("click", function () { examGo(i); });
+      grid.appendChild(cell);
+    });
+    nav.appendChild(grid);
+    box.appendChild(nav);
+
+    var sub = el("div", "exam-submit");
+    if (exam.confirming) {
+      sub.appendChild(el("p", null, c.blank
+        ? c.blank + " question" + (c.blank === 1 ? " is" : "s are") + " blank and will count as wrong. Submit anyway?"
+        : "All " + a.ids.length + " answered. Submit for scoring?"));
+      var keep = el("button", "btn", "Keep working");
+      keep.type = "button";
+      keep.addEventListener("click", function () { exam.confirming = false; renderExamQ(); });
+      sub.appendChild(keep);
+      var yes = el("button", "btn btn-solid", "Submit exam");
+      yes.type = "button";
+      yes.id = "exam-submit-yes";
+      yes.addEventListener("click", function () { finishExam(false); });
+      sub.appendChild(yes);
+    } else {
+      var pause = el("button", "btn", "Pause and close");
+      pause.type = "button";
+      pause.addEventListener("click", closeQuiz);
+      sub.appendChild(pause);
+      var done = el("button", "btn", "Submit exam…");
+      done.type = "button";
+      done.id = "exam-submit";
+      done.addEventListener("click", function () {
+        exam.confirming = true;
+        renderExamQ();
+        var y = document.getElementById("exam-submit-yes");
+        if (y) { y.focus(); y.scrollIntoView({ block: "nearest" }); }
+      });
+      sub.appendChild(done);
+    }
+    box.appendChild(sub);
+    box.appendChild(el("p", "quiz-fine", "Keys: 1–4 or A–D to answer, arrows to move, F to flag, Esc to pause."));
+    box.focus();
+  }
+
+  function examPick(idx) {
+    var a = xstate.active;
+    if (!a || !exam || exam.view !== "run") return;
+    a.ans[a.i] = a.ans[a.i] === idx ? -1 : idx;
+    a.left = Math.max(1, examLeft());
+    saveX();
+    renderExamQ();
+    var b = box.querySelectorAll(".opt")[idx];
+    if (b) b.focus();
+  }
+
+  function examFlag() {
+    var a = xstate.active;
+    if (!a || !exam || exam.view !== "run") return;
+    a.flag[a.i] = a.flag[a.i] ? 0 : 1;
+    saveX();
+    renderExamQ();
+    var f = document.getElementById("exam-flag");
+    if (f) f.focus();
+  }
+
+  function examGo(i) {
+    var a = xstate.active;
+    if (!a || !exam || exam.view !== "run" || i < 0 || i >= a.ids.length) return;
+    a.i = i;
+    a.left = Math.max(1, examLeft());
+    exam.confirming = false;
+    saveX();
+    renderExamQ();
+    shade.scrollTop = 0;
+  }
+
+  function finishExam(timeUp) {
+    var a = xstate.active;
+    if (!a) return;
+    var left = Math.max(0, examLeft());
+    stopClock();
+    var per = {}, right = 0, blank = 0, rows = [];
+    a.ids.forEach(function (id, i) {
+      var q = byId[id], pick = a.ans[i], ok = pick === q.a;
+      var p = per[q.d] || (per[q.d] = [0, 0]);
+      p[1]++;
+      if (ok) { p[0]++; right++; }
+      if (pick < 0) blank++;
+      else {
+        var r = qstate[id] || [0, 0, 0];
+        r[0]++;
+        if (ok) r[1]++;
+        r[2] = ok ? 1 : 0;
+        qstate[id] = r;
+      }
+      rows.push({ q: q, pick: pick, ok: ok });
+    });
+    saveQ();
+    var result = { at: new Date().toISOString(), right: right, total: a.ids.length, secs: Math.round((EXAM_MS - left) / 1000), blank: blank, per: per };
+    xstate.past.unshift(result);
+    xstate.past = xstate.past.slice(0, 10);
+    xstate.active = null;
+    saveX();
+    exam = { view: "result", result: result, rows: rows, timeUp: !!timeUp };
+    renderExamResult();
+    refresh();
+  }
+
+  function renderExamResult() {
+    var r = exam.result, pass = r.right >= PASS * r.total / 150;
+    exam.view = "result";
+    box.innerHTML = "";
+    var top = el("div", "quiz-top");
+    top.appendChild(el("span", "quiz-where", "Timed exam · result"));
+    top.appendChild(el("span", "quiz-count", "Time used " + fmtClock(r.secs * 1000)));
+    box.appendChild(top);
+
+    box.appendChild(el("p", "sum-score", r.right + " / " + r.total));
+    var v = el("p", null);
+    v.style.margin = "6px 0 0";
+    v.appendChild(el("span", "verdict " + (pass ? "verdict-pass" : "verdict-fail"), pass ? "At or above the passing standard" : "Below the passing standard"));
+    box.appendChild(v);
+    var gap = r.right - PASS;
+    box.appendChild(el("p", "quiz-fine",
+      Math.round((r.right / r.total) * 100) + "% correct. The passing standard is " + PASS + " of 150 scored items (66%); you were " +
+      (gap >= 0 ? gap + " above it" : (-gap) + " short of it") + "." +
+      (r.blank ? " " + r.blank + " left blank." : "") +
+      (exam.timeUp ? " Time ran out, so the exam was submitted as it stood." : "")));
+
+    var rows = el("div", "sum-rows");
+    Object.keys(r.per).sort(function (a, b) { return a - b; }).forEach(function (d) {
+      var row = el("div", "sum-row sum-row3");
+      row.appendChild(el("span", null, domainOf(Number(d)).title));
+      row.appendChild(el("span", null, r.per[d][0] + " / " + r.per[d][1]));
+      row.appendChild(el("span", null, Math.round((r.per[d][0] / r.per[d][1]) * 100) + "%"));
+      rows.appendChild(row);
+    });
+    box.appendChild(rows);
+
+    var missed = exam.rows.filter(function (x) { return !x.ok; });
+    var foot = el("div", "quiz-foot");
+    var close = el("button", "btn", "Back to the board");
+    close.type = "button";
+    close.addEventListener("click", closeQuiz);
+    foot.appendChild(close);
+    var right = el("div", "bank-actions");
+    var all = el("button", "btn", "Review all " + r.total);
+    all.type = "button";
+    all.addEventListener("click", function () { startReview(exam.rows); });
+    right.appendChild(all);
+    if (missed.length) {
+      var rm = el("button", "btn btn-solid", "Review the " + missed.length + " missed");
+      rm.type = "button";
+      rm.addEventListener("click", function () { startReview(missed); });
+      right.appendChild(rm);
+    }
+    foot.appendChild(right);
+    box.appendChild(foot);
+    box.appendChild(el("p", "quiz-fine", "Practice items written for this board, not BCEN questions. A score here is a study signal, not a prediction of your exam result."));
+    box.focus();
+    shade.scrollTop = 0;
+  }
+
+  function startReview(rows) {
+    exam.view = "review";
+    exam.review = rows;
+    exam.ri = 0;
+    renderReview();
+  }
+
+  function reviewGo(i) {
+    if (!exam || exam.view !== "review" || i < 0 || i >= exam.review.length) return;
+    exam.ri = i;
+    renderReview();
+  }
+
+  function renderReview() {
+    var x = exam.review[exam.ri], q = x.q, dom = domainOf(q.d);
+    box.innerHTML = "";
+    var top = el("div", "quiz-top");
+    top.appendChild(el("span", "quiz-where", String(q.d).padStart(2, "0") + " · " + dom.topics[q.t]));
+    top.appendChild(el("span", "quiz-count", (exam.ri + 1) + " of " + exam.review.length + (x.pick < 0 ? " · left blank" : x.ok ? " · correct" : " · missed")));
+    box.appendChild(top);
+    var bar = el("div", "quiz-bar");
+    var fill = el("i");
+    fill.style.width = Math.round(((exam.ri + 1) / exam.review.length) * 100) + "%";
+    bar.appendChild(fill);
+    box.appendChild(bar);
+    box.appendChild(el("p", "quiz-stem", q.s));
+    box.appendChild(optionButtons(q, null));
+    var foot = el("div", "exam-foot");
+    var prev = el("button", "btn", "Previous");
+    prev.type = "button";
+    prev.disabled = exam.ri === 0;
+    prev.addEventListener("click", function () { reviewGo(exam.ri - 1); });
+    foot.appendChild(prev);
+    var back = el("button", "btn", "Back to the result");
+    back.type = "button";
+    back.addEventListener("click", renderExamResult);
+    foot.appendChild(back);
+    var next = el("button", "btn btn-solid", "Next");
+    next.type = "button";
+    next.disabled = exam.ri === exam.review.length - 1;
+    next.addEventListener("click", function () { reviewGo(exam.ri + 1); });
+    foot.appendChild(next);
+    box.appendChild(foot);
+    reveal(q, x.pick, foot);
+    box.focus();
+    shade.scrollTop = 0;
+  }
+
+  window.addEventListener("pagehide", function () {
+    if (exam && exam.view === "run" && xstate.active) { xstate.active.left = Math.max(1, examLeft()); saveX(); }
+  });
 
   // ---------- boot ----------
 
   state = load();
   qstate = loadQ();
+  xstate = loadX();
   renderStatic();
   renderBoard();
   refresh();
@@ -1953,10 +2556,11 @@ footer p {
       btn.addEventListener("click", function () {
         var payload = {
           app: "CEN Study Hub",
-          version: 2,
+          version: 3,
           savedAt: new Date().toISOString(),
           progress: state,
-          questions: qstate
+          questions: qstate,
+          exams: xstate
         };
         downloads.save({
           filename: "cen-study-progress.json",
