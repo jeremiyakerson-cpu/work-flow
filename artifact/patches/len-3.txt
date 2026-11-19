@@ -1,0 +1,115 @@
+4.3.6|2|On the medication administration record, right beside the dose, so that the next nurse will see it
+4.6.1|3|Stand close beside him and place a hand firmly on his shoulder to show real concern
+4.6.4|3|Ask the other visitors in the room to help restrain him
+5.0.9|2|"I'll use my albuterol every four hours around the clock, even when I feel fine."
+5.4.12|1|"Strip it firmly along its whole length every hour to keep it clear of any clots."
+6.2.5|3|Infuse it undiluted through a small vein in the back of the hand, without an in-line filter
+6.4.11|2|He may return to full-contact football practice tomorrow as long as he wears his helmet properly
+6.5.5|1|A viral rash that needs no action beyond an antihistamine
+6.5.7|2|Clear fluid with lymphocytes, mildly raised protein and normal glucose
+6.5.9|3|Photophobia and headache described clearly by the child
+6.6.1|2|The cervical collar is restricting the movement of the upper chest wall
+6.6.5|2|A missed dose of the patient's daily multivitamin
+6.6.6|2|The thermometer is faulty and the reading should be repeated with an oral probe instead
+6.6.11|2|A patient with a displaced femur fracture who is in severe pain but reports no neck pain when asked
+6.7.2|2|Hourly checks of pupil size and reaction with a bright light
+6.7.3|1|It proves that ventilation is adequate, so respiratory checks can be spaced further apart
+6.7.4|3|Bowel obstruction with vomiting and marked distension
+6.7.11|2|Encourage more oral fluids to thin the secretions she is coughing on
+6.7.12|2|Reassurance that it is viral and will pass within a week
+6.8.1|2|Vestibular neuritis after a viral illness
+6.8.9|1|A rise in heart rate of 5 beats per minute within three minutes of standing upright
+6.8.11|1|Insomnia and agitation, which occur in every older patient
+7.0.2|3|Prepare bowel cleansing solution for an urgent colonoscopy today
+7.0.4|2|Transfuse two units immediately in every case of GI bleeding
+7.0.5|3|The patient is simply dehydrated and needs no further monitoring today
+7.0.10|2|Bleeding esophageal varices from portal hypertension
+7.1.1|2|Acute pancreatitis from alcohol or gallstones
+7.1.12|1|"I've had three loose, watery stools so far today."
+7.2.4|1|Writhing on the stretcher and unable to find any position that is comfortable
+7.2.8|1|The appendix is larger in older adults, so it holds more infected material when it finally bursts
+7.3.2|1|A mildly raised alkaline phosphatase with normal bilirubin
+7.3.5|2|An allergic reaction to the opioid given for pain control
+7.3.7|3|Opioid overdose from the analgesia given
+7.3.10|1|It is the same condition as acute cholecystitis at an earlier time of day
+7.4.3|1|They stop the bleeding directly at the site of the varix
+7.4.4|1|Inflate the gastric balloon further to hold the tube in place
+7.4.5|1|No bowel movements for two days and a quieter, sleepier patient
+7.4.7|2|Use a firm toothbrush and a razor blade for hygiene, and give injections into muscle
+7.4.11|3|Nothing unless symptoms develop over the next six months
+7.5.2|3|Discharge with no follow-up, since coins are harmless and always pass without problems
+7.5.3|3|A sore throat from swallowing a large piece of food too quickly
+7.5.4|2|Give a double dose so that the meat dissolves in half the usual time
+7.5.6|1|Multiple magnets are poisonous, because the metal coating dissolves in stomach acid quickly
+7.5.7|3|Expect it to remain in the stomach permanently unless it is removed by endoscopy next month
+7.5.8|2|Offer small sips of water to help push the food bolus down
+7.5.10|2|Advice to drink less water with meals and to chew each mouthful at least thirty times over
+7.5.11|1|The coin has entered the lung and is blocking the right main bronchus
+7.5.12|2|She should be discharged without further evaluation, as the film has excluded a bone
+7.6.2|1|IV fluids through a cannula for every dehydrated child
+7.6.3|3|Oral rehydration solution by cup over the next hour
+7.6.5|1|Loperamide is recommended for all types of diarrhea, whatever the cause
+7.6.7|1|Airborne isolation in negative-pressure rooms for all the residents
+7.6.8|3|A dry mouth and cracked lips in a patient who breathes through the mouth
+7.6.10|3|Add it to a bag that is already running, without mixing, and open the clamp fully
+7.6.11|3|A soft, flat fontanelle with a strong cry and good tone
+7.7.5|1|Femoral hernias always contain the bladder and block urine flow
+7.7.6|1|Tape a coin firmly over it to speed up the closure
+7.7.8|2|Eat one large meal late in the evening and lie down straight afterwards to rest
+7.7.11|3|A lump that disappears when lying down and returns on standing
+7.7.12|1|The hernia always comes back within the hour and must be reduced a second time
+8.0.4|1|Oral antibiotics, an antipyretic and discharge with follow-up in a week
+8.0.6|3|Clean from back to front and then collect only the very end of the urine stream
+8.0.10|1|Stop the antibiotic once the burning eases to avoid resistance later
+8.1.3|1|A plain chest radiograph taken while standing
+8.1.7|1|Immediate surgical removal of the stone under general anaesthesia before he leaves the ED
+8.1.10|1|Avoid all dietary calcium, including milk, cheese and yoghurt
+8.2.4|2|Apply the blood pressure cuff over the fistula for better accuracy
+8.2.9|1|A creatinine of 1.6 mg/dL with a normal urine output
+8.3.2|3|The other testicle will also twist within the hour if untreated
+8.3.5|1|Emergency surgical exploration of the scrotum
+8.3.6|1|Tight scrotal strapping with an elastic bandage until theatre is ready
+8.4.3|1|A quantitative hCG and discharge with follow-up in the clinic in two days
+8.4.5|3|No follow-up of any kind is needed once the injection has been given and she feels well
+8.5.3|2|A repeat pregnancy test only, in two weeks' time
+8.5.8|3|"It was probably for the best; something must have been wrong."
+8.6.4|1|Pupil size, bowel sounds and skin turgor over the forearm
+8.6.9|3|An oral iron supplement taken twice daily
+8.6.10|2|Insert a padded tongue blade between the teeth to protect her tongue from biting
+8.7.3|1|Apply firm pressure on the top of the uterus while the mother pushes with each pain
+8.7.4|1|Push the cord gently back into the uterus with two fingers and ask her to keep her legs flat
+8.7.6|1|Continue ventilation alone for a further five minutes before deciding
+8.7.7|3|Weighing and measuring the baby before anything else is done
+8.8.2|3|Insist that she showers first so that she is comfortable for the examination
+8.8.5|3|Send the clothing home with a friend to be washed and returned to her the following day
+8.8.8|2|Refuse to provide any further care or evidence collection unless she agrees to report
+9.0.3|3|Ask a relative to sit with the patient and watch while the staff are busy
+9.0.5|2|The antidepressant medication has reached its full effect overnight
+9.0.7|2|Tell the patient that such thoughts are normal after a divorce and will fade as time passes
+9.0.8|1|Let him sign out against medical advice once he has promised to see his own doctor next week
+9.0.9|1|A signed promise not to attempt suicide, witnessed by a nurse and kept in his medical record
+9.0.11|3|"Let's wait and see how you are feeling about it next week."
+9.1.2|1|Several staff members give firm instructions at the same time from all sides
+9.1.3|2|A detailed family history of mental illness and nothing else
+9.1.5|1|An oral antidepressant started today and continued for several weeks
+9.1.7|3|Leaving her alone on a stretcher in a bright, busy hallway where staff can glance at her
+9.1.11|3|None, once the patient is asleep and no longer a danger to the staff
+9.2.2|3|"Let's X-ray your arm right now so I can prove to you that you're wrong."
+9.2.4|2|Serotonin syndrome with marked clonus
+9.2.6|1|A serum lithium level drawn before the next dose
+9.2.8|1|They are typical of schizophrenia and need only an increase in his usual medication
+9.2.10|1|Whisper with colleagues just outside the room so he is not disturbed
+9.2.11|2|This will pass with a good night's sleep and help with the baby
+9.3.1|3|Send her to the waiting room to calm down before assessment
+9.3.5|3|It can be stopped abruptly after several months of daily use
+9.3.6|1|Immediately, while the patient is most anxious and motivated to listen
+9.3.7|2|Approach quietly from behind and place a steadying hand on each of his shoulders
+9.3.8|1|"Do you prefer morning classes or evening classes this term?"
+9.3.9|3|Refer her straight to long-term psychiatric care and arrange an admission for tonight
+9.3.10|3|"Double the dose yourself if you still feel anxious tomorrow, and again the day after."
+9.3.11|1|A daily multivitamin that was added to her list last month
+9.4.1|1|Normal ageing following the loss of his wife
+9.4.2|3|Yellowing of the nails on both the hands and the feet
+9.4.4|1|An allergy to dairy products that has developed during adult life
+9.4.5|1|Encourage him to join a lively group discussion in the main waiting area
+9.4.7|3|An NSAID to relieve the tremor and the muscle aches

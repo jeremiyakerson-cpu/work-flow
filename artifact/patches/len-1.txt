@@ -1,0 +1,109 @@
+1.0.7|2|Apply a non-rebreather at 15 L/min to maximise oxygen delivery to the injured myocardium
+1.0.9|1|Right coronary; sinus bradycardia and AV nodal block with inferior wall changes
+1.0.11|2|An IV antipsychotic such as haloperidol
+1.1.2|1|Adenosine 6 mg diluted in 100 mL and infused over 10 minutes through a vein in the back of the hand
+1.1.3|3|Call a rapid response and prepare to begin transcutaneous pacing at once
+1.1.7|1|Immediate unsynchronized defibrillation at 200 J without sedation or further assessment
+1.1.11|1|Reassurance and routine monitoring, because this rhythm is benign
+1.2.3|1|A weight 1 kg lower than on arrival to the department
+1.2.4|1|Severe systolic heart failure is confirmed as the cause of dyspnea
+1.2.8|2|"I'll use salt substitute as freely as I like in place of table salt at meals."
+1.2.10|2|Start the infusion as ordered and lay the patient supine to support the pressure
+1.3.5|2|Begin transcutaneous pacing at a rate of 80 with maximum output
+1.3.6|1|Stop the resuscitation, because survival is impossible at this reading
+1.3.8|3|Hyperventilate the patient to lower the carbon dioxide level quickly
+1.4.2|2|A hydralazine IV push as the only agent
+1.4.3|3|Refuse to give any antihypertensive until after surgery is done
+1.4.5|1|Send the patient to radiology for an oral-contrast CT of the abdomen and pelvis
+1.4.9|3|A plain chest radiograph alone, repeated in an hour
+1.4.11|2|Analgesia is required before the patient can legally sign the consent for surgery
+1.4.12|2|An expected circulatory effect of the beta blocker infusion
+1.5.3|2|Admission to intensive care for a nitroprusside infusion and an arterial line
+1.5.4|1|Lower the pressure to below 140/90 within the hour using IV agents
+1.5.7|1|A blood pressure that is holding steady at the ordered goal
+1.5.8|2|Blood glucose of 162 mg/dL on a fingerstick check
+1.5.11|1|Give it as ordered and recheck the blood pressure in an hour, then repeat if needed
+1.6.4|3|An erythrocyte sedimentation rate and C-reactive protein
+1.6.9|1|Return to full training as soon as the chest pain stops and the fever has settled
+1.6.10|3|Pulmonary embolism from prolonged bed rest
+1.7.3|1|ST elevation in the inferior leads with reciprocal changes
+1.7.5|1|It increases the risk of aspirating stomach contents far more than in other patients
+1.7.6|3|Observation in intensive care with serial echocardiograms every hour
+1.7.7|3|A portable chest radiograph taken in the trauma bay
+1.7.8|3|The patient is developing ventricular fibrillation and needs defibrillation
+1.7.11|1|A patient with well-controlled hypertension on a single medication
+1.7.12|2|Increasing jugular venous distension with a rising rate
+1.8.1|1|Deep vein thrombosis of the right femoral vein
+1.8.2|2|Oral aspirin and outpatient follow-up with a vascular surgeon in one week
+1.8.9|2|An allergic reaction to the anticoagulant that needs an antihistamine dose
+2.0.4|2|Give a glass of milk and put the child down for a nap to see what happens
+2.0.5|1|Gastric lavage with a large-bore tube placed through the mouth
+2.1.1|3|No naloxone at all, because he is opioid dependent and in pain
+2.1.2|3|A second dose given just before leaving makes it safe for him to go
+2.1.9|2|The heart rate has reached 120 per minute and stayed at that level
+2.2.4|2|She can leave now as long as she drinks plenty of water and rests at home tomorrow
+2.2.5|3|Give IM epinephrine and stop all antidote treatment for the rest of the stay
+2.2.7|3|A urine drug screen will show whether the total dose she has taken was a toxic one
+2.2.11|2|Malignant hyperthermia triggered by the sedative used for induction
+2.3.2|1|Prophylactic fasciotomy of the lower leg before any antivenom is given
+2.3.3|3|Ask the patient to press the call bell and report whenever the pain seems to be getting worse
+2.3.5|1|Discharge home now because there is no swelling or pain at the bite site
+2.3.9|2|Wrapping the whole foot and ankle firmly in a compression bandage for an hour
+2.3.10|2|Applying tissue adhesive over the puncture to keep it clean and dry
+2.3.11|3|Observation of the child for ten days before deciding on treatment
+2.4.2|3|Oral rehydration with a chilled sports drink by straw
+2.4.3|2|When the skin of the trunk feels cool to the nurse's touch
+2.4.4|3|Ibuprofen is the preferred drug in heat illness and will be given once he is awake
+2.4.7|1|Ice-water immersion and preparation for immediate intubation
+2.4.8|3|Early heat stroke with muscle injury
+2.4.9|1|A 25-year-old lifeguard who drinks water regularly and takes breaks in the shade each hour
+2.5.2|3|Movement causes a sudden, dangerous rise in blood pressure
+2.5.4|1|Warmed peritoneal lavage through a catheter placed in the abdomen
+2.5.5|2|A heating pad applied to each hand and foot with blankets over the arms and legs only
+2.5.6|1|The thermometer malfunctioned and both readings should be disregarded
+2.5.7|3|Let it thaw slowly at room temperature over several hours
+2.5.8|1|Thaw the fingers now over a campfire and then keep walking out
+2.5.11|3|The patient is becoming comfortable as the blankets take effect
+2.6.2|2|Yes, until an MRI of the whole spine has been done and reported
+2.6.3|1|Discharge immediately with no observation, as he looks well now
+2.6.4|3|Bronchospasm from pool chlorine alone, which will settle with a single nebulizer
+2.6.8|3|"Her older brother, who is seven, can watch her while I cook dinner."
+2.6.9|2|A urine pregnancy test only, with no other studies
+2.6.10|2|Apply firm pressure to the upper abdomen to empty the stomach fully
+2.6.11|3|Applying an abdominal binder to support the diaphragm
+2.7.3|1|Oxygen at 2 L/min by nasal cannula until symptoms ease
+2.7.5|1|Pregnancy raises the mother's own baseline carboxyhemoglobin level well above normal
+2.7.6|1|Expect a cherry-red skin colour for about a month, which fades without any treatment at all
+2.7.9|1|Check a potassium level first; expect bradycardia and drowsiness
+2.7.11|3|Hydroxocobalamin also removes carbon monoxide from hemoglobin, so it treats both poisons at the same time
+2.8.1|1|Bring him straight through the department to a resuscitation room for assessment
+2.8.4|1|Silver sulfadiazine cream under a dry dressing
+2.8.6|3|Alkalis are always stronger chemicals than any acid
+3.0.1|1|Apply a cervical collar and secure him to a long backboard
+3.0.2|3|Flexing the neck forward on a pillow to bring the chin down
+3.0.9|1|To check the patient's ability to cooperate and follow instructions
+3.0.10|2|The date of the last tetanus booster and any reactions to vaccines
+3.1.2|1|Directly over the wound, tightened until the patient finds it uncomfortable
+3.1.4|1|Cover the wound with a loose sterile dressing and elevate the pelvis
+3.1.8|1|Give warmed crystalloid rapidly until the systolic pressure is above 120 mmHg
+3.2.2|2|A fully sealed airtight dressing taped down securely on all four sides
+3.2.3|2|Place the patient flat with the legs raised on pillows
+3.2.5|2|Tight circumferential chest strapping to hold the loose segment still
+3.2.6|3|Evidence that too little IV fluid was given during the first hours of resuscitation
+3.2.10|3|Withholding all opioids to avoid any risk of sedation or confusion
+3.3.1|2|Admission to a surgical ward for serial abdominal examinations
+3.3.3|1|Bruising in this pattern always indicates a rupture of the spleen
+3.3.5|1|"Go ahead; rechecking stability every hour is standard practice."
+3.3.6|2|Cover it with dry gauze and tape the dressing down tightly
+3.4.3|1|A pulse is never present distal to a fracture, so the finding means nothing
+3.4.4|3|Leave the wound uncovered so that the surgeon can inspect it without delay
+3.4.7|2|Soak it in a container of sterile water and keep it at room temperature until surgery
+3.4.8|1|To prevent a later disturbance of growth in the length of the leg
+3.4.10|2|Hypercalcemia with constipation and abdominal pain
+3.5.2|3|Oral antibiotics alone for ten days, with a wound check at the end of the course
+3.5.4|1|Reassure the patient that this is a normal effect of the anaesthetic wearing in
+3.5.7|2|Suture it tightly in layers to protect the joint beneath
+3.5.8|2|Leave the flap hanging free and apply dry gauze loosely until the surgeon arrives
+3.5.9|1|Oral antibiotics, limb elevation and a recheck in clinic in 48 hours
+3.7.3|2|Cool, clammy skin with delayed capillary refill
+3.7.6|1|A normal heart rate rules out significant bleeding in this patient
