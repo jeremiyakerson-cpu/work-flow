@@ -132,8 +132,10 @@ test("every rhythm lists its medications, and each one has a card", async (t) =>
   for (const [key, names] of Object.entries(RHYTHM_MEDS)) {
     await t.test(key, () => {
       assert.ok(Array.isArray(names));
-      assert.equal(new Set(names).size, names.length, "duplicate medication");
-      for (const n of names) assert.ok(cards.has(n), `no medication card named "${n}"`);
+      const list = names.map((e) => (typeof e === "string" ? e : e.name));
+      assert.equal(new Set(list).size, list.length, "duplicate medication");
+      for (const n of list) assert.ok(cards.has(n), `no medication card named "${n}"`);
+      for (const e of names) if (typeof e !== "string") assert.ok(e.note && !hasMarkup(e.note), "a { name, note } entry needs a plain-text note");
     });
   }
 });

@@ -9,7 +9,7 @@
  */
 
 (function () {
-  const SOUND_KEY = "ekg-zoll-sound-on";
+  const SOUND_KEY = "ekg-zoll-sound-on"; // key name kept so saved settings survive
   const GAP_FRAC = 0.02; // erase-bar width as a fraction of the strip
 
   // Reduced motion: draw each strip whole and hold it (refreshed once per
@@ -394,7 +394,7 @@
 
       drawGrid(ctx, cssW, cssH);
 
-      // Band layout: EKG on top, SpO2 pleth below (red, as on a Zoll),
+      // Band layout: EKG on top, SpO2 pleth below (red, as on most defibrillator-monitors),
       // and an EtCO2 capnograph (yellow) when the monitor has one on.
       const ekgH = cssH * (st.capno ? 0.52 : 0.68);
       const plethH = st.capno ? cssH * 0.26 : cssH - ekgH;

@@ -53,6 +53,20 @@ const RHYTHM_GUIDE = {
       { with: "Atrial flutter 2:1", how: "Flutter at 2:1 conducts near 150 — suspicious rate! Look for sawtooth waves, or reveal them with adenosine." },
     ],
   },
+  svt_aberrancy: {
+    name: "SVT with aberrancy",
+    group: "Atrial",
+    demo: { hr: 182, perfusing: true },
+    criteria: { rate: "150–250", regular: "Regular", p: "Absent or buried", pr: "Not measurable", qrs: "≥ 0.12 s, bundle-branch-block shape" },
+    look: "A fast, regular, WIDE rhythm — but each QRS starts with a sharp, narrow upstroke before the wide part. That is the shape of a bundle branch block, not of a beat born in the ventricle.",
+    causes: ["SVT in a patient with a known bundle branch block", "Rate-related bundle branch block (one bundle can't recover at high rates)", "Drugs that slow conduction (e.g. class I antiarrhythmics)"],
+    tx: "Treat as VT unless you are sure. Unstable: synchronized cardioversion. Stable, regular and monomorphic: adenosine may be considered (it treats SVT and helps reveal the rhythm); otherwise amiodarone or procainamide. Never diltiazem/verapamil for a wide-complex tachycardia you haven't identified.",
+    pearls: "One monitor lead can't reliably separate aberrancy from VT. Get a 12-lead, compare with an old EKG showing the same bundle branch block — and when in doubt, it's VT.",
+    confuse: [
+      { with: "Ventricular tachycardia (monomorphic)", how: "VT complexes start with a slow, broad upstroke and may show P waves marching through them (AV dissociation). Aberrancy starts sharp, then widens, and matches a known bundle branch block. Unsure = treat as VT." },
+      { with: "SVT", how: "Same rate and regularity; aberrancy just adds a wide, bundle-branch-shaped QRS." },
+    ],
+  },
   afib: {
     name: "Atrial fibrillation",
     group: "Atrial",
@@ -62,7 +76,10 @@ const RHYTHM_GUIDE = {
     causes: ["Hypertension, heart failure, valve disease", "Sepsis, hypoxia, PE", "Post-cardiac surgery", "Hyperthyroidism", "Alcohol ('holiday heart')"],
     tx: "Rate control (diltiazem/metoprolol) if stable; synchronized cardioversion 120–200 J if unstable. Anticoagulation for stroke prevention (duration >48 h/unknown needs anticoag or TEE before elective cardioversion).",
     pearls: "The irregularity is the diagnosis — march out the R–R intervals with calipers or paper. And always think 'stroke risk' the moment you see afib.",
-    confuse: [{ with: "MAT / frequent PACs", how: "Those have visible (varying) P waves; afib has none, just fibrillatory waves." }],
+    confuse: [
+      { with: "MAT / frequent PACs", how: "Those have visible (varying) P waves; afib has none, just fibrillatory waves." },
+      { with: "Atrial flutter with variable block", how: "Also irregular, but its baseline is a uniform sawtooth and its R-R gaps repeat in a few fixed lengths. AFib's baseline and R-R are chaotic." },
+    ],
   },
   aflutter: {
     name: "Atrial flutter",
@@ -73,7 +90,24 @@ const RHYTHM_GUIDE = {
     causes: ["Same substrate as afib — often coexists"],
     tx: "Same strategy as afib: rate control, anticoagulation, cardioversion if unstable (often converts at lower energy).",
     pearls: "A regular narrow tachy at EXACTLY ~150 is flutter 2:1 until proven otherwise — divide 300 by small integers and see if the rate fits.",
-    confuse: [{ with: "SVT", how: "At 2:1 the F waves hide in the QRS/T — vagal maneuvers or adenosine slow conduction and expose the sawtooth." }],
+    confuse: [
+      { with: "SVT", how: "At 2:1 the F waves hide in the QRS/T — vagal maneuvers or adenosine slow conduction and expose the sawtooth." },
+      { with: "Atrial flutter with variable block", how: "Same sawtooth, but the ratio keeps changing, so the ventricular rhythm becomes irregular." },
+    ],
+  },
+  aflutter_variable: {
+    name: "Atrial flutter with variable block",
+    group: "Atrial",
+    demo: { hr: 100, perfusing: true },
+    criteria: { rate: "Atrial ~300; ventricular varies with the ratio", regular: "Irregular — but every R-R is a whole number of flutter waves", p: "Sawtooth flutter (F) waves", pr: "Not measured", qrs: "< 0.12 s" },
+    look: "The same sawtooth baseline as flutter, but the conduction ratio keeps changing (2:1, 4:1, 3:1), so the QRS complexes arrive at uneven intervals.",
+    causes: ["Same substrate as flutter and afib", "AV-nodal blocking drugs", "AV nodal disease"],
+    tx: "Same as flutter: rate control (diltiazem/metoprolol), anticoagulation, synchronized cardioversion if unstable.",
+    pearls: "Irregular rhythm? Look BETWEEN the QRS complexes. Identical, organized sawtooth waves = flutter with variable block. A chaotic baseline that never repeats = atrial fibrillation.",
+    confuse: [
+      { with: "Atrial fibrillation", how: "Both irregular. AFib's baseline is chaotic and never repeats, and its R-R intervals are random; flutter's waves are uniform and its R-R gaps fall into a few repeating lengths." },
+      { with: "Atrial flutter", how: "Same waves; with a fixed ratio the ventricular rhythm is regular." },
+    ],
   },
   avb1: {
     name: "First-degree AV block",
@@ -150,7 +184,7 @@ const RHYTHM_GUIDE = {
     causes: ["Ischemia/MI, scar", "Cardiomyopathy", "Electrolytes (K+, Mg2+)", "Prolonged QT", "Drug toxicity"],
     tx: "Pulse + stable: amiodarone 150 mg over 10 min (pads on). Pulse + unstable: synchronized cardioversion. NO pulse: defibrillate — full arrest algorithm.",
     pearls: "Wide + fast = VT until proven otherwise, especially with cardiac history. Your first move is always the same: check the patient and the pulse.",
-    confuse: [{ with: "SVT with aberrancy", how: "Both wide and fast. When unsure, treat as VT — adenosine given to true VT wastes time; verapamil can be fatal." }],
+    confuse: [{ with: "SVT with aberrancy", how: "Both wide and fast. VT's complexes start with a slow, broad upstroke; aberrancy starts sharp, then widens. When unsure, treat as VT — verapamil given to VT can be fatal." }],
   },
   torsades: {
     name: "Torsades de pointes",
@@ -202,9 +236,9 @@ const RHYTHM_GROUPS = ["Sinus", "Atrial", "Junctional", "Blocks", "Ventricular",
 
 // Confusion sets for the Rhythm Sprint's smart distractors.
 const SPRINT_CONFUSION = [
-  ["svt", "sinus_tach", "afib", "aflutter"],
+  ["svt", "sinus_tach", "afib", "aflutter", "aflutter_variable"],
   ["sinus_brady", "junctional", "avb1", "mobitz1", "mobitz2", "avb3", "nsr"],
-  ["vt", "torsades", "vf_coarse", "vf_fine", "asystole", "pvc_bigeminy"],
+  ["vt", "svt_aberrancy", "torsades", "vf_coarse", "vf_fine", "asystole", "pvc_bigeminy"],
 ];
 
 const MED_GUIDE = [
@@ -307,19 +341,30 @@ const MED_GUIDE = [
 ];
 
 // Which medication cards belong under each rhythm's strip in the study
-// guide (names must match MED_GUIDE). An empty list means no drug is
-// indicated — the rhythm's `tx` line says what to do instead.
+// guide (names must match MED_GUIDE). An entry is a card name, or
+// { name, note } when that drug comes with a warning for this rhythm.
+// An empty list means no drug is indicated — the rhythm's `tx` line says
+// what to do instead.
+const ATROPINE_INFRANODAL = {
+  name: "Atropine",
+  note: "Often ineffective here: the block is below the AV node, where atropine doesn't act. Don't delay pacing for it.",
+};
 const RHYTHM_MEDS = {
   nsr: [],
   sinus_brady: ["Atropine", "Dopamine", "Epinephrine"],
   sinus_tach: [],
   svt: ["Adenosine", "Diltiazem"],
+  svt_aberrancy: [
+    { name: "Adenosine", note: "Only if stable and the rhythm is regular and monomorphic. If you can't tell it from VT, treat it as VT." },
+    "Amiodarone",
+  ],
   afib: ["Diltiazem", "Metoprolol", "Amiodarone"],
   aflutter: ["Diltiazem", "Metoprolol"],
+  aflutter_variable: ["Diltiazem", "Metoprolol"],
   avb1: [],
   mobitz1: ["Atropine"],
-  mobitz2: ["Atropine", "Dopamine", "Epinephrine"],
-  avb3: ["Atropine", "Dopamine", "Epinephrine"],
+  mobitz2: ["Dopamine", "Epinephrine", ATROPINE_INFRANODAL],
+  avb3: ["Dopamine", "Epinephrine", ATROPINE_INFRANODAL],
   junctional: ["Atropine"],
   pvc_bigeminy: ["Magnesium sulfate"],
   vt: ["Amiodarone", "Lidocaine", "Epinephrine"],
