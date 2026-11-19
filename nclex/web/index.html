@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NCLEX-RN Practice Test</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <h1>NCLEX-RN Practice Test</h1>
+  <div id="bankStatus" class="bank-status">Loading question bank&hellip;</div>
+</header>
+
+<main id="app">
+
+  <!-- ===================== SETUP SCREEN ===================== -->
+  <section id="screen-setup" class="screen">
+    <div class="card">
+      <h2>Build a test</h2>
+
+      <div class="field-group">
+        <label><input type="radio" name="mode" value="blueprint" checked> Full exam &mdash; default NCLEX-RN blueprint mix</label>
+        <label><input type="radio" name="mode" value="category"> Focus one category</label>
+        <label><input type="radio" name="mode" value="custom"> Custom category mix</label>
+      </div>
+
+      <div id="blueprintOptions" class="mode-options">
+        <label for="blueprintCount">Total items</label>
+        <input type="number" id="blueprintCount" min="5" max="96" value="25">
+      </div>
+
+      <div id="categoryOptions" class="mode-options hidden">
+        <label for="categorySelect">Category</label>
+        <select id="categorySelect"></select>
+        <label for="categoryCount">Total items</label>
+        <input type="number" id="categoryCount" min="1" max="24" value="25">
+      </div>
+
+      <div id="customOptions" class="mode-options hidden">
+        <p class="hint">Set how many items to pull from each category. Total updates live.</p>
+        <div id="customCategoryList" class="custom-category-list"></div>
+        <div class="custom-total">Total items: <strong id="customTotal">0</strong></div>
+      </div>
+
+      <div class="field-group">
+        <label><input type="checkbox" id="shuffleToggle" checked> Shuffle question order (exam-style; uncheck to study by category)</label>
+      </div>
+
+      <button id="startBtn" class="btn btn-primary" disabled>Start Test</button>
+      <p id="setupError" class="error hidden"></p>
+    </div>
+  </section>
+
+  <!-- ===================== QUIZ SCREEN ===================== -->
+  <section id="screen-quiz" class="screen hidden">
+    <div class="quiz-layout">
+      <nav id="questionNav" class="question-nav" aria-label="Question navigator"></nav>
+
+      <div class="quiz-main">
+        <div class="quiz-progress">
+          <span id="progressText">Question 1 of 25</span>
+          <span id="suggestedTime" class="hint"></span>
+        </div>
+
+        <div class="card" id="questionCard"></div>
+
+        <div class="quiz-controls">
+          <button id="prevBtn" class="btn">&larr; Previous</button>
+          <button id="flagBtn" class="btn btn-flag">Flag for review</button>
+          <button id="nextBtn" class="btn">Next &rarr;</button>
+          <button id="submitBtn" class="btn btn-primary hidden">Submit Test</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS SCREEN ===================== -->
+  <section id="screen-results" class="screen hidden">
+    <div class="card results-summary">
+      <h2>Results</h2>
+      <div id="scoreHeadline" class="score-headline"></div>
+      <div id="categoryBreakdown" class="category-breakdown"></div>
+      <div class="field-group">
+        <button id="retakeBtn" class="btn btn-primary">Build another test</button>
+      </div>
+    </div>
+    <div id="reviewList"></div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

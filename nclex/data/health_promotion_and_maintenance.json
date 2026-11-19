@@ -13,9 +13,11 @@
       "The child is displaying signs of an attachment disorder that warrants an immediate referral",
       "The child is regressing because the industry versus inferiority stage was not successfully achieved"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Toddlers (roughly 1 to 3 years) are working through Erikson's autonomy versus shame and doubt stage, during which insisting on doing things independently, negativism, and brief frustration/tantrums when thwarted are expected, healthy attempts to establish self-control and independence. Trust versus mistrust (A) is the infancy stage (birth to about 18 months) centered on the caregiver relationship, not self-assertion. Labeling normal toddler independence as an attachment disorder (C) is an overreaction to developmentally expected behavior. Industry versus inferiority (D) applies to school-age children (about 6 to 12 years) mastering skills and competence, not toddlers.",
-    "nursing_concept": "Erikson's psychosocial stages — toddler autonomy vs. shame and doubt"
+    "nursing_concept": "Erikson's psychosocial stages \u2014 toddler autonomy vs. shame and doubt"
   },
   {
     "id": "HPM-002",
@@ -31,7 +33,9 @@
       "8",
       "10"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Each APGAR component is scored 0-2: heart rate >100 beats/min = 2 points; slow, irregular respirations = 1 point; some flexion of extremities (muscle tone) = 1 point; grimace/facial movement in response to stimulation (reflex irritability) = 1 point; and a pink body with blue extremities, i.e., acrocyanosis (color) = 1 point. The total is 2+1+1+1+1 = 6, not 4, 8, or 10.",
     "nursing_concept": "APGAR scoring at 1 and 5 minutes"
   },
@@ -45,15 +49,21 @@
     "stem": "A nurse is performing an initial assessment of a full-term newborn 2 hours after an uncomplicated vaginal birth. Which findings should the nurse recognize as expected for this newborn? Select all that apply.",
     "options": [
       "Toes fan outward and the big toe dorsiflexes when the sole of the foot is stroked (positive Babinski reflex)",
-      "Axillary temperature of 36.5°C (97.7°F)",
+      "Axillary temperature of 36.5\u00b0C (97.7\u00b0F)",
       "Sustained respiratory rate of 70 breaths/min at rest",
       "Symmetric abduction and extension of the arms in response to a sudden loud noise (positive Moro reflex)",
       "Apical heart rate of 130 beats/min",
       "Bluish discoloration of the hands and feet with a pink body (acrocyanosis)",
       "Anterior fontanel that is firm, bulging, and tense while the newborn is quiet and not crying"
     ],
-    "answer": [0, 1, 3, 4, 5],
-    "rationale": "A positive Babinski reflex (A) is a normal newborn finding that disappears by about 1 year of age. An axillary temperature of 36.5°C (B), a heart rate of 130 beats/min (E), a positive Moro reflex (D), and acrocyanosis (F) are all expected newborn findings. A sustained respiratory rate of 70 breaths/min (C) is tachypnea outside the normal newborn range of about 30-60 breaths/min at rest and should be reported, not assumed normal. A firm, bulging, tense anterior fontanel while quiet (G) is an abnormal finding suggestive of increased intracranial pressure; a normal fontanel is soft and flat (it may bulge briefly only with crying or straining).",
+    "answer": [
+      0,
+      1,
+      3,
+      4,
+      5
+    ],
+    "rationale": "A positive Babinski reflex (A) is a normal newborn finding that disappears by about 1 year of age. An axillary temperature of 36.5\u00b0C (B), a heart rate of 130 beats/min (E), a positive Moro reflex (D), and acrocyanosis (F) are all expected newborn findings. A sustained respiratory rate of 70 breaths/min (C) is tachypnea outside the normal newborn range of about 30-60 breaths/min at rest and should be reported, not assumed normal. A firm, bulging, tense anterior fontanel while quiet (G) is an abnormal finding suggestive of increased intracranial pressure; a normal fontanel is soft and flat (it may bulge briefly only with crying or straining).",
     "nursing_concept": "Expected newborn reflexes and vital sign ranges"
   },
   {
@@ -70,9 +80,11 @@
       "Massage the fundus until it becomes firm",
       "Document the finding and reassess in 1 hour"
     ],
-    "answer": [2],
+    "answer": [
+      2
+    ],
     "rationale": "A boggy, poorly contracted fundus signals uterine atony, the leading cause of early postpartum hemorrhage, so the nurse's immediate independent action is to massage the fundus until it firms up. Fundal displacement above the umbilicus and to one side classically indicates a full bladder pressing the uterus out of midline; if massage does not keep the fundus firm, the nurse should next have the client void or catheterize as needed, but reducing active hemorrhage risk with massage comes first. Administering oxytocin (B) may follow if massage alone is ineffective, and notifying the provider (A) or simply reassessing later (D) both delay an intervention the nurse can and should perform immediately.",
-    "nursing_concept": "Postpartum fundal assessment — uterine atony and bladder distention"
+    "nursing_concept": "Postpartum fundal assessment \u2014 uterine atony and bladder distention"
   },
   {
     "id": "HPM-005",
@@ -88,7 +100,9 @@
       "New-onset resting tremor with rigidity and a shuffling gait",
       "Acute confusion and disorientation that began this morning"
     ],
-    "answer": [0],
+    "answer": [
+      0
+    ],
     "rationale": "Gradual, bilateral high-frequency hearing loss (presbycusis) is a common, expected age-related sensory change. Sudden unilateral hearing loss (B) is an otologic emergency requiring prompt evaluation, not a normal aging change. New resting tremor with rigidity and shuffling gait (C) suggests parkinsonism, a new pathological finding, not normal aging. Acute-onset confusion (D) indicates delirium, a medical emergency that must be distinguished from the slow, gradual cognitive changes sometimes seen with normal aging.",
     "nursing_concept": "Normal changes of aging vs. pathological findings"
   },
@@ -106,7 +120,9 @@
       "\"Screening is only necessary once you develop symptoms such as blood in the stool.\"",
       "\"You would need a first-degree relative with colon cancer before screening is recommended.\""
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Current general guidance recommends that average-risk adults begin routine colorectal cancer screening around age 45, since the purpose of screening is to detect disease before symptoms appear. Waiting until age 65 (A) delays screening well past the recommended start. Waiting for symptoms (C) defeats the purpose of screening, which targets asymptomatic disease. A first-degree relative with colorectal cancer (D) would actually indicate a need for earlier, more frequent screening based on increased risk, not a prerequisite for screening at all.",
     "nursing_concept": "Age-appropriate cancer screening guidance"
   },
@@ -126,7 +142,12 @@
       "\"Once a person turns 40, no further cancer screening is needed for the rest of their life.\"",
       "\"Screening tests are only performed after a person already has symptoms of disease.\""
     ],
-    "answer": [0, 1, 2, 3],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "rationale": "Routine blood pressure checks (A), periodic lipid screening beginning in early adulthood (B), cervical cancer screening starting in the 20s (C), and skin self-examination with prompt evaluation of concerning moles (D) are all accurate elements of general, evidence-based screening guidance for average-risk adults. Claiming that screening stops entirely at age 40 (E) is false; screening recommendations and intervals continue to be individualized throughout adulthood based on age, risk factors, and overall health status. Screening tests are, by definition, performed on asymptomatic people to detect disease early (secondary prevention), not only after symptoms appear (F).",
     "nursing_concept": "Routine health screening intervals across adulthood"
   },
@@ -144,9 +165,11 @@
       "\"I need to tell your parents about this right away.\"",
       "\"As long as you don't vape every day, occasional use isn't a health concern.\""
     ],
-    "answer": [1],
-    "rationale": "The nurse should provide accurate, nonjudgmental education: e-cigarettes are not a safe alternative — they expose users, especially adolescents with still-developing brains, to nicotine and other harmful chemicals, promote nicotine addiction, and are associated with increased likelihood of using other tobacco products. Calling vaping \"much safer\" (A) or dismissing occasional use as risk-free (D) reinforces a dangerous misconception. Immediately involving the parents without further discussion (C) is not the priority first response and can shut down an open conversation that supports honest disclosure and counseling.",
-    "nursing_concept": "High-risk behavior counseling — adolescent vaping/tobacco use"
+    "answer": [
+      1
+    ],
+    "rationale": "The nurse should provide accurate, nonjudgmental education: e-cigarettes are not a safe alternative \u2014 they expose users, especially adolescents with still-developing brains, to nicotine and other harmful chemicals, promote nicotine addiction, and are associated with increased likelihood of using other tobacco products. Calling vaping \"much safer\" (A) or dismissing occasional use as risk-free (D) reinforces a dangerous misconception. Immediately involving the parents without further discussion (C) is not the priority first response and can shut down an open conversation that supports honest disclosure and counseling.",
+    "nursing_concept": "High-risk behavior counseling \u2014 adolescent vaping/tobacco use"
   },
   {
     "id": "HPM-009",
@@ -162,9 +185,11 @@
       "\"Physical activity is unnecessary as long as your diet is healthy.\"",
       "\"You should avoid exercise entirely until you lose weight first.\""
     ],
-    "answer": [0],
+    "answer": [
+      0
+    ],
     "rationale": "General evidence-based guidance for healthy adults recommends at least 150 minutes per week of moderate-intensity aerobic activity plus muscle-strengthening activity on 2 or more days per week, with benefits achievable through activities as simple as brisk walking. Requiring daily 5-mile runs (B) is an unrealistic and unnecessarily extreme threshold. Diet alone does not replace the cardiovascular, musculoskeletal, and mental health benefits of physical activity (C). Advising a client to avoid exercise until weight loss occurs (D) is inaccurate and counterproductive, since regular activity itself supports healthy weight management.",
-    "nursing_concept": "Lifestyle counseling — physical activity recommendations"
+    "nursing_concept": "Lifestyle counseling \u2014 physical activity recommendations"
   },
   {
     "id": "HPM-010",
@@ -180,8 +205,10 @@
       "Give the client a pamphlet about insulin administration to read at home",
       "Document that teaching was completed and move on to the next task"
     ],
-    "answer": [1],
-    "rationale": "The teach-back method — having the client explain and demonstrate the information in their own words and actions — is the most reliable way to confirm actual understanding and identify gaps, and it accounts for health literacy differences. A closed yes/no question like \"Do you understand?\" (A) is unreliable because clients often answer \"yes\" regardless of true comprehension. Providing written material alone (C) does not confirm understanding, particularly for clients with limited health literacy. Documenting teaching as complete without verifying comprehension (D) skips evaluation entirely.",
+    "answer": [
+      1
+    ],
+    "rationale": "The teach-back method \u2014 having the client explain and demonstrate the information in their own words and actions \u2014 is the most reliable way to confirm actual understanding and identify gaps, and it accounts for health literacy differences. A closed yes/no question like \"Do you understand?\" (A) is unreliable because clients often answer \"yes\" regardless of true comprehension. Providing written material alone (C) does not confirm understanding, particularly for clients with limited health literacy. Documenting teaching as complete without verifying comprehension (D) skips evaluation entirely.",
     "nursing_concept": "Teach-back method / evaluating learning"
   },
   {
@@ -199,9 +226,15 @@
       "Have the client perform a return demonstration using the teach-back method",
       "Document the teaching provided and the client's demonstrated level of understanding"
     ],
-    "answer": [0, 2, 1, 3, 4],
-    "rationale": "Effective client teaching begins by assessing the client's baseline knowledge, health literacy, and readiness to learn, since this determines how the content should be paced and presented. Next, the nurse delivers the information in manageable segments using plain language appropriate to the client's literacy level, followed by a hands-on demonstration of the actual skill using the client's own supplies. The client then performs a return demonstration/teach-back so the nurse can verify understanding, and finally the nurse documents the teaching provided and the client's demonstrated competence. Performing the steps out of this order — for example, demonstrating or testing understanding before assessing readiness and providing information — undermines learning and produces an inaccurate evaluation.",
-    "nursing_concept": "Principles of teaching/learning — structuring a teaching session"
+    "answer": [
+      0,
+      2,
+      1,
+      3,
+      4
+    ],
+    "rationale": "Effective client teaching begins by assessing the client's baseline knowledge, health literacy, and readiness to learn, since this determines how the content should be paced and presented. Next, the nurse delivers the information in manageable segments using plain language appropriate to the client's literacy level, followed by a hands-on demonstration of the actual skill using the client's own supplies. The client then performs a return demonstration/teach-back so the nurse can verify understanding, and finally the nurse documents the teaching provided and the client's demonstrated competence. Performing the steps out of this order \u2014 for example, demonstrating or testing understanding before assessing readiness and providing information \u2014 undermines learning and produces an inaccurate evaluation.",
+    "nursing_concept": "Principles of teaching/learning \u2014 structuring a teaching session"
   },
   {
     "id": "HPM-012",
@@ -217,8 +250,274 @@
       "Tertiary prevention",
       "Quaternary prevention"
     ],
-    "answer": [2],
+    "answer": [
+      2
+    ],
     "rationale": "Tertiary prevention focuses on minimizing the effects and complications of an already-diagnosed disease and restoring or maintaining function, which describes this COPD support group. Primary prevention (A) aims to prevent disease before it occurs, such as encouraging people who have never smoked to remain tobacco-free. Secondary prevention (B) involves early detection of disease that is present but not yet symptomatic, such as screening tests. Quaternary prevention (D) refers to avoiding unnecessary or excessive medical intervention, which is not what is described here.",
-    "nursing_concept": "Levels of prevention — primary, secondary, tertiary"
+    "nursing_concept": "Levels of prevention \u2014 primary, secondary, tertiary"
+  },
+  {
+    "id": "HPM-013",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Aging Process",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A home health nurse is visiting an 82-year-old client who lives alone and takes nine different prescription medications for multiple chronic conditions. The client appears unsteady when rising from a chair and reports two near-falls in the past month. Which factor should the nurse recognize as most directly increasing this client's fall risk?",
+    "options": [
+      "The client's chronological age by itself",
+      "Polypharmacy combined with age-related slowing of balance, reaction time, and gait",
+      "The client's decision to continue living independently",
+      "A diet that includes high-fiber foods"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Taking multiple medications (polypharmacy) combined with expected age-related changes in balance, proprioception, and reaction time is one of the strongest, most modifiable contributors to falls in older adults, and this client's near-misses and unsteadiness are consistent with that combination. Age alone (A) is not itself a risk factor to act on and reflects an ageist assumption rather than an assessable cause. Choosing to live independently (C) is not inherently a risk factor; many older adults live safely and independently with appropriate supports. A high-fiber diet (D) is a healthy habit and has no direct link to fall risk.",
+    "nursing_concept": "Normal changes of aging and fall-risk assessment"
+  },
+  {
+    "id": "HPM-014",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Developmental Stages and Transitions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A 16-year-old client at a routine clinic visit describes trying out different friend groups and styles of dress, questioning what career to pursue, and feeling unsure \"who I really am\" some days. The parent, who is present, appears concerned and asks the nurse if this is normal. Which response reflects the nurse's correct analysis of this behavior?",
+    "options": [
+      "This pattern suggests a mood disorder that requires an immediate psychiatric referral",
+      "This reflects identity versus role confusion, the expected adolescent developmental task of exploring values, roles, and relationships before forming a stable sense of self",
+      "This behavior shows the adolescent has regressed to the industry versus inferiority stage",
+      "This pattern meets the criteria for a conduct disorder"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "According to Erikson, adolescence centers on identity versus role confusion, during which trying on different roles, appearances, and peer groups while questioning one's future is a normal, expected developmental process rather than a pathological one. Without additional findings such as persistent sadness, loss of interest, or functional decline, labeling this a mood disorder needing urgent referral (A) is an overreaction to developmentally expected exploration. Industry versus inferiority (C) describes school-age children mastering skills and competence, which does not fit this scenario. Conduct disorder (D) requires a persistent pattern of rule-violating or aggressive behavior, which is not described here.",
+    "nursing_concept": "Erikson's psychosocial stages \u2014 adolescent identity vs. role confusion"
+  },
+  {
+    "id": "HPM-015",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Health Promotion/Disease Prevention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "An outpatient nurse is teaching a 65-year-old client with no chronic illnesses about disease-prevention strategies appropriate for their age group. Which statement by the nurse reflects accurate primary prevention guidance?",
+    "options": [
+      "\"You no longer need any vaccines once you reach your 60s, since your immune system is already fully primed.\"",
+      "\"Staying current on vaccines recommended for your age group, such as annual influenza and age-appropriate pneumococcal and shingles (herpes zoster) vaccines, is an important way to prevent serious illness.\"",
+      "\"Vaccines are only beneficial for young children and provide little benefit to adults.\"",
+      "\"It's best to wait until you actually develop pneumonia before considering a pneumococcal vaccine.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Primary prevention aims to prevent disease before it occurs, and remaining current on vaccines recommended for older adults (such as influenza, pneumococcal, and shingles vaccines) reduces the risk of serious complications from preventable illness. Claiming older adults no longer need vaccines (A) is inaccurate; immune responses actually tend to wane with age, making prevention more, not less, important. Suggesting vaccines only benefit children (C) ignores well-established adult immunization guidance. Waiting until disease develops before vaccinating against it (D) confuses prevention with treatment and defeats the purpose of primary prevention.",
+    "nursing_concept": "Primary prevention \u2014 adult immunization"
+  },
+  {
+    "id": "HPM-016",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Health Screening",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is teaching a 50-year-old client at average risk for breast cancer about routine breast health screening. Which teaching points should the nurse include? Select all that apply.",
+    "options": [
+      "\"Routine mammography screening is recommended at intervals appropriate for your age and risk level; ask your provider what schedule is right for you.\"",
+      "\"Report any new breast lump, skin change, nipple discharge, or persistent breast pain to your provider promptly.\"",
+      "\"Breast self-awareness \u2014 knowing how your breasts normally look and feel \u2014 helps you notice changes to report, even though self-exam alone is not a substitute for clinical screening.\"",
+      "\"Because you have no family history of breast cancer, you will never need a mammogram.\"",
+      "\"A normal mammogram result means you never need to report any future breast changes again.\"",
+      "\"A clinical breast examination by a provider may be offered as part of your routine physical exam.\"",
+      "\"Mammography is completely painless and takes less than one minute total for both breasts combined.\""
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "rationale": "Individualized mammography scheduling (A), prompt reporting of new breast changes (B), breast self-awareness as a complement to (not a replacement for) clinical screening (C), and clinical breast exams during routine visits (F) are all accurate, evidence-based teaching points for an average-risk client. Most breast cancers occur in people without a family history, so lacking one (D) does not eliminate the need for screening. A prior normal mammogram does not prevent new changes from developing, so ongoing self-awareness and reporting remain necessary (E). Mammography can involve brief discomfort or pressure for some clients, so promising it is entirely painless (G) is an inaccurate overgeneralization that could undermine trust in the teaching.",
+    "nursing_concept": "Breast cancer screening guidance for average-risk adults"
+  },
+  {
+    "id": "HPM-017",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "High-Risk Behaviors",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A 17-year-old tells the school nurse, \"I know texting while driving is dangerous, but everyone does it, and I only check my phone when I'm stopped at red lights.\" Which response by the nurse is most appropriate?",
+    "options": [
+      "\"As long as you only check your phone while fully stopped, that's a safe habit.\"",
+      "\"Even checking a phone at a stoplight can distract you as traffic starts moving, and any phone use while driving increases crash risk \u2014 consider keeping your phone out of reach while you drive, such as in the back seat or a glove box.\"",
+      "\"I'm required to report this behavior to the Department of Motor Vehicles.\"",
+      "\"You should give up your driver's license entirely until you turn 18.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "The nurse should correct the misconception that checking a phone only while stopped is risk-free \u2014 attention can remain diverted as traffic resumes moving \u2014 and offer a practical, nonjudgmental strategy such as placing the phone out of reach while driving. Agreeing that stoplight phone use is safe (A) reinforces a dangerous belief. Threatening to report the teen to the DMV (C) is not within the nurse's role for this disclosure and would likely shut down future honest conversation. Demanding the teen surrender their license (D) is an extreme response disproportionate to the disclosure and is not a nursing action.",
+    "nursing_concept": "High-risk behavior counseling \u2014 distracted driving"
+  },
+  {
+    "id": "HPM-018",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Lifestyle Choices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A nurse is counseling a client who works rotating night shifts and reports feeling constantly fatigued and irritable. Which lifestyle recommendation by the nurse best supports healthy sleep hygiene for this client?",
+    "options": [
+      "\"Keep your bedroom bright and use your phone to scroll before falling asleep.\"",
+      "\"Try to keep a consistent sleep schedule, use blackout curtains to create a dark environment for daytime sleep, and limit caffeine in the hours before your scheduled sleep time.\"",
+      "\"Drink a cup of coffee right before your daytime sleep period to help you fall asleep faster.\"",
+      "\"Sleep is optional as long as you maintain a balanced diet.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "A consistent sleep schedule, a dark sleep environment (even during daytime hours for shift workers), and limiting caffeine before the planned sleep period are evidence-based sleep hygiene strategies that support better sleep quality and reduce fatigue. A bright bedroom and screen use before sleep (A) both interfere with the body's ability to fall and stay asleep by suppressing melatonin and increasing alertness. Caffeine shortly before sleep (C) is a stimulant and would further disrupt the ability to fall asleep. Sleep is a basic physiological need, not an optional lifestyle choice that diet can substitute for (D).",
+    "nursing_concept": "Lifestyle counseling \u2014 sleep hygiene for shift workers"
+  },
+  {
+    "id": "HPM-019",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Principles of Teaching/Learning",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is preparing discharge instructions for a client with limited English proficiency and low health literacy who will be managing a new colostomy at home. Which action by the nurse best supports effective learning for this client?",
+    "options": [
+      "Provide written instructions only in English and have the client sign a form stating they understand",
+      "Arrange for a qualified medical interpreter, use plain non-medical language with pictures or physical demonstration, and confirm understanding using the teach-back method",
+      "Speak more loudly and slowly in English so the client can better follow along",
+      "Ask a family member who is not a trained interpreter to translate the medical instructions during teaching"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Effective teaching for a client with limited English proficiency and low health literacy requires a qualified medical interpreter, plain non-medical language, visual aids or demonstration, and confirmation of understanding through teach-back, since a signature or verbal \"yes\" does not confirm comprehension. Providing English-only written material and requiring a signature (A) does not address the language barrier or verify understanding. Speaking loudly and slowly in English (C) does not resolve a language barrier and can feel patronizing. Relying on an untrained family member to interpret medical information (D) risks inaccurate translation and compromises the client's privacy and the accuracy of the teaching.",
+    "nursing_concept": "Principles of teaching/learning \u2014 health literacy and language barriers"
+  },
+  {
+    "id": "HPM-020",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Self-Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A nurse has taught a client with diabetes mellitus about daily foot care to prevent complications. Which statement by the client indicates that the teaching has been effective?",
+    "options": [
+      "\"I'll soak my feet in hot water every night to keep them clean.\"",
+      "\"I'll inspect my feet every day for cuts, redness, or blisters, and wear properly fitting closed-toe shoes to protect them.\"",
+      "\"I can go barefoot around the house since my feet feel fine.\"",
+      "\"I only need to check my feet if they start to hurt.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Daily foot inspection and wearing properly fitting, protective footwear are core self-care behaviors that reduce the risk of unnoticed injury, infection, and ulceration in clients with diabetes, who often have reduced peripheral sensation. Soaking feet in hot water (A) can cause burns or excessive skin drying in a client with impaired sensation and is not recommended. Going barefoot (C) increases the risk of unnoticed cuts or punctures. Waiting for pain before checking the feet (D) is unsafe because diabetic peripheral neuropathy often means injuries are not felt until they have become serious.",
+    "nursing_concept": "Self-care \u2014 diabetic foot care"
+  },
+  {
+    "id": "HPM-021",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Ante/Intra/Postpartum and Newborn Care",
+    "item_type": "sata",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A postpartum nurse observes a breastfeeding mother and newborn during a feeding session to evaluate technique. Which observations indicate effective breastfeeding? Select all that apply.",
+    "options": [
+      "The newborn's mouth covers a large portion of the areola, not just the nipple",
+      "The newborn's lips are flanged outward around the breast",
+      "The nurse hears frequent clicking sounds as the newborn sucks",
+      "The mother reports rhythmic sucking and swallowing with occasional pauses",
+      "The newborn's chin and nose are touching the breast while the nose remains free to breathe",
+      "The mother reports persistent, sharp nipple pain that continues throughout the entire feeding",
+      "The newborn repeatedly falls asleep within the first minute at the breast and needs vigorous stimulation to continue feeding"
+    ],
+    "answer": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "rationale": "A deep latch that covers much of the areola (A), flanged (not tucked-in) lips (B), audible rhythmic sucking and swallowing with pauses (D), and the chin and nose contacting the breast while the airway stays clear (E) are all signs of an effective latch and milk transfer. Frequent clicking sounds (C) usually indicate the newborn is losing and regaining suction, a sign of an ineffective latch. Persistent, sharp pain throughout the whole feeding (F) suggests improper latch or positioning and should be corrected, not expected. A newborn who repeatedly falls asleep almost immediately and requires vigorous stimulation to keep feeding (G) suggests ineffective transfer of milk rather than a well-fed, satisfied infant.",
+    "nursing_concept": "Evaluating effective breastfeeding technique"
+  },
+  {
+    "id": "HPM-022",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Developmental Stages and Transitions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A 50-year-old client reports irregular menstrual cycles, hot flashes, and difficulty sleeping over the past year. She also shares that she has been reflecting on \"what's next\" for her career and relationships now that her children have moved out of the home. Which statement best reflects the nurse's analysis of this client's presentation?",
+    "options": [
+      "These symptoms indicate a thyroid disorder and have no relationship to normal aging",
+      "The client is experiencing the perimenopausal transition, a normal midlife developmental change that commonly involves both physical symptoms and psychosocial reflection on roles and identity",
+      "These findings meet the criteria for a major depressive episode and require immediate psychiatric hospitalization",
+      "The client's symptoms are caused entirely by poor lifestyle choices and are completely preventable"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Irregular cycles, vasomotor symptoms such as hot flashes, and sleep disruption are classic physical features of the perimenopausal transition, and many women in midlife also reassess roles, identity, and relationships as children become more independent, a developmental transition sometimes referred to as the \"empty nest\" period. While thyroid dysfunction can cause overlapping symptoms and may be reasonable to rule out, stating the symptoms have \"no relationship\" to normal aging (A) is inaccurate given how classic this presentation is for perimenopause. The scenario does not describe the persistent low mood, anhedonia, or functional impairment required to diagnose a major depressive episode, so labeling this an emergency requiring hospitalization (C) is an overreaction. Perimenopause is a physiologic, hormonally driven process, not a condition caused solely by lifestyle choices (D).",
+    "nursing_concept": "Midlife developmental transitions \u2014 perimenopause"
+  },
+  {
+    "id": "HPM-023",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "High-Risk Behaviors",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A nurse is screening a young adult client during a primary care visit and asks about alcohol use patterns. Which client statements should the nurse recognize as indicating a high-risk pattern of alcohol use that warrants further assessment and brief intervention? Select all that apply.",
+    "options": [
+      "\"I usually have 5 or more drinks in one evening when I go out with friends, a couple times a month.\"",
+      "\"I had a glass of wine with dinner last weekend.\"",
+      "\"I've driven home after drinking because I felt 'fine to drive.'\"",
+      "\"My partner has told me I should cut back, but I don't think it's really a problem.\"",
+      "\"I sometimes need a drink first thing in the morning just to feel normal.\"",
+      "\"I have one beer on special occasions a few times a year.\"",
+      "\"I've missed work because I was too hungover to go in.\""
+    ],
+    "answer": [
+      0,
+      2,
+      3,
+      4,
+      6
+    ],
+    "rationale": "A pattern of 5 or more drinks in a single evening (A) meets the definition of binge drinking; driving after drinking while believing oneself to be \"fine\" (C) is a dangerous high-risk behavior; being told by others to cut back while minimizing the concern (D), needing a morning drink to feel normal (E), and missing work due to drinking's after-effects (G) are all classic cues of a problematic drinking pattern that map to screening questions used to identify risky alcohol use. Occasional light drinking, such as one glass of wine with dinner (B) or a single beer a few times a year (F), reflects low-risk use and is not, by itself, a cue for concern.",
+    "nursing_concept": "Screening for high-risk alcohol use"
+  },
+  {
+    "id": "HPM-024",
+    "category": "Health Promotion and Maintenance",
+    "subcategory": "Ante/Intra/Postpartum and Newborn Care",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A healthy, full-term newborn has just been transferred from the birthing room to the nursery for routine admission care. Place the following nursing actions in the order they should typically be performed.",
+    "options": [
+      "Obtain the newborn's weight, length, and head circumference",
+      "Verify that the newborn's identification bands match the mother's and confirm other security measures",
+      "Assess the newborn's temperature, heart rate, and respiratory rate",
+      "Administer prophylactic erythromycin eye ointment and the vitamin K injection",
+      "Give the newborn's first bath once the temperature has stabilized"
+    ],
+    "answer": [
+      1,
+      2,
+      3,
+      0,
+      4
+    ],
+    "rationale": "Nursery admission begins with verifying matching identification bands and security measures to prevent infant misidentification or abduction, a priority safety step before any hands-on care. The nurse then completes a baseline physiologic assessment, including temperature, heart rate, and respiratory rate, to confirm the newborn is stable before proceeding. Prophylactic medications (eye ointment and vitamin K) are administered once stability is confirmed, followed by anthropometric measurements such as weight, length, and head circumference. The first bath is performed last and only after the temperature has stabilized, because early bathing before thermoregulation is established increases the risk of cold stress and associated complications such as hypoglycemia. Performing these steps out of order \u2014 for example, bathing before confirming identity or stability \u2014 compromises both newborn safety and accurate assessment.",
+    "nursing_concept": "Sequencing routine newborn nursery admission care"
   }
 ]

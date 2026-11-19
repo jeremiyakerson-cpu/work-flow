@@ -357,6 +357,8 @@ def main():
     parser.add_argument("--validate", action="store_true", help="Validate the question bank and exit.")
     parser.add_argument("--stats", action="store_true", help="Print bank inventory and exit.")
     parser.add_argument("--list-categories", action="store_true", help="List canonical categories and exit.")
+    parser.add_argument("--export-bank", action="store_true",
+                         help="Export the entire validated bank (unfiltered) as JSON, e.g. for the web app, and exit.")
     args = parser.parse_args()
 
     if args.list_categories:
@@ -385,6 +387,18 @@ def main():
     if errors:
         print(f"Error: bank has {len(errors)} validation error(s). Run --validate for details.", file=sys.stderr)
         sys.exit(1)
+
+    if args.export_bank:
+        out = json.dumps(
+            [{k: v for k, v in q.items() if k != "_source_file"} for q in questions],
+            indent=2,
+        )
+        if args.output:
+            args.output.write_text(out)
+            print(f"Wrote {args.output} ({len(questions)} questions)")
+        else:
+            print(out)
+        return
 
     try:
         mix = load_mix(args, questions)

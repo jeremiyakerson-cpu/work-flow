@@ -13,7 +13,9 @@
       "Stage 4 pressure injury",
       "Unstageable pressure injury"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "A Stage 3 pressure injury involves full-thickness skin loss with visible adipose (fat) tissue; slough and/or eschar may be present but does not obscure the depth of tissue loss, and bone, tendon, and muscle are not exposed. Stage 2 involves only partial-thickness skin loss with exposed dermis (no fat visible). Stage 4 would show exposed bone, tendon, or muscle. Unstageable means slough or eschar obscures the wound bed so depth cannot be determined; here the depth is clearly visualized, so it is stageable as a Stage 3.",
     "nursing_concept": "NPIAP pressure injury staging"
   },
@@ -31,9 +33,11 @@
       "Hold the cane in your right hand and advance the cane at the same time as your left leg",
       "Hold the cane in your left hand and keep it stationary while both legs move together"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "A cane should be held in the hand on the stronger, unaffected side (the left hand, since the right leg is weak). This widens the base of support on the weaker side. The cane and the weaker (right) leg are advanced together, followed by the stronger (left) leg, which produces a smooth, supported gait. Holding the cane in the affected/right hand (A, C) removes the support advantage, and keeping the cane stationary (D) provides no assistance during the step.",
-    "nursing_concept": "Cane use — correct hand and gait pattern"
+    "nursing_concept": "Cane use \u2014 correct hand and gait pattern"
   },
   {
     "id": "BCC-003",
@@ -49,9 +53,11 @@
       "Increase the feeding rate temporarily to flush the tubing before rechecking placement",
       "Advance the tube 2 inches farther into the stomach and resume the feeding"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Coughing, a sensation of tube displacement, and a large increase in residual volume are cues suggesting possible tube migration, delayed gastric emptying, and aspiration risk. The priority is to stop the feeding immediately, maintain a position that protects the airway (HOB elevated or side-lying if the client is in distress), assess respiratory status, and notify the provider before resuming. Continuing or increasing the rate (A, C) risks worsening aspiration, and blindly advancing the tube (D) without confirming placement is unsafe.",
-    "nursing_concept": "Enteral feeding — aspiration risk recognition and response"
+    "nursing_concept": "Enteral feeding \u2014 aspiration risk recognition and response"
   },
   {
     "id": "BCC-004",
@@ -69,7 +75,12 @@
       "Wet, gurgling vocal quality noted after the feeding",
       "Bowel sounds are hypoactive in all four quadrants"
     ],
-    "answer": [0, 1, 2, 4],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
     "rationale": "Coughing/choking (A), a rising residual volume above the client's baseline (B), new hypoxemia with crackles (C), and a wet/gurgling voice (E) are all cues consistent with aspiration or high aspiration risk. Keeping the head of the bed elevated after a feeding (D) is a protective, recommended practice, not a warning sign. Hypoactive bowel sounds (F) reflect general GI motility and are not a specific aspiration indicator.",
     "nursing_concept": "Aspiration precautions with enteral feeding"
   },
@@ -88,9 +99,15 @@
       "Perform hand hygiene and explain the procedure to the client",
       "Begin administering the feeding at the prescribed rate"
     ],
-    "answer": [3, 1, 2, 0, 4],
+    "answer": [
+      3,
+      1,
+      2,
+      0,
+      4
+    ],
     "rationale": "The nurse should first perform hand hygiene and explain the procedure to the client, then position the client with the head of the bed elevated at least 30 degrees to reduce aspiration risk, then check the external tube length against the documented insertion length as a quick displacement check, then aspirate and check gastric pH as an additional placement check, and only then begin the feeding. Checking placement before elevating the head of the bed or skipping the length/pH checks increases the risk of feeding a misplaced tube.",
-    "nursing_concept": "NG tube feeding — placement verification sequence"
+    "nursing_concept": "NG tube feeding \u2014 placement verification sequence"
   },
   {
     "id": "BCC-006",
@@ -106,7 +123,9 @@
       "Restrict oral fluids until a bowel movement occurs",
       "Insert a rectal tube to stimulate peristalsis"
     ],
-    "answer": [0],
+    "answer": [
+      0
+    ],
     "rationale": "For early, uncomplicated constipation, the least invasive and first-line measures are increasing fiber and fluid intake and promoting activity/mobility, which stimulate peristalsis. An enema (B) is more invasive and should not be the first step without further assessment (e.g., ruling out impaction requiring digital removal first). Restricting fluids (C) would worsen constipation. Rectal tubes (D) are not a standard constipation-prevention measure and carry risk of vagal stimulation/mucosal injury.",
     "nursing_concept": "Constipation prevention in the immobile client"
   },
@@ -124,9 +143,11 @@
       "\"I only need to catheterize when I haven't urinated in over 24 hours.\"",
       "\"I should hold my urine as long as possible between catheterizations to help build bladder tone.\""
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Intermittent self-catheterization at home is typically performed using clean (not sterile) technique on a regular schedule, generally every 4-6 hours, and additionally whenever the client senses fullness, to keep bladder volumes low and reduce UTI and overdistension risk. Requiring full sterile technique at home (A) is unnecessary and impractical. Waiting up to 24 hours (C) or deliberately holding urine (D) allows bladder overdistension, which increases infection risk and can damage the detrusor muscle.",
-    "nursing_concept": "Intermittent catheterization — schedule and technique"
+    "nursing_concept": "Intermittent catheterization \u2014 schedule and technique"
   },
   {
     "id": "BCC-008",
@@ -142,7 +163,9 @@
       "Massage the ankle firmly to relieve muscle tension",
       "Apply a heating pad set on high directly against the skin"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "In the first 24-48 hours after an acute musculoskeletal injury, cold application (wrapped to protect the skin, applied 15-20 minutes at a time) causes vasoconstriction that limits swelling and bleeding into tissue and helps numb pain. Heat (A, D) promotes vasodilation, which would worsen swelling in the acute phase, and applying it directly and on high risks a burn. Vigorous massage (C) over an acutely injured, swollen area can increase tissue damage and bleeding.",
     "nursing_concept": "Cold vs. heat application in acute injury"
   },
@@ -160,7 +183,9 @@
       "\"Take a 2-hour nap in the late afternoon whenever you feel tired.\"",
       "\"Drink a glass of wine before bed to help you relax and fall asleep.\""
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Reserving the bed only for sleep and intimacy strengthens the mental association between bed and sleep, a core sleep hygiene principle. Vigorous exercise close to bedtime (A) is stimulating and can delay sleep onset. Long or late afternoon naps (C) reduce the homeostatic drive to sleep at night. Alcohol (D) may cause initial drowsiness but fragments sleep and worsens nighttime awakenings, so it is not recommended as a sleep aid.",
     "nursing_concept": "Sleep hygiene principles"
   },
@@ -178,7 +203,9 @@
       "Permanently position all personal items and food only on the client's right side",
       "Avoid mentioning the neglect to prevent embarrassing the client"
     ],
-    "answer": [0],
+    "answer": [
+      0
+    ],
     "rationale": "Unilateral neglect is managed by consistently cueing the client to attend to the affected (left) side and by structured scanning training, which promotes safety and supports gradual improvement in awareness while preserving as much independence as possible. Performing all care for the client (B) fosters unnecessary dependence. Permanently placing all items only on the right (C) avoids the deficit rather than addressing it and creates ongoing safety risk (e.g., missed food, injury from unseen hazards on the left). Not acknowledging the neglect (D) delays teaching the client compensatory strategies and is unsafe.",
     "nursing_concept": "Hygiene/ADL care with unilateral neglect"
   },
@@ -198,7 +225,12 @@
       "Use digital stimulation or a suppository at the scheduled time, as ordered",
       "Restrict fluid intake to reduce the frequency of bowel movements needed"
     ],
-    "answer": [0, 1, 2, 4],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
     "rationale": "Effective bowel training uses a consistent daily schedule, ideally timed after meals to take advantage of the gastrocolic reflex (A); adequate fiber and fluid to form soft, bulky stool (B); an upright seated position that uses gravity and proper pelvic floor mechanics (C); and digital stimulation or a suppository at the scheduled time as an evacuation trigger (E). Daily stimulant laxatives as the primary long-term strategy (D) are avoided when possible because of dependency and mucosal changes with chronic use; a step-based approach starting with less invasive measures is preferred. Restricting fluids (F) worsens constipation rather than helping it.",
     "nursing_concept": "Bowel training program components"
   },
@@ -216,8 +248,275 @@
       "Deep tissue pressure injury (suspected)",
       "Unstageable pressure injury"
     ],
-    "answer": [2],
+    "answer": [
+      2
+    ],
     "rationale": "A deep tissue pressure injury presents as intact or non-intact skin with a localized area of persistent non-blanchable deep red, maroon, or purple discoloration, and the tissue may feel boggy, mushy, or have a temperature change compared with adjacent tissue, reflecting damage to underlying soft tissue. Stage 1 (A) shows intact skin with non-blanchable erythema that is red, not purple/maroon, and without boggy texture. Stage 2 (B) requires an open wound with partial-thickness skin loss, which is not present here. Unstageable (D) requires full-thickness tissue loss obscured by slough or eschar, which does not match this intact-skin presentation.",
-    "nursing_concept": "NPIAP staging — deep tissue pressure injury"
+    "nursing_concept": "NPIAP staging \u2014 deep tissue pressure injury"
+  },
+  {
+    "id": "BCC-013",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Assistive Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client recovering from a total knee replacement is learning to ambulate with a standard four-point (non-wheeled) walker under partial weight-bearing precautions on the operative leg. Which instruction should the nurse include?",
+    "options": [
+      "Move the walker forward about 6 to 8 inches, then step forward with the operative leg followed by the non-operative leg",
+      "Move the walker forward about 2 feet, then bring both legs forward together in one large step",
+      "Lean forward onto the walker's hand grips with each step to shift weight off the operative leg",
+      "Carry the walker up each stair, step by step, instead of using the stair handrails"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "A walker should be advanced only a short distance (about 6-8 inches) to keep it within a safe, stable base of support, with the weaker/operative leg stepping into the walker first, followed by the stronger leg. Moving the walker 2 feet at once (B) extends it beyond a safe base and increases fall risk. Leaning forward onto the hand grips (C) shifts the center of gravity forward and can cause the client to pitch forward or overload the wrists instead of bearing weight as prescribed. Walkers are not used on stairs; handrails, not the walker, should be used for stair climbing (D).",
+    "nursing_concept": "Standard walker ambulation technique"
+  },
+  {
+    "id": "BCC-014",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Assistive Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "The nurse is using a gait (transfer) belt to assist a client with generalized weakness to transfer from the bed to a bedside chair. Which technique is correct?",
+    "options": [
+      "Apply the belt snugly against the client's bare skin at the waist and grasp it with an overhand grip",
+      "Apply the belt over the client's clothing at the waist, leaving room for two fingers to fit flat underneath, and grasp it with an underhand grip",
+      "Apply the belt around the client's chest, over the axillae, for additional upper-body support",
+      "Apply the belt loosely around the client's hips and pull the client upward by the arms during the transfer"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "A gait belt should be applied over clothing (not bare skin, to avoid friction/shearing injury), snug enough that only two fingers fit flat underneath, and grasped with an underhand grip, which gives the nurse a secure hold without hyperextending the wrist. Placing it over the axillae/chest (C) risks rib injury and restricts breathing and is not standard placement. A loose belt at the hips with pulling on the arms (D) provides no real control and risks shoulder injury, especially in a frail client.",
+    "nursing_concept": "Gait/transfer belt use"
+  },
+  {
+    "id": "BCC-015",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Mobility/Immobility",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "The nurse is caring for a client who has been immobile for several days after spinal surgery and is using intermittent pneumatic compression (IPC) sleeves for venous thromboembolism prevention. The nurse notes the client's left calf is warmer, more swollen, and more tender to palpation than the right calf. What is the nurse's priority action?",
+    "options": [
+      "Apply the IPC sleeve to the left leg first to help reduce the swelling",
+      "Massage the left calf firmly to improve circulation and break up any possible clot",
+      "Discontinue IPC sleeve use on the left leg, keep the client on bedrest, and notify the provider immediately",
+      "Ambulate the client in the hallway to see whether walking relieves the leg symptoms"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "New unilateral warmth, swelling, and tenderness are concerning for a deep vein thrombosis. The priority is to stop mechanical compression on the affected leg (to avoid dislodging a possible clot), keep the client still, and notify the provider for prompt evaluation (e.g., Doppler ultrasound). Continuing to compress or exercise the leg (A, D) or massaging it (B) could dislodge a thrombus and precipitate a pulmonary embolism.",
+    "nursing_concept": "Recognizing suspected DVT in the immobile client"
+  },
+  {
+    "id": "BCC-016",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Mobility/Immobility",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Two nurses are preparing to logroll a client who has cervical spine precautions, repositioning the client from supine to a side-lying position while maintaining spinal alignment. Place the following actions in the correct order.",
+    "options": [
+      "Place a pillow lengthwise between the client's knees and support the back with a pillow or rolled blanket",
+      "On a coordinated count, turn the client's head, shoulders, trunk, and hips simultaneously as a single unit",
+      "Explain the procedure to the client and raise the bed to a safe working height",
+      "Position one nurse at the client's head and shoulders and the other at the hips and legs, each grasping the far edge of the draw sheet",
+      "Cross the client's arms over the chest"
+    ],
+    "answer": [
+      2,
+      4,
+      3,
+      1,
+      0
+    ],
+    "rationale": "The nurses first explain the procedure and raise the bed to a safe height, then cross the client's arms over the chest so the limbs do not catch during the turn, then each nurse positions at the head/shoulders or hips/legs and grasps the draw sheet for full-body control, then turns the client's head, shoulders, trunk, and hips together on a coordinated count to keep the spine aligned, and finally places supportive pillows to maintain the new position. Turning before both nurses are positioned, or omitting the coordinated count, risks twisting the spine and injury.",
+    "nursing_concept": "Logrolling with spinal precautions"
+  },
+  {
+    "id": "BCC-017",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nonpharmacological Comfort Interventions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client with chronic osteoarthritis pain asks the nurse about nondrug ways to help manage pain at home. Which technique should the nurse suggest as an example of a nonpharmacological, mind-body comfort intervention?",
+    "options": [
+      "Guided imagery, such as focusing on a calming mental scene paired with slow breathing",
+      "Applying a topical NSAID gel to the affected joints",
+      "Taking an extra dose of the prescribed oral analgesic before activity",
+      "Scheduling a corticosteroid joint injection with the rheumatologist"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Guided imagery combined with slow breathing is a nonpharmacological, mind-body relaxation and distraction technique that can reduce the perception of pain. Topical NSAID gel (B), additional analgesic dosing (C), and a corticosteroid injection (D) are all pharmacologic/medical interventions, not nonpharmacological comfort measures, and extra analgesic dosing beyond what is prescribed (C) is also unsafe.",
+    "nursing_concept": "Nonpharmacological pain management"
+  },
+  {
+    "id": "BCC-018",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nonpharmacological Comfort Interventions",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "hard",
+    "stem": "A nurse is developing a plan of care for a client with chronic pain from fibromyalgia who wants to minimize reliance on opioid medication. Which nonpharmacological interventions should the nurse include in the plan? Select all that apply.",
+    "options": [
+      "Guided imagery and progressive muscle relaxation exercises",
+      "A structured, low-impact aerobic exercise program such as walking or water aerobics",
+      "Application of superficial heat (e.g., a warm pack) to tender muscle areas",
+      "Cognitive behavioral therapy to address pain-related thoughts and coping",
+      "Strict bedrest to conserve energy and minimize muscle use",
+      "Transcutaneous electrical nerve stimulation (TENS) as an adjunct for localized pain",
+      "Complete elimination of all physical activity until the pain resolves"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "rationale": "Evidence-based nonpharmacological management of fibromyalgia includes relaxation/imagery techniques (A), graded low-impact aerobic exercise (B), superficial heat for muscle comfort (C), cognitive behavioral therapy for pain coping (D), and TENS as an adjunct (F). Strict bedrest or eliminating activity (E, G) is contraindicated; deconditioning from inactivity is associated with increased pain sensitivity and worse functional outcomes in fibromyalgia, so graded activity is recommended instead of rest.",
+    "nursing_concept": "Nonpharmacological pain management in chronic pain syndromes"
+  },
+  {
+    "id": "BCC-019",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Rest and Sleep",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "A hospitalized client reports trouble sleeping because of frequent nighttime interruptions for vital signs, medications, and lab draws. Which nursing intervention best promotes the client's rest?",
+    "options": [
+      "Cluster nursing care activities, such as vital signs, medication administration, and assessments, to minimize nighttime interruptions whenever possible",
+      "Turn on the overhead room light at each round to ensure an accurate assessment",
+      "Wake the client every 2 hours overnight to reassess pain level regardless of current comfort",
+      "Encourage the client to watch television in the room until midnight to feel more tired"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Clustering care activities reduces the number of times the client is disturbed, preserving longer uninterrupted sleep periods and supporting normal sleep cycles. Bright overhead lighting (B) suppresses melatonin and disrupts circadian rhythm. Waking a client who is currently comfortable on a fixed schedule (C) causes unnecessary sleep fragmentation. Screen use close to bedtime (D) is stimulating and delays sleep onset rather than promoting it.",
+    "nursing_concept": "Sleep hygiene for the hospitalized client"
+  },
+  {
+    "id": "BCC-020",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Rest and Sleep",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A client newly diagnosed with obstructive sleep apnea has been prescribed continuous positive airway pressure (CPAP) therapy for use during sleep. Which statement by the client indicates correct understanding of the therapy?",
+    "options": [
+      "\"I should use the CPAP machine every night, including naps, at the pressure setting that was prescribed for me.\"",
+      "\"I only need to wear the mask on nights when I feel especially tired.\"",
+      "\"If the mask feels uncomfortable, I should stop using the machine rather than ask about adjusting the fit.\"",
+      "\"I don't need to clean the mask and tubing regularly, since the airflow keeps them clean.\""
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "CPAP is most effective with consistent use every time the client sleeps, including naps, at the prescribed pressure, to keep the upper airway open throughout sleep. Intermittent use (B) leaves apnea episodes unmanaged on nights the mask is skipped. Discomfort should prompt a request for mask refitting or a different interface, not discontinuation of therapy (C). Regular cleaning of the mask and tubing per manufacturer instructions is needed to prevent bacterial/mold growth and skin irritation; airflow alone does not clean the equipment (D).",
+    "nursing_concept": "CPAP therapy teaching for obstructive sleep apnea"
+  },
+  {
+    "id": "BCC-021",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Personal Hygiene",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "The nurse is providing oral care to an unconscious, orally intubated client receiving mechanical ventilation. Which action is most appropriate?",
+    "options": [
+      "Position the client supine with the head of the bed flat during oral care to prevent gagging",
+      "Suction oral secretions as needed during care, use a chlorhexidine-based oral rinse per protocol, and keep the head of the bed elevated 30-45 degrees",
+      "Use a standard toothbrush and ordinary toothpaste, and have the client rinse and spit after each brushing",
+      "Limit oral care to once every 24 hours to avoid disturbing the client's rest"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "An evidence-based ventilator-associated pneumonia prevention bundle includes keeping the head of the bed elevated 30-45 degrees, suctioning oral secretions/fluid during care to prevent aspiration, and using a chlorhexidine-based oral rinse per protocol, performed more often than once daily (commonly every 2-4 hours). Flat positioning (A) increases aspiration risk. An unconscious client cannot rinse and spit (C); doing so would cause aspiration. Limiting oral care to once daily (D) is inadequate and is associated with increased VAP risk.",
+    "nursing_concept": "Oral care for the ventilated client / VAP prevention"
+  },
+  {
+    "id": "BCC-022",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Personal Hygiene",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "The nurse is giving a complete bed bath to a client who is fully dependent for hygiene care. Place the following actions in the correct order.",
+    "options": [
+      "Wash, rinse, and dry the face, neck, and ears, moving from the cleanest to the most soiled areas",
+      "Fill the basin with warm water and test the temperature before beginning",
+      "Perform hand hygiene, don gloves, and provide for privacy by closing the door or curtain",
+      "Wash, rinse, and dry the arms and hands, followed by the chest and abdomen",
+      "Change the bath water, then wash, rinse, and dry the legs and feet",
+      "Change the water again and wash the perineal area last, using a clean section of the washcloth for each area and wiping front to back"
+    ],
+    "answer": [
+      2,
+      1,
+      0,
+      3,
+      4,
+      5
+    ],
+    "rationale": "Bathing begins with hand hygiene, glove use, and ensuring privacy, followed by preparing water at a safe, comfortable temperature. Washing then proceeds from cleaner areas (face/neck/ears) to progressively less clean areas (arms/trunk, then legs/feet), changing the bath water partway through and again before perineal care, which is done last with a clean section of washcloth per area and a front-to-back wiping direction, to avoid transferring microorganisms from less clean to cleaner body areas or introducing rectal flora toward the urethra.",
+    "nursing_concept": "Complete bed bath sequence"
+  },
+  {
+    "id": "BCC-023",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Nutrition and Oral Hydration",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is caring for a client recovering from a stroke who has been cleared by speech-language pathology for an oral diet with thickened liquids due to dysphagia. Which actions should the nurse include when assisting this client with meals? Select all that apply.",
+    "options": [
+      "Position the client upright at 90 degrees, if possible, for all oral intake",
+      "Offer small bites and sips, allowing time for the client to swallow completely before the next bite",
+      "Check the client's mouth for pocketed food after each bite and at the end of the meal",
+      "Have the client tilt the head backward slightly while swallowing to ease the passage of food",
+      "Keep the client upright or in a side-lying position with the head elevated for at least 30 minutes after the meal",
+      "Mix the client's pills into a full glass of thin water to make them easier to swallow",
+      "Provide thin liquids instead of the prescribed thickened liquids if the client requests them"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "rationale": "Safe feeding for dysphagia includes upright positioning at 90 degrees during intake (A), small bites/sips with adequate time to swallow (B), checking for pocketed food that could later be aspirated (C), and remaining upright for at least 30 minutes after eating to reduce reflux/aspiration risk (E). Tilting the head backward (D) extends the neck and opens the airway to food, increasing aspiration risk; the chin-tuck position is used instead. Giving pills in thin water (F) or substituting thin liquids for the prescribed thickened consistency (G) disregards the ordered dysphagia diet and increases aspiration risk, regardless of client preference.",
+    "nursing_concept": "Dysphagia diet and safe swallowing precautions"
+  },
+  {
+    "id": "BCC-024",
+    "category": "Basic Care and Comfort",
+    "subcategory": "Elimination",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "The nurse is caring for a client with a long-term indwelling urinary catheter. Which assessment finding should the nurse recognize as a sign of a possible catheter-associated urinary tract infection (CAUTI) warranting provider notification, rather than an expected finding in a client with a chronic indwelling catheter?",
+    "options": [
+      "Urine that appears cloudy with sediment but has no odor change, as has been typical for this client for months",
+      "New-onset fever, suprapubic tenderness, and cloudy, foul-smelling urine",
+      "A slight ammonia-like urine odor that is more noticeable after several hours without a drainage-bag change",
+      "Scant, nonpurulent pericatheter mucus at the insertion site in a client with a long-standing catheter"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "New fever with suprapubic tenderness and malodorous, cloudy urine represents a change from baseline along with systemic and local signs suggestive of CAUTI, which should be reported to the provider. Options A and C describe unchanged, longstanding baseline findings common in chronically catheterized clients (asymptomatic bacteriuria is frequent and is not treated unless the client is symptomatic). Option D describes a minor, nonpurulent finding without accompanying systemic or local signs of infection, which alone is not diagnostic of CAUTI.",
+    "nursing_concept": "Recognizing CAUTI vs. expected chronic catheter findings"
   }
 ]

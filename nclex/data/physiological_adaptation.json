@@ -13,7 +13,9 @@
       "Prominent U waves with ST segment depression",
       "Shortened QT interval with tall P waves"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Missed dialysis leads to potassium retention and hyperkalemia. Classic ECG changes of hyperkalemia progress from tall, peaked T waves to a widened QRS complex and, if untreated, to a sine-wave pattern and cardiac arrest. Prolonged QT with flattened T waves and prominent U waves with ST depression are findings of hypokalemia, not hyperkalemia, and a shortened QT interval with tall P waves is not a recognized hyperkalemia pattern.",
     "nursing_concept": "Hyperkalemia — ECG recognition"
   },
@@ -31,7 +33,9 @@
       "IV regular insulin with dextrose",
       "Oral potassium-restricted diet teaching"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "When hyperkalemia produces ECG changes suggesting cardiac membrane instability, the priority is to stabilize the cardiac cell membrane with IV calcium gluconate, which acts within minutes but does not lower the serum potassium level. Insulin with dextrose and sodium polystyrene sulfonate both lower or remove potassium but act more slowly and do not protect the heart in the interim; dietary teaching is not an acute emergency intervention.",
     "nursing_concept": "Hyperkalemia — cardiac membrane stabilization priority"
   },
@@ -52,7 +56,12 @@
       "Polyuria with dilute urine",
       "Hyperreflexia with tremors"
     ],
-    "answer": [0, 1, 2, 3],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "rationale": "Severe hyponatremia causes cerebral edema from water shifting into brain cells, producing neurologic manifestations such as confusion, lethargy, headache, seizures, and coma, along with muscle cramps and weakness from altered neuromuscular excitability. A positive Chvostek's sign and hyperreflexia/tremors are characteristic of hypocalcemia and hypomagnesemia, not hyponatremia, and polyuria with dilute urine is a finding of diabetes insipidus, which would cause hypernatremia, not hyponatremia.",
     "nursing_concept": "Severe hyponatremia — neurologic manifestations"
   },
@@ -70,7 +79,9 @@
       "Hypernatremia",
       "Hypomagnesemia is ruled out by this finding"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "A positive Chvostek's sign (facial muscle twitching when the facial nerve is tapped) along with perioral and fingertip tingling suggests hypocalcemia, a known risk after thyroidectomy if the parathyroid glands are inadvertently damaged or removed, since the parathyroid glands regulate calcium. Hypercalcemia produces the opposite picture (lethargy, weakness, decreased reflexes), and hypernatremia does not classically cause this sign. Hypomagnesemia can also cause a positive Chvostek's sign and is not ruled out by this finding, making that option incorrect as stated.",
     "nursing_concept": "Post-thyroidectomy hypocalcemia — Chvostek's sign"
   },
@@ -88,7 +99,9 @@
       "Irreversible shock",
       "Neurogenic shock with bradycardia"
     ],
-    "answer": [0],
+    "answer": [
+      0
+    ],
     "rationale": "In compensated (early) shock, sympathetic nervous system activation maintains blood pressure within a near-normal range through tachycardia and vasoconstriction (cool, clammy skin) even as perfusion begins to suffer, and urine output typically remains marginal but present. Decompensated shock features hypotension and significantly falling urine output as compensatory mechanisms fail. Irreversible shock involves multi-organ failure unresponsive to treatment. Neurogenic shock classically presents with bradycardia and warm, dry skin from loss of sympathetic tone, which does not match this presentation.",
     "nursing_concept": "Stages of shock — recognizing compensated shock"
   },
@@ -108,7 +121,13 @@
       "Alert and fully oriented mental status",
       "Heart rate of 142 beats/min with a thready pulse"
     ],
-    "answer": [0, 1, 2, 3, 5],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
     "rationale": "Decompensated (progressive) shock reflects failing compensatory mechanisms: hypotension unresponsive to initial fluids, oliguria, elevated lactate from anaerobic metabolism and poor tissue perfusion, mottled/cool skin from severe peripheral vasoconstriction, and a rapid, weak (thready) pulse as cardiac output falls. Being alert and fully oriented is inconsistent with progressive shock, in which decreased cerebral perfusion typically causes confusion, restlessness, or decreasing level of consciousness.",
     "nursing_concept": "Septic shock — decompensated stage findings"
   },
@@ -127,7 +146,13 @@
       "Give supplemental oxygen and place the client in a supine position with legs elevated as tolerated",
       "Initiate a rapid infusion of IV isotonic fluids"
     ],
-    "answer": [1, 0, 2, 3, 4],
+    "answer": [
+      1,
+      0,
+      2,
+      3,
+      4
+    ],
     "rationale": "For suspected anaphylaxis, the first action is to stop the causative agent by discontinuing the infusion and disconnecting the tubing at the client so no further drug is delivered. Epinephrine IM is the priority life-saving medication and should be given immediately next, before other supportive measures. The nurse then calls for emergency assistance and prepares for a possible advanced airway, since laryngeal edema/stridor can progress to airway obstruction. Supplemental oxygen and positioning to support perfusion follow, and rapid IV fluid administration to treat hypotension/distributive shock comes after the airway and epinephrine priorities are addressed.",
     "nursing_concept": "Anaphylaxis — emergency response sequence"
   },
@@ -145,7 +170,9 @@
       "Stop the infusion immediately and prepare to administer epinephrine",
       "Apply a cool compress to the rash and document the finding"
     ],
-    "answer": [2],
+    "answer": [
+      2
+    ],
     "rationale": "A sense of impending doom, wheezing, and urticaria shortly after starting a new IV medication are signs of anaphylaxis, a life-threatening hypersensitivity reaction. The priority is to stop the infusion immediately to halt further antigen exposure and prepare to administer epinephrine, the first-line treatment. Slowing the infusion (A) or continuing it after only an oral antihistamine (B) allows continued exposure to the trigger, and treating the rash alone (D) ignores the systemic, airway-threatening nature of the reaction.",
     "nursing_concept": "Anaphylaxis — priority action on recognition"
   },
@@ -163,7 +190,9 @@
       "Somogyi effect",
       "Dawn phenomenon"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "Kussmaul respirations (deep, rapid breathing to blow off CO2), fruity/acetone breath odor, hyperglycemia, and a metabolic acidosis with low pH and low bicarbonate are hallmark findings of diabetic ketoacidosis (DKA), caused by absolute insulin deficiency and ketone body production, most common in type 1 diabetes. Hyperosmolar hyperglycemic state typically presents with much higher glucose levels, profound dehydration, and minimal to no ketoacidosis because some residual insulin is present. The Somogyi effect and dawn phenomenon describe patterns of morning hyperglycemia, not an acute acidotic crisis.",
     "nursing_concept": "DKA vs. HHS — distinguishing features"
   },
@@ -181,7 +210,9 @@
       "Administer the potassium replacement",
       "Obtain a stat hemoglobin A1c level"
     ],
-    "answer": [1],
+    "answer": [
+      1
+    ],
     "rationale": "In DKA management, the priority sequence is fluids first, then insulin, with careful attention to potassium. This client shows signs of significant intravascular volume depletion (hypotension, tachycardia), so IV isotonic fluid resuscitation is the first priority to restore perfusion and begin diluting the glucose concentration. Starting insulin before adequate fluid resuscitation can worsen hypotension and shift potassium intracellularly, risking dangerous hypokalemia; potassium should not be given until the client's renal function and serum potassium level are confirmed adequate. A hemoglobin A1c reflects long-term glycemic control and has no role in acute management.",
     "nursing_concept": "DKA management — fluids before insulin"
   },
@@ -199,7 +230,9 @@
       "Obtain a 12-lead ECG and notify the provider immediately",
       "Ask the client to rate the pain on a 0-10 scale before doing anything else"
     ],
-    "answer": [2],
+    "answer": [
+      2
+    ],
     "rationale": "Chest pressure radiating to the arm with diaphoresis and nausea is a classic presentation of acute coronary syndrome. Time is myocardial tissue, so the priority is to obtain a 12-lead ECG promptly and notify the provider so reperfusion decisions can be made quickly, consistent with current emphasis on rapid ECG acquisition and door-to-treatment time goals. A detailed history and pain rating are important but should not delay ECG acquisition, and notifying the family is not a priority during an acute emergency.",
     "nursing_concept": "Acute coronary syndrome — rapid ECG priority"
   },
@@ -219,8 +252,271 @@
       "Withhold antibiotics until culture and sensitivity results are finalized",
       "Delay fluid resuscitation until blood pressure drops below 70 mmHg systolic"
     ],
-    "answer": [0, 1, 2, 3],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "rationale": "Early recognition and management of sepsis focuses on obtaining blood cultures before starting antibiotics (so the causative organism can still be identified), giving broad-spectrum antibiotics as soon as possible afterward, beginning prompt IV fluid resuscitation to restore perfusion, and measuring serum lactate to assess tissue hypoperfusion and guide treatment. Antibiotics should never be withheld pending final culture results, as this delay increases mortality, and fluid resuscitation should begin promptly once hypoperfusion or hypotension is identified rather than waiting for further deterioration.",
     "nursing_concept": "Sepsis recognition and early management bundle"
+  },
+  {
+    "id": "PHYS-013",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A client who takes digoxin for heart failure is also prescribed furosemide. The client reports nausea, anorexia, and visual disturbances described as seeing yellow-green halos around lights. The nurse should suspect which electrolyte imbalance is contributing to these findings?",
+    "options": [
+      "Hyperkalemia",
+      "Hypokalemia",
+      "Hypercalcemia",
+      "Hypernatremia"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Furosemide is a potassium-wasting loop diuretic, and hypokalemia increases myocardial sensitivity to digoxin, precipitating digoxin toxicity, which classically presents with GI symptoms (nausea, anorexia) and visual disturbances such as yellow-green halos (xanthopsia). Hyperkalemia would reduce rather than increase digoxin sensitivity and does not produce this visual effect. Hypercalcemia and hypernatremia are not characteristically linked to digoxin toxicity through this mechanism.",
+    "nursing_concept": "Hypokalemia potentiating digoxin toxicity"
+  },
+  {
+    "id": "PHYS-014",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client with metastatic breast cancer reports constipation, fatigue, and confusion. Serum calcium is 13.2 mg/dL (3.3 mmol/L). Which additional finding should the nurse expect to correlate with this laboratory value?",
+    "options": [
+      "Positive Trousseau's sign",
+      "Hyperactive bowel sounds",
+      "Decreased deep tendon reflexes",
+      "Muscle twitching and hyperreflexia"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "Hypercalcemia, common in malignancy from bone metastasis and release of calcium into the bloodstream, depresses neuromuscular excitability, producing decreased or absent deep tendon reflexes along with muscle weakness, lethargy, confusion, constipation, and hypoactive bowel sounds. A positive Trousseau's sign and hyperreflexia with muscle twitching are findings of hypocalcemia, the opposite imbalance, and hyperactive bowel sounds would not be expected because hypercalcemia slows GI motility.",
+    "nursing_concept": "Hypercalcemia of malignancy — neuromuscular effects"
+  },
+  {
+    "id": "PHYS-015",
+    "category": "Physiological Adaptation",
+    "subcategory": "Fluid and Electrolyte Imbalances",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client admitted for alcohol withdrawal has a serum magnesium level of 1.1 mEq/L (0.55 mmol/L). Which findings should the nurse expect to assess? Select all that apply.",
+    "options": [
+      "Hyperactive deep tendon reflexes",
+      "Positive Chvostek's sign",
+      "Coarse tremors",
+      "Prolonged QT interval on ECG",
+      "Decreased level of consciousness with lethargy",
+      "Seizure activity",
+      "Bradycardia with a widened QRS complex"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "rationale": "Hypomagnesemia increases neuromuscular irritability, producing hyperactive deep tendon reflexes, a positive Chvostek's sign, coarse tremors, and seizures, and it prolongs the QT interval, increasing the risk for torsades de pointes. A decreased level of consciousness with lethargy is more typical of conditions such as hypercalcemia or severe hyponatremia, not hypomagnesemia, and bradycardia with a widened QRS reflects hyperkalemia, not low magnesium.",
+    "nursing_concept": "Hypomagnesemia — neuromuscular and cardiac findings"
+  },
+  {
+    "id": "PHYS-016",
+    "category": "Physiological Adaptation",
+    "subcategory": "Hemodynamics",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "hard",
+    "stem": "A client who had a large anterior myocardial infarction 12 hours ago now has a blood pressure of 82/58 mmHg, heart rate of 128 beats/min, crackles throughout bilateral lung fields, cool extremities, and a urine output of 15 mL over the last hour. Which type of shock does this presentation most likely represent?",
+    "options": [
+      "Cardiogenic shock",
+      "Hypovolemic shock",
+      "Neurogenic shock",
+      "Anaphylactic shock"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Following extensive myocardial damage, the heart fails as a pump, producing hypotension, compensatory tachycardia, pulmonary crackles from backward (left-sided) heart failure, cool extremities from compensatory vasoconstriction, and oliguria from poor forward flow — the classic presentation of cardiogenic shock. Hypovolemic shock results from volume loss and would not typically cause pulmonary crackles. Neurogenic shock produces bradycardia with warm, dry skin from loss of sympathetic tone. Anaphylactic shock follows an allergen exposure and features urticaria/angioedema, not a recent MI.",
+    "nursing_concept": "Cardiogenic shock after MI — pump failure"
+  },
+  {
+    "id": "PHYS-017",
+    "category": "Physiological Adaptation",
+    "subcategory": "Hemodynamics",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A client who is 2 days postoperative following cardiac surgery becomes restless, with jugular venous distention and muffled heart sounds. Blood pressure drops from 118/76 mmHg to 88/68 mmHg, the pulse pressure narrows, and the nurse notes the systolic blood pressure falls by 14 mmHg during inspiration. Which complication should the nurse suspect?",
+    "options": [
+      "Cardiac tamponade",
+      "Tension pneumothorax",
+      "Pulmonary embolism",
+      "Hypovolemic shock from surgical bleeding"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Jugular venous distention, muffled/distant heart sounds, hypotension with a narrowing pulse pressure, and pulsus paradoxus (an inspiratory drop in systolic blood pressure greater than 10 mmHg) together form the classic picture of cardiac tamponade, a known risk after cardiac surgery from blood accumulating in the pericardial sac. Tension pneumothorax presents with tracheal deviation and absent breath sounds on the affected side rather than muffled heart sounds. Pulmonary embolism classically causes sudden dyspnea and hypoxia rather than this triad. Hypovolemic shock from bleeding would present with flat neck veins and clear heart sounds, not distention and muffling.",
+    "nursing_concept": "Cardiac tamponade — Beck's triad and pulsus paradoxus"
+  },
+  {
+    "id": "PHYS-018",
+    "category": "Physiological Adaptation",
+    "subcategory": "Alterations in Body Systems",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client with a traumatic brain injury has the following vital sign trend over 2 hours: blood pressure 150/60 mmHg increasing to 182/70 mmHg, heart rate 88 beats/min decreasing to 52 beats/min, and respirations becoming irregular. Which nursing action is the priority?",
+    "options": [
+      "Administer a prescribed antihypertensive and reassess in 1 hour",
+      "Notify the provider immediately of findings consistent with rising intracranial pressure",
+      "Encourage the client to cough and deep breathe to improve oxygenation",
+      "Lower the head of the bed to improve cerebral blood flow"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "A widening pulse pressure (rising systolic with a stable or low diastolic), bradycardia, and irregular respirations constitute Cushing's triad, a late and ominous sign of rising intracranial pressure and impending brain herniation; the priority is immediate provider notification so emergency measures can be taken. Giving an antihypertensive would further compromise cerebral perfusion pressure. Coughing and straining raise intrathoracic and intracranial pressure and should be avoided. Lowering the head of the bed increases ICP rather than improving perfusion; the head should instead be kept elevated about 30 degrees.",
+    "nursing_concept": "Cushing's triad — rising intracranial pressure"
+  },
+  {
+    "id": "PHYS-019",
+    "category": "Physiological Adaptation",
+    "subcategory": "Medical Emergencies",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client begins having a generalized tonic-clonic seizure that has not stopped after 6 minutes. Place the nurse's actions in the order in which they should be performed.",
+    "options": [
+      "Administer IV lorazepam as prescribed",
+      "Document seizure characteristics, duration, and the client's postictal status",
+      "Protect the client from injury and turn the client to the side; do not restrain movements",
+      "Notify the provider/rapid response team and prepare for possible airway management",
+      "Apply supplemental oxygen and continuously monitor oxygen saturation"
+    ],
+    "answer": [
+      2,
+      3,
+      4,
+      0,
+      1
+    ],
+    "rationale": "When a seizure persists beyond 5 minutes (status epilepticus), the nurse's first priority is to protect the client from injury and position them side-lying to protect the airway and reduce aspiration risk, without restraining the convulsive movements. The nurse then notifies the provider or activates the rapid response team, since status epilepticus is a neurological emergency that may require advanced airway management. Supplemental oxygen is applied next to support oxygenation during the seizure. IV lorazepam (or another prescribed benzodiazepine) is then administered as the priority pharmacologic intervention to terminate the seizure. Once the client is stabilized, the nurse documents the seizure characteristics, duration, and postictal status, which, while important, is not a priority during the active emergency.",
+    "nursing_concept": "Status epilepticus — emergency management sequence"
+  },
+  {
+    "id": "PHYS-020",
+    "category": "Physiological Adaptation",
+    "subcategory": "Medical Emergencies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A client who sustained blunt chest trauma suddenly develops severe dyspnea, absent breath sounds on the right side, tracheal deviation to the left, distended neck veins, and a blood pressure of 76/50 mmHg. Which complication should the nurse suspect?",
+    "options": [
+      "Simple pneumothorax",
+      "Tension pneumothorax",
+      "Flail chest",
+      "Pulmonary contusion"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Tracheal deviation away from the affected side, absent breath sounds, severe respiratory distress, jugular venous distention, and hypotension indicate a tension pneumothorax, in which trapped air under increasing pressure collapses the lung and shifts the mediastinum, compressing the great vessels and impairing venous return — a life-threatening emergency requiring immediate needle decompression. A simple pneumothorax does not cause mediastinal shift or hemodynamic instability. Flail chest presents with paradoxical chest wall movement rather than tracheal deviation. Pulmonary contusion causes hypoxia and dyspnea without tracheal shift or unilateral absent breath sounds.",
+    "nursing_concept": "Tension pneumothorax — recognition of mediastinal shift"
+  },
+  {
+    "id": "PHYS-021",
+    "category": "Physiological Adaptation",
+    "subcategory": "Pathophysiology",
+    "item_type": "sata",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who required massive blood transfusion after trauma now has worsening dyspnea, bilateral diffuse infiltrates on chest x-ray, and a PaO2/FiO2 ratio of 150 despite 60% supplemental oxygen. Which characteristics are consistent with acute respiratory distress syndrome (ARDS)? Select all that apply.",
+    "options": [
+      "Severe hypoxemia that does not fully correct with supplemental oxygen",
+      "Bilateral pulmonary infiltrates on chest imaging",
+      "Normal pulmonary capillary wedge pressure (no evidence of a cardiac cause)",
+      "Elevated left atrial pressure as the primary cause of the pulmonary edema",
+      "Decreased lung compliance (\"stiff lungs\")",
+      "Onset occurring within about 1 week of a known clinical insult"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4,
+      5
+    ],
+    "rationale": "ARDS is characterized by acute, severe hypoxemia that is refractory to supplemental oxygen; bilateral pulmonary infiltrates on imaging; a noncardiogenic mechanism, reflected by a normal pulmonary capillary wedge pressure rather than elevated left heart pressures; decreased lung compliance from diffuse alveolar damage and surfactant dysfunction; and onset within about one week of a known precipitating insult such as sepsis, trauma, or massive transfusion. Elevated left atrial pressure causing the pulmonary edema describes cardiogenic pulmonary edema/heart failure, the condition ARDS must be distinguished from, not a feature of ARDS itself.",
+    "nursing_concept": "ARDS — diagnostic criteria and pathophysiology"
+  },
+  {
+    "id": "PHYS-022",
+    "category": "Physiological Adaptation",
+    "subcategory": "Illness Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A client with a history of cirrhosis is admitted with hematemesis and melena. Vital signs are blood pressure 84/52 mmHg, heart rate 132 beats/min, and the client is lethargic. The provider's orders include type and crossmatch for packed red blood cells, two large-bore IV catheters, and IV isotonic crystalloid fluids. Which action should the nurse take first?",
+    "options": [
+      "Draw blood for type and crossmatch",
+      "Insert two large-bore IV catheters and begin rapid crystalloid infusion",
+      "Prepare the client for an emergent upper endoscopy",
+      "Insert an indwelling urinary catheter to monitor hourly output"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "This client shows signs of hemorrhagic (hypovolemic) shock from an upper GI bleed, likely from esophageal varices given the history of cirrhosis. The immediate priority is to establish large-bore IV access and begin rapid volume resuscitation with isotonic crystalloids to restore circulating volume and perfusion while blood products are being prepared. Blood for type and crossmatch is part of the overall plan, but obtaining results and transfusing takes time, so fluid resuscitation cannot wait for it. Endoscopy is important to identify and treat the bleeding source but occurs after the client is hemodynamically stabilized. Inserting a urinary catheter to monitor output is useful but is not the priority over restoring circulating volume.",
+    "nursing_concept": "Hypovolemic/hemorrhagic shock — GI bleed resuscitation priority"
+  },
+  {
+    "id": "PHYS-023",
+    "category": "Physiological Adaptation",
+    "subcategory": "Unexpected Response to Therapies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Fifteen minutes after a packed red blood cell transfusion is started, a client develops fever, chills, flank pain, and reddish-brown urine. Which action should the nurse take first?",
+    "options": [
+      "Slow the infusion rate and administer an antipyretic",
+      "Stop the transfusion and keep the IV line open with 0.9% sodium chloride using new tubing",
+      "Administer diphenhydramine and continue the infusion at the prescribed rate",
+      "Obtain a stat chest x-ray to rule out transfusion-associated circulatory overload"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Fever, chills, flank pain, and reddish-brown urine (hemoglobinuria) shortly after starting a transfusion suggest an acute hemolytic transfusion reaction, a potentially fatal complication. The priority is to stop the transfusion immediately and keep the vein open with normal saline through new tubing (not the tubing that contained blood) to prevent further infusion of incompatible blood while maintaining IV access for treatment. Slowing the infusion or giving an antihistamine and continuing it both allow continued exposure to incompatible blood. A chest x-ray is appropriate for suspected circulatory overload (symptoms such as dyspnea and crackles), not for this presentation of hemolysis.",
+    "nursing_concept": "Acute hemolytic transfusion reaction — priority response"
+  },
+  {
+    "id": "PHYS-024",
+    "category": "Physiological Adaptation",
+    "subcategory": "Unexpected Response to Therapies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "hard",
+    "stem": "A client receiving IV alteplase (tissue plasminogen activator) for an acute ischemic stroke develops swelling of the lips and tongue with difficulty speaking approximately 45 minutes into the infusion. Which action should the nurse take first?",
+    "options": [
+      "Continue the infusion and reassess in 15 minutes",
+      "Stop the alteplase infusion and assess the airway immediately",
+      "Administer an additional dose of alteplase to complete treatment",
+      "Lower the head of the bed and increase the infusion rate"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Orolingual angioedema is a recognized, though uncommon, adverse reaction to alteplase and can rapidly progress to airway obstruction, so the priority is to stop the infusion immediately and assess and protect the airway. Continuing the infusion or giving additional medication would worsen the reaction. Lowering the head of the bed and increasing the infusion rate does nothing to address the airway threat and would deliver more of the causative drug.",
+    "nursing_concept": "Alteplase-associated angioedema — unexpected adverse response"
   }
 ]

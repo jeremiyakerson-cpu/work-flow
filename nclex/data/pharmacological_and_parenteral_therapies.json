@@ -207,5 +207,216 @@
     "answer": ["2 tablets"],
     "rationale": "Dose ordered ÷ dose on hand = 150 mcg ÷ 75 mcg/tablet = 2 tablets.",
     "nursing_concept": "Oral dosage calculation"
+  },
+  {
+    "id": "PHARM-013",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Medication Administration",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is preparing to administer iron dextran intramuscularly using the Z-track technique to a client with severe iron deficiency anemia. Which action is essential to performing this technique correctly?",
+    "options": [
+      "Use the deltoid muscle as the preferred injection site",
+      "Pull the skin and subcutaneous tissue laterally about 1 to 1.5 inches before inserting the needle, and release it after the needle is withdrawn",
+      "Massage the injection site after the injection to help distribute the medication",
+      "Insert the needle at a 45-degree angle into the subcutaneous tissue"
+    ],
+    "answer": [1],
+    "rationale": "The Z-track technique requires displacing the skin and subcutaneous tissue laterally 1 to 1.5 inches, injecting into a large muscle (typically the ventrogluteal site) at a 90-degree angle, and releasing the tissue only after the needle is withdrawn. This creates a zigzag track that seals the irritating medication within the muscle, preventing leakage and staining of subcutaneous tissue. The deltoid (A) is too small and is not the recommended site for Z-track injections of iron dextran. Massaging the site (C) would push the medication into subcutaneous tissue, causing irritation and skin staining, which is exactly what Z-track is meant to prevent. A 45-degree subcutaneous angle (D) is incorrect because Z-track is an IM technique given at a 90-degree angle.",
+    "nursing_concept": "Z-track IM injection technique"
+  },
+  {
+    "id": "PHARM-014",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Adverse Effects/Contraindications/Side Effects/Interactions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client is receiving a first dose of IV vancomycin 1 g in 250 mL of 0.9% NaCl infusing over 30 minutes. Fifteen minutes into the infusion, the client develops flushing of the face and upper torso, pruritus, and a blood pressure of 100/62 mm Hg (baseline 128/78 mm Hg). What should the nurse do first?",
+    "options": [
+      "Stop the infusion and notify the provider; anticipate restarting at a slower rate once symptoms resolve",
+      "Administer diphenhydramine as ordered and continue the infusion at the same rate",
+      "Increase the infusion rate so the dose is completed quickly",
+      "Document the finding as an expected effect of vancomycin and continue to monitor"
+    ],
+    "answer": [0],
+    "rationale": "Flushing, pruritus, and hypotension shortly after starting a rapid vancomycin infusion are classic for 'red man syndrome,' a histamine-mediated infusion reaction rather than a true allergic reaction. The priority is to stop the infusion and notify the provider; symptoms typically resolve once the infusion is stopped, and subsequent doses are infused more slowly (over at least 60 minutes), sometimes with antihistamine pretreatment as ordered. Giving diphenhydramine while continuing the same rapid rate (B) does not remove the trigger and risks worsening hypotension. Increasing the rate (C) would worsen the reaction. This is not a benign, expected effect that can simply be monitored through (D) given the hemodynamic change.",
+    "nursing_concept": "Vancomycin infusion reaction (red man syndrome)"
+  },
+  {
+    "id": "PHARM-015",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Blood and Blood Products",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Thirty minutes after a unit of packed red blood cells is started, a client develops a temperature increase from 37.0°C to 38.3°C, chills, and headache. Blood pressure is stable and there is no dyspnea, flank pain, or hemoglobinuria. The nurse suspects a febrile nonhemolytic transfusion reaction. Which actions should the nurse take? Select all that apply.",
+    "options": [
+      "Stop the transfusion and keep the IV line open with 0.9% NaCl through new tubing",
+      "Notify the provider and the blood bank of the suspected reaction",
+      "Administer an antipyretic such as acetaminophen as ordered",
+      "Continue the transfusion at the same rate because the vital signs are otherwise stable",
+      "Recheck and document vital signs frequently per facility protocol",
+      "Send the remaining blood unit and tubing to the blood bank for evaluation",
+      "Administer epinephrine immediately per anaphylaxis protocol"
+    ],
+    "answer": [0, 1, 2, 4, 5],
+    "rationale": "Any suspected transfusion reaction, even an apparently milder febrile nonhemolytic reaction, requires stopping the transfusion immediately and keeping the line open with saline through new tubing (A) until a hemolytic or other serious reaction can be ruled out, notifying the provider and blood bank (B), treating the fever with an antipyretic as ordered (C), closely monitoring vital signs (E), and returning the unit and tubing to the blood bank for evaluation per protocol (F). The transfusion should never be continued once a reaction is suspected, even if the client otherwise looks stable (D is incorrect). Epinephrine (G) is reserved for anaphylactic reactions with respiratory or cardiovascular compromise, not an isolated febrile reaction.",
+    "nursing_concept": "Febrile nonhemolytic transfusion reaction"
+  },
+  {
+    "id": "PHARM-016",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Central Venous Access Devices",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A nurse attempts to flush a client's peripherally inserted central catheter (PICC) and encounters resistance, with no blood return on aspiration. The catheter has flushed and aspirated normally at every prior assessment. What should the nurse do first?",
+    "options": [
+      "Apply forceful pressure to the syringe to clear the suspected clot",
+      "Stop attempting to flush, and assess the external catheter length, dressing, and tubing for kinks, clamps, or migration before further action",
+      "Instill a thrombolytic agent such as alteplase immediately without contacting the provider",
+      "Remove the PICC line and insert a new peripheral IV"
+    ],
+    "answer": [1],
+    "rationale": "When resistance is met during flushing, the nurse should never force the flush, since this can rupture the catheter or dislodge a clot into the circulation (A is unsafe). The appropriate first step is a focused assessment for reversible mechanical causes: check the external catheter length for migration, and inspect for kinks, clamps, or dressing/tubing constriction, repositioning the client or arm as needed. If mechanical causes are ruled out and occlusion is confirmed, a thrombolytic such as alteplase may ultimately be used, but only with a provider order, making (C) incorrect as an independent first action. Removing a line that may still be salvageable (D) is not the initial response.",
+    "nursing_concept": "PICC line occlusion assessment"
+  },
+  {
+    "id": "PHARM-017",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Dosage Calculation",
+    "item_type": "fill_in_blank",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A child weighs 18 kg. The provider orders amoxicillin 40 mg/kg/day PO, divided every 12 hours, for acute otitis media. The pharmacy supplies amoxicillin oral suspension labeled 250 mg/5 mL. How many mL should the nurse administer per dose? (Round to the nearest tenth.)",
+    "answer": ["7.2 mL"],
+    "rationale": "Total daily dose = 40 mg/kg/day × 18 kg = 720 mg/day. Divided every 12 hours = 2 doses/day, so each dose = 720 mg ÷ 2 = 360 mg. Concentration = 250 mg ÷ 5 mL = 50 mg/mL. Volume per dose = 360 mg ÷ 50 mg/mL = 7.2 mL.",
+    "nursing_concept": "Weight-based pediatric dosage calculation"
+  },
+  {
+    "id": "PHARM-018",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Dosage Calculation",
+    "item_type": "fill_in_blank",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A provider orders 1,000 mL of 0.9% NaCl to infuse over 8 hours by gravity. The IV administration set is calibrated at a drop factor of 15 gtt/mL. At how many gtt/min should the nurse set the flow rate? (Round to the nearest whole number.)",
+    "answer": ["31 gtt/min"],
+    "rationale": "Rate in mL/hr = 1,000 mL ÷ 8 hr = 125 mL/hr. gtt/min = (mL/hr × drop factor) ÷ 60 min = (125 × 15) ÷ 60 = 1,875 ÷ 60 = 31.25, which rounds to 31 gtt/min.",
+    "nursing_concept": "Gravity IV infusion drip rate calculation"
+  },
+  {
+    "id": "PHARM-019",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Expected Actions/Outcomes",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "easy",
+    "stem": "A client with hypertension is prescribed metoprolol tartrate 50 mg PO twice daily. Which assessment finding would indicate the medication is producing its intended therapeutic effect?",
+    "options": [
+      "Heart rate of 58 beats/min and blood pressure decreased from 162/94 to 128/78 mm Hg",
+      "Heart rate increased from 72 to 96 beats/min",
+      "Blood glucose decreased from 110 to 85 mg/dL",
+      "Urine output increased from 30 mL/hr to 80 mL/hr"
+    ],
+    "answer": [0],
+    "rationale": "Metoprolol is a beta-1 selective adrenergic blocker used to lower heart rate and blood pressure. A blood pressure trending toward goal along with a modestly reduced but still safe heart rate demonstrates the intended therapeutic effect. An increased heart rate (B) is the opposite of the expected effect. Changes in blood glucose (C) or urine output (D) are not primary measures of metoprolol's therapeutic action.",
+    "nursing_concept": "Beta-blocker therapeutic effect"
+  },
+  {
+    "id": "PHARM-020",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Medication Administration",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Place the following steps for administering a subcutaneous enoxaparin injection in the correct order.",
+    "options": [
+      "Insert the needle fully at a 90-degree angle into the pinched skinfold without aspirating",
+      "Withdraw the needle and activate the needle safety shield without rubbing or massaging the site",
+      "Cleanse the injection site, typically the abdomen at least 2 inches from the umbilicus, with an antiseptic swab and allow it to dry",
+      "Inject the medication slowly over several seconds while keeping the skinfold pinched throughout",
+      "Gently pinch a skinfold of abdominal tissue between the thumb and forefinger"
+    ],
+    "answer": [2, 4, 0, 3, 1],
+    "rationale": "The correct sequence is: (1) cleanse the site and let it dry, since alcohol residue can increase stinging and bruising; (2) pinch a skinfold to lift subcutaneous tissue away from the muscle; (3) insert the needle fully at a 90-degree angle without aspirating, since aspiration increases tissue trauma and bruising risk with low-molecular-weight heparin; (4) inject slowly while maintaining the pinch to keep the medication in the subcutaneous layer; and (5) withdraw the needle, activate the safety shield, and avoid rubbing or massaging the site, which would increase bruising and promote bleeding into the tissue.",
+    "nursing_concept": "Subcutaneous low-molecular-weight heparin injection technique"
+  },
+  {
+    "id": "PHARM-021",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Parenteral/IV Therapies",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client receiving a peripheral IV infusion of 0.9% NaCl reports aching and tightness at the IV site. The nurse assesses the site and finds it pale, cool to the touch, and swollen, with no blood return on aspiration, although the infusion continues to drip. Which action should the nurse take first?",
+    "options": [
+      "Apply a warm compress and continue the infusion at the same rate",
+      "Stop the infusion, discontinue the IV catheter, and elevate the extremity",
+      "Slow the infusion rate and recheck the site in 30 minutes",
+      "Flush the catheter vigorously to confirm patency"
+    ],
+    "answer": [1],
+    "rationale": "A pale, cool, swollen site with aching/tightness and no blood return during infusion of a non-vesicant solution indicates infiltration (fluid leaking into surrounding tissue). The nurse should stop the infusion immediately, discontinue the catheter, and elevate the extremity to promote reabsorption and reduce swelling. Continuing the infusion in any form (A, C) allows more fluid to accumulate in the tissue and worsens the injury; a warm compress may be used for comfort only after the infusion is stopped. Vigorously flushing the catheter (D) would push additional fluid into the tissue and increase tissue damage.",
+    "nursing_concept": "IV infiltration recognition and management"
+  },
+  {
+    "id": "PHARM-022",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Pharmacological Pain Management",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A postoperative client has patient-controlled analgesia (PCA) ordered with IV morphine. Which actions should the nurse include in the plan of care? Select all that apply.",
+    "options": [
+      "Teach the client that only the client should press the PCA demand button, not family members or visitors",
+      "Confirm the lockout interval is set to prevent a new dose from being delivered before the previous one has taken effect",
+      "Allow a family member to press the button for the client if the client is asleep but appears uncomfortable",
+      "Monitor sedation level and respiratory rate per facility protocol, especially during the first 24 hours",
+      "Document the total amount of medication delivered and the number of attempts versus successful deliveries",
+      "Increase the basal/continuous infusion rate independently if the client continues to report pain, without contacting the provider",
+      "Verify the PCA pump settings against the original order with a second nurse per facility policy for high-alert medications"
+    ],
+    "answer": [0, 1, 3, 4, 6],
+    "rationale": "PCA safety depends on only the client activating the demand button (A); dosing by anyone else ('PCA by proxy'), including a well-meaning family member (C), bypasses the client's own level-of-consciousness feedback and risks oversedation and respiratory depression, so it must be avoided. The lockout interval (B) is a built-in safeguard preventing stacked doses. Ongoing sedation and respiratory assessment (D) and accurate documentation of medication use and attempts (E) are required nursing responsibilities. Because opioid PCA is a high-alert medication, pump settings require an independent double-check against the order by a second nurse per policy (G). The nurse must never independently adjust the basal rate without a provider order (F is incorrect).",
+    "nursing_concept": "PCA safety and 'PCA by proxy' prevention"
+  },
+  {
+    "id": "PHARM-023",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Total Parenteral Nutrition",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client with a history of chronic alcohol use disorder and significant unintentional weight loss is started on total parenteral nutrition after being severely malnourished. Which assessment finding in the first 24 to 48 hours should alert the nurse to possible refeeding syndrome?",
+    "options": [
+      "Serum phosphorus level of 1.2 mg/dL (reference range 2.5-4.5 mg/dL)",
+      "Serum sodium level of 140 mEq/L",
+      "Blood glucose of 110 mg/dL",
+      "Serum potassium level of 4.2 mEq/L"
+    ],
+    "answer": [0],
+    "rationale": "Refeeding syndrome occurs when carbohydrate/glucose delivery to a chronically malnourished client triggers a sudden insulin surge that drives phosphorus, potassium, and magnesium intracellularly, causing severe hypophosphatemia that can lead to cardiac and respiratory failure if unrecognized. A phosphorus level of 1.2 mg/dL is critically low and consistent with refeeding syndrome. Sodium of 140 (B), glucose of 110 (C), and potassium of 4.2 (D) are all within normal limits and would not indicate refeeding syndrome.",
+    "nursing_concept": "Refeeding syndrome with TPN initiation"
+  },
+  {
+    "id": "PHARM-024",
+    "category": "Pharmacological and Parenteral Therapies",
+    "subcategory": "Adverse Effects/Contraindications/Side Effects/Interactions",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client taking lithium carbonate for bipolar disorder presents to the clinic with coarse hand tremors, persistent diarrhea, blurred vision, and ataxia. The client reports recently starting a low-sodium diet and taking ibuprofen daily for knee pain. What is the nurse's priority action?",
+    "options": [
+      "Reassure the client that these are common, benign side effects of lithium",
+      "Instruct the client to increase fluid and sodium intake and continue the medications as prescribed",
+      "Hold the next dose of lithium and refer the client for an immediate serum lithium level and provider evaluation",
+      "Advise the client to take the lithium dose together with the ibuprofen to reduce GI upset"
+    ],
+    "answer": [2],
+    "rationale": "Coarse tremor, persistent diarrhea, blurred vision, and ataxia are signs of lithium toxicity. Both a low-sodium diet and concurrent NSAID (ibuprofen) use reduce renal lithium clearance, increasing serum lithium levels. The priority is to hold the next dose and obtain an urgent serum lithium level with provider evaluation, since toxicity can progress to seizures, coma, and death. These findings are not benign (A); advising continued normal intake without addressing the sodium restriction and NSAID interaction (B) or combining lithium with the offending NSAID (D) would worsen toxicity.",
+    "nursing_concept": "Lithium toxicity and drug/diet interactions"
   }
 ]

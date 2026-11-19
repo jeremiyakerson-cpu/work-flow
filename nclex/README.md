@@ -12,9 +12,25 @@ nclex/
   SCHEMA.md          question-bank JSON schema + validation rules
   blueprint.json      default 25-item category mix (NCLEX-RN blueprint midpoints)
   generate_test.py    CLI generator / validator
-  data/                one JSON file per client-needs category
-  generated/          suggested output folder for generated tests (gitignored content, folder tracked)
+  data/                one JSON file per client-needs category (192 questions total)
+  generated/          suggested output folder for generated tests
+  web/                 browser-based interactive quiz (click through a test, auto-scored)
 ```
+
+## Interactive web quiz
+
+For a point-and-click experience instead of Markdown files, see `nclex/web/` —
+a static, no-build-step browser app that loads the bank, lets you configure a
+test, and auto-scores it with a category breakdown and full rationales:
+
+```bash
+cd nclex/web
+python3 -m http.server 8000
+# open http://localhost:8000/
+```
+
+See `nclex/web/README.md` for details, including how to regenerate `bank.json`
+after editing questions.
 
 ## Quick start
 

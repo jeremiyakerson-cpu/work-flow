@@ -1,6 +1,6 @@
 # NCLEX-RN Practice Test
 
-_Generated 2026-08-17 22:29 · seed 42_
+_Generated 2026-11-19 16:15 · seed 42_
 
 **Blueprint:**
 
@@ -19,39 +19,98 @@ _Generated 2026-08-17 22:29 · seed 42_
 
 ---
 
-**1.** A client with a suspected infection develops a temperature of 39.4°C (102.9°F), heart rate of 128 beats/min, respiratory rate of 26 breaths/min, and blood pressure of 82/50 mmHg. The nurse suspects sepsis progressing toward septic shock. Which actions should the nurse anticipate as part of the initial sepsis management bundle? Select all that apply.
+**1.** A nurse is trending a client's vital signs during the first 2 hours after abdominal surgery: 1400 — T 37.0°C, HR 88, BP 128/78, RR 18; 1430 — T 37.0°C, HR 106, BP 112/70, RR 22; 1500 — T 37.1°C, HR 124, BP 94/58, RR 26. How should the nurse interpret this trend?
 
-*(Select all that apply.)*
+A. Expected fluctuation as anesthesia wears off; continue routine monitoring
+B. Early signs of hypovolemic shock; notify the provider immediately
+C. Signs of postoperative infection; obtain a blood culture
+D. Signs of adequate pain control; no action needed
 
-[ ] A. Obtain blood cultures from two different sites before starting antibiotics
-[ ] B. Administer broad-spectrum IV antibiotics as soon as possible after cultures are drawn
-[ ] C. Begin rapid IV isotonic fluid resuscitation
-[ ] D. Measure serum lactate level
-[ ] E. Withhold antibiotics until culture and sensitivity results are finalized
-[ ] F. Delay fluid resuscitation until blood pressure drops below 70 mmHg systolic
+**2.** A client who sustained blunt chest trauma suddenly develops severe dyspnea, absent breath sounds on the right side, tracheal deviation to the left, distended neck veins, and a blood pressure of 76/50 mmHg. Which complication should the nurse suspect?
 
-**2.** A provider orders a heparin infusion of 1,000 units/hr. The pharmacy supplies a premixed bag of 20,000 units of heparin in 500 mL of 0.9% NaCl. At how many mL/hr should the nurse set the infusion pump? (Round to the nearest whole number.)
+A. Simple pneumothorax
+B. Tension pneumothorax
+C. Flail chest
+D. Pulmonary contusion
 
-*(Fill in the blank.)* Answer: ______________________
+**3.** A client returns to the nursing unit after a lumbar puncture. Which instruction should the nurse include in the client's plan of care to help reduce the risk of a post-procedure headache?
 
-**3.** The nurse reviews the morning laboratory results for a client who has been receiving IV furosemide for heart failure. Which result should the nurse report to the provider immediately as a critical value?
+A. Remain lying flat in bed for the period specified by facility protocol and increase oral fluid intake
+B. Sit upright in a chair for the first 2 hours after the procedure
+C. Restrict oral fluids until the provider gives further orders
+D. Ambulate in the hallway as soon as the client returns to the room
 
-A. Serum sodium 138 mEq/L
-B. Serum potassium 2.9 mEq/L
-C. Serum creatinine 1.0 mg/dL
-D. Blood glucose 98 mg/dL
-
-**4.** A client receiving an IV antibiotic infusion suddenly develops facial and tongue swelling, audible stridor, widespread urticaria, and a blood pressure of 78/44 mmHg. Place the nurse's actions in the priority order in which they should be performed.
+**4.** A client with major depressive disorder is being admitted directly from the emergency department to an inpatient psychiatric unit following a recent suicide attempt. Place the nurse's actions in the order they should be performed, from first to last, to establish a safe therapeutic environment on admission.
 
 *(Place the following in the correct order.)*
 
-A. Administer intramuscular epinephrine
-B. Stop the antibiotic infusion and disconnect the IV tubing at the port closest to the client
-C. Call for the rapid response/emergency team and prepare for possible advanced airway management
-D. Give supplemental oxygen and place the client in a supine position with legs elevated as tolerated
-E. Initiate a rapid infusion of IV isotonic fluids
+A. Orient the client to the unit's rules, daily schedule, and expectations
+B. Conduct a thorough search of the client's belongings and person, removing sharps, cords, glass, medications, and other potentially dangerous items
+C. Assign the client to a room close to the nursing station with the observation level (e.g., every-15-minute checks or continuous observation) indicated by the facility's protocol
+D. Complete a focused suicide risk assessment, including current ideation, plan, and access to means
+E. Collaborate with the client to develop a written safety plan identifying triggers, coping strategies, and emergency contacts, such as the 988 Suicide & Crisis Lifeline
 
-**5.** The nurse is teaching a client newly started on warfarin. Which statements by the client indicate a correct understanding of the teaching? Select all that apply.
+**5.** A client with a traumatic brain injury has the following vital sign trend over 2 hours: blood pressure 150/60 mmHg increasing to 182/70 mmHg, heart rate 88 beats/min decreasing to 52 beats/min, and respirations becoming irregular. Which nursing action is the priority?
+
+A. Administer a prescribed antihypertensive and reassess in 1 hour
+B. Notify the provider immediately of findings consistent with rising intracranial pressure
+C. Encourage the client to cough and deep breathe to improve oxygenation
+D. Lower the head of the bed to improve cerebral blood flow
+
+**6.** A 50-year-old client reports irregular menstrual cycles, hot flashes, and difficulty sleeping over the past year. She also shares that she has been reflecting on "what's next" for her career and relationships now that her children have moved out of the home. Which statement best reflects the nurse's analysis of this client's presentation?
+
+A. These symptoms indicate a thyroid disorder and have no relationship to normal aging
+B. The client is experiencing the perimenopausal transition, a normal midlife developmental change that commonly involves both physical symptoms and psychosocial reflection on roles and identity
+C. These findings meet the criteria for a major depressive episode and require immediate psychiatric hospitalization
+D. The client's symptoms are caused entirely by poor lifestyle choices and are completely preventable
+
+**7.** A client taking digoxin 0.25 mg PO daily for heart failure reports nausea, anorexia, and seeing yellow-green halos around lights. The nurse checks the apical pulse and finds a rate of 52 beats/min. Which action should the nurse take first?
+
+A. Administer the scheduled dose of digoxin as ordered
+B. Withhold the dose and notify the provider
+C. Recheck the apical pulse in 4 hours before deciding
+D. Administer the dose with food to reduce GI upset
+
+**8.** An alert and oriented client with a written advance directive stating "do not resuscitate" develops a rapidly enlarging hematoma at a peripheral IV site with local swelling and pain, but is breathing comfortably and hemodynamically stable. What should the nurse do?
+
+A. Withhold all further treatment because the client has a do-not-resuscitate order
+B. Contact the ethics committee before providing any care
+C. Treat the IV infiltration/hematoma per standard nursing care, since a DNR order applies only to cardiopulmonary resuscitation
+D. Ask the family to decide whether treatment should be given
+
+**9.** A client receiving continuous enteral feeding through an NG tube has a witnessed coughing episode and reports feeling as though the tube shifted. The nurse checks the gastric residual volume and finds 400 mL, compared with 60 mL two hours earlier. The head of the bed is at 30 degrees. What is the nurse's priority action?
+
+A. Continue the feeding at the current rate and recheck the residual volume in 4 hours
+B. Stop the feeding, keep the head of the bed elevated (or position the client laterally if distress is present), assess respiratory status, and notify the provider
+C. Increase the feeding rate temporarily to flush the tubing before rechecking placement
+D. Advance the tube 2 inches farther into the stomach and resume the feeding
+
+**10.** A 16-year-old is brought to the emergency department after a motor vehicle collision with a laceration requiring suturing. The adolescent is stable, but no parent or legal guardian can be reached immediately despite repeated attempts. Which statement about consent for this minor's treatment is correct?
+
+A. Treatment must be delayed until a parent or guardian can be contacted and signs consent
+B. The minor can provide legally valid consent for any treatment because the minor is older than 14
+C. Emergency treatment necessary to prevent harm may proceed under the emergency exception to informed consent while reasonable attempts continue to reach the parent/guardian
+D. Hospital security must locate and bring in a parent or guardian before any care can be given
+
+**11.** The RN charge nurse on a medical-surgical unit is making assignments for the shift. Which client should be assigned to the licensed practical/vocational nurse (LPN/VN) rather than to the unlicensed assistive personnel (UAP)?
+
+A. A client who needs assistance with a bed bath and repositioning every 2 hours
+B. A client who requires routine oral medication administration and site care for a well-healing surgical incision
+C. A client who needs vital signs measured every 4 hours and intake and output recorded
+D. A client who needs help ambulating to the bathroom with a gait belt
+
+**12.** A nurse is coordinating discharge planning for an older adult client who had a stroke with residual left-sided weakness and mild dysphagia. Which interdisciplinary team referrals should the nurse anticipate as appropriate? Select all that apply.
+
+*(Select all that apply.)*
+
+[ ] A. Physical therapy for gait training and strength
+[ ] B. Speech-language pathology for a swallow evaluation
+[ ] C. Occupational therapy for activities of daily living retraining
+[ ] D. Case management/social work for discharge planning and home care needs
+[ ] E. Respiratory therapy for routine daily assessment of an unaffected respiratory system
+[ ] F. Registered dietitian for a modified-consistency diet plan
+
+**13.** The nurse is teaching a client newly started on warfarin. Which statements by the client indicate a correct understanding of the teaching? Select all that apply.
 
 *(Select all that apply.)*
 
@@ -62,166 +121,100 @@ E. Initiate a rapid infusion of IV isotonic fluids
 [ ] E. "I should report bleeding gums, black stools, or unusual bruising to my provider."
 [ ] F. "It's fine to stop the medication on my own once I feel better."
 
-**6.** The RN charge nurse on a medical-surgical unit is making assignments for the shift. Which client should be assigned to the licensed practical/vocational nurse (LPN/VN) rather than to the unlicensed assistive personnel (UAP)?
-
-A. A client who needs assistance with a bed bath and repositioning every 2 hours
-B. A client who requires routine oral medication administration and site care for a well-healing surgical incision
-C. A client who needs vital signs measured every 4 hours and intake and output recorded
-D. A client who needs help ambulating to the bathroom with a gait belt
-
-**7.** A 40-year-old client with no cardiovascular disease and a sedentary desk job asks the nurse how much physical activity is recommended to promote health. Which response reflects current general health promotion guidance for a healthy adult?
-
-A. "Aim for at least 150 minutes per week of moderate-intensity aerobic activity, along with muscle-strengthening activity on 2 or more days a week."
-B. "You need to run at least 5 miles every day to see any health benefit."
-C. "Physical activity is unnecessary as long as your diet is healthy."
-D. "You should avoid exercise entirely until you lose weight first."
-
-**8.** A client who is 24 hours postoperative following a total thyroidectomy reports tingling around the lips and fingertips. The nurse taps the facial nerve just anterior to the ear and observes twitching of the facial muscles on that side. Which imbalance does this finding suggest?
-
-A. Hypercalcemia
-B. Hypocalcemia
-C. Hypernatremia
-D. Hypomagnesemia is ruled out by this finding
-
-**9.** A client taking lisinopril for hypertension calls the clinic reporting swelling of the lips and tongue and difficulty swallowing that began about an hour after the morning dose. What is the nurse's priority action?
-
-A. Advise the client to take an over-the-counter antihistamine and monitor at home
-B. Instruct the client to go to the emergency department immediately
-C. Tell the client to hold tonight's dose and follow up at the next scheduled appointment
-D. Reassure the client that mild facial swelling is an expected effect of ACE inhibitors
-
-**10.** A client develops profuse watery diarrhea and is diagnosed with Clostridioides difficile infection. In addition to donning a gown and gloves for contact precautions, which hand hygiene method should the nurse use after providing care?
-
-A. Alcohol-based hand sanitizer only
-B. Soap and water hand washing
-C. Antimicrobial foam hand sanitizer
-D. Hand hygiene is not required if gloves were worn throughout care
-
-**11.** A nurse is assessing a client who has been NPO and hospitalized for 48 hours following a motor vehicle collision. The client has a history of drinking approximately 8-10 beers daily. Which findings should alert the nurse to possible alcohol withdrawal syndrome? Select all that apply.
+**14.** The nurse is caring for a client in bilateral wrist restraints applied for severe agitation that places the client at risk for self-injury. Which nursing actions are appropriate? Select all that apply.
 
 *(Select all that apply.)*
 
-[ ] A. Coarse hand tremors
-[ ] B. Blood pressure 88/54 mm Hg with a heart rate of 52/min
-[ ] C. Diaphoresis and anxiety
-[ ] D. Auditory or visual hallucinations
-[ ] E. Heart rate 120/min with a blood pressure of 168/100 mm Hg
-[ ] F. Generalized tonic-clonic seizure activity
-[ ] G. Somnolence with a decreased respiratory rate
+[ ] A. Tie the restraint straps to the movable side rails of the bed
+[ ] B. Secure the restraint straps using a quick-release knot that can be released rapidly in an emergency
+[ ] C. Assess circulation, skin integrity, and neurovascular status at least every 2 hours, or more often per facility policy
+[ ] D. Release one limb at a time on a rotating schedule to allow range of motion and repositioning, per facility policy
+[ ] E. Continue the restraints indefinitely without reassessing for a less restrictive alternative
+[ ] F. Document the client's behavior, the less restrictive measures attempted, and the client's response to the restraints
 
-**12.** The nurse is receiving hand-off report on four clients. Which client should the nurse assess first?
+**15.** At a 2-week postpartum follow-up visit, a client states, "My husband works nights, my mother lives three states away, and I don't really know any of my new neighbors yet. I'm exhausted and I find myself crying almost every day." Which action should the nurse prioritize?
 
-A. A client 2 days post-appendectomy who rates incisional pain as 5/10
-B. A client with chronic obstructive pulmonary disease whose oxygen saturation dropped from 94% to 88% and is now audibly wheezing
-C. A client with a new colostomy who is asking questions about pouch changes
-D. A client with stable vital signs who is scheduled for discharge teaching this morning
+A. Reassure the client that postpartum exhaustion is normal and will resolve on its own within a few weeks
+B. Further assess the client for symptoms of postpartum depression and explore what support resources are realistically available to her
+C. Advise the client to ask her mother to move in with her temporarily
+D. Suggest that the client's husband request a permanent shift change immediately
 
-**13.** A nurse is admitting a client to the post-anesthesia care unit (PACU) after general anesthesia. Place the nurse's initial assessment actions in the correct priority order.
+**16.** A nurse sustains a needlestick injury from a used insulin syringe while caring for a client whose bloodborne pathogen status is unknown. What should the nurse do first?
+
+A. Report the exposure to the employee/occupational health department
+B. Wash the puncture site immediately with soap and water
+C. Apply a tourniquet above the puncture site to prevent systemic spread
+D. Squeeze the site repeatedly to force out as much blood as possible
+
+**17.** The RN is planning which tasks to delegate to an unlicensed assistive personnel (UAP) for a stable client who is 2 days post-total knee replacement. Which tasks are appropriate to delegate to the UAP? Select all that apply.
+
+*(Select all that apply.)*
+
+[ ] A. Assisting the client to ambulate in the hallway with a walker as tolerated
+[ ] B. Measuring and recording intake and output
+[ ] C. Performing the first post-operative assessment of the surgical dressing
+[ ] D. Reinforcing use of the continuous passive motion (CPM) machine as previously taught by the RN
+[ ] E. Obtaining and recording routine vital signs
+[ ] F. Teaching the client how to use a new patient-controlled analgesia (PCA) pump
+[ ] G. Assisting the client with hygiene and repositioning
+
+**18.** Two hours after a vaginal delivery, the nurse palpates a client's fundus and finds it boggy and displaced above the umbilicus toward the right side. The perineal pad is saturated with lochia rubra. What should the nurse do first?
+
+A. Notify the primary care provider immediately
+B. Administer intramuscular oxytocin per protocol
+C. Massage the fundus until it becomes firm
+D. Document the finding and reassess in 1 hour
+
+**19.** A client is receiving a first dose of IV vancomycin 1 g in 250 mL of 0.9% NaCl infusing over 30 minutes. Fifteen minutes into the infusion, the client develops flushing of the face and upper torso, pruritus, and a blood pressure of 100/62 mm Hg (baseline 128/78 mm Hg). What should the nurse do first?
+
+A. Stop the infusion and notify the provider; anticipate restarting at a slower rate once symptoms resolve
+B. Administer diphenhydramine as ordered and continue the infusion at the same rate
+C. Increase the infusion rate so the dose is completed quickly
+D. Document the finding as an expected effect of vancomycin and continue to monitor
+
+**20.** A multi-vehicle collision results in the emergency department activating its external disaster/mass casualty plan. Using START (Simple Triage and Rapid Treatment) principles, place the following casualties in order from highest to lowest treatment priority.
 
 *(Place the following in the correct order.)*
 
-A. Assess pain level and administer analgesia as needed
-B. Assess airway patency and the quality/rate of respirations
-C. Assess vital signs, including heart rate, blood pressure, and oxygen saturation
-D. Assess level of consciousness and orientation
-E. Inspect the surgical dressing and any drains for bleeding or drainage
+A. A casualty breathing fewer than 30 breaths/min with a palpable radial pulse who is unresponsive to verbal commands and cannot follow simple instructions
+B. A casualty who can walk, is talking appropriately, and has only minor lacerations
+C. A casualty with a deformed, swollen forearm who is alert, breathing normally, and can follow commands but is unable to walk
+D. A casualty who is not breathing even after the airway is repositioned and has no palpable pulse
 
-**14.** A nurse is teaching a client who will perform self-intermittent catheterization at home for a neurogenic bladder. Which statement by the client indicates correct understanding of the procedure?
+**21.** A hospitalized client reports trouble sleeping because of frequent nighttime interruptions for vital signs, medications, and lab draws. Which nursing intervention best promotes the client's rest?
 
-A. "I will use a new catheter and full sterile technique every single time, even at home."
-B. "I should catheterize on a regular schedule, such as every 4 to 6 hours, and whenever I feel bladder fullness."
-C. "I only need to catheterize when I haven't urinated in over 24 hours."
-D. "I should hold my urine as long as possible between catheterizations to help build bladder tone."
+A. Cluster nursing care activities, such as vital signs, medication administration, and assessments, to minimize nighttime interruptions whenever possible
+B. Turn on the overhead room light at each round to ensure an accurate assessment
+C. Wake the client every 2 hours overnight to reassess pain level regardless of current comfort
+D. Encourage the client to watch television in the room until midnight to feel more tired
 
-**15.** A nurse is discussing HIPAA-consistent protection of client health information with a group of newly hired staff. Which statements should the nurse include as correct? Select all that apply.
+**22.** A client is found unresponsive with a respiratory rate of 6 breaths/min and pinpoint pupils after receiving IV morphine for postoperative pain. Which medication should the nurse anticipate administering immediately?
 
-*(Select all that apply.)*
+A. Flumazenil
+B. Naloxone
+C. Protamine sulfate
+D. Acetylcysteine
 
-[ ] A. "You may look up a former client's chart out of personal curiosity as long as you don't share what you find."
-[ ] B. "Discuss client information only in private areas, away from public hallways, elevators, and cafeterias."
-[ ] C. "Log out of the electronic health record any time you step away from a workstation."
-[ ] D. "You may text a client's diagnosis to a colleague using your personal cell phone if it's quicker than the secure system."
-[ ] E. "Share client information with other staff only on a need-to-know basis related to that client's care."
-[ ] F. "Shred or place in a designated bin any printed documents containing client identifiers before disposal."
-
-**16.** An alert and oriented client with a written advance directive stating "do not resuscitate" develops a rapidly enlarging hematoma at a peripheral IV site with local swelling and pain, but is breathing comfortably and hemodynamically stable. What should the nurse do?
-
-A. Withhold all further treatment because the client has a do-not-resuscitate order
-B. Contact the ethics committee before providing any care
-C. Treat the IV infiltration/hematoma per standard nursing care, since a DNR order applies only to cardiopulmonary resuscitation
-D. Ask the family to decide whether treatment should be given
-
-**17.** A client with type 1 diabetes presents with Kussmaul respirations, fruity-smelling breath, a blood glucose of 480 mg/dL (26.6 mmol/L), and arterial blood gas results showing pH 7.22 and serum bicarbonate 12 mEq/L (12 mmol/L). Which condition is most consistent with this presentation?
-
-A. Hyperosmolar hyperglycemic state
-B. Diabetic ketoacidosis
-C. Somogyi effect
-D. Dawn phenomenon
-
-**18.** A home health nurse visits an 82-year-old client with dementia and notices unexplained bruising in various stages of healing on the client's upper arms. The client appears frightened when the adult child caregiver enters the room and whispers, "Please don't tell him I said anything." What is the nurse's priority obligation?
-
-A. Respect the client's request for confidentiality and document the findings only
-B. Confront the caregiver directly about the bruising before leaving the home
-C. Report the suspected abuse to adult protective services as required by law
-D. Wait until the next scheduled visit to see if the bruising pattern continues
-
-**19.** The nurse assesses a sacral wound in a client who has been immobile since hip surgery. The wound bed shows full-thickness skin loss with visible subcutaneous fat and some yellow slough, but the slough does not obscure the depth of tissue loss, and no bone, tendon, or muscle is exposed. Which stage of pressure injury should the nurse document, using current NPIAP staging terminology?
-
-A. Stage 2 pressure injury
-B. Stage 3 pressure injury
-C. Stage 4 pressure injury
-D. Unstageable pressure injury
-
-**20.** A client with delirium repeatedly attempts to pull out an endotracheal tube despite reorientation, having a family member remain at the bedside, and use of mitts. The provider writes an order for bilateral wrist restraints. Which action should the nurse take before applying the restraints?
-
-A. Apply the restraints and notify the provider afterward
-B. Verify that the order specifies the type of restraint, the behavior necessitating it, and a time limit
-C. Sedate the client to reduce agitation and avoid needing the restraints
-D. Delay application until written consent is obtained from the family
-
-**21.** A nurse floated to a specialty unit is asked to perform a task that is outside the nurse's training and competency, despite being licensed as an RN. What is the most appropriate action for the nurse to take?
-
-A. Perform the task since the nurse holds an active RN license
-B. Refuse the assignment outright and leave the unit
-C. Notify the charge nurse or supervisor of the practice limitation and request an appropriate reassignment or supervised orientation to the task
-D. Attempt the task quietly without informing anyone, to avoid seeming incompetent
-
-**22.** The nurse is planning a discharge teaching session for a client newly diagnosed with type 2 diabetes who will be self-monitoring blood glucose at home. Place the following steps of the teaching session in the order the nurse should perform them.
+**23.** A client receiving an IV antibiotic infusion suddenly develops facial and tongue swelling, audible stridor, widespread urticaria, and a blood pressure of 78/44 mmHg. Place the nurse's actions in the priority order in which they should be performed.
 
 *(Place the following in the correct order.)*
 
-A. Assess the client's current knowledge, health literacy, and readiness to learn
-B. Demonstrate the steps of blood glucose self-monitoring using the client's own equipment
-C. Provide the information in short segments using clear, non-medical language and appropriate materials
-D. Have the client perform a return demonstration using the teach-back method
-E. Document the teaching provided and the client's demonstrated level of understanding
+A. Administer intramuscular epinephrine
+B. Stop the antibiotic infusion and disconnect the IV tubing at the port closest to the client
+C. Call for the rapid response/emergency team and prepare for possible advanced airway management
+D. Give supplemental oxygen and place the client in a supine position with legs elevated as tolerated
+E. Initiate a rapid infusion of IV isotonic fluids
 
-**23.** A nurse is teaching a postoperative client about measures to reduce the risk of deep vein thrombosis (DVT) and atelectasis. Which instructions should the nurse include? Select all that apply.
+**24.** A nurse is assessing an older adult client for orthostatic hypotension. The supine blood pressure is 128/76 mmHg with a heart rate of 72/min. After the client stands for 1 minute, the blood pressure is 104/68 mmHg with a heart rate of 92/min, and the client reports feeling dizzy. How should the nurse interpret these findings?
 
-*(Select all that apply.)*
+A. The findings are within normal limits because the heart rate compensated appropriately
+B. The findings are consistent with orthostatic hypotension; the nurse should implement fall precautions
+C. The findings indicate the client is adequately hydrated
+D. The findings should simply be repeated in 24 hours before any intervention is considered
 
-[ ] A. Use the incentive spirometer approximately 10 times every hour while awake
-[ ] B. Ambulate as soon as the provider allows, starting the day of or day after surgery
-[ ] C. Wear sequential compression devices whenever not ambulating
-[ ] D. Remain in bed as much as possible for the first week to allow the incision to heal
-[ ] E. Cough and deep breathe every 1-2 hours while awake
-[ ] F. Cross the legs at the knees while sitting up in the chair
-[ ] G. Perform ankle pumps and calf-tightening exercises while in bed
+**25.** A client with end-stage renal disease misses two hemodialysis sessions and reports muscle weakness and tingling around the mouth. The nurse obtains a 12-lead ECG. Which finding is most consistent with the suspected electrolyte imbalance?
 
-**24.** A client taking digoxin 0.25 mg PO daily for heart failure reports nausea, anorexia, and seeing yellow-green halos around lights. The nurse checks the apical pulse and finds a rate of 52 beats/min. Which action should the nurse take first?
-
-A. Administer the scheduled dose of digoxin as ordered
-B. Withhold the dose and notify the provider
-C. Recheck the apical pulse in 4 hours before deciding
-D. Administer the dose with food to reduce GI upset
-
-**25.** The nurse is caring for a client placed on droplet precautions for suspected seasonal influenza. Which actions are appropriate? Select all that apply.
-
-*(Select all that apply.)*
-
-[ ] A. Wear a surgical mask when within 3 to 6 feet of the client
-[ ] B. Place the client in a private room, or cohort with another client with the same confirmed infection, per facility policy
-[ ] C. Wear an N95 or higher-level respirator for all client contact
-[ ] D. Perform hand hygiene before and after client contact
-[ ] E. Instruct visitors to wear a surgical mask when in the client's room
-[ ] F. Transport the client without a mask whenever leaving the room for tests
+A. Prolonged QT interval with flattened T waves
+B. Tall, peaked T waves with widened QRS complex
+C. Prominent U waves with ST segment depression
+D. Shortened QT interval with tall P waves
