@@ -1,0 +1,518 @@
+[
+  {
+    "id": "ROR-001",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "The nurse reviews the morning laboratory results for a client who has been receiving IV furosemide for heart failure. Which result should the nurse report to the provider immediately as a critical value?",
+    "options": [
+      "Serum sodium 138 mEq/L",
+      "Serum potassium 2.9 mEq/L",
+      "Serum creatinine 1.0 mg/dL",
+      "Blood glucose 98 mg/dL"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Normal serum potassium is 3.5-5.0 mEq/L; a level of 2.9 mEq/L is significantly below normal and is a critical (panic) value, especially in a client on a potassium-wasting loop diuretic such as furosemide, because severe hypokalemia can precipitate life-threatening cardiac dysrhythmias and requires immediate provider notification. Sodium 138 mEq/L (normal 135-145), creatinine 1.0 mg/dL (normal 0.6-1.2), and glucose 98 mg/dL (normal fasting 70-100) are all within normal limits and do not require urgent notification.",
+    "nursing_concept": "Critical lab values / hypokalemia recognition"
+  },
+  {
+    "id": "ROR-002",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Diagnostic Tests",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "Two hours after a left heart catheterization performed via the right femoral artery, the nurse assesses the client and finds the right foot is cool and pale with a barely palpable dorsalis pedis pulse compared to a strong pulse on the left. What should the nurse do first?",
+    "options": [
+      "Reposition the right leg and reassess the pulse in 30 minutes",
+      "Apply a warm blanket to the right foot to promote vasodilation",
+      "Notify the provider immediately and continue frequent neurovascular checks",
+      "Document the finding as an expected result of the arterial puncture"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "A cool, pale extremity with a diminished or absent distal pulse after a femoral arterial catheterization suggests arterial occlusion or thrombus, a limb-threatening complication that requires immediate provider notification so circulation can be evaluated and treated promptly. Waiting 30 minutes (A) delays recognition of a time-sensitive vascular emergency, warming the foot (B) does not address occlusion and could mask worsening ischemia, and this finding is never an expected post-catheterization result (D) \u2014 the expected finding is a warm, pink extremity with palpable, equal pulses bilaterally.",
+    "nursing_concept": "Post-cardiac catheterization neurovascular assessment"
+  },
+  {
+    "id": "ROR-003",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "Four hours after an exploratory laparotomy, the nurse assesses a client. Which findings should the nurse recognize as possible signs of postoperative hemorrhage? Select all that apply.",
+    "options": [
+      "Heart rate of 118 beats/min",
+      "Blood pressure of 88/54 mmHg",
+      "Increasing restlessness and anxiety",
+      "Progressively increasing abdominal girth",
+      "Dressing saturated with bright red drainage",
+      "Urine output of 45 mL/hr for the last 2 hours",
+      "Oral temperature of 37.1\u00b0C (98.8\u00b0F)"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rationale": "Tachycardia (A), hypotension (B), restlessness/anxiety from cerebral hypoperfusion (C), a distending abdomen from concealed bleeding (D), and a dressing saturated with bright red drainage (E) are all classic early signs of hemorrhage/hypovolemic shock and should prompt immediate further assessment and provider notification. A urine output of 45 mL/hr (F) is within the expected minimum of 30 mL/hr or more, and a temperature of 37.1\u00b0C (G) is normal, so neither suggests hemorrhage.",
+    "nursing_concept": "Postoperative hemorrhage recognition"
+  },
+  {
+    "id": "ROR-004",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Therapeutic Procedures",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client returns to the unit after a percutaneous liver biopsy. Which action should the nurse take to reduce the client's risk for bleeding?",
+    "options": [
+      "Position the client on the right side with a small pillow or rolled towel against the puncture site",
+      "Position the client on the left side to relieve pressure on the liver",
+      "Assist the client into a high-Fowler's position to ease breathing",
+      "Encourage the client to ambulate in the hallway within 30 minutes"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "After a percutaneous liver biopsy, the client should be positioned right side-lying with a pillow or rolled towel against the puncture site for at least 2 hours; this applies direct pressure between the liver capsule and the chest wall, tamponading the puncture site and reducing the risk of bleeding. Left side-lying (B) would remove pressure from the site rather than apply it, high-Fowler's (C) does not compress the site, and the client must remain on bed rest, typically for several hours, rather than ambulate within 30 minutes (D), to minimize the risk of hemorrhage.",
+    "nursing_concept": "Post-liver biopsy positioning to reduce bleeding risk"
+  },
+  {
+    "id": "ROR-005",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who has taken warfarin for atrial fibrillation for the past year has a routine INR result of 6.2. The client reports no bleeding symptoms. What should the nurse do first?",
+    "options": [
+      "Administer the scheduled dose of warfarin as ordered",
+      "Hold the next dose of warfarin and notify the provider",
+      "Reassure the client that this INR is within the expected therapeutic range",
+      "Instruct the client to increase dietary vitamin K intake immediately without contacting the provider"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "The therapeutic INR range for a client on warfarin for atrial fibrillation is typically 2.0-3.0; an INR of 6.2 is far above therapeutic and places the client at high risk for spontaneous bleeding even without current symptoms. The nurse should hold the next dose and notify the provider so the dose can be adjusted and, if needed, reversal measures ordered. Giving the scheduled dose (A) would further increase bleeding risk, an INR of 6.2 is not therapeutic (C), and dietary or treatment changes should only be made under provider guidance, not independently by the client (D).",
+    "nursing_concept": "Warfarin therapeutic INR range / critical value"
+  },
+  {
+    "id": "ROR-006",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "System Specific Assessments",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "On the first postoperative day following a total thyroidectomy, a client reports tingling around the mouth and in the fingertips. When the nurse inflates the blood pressure cuff, the client's hand and fingers spasm into a claw-like position. Which laboratory value should the nurse anticipate the provider will order to evaluate this finding?",
+    "options": [
+      "Serum calcium",
+      "Serum potassium",
+      "Hemoglobin and hematocrit",
+      "White blood cell count"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Perioral and peripheral tingling with a positive Trousseau's sign (carpal spasm when a blood pressure cuff is inflated) after a thyroidectomy indicates hypocalcemia caused by inadvertent trauma to or removal of the parathyroid glands during surgery, since the parathyroid glands regulate calcium. A serum calcium level should be obtained immediately (normal approximately 9.0-10.5 mg/dL); severe hypocalcemia can progress to laryngospasm and airway compromise. Potassium (B) relates to a different pattern of neuromuscular/cardiac symptoms, and hemoglobin/hematocrit (C) or WBC (D) would evaluate for hemorrhage or infection, not the tetany described here.",
+    "nursing_concept": "Post-thyroidectomy hypocalcemia / Trousseau's sign"
+  },
+  {
+    "id": "ROR-007",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Vital Signs",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse is trending a client's vital signs during the first 2 hours after abdominal surgery: 1400 \u2014 T 37.0\u00b0C, HR 88, BP 128/78, RR 18; 1430 \u2014 T 37.0\u00b0C, HR 106, BP 112/70, RR 22; 1500 \u2014 T 37.1\u00b0C, HR 124, BP 94/58, RR 26. How should the nurse interpret this trend?",
+    "options": [
+      "Expected fluctuation as anesthesia wears off; continue routine monitoring",
+      "Early signs of hypovolemic shock; notify the provider immediately",
+      "Signs of postoperative infection; obtain a blood culture",
+      "Signs of adequate pain control; no action needed"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "A progressive rise in heart rate and respiratory rate together with a falling blood pressure over a short period is a classic early compensatory trend for hypovolemic shock, often from occult postoperative bleeding, and the nurse should notify the provider immediately rather than waiting for overt hypotension or further deterioration. This is not an expected anesthesia-related fluctuation (A); the temperature trend is not suggestive of infection at this early postoperative point (C), since postoperative infection typically develops later and would not explain this hemodynamic trend; and a rising heart rate with a falling blood pressure is not a sign of adequate pain control (D).",
+    "nursing_concept": "Vital sign trend recognition \u2014 early hypovolemic shock"
+  },
+  {
+    "id": "ROR-008",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications of Diagnostic Tests/Treatments/Procedures",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client returns to the nursing unit after a lumbar puncture. Which instruction should the nurse include in the client's plan of care to help reduce the risk of a post-procedure headache?",
+    "options": [
+      "Remain lying flat in bed for the period specified by facility protocol and increase oral fluid intake",
+      "Sit upright in a chair for the first 2 hours after the procedure",
+      "Restrict oral fluids until the provider gives further orders",
+      "Ambulate in the hallway as soon as the client returns to the room"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "After a lumbar puncture, keeping the client flat/supine for the period specified by protocol (often several hours) and encouraging increased fluid intake helps replace cerebrospinal fluid volume and reduces the risk of a post-lumbar-puncture headache, which results from CSF leakage at the puncture site. Sitting upright (B) or ambulating immediately (D) increases pressure gradients that promote CSF leakage and headache, and restricting fluids (C) works against the goal of replacing lost CSF volume.",
+    "nursing_concept": "Post-lumbar puncture headache prevention"
+  },
+  {
+    "id": "ROR-009",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Alterations in Body Systems",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is teaching a postoperative client about measures to reduce the risk of deep vein thrombosis (DVT) and atelectasis. Which instructions should the nurse include? Select all that apply.",
+    "options": [
+      "Use the incentive spirometer approximately 10 times every hour while awake",
+      "Ambulate as soon as the provider allows, starting the day of or day after surgery",
+      "Wear sequential compression devices whenever not ambulating",
+      "Remain in bed as much as possible for the first week to allow the incision to heal",
+      "Cough and deep breathe every 1-2 hours while awake",
+      "Cross the legs at the knees while sitting up in the chair",
+      "Perform ankle pumps and calf-tightening exercises while in bed"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      4,
+      6
+    ],
+    "rationale": "Incentive spirometry (A) and coughing/deep breathing (E) expand the lungs and mobilize secretions to prevent atelectasis. Early ambulation (B), sequential compression devices when not ambulating (C), and ankle pumps/calf exercises (G) promote venous return and reduce venous stasis, lowering DVT risk. Prolonged bed rest (D) increases, rather than decreases, the risk of both DVT and atelectasis, and crossing the legs (F) compresses the popliteal vessels and impairs venous return, increasing DVT risk.",
+    "nursing_concept": "Postoperative DVT and atelectasis prevention"
+  },
+  {
+    "id": "ROR-010",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "A nurse is admitting a client to the post-anesthesia care unit (PACU) after general anesthesia. Place the nurse's initial assessment actions in the correct priority order.",
+    "options": [
+      "Assess pain level and administer analgesia as needed",
+      "Assess airway patency and the quality/rate of respirations",
+      "Assess vital signs, including heart rate, blood pressure, and oxygen saturation",
+      "Assess level of consciousness and orientation",
+      "Inspect the surgical dressing and any drains for bleeding or drainage"
+    ],
+    "answer": [
+      1,
+      2,
+      3,
+      4,
+      0
+    ],
+    "rationale": "Using an airway-breathing-circulation-based priority framework, the nurse first assesses airway patency and respiratory status (B), since airway compromise is immediately life-threatening. Next, vital signs including circulation indicators such as heart rate, blood pressure, and oxygen saturation are assessed (C). Level of consciousness (D) is assessed next to evaluate neurologic recovery from anesthesia, followed by inspection of the surgical site and drains for bleeding (E). Pain assessment and management (A) is important but is addressed after the client's airway, circulation, neurologic status, and surgical site have been confirmed stable.",
+    "nursing_concept": "PACU admission priority assessment sequence (ABC framework)"
+  },
+  {
+    "id": "ROR-011",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "Which laboratory result is within the normal range for a healthy adult client?",
+    "options": [
+      "Fasting blood glucose 350 mg/dL",
+      "White blood cell count 7,500/mm3",
+      "Platelet count 90,000/mm3",
+      "Hematocrit 25%"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "A white blood cell count of 7,500/mm3 falls within the normal adult range of approximately 5,000-10,000/mm3. A fasting glucose of 350 mg/dL is markedly elevated above the normal 70-100 mg/dL range, a platelet count of 90,000/mm3 is below the normal 150,000-400,000/mm3 range (thrombocytopenia), and a hematocrit of 25% is well below the normal adult range (approximately 37-52%, varying by sex), indicating significant anemia.",
+    "nursing_concept": "Standard adult normal laboratory reference ranges"
+  },
+  {
+    "id": "ROR-012",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "On postoperative day 3, a client reports a sudden 'popping' or 'giving way' sensation in the abdominal incision while coughing. The nurse removes the dressing and finds the wound edges separated with a loop of bowel visible at the surface. What should the nurse do first?",
+    "options": [
+      "Attempt to gently reinsert the protruding bowel into the abdominal cavity",
+      "Cover the area with sterile gauze moistened with normal saline and notify the provider immediately",
+      "Apply an abdominal binder tightly over the area and continue routine dressing changes",
+      "Administer the client's scheduled oral pain medication and reassess in 30 minutes"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "This client is experiencing wound dehiscence with evisceration, a surgical emergency. The nurse's priority is to cover the exposed bowel with sterile gauze moistened with sterile normal saline to keep the tissue moist and reduce the risk of drying and infection, and to notify the provider immediately for emergency surgical repair; the client should also be kept NPO and positioned in low-Fowler's with knees bent to reduce abdominal tension while awaiting the provider. The nurse must never attempt to push protruding organs back into the abdomen (A), as this risks perforation and peritonitis. A tight binder (C) could further injure the exposed bowel, and administering oral medication and delaying reassessment (D) wastes critical time in an emergency.",
+    "nursing_concept": "Wound dehiscence and evisceration emergency management"
+  },
+  {
+    "id": "ROR-013",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Diagnostic Tests",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A nurse is completing the pre-procedure screening checklist for a client scheduled for a magnetic resonance imaging (MRI) scan of the lumbar spine. Which finding should the nurse report to the radiologist before the client enters the scanner room?",
+    "options": [
+      "The client has a cardiac pacemaker that was implanted 3 years ago",
+      "The client is wearing a plastic hospital identification bracelet",
+      "The client reports mild claustrophobia and asks about a sedative",
+      "The client had a hip replaced with a titanium prosthesis that was documented as MRI-safe"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "The strong magnetic field of an MRI can damage or displace a cardiac pacemaker and disrupt its programming, and not all pacemakers are MRI-conditional, so this finding must be verified with the radiologist and cardiology before the scan proceeds. A plastic identification bracelet (B) contains no ferromagnetic material and is not a contraindication. Claustrophobia (C) is common and is managed with sedation or an open MRI, not a safety contraindication to report urgently. A titanium prosthesis documented as MRI-safe (D) is non-ferromagnetic and poses no hazard.",
+    "nursing_concept": "Pre-procedure MRI safety screening"
+  },
+  {
+    "id": "ROR-014",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A client who takes digoxin for heart failure has a trough digoxin level of 2.8 ng/mL drawn this morning. The client reports nausea and says lights appear to have a yellow-green halo around them. What should the nurse do first?",
+    "options": [
+      "Administer the scheduled digoxin dose as ordered",
+      "Hold the digoxin dose and notify the provider",
+      "Document the findings as expected adverse effects and reassess in 4 hours",
+      "Request an order for an additional dose of digoxin to reach the therapeutic range"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "The therapeutic range for digoxin is approximately 0.5-2.0 ng/mL; a level of 2.8 ng/mL is toxic, and nausea with visual disturbances such as a yellow-green halo (xanthopsia) are classic manifestations of digoxin toxicity. The nurse should hold the dose and notify the provider so further evaluation (including a potassium level and ECG) and possible treatment, such as digoxin immune Fab, can be initiated. Giving the scheduled dose (A) or an extra dose (D) would worsen toxicity, and simply documenting and waiting 4 hours (C) delays recognition of a potentially life-threatening dysrhythmia risk.",
+    "nursing_concept": "Digoxin therapeutic range and toxicity recognition"
+  },
+  {
+    "id": "ROR-015",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications of Diagnostic Tests/Treatments/Procedures",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "Six hours after a colonoscopy with polypectomy, a client reports abdominal pain. Which findings should alert the nurse to the possibility of bowel perforation? Select all that apply.",
+    "options": [
+      "Severe, persistent abdominal pain that steadily worsens",
+      "A rigid, distended abdomen",
+      "Fever and tachycardia",
+      "Rebound tenderness on abdominal palpation",
+      "Mild bloating that improves after passing flatus",
+      "Blood pressure of 86/52 mmHg with diaphoresis",
+      "Transient drowsiness that resolves within an hour of the procedure"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "rationale": "Severe and worsening abdominal pain (A), a rigid/distended abdomen (B), fever with tachycardia (C), and rebound tenderness (D) are classic peritoneal signs of bowel perforation, and hypotension with diaphoresis (F) suggests progression to septic/hypovolemic shock from peritonitis \u2014 all require immediate provider notification. Mild bloating relieved by passing flatus (E) is an expected, self-limited finding after colonoscopy from residual insufflated air, and transient drowsiness that resolves shortly after the procedure (G) is an expected effect of procedural sedation, not a sign of perforation.",
+    "nursing_concept": "Post-colonoscopy perforation recognition"
+  },
+  {
+    "id": "ROR-016",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "System Specific Assessments",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client has a new fiberglass cast applied for a tibial fracture. Two hours later, the client reports pain that is not relieved by the prescribed opioid and that worsens with passive movement of the toes. The toes are pale and cool, with a capillary refill of 4 seconds. What should the nurse do first?",
+    "options": [
+      "Administer the next dose of opioid pain medication earlier than scheduled",
+      "Elevate the extremity well above the level of the heart and apply ice",
+      "Notify the provider immediately of findings suggestive of acute compartment syndrome",
+      "Document the findings and reassess neurovascular status again in 2 hours"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "Pain that is out of proportion to the injury and unrelieved by opioids, pain with passive stretch, pallor, coolness, and delayed capillary refill are early signs of acute compartment syndrome, a limb-threatening emergency caused by rising pressure within the fascial compartment; the nurse must notify the provider immediately so the cast can be loosened or bivalved and pressures evaluated before irreversible muscle and nerve damage occurs. Giving more opioid (A) will not relieve ischemic pain and masks worsening symptoms, elevating the limb well above the heart (B) can further reduce arterial perfusion and worsen ischemia, and waiting 2 hours to reassess (D) risks permanent tissue damage in a time-critical emergency.",
+    "nursing_concept": "Acute compartment syndrome recognition after casting"
+  },
+  {
+    "id": "ROR-017",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Vital Signs",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse is assessing an older adult client for orthostatic hypotension. The supine blood pressure is 128/76 mmHg with a heart rate of 72/min. After the client stands for 1 minute, the blood pressure is 104/68 mmHg with a heart rate of 92/min, and the client reports feeling dizzy. How should the nurse interpret these findings?",
+    "options": [
+      "The findings are within normal limits because the heart rate compensated appropriately",
+      "The findings are consistent with orthostatic hypotension; the nurse should implement fall precautions",
+      "The findings indicate the client is adequately hydrated",
+      "The findings should simply be repeated in 24 hours before any intervention is considered"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Orthostatic hypotension is defined as a drop in systolic blood pressure of 20 mmHg or more, or diastolic of 10 mmHg or more, within 3 minutes of standing, accompanied by symptoms such as dizziness; this client's systolic pressure dropped 24 mmHg with associated dizziness, meeting the criteria, and the nurse should implement fall precautions and notify the provider. The compensatory tachycardia does not make this a normal finding (A), the data do not reflect hydration status directly (C), and delaying intervention for 24 hours (D) places the client at immediate risk for a fall-related injury.",
+    "nursing_concept": "Orthostatic hypotension assessment"
+  },
+  {
+    "id": "ROR-018",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Therapeutic Procedures",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is administering a unit of packed red blood cells. Ten minutes after the transfusion begins, the client reports flank pain and chills, and the temperature rises from 37.0\u00b0C to 38.9\u00b0C (98.6\u00b0F to 102\u00b0F). What should the nurse do first?",
+    "options": [
+      "Slow the infusion rate and continue to monitor the client closely",
+      "Stop the transfusion, keep the IV line open with normal saline through new tubing, and notify the provider",
+      "Administer acetaminophen as ordered and continue the transfusion as scheduled",
+      "Disconnect the IV line completely and apply a dry dressing over the insertion site"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Flank/back pain, chills, and a sudden fever shortly after a transfusion begins are classic signs of an acute hemolytic transfusion reaction, a medical emergency; the nurse must stop the transfusion immediately, maintain IV access with normal saline through all-new tubing (never the blood tubing, to avoid infusing more blood product) to support blood pressure and allow emergency medications, and notify the provider and blood bank immediately. Simply slowing the infusion (A) still introduces more incompatible blood, giving an antipyretic and continuing (C) delays recognition of a hemolytic reaction, and disconnecting the IV entirely (D) eliminates the access needed to treat the client.",
+    "nursing_concept": "Acute hemolytic transfusion reaction management"
+  },
+  {
+    "id": "ROR-019",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Alterations in Body Systems",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A nurse is caring for a client with a traumatic brain injury. Which combination of vital sign changes should the nurse recognize as Cushing's triad, a late and ominous sign of increased intracranial pressure?",
+    "options": [
+      "Rising systolic blood pressure with widening pulse pressure, bradycardia, and an irregular respiratory pattern",
+      "Hypotension, tachycardia, and tachypnea",
+      "Hypertension, tachycardia, and fever",
+      "Hypotension, bradycardia, and shallow respirations"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "Cushing's triad consists of a rising systolic blood pressure with a widening pulse pressure, bradycardia, and an irregular respiratory pattern (such as Cheyne-Stokes respirations); it reflects the brainstem's compensatory response to severe increased intracranial pressure and brainstem compression, and requires immediate intervention to prevent herniation. Hypotension with tachycardia and tachypnea (B) describes a shock pattern, not Cushing's triad. Hypertension with tachycardia and fever (C) is not the classic triad, and hypotension with bradycardia and shallow respirations (D) does not match the expected hemodynamic pattern of rising, not falling, blood pressure.",
+    "nursing_concept": "Cushing's triad / increased intracranial pressure"
+  },
+  {
+    "id": "ROR-020",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Potential for Complications from Surgical Procedures and Health Alterations",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is teaching a client who had an axillary lymph node dissection during a mastectomy about measures to reduce the risk of lymphedema in the affected arm. Which instructions should the nurse include? Select all that apply.",
+    "options": [
+      "Avoid having blood pressure measurements or injections performed on the affected arm",
+      "Wear gloves when gardening or doing household chores that could cause cuts to the skin",
+      "Keep the affected arm in a dependent position as much as possible throughout the day",
+      "Avoid carrying heavy bags, purses, or other objects with the affected arm",
+      "Report any redness, swelling, or warmth in the affected arm to the provider promptly",
+      "Apply constrictive jewelry or tight-fitting sleeves to help compress the tissue"
+    ],
+    "answer": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "rationale": "Avoiding blood pressure cuffs and injections on the affected arm (A), wearing protective gloves to prevent cuts and infection (B), avoiding heavy lifting on that arm (D), and promptly reporting redness, swelling, or warmth, which may signal cellulitis or worsening lymphedema (E), all reduce trauma and infection risk that can trigger or worsen lymphedema after lymph node removal. Keeping the arm dependent (C) is incorrect; the arm should be elevated when possible to promote lymphatic drainage, and constrictive jewelry or tight sleeves (F) can obstruct lymphatic flow and increase, rather than decrease, the risk of lymphedema.",
+    "nursing_concept": "Post-mastectomy lymphedema prevention"
+  },
+  {
+    "id": "ROR-021",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Diagnostic Tests",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "easy",
+    "stem": "A client is scheduled for a contrast-enhanced computed tomography (CT) scan of the abdomen. Which information is most important for the nurse to review before the procedure?",
+    "options": [
+      "The client's most recent hemoglobin A1c level",
+      "The client's allergy history and serum creatinine level",
+      "The date and character of the client's last bowel movement",
+      "The client's childhood immunization record"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Iodinated contrast media can trigger an allergic reaction in clients with a known iodine or shellfish allergy and can cause contrast-induced nephropathy in clients with impaired renal function, so the nurse must review allergy history and serum creatinine (or eGFR) before the scan and notify the provider of any concerns. Hemoglobin A1c (A), bowel movement history (C), and immunization records (D) are not directly relevant to the safety of administering IV contrast.",
+    "nursing_concept": "Pre-procedure screening for contrast media administration"
+  },
+  {
+    "id": "ROR-022",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Laboratory Values",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client with a chronic obstructive pulmonary disease (COPD) exacerbation has the following arterial blood gas results: pH 7.28, PaCO2 68 mmHg, HCO3- 28 mEq/L, PaO2 58 mmHg. How should the nurse interpret these results?",
+    "options": [
+      "Uncompensated metabolic acidosis",
+      "Partially compensated respiratory acidosis with hypoxemia",
+      "Fully compensated respiratory alkalosis",
+      "Uncompensated metabolic alkalosis"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Normal values are pH 7.35-7.45, PaCO2 35-45 mmHg, HCO3- 22-26 mEq/L, and PaO2 80-100 mmHg. This client's pH is low (acidosis) and the PaCO2 is markedly elevated, identifying a respiratory origin; the HCO3- is elevated above normal, showing the kidneys have begun retaining bicarbonate to compensate, but the pH remains abnormal, so compensation is only partial. The PaO2 of 58 mmHg indicates significant hypoxemia. This is not a metabolic process (A, D), since the primary abnormality is the elevated PaCO2, and it is acidosis, not alkalosis, ruling out option C.",
+    "nursing_concept": "Arterial blood gas interpretation \u2014 respiratory acidosis"
+  },
+  {
+    "id": "ROR-023",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "Therapeutic Procedures",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client's chest tube becomes accidentally dislodged from the insertion site. Place the nurse's actions in the correct priority order.",
+    "options": [
+      "Assess the client's respiratory rate, breath sounds, and oxygen saturation",
+      "Document the event, vital signs, and interventions in the medical record",
+      "Cover the insertion site immediately with a sterile dry dressing taped on three sides",
+      "Notify the provider and prepare for probable chest tube reinsertion",
+      "Remain with the client and call for additional help"
+    ],
+    "answer": [
+      2,
+      0,
+      4,
+      3,
+      1
+    ],
+    "rationale": "The nurse first covers the insertion site with a sterile dry dressing taped on three sides to reduce the risk of air entering the pleural space and causing a tension pneumothorax, while still allowing trapped air to escape. Next, the nurse assesses the client's respiratory rate, breath sounds, and oxygen saturation to determine the extent of respiratory compromise. The nurse then remains with the client and calls for additional help to ensure continuous monitoring and a rapid response. Once immediate safety measures are underway, the provider is notified and preparation begins for likely chest tube reinsertion. Documentation of the event, assessment findings, and interventions is completed last, after the emergency has been addressed.",
+    "nursing_concept": "Management of an accidentally dislodged chest tube"
+  },
+  {
+    "id": "ROR-024",
+    "category": "Reduction of Risk Potential",
+    "subcategory": "System Specific Assessments",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A nurse is assessing a client's arteriovenous (AV) fistula in the left forearm before a scheduled hemodialysis session. Which assessment finding indicates that the fistula is patent and functioning properly?",
+    "options": [
+      "A palpable thrill and an audible bruit over the fistula",
+      "Absence of a pulse distal to the fistula site",
+      "Cool, pale skin over the fistula site",
+      "Numbness and tingling in the fingers of the affected arm"
+    ],
+    "answer": [
+      0
+    ],
+    "rationale": "A palpable thrill (a vibration felt over the fistula) and an audible bruit (a whooshing sound heard with a stethoscope) indicate adequate turbulent blood flow through a patent AV fistula and are expected findings at every assessment. An absent distal pulse (B), cool pale skin (C), or numbness and tingling in the fingers (D) can indicate steal syndrome or compromised arterial perfusion to the hand and should be reported, not interpreted as normal, functioning findings.",
+    "nursing_concept": "AV fistula assessment for hemodialysis access"
+  }
+]

@@ -1,0 +1,443 @@
+[
+  {
+    "id": "MOC-001",
+    "category": "Management of Care",
+    "subcategory": "Assignment/Delegation/Supervision",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "The RN charge nurse on a medical-surgical unit is making assignments for the shift. Which client should be assigned to the licensed practical/vocational nurse (LPN/VN) rather than to the unlicensed assistive personnel (UAP)?",
+    "options": [
+      "A client who needs assistance with a bed bath and repositioning every 2 hours",
+      "A client who requires routine oral medication administration and site care for a well-healing surgical incision",
+      "A client who needs vital signs measured every 4 hours and intake and output recorded",
+      "A client who needs help ambulating to the bathroom with a gait belt"
+    ],
+    "answer": [1],
+    "rationale": "Administering routine oral medications and performing wound/incision care are within the LPN/VN scope of practice in most jurisdictions but are outside the UAP scope, which is limited to basic hygiene, activities of daily living, ambulation, and collecting (not interpreting) data such as vital signs and intake/output. The bath, vital sign collection, and ambulation assistance are all appropriate UAP tasks because they are routine, non-invasive, and do not require nursing judgment.",
+    "nursing_concept": "Five Rights of Delegation — right task/right person; LPN vs. UAP scope"
+  },
+  {
+    "id": "MOC-002",
+    "category": "Management of Care",
+    "subcategory": "Establishing Priorities",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "The nurse is receiving hand-off report on four clients. Which client should the nurse assess first?",
+    "options": [
+      "A client 2 days post-appendectomy who rates incisional pain as 5/10",
+      "A client with chronic obstructive pulmonary disease whose oxygen saturation dropped from 94% to 88% and is now audibly wheezing",
+      "A client with a new colostomy who is asking questions about pouch changes",
+      "A client with stable vital signs who is scheduled for discharge teaching this morning"
+    ],
+    "answer": [1],
+    "rationale": "Using the airway-breathing-circulation framework, a client with a falling oxygen saturation and new audible wheezing has an acute, unstable respiratory change that could progress to respiratory failure and must be assessed first. The postoperative pain (A), teaching request (C), and discharge teaching (D) all involve stable clients whose needs, while important, are not immediately life-threatening.",
+    "nursing_concept": "ABC prioritization — acute/unstable vs. chronic/stable"
+  },
+  {
+    "id": "MOC-003",
+    "category": "Management of Care",
+    "subcategory": "Informed Consent",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "easy",
+    "stem": "A client is scheduled for a cardiac catheterization later today. Which member of the healthcare team is responsible for obtaining the client's informed consent for the procedure?",
+    "options": [
+      "The RN caring for the client on the unit",
+      "The physician or advanced practice provider performing the procedure",
+      "The unit charge nurse",
+      "The admitting clerk during registration"
+    ],
+    "answer": [1],
+    "rationale": "The provider who will perform the procedure is responsible for explaining the procedure, its risks, benefits, and alternatives, and for obtaining informed consent, because only that provider can adequately answer procedure-specific questions. The RN's role is typically to witness the client's signature (confirming the client appears competent and is signing voluntarily) and to verify that the discussion took place, not to provide the procedural information itself. The charge nurse and admitting clerk have no role in obtaining consent.",
+    "nursing_concept": "Informed consent — who obtains vs. who witnesses"
+  },
+  {
+    "id": "MOC-004",
+    "category": "Management of Care",
+    "subcategory": "Advance Directives",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "An alert and oriented client with a written advance directive stating \"do not resuscitate\" develops a rapidly enlarging hematoma at a peripheral IV site with local swelling and pain, but is breathing comfortably and hemodynamically stable. What should the nurse do?",
+    "options": [
+      "Withhold all further treatment because the client has a do-not-resuscitate order",
+      "Contact the ethics committee before providing any care",
+      "Treat the IV infiltration/hematoma per standard nursing care, since a DNR order applies only to cardiopulmonary resuscitation",
+      "Ask the family to decide whether treatment should be given"
+    ],
+    "answer": [2],
+    "rationale": "A do-not-resuscitate (DNR) order addresses only the withholding of cardiopulmonary resuscitation (chest compressions, defibrillation, intubation for cardiac or respiratory arrest); it does not limit routine nursing or medical care for unrelated, non-life-threatening problems. The nurse should treat the IV site complication using standard practice. Withholding all care (A), deferring to the ethics committee for a routine issue (B), or shifting the decision to family when the client is alert and has already expressed preferences via the directive (D) are all inappropriate.",
+    "nursing_concept": "Advance directives — scope of a DNR order"
+  },
+  {
+    "id": "MOC-005",
+    "category": "Management of Care",
+    "subcategory": "Confidentiality/Information Security",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is discussing HIPAA-consistent protection of client health information with a group of newly hired staff. Which statements should the nurse include as correct? Select all that apply.",
+    "options": [
+      "\"You may look up a former client's chart out of personal curiosity as long as you don't share what you find.\"",
+      "\"Discuss client information only in private areas, away from public hallways, elevators, and cafeterias.\"",
+      "\"Log out of the electronic health record any time you step away from a workstation.\"",
+      "\"You may text a client's diagnosis to a colleague using your personal cell phone if it's quicker than the secure system.\"",
+      "\"Share client information with other staff only on a need-to-know basis related to that client's care.\"",
+      "\"Shred or place in a designated bin any printed documents containing client identifiers before disposal.\""
+    ],
+    "answer": [1, 2, 4, 5],
+    "rationale": "Protecting confidentiality requires discussing information only in private settings (B), logging out of unattended workstations (C), sharing information only on a need-to-know basis (E), and properly destroying printed materials with identifiers (F). Accessing a chart without a care-related need, even out of curiosity and even for a former client, is a HIPAA violation regardless of whether the information is shared further (A). Texting protected health information over an unsecured personal device is also a confidentiality/security violation, even if convenient (D).",
+    "nursing_concept": "HIPAA-consistent confidentiality and information security"
+  },
+  {
+    "id": "MOC-006",
+    "category": "Management of Care",
+    "subcategory": "Ethical Practice",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A competent adult client with end-stage cancer refuses further chemotherapy despite the oncologist's recommendation and the family's wishes that treatment continue. The nurse supports the client's decision to stop treatment. Which ethical principle is the nurse primarily upholding?",
+    "options": [
+      "Beneficence",
+      "Autonomy",
+      "Justice",
+      "Nonmaleficence"
+    ],
+    "answer": [1],
+    "rationale": "Autonomy is the ethical principle that respects a competent client's right to self-determination, including the right to refuse treatment, even when others disagree with that choice. Beneficence refers to acting for the client's good, justice concerns fair distribution of resources/treatment, and nonmaleficence means avoiding harm; while these principles may be relevant to the broader situation, the nurse's action of supporting the client's own decision most directly reflects respect for autonomy.",
+    "nursing_concept": "Ethical principles — autonomy vs. beneficence/nonmaleficence/justice"
+  },
+  {
+    "id": "MOC-007",
+    "category": "Management of Care",
+    "subcategory": "Performance Improvement (Quality Improvement)",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A nurse administers a medication to the wrong client but recognizes the error immediately, and the client experiences no adverse effects. After assessing the client and notifying the provider, what should the nurse do next?",
+    "options": [
+      "Complete an incident/variance report documenting the event",
+      "Document in the client's medical record that an incident report was filed",
+      "Wait to see if the client develops symptoms before reporting the error",
+      "Only inform the charge nurse verbally; no written report is needed since there was no harm"
+    ],
+    "answer": [0],
+    "rationale": "Medication errors, regardless of whether harm occurred, require completion of an incident/variance report so the event can be tracked and used for systems-level quality improvement. This report is a risk-management/quality tool and should not be referenced in the client's medical record (documenting its existence there is incorrect practice); the medical record should instead objectively describe the clinical facts, assessment, and provider notification. Reporting should never be delayed pending symptom development, and a verbal-only report to the charge nurse does not fulfill the facility's reporting requirement.",
+    "nursing_concept": "Incident/variance reporting for quality improvement"
+  },
+  {
+    "id": "MOC-008",
+    "category": "Management of Care",
+    "subcategory": "Client Rights",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A hospitalized client tells the nurse, \"I want to leave against medical advice. I know I'm not finished with my IV antibiotics, but I need to go home.\" The client is alert, oriented, and able to explain the risks of leaving early. What should the nurse do first?",
+    "options": [
+      "Physically prevent the client from leaving until the provider arrives",
+      "Notify the provider and prepare the against-medical-advice discharge process while respecting the client's right to refuse further treatment",
+      "Tell the client that leaving will void their insurance coverage to discourage them from going",
+      "Call security to detain the client in the room"
+    ],
+    "answer": [1],
+    "rationale": "A competent adult client has the legal and ethical right to refuse treatment and leave the hospital, even against medical advice. The nurse's role is to notify the provider, ensure the client understands the risks (informed refusal), and complete the appropriate against-medical-advice documentation while respecting the client's autonomy. Physically restraining the client (A) or involving security to detain a competent client (D) constitutes false imprisonment, and using scare tactics such as false statements about insurance (C) is coercive and unethical.",
+    "nursing_concept": "Client rights — right to refuse treatment / leaving AMA"
+  },
+  {
+    "id": "MOC-009",
+    "category": "Management of Care",
+    "subcategory": "Collaboration with Interdisciplinary Team",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A nurse is coordinating discharge planning for an older adult client who had a stroke with residual left-sided weakness and mild dysphagia. Which interdisciplinary team referrals should the nurse anticipate as appropriate? Select all that apply.",
+    "options": [
+      "Physical therapy for gait training and strength",
+      "Speech-language pathology for a swallow evaluation",
+      "Occupational therapy for activities of daily living retraining",
+      "Case management/social work for discharge planning and home care needs",
+      "Respiratory therapy for routine daily assessment of an unaffected respiratory system",
+      "Registered dietitian for a modified-consistency diet plan"
+    ],
+    "answer": [0, 1, 2, 3, 5],
+    "rationale": "Physical therapy (A), occupational therapy (C), speech-language pathology for the dysphagia (B), case management/social work for discharge and home-care coordination (D), and dietary consultation for a swallow-safe diet (F) are all appropriate collaborative referrals for a stroke client with weakness and dysphagia. Routine respiratory therapy assessment (E) is not indicated because the scenario describes no respiratory impairment; adding an unnecessary consult does not reflect appropriate resource use.",
+    "nursing_concept": "Interdisciplinary collaboration and referrals post-stroke"
+  },
+  {
+    "id": "MOC-010",
+    "category": "Management of Care",
+    "subcategory": "Assignment/Delegation/Supervision",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "hard",
+    "stem": "The charge nurse must determine the order in which to see clients at the start of the shift. Arrange the clients from the one who should be seen first to the one who should be seen last.",
+    "options": [
+      "A client 1 hour post-op from a bowel resection with stable vital signs and a patient-controlled analgesia pump infusing as ordered",
+      "A client with type 1 diabetes whose bedside glucose is 42 mg/dL and who is diaphoretic and confused",
+      "A client scheduled for discharge home this afternoon who is waiting for discharge teaching",
+      "A client 3 days post-op who reports incisional pain rated 6/10 that is unrelieved by the last dose of oral analgesic given 2 hours ago"
+    ],
+    "answer": [1, 3, 0, 2],
+    "rationale": "The hypoglycemic, confused client (glucose 42 mg/dL) has an immediate physiologic and safety threat and must be seen first. Next is the client with unrelieved postoperative pain despite analgesic administration, since inadequately controlled pain needs prompt reassessment and intervention. The 1-hour postoperative client is currently stable with an active PCA managing pain, so that client can be checked next. The client awaiting discharge teaching is stable and can be seen last, as this is a non-urgent, scheduled need.",
+    "nursing_concept": "Prioritization — first vs. next client, ABCs and acute vs. stable"
+  },
+  {
+    "id": "MOC-011",
+    "category": "Management of Care",
+    "subcategory": "Legal Rights and Responsibilities",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse floated to a specialty unit is asked to perform a task that is outside the nurse's training and competency, despite being licensed as an RN. What is the most appropriate action for the nurse to take?",
+    "options": [
+      "Perform the task since the nurse holds an active RN license",
+      "Refuse the assignment outright and leave the unit",
+      "Notify the charge nurse or supervisor of the practice limitation and request an appropriate reassignment or supervised orientation to the task",
+      "Attempt the task quietly without informing anyone, to avoid seeming incompetent"
+    ],
+    "answer": [2],
+    "rationale": "A nurse is legally and ethically responsible for practicing only within their individual competency, even when floated to an unfamiliar unit. The appropriate action is to notify the supervisor of the specific skill or knowledge gap and request reassignment to tasks within the nurse's competency or supervised guidance for the unfamiliar task. Performing an unfamiliar task independently (A, D) risks client harm and exposes the nurse to liability, while refusing the entire assignment and leaving (B) is patient abandonment; the concern should be raised through proper channels instead.",
+    "nursing_concept": "Legal accountability — floating and scope of individual competency"
+  },
+  {
+    "id": "MOC-012",
+    "category": "Management of Care",
+    "subcategory": "Continuity of Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A nurse is transferring a client from the intensive care unit to a medical-surgical unit. Using a standardized hand-off communication tool, which information is most important for the nurse to include?",
+    "options": [
+      "The client's insurance provider and billing information",
+      "The client's current condition, recent changes in status, active treatments, and pending follow-up needs",
+      "A complete list of every medication the client has ever received during hospitalization, regardless of relevance",
+      "The names of all staff who have cared for the client during the ICU stay"
+    ],
+    "answer": [1],
+    "rationale": "Effective hand-off communication (such as SBAR) prioritizes the client's current condition, recent significant changes, active treatments/lines/drains, and pending tasks or follow-up so the receiving nurse can safely continue care without gaps. Billing information (A) is not a clinical hand-off need, an exhaustive irrelevant medication history (C) adds noise rather than safety-relevant detail, and a roster of prior caregivers (D) does not support continuity of clinical care.",
+    "nursing_concept": "Continuity of care — standardized hand-off communication"
+  },
+  {
+    "id": "MOC-013",
+    "category": "Management of Care",
+    "subcategory": "Advocacy",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A client with limited English proficiency is about to sign a surgical consent form. The surgeon's qualified medical interpreter service is unavailable, so an adult family member is translating. The nurse notices the client looks hesitant and confused while the family member answers questions directly instead of translating them for the client. What is the nurse's best action as the client's advocate?",
+    "options": [
+      "Allow the family member to continue since the consent conversation is already underway",
+      "Stop the consent discussion and arrange for a qualified medical interpreter (in person, phone, or video) before proceeding",
+      "Ask the family member to leave the room and postpone the signature until a relative who speaks the client's language can come in",
+      "Proceed with the procedure since a consent form was signed"
+    ],
+    "answer": [1],
+    "rationale": "The nurse's advocacy role requires ensuring the client truly understands information before consenting; a qualified medical interpreter protects accuracy and reduces the risk that a family member unintentionally filters, summarizes, or answers for the client. Continuing with an informal interpreter who is answering instead of translating (A) risks an invalid consent, and simply substituting one untrained family interpreter for another (C) does not solve the underlying problem. A signed form does not establish valid informed consent if the client did not actually understand the information (D).",
+    "nursing_concept": "Patient advocacy — ensuring understanding before consent, language access"
+  },
+  {
+    "id": "MOC-014",
+    "category": "Management of Care",
+    "subcategory": "Case Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "A case manager reviews the chart of a client with heart failure who has had three hospital readmissions in two months. The client lives alone, has limited health literacy, and admits to running out of furosemide between refills because \"it's hard to get to the pharmacy and I lose track.\" Which action by the case manager will best address the primary driver of this client's repeated readmissions?",
+    "options": [
+      "Schedule more frequent follow-up appointments with the cardiologist",
+      "Arrange home health nursing visits and connect the client with a medication synchronization or delivery program",
+      "Advise the client to come to the emergency department sooner if symptoms worsen",
+      "Document the readmission pattern and refer the case to the risk management department"
+    ],
+    "answer": [1],
+    "rationale": "The data point directly to a medication-access and adherence barrier, so the most effective case management action targets that root cause by arranging home health support and a medication delivery/synchronization program. More frequent cardiology visits (A) does not solve the access problem, instructing earlier emergency department use (C) is reactive rather than preventive, and a risk-management referral (D) addresses institutional liability tracking, not the client's actual unmet need.",
+    "nursing_concept": "Case management — identifying and addressing root causes of readmission"
+  },
+  {
+    "id": "MOC-015",
+    "category": "Management of Care",
+    "subcategory": "Concepts of Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A new nurse manager on a unit with high staff turnover wants to rebuild engagement and morale. The manager shares a vision for unit improvement, asks staff for their ideas, and involves them in designing new workflows. Which leadership style does this reflect?",
+    "options": [
+      "Autocratic leadership, because the manager makes the final decisions",
+      "Transactional leadership, because staff are rewarded for completing assigned tasks",
+      "Transformational leadership, because the manager inspires a shared vision and empowers staff to contribute solutions",
+      "Laissez-faire leadership, because the manager allows staff to manage themselves without direction"
+    ],
+    "answer": [2],
+    "rationale": "Transformational leadership is characterized by inspiring a shared vision, motivating staff, and actively involving them in problem-solving and change — exactly what is described. Autocratic leadership (A) centralizes decision-making without staff input, transactional leadership (B) relies on a reward-for-task exchange rather than shared vision, and laissez-faire leadership (D) provides minimal guidance or involvement, which is the opposite of what is described.",
+    "nursing_concept": "Leadership and management styles — transformational vs. autocratic/transactional/laissez-faire"
+  },
+  {
+    "id": "MOC-016",
+    "category": "Management of Care",
+    "subcategory": "Information Technology",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse scans a client's wristband and then the medication barcode prior to administration. The bedside barcode medication administration (BCMA) system generates an alert that the scanned medication does not match the active order. The nurse is confident the correct medication was pulled from the automated dispensing cabinet. What should the nurse do?",
+    "options": [
+      "Override the alert and administer the medication since it was retrieved from the dispensing cabinet",
+      "Stop, and recheck the medication order, the medication itself, and the client's identifiers before proceeding",
+      "Silence the alert and document it as a false alarm to avoid delaying the medication pass",
+      "Administer the medication and notify the pharmacy afterward if an error turns out to have occurred"
+    ],
+    "answer": [1],
+    "rationale": "Barcode medication administration alerts exist specifically to catch discrepancies the nurse's own perception may miss, so an alert must be investigated and resolved before the medication is given, regardless of how confident the nurse feels. Overriding without investigation (A), dismissing the alert as a false alarm without verification (C), and administering first with notification only if a problem later becomes apparent (D) each bypass the safety function the technology is designed to provide and risk a preventable medication error.",
+    "nursing_concept": "Health information technology as a safety safeguard — responding to BCMA alerts"
+  },
+  {
+    "id": "MOC-017",
+    "category": "Management of Care",
+    "subcategory": "Referrals",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "easy",
+    "stem": "A client with a terminal diagnosis of pancreatic cancer and a prognosis of less than six months tells the nurse, \"I don't want any more chemotherapy. I just want to be comfortable at home with my family.\" Which referral should the nurse anticipate as most appropriate for this client?",
+    "options": [
+      "Physical therapy for strengthening and conditioning exercises",
+      "Hospice services",
+      "An oncology clinical trial coordinator",
+      "An outpatient infusion center for continued treatment"
+    ],
+    "answer": [1],
+    "rationale": "Hospice services are designed for clients with a terminal prognosis of six months or less who are choosing comfort-focused rather than curative care, which matches this client's stated goals exactly. Physical therapy (A) and continued infusion-based treatment (D) do not align with the client's decision to stop disease-directed therapy, and a clinical trial referral (C) is inconsistent with the client's explicit wish to stop chemotherapy.",
+    "nursing_concept": "Appropriate referral based on goals of care — hospice eligibility"
+  },
+  {
+    "id": "MOC-018",
+    "category": "Management of Care",
+    "subcategory": "Advance Directives",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "An older adult client with a durable power of attorney for health care naming his daughter as the healthcare agent is admitted unresponsive after a massive stroke and cannot participate in decisions. The client's written advance directive clearly states he does not want mechanical ventilation. The daughter, who is present, insists he be intubated \"to give him a chance.\" The provider asks the nurse how to proceed. What is the most appropriate response?",
+    "options": [
+      "Follow the daughter's wishes because she is the legally designated healthcare agent",
+      "Follow the client's written advance directive, since it reflects his own previously expressed wishes, and involve the ethics committee if the disagreement continues",
+      "Intubate the client first and resolve the disagreement afterward",
+      "Wait until another family member arrives to break the tie"
+    ],
+    "answer": [1],
+    "rationale": "A valid, applicable advance directive created while the client had decision-making capacity reflects the client's own autonomous wishes and generally takes precedence over a surrogate's contrary preference; the healthcare agent's role is to interpret and apply the client's known wishes, not override them. When the agent disagrees with a clear directive, an ethics consultation is the appropriate next step rather than unilaterally deferring to the agent (A), acting first and sorting it out later (C), or relying on an informal family vote (D), none of which honor the client's documented wishes or follow the proper mechanism for resolving the conflict.",
+    "nursing_concept": "Advance directives — priority of a client's own directive over a surrogate's contrary wishes"
+  },
+  {
+    "id": "MOC-019",
+    "category": "Management of Care",
+    "subcategory": "Ethical Practice",
+    "item_type": "sata",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "During a regional disaster with mass casualties, the emergency department is using a disaster triage system to allocate a limited number of ventilators and staff. Which actions reflect the ethical principle of justice in this situation? Select all that apply.",
+    "options": [
+      "Allocating resources based on likelihood of survival and resource need rather than on a first-come, first-served basis",
+      "Giving priority treatment to a hospital employee's family member who arrives with minor injuries",
+      "Using the same objective triage criteria for every client regardless of social status or ability to pay",
+      "Reserving a ventilator for a client who has a documented do-not-resuscitate order over a client without one who has a better prognosis",
+      "Reassessing clients' triage categories as their conditions change and resources become available",
+      "Treating clients with the best chance of survival with intervention before those unlikely to survive even with maximal intervention"
+    ],
+    "answer": [0, 2, 4, 5],
+    "rationale": "Justice requires the fair, consistent, criteria-based allocation of scarce resources: using survival likelihood and resource need rather than arrival order (A), applying identical objective criteria to every client (C), ongoing reassessment as conditions and supply change (E), and prioritizing those most likely to benefit (F) all reflect this principle. Favoring a staff member's family (B) is inequitable preferential treatment, and using DNR status — which reflects a client's code-status preference, not survivability — as the deciding factor for ventilator allocation (D) misapplies an unrelated directive to a resource-triage decision.",
+    "nursing_concept": "Ethical principle of justice — disaster/mass-casualty resource allocation"
+  },
+  {
+    "id": "MOC-020",
+    "category": "Management of Care",
+    "subcategory": "Legal Rights and Responsibilities",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A home health nurse visits an 82-year-old client with dementia and finds unexplained bruising on both upper arms in a pattern consistent with being gripped tightly, notes that the client appears fearful of the adult child who provides primary care, and observes that the home is unsafe and unsanitary. The adult child asks the nurse not to report anything, saying, \"It will only make things worse.\" What is the nurse's legal obligation?",
+    "options": [
+      "Respect the caregiver's request for confidentiality because the client cannot clearly describe what happened",
+      "Report the suspected elder abuse/neglect to adult protective services as a mandated reporter, regardless of the caregiver's request",
+      "Document the findings in the chart only, without further action, since dementia makes the client an unreliable historian",
+      "Confront the adult child directly to obtain a confession before deciding whether to report"
+    ],
+    "answer": [1],
+    "rationale": "Nurses are mandated reporters of suspected abuse or neglect of vulnerable adults and are legally required to report reasonable suspicion to the appropriate protective services agency regardless of a caregiver's objection; failure to report can result in legal and professional liability. Honoring the caregiver's request (A) or only charting the findings without reporting (C) both violate the mandatory reporting duty, and confronting the caregiver directly (D) is unsafe, is not the nurse's role, and is not a prerequisite for reporting reasonable suspicion.",
+    "nursing_concept": "Mandatory reporting — legal duty regarding suspected elder abuse/neglect"
+  },
+  {
+    "id": "MOC-021",
+    "category": "Management of Care",
+    "subcategory": "Assignment/Delegation/Supervision",
+    "item_type": "sata",
+    "clinical_judgment_step": "Generate Solutions",
+    "difficulty": "moderate",
+    "stem": "The RN is planning which tasks to delegate to an unlicensed assistive personnel (UAP) for a stable client who is 2 days post-total knee replacement. Which tasks are appropriate to delegate to the UAP? Select all that apply.",
+    "options": [
+      "Assisting the client to ambulate in the hallway with a walker as tolerated",
+      "Measuring and recording intake and output",
+      "Performing the first post-operative assessment of the surgical dressing",
+      "Reinforcing use of the continuous passive motion (CPM) machine as previously taught by the RN",
+      "Obtaining and recording routine vital signs",
+      "Teaching the client how to use a new patient-controlled analgesia (PCA) pump",
+      "Assisting the client with hygiene and repositioning"
+    ],
+    "answer": [0, 1, 3, 4, 6],
+    "rationale": "Ambulation assistance (A), intake and output measurement (B), reinforcement of a skill the RN already taught (D), routine vital sign collection (E), and hygiene/repositioning assistance (G) are all routine, non-judgment-based tasks within UAP scope for a stable client. Performing an initial or first-time assessment of a surgical dressing (C) requires nursing judgment and must be done by the RN, and teaching a client to use new equipment such as a PCA pump (F) is an independent nursing function that cannot be delegated.",
+    "nursing_concept": "Five Rights of Delegation — distinguishing UAP-appropriate tasks from RN-only assessment/teaching"
+  },
+  {
+    "id": "MOC-022",
+    "category": "Management of Care",
+    "subcategory": "Client Rights",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Foundational Knowledge",
+    "difficulty": "moderate",
+    "stem": "A client submits a written request to the health information management department to review and obtain a copy of their own medical record. While reviewing the chart, the client identifies an entry by another provider that the client believes is factually incorrect and asks the nurse what can be done. Which statement about the client's rights is accurate?",
+    "options": [
+      "Clients do not have a legal right to view their own medical records",
+      "The client has the right to access the record and to request an amendment; the facility must respond to the request but is not required to delete the original entry",
+      "The client must obtain a court order before viewing or requesting a change to any part of the chart",
+      "Only the client's legal representative can review or request changes to the medical record"
+    ],
+    "answer": [1],
+    "rationale": "Clients have a legal right to access their own health record and to request that inaccurate information be amended; the facility must respond to the request within a required timeframe, but the correct process is to add a documented amendment or addendum rather than delete or alter the original entry. Statements that clients have no access right (A), that a court order is required for ordinary access/amendment requests (C), or that only a legal representative may act for a client (D) misstate these rights.",
+    "nursing_concept": "Client rights — access to and amendment of the medical record"
+  },
+  {
+    "id": "MOC-023",
+    "category": "Management of Care",
+    "subcategory": "Performance Improvement (Quality Improvement)",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "hard",
+    "stem": "A unit is using the Plan-Do-Study-Act (PDSA) model to reduce catheter-associated urinary tract infections (CAUTIs). Place the following actions in the correct order according to the PDSA cycle.",
+    "options": [
+      "Analyze post-pilot CAUTI rates and staff adherence data compared with baseline",
+      "Roll the protocol out house-wide, incorporating lessons learned from the pilot",
+      "Identify the problem, review the evidence, and design a nurse-driven catheter removal protocol",
+      "Implement the nurse-driven catheter removal protocol on a single pilot unit for 4 weeks"
+    ],
+    "answer": [2, 3, 0, 1],
+    "rationale": "The PDSA cycle proceeds Plan (identify the problem and design the intervention), Do (implement the change on a small scale, such as a pilot unit), Study (analyze the resulting data against baseline), and Act (adopt, adapt, or abandon the change and spread it more broadly based on what was learned). The correct sequence is therefore designing the protocol, piloting it, analyzing the pilot data, and then rolling it out house-wide.",
+    "nursing_concept": "Quality improvement — Plan-Do-Study-Act (PDSA) cycle sequence"
+  },
+  {
+    "id": "MOC-024",
+    "category": "Management of Care",
+    "subcategory": "Informed Consent",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A 16-year-old is brought to the emergency department after a motor vehicle collision with a laceration requiring suturing. The adolescent is stable, but no parent or legal guardian can be reached immediately despite repeated attempts. Which statement about consent for this minor's treatment is correct?",
+    "options": [
+      "Treatment must be delayed until a parent or guardian can be contacted and signs consent",
+      "The minor can provide legally valid consent for any treatment because the minor is older than 14",
+      "Emergency treatment necessary to prevent harm may proceed under the emergency exception to informed consent while reasonable attempts continue to reach the parent/guardian",
+      "Hospital security must locate and bring in a parent or guardian before any care can be given"
+    ],
+    "answer": [2],
+    "rationale": "The emergency exception to informed consent allows necessary emergent or urgent treatment of a minor to proceed without parental consent when a parent/guardian cannot be reached despite reasonable attempts, because delaying care could cause harm. Minors generally cannot independently consent to non-emergency treatment based on age alone (B), and requiring care to be delayed (A) or requiring security to physically produce a guardian before treating (D) could cause preventable harm and is not legally required under this exception.",
+    "nursing_concept": "Informed consent — emergency exception for minors"
+  }
+]

@@ -1,0 +1,527 @@
+[
+  {
+    "id": "PSI-001",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Communication",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client newly diagnosed with breast cancer says to the nurse, \"I don't know how I'm going to tell my children. What if they think I'm going to die?\" Which response by the nurse is most therapeutic?",
+    "options": [
+      "\"Try not to worry about that right now. Many people survive breast cancer.\"",
+      "\"Why do you think they'll think that?\"",
+      "\"Tell me more about what concerns you about talking with your children.\"",
+      "\"I'm sure your children will understand once you explain it to them.\""
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "Using an open-ended statement that invites the client to explore the specific fear further (\"Tell me more about...\") is therapeutic because it keeps the focus on the client's own feelings and encourages elaboration. The first option offers false reassurance about survival odds rather than addressing the client's emotional concern. The second option is a \"why\" question, which tends to sound confrontational and puts the client on the defensive, forcing justification rather than exploration of feelings. The fourth option offers false reassurance/an unfounded prediction about how the children will react, which shuts down further discussion of the client's fear.",
+    "nursing_concept": "Therapeutic communication — open-ended questions vs. false reassurance and \"why\" questions"
+  },
+  {
+    "id": "PSI-002",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Abuse/Neglect",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A home health nurse visits an 82-year-old client with dementia and notices unexplained bruising in various stages of healing on the client's upper arms. The client appears frightened when the adult child caregiver enters the room and whispers, \"Please don't tell him I said anything.\" What is the nurse's priority obligation?",
+    "options": [
+      "Respect the client's request for confidentiality and document the findings only",
+      "Confront the caregiver directly about the bruising before leaving the home",
+      "Report the suspected abuse to adult protective services as required by law",
+      "Wait until the next scheduled visit to see if the bruising pattern continues"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "Nurses are mandated reporters; suspected abuse or neglect of a vulnerable adult (or child) must be reported to the appropriate protective services agency regardless of the client's wish for confidentiality, because the client's safety takes priority. Simply documenting without reporting (option 1) fails this legal and ethical duty. Confronting the caregiver directly (option 2) is not the nurse's role, could endanger the client further after the nurse leaves, and may compromise a subsequent investigation. Waiting to see if the pattern continues (option 4) delays a legally required report and leaves the client at continued risk of harm.",
+    "nursing_concept": "Mandatory reporting of suspected abuse/neglect"
+  },
+  {
+    "id": "PSI-003",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Crisis Intervention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A client says to the nurse, \"I just feel like everyone would be better off without me.\" Which response should the nurse make first?",
+    "options": [
+      "\"Everyone feels that way sometimes; it will get better.\"",
+      "\"Are you having thoughts of killing yourself?\"",
+      "\"Let's talk about something more positive.\"",
+      "\"I'll let your family know you're feeling this way.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Any statement suggesting hopelessness or that others would be \"better off\" without the client requires the nurse to directly and specifically assess for suicidal ideation. Asking directly about suicidal thoughts does not increase risk and is essential to determine the client's immediate safety, including whether a plan and means exist. The first option minimizes the statement with false reassurance instead of assessing risk. The third option changes the subject and avoids the cue entirely. The fourth option moves to notifying others before the nurse has even assessed the level of risk, which is not the priority first action.",
+    "nursing_concept": "Direct assessment of suicidal ideation"
+  },
+  {
+    "id": "PSI-004",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Chemical/Other Dependency",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client admitted 36 hours ago for an unrelated surgical procedure has a history of heavy daily alcohol use and reports last drinking two days before admission. The nurse notes coarse hand tremors, diaphoresis, blood pressure 168/98 mm Hg, heart rate 118/min, and the client reports seeing insects crawling on the wall that are not there. Which action should the nurse take first?",
+    "options": [
+      "Apply soft wrist restraints to prevent injury from the hallucinations",
+      "Notify the provider and initiate the facility's alcohol withdrawal protocol, such as CIWA-Ar scoring",
+      "Document the findings as expected postoperative anxiety and reassess in 8 hours",
+      "Encourage the client to rest and dim the lights to reduce stimulation"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Tremors, autonomic hyperactivity (tachycardia, hypertension, diaphoresis), and visual hallucinations emerging roughly 24-72 hours after the last drink in a client with a heavy alcohol use history are hallmark signs of alcohol withdrawal syndrome, which can progress to life-threatening delirium tremens. The priority is to notify the provider and initiate a standardized withdrawal assessment/protocol (e.g., CIWA-Ar) so benzodiazepine therapy and close monitoring can begin promptly. Restraints are a last resort after less restrictive measures fail and do not treat the underlying withdrawal process. Documenting the findings as ordinary postoperative anxiety fails to recognize a dangerous, progressive syndrome. Dimming lights may add comfort but does not address the need for urgent medical intervention.",
+    "nursing_concept": "Alcohol withdrawal syndrome recognition and timeline"
+  },
+  {
+    "id": "PSI-005",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Coping Mechanisms",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "easy",
+    "stem": "A client who was recently passed over for a work promotion comes home and yells at their spouse over a minor issue with the dishes, later stating, \"I don't know why I got so angry about that.\" Which defense mechanism is this client demonstrating?",
+    "options": [
+      "Projection",
+      "Displacement",
+      "Rationalization",
+      "Reaction formation"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Displacement occurs when an emotion (here, anger about the promotion) is redirected from its true source onto a safer or less threatening target, such as a spouse over an unrelated minor issue. Projection involves attributing one's own unacceptable feelings or impulses to another person rather than redirecting the emotion outward onto a substitute target. Rationalization is justifying behavior or feelings with logical-sounding but false explanations. Reaction formation is expressing feelings or behaviors that are the opposite of one's true, often unacceptable, feelings.",
+    "nursing_concept": "Defense mechanisms — displacement vs. projection, rationalization, reaction formation"
+  },
+  {
+    "id": "PSI-006",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Grief and Loss",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse follows a client's emotional responses over several months after the client receives a terminal cancer diagnosis. Place the client's statements below in the order that corresponds to the classic progression of Kubler-Ross's stages of grief, from earliest to latest.",
+    "options": [
+      "\"I promise I'll go to church every week if I can just see my daughter graduate.\"",
+      "\"This can't be right — the lab must have mixed up my results.\"",
+      "\"I've made peace with this. I want to spend the time I have left with my family.\"",
+      "\"It's not fair. Why does everyone else get to grow old and I don't?\"",
+      "\"What's the point in fighting anymore? I just feel numb and exhausted all the time.\""
+    ],
+    "answer": [
+      1,
+      3,
+      0,
+      4,
+      2
+    ],
+    "rationale": "Kubler-Ross's stages of grief classically progress: denial (\"the lab must have mixed up my results\"), anger (\"it's not fair\"), bargaining (\"I promise I'll go to church... if I can just see my daughter graduate\"), depression (\"what's the point... I just feel numb\"), and finally acceptance (\"I've made peace with this\"). Clients do not always move through the stages linearly or experience every stage, but the classic sequence taught for NCLEX purposes is denial, anger, bargaining, depression, then acceptance.",
+    "nursing_concept": "Kubler-Ross stages of grief"
+  },
+  {
+    "id": "PSI-007",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Cultural Awareness/Influence",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "A nurse is caring for a client from a culture in which major health care decisions are traditionally made collectively by the family rather than by the individual client alone. The client's adult son asks to be present for all discussions about the treatment plan and to help make decisions. Which response by the nurse best demonstrates cultural humility?",
+    "options": [
+      "Explain that in this facility, only the client is permitted to make decisions about their own care",
+      "Ask the client whether they would like their son involved in care discussions and decisions",
+      "Include the son in all discussions without first confirming this is the client's preference",
+      "Limit the son's involvement to visiting hours only in order to protect the client's autonomy"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Cultural humility requires individualized assessment of the client's own preferences rather than assuming either extreme; asking the client directly whether they want their son involved respects both the client's autonomy and the possibility that shared family decision-making is meaningful to them. Insisting that only the client may decide (option 1) imposes the nurse's own individualistic cultural framework rather than honoring the client's values. Automatically including the son without confirming the client's wishes (option 3) risks overriding the client's autonomy in the opposite direction. Arbitrarily restricting the son's involvement (option 4) has no basis in the client's actual stated preference.",
+    "nursing_concept": "Cultural humility in family decision-making"
+  },
+  {
+    "id": "PSI-008",
+    "category": "Psychosocial Integrity",
+    "subcategory": "End-of-Life Care",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A client with end-stage heart failure is enrolled in home hospice care. The client's spouse asks the nurse, \"Does this mean we can't call 911 or go to the hospital anymore if something happens?\" Which response by the nurse is most accurate?",
+    "options": [
+      "\"Hospice care means all life-sustaining treatments must be stopped, including hospital transfers.\"",
+      "\"You can still call 911, but hospice focuses on comfort rather than aggressive treatment aimed at curing the illness or prolonging life.\"",
+      "\"Once enrolled in hospice, your spouse cannot receive any medications, only supportive touch and prayer.\"",
+      "\"Hospice is only appropriate once your spouse has less than 24 hours left to live.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Hospice is a philosophy of comfort-focused, palliative care for clients with a terminal prognosis (typically about six months or less if the disease follows its expected course); it does not legally prevent a family from calling emergency services, though the goals of care shift toward symptom management and quality of life rather than curative or life-prolonging interventions, and any hospitalization is generally coordinated to remain consistent with the client's comfort goals. Option 1 incorrectly states that all treatment, including emergency transfer, must stop. Option 3 incorrectly states no medications are given — hospice actively provides medications for symptom control such as pain and dyspnea. Option 4 dramatically understates hospice eligibility, which is based on a prognosis of about six months or less, not only the final day of life.",
+    "nursing_concept": "Hospice philosophy and eligibility"
+  },
+  {
+    "id": "PSI-009",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Communication",
+    "item_type": "sata",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is communicating with a client who has just been told of a new diagnosis of multiple sclerosis. Which of the following nurse statements or actions are examples of therapeutic communication techniques? Select all that apply.",
+    "options": [
+      "\"It sounds like you're feeling overwhelmed by this news.\"",
+      "\"Why didn't you come in sooner when you first noticed the symptoms?\"",
+      "\"Tell me what concerns you most about this diagnosis.\"",
+      "\"Don't worry, lots of people live full lives with MS.\"",
+      "Remaining silent for a moment to give the client time to process before responding",
+      "\"If I were you, I'd start the medication right away.\"",
+      "\"So you're saying you're worried about how this will affect your family?\""
+    ],
+    "answer": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "rationale": "Reflection (\"It sounds like you're feeling overwhelmed\"), open-ended questions (\"Tell me what concerns you most\"), purposeful silence to allow processing time, and restating/clarifying (\"So you're saying you're worried...\") are all recognized therapeutic communication techniques that keep the focus on the client and invite further expression of feelings. Asking \"why\" (option 2) tends to sound accusatory and puts the client on the defensive rather than inviting exploration. \"Don't worry, lots of people live full lives\" (option 4) offers false reassurance that minimizes the client's feelings. \"If I were you, I'd start the medication right away\" (option 6) gives unsolicited advice, which discourages the client from working through their own decision-making process.",
+    "nursing_concept": "Therapeutic vs. nontherapeutic communication techniques"
+  },
+  {
+    "id": "PSI-010",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Chemical/Other Dependency",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "hard",
+    "stem": "A nurse is assessing a client who has been NPO and hospitalized for 48 hours following a motor vehicle collision. The client has a history of drinking approximately 8-10 beers daily. Which findings should alert the nurse to possible alcohol withdrawal syndrome? Select all that apply.",
+    "options": [
+      "Coarse hand tremors",
+      "Blood pressure 88/54 mm Hg with a heart rate of 52/min",
+      "Diaphoresis and anxiety",
+      "Auditory or visual hallucinations",
+      "Heart rate 120/min with a blood pressure of 168/100 mm Hg",
+      "Generalized tonic-clonic seizure activity",
+      "Somnolence with a decreased respiratory rate"
+    ],
+    "answer": [
+      0,
+      2,
+      3,
+      4,
+      5
+    ],
+    "rationale": "Alcohol withdrawal produces sympathetic (autonomic) hyperactivity and central nervous system excitability, presenting as coarse tremors, diaphoresis and anxiety, hallucinations (typically visual or tactile), tachycardia with hypertension, and, in more severe cases, generalized tonic-clonic seizures — seizures can occur roughly 12-48 hours after the last drink, and untreated withdrawal can progress to delirium tremens around 48-96 hours. Hypotension with bradycardia and somnolence with a decreased respiratory rate reflect central nervous system and cardiovascular depression, which is more consistent with intoxication or oversedation than withdrawal, so these two findings should not be attributed to withdrawal syndrome.",
+    "nursing_concept": "Signs and timeline of alcohol withdrawal syndrome"
+  },
+  {
+    "id": "PSI-011",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Behavioral Interventions",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client on an inpatient psychiatric unit is pacing, clenching fists, and speaking loudly in an escalating tone toward staff. Place the nurse's actions in the priority order they should be taken, from first to last, using a least-restrictive-to-most-restrictive approach.",
+    "options": [
+      "Administer as-needed (PRN) medication as ordered if verbal de-escalation is unsuccessful",
+      "Approach the client calmly, using a nonthreatening posture and a normal tone of voice, while maintaining a safe distance and a clear exit path",
+      "Remove other clients and nonessential stimuli from the immediate area",
+      "Call for additional staff assistance and prepare for physical restraint only if de-escalation fails and the client becomes an imminent danger",
+      "Offer the client clear, simple choices and ask directly what would help, using concise directions"
+    ],
+    "answer": [
+      2,
+      1,
+      4,
+      0,
+      3
+    ],
+    "rationale": "De-escalation follows a least-restrictive-to-most-restrictive sequence: first reduce environmental stimulation and protect other clients (remove nonessential stimuli), then approach the client calmly and nonthreateningly to establish safety and rapport, then engage the client verbally by offering choices and asking directly what would help to restore a sense of control, then offer PRN medication if verbal de-escalation alone is not effective, and only as a last resort — when the client becomes an imminent danger to self or others and less restrictive measures have failed — call for additional staff and prepare for physical restraint under provider order. Escalating directly to medication or restraint without first attempting environmental and verbal de-escalation violates the principle of using the least restrictive intervention necessary.",
+    "nursing_concept": "Least restrictive intervention / de-escalation hierarchy"
+  },
+  {
+    "id": "PSI-012",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Situational Role Changes",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "A 45-year-old client recently diagnosed with early-onset Parkinson disease states, \"I used to be the one my kids depended on. Now I feel like I'm just a burden, and my wife has to do everything.\" Which response by the nurse best addresses this client's psychosocial needs?",
+    "options": [
+      "\"You'll adjust to your new role over time; try not to focus on it.\"",
+      "\"It sounds like this diagnosis has changed how you see your role in the family. Can you tell me more about that?\"",
+      "\"Many people with Parkinson disease continue to work and stay independent for years.\"",
+      "\"Have you considered how your wife feels about taking on more responsibilities?\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "The client is describing a situational role change and a loss of identity related to a new chronic illness; reflecting the client's statement and inviting further exploration validates the feeling and helps the nurse assess the client's coping and psychosocial needs. Telling the client to \"try not to focus on it\" minimizes the feeling with vague reassurance rather than exploring it. Citing statistics about independence, while factually reasonable, offers information/reassurance that bypasses the client's expressed emotional distress. Redirecting the conversation to the spouse's feelings shifts focus away from the client's own stated distress, which is the priority to address at this time.",
+    "nursing_concept": "Situational role change and loss of identity with chronic illness"
+  },
+  {
+    "id": "PSI-013",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Family Dynamics",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "easy",
+    "stem": "A nurse is caring for a client recovering from a stroke with residual left-sided weakness. The client's spouse states, \"I used to rely on him for everything around the house and with finances. Now I have to do it all myself, and I don't know how to be a caregiver.\" Which family dynamic concept does this statement best illustrate?",
+    "options": [
+      "Family coping exhaustion that requires immediate placement in a long-term care facility",
+      "A shift in family roles that requires the spouse to adapt to new caregiving responsibilities",
+      "Enabling behavior by the spouse that will worsen the client's functional dependence",
+      "Codependency between the spouse and the client that predates the stroke"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "The spouse's statement reflects a situational shift in family roles: the stroke has changed the division of household and financial responsibilities, and the spouse is expressing the stress of adapting to an unfamiliar caregiving role. This is a normal, expected family adjustment process, not evidence that placement is required, since no data indicate the home situation is unsafe or unsustainable. Enabling behavior refers to actions that unintentionally support unhealthy or dependent behavior the client is capable of changing; taking on necessary caregiving tasks after a disabling stroke is not enabling. Codependency describes a longstanding, mutually dysfunctional relationship pattern, which is not suggested by a spouse's expected adjustment reaction to a new caregiving role.",
+    "nursing_concept": "Family role adaptation to a member's new disability"
+  },
+  {
+    "id": "PSI-014",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Mental Health Concepts",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse is caring for a client with a longstanding diagnosis of schizophrenia who has been stable on antipsychotic medication for two years. At a follow-up visit, the nurse observes that the client has become increasingly withdrawn, shows minimal facial expression, speaks only a few words in a flat monotone, and no longer attends activities the client previously enjoyed. The nurse should recognize these findings as examples of which type of symptom?",
+    "options": [
+      "Positive symptoms indicating an acute psychotic relapse",
+      "Negative symptoms, such as affective flattening, alogia, and avolition",
+      "Extrapyramidal side effects of antipsychotic medication",
+      "Cognitive symptoms consistent with a newly developing major neurocognitive disorder"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Per DSM-5-TR, negative symptoms of schizophrenia include diminished emotional expression (flat affect), alogia (reduced speech output), and avolition (decreased motivation to initiate purposeful activity) — exactly what this client is demonstrating. Positive symptoms refer to hallucinations, delusions, or grossly disorganized speech/behavior, none of which are described here. Extrapyramidal side effects typically present as tremor, rigidity, bradykinesia, or akathisia rather than social withdrawal and anhedonia alone, and the stem gives no motor findings. A major neurocognitive disorder would be suggested by memory loss or impaired executive function on testing, which is not described in this scenario.",
+    "nursing_concept": "Positive vs. negative symptoms of schizophrenia (DSM-5-TR)"
+  },
+  {
+    "id": "PSI-015",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Religious/Spiritual Influences",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "easy",
+    "stem": "An adult client who is a practicing Jehovah's Witness is scheduled for elective surgery with anticipated significant blood loss. The client has signed an advance directive refusing blood transfusion under any circumstance, including life-threatening hemorrhage. Before surgery, the client's adult child tells the nurse privately, \"If it becomes an emergency, just give him the blood anyway. He won't know, and I don't want to lose my father.\" Which response by the nurse is most appropriate?",
+    "options": [
+      "\"Don't worry, the surgical team will do whatever is medically necessary to save him.\"",
+      "\"I understand this is frightening, but the care team must honor your father's documented wishes about blood transfusion, since this decision is his to make.\"",
+      "\"I'll quietly let the surgeon know to transfuse if things become critical.\"",
+      "\"That decision is really between you and the surgeon, not something the nursing staff is involved in.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Respecting client autonomy and religious/spiritual beliefs is a core ethical and legal obligation; a competent adult's documented advance directive refusing blood products must be honored even in an emergency, and the nurse should acknowledge the family member's fear while being clear that the client's own wishes govern care. Promising the team will \"do whatever is necessary\" implies transfusion may occur despite the directive, which is misleading and unethical. Secretly agreeing to override the directive is a deliberate violation of the client's legal right to refuse treatment and constitutes battery if carried out. Telling the family this is not the nurse's concern abdicates the nurse's role as patient advocate and leaves a serious misunderstanding unaddressed.",
+    "nursing_concept": "Respecting advance directives and religious refusal of treatment"
+  },
+  {
+    "id": "PSI-016",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Sensory/Perceptual Alterations",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "moderate",
+    "stem": "An 78-year-old client on postoperative day 3 after hip fracture repair, with no prior history of cognitive impairment per family report, develops a sudden onset of disorientation, fluctuating attention, and visual misperceptions, stating that the IV pole \"is a person standing in the corner.\" Symptoms are worse in the late afternoon and evening. Which condition should the nurse suspect?",
+    "options": [
+      "Dementia with Lewy bodies",
+      "Sundowning related to a preexisting, undiagnosed dementia",
+      "Acute delirium related to the hospitalization and surgery",
+      "Major depressive disorder with psychotic features"
+    ],
+    "answer": [
+      2
+    ],
+    "rationale": "An acute, fluctuating onset of disorientation and perceptual disturbances (visual misperceptions) in a hospitalized older adult following surgery is the classic presentation of delirium, a common and reversible postoperative complication driven by factors such as anesthesia, pain, infection, and sleep disruption. Dementia with Lewy bodies and other dementias develop gradually over months to years with a progressive, generally stable-through-the-day course, not an acute change over days, and the family reports no prior cognitive impairment. \"Sundowning\" describes worsening confusion in the evening in a client with an established dementia diagnosis; it does not explain a sudden new-onset disorientation with fluctuating attention in someone with no baseline cognitive impairment. Major depressive disorder with psychotic features would not typically produce fluctuating attention and acute disorientation of this type.",
+    "nursing_concept": "Differentiating acute delirium from dementia and depression"
+  },
+  {
+    "id": "PSI-017",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Stress Management",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "easy",
+    "stem": "A nurse is teaching a client newly diagnosed with hypertension about stress management techniques to incorporate into daily life. The client states, \"Work is so stressful lately, I feel keyed up all the time.\" Which statement by the client indicates a correct understanding of the teaching?",
+    "options": [
+      "\"I'll drink an extra cup of coffee each afternoon to help me power through the stress.\"",
+      "\"I'll practice diaphragmatic breathing and progressive muscle relaxation for a few minutes each day.\"",
+      "\"I'll try to ignore the stress and just keep working until the feeling passes.\"",
+      "\"I'll cut back on sleep so I have more time to get my tasks done and worry less.\""
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Diaphragmatic breathing and progressive muscle relaxation are evidence-based techniques that activate the parasympathetic nervous system and reduce the physiologic stress (sympathetic/\"fight-or-flight\") response, making them appropriate stress-management strategies for a client with hypertension. Increasing caffeine intake is a stimulant that can raise heart rate and blood pressure, worsening rather than relieving stress. Ignoring or suppressing feelings is a maladaptive, avoidant coping strategy that does not resolve the underlying stress response. Reducing sleep increases physiologic and psychological stress and is counterproductive to stress reduction.",
+    "nursing_concept": "Evaluating client teaching on stress-reduction techniques"
+  },
+  {
+    "id": "PSI-018",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Support Systems",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "moderate",
+    "stem": "At a 2-week postpartum follow-up visit, a client states, \"My husband works nights, my mother lives three states away, and I don't really know any of my new neighbors yet. I'm exhausted and I find myself crying almost every day.\" Which action should the nurse prioritize?",
+    "options": [
+      "Reassure the client that postpartum exhaustion is normal and will resolve on its own within a few weeks",
+      "Further assess the client for symptoms of postpartum depression and explore what support resources are realistically available to her",
+      "Advise the client to ask her mother to move in with her temporarily",
+      "Suggest that the client's husband request a permanent shift change immediately"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Daily crying combined with a limited support system are risk factors for postpartum depression; the priority is to further assess the client's mood, sleep, and risk (including for self-harm or harm to the infant) and to explore what support resources — such as a postpartum support group, home-visiting services, or counseling — are actually available and acceptable to her. Reassuring the client that this is \"normal\" and will resolve on its own risks missing an evolving mood disorder that requires assessment and intervention. Suggesting the mother move in or that the husband change his work schedule proposes specific solutions before the nurse has even completed an assessment of the client's mental health status and without knowing whether these options are feasible for the family.",
+    "nursing_concept": "Assessing support systems as a postpartum depression risk factor"
+  },
+  {
+    "id": "PSI-019",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Environment",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "moderate",
+    "stem": "A nurse is admitting a client with severe major depressive disorder and passive suicidal ideation to an inpatient psychiatric unit. Which action is most important for the nurse to take to establish a safe therapeutic environment?",
+    "options": [
+      "Place the client in a private room at the far end of the hallway to provide quiet and privacy",
+      "Remove sharp objects, belts, shoelaces, plastic bags, and other items that could be used for self-harm from the client's belongings and room",
+      "Allow the client to keep all personal belongings unrestricted to promote a sense of normalcy",
+      "Restrict all visitors for the first 72 hours to minimize environmental stimulation"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Creating a safe therapeutic environment for a client with suicidal ideation requires removing items that could be used for self-harm, which is a core milieu-safety intervention regardless of whether the ideation is described as passive or active. Placing the client in a private room far from the nursing station reduces staff visibility and ability to monitor the client, increasing risk rather than promoting safety. Allowing unrestricted personal belongings could permit access to contraband or means of self-harm. Blanket restriction of all visitors for 72 hours is not a standard milieu-safety measure and can remove sources of social support that may actually benefit the client; visitor decisions should be individualized, not automatically restrictive.",
+    "nursing_concept": "Milieu/environmental safety for a client at risk for self-harm"
+  },
+  {
+    "id": "PSI-020",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Crisis Intervention",
+    "item_type": "multiple_choice",
+    "clinical_judgment_step": "Prioritize Hypotheses",
+    "difficulty": "hard",
+    "stem": "A client is brought to the emergency department by a friend after disclosing that her partner strangled her during an argument two hours earlier. The client is tearful and states, \"He said he's sorry, and I have nowhere else to go, so I just want to go home.\" Which action should the nurse prioritize?",
+    "options": [
+      "Immediately contact the police to have the partner arrested",
+      "Collaborate with the client to complete a danger/lethality assessment and connect her with a crisis advocate and resources, such as the 988 Suicide & Crisis Lifeline or a local intimate partner violence hotline, while respecting her right to make her own decision about leaving",
+      "Insist that the client remain in the hospital overnight until it is determined safe for her to go home",
+      "Inform the client that she must file a police report before the nurse can treat her injuries"
+    ],
+    "answer": [
+      1
+    ],
+    "rationale": "Strangulation is a well-recognized marker of significantly increased lethality risk in intimate partner violence; the nurse's priority in crisis intervention is to complete a danger assessment, provide information about safety planning and available resources (such as a crisis line or domestic violence advocate), and support the client's autonomy in decision-making, since victims often are not ready to leave immediately and coercing a decision can increase danger or deter future help-seeking. Calling the police without the client's involvement may not be legally required unless state mandatory reporting laws apply to this type of injury, and acting unilaterally can undermine trust and safety planning. Forcing the client to stay overnight when there is no acute medical indication for admission violates her autonomy. Conditioning medical treatment on filing a police report is both unethical and a violation of the duty to provide care.",
+    "nursing_concept": "Lethality assessment and client-centered crisis intervention in intimate partner violence"
+  },
+  {
+    "id": "PSI-021",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Abuse/Neglect",
+    "item_type": "sata",
+    "clinical_judgment_step": "Recognize Cues",
+    "difficulty": "moderate",
+    "stem": "A nurse in a pediatric clinic is assessing a 4-year-old child brought in by a caregiver for a routine well-child visit. Which findings should raise the nurse's suspicion for possible child abuse or neglect? Select all that apply.",
+    "options": [
+      "Multiple bruises on the shins and knees in different stages of healing in an active, ambulatory child",
+      "A spiral fracture of the humerus in a child who is reported to be too young to walk or climb",
+      "The child appears significantly underweight, with poor hygiene and clothing inappropriate for the weather",
+      "Patterned bruising on the back or buttocks resembling a hand print or belt buckle",
+      "The caregiver maintains calm eye contact and answers the nurse's questions appropriately throughout the visit",
+      "The child becomes notably fearful and flinches when the examiner reaches toward him",
+      "Burns with a sharply demarcated \"glove\" or \"stocking\" pattern consistent with forced immersion"
+    ],
+    "answer": [
+      1,
+      2,
+      3,
+      5,
+      6
+    ],
+    "rationale": "A spiral fracture in a child too young to generate the twisting force required, a spiral or transverse fracture pattern inconsistent with the reported mechanism, failure to thrive with poor hygiene and weather-inappropriate clothing (possible neglect), patterned bruising matching an object (hand print or belt buckle), fearful flinching with approach (hypervigilance), and sharply demarcated immersion-pattern burns are all recognized red flags for physical abuse or neglect because they are inconsistent with accidental injury or developmental capability. Bruises on the shins and knees are common accidental findings in active toddlers and are not, by themselves, suspicious. A caregiver who is calm and appropriately engaged during the visit is a reassuring, expected finding and not a red flag on its own.",
+    "nursing_concept": "Recognizing injury patterns and findings suspicious for child abuse/neglect"
+  },
+  {
+    "id": "PSI-022",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Mental Health Concepts",
+    "item_type": "sata",
+    "clinical_judgment_step": "Analyze Cues",
+    "difficulty": "hard",
+    "stem": "A client is brought to the emergency department by family members who report the client has been behaving erratically for the past week. On assessment, the nurse notes the client is talking rapidly, has not slept more than 3 hours a night \"but feels fine,\" and describes being chosen to lead a major corporation despite having no business background. Which additional findings would be consistent with a manic episode, per DSM-5-TR criteria? Select all that apply.",
+    "options": [
+      "Flight of ideas with rapid, pressured speech that is difficult to interrupt",
+      "Increased goal-directed activity, having started five new projects and maxed out several credit cards on impulsive purchases this week",
+      "Distractibility and increased involvement in risky activities, such as unprotected sex with strangers",
+      "Persistent sad mood and loss of interest in previously enjoyed activities for the past two weeks",
+      "Psychomotor retardation with significant fatigue and difficulty getting out of bed",
+      "Inflated self-esteem beyond the grandiose belief already described, such as insisting personal wealth is unlimited"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "rationale": "DSM-5-TR criteria for a manic episode include a distinct period of abnormally and persistently elevated, expansive, or irritable mood with increased energy, along with at least three (four if mood is only irritable) of: inflated self-esteem/grandiosity, decreased need for sleep, pressured speech/flight of ideas, distractibility, increased goal-directed activity, and excessive involvement in high-risk activities with painful consequences — all of which are reflected in the pressured/flight-of-ideas speech, increased goal-directed activity with impulsive spending, risky behavior, and escalating grandiosity described. Persistent sad mood with anhedonia for two weeks describes a major depressive episode, and psychomotor retardation with fatigue and difficulty rising describes depressive symptoms as well — both are inconsistent with, and essentially opposite to, the hyperactivation seen in mania.",
+    "nursing_concept": "DSM-5-TR diagnostic criteria for a manic episode"
+  },
+  {
+    "id": "PSI-023",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Coping Mechanisms",
+    "item_type": "sata",
+    "clinical_judgment_step": "Evaluate Outcomes",
+    "difficulty": "moderate",
+    "stem": "A nurse is following a client newly diagnosed with stage II breast cancer over several clinic visits. Which of the following client statements reflect adaptive coping strategies? Select all that apply.",
+    "options": [
+      "\"I've started attending a support group for people with a new cancer diagnosis.\"",
+      "\"I've been researching my treatment options and writing down questions for my oncologist.\"",
+      "\"I've cancelled all my upcoming doctor's appointments because I don't want to think about any of this.\"",
+      "\"I go for a walk every morning; it helps clear my head before the day starts.\"",
+      "\"I've been drinking more wine in the evenings — it helps me relax and stop thinking about it.\"",
+      "\"I talk with my spouse about how I'm feeling, and we problem-solve together about what's next.\""
+    ],
+    "answer": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "rationale": "Attending a support group, actively seeking information and preparing questions, engaging in regular physical activity, and openly communicating with a supportive partner to problem-solve are all adaptive coping strategies because they help the client process emotions, maintain engagement with care, and build a sense of control. Canceling appointments to avoid thinking about the diagnosis is an avoidant, maladaptive coping strategy that delays necessary care and can worsen anxiety over time. Increasing alcohol use to numb distress is also maladaptive, since it can lead to a substance use problem and does not address the underlying stressor.",
+    "nursing_concept": "Adaptive vs. maladaptive coping with a new cancer diagnosis"
+  },
+  {
+    "id": "PSI-024",
+    "category": "Psychosocial Integrity",
+    "subcategory": "Therapeutic Environment",
+    "item_type": "ordered_response",
+    "clinical_judgment_step": "Take Action",
+    "difficulty": "hard",
+    "stem": "A client with major depressive disorder is being admitted directly from the emergency department to an inpatient psychiatric unit following a recent suicide attempt. Place the nurse's actions in the order they should be performed, from first to last, to establish a safe therapeutic environment on admission.",
+    "options": [
+      "Orient the client to the unit's rules, daily schedule, and expectations",
+      "Conduct a thorough search of the client's belongings and person, removing sharps, cords, glass, medications, and other potentially dangerous items",
+      "Assign the client to a room close to the nursing station with the observation level (e.g., every-15-minute checks or continuous observation) indicated by the facility's protocol",
+      "Complete a focused suicide risk assessment, including current ideation, plan, and access to means",
+      "Collaborate with the client to develop a written safety plan identifying triggers, coping strategies, and emergency contacts, such as the 988 Suicide & Crisis Lifeline"
+    ],
+    "answer": [
+      3,
+      1,
+      2,
+      0,
+      4
+    ],
+    "rationale": "On admission of a client after a suicide attempt, the nurse should first complete a focused suicide risk assessment (ideation, plan, means) because this determines the level of precaution needed; next, physically remove dangerous items from the client's belongings and person to immediately reduce access to means; then assign a room and observation level based on the assessed risk; then orient the client to unit rules and the daily schedule once immediate safety needs are addressed; and finally, once the client is stabilized within the milieu, collaborate on a written safety plan with coping strategies and crisis resources, which is a more involved, forward-looking intervention best done after the acute admission tasks are complete. Performing the steps out of this order — for example, orienting the client to the unit before securing the environment and assessing risk — would leave the client in an unsafe environment longer than necessary.",
+    "nursing_concept": "Sequencing of safety-focused admission actions for a client at risk for self-harm"
+  }
+]
