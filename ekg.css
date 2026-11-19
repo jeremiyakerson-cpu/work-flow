@@ -4,6 +4,10 @@
   padding: 32px 24px 64px;
 }
 
+/* Embedded in another site (?embed=1): that site supplies the header */
+.embed .site-header { display: none; }
+.embed .ekg-main { padding-top: 16px; }
+
 .ekg-intro {
   margin-bottom: 24px;
 }
@@ -276,7 +280,7 @@
 
 .trace-col { order: 1; }
 
-/* Zoll-style numeric tiles with alarm-limit markers */
+/* Monitor numeric tiles with alarm-limit markers */
 .vitals-col .vital {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.055);
@@ -1345,6 +1349,42 @@
 }
 .study-confuse { color: var(--text-dim); font-size: 0.86rem; }
 
+/* Medications tab: treatment line and section titles under the strip */
+.med-tx {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+.med-tx .med-label { width: 82px; }
+
+.med-section {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.med-grid + .med-section { margin-top: 22px; }
+
+.med-grid[hidden] { display: none; }
+.med-note {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--priority-bg);
+  color: var(--priority);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.med-card-match { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+
 /* Med cards */
 .med-grid {
   display: grid;
@@ -1759,16 +1799,16 @@
   }
 }
 
-/* ================= ZOLL SOFTBAR (cosmetic menu strip) ================= */
+/* ================= MONITOR SOFTBAR (cosmetic menu strip) ================= */
 
-.zoll-softbar {
+.monitor-softbar {
   display: flex;
   gap: 6px;
   margin-top: 10px;
   pointer-events: none;
 }
 
-.zoll-softbar span {
+.monitor-softbar span {
   flex: 1;
   text-align: center;
   font-size: 0.62rem;

@@ -1,6 +1,6 @@
 /*
  * Code-scenario (megacode) engine: multi-stage cases where the rhythm on
- * the monitor changes as the code evolves. Left pane = Zoll monitor,
+ * the monitor changes as the code evolves. Left pane = monitor,
  * right pane = animated patient/code scene with an interventions log.
  */
 

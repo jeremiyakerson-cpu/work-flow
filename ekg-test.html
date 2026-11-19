@@ -10,6 +10,22 @@
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="theme-color" content="#0b0f14">
+<meta name="description" content="Read EKG rhythms on a live, simulated defibrillator-monitor: 19 rhythms, code scenarios, timed exams and a study guide. Educational use only.">
+<!-- Link preview on LinkedIn and other sites. Image: node tools/make-share-card.js -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EKG Rhythm Trainer">
+<meta property="og:title" content="EKG Rhythm Trainer: read rhythms on a live monitor">
+<meta property="og:description" content="19 rhythms, code scenarios, timed exams and a study guide on a simulated defibrillator-monitor. Runs in the browser. Educational use only.">
+<meta property="og:url" content="https://jeremiyakerson-cpu.github.io/work-flow/ekg-test.html">
+<meta property="og:image" content="https://jeremiyakerson-cpu.github.io/work-flow/share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="A simulated monitor showing an atrial fibrillation strip with a heart rate of 132.">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+  // ?embed=1: running inside another site's page, so drop our own header.
+  if (/[?&]embed=1(&|$)/.test(location.search)) document.documentElement.classList.add("embed");
+</script>
 </head>
 <body>
 
@@ -25,7 +41,7 @@
     </nav>
   </div>
   <div class="header-sub">
-    <span class="outline-badge">STUDY GUIDE · EXAMS · CODE SCENARIOS · SIMULATED ZOLL X SERIES MONITOR</span>
+    <span class="outline-badge">STUDY GUIDE · EXAMS · CODE SCENARIOS · SIMULATED DEFIBRILLATOR-MONITOR</span>
   </div>
 </header>
 
@@ -116,7 +132,7 @@
     <div class="monitor">
       <div class="monitor-bezel">
         <div class="monitor-topbar">
-          <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-brand">TRAINING <strong>MONITOR</strong></span>
           <span class="monitor-adult-chip">ADULT</span>
           <span class="monitor-mode-badge">TRAINING SIMULATION — NOT FOR CLINICAL USE</span>
           <span class="monitor-timer" id="monitor-timer" hidden></span>
@@ -149,7 +165,7 @@
             <div class="alarm-banner" id="alarm-banner" hidden></div>
           </div>
         </div>
-        <div class="zoll-softbar" aria-hidden="true">
+        <div class="monitor-softbar" aria-hidden="true">
           <span>Alarms</span><span>12-Lead</span><span>NIBP</span><span>Print</span><span>More ▸</span>
         </div>
         <div class="monitor-softkeys" id="softkeys"></div>
@@ -219,7 +235,7 @@
       <div class="sc-monitor-pane">
         <div class="monitor-bezel">
           <div class="monitor-topbar">
-            <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+            <span class="monitor-brand">TRAINING <strong>MONITOR</strong></span>
             <span class="monitor-adult-chip">ADULT</span>
             <span class="monitor-mode-badge">TRAINING SIMULATION</span>
             <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
@@ -254,7 +270,7 @@
               <div class="alarm-banner" id="sc-alarm-banner" hidden></div>
             </div>
           </div>
-          <div class="zoll-softbar" aria-hidden="true">
+          <div class="monitor-softbar" aria-hidden="true">
             <span>Alarms</span><span>12-Lead</span><span>NIBP</span><span>Energy Select</span><span>More ▸</span>
           </div>
         </div>
@@ -307,13 +323,19 @@
             </div>
           </div>
         </div>
-        <div class="study-criteria" id="study-criteria"></div>
-        <div class="study-body" id="study-body"></div>
+        <div id="study-rhythm-info">
+          <div class="study-criteria" id="study-criteria"></div>
+          <div class="study-body" id="study-body"></div>
+        </div>
+        <!-- Medications tab: the strip above keeps running; this sits right under it -->
+        <div id="study-meds" hidden>
+          <p class="med-tx" id="study-med-tx"></p>
+          <h4 class="med-section" id="study-med-match-title"></h4>
+          <div class="med-grid" id="study-med-match"></div>
+          <h4 class="med-section" id="study-med-rest-title"></h4>
+          <div class="med-grid" id="study-med-grid"></div>
+        </div>
       </div>
-    </div>
-
-    <div id="study-meds" hidden>
-      <div class="med-grid" id="study-med-grid"></div>
     </div>
   </div>
 
@@ -342,7 +364,7 @@
       </div>
       <div class="monitor-bezel">
         <div class="monitor-topbar">
-          <span class="monitor-brand">ZOLL <strong>X SERIES</strong></span>
+          <span class="monitor-brand">TRAINING <strong>MONITOR</strong></span>
           <span class="monitor-mode-badge">RHYTHM SPRINT</span>
           <button class="sound-toggle" type="button" aria-label="Monitor sound">🔇</button>
         </div>
@@ -460,6 +482,7 @@
 <script src="ekg-study.js"></script>
 <script src="ekg-sprint.js"></script>
 <script src="ekg-progress.js"></script>
+<script src="ekg-links.js"></script>
 <script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {

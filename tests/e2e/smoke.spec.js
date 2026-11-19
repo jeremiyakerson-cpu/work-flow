@@ -15,8 +15,25 @@ test("study guide: rhythms, live strip and med cards", async ({ page, errors }) 
   await buttons.nth(3).click();
   await expect(page.locator(".study-rhythm-btn.active")).toHaveText(await buttons.nth(3).textContent());
   await expect(page.locator("#study-criteria .crit-cell")).toHaveCount(5);
+  // medications sit directly under the strip, which stays on screen
   await page.click("#study-tab-meds");
+  await expect(page.locator("#study-canvas")).toBeVisible();
+  await expect(page.locator("#study-criteria")).toBeHidden();
   await expect(page.locator(".med-card").first()).toBeVisible();
+  const strip = await page.locator(".study-bezel").boundingBox();
+  const meds = await page.locator("#study-meds").boundingBox();
+  expect(meds.y).toBeGreaterThanOrEqual(strip.y + strip.height);
+  expect(meds.y - (strip.y + strip.height)).toBeLessThan(40);
+  // picking a rhythm swaps in the drugs for that rhythm
+  await page.locator(".study-rhythm-btn", { hasText: "Torsades" }).click();
+  await expect(page.locator(".med-card-match h4").first()).toHaveText("Magnesium sulfate");
+  // high-grade block: atropine is listed last, with a warning
+  await page.locator(".study-rhythm-btn", { hasText: "Mobitz II" }).click();
+  await expect(page.locator(".med-card-match").last().locator("h4")).toHaveText("Atropine");
+  await expect(page.locator(".med-card-match").last().locator(".med-note")).toContainText("Don't delay pacing");
+  await page.click("#study-tab-rhythms");
+  await expect(page.locator("#study-criteria")).toBeVisible();
+  await expect(page.locator("#study-meds")).toBeHidden();
   await page.click("#study-back");
   await expect(page.locator("#mode-select")).toBeVisible();
 });
@@ -174,4 +191,24 @@ test("progress dashboard renders and resets", async ({ page, errors }) => {
 test("domain board page loads", async ({ page, errors }) => {
   await page.goto("index.html");
   await expect(page.locator("#domain-grid")).not.toBeEmpty();
+});
+
+test("shareable links open a rhythm, a tab or a mode, and embed hides the header", async ({ page, errors }) => {
+  await page.goto("ekg-test.html?rhythm=svt_aberrancy&tab=meds");
+  await expect(page.locator("#study-screen")).toBeVisible();
+  await expect(page.locator("#study-rhythm-name")).toHaveText("SVT with aberrancy");
+  await expect(page.locator("#study-meds")).toBeVisible();
+  // the link is consumed, so a reload lands on the menu
+  expect(new URL(page.url()).search).toBe("");
+
+  await page.goto("ekg-test.html?mode=sprint");
+  await expect(page.locator("#sprint-screen")).toBeVisible();
+
+  await page.goto("ekg-test.html?rhythm=not-a-rhythm");
+  await expect(page.locator("#mode-select")).toBeVisible();
+
+  await page.goto("ekg-test.html?embed=1&rhythm=aflutter_variable");
+  await expect(page.locator(".site-header")).toBeHidden();
+  await expect(page.locator("#study-rhythm-name")).toHaveText("Atrial flutter with variable block");
+  expect(new URL(page.url()).search).toBe("?embed=1");
 });

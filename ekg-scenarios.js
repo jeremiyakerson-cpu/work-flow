@@ -1,5 +1,5 @@
 /*
- * Multi-stage code scenarios ("megacodes") for the Zoll trainer.
+ * Multi-stage code scenarios ("megacodes") for the monitor trainer.
  * Each stage: the monitor rhythm at that moment, the patient's state for
  * the code scene (CPR in progress, pads on, pulse/LOC/breathing), a
  * narrative bridge, one decision question, and the intervention that gets
