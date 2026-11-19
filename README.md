@@ -27,3 +27,7 @@ answer.
 **Offline.** Every app file at the repo root (`*.html`, `*.js`, `*.css`, icons, the manifest) must
 be listed in `CORE_ASSETS` in `service-worker.js`; `tests/unit/service-worker.test.js` fails
 otherwise. Bump `CACHE_VERSION` when you change that list or the page shell.
+
+## Pinterest Organizer
+
+A Windows tool that sorts your Pinterest pins and finds new ones to pick from. See [`pinterest-organizer/README.md`](pinterest-organizer/README.md).

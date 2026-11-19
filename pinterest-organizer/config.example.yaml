@@ -1,0 +1,46 @@
+# Copy this file to config.yaml and fill in the two Pinterest values.
+# config.yaml stays on your computer; it is never uploaded.
+
+pinterest:
+  # From https://developers.pinterest.com/apps/ (see README, step 2)
+  client_id: "PASTE_APP_ID_HERE"
+  client_secret: "PASTE_APP_SECRET_HERE"
+  redirect_uri: "http://localhost:8085/callback"
+  # While your app only has Trial access, Pinterest may require the sandbox:
+  # api_base: "https://api-sandbox.pinterest.com/v5"
+  api_base: "https://api.pinterest.com/v5"
+
+sorting:
+  # sections = one board ("sections_board") with a section per category
+  # boards   = a separate board per category
+  organize_as: sections
+  sections_board: "Sorted Pins"
+  board_privacy: PUBLIC        # or SECRET
+  unsorted_name: "Unsorted"
+  # A new category is made when at least this many unsorted pins share a word.
+  min_pins_for_new_category: 4
+  max_new_categories: 10
+  # Leave these boards alone:
+  skip_boards: []
+  # Or sort only these boards (empty = all boards):
+  only_boards: []
+
+discover:
+  queries_per_refresh: 3       # how many categories to search on each Refresh
+  pins_per_query: 25           # pins per category (3 x 25 = 75 pins per Refresh)
+  extra_queries: []            # more things to search for, e.g. ["cozy reading nook"]
+  show_browser: true           # watch the browser while it looks for pins
+  port: 5000
+
+# Your categories: a name, then words that mean a pin belongs there.
+# Change these to match what you pin. New ones are added automatically
+# (saved in state/categories.json; move them here to edit them).
+categories:
+  Recipes: [recipe, dinner, dessert, baking, cake, cookie, soup, salad, pasta, chicken, breakfast, meal prep]
+  Home Decor: [decor, living room, bedroom, kitchen, interior, farmhouse, shelf, wall art, cozy]
+  Garden: [garden, plant, flower, succulent, backyard, patio, vegetable garden]
+  Fashion: [outfit, dress, fashion, shoes, jeans, fall outfit, summer outfit, accessories]
+  Beauty: [makeup, nail, nails, hair, hairstyle, skincare, braid]
+  Crafts: [craft, crochet, knitting, sewing, cricut, embroidery, handmade]
+  Travel: [travel, vacation, beach, destination, road trip, itinerary]
+  Fitness: [workout, fitness, exercise, yoga, abs, stretch]
