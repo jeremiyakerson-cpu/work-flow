@@ -1,5 +1,5 @@
 /*
- * Waveform synthesis for the Zoll-style EKG trainer.
+ * Waveform synthesis for the EKG trainer's simulated monitor.
  * Produces a Float32Array (range roughly -1.3..1.3, 1.0 ≈ 1 mV) representing
  * one lead-II strip, sampled evenly across a fixed time window.
  *
@@ -47,6 +47,16 @@ function qrsNarrow(t, amp) {
   return q + r + s;
 }
 
+// Bundle-branch-block (aberrant) conduction: a sharp initial deflection
+// down the healthy bundle, then a broad slurred terminal S as the blocked
+// side depolarizes late. Total width ~0.13 s. The fast start is the
+// classic visual cue that separates it from VT's slow, broad onset.
+function qrsAberrant(t, amp) {
+  const r = amp * gauss(t, 0.011);
+  const s = -0.42 * amp * skew(t - 0.05, 0.018, 0.032);
+  return r + s;
+}
+
 function qrsWide(t, amp) {
   const r = amp * skew(t, 0.024, 0.03);
   const s = -0.1 * amp * gauss(t - 0.075, 0.015);
@@ -75,7 +85,7 @@ function beatValue(t, b) {
     v -= (b.tAmp === undefined ? 0.45 : b.tAmp) * amp * skew(t - peak, left, right);
     return v;
   }
-  v += qrsNarrow(t, amp);
+  v += b.aberrant ? qrsAberrant(t, amp) : qrsNarrow(t, amp);
   const s = clamp(b.qt / 0.38, 0.5, 1.25);
   const right = 0.036 * s;
   const tEnd = -QRS_ONSET + b.qt;
@@ -170,6 +180,34 @@ function fibrillation(total, speed, ceiling) {
   return arr;
 }
 
+const FLUTTER_PERIOD = 0.2; // 300/min flutter waves
+
+// Lead II flutter: a sawtooth that never rests, with QRS complexes landing
+// every ratio() flutter cycles.
+function flutter(st, ratio, meanRR) {
+  const arr = makeArray();
+  const period = FLUTTER_PERIOD;
+  // slow descent, sharp upstroke, no flat baseline
+  const saw = (ta) => {
+    const p = (((ta / period) % 1) + 1) % 1;
+    return p < 0.68 ? 0.5 - p / 0.68 : -0.5 + (p - 0.68) / 0.32;
+  };
+  addFn(arr, (t) => {
+    const ta = st.t0 + t;
+    // short average rounds the corners the way a real monitor filter does
+    return 0.3 * ((saw(ta - 0.01) + saw(ta - 0.005) + saw(ta) + saw(ta + 0.005) + saw(ta + 0.01)) / 5);
+  });
+  const first = 0.07 - 4 * period * Math.ceil((0.07 + LEAD_IN) / (4 * period));
+  const beats = series(
+    st,
+    "qrs",
+    () => ({ t: first }),
+    (p) => ({ t: p.t + ratio() * period })
+  );
+  addBeats(arr, beats, meanRR, { amp: 0.8, tAmp: 0.06 });
+  return arr;
+}
+
 // Each generator takes (state, rate). `rate` is the VENTRICULAR rate the
 // caller wants on the monitor; every rhythm has a clinically typical default.
 const RHYTHMS = {
@@ -180,6 +218,10 @@ const RHYTHMS = {
   sinus_tach: (st, rate = 122) => regularRhythm(st, rate, { amp: 0.95, pr: 0.14, tAmp: 0.2 }),
 
   svt: (st, rate = 186) => regularRhythm(st, rate, { amp: 0.9, tAmp: 0.16 }),
+
+  // SVT conducted with a bundle branch block: same rate and regularity as
+  // SVT, no P waves, but every QRS is wide with a sharp start.
+  svt_aberrancy: (st, rate = 182) => regularRhythm(st, rate, { amp: 0.95, aberrant: true, tAmp: 0.18 }),
 
   afib: (st, rate = 128) => {
     const arr = makeArray();
@@ -209,29 +251,23 @@ const RHYTHMS = {
     return arr;
   },
 
+  // Fixed conduction ratio: 4:1 → 75/min, 2:1 → 150/min.
   aflutter: (st, rate = 75) => {
-    const arr = makeArray();
-    const period = 0.2; // 300/min flutter waves
-    const ratio = clamp(Math.round(300 / rate), 2, 6); // 4:1 → 75/min
-    // Lead II sawtooth: slow descent, sharp upstroke, no flat baseline.
-    const saw = (ta) => {
-      const p = (((ta / period) % 1) + 1) % 1;
-      return p < 0.68 ? 0.5 - p / 0.68 : -0.5 + (p - 0.68) / 0.32;
+    const ratio = clamp(Math.round(300 / rate), 2, 6);
+    return flutter(st, () => ratio, ratio * FLUTTER_PERIOD);
+  },
+
+  // Variable block: the ratio keeps changing (mostly 2:1 and 4:1, some
+  // 3:1), so the R-R is irregular — but every interval is a whole number
+  // of flutter cycles, and the sawtooth between beats never changes.
+  aflutter_variable: (st, rate = 100) => {
+    const mean = clamp(300 / rate, 2.2, 3.8);
+    const p2 = (3.8 - mean) / 2; // 3:1 fixed at 20%, 2:1 and 4:1 share the rest
+    const ratio = () => {
+      const r = Math.random();
+      return r < p2 ? 2 : r < p2 + 0.2 ? 3 : 4;
     };
-    addFn(arr, (t) => {
-      const ta = st.t0 + t;
-      // short average rounds the corners the way a real monitor filter does
-      return 0.3 * ((saw(ta - 0.01) + saw(ta - 0.005) + saw(ta) + saw(ta + 0.005) + saw(ta + 0.01)) / 5);
-    });
-    const step = ratio * period;
-    const beats = series(
-      st,
-      "qrs",
-      () => ({ t: 0.07 - step * Math.ceil((0.07 + LEAD_IN) / step) }),
-      (p) => ({ t: p.t + step })
-    );
-    addBeats(arr, beats, step, { amp: 0.8, tAmp: 0.06 });
-    return arr;
+    return flutter(st, ratio, mean * FLUTTER_PERIOD);
   },
 
   avb1: (st, rate = 70) => regularRhythm(st, rate, { pr: 0.28 }),
@@ -255,17 +291,18 @@ const RHYTHMS = {
   },
 
   // 3:2 block — constant, normal PR on conducted beats; every third P
-  // wave is suddenly not followed by a QRS.
+  // wave is suddenly not followed by a QRS. The block sits below the AV
+  // node, so conducted beats are usually wide.
   mobitz2: (st, rate = 52) => {
     const arr = makeArray();
     const pp = 60 / (clamp(rate, 35, 60) * 1.5);
     const ps = steady(st, "p", pp);
     const beats = [];
     for (const p of ps) {
-      if (p.i % 3 !== 2) beats.push({ t: p.t + 0.16 + QRS_ONSET });
+      if (p.i % 3 !== 2) beats.push({ t: p.t + 0.16 + WIDE_ONSET });
     }
     addPWaves(arr, ps.map((p) => p.t), 0.15);
-    addBeats(arr, beats, pp, { amp: 0.95, tAmp: 0.22 });
+    addBeats(arr, beats, pp, { amp: 0.9, wide: true, tAmp: 0.38 });
     return arr;
   },
 

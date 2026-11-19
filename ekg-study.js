@@ -89,9 +89,10 @@
     renderMeds();
   }
 
-  function medCard(m, match) {
+  function medCard(m, match, note) {
     return `
       <div class="med-card${match ? " med-card-match" : ""}">
+        ${note ? `<p class="med-note">⚠ ${note}</p>` : ""}
         <div class="med-head">
           <h4>${m.name}</h4>
           <span class="med-cls">${m.cls}</span>
@@ -107,15 +108,17 @@
   // drugs used for it, then every other card for reference.
   function renderMeds() {
     const g = RHYTHM_GUIDE[currentKey];
-    const names = RHYTHM_MEDS[currentKey] || [];
-    const match = names.map((n) => MED_GUIDE.find((m) => m.name === n)).filter(Boolean);
-    const rest = MED_GUIDE.filter((m) => !match.includes(m));
+    const entries = (RHYTHM_MEDS[currentKey] || []).map((e) => (typeof e === "string" ? { name: e } : e));
+    const match = entries
+      .map((e) => ({ med: MED_GUIDE.find((m) => m.name === e.name), note: e.note }))
+      .filter((x) => x.med);
+    const rest = MED_GUIDE.filter((m) => !match.some((x) => x.med === m));
 
     document.getElementById("study-med-tx").innerHTML = `<span class="med-label">TREATMENT</span><span>${g.tx}</span>`;
     document.getElementById("study-med-match-title").textContent = match.length
       ? `Medications for ${g.name}`
       : `No medication is indicated for ${g.name}`;
-    document.getElementById("study-med-match").innerHTML = match.map((m) => medCard(m, true)).join("");
+    document.getElementById("study-med-match").innerHTML = match.map((x) => medCard(x.med, true, x.note)).join("");
     document.getElementById("study-med-match").hidden = !match.length;
     document.getElementById("study-med-rest-title").textContent = match.length ? "Other medications" : "All medications";
     document.getElementById("study-med-grid").innerHTML = rest.map((m) => medCard(m, false)).join("");
@@ -137,6 +140,13 @@
     document.getElementById("study-tab-meds").addEventListener("click", () => showTab("meds"));
   }
 
+  // Open at a given rhythm and tab (used by shareable links).
+  function openAt(key, nextTab) {
+    if (key && RHYTHM_GUIDE[key]) currentKey = key;
+    if (nextTab === "meds" || nextTab === "rhythms") tab = nextTab;
+    open();
+  }
+
   init();
-  window.EkgStudy = { open };
+  window.EkgStudy = { open, openAt };
 })();

@@ -1,5 +1,5 @@
 /*
- * 25-question EKG assessment for the Zoll monitor trainer.
+ * EKG question bank for the monitor trainer (quizzes draw from it).
  * category: "rhythm" | "meds" | "condition" | "code"
  * rhythm: key into EkgRhythms.synthesizeRhythm (waveform shown on the monitor)
  * vitals: what the monitor readout displays for this stem
@@ -816,6 +816,45 @@ const EKG_QUESTIONS = [
     answer: 0,
     rationale:
       "Biphasic defibrillation uses the device manufacturer's recommended energy (commonly 120–200 J); if unknown, use the maximum. Subsequent shocks may be equivalent or escalated. Shocks for VF/pVT are always unsynchronized.",
+  },
+  // ---------- LOOK-ALIKES ----------
+  {
+    id: 51,
+    category: "rhythm",
+    rhythm: "aflutter_variable",
+    vitals: { hr: 100, spo2: 96, nibp: "122/78", rr: 18 },
+    stem: "The ventricular rhythm is irregular. Look closely at the baseline between the QRS complexes. What is this rhythm?",
+    choices: ["Atrial flutter with variable block", "Atrial fibrillation", "Multifocal atrial tachycardia", "Sinus rhythm with PACs"],
+    answer: 0,
+    rationale:
+      "The baseline is a uniform sawtooth that repeats exactly, and every R-R interval is a whole number of flutter waves (2:1, 3:1, 4:1). That is flutter with a changing conduction ratio. Atrial fibrillation is also irregular, but its baseline is chaotic and never repeats.",
+  },
+  {
+    id: 52,
+    category: "rhythm",
+    rhythm: "svt_aberrancy",
+    vitals: { hr: 182, spo2: 97, nibp: "108/70", rr: 20 },
+    stem: "Your patient has a known right bundle branch block, is alert, and is perfusing. The rhythm is regular and wide, and each QRS begins with a sharp upstroke before it widens. What is the most likely rhythm?",
+    choices: ["SVT with aberrancy", "Ventricular tachycardia", "Sinus tachycardia", "Atrial flutter with 2:1 block"],
+    answer: 0,
+    rationale:
+      "A regular wide-complex tachycardia whose QRS starts sharply and then widens, matching a known bundle branch block, fits SVT conducted with aberrancy. VT's complexes typically start with a slow, broad upstroke. On a single lead you can never be certain, which is why the next question matters.",
+  },
+  {
+    id: 53,
+    category: "condition",
+    rhythm: "svt_aberrancy",
+    vitals: { hr: 184, spo2: 95, nibp: "100/64", rr: 22 },
+    stem: "A wide, regular tachycardia at 184 appears on the monitor. You can't be sure whether it is VT or SVT with aberrancy. How should it be treated?",
+    choices: [
+      "Treat it as VT until proven otherwise",
+      "Give diltiazem to slow the rate, then reassess",
+      "Assume SVT and repeat vagal maneuvers until it breaks",
+      "Observe; wide complexes at this rate are expected with aberrancy",
+    ],
+    answer: 0,
+    rationale:
+      "An unidentified wide-complex tachycardia is treated as VT: synchronized cardioversion if unstable, an antiarrhythmic if stable. Calcium channel blockers given to VT can cause collapse. Adenosine may be considered only if the rhythm is stable, regular and monomorphic.",
   },
 ];
 

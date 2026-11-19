@@ -354,7 +354,7 @@ function renderMonitor(q) {
     rr: v.rr || 0,
     etco2: v.etco2 != null ? v.etco2 : null,
     // the HR tile reads what the monitor measures off the strip, like a
-    // real Zoll — not a pre-printed number
+    // real monitor — not a pre-printed number
     hrEl: document.getElementById("vital-hr"),
   });
 }

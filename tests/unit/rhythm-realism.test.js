@@ -33,6 +33,7 @@ const DEFAULT_RATE = {
   sinus_brady: 44,
   sinus_tach: 122,
   svt: 186,
+  svt_aberrancy: 182,
   aflutter: 75,
   avb1: 70,
   mobitz1: 58.5,
@@ -45,7 +46,7 @@ const DEFAULT_RATE = {
 };
 
 test("the monitor finds exactly the QRS complexes that were drawn", async (t) => {
-  for (const key of [...Object.keys(DEFAULT_RATE), "afib"]) {
+  for (const key of [...Object.keys(DEFAULT_RATE), "afib", "aflutter_variable"]) {
     await t.test(key, () => {
       for (let seed = 1; seed <= 12; seed++) {
         const ctx = fresh(seed);
@@ -74,6 +75,15 @@ test("the measured rate matches the rate of the drawn rhythm", async (t) => {
       }
     });
   }
+  await t.test("flutter with variable block averages its ventricular rate", () => {
+    let sum = 0;
+    for (let seed = 1; seed <= 40; seed++) {
+      const ctx = fresh(seed);
+      const { joined, perSec } = twoStrips(ctx, "aflutter_variable", 100);
+      sum += ctx.EkgMonitor.measuredRate(ctx.EkgMonitor.detectBeats(joined, perSec));
+    }
+    assert.ok(Math.abs(sum / 40 - 100) < 8, `mean measured ${sum / 40}`);
+  });
   await t.test("afib averages its ventricular rate", () => {
     let sum = 0;
     for (let seed = 1; seed <= 40; seed++) {
@@ -128,6 +138,17 @@ test("irregular rhythms are irregular in the right way", async (t) => {
     assert.ok(Math.max(...g) / Math.min(...g) > 1.3);
     assert.ok(new Set(g.map((x) => x.toFixed(2))).size > g.length / 2, "R-R intervals repeat");
   });
+  await t.test("flutter with variable block: irregular, but every R-R is whole flutter waves", () => {
+    for (let seed = 1; seed <= 6; seed++) {
+      const g = gaps(twoStrips(fresh(seed), "aflutter_variable").truth);
+      for (const x of g) {
+        const waves = x / 0.2;
+        const whole = Math.round(waves);
+        assert.ok(Math.abs(waves - whole) < 1e-6 && whole >= 2 && whole <= 4, `gap ${x}`);
+      }
+      assert.ok(new Set(g.map((x) => x.toFixed(2))).size > 1, `seed ${seed}: R-R never varied`);
+    }
+  });
   await t.test("mobitz I: R-R shortens, then a pause shorter than two cycles", () => {
     const g = gaps(twoStrips(fresh(2), "mobitz1").truth);
     const pp = 60 / 78;
@@ -177,6 +198,7 @@ test("ventricular complexes are wide with an opposite T wave", () => {
   };
   assert.ok(halfWidth("nsr") < 0.045, `narrow QRS half-width ${halfWidth("nsr")}`);
   assert.ok(halfWidth("vt") > 1.6 * halfWidth("nsr"), "VT must read wide next to a sinus beat");
+  assert.ok(halfWidth("mobitz2") > 1.6 * halfWidth("nsr"), "Mobitz II conducts with a wide (infranodal) QRS");
   const { a } = twoStrips(fresh(4), "avb3");
   const r = a.qrs.find((x) => x > 1 && x < 4.5);
   let low = 0;
@@ -203,4 +225,30 @@ test("the pleth pulses once per beat and goes flat without beats", () => {
   for (let i = 1; i < p.length; i++) if (p[i - 1] < 0.6 && p[i] >= 0.6) pulses++;
   assert.equal(pulses, times.length);
   for (const v of p) assert.ok(v >= 0 && v <= 1.1);
+});
+
+test("SVT with aberrancy: sharp start, wide finish — unlike VT's slow start", () => {
+  // time for the QRS to climb from 20% to 90% of its peak
+  const upstroke = (key) => {
+    const { a } = twoStrips(fresh(4), key);
+    const r = a.qrs.find((x) => x > 1.5 && x < 4.5);
+    const peak = at(a, r);
+    let t20 = r;
+    let t90 = r;
+    for (let d = 0; d < 0.12; d += 0.001) {
+      if (at(a, r - d) > 0.9 * peak) t90 = r - d;
+      if (at(a, r - d) > 0.2 * peak) t20 = r - d;
+    }
+    return t90 - t20;
+  };
+  // how long the complex stays away from baseline after the R peak
+  const tail = (key) => {
+    const { a } = twoStrips(fresh(4), key);
+    const r = a.qrs.find((x) => x > 1.5 && x < 4.5);
+    let last = 0;
+    for (let d = 0; d < 0.12; d += 0.002) if (Math.abs(at(a, r + d)) > 0.15) last = d;
+    return last;
+  };
+  assert.ok(upstroke("vt") > 1.8 * upstroke("svt_aberrancy"), `VT upstroke ${upstroke("vt")} vs aberrancy ${upstroke("svt_aberrancy")}`);
+  assert.ok(tail("svt_aberrancy") > 1.8 * tail("svt"), "aberrant QRS must stay wide after its sharp start");
 });

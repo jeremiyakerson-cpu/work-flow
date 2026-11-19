@@ -1,7 +1,7 @@
 {
-  "name": "EKG Rhythm Trainer — Zoll Monitor Simulation",
+  "name": "EKG Rhythm Trainer — Monitor Simulation",
   "short_name": "EKG Trainer",
-  "description": "25-question EKG rhythm, medication, and code-response simulation on a training Zoll-style monitor. Educational use only — not a real medical device.",
+  "description": "25-question EKG rhythm, medication, and code-response simulation on a simulated defibrillator-monitor. Educational use only — not a real medical device.",
   "start_url": "./ekg-test.html",
   "scope": "./",
   "display": "standalone",
