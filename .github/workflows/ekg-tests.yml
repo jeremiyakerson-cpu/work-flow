@@ -4,10 +4,12 @@ on:
   pull_request:
     paths-ignore:
       - "betting-desk/**"
+      - "fitforge/**"
   push:
     branches: [main]
     paths-ignore:
       - "betting-desk/**"
+      - "fitforge/**"
   workflow_dispatch:
 
 permissions:

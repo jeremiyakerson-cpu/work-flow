@@ -1,4 +1,10 @@
 # work-flow
+
+## FitForge — training app with "Build it"
+
+`fitforge/` is a React + Vite PWA. `cd fitforge && npm install && npm run dev`;
+`npm test` runs the talk-to-build tests; `npm run build` gives a static `dist/`.
+See `fitforge/README.md`.
 ## EKG trainer — running & testing
 
 The app is plain static files (no build step): open `ekg-test.html` from any static server,

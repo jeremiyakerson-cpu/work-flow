@@ -1,0 +1,35 @@
+name: FitForge tests
+
+on:
+  pull_request:
+    paths:
+      - "fitforge/**"
+      - ".github/workflows/fitforge-tests.yml"
+  push:
+    branches: [main]
+    paths:
+      - "fitforge/**"
+      - ".github/workflows/fitforge-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: fitforge
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: fitforge/package-lock.json
+      - run: npm ci
+      - name: Talk-to-build parser and builder
+        run: npm test
+      - name: Production build
+        run: npm run build
