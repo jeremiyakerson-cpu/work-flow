@@ -6031,71 +6031,119 @@ const TALK_EXAMPLES = [
    apps don't always expose it — the keyboard's own dictation key still works
    there, so the text box is the fallback rather than an error. */
 function useSpeechInput({ onFinal, onInterim }) {
-  const recRef = useRef(null);
+  /* Two engines. In a normal browser tab: the browser's own recognizer.
+     Inside a claude.ai artifact the frame has no microphone, so the viewer's
+     dictation capability does the listening instead. That one keeps listening
+     until stopped, so it's ended here after a short pause in speech — people
+     stop talking and wait, they don't think to tap again. */
+  const inArtifact = typeof window !== "undefined" && !!window.claude?.use;
+  const SR = !inArtifact && typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
+  const PAUSE_MS = 1600;       // quiet after speech -> done
+  const NOTHING_MS = 8000;     // nothing at all -> give up
+
   const [listening, setListening] = useState(false);
   const [error, setError] = useState(null);
-  const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
-  const finalRef = useRef("");
-
-  /* Inside a claude.ai artifact the browser's recognizer has no microphone,
-     but the viewer can grant the platform's dictation instead. It's resolved
-     ahead of time because start() must run straight from the tap. */
+  const [hasDictation, setHasDictation] = useState(false);
+  const [checked, setChecked] = useState(!inArtifact);
+  const [blocked, setBlocked] = useState(false);
+  const recRef = useRef(null);
   const dictRef = useRef(null);
+  const finalRef = useRef("");
+  const partialRef = useRef("");
+  const timerRef = useRef(null);
   const handlers = useRef({ onFinal, onInterim });
   handlers.current = { onFinal, onInterim };
-  const [hasDictation, setHasDictation] = useState(false);
+
+  const clearTimer = () => { clearTimeout(timerRef.current); timerRef.current = null; };
+  const heardSoFar = () => (finalRef.current + " " + partialRef.current).trim();
+
+  const stopDictation = () => { clearTimer(); dictRef.current?.stop().catch(() => {}); };
+  const armTimer = (ms) => { clearTimer(); timerRef.current = setTimeout(stopDictation, ms); };
+
   useEffect(() => {
+    if (!inArtifact) return undefined;
     let off = [];
-    claudeCapability("dictation").then((d) => {
+    let alive = true;
+    claudeCapability("dictation").then(async (d) => {
+      if (!alive) return;
+      setChecked(true);
       if (!d) return;
       dictRef.current = d;
       setHasDictation(true);
+      const perms = await claudeCapability("permissions");
+      const st = await perms?.state("dictation").catch(() => null);
+      if (alive && st === "denied") setBlocked(true);
       off = [
-        d.onPartial(({ text }) => handlers.current.onInterim?.((finalRef.current + " " + text).trim())),
-        d.onFinal(({ text }) => { finalRef.current = (finalRef.current + " " + text).trim(); handlers.current.onInterim?.(finalRef.current); }),
+        d.onPartial(({ text }) => {
+          partialRef.current = text;
+          handlers.current.onInterim?.(heardSoFar());
+          armTimer(PAUSE_MS);
+        }),
+        d.onFinal(({ text }) => {
+          finalRef.current = (finalRef.current + " " + text).trim();
+          partialRef.current = "";
+          handlers.current.onInterim?.(heardSoFar());
+          armTimer(PAUSE_MS);
+        }),
         d.onState(({ state, reason }) => {
           if (state === "listening" || state === "starting") { setListening(true); return; }
           if (state !== "idle") return;
+          clearTimer();
           setListening(false);
-          if (reason === "not_granted") setError("Microphone access was declined. Type instead.");
-          else if (reason === "unavailable" || reason === "upstream_error") setError("Voice input isn't available right now. Type instead.");
-          const text = finalRef.current.trim();
+          const text = heardSoFar();
           finalRef.current = "";
+          partialRef.current = "";
+          if (reason === "not_granted") { setBlocked(true); setError("The microphone is off for this page."); return; }
+          if (reason === "unavailable" || reason === "upstream_error") setError("Voice input isn't available right now. Typing works.");
+          if (reason === "rate_limited") setError("Voice input is busy. Try again in a moment, or type it.");
           if (text) handlers.current.onFinal?.(text);
+          else if (!reason || reason === "stopped" || reason === "viewer_stopped") setError("I didn't catch anything. Tap the mic, speak, then pause.");
         }),
       ];
     });
-    return () => off.forEach((f) => { try { f(); } catch (e) { /* ignore */ } });
+    return () => { alive = false; clearTimer(); off.forEach((f) => { try { f(); } catch (e) { /* ignore */ } }); };
+    // eslint-disable-next-line
   }, []);
-  const supported = hasDictation || !!SR;
+
+  const openPermissions = () => {
+    claudeCapability("permissions").then((p) => {
+      if (!p) return setError("Open this page's Permissions menu and allow the microphone.");
+      return p.manage().then(async () => {
+        const st = await p.state("dictation").catch(() => null);
+        if (st !== "denied") { setBlocked(false); setError(null); }
+      }).catch(() => setError("Open this page's Permissions menu and allow the microphone."));
+    });
+  };
 
   const stop = () => {
-    if (dictRef.current) { dictRef.current.stop().catch(() => {}); return; }
+    if (dictRef.current) { stopDictation(); return; }
     try { recRef.current?.stop(); } catch (e) { /* already stopped */ }
   };
 
   const start = () => {
+    setError(null);
+    Sound.stopSpeech();
+    finalRef.current = "";
+    partialRef.current = "";
     if (dictRef.current) {
-      setError(null);
-      Sound.stopSpeech();
-      finalRef.current = "";
-      dictRef.current.start().catch((e) => {
-        setListening(false);
-        if (e?.code === "not_granted") setError("Microphone access was declined. Type instead.");
-        else if (e?.code !== "dismissed") setError("Voice input couldn't start. Type it instead.");
-      });
+      if (blocked) { openPermissions(); return; }
+      // Called straight from the tap: the platform only listens on a gesture.
+      dictRef.current.start({ language: navigator.language || "en-US" })
+        .then(() => armTimer(NOTHING_MS))
+        .catch((e) => {
+          setListening(false);
+          if (e?.code === "not_granted") { setBlocked(true); setError("The microphone is off for this page."); }
+          else if (e?.code !== "dismissed") setError("Voice input couldn't start. Type it instead.");
+        });
       return;
     }
     if (!SR) return;
-    setError(null);
-    Sound.stopSpeech();
     try {
       const rec = new SR();
       rec.lang = navigator.language || "en-US";
       rec.interimResults = true;
       rec.continuous = false;
       rec.maxAlternatives = 1;
-      finalRef.current = "";
       rec.onresult = (e) => {
         let interim = "";
         for (let i = e.resultIndex; i < e.results.length; i++) {
@@ -6103,13 +6151,13 @@ function useSpeechInput({ onFinal, onInterim }) {
           if (r.isFinal) finalRef.current += r[0].transcript;
           else interim += r[0].transcript;
         }
-        onInterim?.((finalRef.current + " " + interim).trim());
+        handlers.current.onInterim?.((finalRef.current + " " + interim).trim());
       };
       rec.onerror = (e) => {
         const msg = {
           "not-allowed": "Microphone access is blocked. Allow it in your browser settings, or type instead.",
           "service-not-allowed": "Voice input isn't available here. Your keyboard's dictation key works too.",
-          "no-speech": "I didn't hear anything — tap the mic and try again.",
+          "no-speech": "I didn't hear anything. Tap the mic and try again.",
           "audio-capture": "No microphone found.",
           network: "Voice input needs a connection on this browser. Typing works offline.",
         }[e.error];
@@ -6119,7 +6167,8 @@ function useSpeechInput({ onFinal, onInterim }) {
         setListening(false);
         recRef.current = null;
         const text = finalRef.current.trim();
-        if (text) onFinal?.(text);
+        finalRef.current = "";
+        if (text) handlers.current.onFinal?.(text);
       };
       recRef.current = rec;
       rec.start();
@@ -6131,7 +6180,13 @@ function useSpeechInput({ onFinal, onInterim }) {
   };
 
   useEffect(() => () => { try { recRef.current?.abort(); } catch (e) { /* ignore */ } }, []);
-  return { supported, listening, error, start, stop, clearError: () => setError(null) };
+  return {
+    supported: hasDictation || !!SR,
+    // In an artifact view that can't dictate (Safari, the phone apps).
+    unavailableHere: inArtifact && checked && !hasDictation,
+    blocked, openPermissions, listening, error, start, stop,
+    clearError: () => setError(null),
+  };
 }
 
 /* Reads a reply aloud: the platform's voice inside a claude.ai artifact (where
@@ -6496,10 +6551,23 @@ function TalkScreen({ store, onLoadWod, onOpenYoga, onOpenBreath, openEquipment 
 
       {/* Composer. Sits above the nav bar and its raised hub. */}
       <div className="fixed left-0 right-0 z-20 px-3" style={{ bottom: 104 }}>
-        {speech.error && (
+        {speech.blocked ? (
+          <div className="w-full flex items-center gap-2 text-[12px] px-3 py-2 mb-1.5 rounded-xl" style={{ background: T.amberDim, color: T.amberInk }}>
+            <span className="flex-1">The microphone is off for this page.</span>
+            <button onClick={speech.openPermissions} className="px-3 py-1 rounded-full" style={{ background: T.amber, color: T.onAccent, fontWeight: 700 }}>
+              Allow microphone
+            </button>
+          </div>
+        ) : speech.error ? (
           <button onClick={speech.clearError} className="w-full text-left text-[12px] px-3 py-2 mb-1.5 rounded-xl"
             style={{ background: T.amberDim, color: T.amberInk }}>{speech.error}</button>
-        )}
+        ) : speech.listening ? (
+          <p className="text-center text-[12px] mb-1.5" style={{ color: T.emberInk, fontWeight: 600 }}>Listening — pause when you're done</p>
+        ) : speech.unavailableHere && turns.length === 0 ? (
+          <p className="text-[11.5px] px-2 mb-1.5" style={{ color: T.muted, lineHeight: 1.4 }}>
+            Voice works here in Chrome and the Claude desktop app. On this device, use your keyboard's mic key.
+          </p>
+        ) : null}
         <form onSubmit={(e) => { e.preventDefault(); send(); }}
           className="flex items-end gap-2 p-1.5 rounded-[26px]"
           style={{ background: T.surface, border: `1px solid ${speech.listening ? T.ember : T.line}`, boxShadow: "0 6px 24px rgba(22,24,29,0.12)" }}>
@@ -6509,7 +6577,7 @@ function TalkScreen({ store, onLoadWod, onOpenYoga, onOpenBreath, openEquipment 
             placeholder={speech.listening ? "Listening…" : turns.length ? "Harder, 30 min, no burpees…" : "e.g. 25 min upper body, no jumping"}
             className="flex-1 resize-none bg-transparent px-3 py-2.5 text-[15px] outline-none"
             style={{ color: T.chalk, maxHeight: 120 }} />
-          {speech.supported && (
+          {(speech.supported || speech.blocked) && (
             <button type="button" aria-label={speech.listening ? "Stop listening" : "Speak your request"}
               onClick={speech.listening ? speech.stop : speech.start}
               className="w-11 h-11 rounded-full flex items-center justify-center shrink-0"
