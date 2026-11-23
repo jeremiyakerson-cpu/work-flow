@@ -29,6 +29,18 @@ my tight hips") open the matching yoga flow or breathing pattern instead.
   builder with advice to get checked instead of a workout. Sore or injured body
   parts remove the movements that load them.
 
+## Test it as a claude.ai artifact
+
+```bash
+npm run build:artifact   # -> dist/fitforge-artifact.html, one self-contained page
+```
+
+Publish that file as an artifact with the `dictation`, `tts`, `sample` and
+`downloads` capabilities. Inside an artifact the app swaps in the platform's
+versions of things the frame blocks: dictation for the mic, its voice for
+spoken replies, Claude for the AI coach, and the save dialog for exports.
+Outside an artifact none of that code runs.
+
 ## Tests
 
 ```bash

@@ -3448,6 +3448,14 @@ function parseResultTime(result) {
    a way out. CSV for spreadsheets, JSON for a full restore.
 ==================================================================== */
 function downloadFile(filename, text, mime) {
+  // Inside a claude.ai artifact a plain download link is inert; the viewer's
+  // own save dialog (the downloads capability) does the job instead.
+  if (typeof window !== "undefined" && window.claude?.use) {
+    claudeCapability("downloads").then((d) => {
+      if (d) d.save({ filename, data: new Blob([text], { type: mime }) }).catch(() => {});
+    });
+    return true;
+  }
   try {
     const blob = new Blob([text], { type: mime });
     const url = URL.createObjectURL(blob);
@@ -3729,6 +3737,15 @@ function matchExercise(name) {
    can be rendered as UI (and a generated workout can be loaded into the timer)
    rather than dumped as a wall of text.
 ==================================================================== */
+/* Capabilities a claude.ai artifact viewer can grant (dictation, speech,
+   Claude itself). Resolves null everywhere else, so callers fall back. */
+const capCache = {};
+function claudeCapability(name) {
+  if (typeof window === "undefined" || !window.claude?.use) return Promise.resolve(null);
+  if (!capCache[name]) capCache[name] = window.claude.use(name).catch(() => null);
+  return capCache[name];
+}
+
 async function askCoach(mode, context, extra = "", history = []) {
   const shared = `You are an experienced strength and conditioning coach reviewing one athlete's training log.
 The data below was computed directly from their logs and is accurate — do not recalculate it, just interpret it.
@@ -3821,13 +3838,22 @@ Respond ONLY with JSON, no markdown fences:
     ? [{ role: "user", content: prompts.chat }, ...history, { role: "user", content: extra }]
     : [{ role: "user", content: prompts[mode] }];
 
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, messages }),
-  });
-  const data = await res.json();
-  const text = data.content.filter((c) => c.type === "text").map((c) => c.text).join("");
+  // Published as a claude.ai artifact, the page reaches Claude through the
+  // viewer's own session instead of a direct API call (which needs a key).
+  let text = null;
+  const sample = await claudeCapability("sample");
+  if (sample) {
+    const out = await sample(messages, { cache: false });
+    text = out.text || "";
+  } else {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ model: "claude-sonnet-4-6", max_tokens: 1000, messages }),
+    });
+    const data = await res.json();
+    text = data.content.filter((c) => c.type === "text").map((c) => c.text).join("");
+  }
 
   if (mode === "chat") return text.trim();
   const clean = text.replace(/```json|```/g, "").trim();
@@ -6009,12 +6035,57 @@ function useSpeechInput({ onFinal, onInterim }) {
   const [listening, setListening] = useState(false);
   const [error, setError] = useState(null);
   const SR = typeof window !== "undefined" ? (window.SpeechRecognition || window.webkitSpeechRecognition) : null;
-  const supported = !!SR;
   const finalRef = useRef("");
 
-  const stop = () => { try { recRef.current?.stop(); } catch (e) { /* already stopped */ } };
+  /* Inside a claude.ai artifact the browser's recognizer has no microphone,
+     but the viewer can grant the platform's dictation instead. It's resolved
+     ahead of time because start() must run straight from the tap. */
+  const dictRef = useRef(null);
+  const handlers = useRef({ onFinal, onInterim });
+  handlers.current = { onFinal, onInterim };
+  const [hasDictation, setHasDictation] = useState(false);
+  useEffect(() => {
+    let off = [];
+    claudeCapability("dictation").then((d) => {
+      if (!d) return;
+      dictRef.current = d;
+      setHasDictation(true);
+      off = [
+        d.onPartial(({ text }) => handlers.current.onInterim?.((finalRef.current + " " + text).trim())),
+        d.onFinal(({ text }) => { finalRef.current = (finalRef.current + " " + text).trim(); handlers.current.onInterim?.(finalRef.current); }),
+        d.onState(({ state, reason }) => {
+          if (state === "listening" || state === "starting") { setListening(true); return; }
+          if (state !== "idle") return;
+          setListening(false);
+          if (reason === "not_granted") setError("Microphone access was declined. Type instead.");
+          else if (reason === "unavailable" || reason === "upstream_error") setError("Voice input isn't available right now. Type instead.");
+          const text = finalRef.current.trim();
+          finalRef.current = "";
+          if (text) handlers.current.onFinal?.(text);
+        }),
+      ];
+    });
+    return () => off.forEach((f) => { try { f(); } catch (e) { /* ignore */ } });
+  }, []);
+  const supported = hasDictation || !!SR;
+
+  const stop = () => {
+    if (dictRef.current) { dictRef.current.stop().catch(() => {}); return; }
+    try { recRef.current?.stop(); } catch (e) { /* already stopped */ }
+  };
 
   const start = () => {
+    if (dictRef.current) {
+      setError(null);
+      Sound.stopSpeech();
+      finalRef.current = "";
+      dictRef.current.start().catch((e) => {
+        setListening(false);
+        if (e?.code === "not_granted") setError("Microphone access was declined. Type instead.");
+        else if (e?.code !== "dismissed") setError("Voice input couldn't start. Type it instead.");
+      });
+      return;
+    }
     if (!SR) return;
     setError(null);
     Sound.stopSpeech();
@@ -6061,6 +6132,15 @@ function useSpeechInput({ onFinal, onInterim }) {
 
   useEffect(() => () => { try { recRef.current?.abort(); } catch (e) { /* ignore */ } }, []);
   return { supported, listening, error, start, stop, clearError: () => setError(null) };
+}
+
+/* Reads a reply aloud: the platform's voice inside a claude.ai artifact (where
+   it's allowed), otherwise the browser's built-in speech. */
+function speakReply(text) {
+  claudeCapability("tts").then((t) => {
+    if (t) t.speak(text).catch(() => Sound.say(text, true));
+    else Sound.say(text, true);
+  });
 }
 
 function talkSignature(w) {
@@ -6303,7 +6383,7 @@ function TalkScreen({ store, onLoadWod, onOpenYoga, onOpenBreath, openEquipment 
     }
 
     setTurns((t) => [...t, { role: "user", text: clean, via }, { role: "app", result }]);
-    if (via === "voice" && result.say) Sound.say(result.say, true);
+    if (via === "voice" && result.say) speakReply(result.say);
 
     // Remember whole requests (not one-word tweaks) for one-tap reuse.
     if (clean.split(/\s+/).length >= 3 && parsed.understood) {
